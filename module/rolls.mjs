@@ -1,4 +1,5 @@
 import {skillDie, resolveCheck} from './rules-engine.mjs';
+import {renderCheckCard} from './chat-ui.mjs';
 
 function dieResult(roll){return roll.dice?.[0]?.results?.[0]?.result ?? roll.total;}
 function normalizedId(name=''){return String(name).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');}
@@ -46,10 +47,13 @@ export async function rollSkill(actor, skill, options={}){
   const out=resolveCheck(input);
   const result={actorUuid:actor.uuid,skillUuid:skill.uuid,sides,attribute:attr,original,bonusDice:bonusDice.map(({sides,result})=>({sides,result})),luck:luck&&{sides:luck.sides,result:luck.result},luckMode:mode,best:out.bestResult,ace:out.ace,stroke:out.stroke,catastrophe:out.catastrophe,spCost:out.spCost,success:out.success,successDegrees:out.successDegrees,failureDegrees:out.failureDegrees,tr:out.targetResult,notes:sit.notes};
   if(options.chat!==false){
-    const tags=[result.ace?'ACE':'',result.stroke?'STROKE OF LUCK':'',result.catastrophe?'CATASTROPHE':'',...sit.notes].filter(Boolean).join(' · ');
-    const flavor=`<section class="ac-chat-card"><header><strong>${foundry.utils.escapeHTML(actor.name)} — ${foundry.utils.escapeHTML(skill.name)}</strong></header><p>TR <b>${result.tr}</b> · Best <b>${result.best}</b> · ${result.success?`Success +${result.successDegrees}`:`Failure -${result.failureDegrees}`}${tags?` · ${foundry.utils.escapeHTML(tags)}`:''}</p></section>`;
-    const rollMode=options.rollMode||'publicroll';const whisper=rollMode==='selfroll'?[game.user.id]:(['gmroll','blindroll'].includes(rollMode)?ChatMessage.getWhisperRecipients('GM').map(u=>u.id):[]);
-    await ChatMessage.implementation.create({speaker:ChatMessage.getSpeaker({actor}),content:flavor,rolls:[skillRoll,...bonusDice.map(x=>x.roll),...(luck?[luck.roll]:[])],whisper,blind:rollMode==='blindroll',flags:{'altered-carbon-rpg':{check:result}}});
+    const tags=[...sit.notes];
+    const flavor=renderCheckCard({actorName:actor.name,skillName:skill.name,result,contextLabel:options.contextLabel||'',tags});
+    const rollMode=options.rollMode||'publicroll';
+    const whisper=Array.isArray(options.whisper)?options.whisper:(rollMode==='selfroll'?[game.user.id]:(['gmroll','blindroll'].includes(rollMode)?ChatMessage.getWhisperRecipients('GM').map(u=>u.id):[]));
+    const extraFlags=options.chatFlags&&typeof options.chatFlags==='object'?options.chatFlags:{};
+    const message=await ChatMessage.implementation.create({speaker:ChatMessage.getSpeaker({actor}),content:flavor,rolls:[skillRoll,...bonusDice.map(x=>x.roll),...(luck?[luck.roll]:[])],whisper,blind:rollMode==='blindroll',flags:{'altered-carbon-rpg':{check:result,...extraFlags}}});
+    result.chatMessageId=message?.id||null;
   }
   return result;
 }

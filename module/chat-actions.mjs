@@ -1,5 +1,6 @@
 import {firingModeProfile} from './rules-engine.mjs';
 import {rollSkill} from './rolls.mjs';
+import {checkGrade} from './chat-ui.mjs';
 
 const FLAG='altered-carbon-rpg';
 const esc=value=>foundry.utils.escapeHTML(String(value??''));
@@ -75,7 +76,8 @@ export async function useEquipment(actor,item,skill,rollOptions={}){
   const options={...rollOptions,gearBonus:Number(rollOptions.gearBonus??item.system.gearBonus??0),bonusDice:rollOptions.bonusDice?.length?rollOptions.bonusDice:parseBonusDice(item.system.bonusDice),chat:true};
   const result=await rollSkill(actor,skill,options);if(result?.blocked)return result;
   let depletion=null;try{depletion=await item.useDepletion({skillSides:result.sides});}catch(error){ui.notifications.warn(`Equipment used, but Depletion needs manual resolution: ${error.message}`);}
-  const content=`<section class="ac-chat-card ac-equipment-use"><header><strong>${esc(actor.name)} — ${esc(item.name)}</strong></header><p>${result.success?`Success +${result.successDegrees}`:`Failure -${result.failureDegrees}`} · ${esc(depletionSummary(depletion))}</p></section>`;
+  const grade=checkGrade(result);
+  const content=`<section class="ac-chat-card ac-equipment-use ${grade.className}"><header class="ac-chat-card-header"><div><span class="ac-chat-kicker">EQUIPMENT USE</span><strong>${esc(actor.name)} — ${esc(item.name)}</strong></div><span class="ac-grade-chip">${esc(grade.label)}</span></header><p class="ac-chat-subtitle">${esc(depletionSummary(depletion))}</p></section>`;
   const message=await ChatMessage.implementation.create({speaker:ChatMessage.getSpeaker({actor}),content,flags:{[FLAG]:{equipmentUse:{actorUuid:actor.uuid,itemUuid:item.uuid,checkResult:result,depletion:depletion?{depletion:depletion.depletion,capacity:depletion.capacity,added:depletion.added,rollResult:depletion.rollResult??null,tr:depletion.tr??null,passed:depletion.passed??null,exhausted:depletion.exhausted}:null}}}});
   return {result,depletion,message};
 }
@@ -92,7 +94,8 @@ export async function useWeapon(actor,weapon,rollOptions={}){
   let depletion=null;try{depletion=await weapon.useDepletion({skillSides:result.sides,formula:standardBurst?mode.depletion:null});}catch(error){ui.notifications.warn(`Weapon used, but Depletion needs manual resolution: ${error.message}`);}
   const target=firstTargetActor();const depText=depletionSummary(depletion);const canDamage=availableSuccessDegrees>0;
   const modeText=mode.extraDegrees?` · Firing mode +${mode.extraDegrees}${mode.damageBonus?`, Damage +${mode.damageBonus}`:''}`:'';
-  const content=`<section class="ac-chat-card ac-weapon-use"><header><strong>${esc(actor.name)} — ${esc(weapon.name)}</strong></header><p>${result.success?`Success +${result.successDegrees}`:`Failure -${result.failureDegrees}`}${modeText} · ${esc(depText)}</p><p>Available + for Triggered Effects: <strong>${availableSuccessDegrees}</strong></p><p>Damage: <strong>${esc(weapon.system.damage||'Special')}</strong>${weapon.system.damageType?` [${esc(weapon.system.damageType)}]`:''}${weapon.system.armorPiercing?' · Armor Piercing':''}${Number(weapon.system.deadly||0)>0?` · Deadly ${Number(weapon.system.deadly)}`:''}</p>${canDamage?'<button type="button" data-ac-action="roll-damage">Roll Damage</button>':''}</section>`;
+  const grade=checkGrade(result);
+  const content=`<section class="ac-chat-card ac-weapon-use ${grade.className}"><header class="ac-chat-card-header"><div><span class="ac-chat-kicker">WEAPON RESOLUTION</span><strong>${esc(actor.name)} — ${esc(weapon.name)}</strong></div><span class="ac-grade-chip">${esc(grade.label)}</span></header><p class="ac-chat-subtitle">${modeText?`${esc(modeText.replace(/^ · /,''))} · `:''}${esc(depText)}</p><div class="ac-request-meta"><span>Triggered +: ${availableSuccessDegrees}</span><span>Damage: ${esc(weapon.system.damage||'Special')}</span>${weapon.system.damageType?`<span>${esc(weapon.system.damageType)}</span>`:''}${weapon.system.armorPiercing?'<span>Armor Piercing</span>':''}${Number(weapon.system.deadly||0)>0?`<span>Deadly ${Number(weapon.system.deadly)}</span>`:''}</div>${canDamage?'<div class="ac-chat-actions"><button type="button" data-ac-action="roll-damage">Roll Damage</button></div>':''}</section>`;
   const message=await ChatMessage.implementation.create({speaker:ChatMessage.getSpeaker({actor}),content,flags:{[FLAG]:{weaponUse:{actorUuid:actor.uuid,itemUuid:weapon.uuid,targetActorUuid:target?.uuid||null,checkResult:result,availableSuccessDegrees,damageBonus:Number(mode.damageBonus||0),firingMode:modeId,depletion:depletion?{depletion:depletion.depletion,capacity:depletion.capacity,added:depletion.added,rollResult:depletion.rollResult??null,tr:depletion.tr??null,passed:depletion.passed??null,exhausted:depletion.exhausted}:null}}}});
   return {result,depletion,message};
 }
@@ -105,7 +108,7 @@ async function rollWeaponDamage(message,data){
   const amount=Math.max(0,Number(roll.total||0)),ego=/\bEP\b/i.test(String(weapon.system.damage||''))||String(weapon.system.damageType||'').toLowerCase()==='ego';
   const targetUuid=data.targetActorUuid||firstTargetActor()?.uuid||null;
   const stateButtons=ego?'':` <button type="button" data-ac-action="apply-direct-hp">Apply Direct HP</button> <button type="button" data-ac-action="sleeve-dead">Sleeve Dead</button> <button type="button" data-ac-action="stack-damaged">Damage Stack</button> <button type="button" data-ac-action="real-death">Real Death</button> <button type="button" data-ac-action="begin-resleeving">Begin Resleeving</button>`;
-  const content=`<section class="ac-chat-card ac-damage-card"><header><strong>${esc(weapon.name)} — Damage</strong></header><p><strong>${amount}</strong> ${ego?'Ego Points':'Wounds'} · ${esc(formula)}${repeats>1?` · ${repeats} resolutions`:''}</p>${Number(weapon.system.deadly||0)>0&&!ego?`<p class="hint">Deadly ${Number(weapon.system.deadly)}: commute the appropriate rolled damage dice to direct HP using the Direct HP control.</p>`:''}<div class="ac-chat-actions">${ego?'<button type="button" data-ac-action="apply-ego">Apply Ego</button>':'<button type="button" data-ac-action="apply-wounds">Apply Wounds / Protection</button>'}${stateButtons}</div></section>`;
+  const content=`<section class="ac-chat-card ac-damage-card"><header class="ac-chat-card-header"><div><span class="ac-chat-kicker">DAMAGE OUTPUT</span><strong>${esc(weapon.name)}</strong></div><span class="ac-grade-chip">${amount} ${ego?'EP':'WND'}</span></header><p class="ac-chat-subtitle"><strong>${amount}</strong> ${ego?'Ego Points':'Wounds'} · ${esc(formula)}${repeats>1?` · ${repeats} resolutions`:''}</p>${Number(weapon.system.deadly||0)>0&&!ego?`<p class="ac-request-context">Deadly ${Number(weapon.system.deadly)}: commute the appropriate rolled damage dice to direct HP using the Direct HP control.</p>`:''}<div class="ac-chat-actions">${ego?'<button type="button" data-ac-action="apply-ego">Apply Ego</button>':'<button type="button" data-ac-action="apply-wounds">Apply Wounds / Protection</button>'}${stateButtons}</div></section>`;
   await ChatMessage.implementation.create({speaker:ChatMessage.getSpeaker({actor}),content,rolls:[roll],flags:{[FLAG]:{damage:{sourceActorUuid:actor.uuid,itemUuid:weapon.uuid,targetActorUuid:targetUuid,amount,formula,ego,deadly:Number(weapon.system.deadly||0),armorPiercing:Boolean(weapon.system.armorPiercing),damageType:weapon.system.damageType||''}}}});
 }
 
@@ -130,4 +133,4 @@ function attachListeners(message,html){
   for(const button of root.querySelectorAll('[data-ac-action]'))button.addEventListener('click',event=>handleChatAction(message,event));
 }
 
-export function installChatActionHooks(){Hooks.on('renderChatMessageHTML',attachListeners);Hooks.on('renderChatMessage',attachListeners);}
+export function installChatActionHooks(){Hooks.on('renderChatMessageHTML',attachListeners);}

@@ -1,0 +1,81 @@
+<section class="ac-shell ac-gm-console">
+  <header class="ac-gm-hero">
+    <div>
+      <span class="ac-kicker">GM OPERATIONS / LIVE TABLE</span>
+      <h1>Control Surface</h1>
+      <p>Send structured Skill Checks to one or more player characters. Their responses return to chat with degree-coded diagnostics.</p>
+    </div>
+    <div class="ac-gm-hero-actions">
+      <button type="button" data-action="openGuide"><i class="fa-solid fa-book-open"></i> Open GM Guide</button>
+      <button type="button" data-action="refreshGuide"><i class="fa-solid fa-arrows-rotate"></i> Refresh Guide</button>
+    </div>
+  </header>
+
+  <div class="ac-gm-layout">
+    <aside class="ac-gm-recipient-rail ac-panel">
+      <header>
+        <div><span class="ac-kicker">RECIPIENT MATRIX</span><h2>Characters</h2></div>
+        <div class="ac-mini-actions">
+          <button type="button" data-action="selectAll">All</button>
+          <button type="button" data-action="clearSelection">Clear</button>
+        </div>
+      </header>
+      <p class="hint">Select every character who should receive the same roll request.</p>
+      <div class="ac-gm-recipient-list">
+        {{#each characters}}
+        <label class="ac-gm-recipient">
+          <input type="checkbox" name="gmRecipients" value="{{id}}">
+          <span class="ac-recipient-node"><i class="fa-solid fa-user-ninja"></i></span>
+          <span class="ac-recipient-copy"><strong>{{publicName}}</strong><small>{{name}} · {{owners}}</small></span>
+        </label>
+        {{else}}
+        <div class="ac-empty-state"><i class="fa-solid fa-triangle-exclamation"></i><p>No character Actors exist yet.</p></div>
+        {{/each}}
+      </div>
+      <div class="ac-guide-shortcut">
+        <span>GM JOURNAL</span>
+        <strong>Altered Carbon — GM Guide</strong>
+        <small>Created automatically for GMs. Use Refresh Guide after a system update.</small>
+      </div>
+    </aside>
+
+    <main class="ac-gm-main">
+      <section class="ac-panel ac-gm-custom">
+        <header><span class="ac-kicker">CUSTOM TRANSMISSION</span><h2>Request Any Check</h2></header>
+        <div class="ac-gm-custom-grid">
+          <label><span>Request title</span><input type="text" name="customTitle" placeholder="e.g. Hold onto the memory"></label>
+          <label><span>Skill</span><select name="customSkill"><option value="">Choose Skill</option>{{#each skills}}<option value="{{name}}">{{name}} · {{attribute}}</option>{{/each}}</select></label>
+          <label><span>Difficulty penalty</span><input type="number" name="customDifficulty" value="0" min="0" max="10"></label>
+          <label><span>TR bonus</span><input type="number" name="customBonus" value="0" min="-10" max="10"></label>
+          <label class="wide"><span>Player-facing prompt</span><textarea name="customPrompt" rows="2" placeholder="What are they attempting or resisting?"></textarea></label>
+          <label class="wide"><span>Context note</span><textarea name="customNote" rows="2" placeholder="Optional reminder shown on the request card."></textarea></label>
+        </div>
+        <div class="ac-gm-toggle-row">
+          <label><input type="checkbox" name="customSightReliant"> Sight-reliant</label>
+          <label><input type="checkbox" name="customSightOnly"> Sight-only</label>
+          <button type="button" class="ac-primary-action" data-action="sendCustom"><i class="fa-solid fa-paper-plane"></i> Send Custom Request</button>
+        </div>
+      </section>
+
+      <section class="ac-gm-presets">
+        <header class="ac-section-heading"><div><span class="ac-kicker">COLD STORAGE / CYBER-NOIR</span><h2>Preset Requests</h2></div><p>Fast calls for the situations most likely to recur in an investigative Altered Carbon game.</p></header>
+        {{#each groups}}
+        <section class="ac-preset-group">
+          <h3>{{name}}</h3>
+          <div class="ac-preset-grid">
+            {{#each presets}}
+            <article class="ac-preset-card">
+              <div class="ac-preset-topline"><span>{{skill}}</span><b>D{{difficulty}}</b></div>
+              <h4>{{label}}</h4>
+              <p>{{prompt}}</p>
+              <small>{{gmNote}}</small>
+              <button type="button" data-action="sendPreset" data-preset-id="{{id}}"><i class="fa-solid fa-bolt"></i> Send Request</button>
+            </article>
+            {{/each}}
+          </div>
+        </section>
+        {{/each}}
+      </section>
+    </main>
+  </div>
+</section>

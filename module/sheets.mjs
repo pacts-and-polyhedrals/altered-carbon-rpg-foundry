@@ -2,7 +2,7 @@ import {rollSkill} from './rolls.mjs';
 import {createOpposedChallenge} from './opposed.mjs';
 import {ACRulesBrowser} from './rules-browser.mjs';
 import {useWeapon,useEquipment} from './chat-actions.mjs';
-import {dedupeUniqueSheetRecords} from './sheet-record-utils.mjs';
+import {dedupeSheetRecords} from './sheet-record-utils.mjs';
 const {api,sheets}=foundry.applications;const {HandlebarsApplicationMixin}=api;
 
 const ITEM_FIELDS={
@@ -42,11 +42,11 @@ export class ACActorSheet extends HandlebarsApplicationMixin(sheets.ActorSheetV2
  _editMode=false;
  async _prepareContext(options){
    const context=await super._prepareContext(options),actor=this.actor,tab=this._tab||'identity';
-   // Presentation-level normalization: singular rule records (notably Traits and
-   // core Skills) are deduplicated by semantic identity. Collections where a
-   // repeated name can be intentional — gear, sleeves, Baggage, relationships,
-   // memories and injuries — are preserved exactly as authored.
-   const all=dedupeUniqueSheetRecords(actor.items.contents);
+   // Presentation-level normalization: logically singular records are
+   // deduplicated by semantic identity, while literal cloned Items of every
+   // type are collapsed before rendering. This removes doubled imports from
+   // Baggage, equipment and the other sheet pages without deleting world data.
+   const all=dedupeSheetRecords(actor.items.contents);
    const skills=all.filter(i=>i.type==='skill').sort((a,b)=>String(a.system.attribute||'').localeCompare(String(b.system.attribute||''))||a.name.localeCompare(b.name));
    const attrMeta=[['strength','Strength','STR'],['perception','Perception','PER'],['empathy','Empathy','EMP'],['willpower','Willpower','WIL'],['acuity','Acuity','ACU'],['intelligence','Intelligence','INT']];
    const skillGroups=attrMeta.map(([key,label,code])=>({key,label,code,bonus:actor.ac?.bonuses?.[key]??0,items:skills.filter(i=>i.system.attribute===key)}));

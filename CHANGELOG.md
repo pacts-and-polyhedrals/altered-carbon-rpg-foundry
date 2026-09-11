@@ -1,5 +1,29 @@
 # Changelog
 
+## 1.2.1 — Duplicate Guard, Auto-Updating GM Guide & Token Control Access
+
+- Fixed Baggage and equipment clone records rendering twice on character sheets.
+- Character-sheet presentation now suppresses literal cloned embedded Items across every page, with stronger Baggage and inventory identities that ignore mutable use-state while preserving genuinely different same-name items.
+- Kept stronger semantic duplicate protection for Skills, Traits, Specialisations, Conditions, Scandals and Networks.
+- The generated **Altered Carbon — GM Guide** now refreshes automatically when its guide version or generated page count is stale, including journals created before guide-version flags existed.
+- Added a new **GM Control & Chat Requests** guide page and updated the quick-start text to explain the Token Controls workflow.
+- Added a GM-only **Altered Carbon — GM Control** satellite-dish button to Foundry v14 Token Controls.
+- Bumped the system to v1.2.1.
+
+## 1.2.0 — GM Operations, Rules Journal & Graded Chat
+
+- Added the generated **Altered Carbon — GM Guide** Journal. It contains 20 GM-facing pages covering the core play loop, character anatomy, Skills/Target Results, Luck, situational checks, combat, movement/defense, damage/healing, conditions/injuries/scandals, gear/depletion, economy, Requests, sleeves/resleeving, Ego/backups/psychosurgery, Virtual/viruses/AI, variants, vehicles/adversaries, advancement and the Cold Storage preset library.
+- The guide is created automatically for a GM when missing and can be opened/refreshed from GM Control. Refreshing replaces only the generated guide pages after explicit confirmation.
+- Added **Altered Carbon — GM Control**, a GM-only ApplicationV2 panel for selecting one or more player characters and issuing preset or custom Skill Check requests.
+- Added a Cold Storage/cyber-noir preset library for investigation, social, infiltration, technical, physical, movement, knowledge and Virtual checks.
+- Added multi-recipient roll-request chat cards. Eligible owners answer by clicking their character's **Roll** button; the system uses that Actor's real Skill Item, rules modifiers and current conditions.
+- Returned responses are recorded back into the original request card so a group request becomes a compact live status board.
+- Restyled the complete chat stream with the same black-glass/cyan technology language as the character sheets.
+- Added semantic result treatments for Success +1 through +5, Failure -1 through -5, Ace, Stroke of Luck and Catastrophe. Outcome labels remain visible in text so color is not the only signal.
+- Restyled weapon-use, equipment-use, damage and opposed-check cards to match the new chat language.
+- Standardised all chat integration on Foundry v14's `renderChatMessageHTML` hook to avoid duplicate listeners from legacy render hooks.
+- Added GM-control, preset, guide, graded-chat and v14-hook regression tests.
+
 ## 1.1.2 — Uniform Record UX & Duplicate Guard
 
 - Standardised every embedded record collection on the Actor sheet to the same read-first disclosure interaction: click the record name/row or **Open** to reveal information inline.

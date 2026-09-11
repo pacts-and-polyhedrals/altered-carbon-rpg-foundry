@@ -1,12 +1,14 @@
 import {rollSkill} from './rolls.mjs';
 import {compareOpposed} from './rules-engine.mjs';
+import {checkGrade} from './chat-ui.mjs';
 const FLAG='altered-carbon-rpg';
 const esc=s=>foundry.utils.escapeHTML(String(s??''));
 
 export async function createOpposedChallenge(attacker,skill,{targetActor=null,...options}={}){
   const result=await rollSkill(attacker,skill,{...options,chat:false});if(result?.blocked)return result;
   const target=targetActor?.uuid||null;
-  const content=`<section class="ac-chat-card ac-opposed"><header><strong>${esc(attacker.name)} — ${esc(skill.name)}</strong></header><p>Opposed challenge: ${result.success?`Success +${result.successDegrees}`:`Failure -${result.failureDegrees}`}</p><button type="button" data-ac-opposed-respond>Respond</button></section>`;
+  const grade=checkGrade(result);
+  const content=`<section class="ac-chat-card ac-opposed ${grade.className}"><header class="ac-chat-card-header"><div><span class="ac-chat-kicker">OPPOSED CHALLENGE</span><strong>${esc(attacker.name)} — ${esc(skill.name)}</strong></div><span class="ac-grade-chip">${esc(grade.label)}</span></header><p class="ac-chat-subtitle">Another character may answer this challenge with an appropriate owned Skill.</p><div class="ac-chat-actions"><button type="button" data-ac-opposed-respond>Respond</button></div></section>`;
   const message=await ChatMessage.implementation.create({speaker:ChatMessage.getSpeaker({actor:attacker}),content,flags:{[FLAG]:{opposed:{attackerResult:result,attackerActorUuid:attacker.uuid,targetActorUuid:target,status:'pending'}}}});
   return {message,result};
 }
@@ -32,11 +34,12 @@ export async function respondToOpposed(message){
   const result=await rollSkill(defender,choice.skill,{difficulty:choice.difficulty,chat:false});
   const attacker=await fromUuid(data.attackerActorUuid);const aAttr=data.attackerResult.attribute?attacker?.system?.attributes?.[data.attackerResult.attribute]||0:0;const dAttr=defender.system.attributes[result.attribute]||0;
   const cmp=compareOpposed(data.attackerResult,result,{attributeA:aAttr,attributeB:dAttr});const verdict=cmp>0?'Attacker wins':cmp<0?'Defender wins':'Tie';
-  const content=`<section class="ac-chat-card ac-opposed"><header><strong>Opposed Check — ${esc(verdict)}</strong></header><p>${esc(attacker?.name||'Attacker')}: ${data.attackerResult.success?`+${data.attackerResult.successDegrees}`:`-${data.attackerResult.failureDegrees}`} · ${esc(defender.name)}: ${result.success?`+${result.successDegrees}`:`-${result.failureDegrees}`}</p></section>`;
+  const winnerResult=cmp>=0?data.attackerResult:result;const grade=checkGrade(winnerResult);
+  const content=`<section class="ac-chat-card ac-opposed ${grade.className}"><header class="ac-chat-card-header"><div><span class="ac-chat-kicker">OPPOSED RESOLUTION</span><strong>${esc(verdict)}</strong></div><span class="ac-grade-chip">RESOLVED</span></header><div class="ac-request-targets"><article class="ac-request-target ${checkGrade(data.attackerResult).className}"><div><span class="ac-request-status">ATTACKER</span><strong>${esc(attacker?.name||'Attacker')}</strong></div><span class="ac-grade-chip">${esc(checkGrade(data.attackerResult).label)}</span></article><article class="ac-request-target ${checkGrade(result).className}"><div><span class="ac-request-status">DEFENDER</span><strong>${esc(defender.name)}</strong></div><span class="ac-grade-chip">${esc(checkGrade(result).label)}</span></article></div></section>`;
   await message.update({content,[`flags.${FLAG}.opposed`]:{...data,status:'resolved',defenderActorUuid:defender.uuid,defenderResult:result,winner:cmp}});return {winner:cmp,attacker:data.attackerResult,defender:result};
 }
 
 function attachListener(message,html){
   const root=html instanceof HTMLElement?html:html?.[0];const button=root?.querySelector?.('[data-ac-opposed-respond]');if(button)button.addEventListener('click',()=>respondToOpposed(message));
 }
-export function installOpposedHooks(){Hooks.on('renderChatMessageHTML',attachListener);Hooks.on('renderChatMessage',attachListener);}
+export function installOpposedHooks(){Hooks.on('renderChatMessageHTML',attachListener);}

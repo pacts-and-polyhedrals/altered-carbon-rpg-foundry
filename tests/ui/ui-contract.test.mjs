@@ -69,7 +69,7 @@ test('every embedded Actor-sheet collection uses the same read-first disclosure 
 
 test('sheet preparation deduplicates singular records before rendering',()=>{
   const js=read('module/sheets.mjs');
-  assert.match(js,/dedupeUniqueSheetRecords\(actor\.items\.contents\)/);
+  assert.match(js,/dedupeSheetRecords\(actor\.items\.contents\)/);
   assert.match(js,/traits:all\.filter\(i=>i\.type==='trait'\)/);
 });
 
