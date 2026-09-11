@@ -1,0 +1,90 @@
+[
+  {
+    "pcId": "PC01",
+    "package": "Investigator",
+    "archetype": "Official",
+    "notes": "Canonical Official Investigator package; current sleeve is scenario-specific.",
+    "baggage": [
+      "baggage-23",
+      "baggage-29",
+      "baggage-15"
+    ]
+  },
+  {
+    "pcId": "PC02",
+    "package": "Engineer",
+    "archetype": "Technician",
+    "notes": "Canonical Technician Engineer package.",
+    "baggage": [
+      "baggage-12",
+      "baggage-11",
+      "baggage-18"
+    ]
+  },
+  {
+    "pcId": "PC03",
+    "package": "Heir/Heiress",
+    "archetype": "Socialite",
+    "notes": "Canonical Socialite heir package, repurposed for a Meth defector.",
+    "baggage": [
+      "baggage-30",
+      "baggage-20",
+      "baggage-29"
+    ]
+  },
+  {
+    "pcId": "PC04",
+    "package": "Infiltrator",
+    "archetype": "Soldier",
+    "notes": "Canonical Soldier infiltrator package.",
+    "baggage": [
+      "baggage-24",
+      "baggage-08",
+      "baggage-29"
+    ]
+  },
+  {
+    "pcId": "PC05",
+    "package": "Fixer",
+    "archetype": "Criminal",
+    "notes": "Canonical Criminal fixer package.",
+    "baggage": [
+      "baggage-07",
+      "baggage-18",
+      "baggage-08"
+    ]
+  },
+  {
+    "pcId": "PC06",
+    "package": "Med Tech",
+    "archetype": "Technician",
+    "notes": "Canonical Technician med-tech package.",
+    "baggage": [
+      "baggage-12",
+      "baggage-10",
+      "baggage-29"
+    ]
+  },
+  {
+    "pcId": "PC07",
+    "package": "Dipper",
+    "archetype": "Technician",
+    "notes": "Canonical Technician dipper package.",
+    "baggage": [
+      "baggage-11",
+      "baggage-12",
+      "baggage-21"
+    ]
+  },
+  {
+    "pcId": "PC08",
+    "package": "Entertainer",
+    "archetype": "Civilian",
+    "notes": "Canonical Civilian entertainer package adapted to investigative broadcasting.",
+    "baggage": [
+      "baggage-23",
+      "baggage-29",
+      "baggage-19"
+    ]
+  }
+]

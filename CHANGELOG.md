@@ -1,4 +1,32 @@
+# v1.4.0 - Integrated book and advancement
+
+- Integrated all 74 authored Cold Storage journals and 22 generated references, with GM folders, safe update/recovery and explicit handout disclosure.
+- Added GM Control/settings book launch; optional module now delegates to the same book importer.
+- Replaced Skill-row Open labels with direct Roll controls; moved expanded roll controls above the descriptions.
+- Moved Character Creator to the Actors directory/popout; replaced sheet Creator with owned-Actor Level Up.
+- Added an eighth creator stage for starting-SP allocation and a full Skills/Attributes/Specialisations/Traits/History advancement window.
+- Added ownership, affordability, stale-quote, duplicate-submit, cap and prerequisite checks, rollback handling and dated purchase records.
+- Existing Actors/resources/inventory are not rebuilt by advancement or Book Only.
+- Fixed AI active-sleeve derived attributes and three bare book chapter links.
+- 115 Node tests and 17 mock-browser checks passed. Live Foundry/Forge QA remains pending; no remote release published.
+
 # Changelog
+
+## 1.3.0 — Core Equipment Library, Ammunition, Drugs & Augments
+
+- Added the **Altered Carbon — Core Equipment Library** with 95 structured source-backed Item records: 30 Weapons, 13 Ammunition profiles, 8 Apparel/Armour records, 12 Device/Deck records, 3 Software records, 7 Drug/Medicine records and 22 Sleeve Augmentations.
+- Added three Core Vehicle Actor templates: Airbike, Aircar and Ground Car.
+- Added a 12-entry generic weapon-upgrade index for the Core weapon chassis.
+- Added first-class `ammunition` and `drug` Item types and corresponding Foundry v14 data models/sheets.
+- Added stable Core catalog IDs and source-page metadata to prevent system-owned duplicate creation. Re-adding ammunition/drugs increments quantity.
+- Added **Core Gear** access from Actor sheets and the Rules Reference, plus GM world-install/create controls.
+- Added weapon **Load Ammo** workflow and special-ammunition damage resolution for Armor Piercing, Deadly, target-body modifiers and shotgun range profiles.
+- Added Drug **Administer** workflow with quantity consumption, futuristic chat cards and direct automation where the supplied Core rule is unambiguous.
+- Added derived-data support for explicit Attribute-changing augments, Speed Neurachem, Subdermal Plating and Bestial Dermis without rewriting stored base Attributes.
+- Extended sheet duplicate suppression to ammunition/drug records even when mutable quantity differs.
+- Updated **Altered Carbon — GM Guide** to build v1.3.0 with a new **Core Equipment Library** page; existing generated guides migrate automatically.
+- Kept the 2020 Core Rulebook as primary authority. The Quick Start-only Reinforced Dermis is not included in the canonical Core catalog.
+- Added v1.3 catalog/UI regression coverage and bumped the system to v1.3.0.
 
 ## 1.2.1 — Duplicate Guard, Auto-Updating GM Guide & Token Control Access
 

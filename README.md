@@ -1,86 +1,32 @@
-# Altered Carbon RPG — Unofficial for Foundry VTT v14
+# Altered Carbon RPG - Unofficial for Foundry VTT 14
 
-An unofficial Foundry VTT v14 game system implementation of the 2020 Altered Carbon RPG rules.
+## v1.4.0 - Journal book, direct Skill rolls and advancement
 
-## Current version
+Based on the user's v1.3.0 system. Requires lawful access to the original tabletop rules. Not affiliated with or endorsed by the Altered Carbon rights holders or Foundry Gaming LLC.
 
-**v1.2.1 — GM Access & Duplicate Presentation Fixes**
+The complete Cold Storage book is embedded in `data/cold-storage`, with a GM-only importer and running console. Roll now replaces Open on collapsed Skill rows. Character Creator lives in the Actors directory; existing characters get Level Up instead. The eight-stage creator includes starting SP allocation, and the full advancement window handles Skills, Attributes, Specialisations and Traits with cost confirmation and history.
 
-v1.2.1 includes a generated **Altered Carbon — GM Guide** Journal, a GM Control panel for sending multi-character Skill Check requests directly into chat, a Cold Storage/cyber-noir preset library, and a system-wide futuristic chat presentation with degree-coded outcomes.
+Read **START-HERE.md** for installation, safe upgrades and the exact control locations. Read **QA-REPORT.md** for the limits of validation. A live Foundry/Forge test is still required before using this build in production.
 
-## GM operations
+## Preserved from v1.3.0
 
-- **Altered Carbon — GM Guide** is created automatically for a GM when a world using the system is opened. Its 21 pages walk through character anatomy, Skill Checks, Difficulty, Luck, situational rolls, combat, damage, conditions, gear, economy, Requests, resleeving, Ego, Virtual, variants, vehicles, adversaries, advancement and the Cold Storage preset library.
-- **Altered Carbon — GM Control** is available from a GM-only satellite-dish button in Foundry v14 **Token Controls**, from the system settings menu, and through `game.alteredCarbon.openGMControl()` for macros/advanced use.
-- The GM can select one or more Character/AI Actors and send a preset or custom Skill Check request.
-- The request appears as a futuristic chat card to the selected characters' player owners and the GMs. The eligible player clicks **Roll <Skill>** directly in chat; the system performs the character's real Skill Check and returns the response to the same request group.
-- The built-in preset library targets the kinds of checks needed repeatedly in **Cold Storage: The Faces We Left Behind**: investigation, social pressure, infiltration, digital systems, medical/forensic work, physical obstacles, navigation, institutional knowledge and Virtual scenes.
+The Core Equipment Library and its catalog records, ammunition workflow, drug/medicine actions, sleeve augmentations, GM Control, read-first sheets, opposed checks, source rules engine and original documentation remain present. This release does not replace those systems with a new ruleset.
 
-## Graded chat UI
+The unchanged adventure JSON contains the full authored book and original pregen/contact/sleeve/relationship data. The system's Book Only importer creates only Journals and Journal folders and fills missing scene links; the separate optional module supplies fresh-world Actors, Items and Scenes.
 
-While this system is active, chat messages use the same black-glass/cyan technology language as the character sheets. System Skill Check cards add clear outcome grades:
+## Development
 
-- Success +1 through +5
-- Failure -1 through -5
-- Ace
-- Stroke of Luck
-- Catastrophe
+```sh
+npm test
+npm run validate
+npm run build
+node scripts/verify-release.mjs
+```
 
-The colors increase in visual urgency while the literal outcome labels remain visible, so color is never the only information channel.
+Node 22 or later is expected. The runtime has no added third-party dependencies. Foundry supplies its normal application, document and Handlebars APIs. The install ZIP has `system.json` at its root.
 
-## View-first character sheets
+The stable manifest/release URLs refer to the user's existing repository publishing scheme. They are intended deployment addresses, not evidence that this locally prepared release has been published. No remote repository or live world was modified.
 
-Actor sheets open in read-only mode. Embedded records across the sheet use the same disclosure model: click the record/name or **Open** to inspect it inline. Owners and GMs use **Edit Sheet** to unlock manual fields and embedded-record editors. Singular records such as Traits, Skills, Specialisations, Conditions, Scandals and Networks are deduplicated semantically. Baggage and equipment/gear records also use presentation identities so doubled imports do not appear twice even when mutable state such as Depletion differs.
+## Documentation
 
-## Character creation and UI
-
-- Fixed identity/header area with live Stack, Sleeve and Ego state.
-- Scroll-safe Actor sheet viewport.
-- All six Attributes in a responsive Sleeve-vs-DHF matrix.
-- Consistent futuristic panels across every Actor-sheet page.
-- Restyled Item sheets, Rules Browser, Combat Console, GM Control, generated GM Guide and chat cards.
-- Guided Character Creator: Identity → Archetype → Variant → Sleeve → Attributes → Resources → Review.
-- Dynamic Archetype, Variant and Sleeve explanations, Starting Package filtering and AI-specific resource guidance.
-
-### v1.2.1 fixes
-
-- Exact cloned Baggage, equipment, gear, sleeve-history and other embedded records are collapsed in sheet presentation.
-- The GM Guide self-refreshes when the installed generated guide is stale.
-- GMs can open GM Control from the satellite-dish tool in Token Controls.
-
-## Installation
-
-Use this manifest URL in Foundry VTT / Forge:
-
-`https://raw.githubusercontent.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/main/system.json`
-
-The v1.2.1 manifest downloads:
-
-`https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v1.2.1/altered-carbon-rpg-v1.2.1.zip`
-
-## Repository structure
-
-The Foundry system lives at the repository root. `system.json` must remain at the root.
-
-The one-shot **Cold Storage: The Faces We Left Behind** remains a separate Foundry module/repository. This system contains only reusable rules/UI plus the GM preset definitions designed to support that module.
-
-## Development checks
-
-Requires Node 22+ for the local test scripts.
-
-- `npm test`
-- `npm run validate`
-- `npm run build`
-- `npm run release:check`
-
-`npm run build` creates a flat Foundry install archive at `dist/altered-carbon-rpg-v1.2.1.zip`.
-
-See `docs/GM-TOOLS.md` for the GM workflow and `docs/RUNTIME-TEST.md` for live Foundry/Forge acceptance checks.
-
-## Foundry v14 architecture
-
-The system uses Foundry v14 `TypeDataModel`, `ActorSheetV2`, `ItemSheetV2`, `HandlebarsApplicationMixin`, `DocumentSheetConfig`, `DialogV2`, JournalEntry pages, and the v14 HTML chat render hook.
-
-## Unofficial project
-
-This is an unofficial fan-made implementation and is not affiliated with or endorsed by the Altered Carbon rights holders or Foundry Gaming LLC. Users should have lawful access to the original tabletop rules.
+START-HERE.md explains user workflows. docs/ADVANCEMENT.md covers costs, caps and API options. docs/live-qa.md is the pre-session checklist. docs/TECHNICAL-SOURCES.md records the API references consulted. docs/CORE-EQUIPMENT.md, docs/GM-TOOLS.md and docs/RUNTIME-TEST.md retain the earlier subsystem guidance. docs/archive contains the historical v1.3.0 README/start guide, whose old UI instructions are superseded by this release.

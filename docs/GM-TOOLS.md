@@ -1,10 +1,8 @@
-# GM Operations — v1.2.1
+# GM Operations — v1.3.0
 
 ## Altered Carbon — GM Guide
 
-When a GM opens a world using this system, the system looks for a Journal named **Altered Carbon — GM Guide** (or the system flag that identifies it). If it does not exist, the system creates it as a GM-only Journal.
-
-The generated guide contains 21 ordered text pages:
+When a GM opens a world using this system, the system creates or refreshes **Altered Carbon — GM Guide**. Version 1.3.0 contains 22 generated pages:
 
 1. Start Here
 2. Character Anatomy
@@ -27,77 +25,36 @@ The generated guide contains 21 ordered text pages:
 19. Cold Storage Roll Presets
 20. GM Quick Checklist
 21. GM Control & Chat Requests
+22. Core Equipment Library
 
-The guide is a play-facing walkthrough of the implemented system rules. The separate **Rules Reference** remains the detailed catalog/index for Traits, Baggage, equipment reference pages and source-backed reference material.
+The guide self-refreshes on GM login whenever its generated-guide version or generated-page count is stale. Only system-generated pages are replaced on modern guides, so unflagged campaign-note pages appended by the GM remain intact.
 
-### Refreshing the guide
+## Core Equipment Library
 
-The guide now self-refreshes on GM login whenever its stored generated-guide version or generated-page count is stale. v1.2.0-era guide pages are migrated automatically. From v1.2.1 onward, only pages flagged as system-generated are replaced, so a GM may append their own unflagged campaign-notes pages without causing those notes to be deleted by later guide refreshes.
+Open the Library from a character sheet with **Core Gear**, from the Rules Reference, or from the system menu. It ships 95 source-backed Item records, 3 Vehicle Actor templates and 12 generic weapon upgrades.
 
-GM Control also retains a **Refresh Guide** button for a deliberate manual rebuild of the generated pages.
+Adding a normal Core Item twice to the same Actor is prevented by its stable catalog ID. Ammunition and drugs are quantity-bearing; adding the same one again increments quantity. **Install Missing Records to World** creates missing Items and Vehicle Actors without overwriting existing records with the same Core catalog IDs.
+
+Weapons expose **Load Ammo** and use the selected special-ammunition profile in their attack/damage workflow. Drug records expose **Administer**, consume doses and post the current effects to chat. Explicit augmentation bonuses participate in derived character data; context-dependent effects remain visible for GM adjudication.
 
 ## Altered Carbon — GM Control
 
-With a Scene open, choose **Token Controls** and click the GM-only satellite-dish **Altered Carbon — GM Control** tool. The system configuration menu remains available as a fallback. Advanced users can also call `game.alteredCarbon.openGMControl()` from a macro/console.
+With a Scene open, choose **Token Controls** and click the GM-only satellite-dish **Altered Carbon — GM Control** tool. The system menu remains available as a fallback. Advanced users can also call `game.alteredCarbon.openGMControl()`.
 
 The left rail lists Character and AI Actors and their player owners. Select every character who should receive the same check.
 
 ### Preset requests
 
-The bundled presets are aimed at **Cold Storage: The Faces We Left Behind** and similar cyber-noir play. They cover recurring investigation, social, infiltration, technical, physical, navigation, institutional and Virtual situations.
+The bundled presets target **Cold Storage: The Faces We Left Behind** and similar cyber-noir play. Each preset defines a player-facing title, core Skill, default Difficulty, player prompt and GM usage guidance. A custom request can instead choose any core Skill, Difficulty, extra TR modifier, player-facing prompt/context, and Dazzled sight flags.
 
-Each preset defines:
+### Chat response flow
 
-- a player-facing title;
-- the core Skill to roll;
-- a default Difficulty;
-- a player-facing prompt;
-- GM usage guidance shown in GM Control.
+A sent request is whispered to every GM and the selected Actors' non-GM owners. Each selected Actor receives a separate row. An eligible owner presses **Roll <Skill>**; the system uses that Actor's actual Skill and current rules state, posts the grade card, then updates the request card with the returned result. Ownership checks prevent a player from answering for another Actor or answering the same request twice.
 
-The GM may change approach by using the custom request form instead.
+### Result grades
 
-### Custom requests
+Success +1 through +5 and Failure -1 through -5 use escalating visual grades. Ace, Stroke of Luck and Catastrophe have dedicated treatments. The literal outcome label is always present, so color is supplemental.
 
-A custom request allows the GM to choose any core Skill, Difficulty, additional TR modifier, a player-facing prompt, a player-facing context note, and the sight-reliant/sight-only flags used by the Dazzled automation.
+## Permissions and live QA
 
-## What happens in chat
-
-Sending a request creates one whispered request card addressed to:
-
-- every GM; and
-- the non-GM owners of the selected Actors.
-
-Each selected Actor gets a separate row. An eligible owner sees **Roll <Skill>** for Actors they own. They cannot answer for Actors they do not own.
-
-Clicking the button performs the real system Skill Check using that Actor's embedded Skill and current rules state. The result is posted to the same recipient group and the original request card is updated with the character's returned result.
-
-A character cannot answer the same request twice after its response is recorded.
-
-## Result grades
-
-System check cards display the literal result plus a visual grade:
-
-| Result | Visual treatment |
-| --- | --- |
-| Success +1 to +5 | escalating green/cyan/gold success treatment |
-| Failure -1 to -5 | escalating amber/orange/red failure treatment |
-| Ace | dedicated cyan treatment |
-| Stroke of Luck | dedicated gold treatment |
-| Catastrophe | dedicated high-urgency red treatment |
-
-The label is always printed as text. Color never carries the outcome by itself.
-
-## Chat shell
-
-While `altered-carbon-rpg` is the active system, ordinary chat messages inherit the same dark glass / cyan data presentation. System-generated checks, requests, attacks, equipment use, damage and opposed checks add richer diagnostic cards inside that shell.
-
-## Permissions / privacy notes
-
-- GM Control is restricted to GMs.
-- Roll requests are whispered to the selected Actors' owners plus GMs rather than broadcast to the whole table.
-- The preset `gmNote` text is GM-side usage guidance in the panel. It is not automatically used as a hidden secret. The custom **Context note** is explicitly player-facing and appears on the request card.
-- If an Actor has no non-GM owner, the GM is warned; the request remains available to GMs.
-
-## Live QA required
-
-The repository tests validate templates, data contracts and code paths, but a real Foundry v14 world is still required to verify rendered Journal styling, chat DOM behavior, user permissions and sockets. Follow `docs/RUNTIME-TEST.md` before calling a release fully runtime-certified.
+GM Control and world-library installation are GM-only. Actor owners can add/use Core records on Actors they own through Actor-context workflows. A real Foundry v14 world remains necessary to verify rendering, permissions, sockets and Forge-hosted behavior; follow `docs/RUNTIME-TEST.md` before treating a release as runtime-certified.

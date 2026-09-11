@@ -10,32 +10,52 @@ import {hasEquivalentUniqueRecord} from './sheet-record-utils.mjs';
 function hasItemKey(actor,type,key){return actor.items?.some(i=>i.type===type&&(i.system.key===key||i.system.catalogId===key));}
 async function evalFormula(formula){if(!formula||formula==='0')return 0;return Number((await new Roll(formula).evaluate()).total||0);}
 
+function applyAttributeEffectString(attributes,text=''){
+  const next={...attributes};
+  const labelMap={strength:'strength',perception:'perception',empathy:'empathy',willpower:'willpower',acuity:'acuity',intelligence:'intelligence'};
+  for(const match of String(text||'').matchAll(/(Strength|Perception|Empathy|Willpower|Acuity|Intelligence)\s*([+-]\d+)/gi)){
+    const key=labelMap[String(match[1]).toLowerCase()];
+    if(key)next[key]=Math.max(0,Number(next[key]||0)+Number(match[2]||0));
+  }
+  return next;
+}
+
 export class AlteredCarbonActor extends Actor {
   prepareDerivedData(){
     super.prepareDerivedData();
     const active=this.items?.find(i=>i.type==='sleeve' && i.system.status==='active');
-    if(active && ['character','npc','threat'].includes(this.type)){
+    if(active && ['character','npc','threat','ai'].includes(this.type)){
       this.system.attributes.strength=active.system.strength;
       this.system.attributes.perception=active.system.perception;
       this.system.resources.health.max=active.system.healthMax;
       this.system.resources.health.value=Math.min(this.system.resources.health.value, active.system.healthMax);
       this.system.resources.wounds.max=damageThresholdFromStrength(active.system.strength);
     }
-    this.ac={bonuses:{},conditions:new Set(),injuries:[],activeSleeve:active||null};
-    for(const [k,v] of Object.entries(this.system.attributes||{})) this.ac.bonuses[k]=attributeBonus(v);
+    const activeAugments=this.items?.filter?.(i=>i.type==='augmentation'&&i.system.active)??[];
+    let effectiveAttributes={...this.system.attributes};
+    for(const augment of activeAugments)effectiveAttributes=applyAttributeEffectString(effectiveAttributes,augment.system.attributeEffects);
+    this.ac={bonuses:{},conditions:new Set(),injuries:[],activeSleeve:active||null,activeAugments,effectiveAttributes,augmentationBonuses:{damageThreshold:0,protection:0,speedDice:0}};
+    for(const [k,v] of Object.entries(effectiveAttributes||{})) this.ac.bonuses[k]=attributeBonus(v);
     for(const item of this.items||[]){
       if(item.type==='condition')this.ac.conditions.add(item.system.key||item.system.catalogId||item.name.toLowerCase());
       if(item.type==='injury'&&item.system.active)this.ac.injuries.push(item);
     }
-    let speedMod=Number(this.system.speedModifier||0);
+    for(const augment of activeAugments){
+      const id=String(augment.system.catalogId||'');
+      if(id==='core.augment.subdermal-plating'){this.ac.augmentationBonuses.damageThreshold+=10;this.ac.augmentationBonuses.protection+=1;}
+      if(id==='core.augment.bestial-dermis')this.ac.augmentationBonuses.protection+=2;
+      if(id==='core.augment.speed-neurachem')this.ac.augmentationBonuses.speedDice+=1;
+    }
+    let speedMod=Number(this.system.speedModifier||0)+this.ac.augmentationBonuses.speedDice;
     if(this.ac.conditions.has('distracted'))speedMod-=2;
     if(this.ac.conditions.has('enraged'))speedMod+=1;
     speedMod-=this.ac.injuries.filter(i=>(i.system.key||i.system.catalogId)==='bone').reduce((n,i)=>n+Number(i.system.count||1),0);
-    const cargo=this.items?.filter(i=>['weapon','armour','equipment','augmentation','software'].includes(i.type)).reduce((n,i)=>n+Number(i.system.cargoUnits||0)+Number(i.system.heavy||0),0)||0;
+    const cargo=this.items?.filter(i=>['weapon','armour','equipment','augmentation','software','ammunition','drug'].includes(i.type)).reduce((n,i)=>n+(Number(i.system.cargoUnits||0)+Number(i.system.heavy||0))*Math.max(1,Number(i.system.quantity||1)),0)||0;
     const enc=cargoEncumbrance(cargo,this.ac.bonuses.strength||0); if(enc.encumbered)speedMod-=enc.speedDicePenalty;
     this.ac.cargo={used:cargo,capacity:this.ac.bonuses.strength||0,...enc};
-    this.ac.speedDice=speedDiceFromPerception(this.system.attributes?.perception||0,speedMod);
-    this.ac.damageThreshold=damageThresholdFromStrength(this.system.attributes?.strength||0);
+    this.ac.speedDice=speedDiceFromPerception(effectiveAttributes?.perception||0,speedMod);
+    this.ac.damageThreshold=damageThresholdFromStrength(effectiveAttributes?.strength||0)+this.ac.augmentationBonuses.damageThreshold;
+    this.system.resources.wounds.max=this.ac.damageThreshold;
     this.ac.effectiveWealth=effectiveWealthDuringDeferral(this.system.wealth,{deferral:this.system.economy?.deferral,debt:this.system.economy?.debt});if(this.system.identity?.variant==='envoy')this.ac.effectiveWealth=Math.max(1,this.ac.effectiveWealth-1);
     if(this.type==='vehicle')this.ac.vehicle=vehicleDerivedStats({handling:this.system.vehicle.handling,fireControl:this.system.vehicle.fireControl,structureMax:this.system.vehicle.structure.max,structureCurrent:this.system.vehicle.structure.value});
   }
@@ -68,7 +88,7 @@ export class AlteredCarbonActor extends Actor {
 
   async applyTurnWounds(wounds,{protection=0}={}){
     const current=Number(this.system.resources.wounds.value||0), currentHealth=Number(this.system.resources.health.value||0);
-    const threshold=damageThresholdFromStrength(this.system.attributes.strength);
+    const threshold=Number(this.ac?.damageThreshold??damageThresholdFromStrength(this.system.attributes.strength));
     const result=resolveWoundDamage({currentWounds:current,incomingWounds:wounds,damageThreshold:threshold,protection,currentHealth});
     const update={'system.resources.wounds.value':result.newWounds,'system.resources.wounds.max':threshold,'system.resources.health.value':result.newHealth};
     if(result.sleeveDead) update['system.sleeveState']='dead'; else if(result.dying) update['system.sleeveState']='dying';
@@ -107,13 +127,13 @@ export class AlteredCarbonActor extends Actor {
 export class AlteredCarbonItem extends Item {
   get skillDieSides(){return this.type==='skill'?skillDie(this.system.level):null;}
   async addDepletion(points=1){
-    if(!['weapon','equipment','software','resourceEntry'].includes(this.type)) return;
+    if(!['weapon','armour','equipment','software','resourceEntry'].includes(this.type)) return;
     const depletion=Number(this.system.depletion||0)+Number(points||0), exhausted=isExhausted(this.system.capacity,depletion);
     await this.update({'system.depletion':depletion,'system.exhausted':exhausted});
     return {depletion, exhausted, tr:depletionTR(this.system.capacity,depletion)};
   }
   async useDepletion({skillSides=null,formula=null,counterOnly=null}={}){
-    if(!['weapon','equipment','software'].includes(this.type))return {skipped:true,reason:'This item does not use equipment Depletion.'};
+    if(!['weapon','armour','equipment','software'].includes(this.type))return {skipped:true,reason:'This item does not use equipment Depletion.'};
     const capacity=Number(this.system.capacity||0),mode=String(this.system.depletionMode||'check');
     if(capacity<=0||mode==='none')return {skipped:true,reason:'No finite Capacity/Depletion applies to this use.',depletion:Number(this.system.depletion||0),exhausted:Boolean(this.system.exhausted)};
     let dpFormula=String(formula||this.system.depletionFormula||'1').trim()||'1';
@@ -125,5 +145,5 @@ export class AlteredCarbonItem extends Item {
     await this.update({'system.depletion':preview.depletion,'system.exhausted':preview.exhausted});
     return {...preview,added,dpFormula,dpRoll,checkRoll};
   }
-  async removeDepletion(points=1){if(!['weapon','equipment','software','resourceEntry'].includes(this.type))return;const depletion=Math.max(0,Number(this.system.depletion||0)-Number(points||0));await this.update({'system.depletion':depletion,'system.exhausted':false});return depletion;}
+  async removeDepletion(points=1){if(!['weapon','armour','equipment','software','resourceEntry'].includes(this.type))return;const depletion=Math.max(0,Number(this.system.depletion||0)-Number(points||0));await this.update({'system.depletion':depletion,'system.exhausted':false});return depletion;}
 }

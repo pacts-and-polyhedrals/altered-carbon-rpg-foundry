@@ -12,16 +12,16 @@ test('actor sheet has a dedicated scroll viewport and exposes all six Attributes
   for(const key of ['strength','perception','empathy','willpower','acuity','intelligence']) assert.match(hbs,new RegExp(`name="system\\.attributes\\.${key}"`));
 });
 
-test('guided creator presents seven sequential stages and all six Attribute fields',()=>{
+test('guided creator presents eight sequential stages and all six Attribute fields',()=>{
   const hbs=read('templates/character-creator.hbs');
   const js=read('module/character-creator.mjs');
-  assert.equal((hbs.match(/data-wizard-step="\d"/g)||[]).length,7);
-  assert.match(js,/STEP_LABELS=\['Identity','Archetype','Variant','Sleeve','Attributes','Resources','Review'\]/);
+  assert.equal((hbs.match(/data-wizard-step="\d"/g)||[]).length,8);
+  assert.match(js,/STEP_LABELS=\['Identity','Archetype','Variant','Sleeve','Attributes','Resources','Level Up','Review'\]/);
   for(const key of ['strength','perception','empathy','willpower','acuity','intelligence']) assert.match(js,new RegExp(`id:'${key}'`));
 });
 
 test('major interfaces share the futuristic Altered Carbon shell',()=>{
-  for(const file of ['templates/actor-sheet.hbs','templates/character-creator.hbs','templates/rules-browser.hbs','templates/combat-console.hbs']) assert.match(read(file),/ac-shell/);
+  for(const file of ['templates/actor-sheet.hbs','templates/character-creator.hbs','templates/rules-browser.hbs','templates/combat-console.hbs','templates/core-library.hbs']) assert.match(read(file),/ac-shell/);
   const css=read('styles/altered-carbon.css');
   for(const token of ['--ac-cyan','--ac-violet','--ac-panel','--ac-line']) assert.ok(css.includes(token));
 });

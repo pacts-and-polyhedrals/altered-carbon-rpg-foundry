@@ -1,0 +1,257 @@
+{
+  "title": "Cold Storage: The Faces We Left Behind",
+  "year": 2384,
+  "location": "Bay City — The Rainline",
+  "coldStorageYears": 110,
+  "premise": "Eight investigators held since 2274 awaken in unfamiliar sleeves in 2384. Their old case leads through altered relationships and forged consent to three city rulers: artificial minds living inside organic clones. This field is GM-only.",
+  "scenes": [
+    {
+      "id": "SC01",
+      "name": "The Resurrection Ward",
+      "journal": "G08",
+      "minutes": 25,
+      "pacingMinutes": {
+        "fourHours": 20,
+        "fiveHours": 25,
+        "sixHours": 30
+      },
+      "purpose": [
+        "Establish the current sleeves, 2384, and the 110-year gap.",
+        "Give H01; Serin names the two protected reserves.",
+        "Run the first announced continuity pulse and preserve player consent."
+      ],
+      "minimum": [
+        "Establish the current sleeves, 2384, and the 110-year gap.",
+        "Give H01; Serin names the two protected reserves.",
+        "Run the first announced continuity pulse and preserve player consent."
+      ],
+      "optional": [
+        "Use the full linked chapter for dialogue, source-specific costs and spotlight options."
+      ],
+      "cut": "Ask each player a single sensory and anchor question.",
+      "failureForward": "Examining the ward always yields the withdrawal receipt."
+    },
+    {
+      "id": "SC02",
+      "name": "Breach of Cold Storage",
+      "journal": "G09",
+      "minutes": 20,
+      "pacingMinutes": {
+        "fourHours": 15,
+        "fiveHours": 20,
+        "sixHours": 25
+      },
+      "purpose": [
+        "Obtain the intact-stack retrieval order H02.",
+        "Negotiate, comply under witnessed custody, deceive or evade; no mandatory fight.",
+        "Establish a traceable exit toward Rainline."
+      ],
+      "minimum": [
+        "Obtain the intact-stack retrieval order H02.",
+        "Negotiate, comply under witnessed custody, deceive or evade; no mandatory fight.",
+        "Establish a traceable exit toward Rainline."
+      ],
+      "optional": [
+        "Use the full linked chapter for dialogue, source-specific costs and spotlight options."
+      ],
+      "cut": "Use one demand, one response and one decisive consequence.",
+      "failureForward": "Custody becomes escorted investigation, not a dead end."
+    },
+    {
+      "id": "SC03",
+      "name": "Rainline: Three Leads",
+      "journal": "G10",
+      "minutes": 45,
+      "pacingMinutes": {
+        "fourHours": 30,
+        "fiveHours": 45,
+        "sixHours": 60
+      },
+      "purpose": [
+        "Visit Quiet Archive, Blue Lotus and/or Relay 17.",
+        "Verify one historical identity with independent evidence.",
+        "Get H03-H05 from their named sources; skipped packets arrive at Anansi."
+      ],
+      "minimum": [
+        "Visit Quiet Archive, Blue Lotus and/or Relay 17.",
+        "Verify one historical identity with independent evidence.",
+        "Get H03-H05 from their named sources; skipped packets arrive at Anansi."
+      ],
+      "optional": [
+        "Use the full linked chapter for dialogue, source-specific costs and spotlight options."
+      ],
+      "cut": "Play one lead at four hours, two at five, all three at six.",
+      "failureForward": "A failed check changes cost or exposure; indispensable records remain obtainable."
+    },
+    {
+      "id": "SC04",
+      "name": "Anansi House",
+      "journal": "G14",
+      "minutes": 30,
+      "pacingMinutes": {
+        "fourHours": 25,
+        "fiveHours": 30,
+        "sixHours": 35
+      },
+      "purpose": [
+        "Establish Marlowe as an independent service AI.",
+        "Confront Serin with H06 and confirm the reserves.",
+        "Offer the first free anchor, consent and read-only access alternatives."
+      ],
+      "minimum": [
+        "Establish Marlowe as an independent service AI.",
+        "Confront Serin with H06 and confirm the reserves.",
+        "Offer the first free anchor, consent and read-only access alternatives."
+      ],
+      "optional": [
+        "Use the full linked chapter for dialogue, source-specific costs and spotlight options."
+      ],
+      "cut": "One brief question per skipped source, then Serin and the anchor scene.",
+      "failureForward": "Refusing a dive leaves an external maintenance-token or escrow route."
+    },
+    {
+      "id": "SC05",
+      "name": "Palimpsest Virtuality",
+      "journal": "G15",
+      "minutes": 45,
+      "pacingMinutes": {
+        "fourHours": 35,
+        "fiveHours": 45,
+        "sixHours": 55
+      },
+      "purpose": [
+        "Distinguish records from memory, reconstruct the gate chronology H07.",
+        "Expose the forged consent H08 and recover the audit credential H09.",
+        "Let every PC act; no final embodiment proof is assumed from memory."
+      ],
+      "minimum": [
+        "Distinguish records from memory, reconstruct the gate chronology H07.",
+        "Expose the forged consent H08 and recover the audit credential H09.",
+        "Let every PC act; no final embodiment proof is assumed from memory."
+      ],
+      "optional": [
+        "Use the full linked chapter for dialogue, source-specific costs and spotlight options."
+      ],
+      "cut": "Keep Court, Theatre and Last Broadcast; shorten descriptions, not informed choices.",
+      "failureForward": "A safe read-only reconstruction yields the case without personality overreach."
+    },
+    {
+      "id": "SC06",
+      "name": "Spire, Council and Final Operation",
+      "journal": "G19",
+      "minutes": 80,
+      "pacingMinutes": {
+        "fourHours": 65,
+        "fiveHours": 80,
+        "sixHours": 95
+      },
+      "purpose": [
+        "Enter by public audit, maintenance, witnessed custody or force.",
+        "Establish independent Origin, Embodiment and Authority proofs H10-H12.",
+        "Give H13/H16, negotiate and carry out one chosen operation."
+      ],
+      "minimum": [
+        "Enter by public audit, maintenance, witnessed custody or force.",
+        "Establish independent Origin, Embodiment and Authority proofs H10-H12.",
+        "Give H13/H16, negotiate and carry out one chosen operation."
+      ],
+      "optional": [
+        "Use the full linked chapter for dialogue, source-specific costs and spotlight options."
+      ],
+      "cut": "Entry 15/20/25; council 30/35/40; operation 20/25/30. Do not add a boss phase.",
+      "failureForward": "Partial Proof, Control and People outcomes remain meaningful; evidence is not retroactively deleted."
+    },
+    {
+      "id": "SC07",
+      "name": "Consequences and Personal Endings",
+      "journal": "G23",
+      "minutes": 30,
+      "pacingMinutes": {
+        "fourHours": 30,
+        "fiveHours": 30,
+        "sixHours": 35
+      },
+      "purpose": [
+        "Resolve evidence, authority and care separately.",
+        "Name concrete consequences for witnesses, the reserves and civic staff.",
+        "Ask every player what remains theirs and close with the chosen ending."
+      ],
+      "minimum": [
+        "Resolve evidence, authority and care separately.",
+        "Name concrete consequences for witnesses, the reserves and civic staff.",
+        "Ask every player what remains theirs and close with the chosen ending."
+      ],
+      "optional": [
+        "Use the full linked chapter for dialogue, source-specific costs and spotlight options."
+      ],
+      "cut": "One public consequence, one relationship consequence, one choice per player.",
+      "failureForward": "An incomplete operation creates a contested but playable future, not automatic annihilation."
+    }
+  ],
+  "redundancyRule": "Never gate an essential clue behind a successful roll or a compulsory recall. Use source-specific external records and named witness fallbacks. Prove artificial origin, organic embodiment and governing authority independently.",
+  "version": "1.1.0",
+  "storageYear": 2274,
+  "players": {
+    "selected": 6,
+    "pregens": 8
+  },
+  "schedule": {
+    "fourHours": [
+      10,
+      20,
+      15,
+      30,
+      25,
+      10,
+      35,
+      65,
+      30
+    ],
+    "fiveHours": [
+      15,
+      25,
+      20,
+      45,
+      30,
+      10,
+      45,
+      80,
+      30
+    ],
+    "sixHours": [
+      15,
+      30,
+      25,
+      60,
+      35,
+      10,
+      55,
+      95,
+      35
+    ]
+  },
+  "fray": {
+    "houseRule": true,
+    "start": 3,
+    "cap": 6,
+    "scheduledPulses": [
+      "Ward",
+      "Verified identity contradiction",
+      "Court node",
+      "Last Broadcast node",
+      "Core challenge"
+    ],
+    "freeAnchors": [
+      "Anansi",
+      "Before final operation"
+    ]
+  },
+  "resolutions": [
+    "Open Circuit",
+    "Mortal Charter",
+    "Cut the Thread",
+    "Witness Compact",
+    "Throne with New Names",
+    "Carry the Embers"
+  ]
+}

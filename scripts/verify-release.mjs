@@ -10,4 +10,15 @@ if (listing.some(x => x.startsWith('altered-carbon-rpg/'))) throw new Error('Rel
 for (const required of ['altered-carbon-rpg.mjs', 'module/', 'data/', 'lang/', 'styles/', 'templates/']) {
   if (!listing.some(x => x === required || x.startsWith(required))) throw new Error(`Release ZIP missing ${required}`);
 }
+for (const required of [
+  'module/advancement.mjs', 'module/advancement-wizard.mjs', 'module/actor-directory.mjs',
+  'module/adventure-book.mjs', 'templates/advancement-wizard.hbs', 'templates/adventure-book.hbs',
+  'styles/adventure-book.css', 'data/cold-storage/journals.json', 'data/cold-storage/book-index.json',
+  'module/core-content.mjs', 'templates/core-library.hbs',
+  'data/core-weapons.json', 'data/core-ammunition.json', 'data/core-armour.json',
+  'data/core-equipment.json', 'data/core-software.json', 'data/core-drugs.json',
+  'data/core-augmentations.json', 'data/core-vehicles.json', 'data/core-upgrades.json'
+]) {
+  if (!listing.includes(required)) throw new Error(`Release ZIP missing required integration/Core file: ${required}`);
+}
 console.log(`Release ZIP verified: ${zip}`);

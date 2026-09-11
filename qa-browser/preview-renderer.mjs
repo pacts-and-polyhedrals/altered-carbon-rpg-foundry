@@ -1,0 +1,11 @@
+// QA-only subset renderer; not Foundry's Handlebars engine.
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+export function render(template,data){
+ const root=[],stack=[{nodes:root}],re=/{{{([\s\S]*?)}}}|{{([\s\S]*?)}}/g;let pos=0,m;
+ while((m=re.exec(template))){stack.at(-1).nodes.push({text:template.slice(pos,m.index)});pos=re.lastIndex;const tag=(m[1]??m[2]).trim();if(tag.startsWith('#')){const [kind,...args]=tag.slice(1).split(/\s+/);const n={kind,arg:args.join(' '),yes:[],no:[]};stack.at(-1).nodes.push(n);stack.push({kind,nodes:n.yes,node:n});}else if(tag==='else'){stack.at(-1).nodes=stack.at(-1).node.no;}else if(tag.startsWith('/')){if(stack.pop().kind!==tag.slice(1))throw Error('Mismatched block '+tag);}else stack.at(-1).nodes.push({expr:tag,raw:!!m[1]});}
+ stack.at(-1).nodes.push({text:template.slice(pos)});if(stack.length!==1)throw Error('Unclosed block');
+ function val(expr,ctx){expr=expr.trim();if(expr.startsWith('lookup ')){const [_,path,key]=expr.split(/\s+/);return val(path,ctx)?.[val(key,ctx)];}if(expr.startsWith('checked '))return val(expr.slice(8),ctx)?'checked':'';if(/^".*"$/.test(expr))return expr.slice(1,-1);if(/^\d+$/.test(expr))return Number(expr);if(expr.startsWith('../'))return val(expr.slice(3),ctx.parent??ctx);if(expr==='this')return ctx.value;if(expr.startsWith('@root.'))return expr.slice(6).split('.').reduce((v,k)=>v?.[k],data);if(expr.startsWith('@'))return ctx.meta?.[expr.slice(1)];return expr.split('.').reduce((v,k)=>v?.[k],ctx.value);}
+ const truth=v=>Array.isArray(v)?v.length>0:!!v;
+ function walk(nodes,ctx){return nodes.map(n=>{if('text'in n)return n.text;if('expr'in n){const v=val(n.expr,ctx);return n.raw?String(v??''):esc(v);}const v=val(n.arg,ctx);if(n.kind==='each'){const entries=Array.isArray(v)?v.map((v,i)=>[i,v]):Object.entries(v??{});if(!entries.length)return walk(n.no,ctx);return entries.map(([key,v],i)=>walk(n.yes,{value:v,parent:ctx,meta:{key,index:i,first:i===0,last:i===entries.length-1}})).join('');}if(!['if','unless'].includes(n.kind))throw Error('Unsupported block '+n.kind);return walk((n.kind==='unless'?!truth(v):truth(v))?n.yes:n.no,ctx);}).join('');}
+ return walk(root,{value:data});
+}

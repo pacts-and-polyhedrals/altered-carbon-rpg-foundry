@@ -1,0 +1,3042 @@
+[
+  {
+    "id": "R-PC01-1-enemy",
+    "pcId": "PC01",
+    "pcName": "Nia Calder",
+    "pcSleeveId": "PC01-S1",
+    "pcSleeveName": "Jessa Calder",
+    "contactId": "C01",
+    "contactHistoricalIdentity": "Lucan Vey",
+    "category": "enemy",
+    "historicalIncident": "During the Jessa Calder lifetime, Lucan Vey became a direct enemy while bay City records clerk; found erased sleeve-death certificates and died in a transit bombing. Their conflict was personal enough that the PC learned to recognise Lucan Vey by methods and choices rather than appearance.",
+    "presentAgenda": "Complete Palimpsest by recovering the eight experiential fragments, while convincing the PCs that the project is the only way to repair the damage already done to them.",
+    "recognitionClues": [
+      "When cornered, taps two fingers against the inside of the left wrist before answering; still calls difficult problems “dirty mirrors.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC01-1-rival",
+    "pcId": "PC01",
+    "pcName": "Nia Calder",
+    "pcSleeveId": "PC01-S1",
+    "pcSleeveName": "Jessa Calder",
+    "contactId": "C14",
+    "contactHistoricalIdentity": "Emil Navarro",
+    "category": "rival",
+    "historicalIncident": "Emil Navarro pursued the same objective as Nia Calder during the Jessa Calder lifetime, repeatedly forcing the two to compete over evidence, access and credibility while bay City records clerk; found erased sleeve-death certificates and died in a transit bombing. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "Help Nia and Solenne establish a chain of evidence while avoiding Protectorate seizure of the case.",
+    "recognitionClues": [
+      "Pauses before saying a suspect’s name and still uses the private code phrase “blue rain” for a compromised scene.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC01-1-ally",
+    "pcId": "PC01",
+    "pcName": "Nia Calder",
+    "pcSleeveId": "PC01-S1",
+    "pcSleeveName": "Jessa Calder",
+    "contactId": "C09",
+    "contactHistoricalIdentity": "Rhea Damar",
+    "category": "ally",
+    "historicalIncident": "Rhea Damar became a trusted operational ally during the Jessa Calder lifetime. While bay City records clerk; found erased sleeve-death certificates and died in a transit bombing., the ally provided access, cover or expertise that kept Nia Calder alive long enough to carry the investigation forward.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Straightens her cuffs before contradicting someone and says “for the record” even in private.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC01-1-loved-one",
+    "pcId": "PC01",
+    "pcName": "Nia Calder",
+    "pcSleeveId": "PC01-S1",
+    "pcSleeveName": "Jessa Calder",
+    "contactId": "C05",
+    "contactHistoricalIdentity": "Ysabel Chen",
+    "category": "loved-one",
+    "historicalIncident": "Ysabel Chen was the person to whom Nia Calder was most emotionally exposed during the Jessa Calder lifetime. Their relationship developed alongside the events in which bay City records clerk; found erased sleeve-death certificates and died in a transit bombing., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Folds paper into a tiny crane while thinking and remembers exactly how each PC took their coffee or stimulant.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC01-2-enemy",
+    "pcId": "PC01",
+    "pcName": "Nia Calder",
+    "pcSleeveId": "PC01-S2",
+    "pcSleeveName": "Kwame Soro",
+    "contactId": "C02",
+    "contactHistoricalIdentity": "Mara Kest",
+    "category": "enemy",
+    "historicalIncident": "During the Kwame Soro lifetime, Mara Kest became a direct enemy while colonial investigator; discovered state-sanctioned identity laundering. Their conflict was personal enough that the PC learned to recognise Mara Kest by methods and choices rather than appearance.",
+    "presentAgenda": "Recover the PCs as sealed continuity evidence and prevent a scandal that would destroy careers, but quietly preserve them from Lucan Vey’s extraction teams.",
+    "recognitionClues": [
+      "Squares every object on a table before an interrogation and uses the old field phrase “secure the person, not the sleeve.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC01-2-rival",
+    "pcId": "PC01",
+    "pcName": "Nia Calder",
+    "pcSleeveId": "PC01-S2",
+    "pcSleeveName": "Kwame Soro",
+    "contactId": "C10",
+    "contactHistoricalIdentity": "Petar Volkov",
+    "category": "rival",
+    "historicalIncident": "Petar Volkov pursued the same objective as Nia Calder during the Kwame Soro lifetime, repeatedly forcing the two to compete over evidence, access and credibility while colonial investigator; discovered state-sanctioned identity laundering. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Checks exits before faces and rolls the right shoulder before violence, an old injury habit recreated in every sleeve.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC01-2-ally",
+    "pcId": "PC01",
+    "pcName": "Nia Calder",
+    "pcSleeveId": "PC01-S2",
+    "pcSleeveName": "Kwame Soro",
+    "contactId": "C11",
+    "contactHistoricalIdentity": "Keiko Marr",
+    "category": "ally",
+    "historicalIncident": "Keiko Marr became a trusted operational ally during the Kwame Soro lifetime. While colonial investigator; discovered state-sanctioned identity laundering., the ally provided access, cover or expertise that kept Nia Calder alive long enough to carry the investigation forward.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Counts down network handshakes under her breath and still uses Latch’s obsolete diagnostic nickname for corrupted packets.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC01-2-loved-one",
+    "pcId": "PC01",
+    "pcName": "Nia Calder",
+    "pcSleeveId": "PC01-S2",
+    "pcSleeveName": "Kwame Soro",
+    "contactId": "C20",
+    "contactHistoricalIdentity": "Sera Bale",
+    "category": "loved-one",
+    "historicalIncident": "Sera Bale was the person to whom Nia Calder was most emotionally exposed during the Kwame Soro lifetime. Their relationship developed alongside the events in which colonial investigator; discovered state-sanctioned identity laundering., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Takes notes by hand first, then digitises them, and repeats the phrase “consent survives the sleeve.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC01-3-enemy",
+    "pcId": "PC01",
+    "pcName": "Nia Calder",
+    "pcSleeveId": "PC01-S3",
+    "pcSleeveName": "Mei Arata",
+    "contactId": "C03",
+    "contactHistoricalIdentity": "Gideon Saye",
+    "category": "enemy",
+    "historicalIncident": "During the Mei Arata lifetime, Gideon Saye became a direct enemy while harlan's World customs inspector; traced stolen Elder material. Their conflict was personal enough that the PC learned to recognise Gideon Saye by methods and choices rather than appearance.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Never drinks from the first glass offered and still quotes account numbers from memory when irritated.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC01-3-rival",
+    "pcId": "PC01",
+    "pcName": "Nia Calder",
+    "pcSleeveId": "PC01-S3",
+    "pcSleeveName": "Mei Arata",
+    "contactId": "C06",
+    "contactHistoricalIdentity": "Osei Quade",
+    "category": "rival",
+    "historicalIncident": "Osei Quade pursued the same objective as Nia Calder during the Mei Arata lifetime, repeatedly forcing the two to compete over evidence, access and credibility while harlan's World customs inspector; traced stolen Elder material. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Touches thumb to brow before making a promise and refuses to call a stored DHF “cargo.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC01-3-ally",
+    "pcId": "PC01",
+    "pcName": "Nia Calder",
+    "pcSleeveId": "PC01-S3",
+    "pcSleeveName": "Mei Arata",
+    "contactId": "C14",
+    "contactHistoricalIdentity": "Emil Navarro",
+    "category": "ally",
+    "historicalIncident": "Emil Navarro became a trusted operational ally during the Mei Arata lifetime. While harlan's World customs inspector; traced stolen Elder material., the ally provided access, cover or expertise that kept Nia Calder alive long enough to carry the investigation forward.",
+    "presentAgenda": "Help Nia and Solenne establish a chain of evidence while avoiding Protectorate seizure of the case.",
+    "recognitionClues": [
+      "Pauses before saying a suspect’s name and still uses the private code phrase “blue rain” for a compromised scene.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC01-3-loved-one",
+    "pcId": "PC01",
+    "pcName": "Nia Calder",
+    "pcSleeveId": "PC01-S3",
+    "pcSleeveName": "Mei Arata",
+    "contactId": "C15",
+    "contactHistoricalIdentity": "Farah Nouri",
+    "category": "loved-one",
+    "historicalIncident": "Farah Nouri was the person to whom Nia Calder was most emotionally exposed during the Mei Arata lifetime. Their relationship developed alongside the events in which harlan's World customs inspector; traced stolen Elder material., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Rubs the bridge of her nose when reading a neural map and corrects medical terminology even during arguments.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC01-4-enemy",
+    "pcId": "PC01",
+    "pcName": "Nia Calder",
+    "pcSleeveId": "PC01-S4",
+    "pcSleeveName": "Alexei Rourke",
+    "contactId": "C07",
+    "contactHistoricalIdentity": "Dax Marrow",
+    "category": "enemy",
+    "historicalIncident": "During the Alexei Rourke lifetime, Dax Marrow became a direct enemy while bay City detective; infiltrated the Blue Lotus Combine. Their conflict was personal enough that the PC learned to recognise Dax Marrow by methods and choices rather than appearance.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Flips a coin across the knuckles when lying and uses the phrase “debts outlive bodies.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC01-4-rival",
+    "pcId": "PC01",
+    "pcName": "Nia Calder",
+    "pcSleeveId": "PC01-S4",
+    "pcSleeveName": "Alexei Rourke",
+    "contactId": "C09",
+    "contactHistoricalIdentity": "Rhea Damar",
+    "category": "rival",
+    "historicalIncident": "Rhea Damar pursued the same objective as Nia Calder during the Alexei Rourke lifetime, repeatedly forcing the two to compete over evidence, access and credibility while bay City detective; infiltrated the Blue Lotus Combine. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Straightens her cuffs before contradicting someone and says “for the record” even in private.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC01-4-ally",
+    "pcId": "PC01",
+    "pcName": "Nia Calder",
+    "pcSleeveId": "PC01-S4",
+    "pcSleeveName": "Alexei Rourke",
+    "contactId": "C16",
+    "contactHistoricalIdentity": "Juno Sera",
+    "category": "ally",
+    "historicalIncident": "Juno Sera became a trusted operational ally during the Alexei Rourke lifetime. While bay City detective; infiltrated the Blue Lotus Combine., the ally provided access, cover or expertise that kept Nia Calder alive long enough to carry the investigation forward.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Humms the first four notes of an old Rainline song when opening a secure channel and never sits with their back to glass.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC01-4-loved-one",
+    "pcId": "PC01",
+    "pcName": "Nia Calder",
+    "pcSleeveId": "PC01-S4",
+    "pcSleeveName": "Alexei Rourke",
+    "contactId": "C04",
+    "contactHistoricalIdentity": "Talia Venn",
+    "category": "loved-one",
+    "historicalIncident": "Talia Venn was the person to whom Nia Calder was most emotionally exposed during the Alexei Rourke lifetime. Their relationship developed alongside the events in which bay City detective; infiltrated the Blue Lotus Combine., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Checks a patient’s pupils with the same three-count rhythm and says “stay with me” before difficult medical truths.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC01-5-enemy",
+    "pcId": "PC01",
+    "pcName": "Nia Calder",
+    "pcSleeveId": "PC01-S5",
+    "pcSleeveName": "Nia Calder",
+    "contactId": "C01",
+    "contactHistoricalIdentity": "Lucan Vey",
+    "category": "enemy",
+    "historicalIncident": "During the Nia Calder lifetime, Lucan Vey became a direct enemy while continuity-crimes investigator; connected disappearances to Palimpsest. Their conflict was personal enough that the PC learned to recognise Lucan Vey by methods and choices rather than appearance.",
+    "presentAgenda": "Complete Palimpsest by recovering the eight experiential fragments, while convincing the PCs that the project is the only way to repair the damage already done to them.",
+    "recognitionClues": [
+      "When cornered, taps two fingers against the inside of the left wrist before answering; still calls difficult problems “dirty mirrors.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC01-5-rival",
+    "pcId": "PC01",
+    "pcName": "Nia Calder",
+    "pcSleeveId": "PC01-S5",
+    "pcSleeveName": "Nia Calder",
+    "contactId": "C02",
+    "contactHistoricalIdentity": "Mara Kest",
+    "category": "rival",
+    "historicalIncident": "Mara Kest pursued the same objective as Nia Calder during the Nia Calder lifetime, repeatedly forcing the two to compete over evidence, access and credibility while continuity-crimes investigator; connected disappearances to Palimpsest. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "Recover the PCs as sealed continuity evidence and prevent a scandal that would destroy careers, but quietly preserve them from Lucan Vey’s extraction teams.",
+    "recognitionClues": [
+      "Squares every object on a table before an interrogation and uses the old field phrase “secure the person, not the sleeve.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC01-5-ally",
+    "pcId": "PC01",
+    "pcName": "Nia Calder",
+    "pcSleeveId": "PC01-S5",
+    "pcSleeveName": "Nia Calder",
+    "contactId": "C08",
+    "contactHistoricalIdentity": "Hyeon Park",
+    "category": "ally",
+    "historicalIncident": "Hyeon Park became a trusted operational ally during the Nia Calder lifetime. While continuity-crimes investigator; connected disappearances to Palimpsest., the ally provided access, cover or expertise that kept Nia Calder alive long enough to carry the investigation forward.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Recites dates before names in prayer and carries a handwritten list of people whose stacks were never spun up.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC01-5-loved-one",
+    "pcId": "PC01",
+    "pcName": "Nia Calder",
+    "pcSleeveId": "PC01-S5",
+    "pcSleeveName": "Nia Calder",
+    "contactId": "C14",
+    "contactHistoricalIdentity": "Emil Navarro",
+    "category": "loved-one",
+    "historicalIncident": "Emil Navarro was the person to whom Nia Calder was most emotionally exposed during the Nia Calder lifetime. Their relationship developed alongside the events in which continuity-crimes investigator; connected disappearances to Palimpsest., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "Help Nia and Solenne establish a chain of evidence while avoiding Protectorate seizure of the case.",
+    "recognitionClues": [
+      "Pauses before saying a suspect’s name and still uses the private code phrase “blue rain” for a compromised scene.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC02-1-enemy",
+    "pcId": "PC02",
+    "pcName": "Tomas “Latch” Araya",
+    "pcSleeveId": "PC02-S1",
+    "pcSleeveName": "Tomás Araya",
+    "contactId": "C03",
+    "contactHistoricalIdentity": "Gideon Saye",
+    "category": "enemy",
+    "historicalIncident": "During the Tomás Araya lifetime, Gideon Saye became a direct enemy while relay technician on Harlan's World; died during suspicious decompression. Their conflict was personal enough that the PC learned to recognise Gideon Saye by methods and choices rather than appearance.",
+    "presentAgenda": "Keep the Meth investment chain hidden, acquire the publication fragment, and turn Palimpsest into an exclusive continuity service for dynastic clients.",
+    "recognitionClues": [
+      "Never drinks from the first glass offered and still quotes account numbers from memory when irritated.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC02-1-rival",
+    "pcId": "PC02",
+    "pcName": "Tomas “Latch” Araya",
+    "pcSleeveId": "PC02-S1",
+    "pcSleeveName": "Tomás Araya",
+    "contactId": "C11",
+    "contactHistoricalIdentity": "Keiko Marr",
+    "category": "rival",
+    "historicalIncident": "Keiko Marr pursued the same objective as Tomas “Latch” Araya during the Tomás Araya lifetime, repeatedly forcing the two to compete over evidence, access and credibility while relay technician on Harlan's World; died during suspicious decompression. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "Deliver the 2274 relay logs and help Latch verify the encryption seed before corporate security deletes the last cold backups.",
+    "recognitionClues": [
+      "Counts down network handshakes under her breath and still uses Latch’s obsolete diagnostic nickname for corrupted packets.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC02-1-ally",
+    "pcId": "PC02",
+    "pcName": "Tomas “Latch” Araya",
+    "pcSleeveId": "PC02-S1",
+    "pcSleeveName": "Tomás Araya",
+    "contactId": "C12",
+    "contactHistoricalIdentity": "Arun Bell",
+    "category": "ally",
+    "historicalIncident": "Arun Bell became a trusted operational ally during the Tomás Araya lifetime. While relay technician on Harlan's World; died during suspicious decompression., the ally provided access, cover or expertise that kept Tomas “Latch” Araya alive long enough to carry the investigation forward.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Draws diagrams as nested circles and always asks “who owns the copy?” before discussing a system.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC02-1-loved-one",
+    "pcId": "PC02",
+    "pcName": "Tomas “Latch” Araya",
+    "pcSleeveId": "PC02-S1",
+    "pcSleeveName": "Tomás Araya",
+    "contactId": "C15",
+    "contactHistoricalIdentity": "Farah Nouri",
+    "category": "loved-one",
+    "historicalIncident": "Farah Nouri was the person to whom Tomas “Latch” Araya was most emotionally exposed during the Tomás Araya lifetime. Their relationship developed alongside the events in which relay technician on Harlan's World; died during suspicious decompression., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Rubs the bridge of her nose when reading a neural map and corrects medical terminology even during arguments.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC02-2-enemy",
+    "pcId": "PC02",
+    "pcName": "Tomas “Latch” Araya",
+    "pcSleeveId": "PC02-S2",
+    "pcSleeveName": "Anja Rook",
+    "contactId": "C17",
+    "contactHistoricalIdentity": "Hanzo Irei",
+    "category": "enemy",
+    "historicalIncident": "During the Anja Rook lifetime, Hanzo Irei became a direct enemy while sable Needle engineer; survived a sabotaged needlecast before extraction agents killed the sleeve. Their conflict was personal enough that the PC learned to recognise Hanzo Irei by methods and choices rather than appearance.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Snaps disposable gloves before negotiations and refers to people by contract role rather than name.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC02-2-rival",
+    "pcId": "PC02",
+    "pcName": "Tomas “Latch” Araya",
+    "pcSleeveId": "PC02-S2",
+    "pcSleeveName": "Anja Rook",
+    "contactId": "C16",
+    "contactHistoricalIdentity": "Juno Sera",
+    "category": "rival",
+    "historicalIncident": "Juno Sera pursued the same objective as Tomas “Latch” Araya during the Anja Rook lifetime, repeatedly forcing the two to compete over evidence, access and credibility while sable Needle engineer; survived a sabotaged needlecast before extraction agents killed the sleeve. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Humms the first four notes of an old Rainline song when opening a secure channel and never sits with their back to glass.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC02-2-ally",
+    "pcId": "PC02",
+    "pcName": "Tomas “Latch” Araya",
+    "pcSleeveId": "PC02-S2",
+    "pcSleeveName": "Anja Rook",
+    "contactId": "C11",
+    "contactHistoricalIdentity": "Keiko Marr",
+    "category": "ally",
+    "historicalIncident": "Keiko Marr became a trusted operational ally during the Anja Rook lifetime. While sable Needle engineer; survived a sabotaged needlecast before extraction agents killed the sleeve., the ally provided access, cover or expertise that kept Tomas “Latch” Araya alive long enough to carry the investigation forward.",
+    "presentAgenda": "Deliver the 2274 relay logs and help Latch verify the encryption seed before corporate security deletes the last cold backups.",
+    "recognitionClues": [
+      "Counts down network handshakes under her breath and still uses Latch’s obsolete diagnostic nickname for corrupted packets.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC02-2-loved-one",
+    "pcId": "PC02",
+    "pcName": "Tomas “Latch” Araya",
+    "pcSleeveId": "PC02-S2",
+    "pcSleeveName": "Anja Rook",
+    "contactId": "C05",
+    "contactHistoricalIdentity": "Ysabel Chen",
+    "category": "loved-one",
+    "historicalIncident": "Ysabel Chen was the person to whom Tomas “Latch” Araya was most emotionally exposed during the Anja Rook lifetime. Their relationship developed alongside the events in which sable Needle engineer; survived a sabotaged needlecast before extraction agents killed the sleeve., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Folds paper into a tiny crane while thinking and remembers exactly how each PC took their coffee or stimulant.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC02-3-enemy",
+    "pcId": "PC02",
+    "pcName": "Tomas “Latch” Araya",
+    "pcSleeveId": "PC02-S3",
+    "pcSleeveName": "Idris Quon",
+    "contactId": "C01",
+    "contactHistoricalIdentity": "Lucan Vey",
+    "category": "enemy",
+    "historicalIncident": "During the Idris Quon lifetime, Lucan Vey became a direct enemy while virtuality forensic analyst; killed by a psychosurgical trap. Their conflict was personal enough that the PC learned to recognise Lucan Vey by methods and choices rather than appearance.",
+    "presentAgenda": "Complete Palimpsest by recovering the eight experiential fragments, while convincing the PCs that the project is the only way to repair the damage already done to them.",
+    "recognitionClues": [
+      "When cornered, taps two fingers against the inside of the left wrist before answering; still calls difficult problems “dirty mirrors.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC02-3-rival",
+    "pcId": "PC02",
+    "pcName": "Tomas “Latch” Araya",
+    "pcSleeveId": "PC02-S3",
+    "pcSleeveName": "Idris Quon",
+    "contactId": "C18",
+    "contactHistoricalIdentity": "Delia Frost",
+    "category": "rival",
+    "historicalIncident": "Delia Frost pursued the same objective as Tomas “Latch” Araya during the Idris Quon lifetime, repeatedly forcing the two to compete over evidence, access and credibility while virtuality forensic analyst; killed by a psychosurgical trap. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Builds virtual rooms with one deliberately impossible shadow and asks visitors what they think is “real enough.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC02-3-ally",
+    "pcId": "PC02",
+    "pcName": "Tomas “Latch” Araya",
+    "pcSleeveId": "PC02-S3",
+    "pcSleeveName": "Idris Quon",
+    "contactId": "C04",
+    "contactHistoricalIdentity": "Talia Venn",
+    "category": "ally",
+    "historicalIncident": "Talia Venn became a trusted operational ally during the Idris Quon lifetime. While virtuality forensic analyst; killed by a psychosurgical trap., the ally provided access, cover or expertise that kept Tomas “Latch” Araya alive long enough to carry the investigation forward.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Checks a patient’s pupils with the same three-count rhythm and says “stay with me” before difficult medical truths.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC02-3-loved-one",
+    "pcId": "PC02",
+    "pcName": "Tomas “Latch” Araya",
+    "pcSleeveId": "PC02-S3",
+    "pcSleeveName": "Idris Quon",
+    "contactId": "C12",
+    "contactHistoricalIdentity": "Arun Bell",
+    "category": "loved-one",
+    "historicalIncident": "Arun Bell was the person to whom Tomas “Latch” Araya was most emotionally exposed during the Idris Quon lifetime. Their relationship developed alongside the events in which virtuality forensic analyst; killed by a psychosurgical trap., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Draws diagrams as nested circles and always asks “who owns the copy?” before discussing a system.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC02-4-enemy",
+    "pcId": "PC02",
+    "pcName": "Tomas “Latch” Araya",
+    "pcSleeveId": "PC02-S4",
+    "pcSleeveName": "Pell Santos",
+    "contactId": "C13",
+    "contactHistoricalIdentity": "Celeste Ardan",
+    "category": "enemy",
+    "historicalIncident": "During the Pell Santos lifetime, Celeste Ardan became a direct enemy while corporate network architect; found illegally copied employee DHFs. Their conflict was personal enough that the PC learned to recognise Celeste Ardan by methods and choices rather than appearance.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Never uses contractions when angry and wears a recreated signet scar beneath the right thumb.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC02-4-rival",
+    "pcId": "PC02",
+    "pcName": "Tomas “Latch” Araya",
+    "pcSleeveId": "PC02-S4",
+    "pcSleeveName": "Pell Santos",
+    "contactId": "C17",
+    "contactHistoricalIdentity": "Hanzo Irei",
+    "category": "rival",
+    "historicalIncident": "Hanzo Irei pursued the same objective as Tomas “Latch” Araya during the Pell Santos lifetime, repeatedly forcing the two to compete over evidence, access and credibility while corporate network architect; found illegally copied employee DHFs. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Snaps disposable gloves before negotiations and refers to people by contract role rather than name.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC02-4-ally",
+    "pcId": "PC02",
+    "pcName": "Tomas “Latch” Araya",
+    "pcSleeveId": "PC02-S4",
+    "pcSleeveName": "Pell Santos",
+    "contactId": "C14",
+    "contactHistoricalIdentity": "Emil Navarro",
+    "category": "ally",
+    "historicalIncident": "Emil Navarro became a trusted operational ally during the Pell Santos lifetime. While corporate network architect; found illegally copied employee DHFs., the ally provided access, cover or expertise that kept Tomas “Latch” Araya alive long enough to carry the investigation forward.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Pauses before saying a suspect’s name and still uses the private code phrase “blue rain” for a compromised scene.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC02-4-loved-one",
+    "pcId": "PC02",
+    "pcName": "Tomas “Latch” Araya",
+    "pcSleeveId": "PC02-S4",
+    "pcSleeveName": "Pell Santos",
+    "contactId": "C11",
+    "contactHistoricalIdentity": "Keiko Marr",
+    "category": "loved-one",
+    "historicalIncident": "Keiko Marr was the person to whom Tomas “Latch” Araya was most emotionally exposed during the Pell Santos lifetime. Their relationship developed alongside the events in which corporate network architect; found illegally copied employee DHFs., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "Deliver the 2274 relay logs and help Latch verify the encryption seed before corporate security deletes the last cold backups.",
+    "recognitionClues": [
+      "Counts down network handshakes under her breath and still uses Latch’s obsolete diagnostic nickname for corrupted packets.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC02-5-enemy",
+    "pcId": "PC02",
+    "pcName": "Tomas “Latch” Araya",
+    "pcSleeveId": "PC02-S5",
+    "pcSleeveName": "Latch Araya",
+    "contactId": "C01",
+    "contactHistoricalIdentity": "Lucan Vey",
+    "category": "enemy",
+    "historicalIncident": "During the Latch Araya lifetime, Lucan Vey became a direct enemy while palimpsest cryptographer; split the evidence archive between eight DHFs. Their conflict was personal enough that the PC learned to recognise Lucan Vey by methods and choices rather than appearance.",
+    "presentAgenda": "Complete Palimpsest by recovering the eight experiential fragments, while convincing the PCs that the project is the only way to repair the damage already done to them.",
+    "recognitionClues": [
+      "When cornered, taps two fingers against the inside of the left wrist before answering; still calls difficult problems “dirty mirrors.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC02-5-rival",
+    "pcId": "PC02",
+    "pcName": "Tomas “Latch” Araya",
+    "pcSleeveId": "PC02-S5",
+    "pcSleeveName": "Latch Araya",
+    "contactId": "C03",
+    "contactHistoricalIdentity": "Gideon Saye",
+    "category": "rival",
+    "historicalIncident": "Gideon Saye pursued the same objective as Tomas “Latch” Araya during the Latch Araya lifetime, repeatedly forcing the two to compete over evidence, access and credibility while palimpsest cryptographer; split the evidence archive between eight DHFs. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "Keep the Meth investment chain hidden, acquire the publication fragment, and turn Palimpsest into an exclusive continuity service for dynastic clients.",
+    "recognitionClues": [
+      "Never drinks from the first glass offered and still quotes account numbers from memory when irritated.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC02-5-ally",
+    "pcId": "PC02",
+    "pcName": "Tomas “Latch” Araya",
+    "pcSleeveId": "PC02-S5",
+    "pcSleeveName": "Latch Araya",
+    "contactId": "C04",
+    "contactHistoricalIdentity": "Talia Venn",
+    "category": "ally",
+    "historicalIncident": "Talia Venn became a trusted operational ally during the Latch Araya lifetime. While palimpsest cryptographer; split the evidence archive between eight DHFs., the ally provided access, cover or expertise that kept Tomas “Latch” Araya alive long enough to carry the investigation forward.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Checks a patient’s pupils with the same three-count rhythm and says “stay with me” before difficult medical truths.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC02-5-loved-one",
+    "pcId": "PC02",
+    "pcName": "Tomas “Latch” Araya",
+    "pcSleeveId": "PC02-S5",
+    "pcSleeveName": "Latch Araya",
+    "contactId": "C11",
+    "contactHistoricalIdentity": "Keiko Marr",
+    "category": "loved-one",
+    "historicalIncident": "Keiko Marr was the person to whom Tomas “Latch” Araya was most emotionally exposed during the Latch Araya lifetime. Their relationship developed alongside the events in which palimpsest cryptographer; split the evidence archive between eight DHFs., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "Deliver the 2274 relay logs and help Latch verify the encryption seed before corporate security deletes the last cold backups.",
+    "recognitionClues": [
+      "Counts down network handshakes under her breath and still uses Latch’s obsolete diagnostic nickname for corrupted packets.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC03-1-enemy",
+    "pcId": "PC03",
+    "pcName": "Sabine Kade",
+    "pcSleeveId": "PC03-S1",
+    "pcSleeveName": "Sabine Kade",
+    "contactId": "C13",
+    "contactHistoricalIdentity": "Celeste Ardan",
+    "category": "enemy",
+    "historicalIncident": "During the Sabine Kade lifetime, Celeste Ardan became a direct enemy while original Meth-family birth sleeve; poisoned during an inheritance struggle. Their conflict was personal enough that the PC learned to recognise Celeste Ardan by methods and choices rather than appearance.",
+    "presentAgenda": "Preserve the Ardan fortune and prevent the Palimpsest funding trail from becoming admissible evidence; if that fails, buy the PCs.",
+    "recognitionClues": [
+      "Never uses contractions when angry and wears a recreated signet scar beneath the right thumb.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC03-1-rival",
+    "pcId": "PC03",
+    "pcName": "Sabine Kade",
+    "pcSleeveId": "PC03-S1",
+    "pcSleeveName": "Sabine Kade",
+    "contactId": "C03",
+    "contactHistoricalIdentity": "Gideon Saye",
+    "category": "rival",
+    "historicalIncident": "Gideon Saye pursued the same objective as Sabine Kade during the Sabine Kade lifetime, repeatedly forcing the two to compete over evidence, access and credibility while original Meth-family birth sleeve; poisoned during an inheritance struggle. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "Keep the Meth investment chain hidden, acquire the publication fragment, and turn Palimpsest into an exclusive continuity service for dynastic clients.",
+    "recognitionClues": [
+      "Never drinks from the first glass offered and still quotes account numbers from memory when irritated.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC03-1-ally",
+    "pcId": "PC03",
+    "pcName": "Sabine Kade",
+    "pcSleeveId": "PC03-S1",
+    "pcSleeveName": "Sabine Kade",
+    "contactId": "C20",
+    "contactHistoricalIdentity": "Sera Bale",
+    "category": "ally",
+    "historicalIncident": "Sera Bale became a trusted operational ally during the Sabine Kade lifetime. While original Meth-family birth sleeve; poisoned during an inheritance struggle., the ally provided access, cover or expertise that kept Sabine Kade alive long enough to carry the investigation forward.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Takes notes by hand first, then digitises them, and repeats the phrase “consent survives the sleeve.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC03-1-loved-one",
+    "pcId": "PC03",
+    "pcName": "Sabine Kade",
+    "pcSleeveId": "PC03-S1",
+    "pcSleeveName": "Sabine Kade",
+    "contactId": "C05",
+    "contactHistoricalIdentity": "Ysabel Chen",
+    "category": "loved-one",
+    "historicalIncident": "Ysabel Chen was the person to whom Sabine Kade was most emotionally exposed during the Sabine Kade lifetime. Their relationship developed alongside the events in which original Meth-family birth sleeve; poisoned during an inheritance struggle., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "Protect Grounders from forced resleeving and use the PCs’ evidence to break the Continuity Foundation’s hold over cheap sleeve allocation.",
+    "recognitionClues": [
+      "Folds paper into a tiny crane while thinking and remembers exactly how each PC took their coffee or stimulant.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC03-2-enemy",
+    "pcId": "PC03",
+    "pcName": "Sabine Kade",
+    "pcSleeveId": "PC03-S2",
+    "pcSleeveName": "Aiko Rann",
+    "contactId": "C02",
+    "contactHistoricalIdentity": "Mara Kest",
+    "category": "enemy",
+    "historicalIncident": "During the Aiko Rann lifetime, Mara Kest became a direct enemy while colonial diplomat; prevented a labour massacre and was assassinated. Their conflict was personal enough that the PC learned to recognise Mara Kest by methods and choices rather than appearance.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Squares every object on a table before an interrogation and uses the old field phrase “secure the person, not the sleeve.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC03-2-rival",
+    "pcId": "PC03",
+    "pcName": "Sabine Kade",
+    "pcSleeveId": "PC03-S2",
+    "pcSleeveName": "Aiko Rann",
+    "contactId": "C09",
+    "contactHistoricalIdentity": "Rhea Damar",
+    "category": "rival",
+    "historicalIncident": "Rhea Damar pursued the same objective as Sabine Kade during the Aiko Rann lifetime, repeatedly forcing the two to compete over evidence, access and credibility while colonial diplomat; prevented a labour massacre and was assassinated. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Straightens her cuffs before contradicting someone and says “for the record” even in private.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC03-2-ally",
+    "pcId": "PC03",
+    "pcName": "Sabine Kade",
+    "pcSleeveId": "PC03-S2",
+    "pcSleeveName": "Aiko Rann",
+    "contactId": "C06",
+    "contactHistoricalIdentity": "Osei Quade",
+    "category": "ally",
+    "historicalIncident": "Osei Quade became a trusted operational ally during the Aiko Rann lifetime. While colonial diplomat; prevented a labour massacre and was assassinated., the ally provided access, cover or expertise that kept Sabine Kade alive long enough to carry the investigation forward.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Touches thumb to brow before making a promise and refuses to call a stored DHF “cargo.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC03-2-loved-one",
+    "pcId": "PC03",
+    "pcName": "Sabine Kade",
+    "pcSleeveId": "PC03-S2",
+    "pcSleeveName": "Aiko Rann",
+    "contactId": "C15",
+    "contactHistoricalIdentity": "Farah Nouri",
+    "category": "loved-one",
+    "historicalIncident": "Farah Nouri was the person to whom Sabine Kade was most emotionally exposed during the Aiko Rann lifetime. Their relationship developed alongside the events in which colonial diplomat; prevented a labour massacre and was assassinated., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Rubs the bridge of her nose when reading a neural map and corrects medical terminology even during arguments.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC03-3-enemy",
+    "pcId": "PC03",
+    "pcName": "Sabine Kade",
+    "pcSleeveId": "PC03-S3",
+    "pcSleeveName": "Elias Wren",
+    "contactId": "C01",
+    "contactHistoricalIdentity": "Lucan Vey",
+    "category": "enemy",
+    "historicalIncident": "During the Elias Wren lifetime, Lucan Vey became a direct enemy while wealth auditor; uncovered clone-bank laundering. Their conflict was personal enough that the PC learned to recognise Lucan Vey by methods and choices rather than appearance.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "When cornered, taps two fingers against the inside of the left wrist before answering; still calls difficult problems “dirty mirrors.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC03-3-rival",
+    "pcId": "PC03",
+    "pcName": "Sabine Kade",
+    "pcSleeveId": "PC03-S3",
+    "pcSleeveName": "Elias Wren",
+    "contactId": "C07",
+    "contactHistoricalIdentity": "Dax Marrow",
+    "category": "rival",
+    "historicalIncident": "Dax Marrow pursued the same objective as Sabine Kade during the Elias Wren lifetime, repeatedly forcing the two to compete over evidence, access and credibility while wealth auditor; uncovered clone-bank laundering. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Flips a coin across the knuckles when lying and uses the phrase “debts outlive bodies.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC03-3-ally",
+    "pcId": "PC03",
+    "pcName": "Sabine Kade",
+    "pcSleeveId": "PC03-S3",
+    "pcSleeveName": "Elias Wren",
+    "contactId": "C14",
+    "contactHistoricalIdentity": "Emil Navarro",
+    "category": "ally",
+    "historicalIncident": "Emil Navarro became a trusted operational ally during the Elias Wren lifetime. While wealth auditor; uncovered clone-bank laundering., the ally provided access, cover or expertise that kept Sabine Kade alive long enough to carry the investigation forward.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Pauses before saying a suspect’s name and still uses the private code phrase “blue rain” for a compromised scene.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC03-3-loved-one",
+    "pcId": "PC03",
+    "pcName": "Sabine Kade",
+    "pcSleeveId": "PC03-S3",
+    "pcSleeveName": "Elias Wren",
+    "contactId": "C04",
+    "contactHistoricalIdentity": "Talia Venn",
+    "category": "loved-one",
+    "historicalIncident": "Talia Venn was the person to whom Sabine Kade was most emotionally exposed during the Elias Wren lifetime. Their relationship developed alongside the events in which wealth auditor; uncovered clone-bank laundering., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Checks a patient’s pupils with the same three-count rhythm and says “stay with me” before difficult medical truths.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC03-4-enemy",
+    "pcId": "PC03",
+    "pcName": "Sabine Kade",
+    "pcSleeveId": "PC03-S4",
+    "pcSleeveName": "Nura Kade",
+    "contactId": "C13",
+    "contactHistoricalIdentity": "Celeste Ardan",
+    "category": "enemy",
+    "historicalIncident": "During the Nura Kade lifetime, Celeste Ardan became a direct enemy while aerium clone; publicly defected from her family. Their conflict was personal enough that the PC learned to recognise Celeste Ardan by methods and choices rather than appearance.",
+    "presentAgenda": "Preserve the Ardan fortune and prevent the Palimpsest funding trail from becoming admissible evidence; if that fails, buy the PCs.",
+    "recognitionClues": [
+      "Never uses contractions when angry and wears a recreated signet scar beneath the right thumb.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC03-4-rival",
+    "pcId": "PC03",
+    "pcName": "Sabine Kade",
+    "pcSleeveId": "PC03-S4",
+    "pcSleeveName": "Nura Kade",
+    "contactId": "C03",
+    "contactHistoricalIdentity": "Gideon Saye",
+    "category": "rival",
+    "historicalIncident": "Gideon Saye pursued the same objective as Sabine Kade during the Nura Kade lifetime, repeatedly forcing the two to compete over evidence, access and credibility while aerium clone; publicly defected from her family. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "Keep the Meth investment chain hidden, acquire the publication fragment, and turn Palimpsest into an exclusive continuity service for dynastic clients.",
+    "recognitionClues": [
+      "Never drinks from the first glass offered and still quotes account numbers from memory when irritated.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC03-4-ally",
+    "pcId": "PC03",
+    "pcName": "Sabine Kade",
+    "pcSleeveId": "PC03-S4",
+    "pcSleeveName": "Nura Kade",
+    "contactId": "C11",
+    "contactHistoricalIdentity": "Keiko Marr",
+    "category": "ally",
+    "historicalIncident": "Keiko Marr became a trusted operational ally during the Nura Kade lifetime. While aerium clone; publicly defected from her family., the ally provided access, cover or expertise that kept Sabine Kade alive long enough to carry the investigation forward.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Counts down network handshakes under her breath and still uses Latch’s obsolete diagnostic nickname for corrupted packets.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC03-4-loved-one",
+    "pcId": "PC03",
+    "pcName": "Sabine Kade",
+    "pcSleeveId": "PC03-S4",
+    "pcSleeveName": "Nura Kade",
+    "contactId": "C05",
+    "contactHistoricalIdentity": "Ysabel Chen",
+    "category": "loved-one",
+    "historicalIncident": "Ysabel Chen was the person to whom Sabine Kade was most emotionally exposed during the Nura Kade lifetime. Their relationship developed alongside the events in which aerium clone; publicly defected from her family., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "Protect Grounders from forced resleeving and use the PCs’ evidence to break the Continuity Foundation’s hold over cheap sleeve allocation.",
+    "recognitionClues": [
+      "Folds paper into a tiny crane while thinking and remembers exactly how each PC took their coffee or stimulant.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC03-5-enemy",
+    "pcId": "PC03",
+    "pcName": "Sabine Kade",
+    "pcSleeveId": "PC03-S5",
+    "pcSleeveName": "Sabine Kade",
+    "contactId": "C03",
+    "contactHistoricalIdentity": "Gideon Saye",
+    "category": "enemy",
+    "historicalIncident": "During the Sabine Kade lifetime, Gideon Saye became a direct enemy while financial whistleblower; traced Palimpsest's Meth investors. Their conflict was personal enough that the PC learned to recognise Gideon Saye by methods and choices rather than appearance.",
+    "presentAgenda": "Keep the Meth investment chain hidden, acquire the publication fragment, and turn Palimpsest into an exclusive continuity service for dynastic clients.",
+    "recognitionClues": [
+      "Never drinks from the first glass offered and still quotes account numbers from memory when irritated.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC03-5-rival",
+    "pcId": "PC03",
+    "pcName": "Sabine Kade",
+    "pcSleeveId": "PC03-S5",
+    "pcSleeveName": "Sabine Kade",
+    "contactId": "C13",
+    "contactHistoricalIdentity": "Celeste Ardan",
+    "category": "rival",
+    "historicalIncident": "Celeste Ardan pursued the same objective as Sabine Kade during the Sabine Kade lifetime, repeatedly forcing the two to compete over evidence, access and credibility while financial whistleblower; traced Palimpsest's Meth investors. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "Preserve the Ardan fortune and prevent the Palimpsest funding trail from becoming admissible evidence; if that fails, buy the PCs.",
+    "recognitionClues": [
+      "Never uses contractions when angry and wears a recreated signet scar beneath the right thumb.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC03-5-ally",
+    "pcId": "PC03",
+    "pcName": "Sabine Kade",
+    "pcSleeveId": "PC03-S5",
+    "pcSleeveName": "Sabine Kade",
+    "contactId": "C20",
+    "contactHistoricalIdentity": "Sera Bale",
+    "category": "ally",
+    "historicalIncident": "Sera Bale became a trusted operational ally during the Sabine Kade lifetime. While financial whistleblower; traced Palimpsest's Meth investors., the ally provided access, cover or expertise that kept Sabine Kade alive long enough to carry the investigation forward.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Takes notes by hand first, then digitises them, and repeats the phrase “consent survives the sleeve.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC03-5-loved-one",
+    "pcId": "PC03",
+    "pcName": "Sabine Kade",
+    "pcSleeveId": "PC03-S5",
+    "pcSleeveName": "Sabine Kade",
+    "contactId": "C05",
+    "contactHistoricalIdentity": "Ysabel Chen",
+    "category": "loved-one",
+    "historicalIncident": "Ysabel Chen was the person to whom Sabine Kade was most emotionally exposed during the Sabine Kade lifetime. Their relationship developed alongside the events in which financial whistleblower; traced Palimpsest's Meth investors., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "Protect Grounders from forced resleeving and use the PCs’ evidence to break the Continuity Foundation’s hold over cheap sleeve allocation.",
+    "recognitionClues": [
+      "Folds paper into a tiny crane while thinking and remembers exactly how each PC took their coffee or stimulant.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC04-1-enemy",
+    "pcId": "PC04",
+    "pcName": "Imani Voss",
+    "pcSleeveId": "PC04-S1",
+    "pcSleeveName": "Imani Voss",
+    "contactId": "C02",
+    "contactHistoricalIdentity": "Mara Kest",
+    "category": "enemy",
+    "historicalIncident": "During the Imani Voss lifetime, Mara Kest became a direct enemy while colonial security officer; died during a deliberately escalated mining revolt. Their conflict was personal enough that the PC learned to recognise Mara Kest by methods and choices rather than appearance.",
+    "presentAgenda": "Recover the PCs as sealed continuity evidence and prevent a scandal that would destroy careers, but quietly preserve them from Lucan Vey’s extraction teams.",
+    "recognitionClues": [
+      "Squares every object on a table before an interrogation and uses the old field phrase “secure the person, not the sleeve.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC04-1-rival",
+    "pcId": "PC04",
+    "pcName": "Imani Voss",
+    "pcSleeveId": "PC04-S1",
+    "pcSleeveName": "Imani Voss",
+    "contactId": "C10",
+    "contactHistoricalIdentity": "Petar Volkov",
+    "category": "rival",
+    "historicalIncident": "Petar Volkov pursued the same objective as Imani Voss during the Imani Voss lifetime, repeatedly forcing the two to compete over evidence, access and credibility while colonial security officer; died during a deliberately escalated mining revolt. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "Capture one or more PCs alive for the highest bidder, but refuses a contract that explicitly requires stack destruction.",
+    "recognitionClues": [
+      "Checks exits before faces and rolls the right shoulder before violence, an old injury habit recreated in every sleeve.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC04-1-ally",
+    "pcId": "PC04",
+    "pcName": "Imani Voss",
+    "pcSleeveId": "PC04-S1",
+    "pcSleeveName": "Imani Voss",
+    "contactId": "C06",
+    "contactHistoricalIdentity": "Osei Quade",
+    "category": "ally",
+    "historicalIncident": "Osei Quade became a trusted operational ally during the Imani Voss lifetime. While colonial security officer; died during a deliberately escalated mining revolt., the ally provided access, cover or expertise that kept Imani Voss alive long enough to carry the investigation forward.",
+    "presentAgenda": "Expose Palimpsest, but salvage its ability to remove coercive conditioning from political prisoners.",
+    "recognitionClues": [
+      "Touches thumb to brow before making a promise and refuses to call a stored DHF “cargo.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC04-1-loved-one",
+    "pcId": "PC04",
+    "pcName": "Imani Voss",
+    "pcSleeveId": "PC04-S1",
+    "pcSleeveName": "Imani Voss",
+    "contactId": "C15",
+    "contactHistoricalIdentity": "Farah Nouri",
+    "category": "loved-one",
+    "historicalIncident": "Farah Nouri was the person to whom Imani Voss was most emotionally exposed during the Imani Voss lifetime. Their relationship developed alongside the events in which colonial security officer; died during a deliberately escalated mining revolt., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Rubs the bridge of her nose when reading a neural map and corrects medical terminology even during arguments.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC04-2-enemy",
+    "pcId": "PC04",
+    "pcName": "Imani Voss",
+    "pcSleeveId": "PC04-S2",
+    "pcSleeveName": "Tomas Kade",
+    "contactId": "C02",
+    "contactHistoricalIdentity": "Mara Kest",
+    "category": "enemy",
+    "historicalIncident": "During the Tomas Kade lifetime, Mara Kest became a direct enemy while protectorate marine; refused an order against civilians. Their conflict was personal enough that the PC learned to recognise Mara Kest by methods and choices rather than appearance.",
+    "presentAgenda": "Recover the PCs as sealed continuity evidence and prevent a scandal that would destroy careers, but quietly preserve them from Lucan Vey’s extraction teams.",
+    "recognitionClues": [
+      "Squares every object on a table before an interrogation and uses the old field phrase “secure the person, not the sleeve.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC04-2-rival",
+    "pcId": "PC04",
+    "pcName": "Imani Voss",
+    "pcSleeveId": "PC04-S2",
+    "pcSleeveName": "Tomas Kade",
+    "contactId": "C17",
+    "contactHistoricalIdentity": "Hanzo Irei",
+    "category": "rival",
+    "historicalIncident": "Hanzo Irei pursued the same objective as Imani Voss during the Tomas Kade lifetime, repeatedly forcing the two to compete over evidence, access and credibility while protectorate marine; refused an order against civilians. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Snaps disposable gloves before negotiations and refers to people by contract role rather than name.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC04-2-ally",
+    "pcId": "PC04",
+    "pcName": "Imani Voss",
+    "pcSleeveId": "PC04-S2",
+    "pcSleeveName": "Tomas Kade",
+    "contactId": "C14",
+    "contactHistoricalIdentity": "Emil Navarro",
+    "category": "ally",
+    "historicalIncident": "Emil Navarro became a trusted operational ally during the Tomas Kade lifetime. While protectorate marine; refused an order against civilians., the ally provided access, cover or expertise that kept Imani Voss alive long enough to carry the investigation forward.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Pauses before saying a suspect’s name and still uses the private code phrase “blue rain” for a compromised scene.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC04-2-loved-one",
+    "pcId": "PC04",
+    "pcName": "Imani Voss",
+    "pcSleeveId": "PC04-S2",
+    "pcSleeveName": "Tomas Kade",
+    "contactId": "C09",
+    "contactHistoricalIdentity": "Rhea Damar",
+    "category": "loved-one",
+    "historicalIncident": "Rhea Damar was the person to whom Imani Voss was most emotionally exposed during the Tomas Kade lifetime. Their relationship developed alongside the events in which protectorate marine; refused an order against civilians., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Straightens her cuffs before contradicting someone and says “for the record” even in private.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC04-3-enemy",
+    "pcId": "PC04",
+    "pcName": "Imani Voss",
+    "pcSleeveId": "PC04-S3",
+    "pcSleeveName": "Zuri Okafor",
+    "contactId": "C07",
+    "contactHistoricalIdentity": "Dax Marrow",
+    "category": "enemy",
+    "historicalIncident": "During the Zuri Okafor lifetime, Dax Marrow became a direct enemy while freelance extraction specialist; rescued illegally transported stacks. Their conflict was personal enough that the PC learned to recognise Dax Marrow by methods and choices rather than appearance.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Flips a coin across the knuckles when lying and uses the phrase “debts outlive bodies.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC04-3-rival",
+    "pcId": "PC04",
+    "pcName": "Imani Voss",
+    "pcSleeveId": "PC04-S3",
+    "pcSleeveName": "Zuri Okafor",
+    "contactId": "C10",
+    "contactHistoricalIdentity": "Petar Volkov",
+    "category": "rival",
+    "historicalIncident": "Petar Volkov pursued the same objective as Imani Voss during the Zuri Okafor lifetime, repeatedly forcing the two to compete over evidence, access and credibility while freelance extraction specialist; rescued illegally transported stacks. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "Capture one or more PCs alive for the highest bidder, but refuses a contract that explicitly requires stack destruction.",
+    "recognitionClues": [
+      "Checks exits before faces and rolls the right shoulder before violence, an old injury habit recreated in every sleeve.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC04-3-ally",
+    "pcId": "PC04",
+    "pcName": "Imani Voss",
+    "pcSleeveId": "PC04-S3",
+    "pcSleeveName": "Zuri Okafor",
+    "contactId": "C05",
+    "contactHistoricalIdentity": "Ysabel Chen",
+    "category": "ally",
+    "historicalIncident": "Ysabel Chen became a trusted operational ally during the Zuri Okafor lifetime. While freelance extraction specialist; rescued illegally transported stacks., the ally provided access, cover or expertise that kept Imani Voss alive long enough to carry the investigation forward.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Folds paper into a tiny crane while thinking and remembers exactly how each PC took their coffee or stimulant.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC04-3-loved-one",
+    "pcId": "PC04",
+    "pcName": "Imani Voss",
+    "pcSleeveId": "PC04-S3",
+    "pcSleeveName": "Zuri Okafor",
+    "contactId": "C06",
+    "contactHistoricalIdentity": "Osei Quade",
+    "category": "loved-one",
+    "historicalIncident": "Osei Quade was the person to whom Imani Voss was most emotionally exposed during the Zuri Okafor lifetime. Their relationship developed alongside the events in which freelance extraction specialist; rescued illegally transported stacks., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "Expose Palimpsest, but salvage its ability to remove coercive conditioning from political prisoners.",
+    "recognitionClues": [
+      "Touches thumb to brow before making a promise and refuses to call a stored DHF “cargo.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC04-4-enemy",
+    "pcId": "PC04",
+    "pcName": "Imani Voss",
+    "pcSleeveId": "PC04-S4",
+    "pcSleeveName": "Kenji Soren",
+    "contactId": "C02",
+    "contactHistoricalIdentity": "Mara Kest",
+    "category": "enemy",
+    "historicalIncident": "During the Kenji Soren lifetime, Mara Kest became a direct enemy while tactical training sleeve; discovered conditioning hidden in CTAC therapy. Their conflict was personal enough that the PC learned to recognise Mara Kest by methods and choices rather than appearance.",
+    "presentAgenda": "Recover the PCs as sealed continuity evidence and prevent a scandal that would destroy careers, but quietly preserve them from Lucan Vey’s extraction teams.",
+    "recognitionClues": [
+      "Squares every object on a table before an interrogation and uses the old field phrase “secure the person, not the sleeve.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC04-4-rival",
+    "pcId": "PC04",
+    "pcName": "Imani Voss",
+    "pcSleeveId": "PC04-S4",
+    "pcSleeveName": "Kenji Soren",
+    "contactId": "C17",
+    "contactHistoricalIdentity": "Hanzo Irei",
+    "category": "rival",
+    "historicalIncident": "Hanzo Irei pursued the same objective as Imani Voss during the Kenji Soren lifetime, repeatedly forcing the two to compete over evidence, access and credibility while tactical training sleeve; discovered conditioning hidden in CTAC therapy. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Snaps disposable gloves before negotiations and refers to people by contract role rather than name.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC04-4-ally",
+    "pcId": "PC04",
+    "pcName": "Imani Voss",
+    "pcSleeveId": "PC04-S4",
+    "pcSleeveName": "Kenji Soren",
+    "contactId": "C11",
+    "contactHistoricalIdentity": "Keiko Marr",
+    "category": "ally",
+    "historicalIncident": "Keiko Marr became a trusted operational ally during the Kenji Soren lifetime. While tactical training sleeve; discovered conditioning hidden in CTAC therapy., the ally provided access, cover or expertise that kept Imani Voss alive long enough to carry the investigation forward.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Counts down network handshakes under her breath and still uses Latch’s obsolete diagnostic nickname for corrupted packets.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC04-4-loved-one",
+    "pcId": "PC04",
+    "pcName": "Imani Voss",
+    "pcSleeveId": "PC04-S4",
+    "pcSleeveName": "Kenji Soren",
+    "contactId": "C04",
+    "contactHistoricalIdentity": "Talia Venn",
+    "category": "loved-one",
+    "historicalIncident": "Talia Venn was the person to whom Imani Voss was most emotionally exposed during the Kenji Soren lifetime. Their relationship developed alongside the events in which tactical training sleeve; discovered conditioning hidden in CTAC therapy., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Checks a patient’s pupils with the same three-count rhythm and says “stay with me” before difficult medical truths.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC04-5-enemy",
+    "pcId": "PC04",
+    "pcName": "Imani Voss",
+    "pcSleeveId": "PC04-S5",
+    "pcSleeveName": "Imani Voss",
+    "contactId": "C02",
+    "contactHistoricalIdentity": "Mara Kest",
+    "category": "enemy",
+    "historicalIncident": "During the Imani Voss lifetime, Mara Kest became a direct enemy while security chief for the Palimpsest witnesses; captured during the final raid. Their conflict was personal enough that the PC learned to recognise Mara Kest by methods and choices rather than appearance.",
+    "presentAgenda": "Recover the PCs as sealed continuity evidence and prevent a scandal that would destroy careers, but quietly preserve them from Lucan Vey’s extraction teams.",
+    "recognitionClues": [
+      "Squares every object on a table before an interrogation and uses the old field phrase “secure the person, not the sleeve.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC04-5-rival",
+    "pcId": "PC04",
+    "pcName": "Imani Voss",
+    "pcSleeveId": "PC04-S5",
+    "pcSleeveName": "Imani Voss",
+    "contactId": "C10",
+    "contactHistoricalIdentity": "Petar Volkov",
+    "category": "rival",
+    "historicalIncident": "Petar Volkov pursued the same objective as Imani Voss during the Imani Voss lifetime, repeatedly forcing the two to compete over evidence, access and credibility while security chief for the Palimpsest witnesses; captured during the final raid. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "Capture one or more PCs alive for the highest bidder, but refuses a contract that explicitly requires stack destruction.",
+    "recognitionClues": [
+      "Checks exits before faces and rolls the right shoulder before violence, an old injury habit recreated in every sleeve.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC04-5-ally",
+    "pcId": "PC04",
+    "pcName": "Imani Voss",
+    "pcSleeveId": "PC04-S5",
+    "pcSleeveName": "Imani Voss",
+    "contactId": "C06",
+    "contactHistoricalIdentity": "Osei Quade",
+    "category": "ally",
+    "historicalIncident": "Osei Quade became a trusted operational ally during the Imani Voss lifetime. While security chief for the Palimpsest witnesses; captured during the final raid., the ally provided access, cover or expertise that kept Imani Voss alive long enough to carry the investigation forward.",
+    "presentAgenda": "Expose Palimpsest, but salvage its ability to remove coercive conditioning from political prisoners.",
+    "recognitionClues": [
+      "Touches thumb to brow before making a promise and refuses to call a stored DHF “cargo.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC04-5-loved-one",
+    "pcId": "PC04",
+    "pcName": "Imani Voss",
+    "pcSleeveId": "PC04-S5",
+    "pcSleeveName": "Imani Voss",
+    "contactId": "C15",
+    "contactHistoricalIdentity": "Farah Nouri",
+    "category": "loved-one",
+    "historicalIncident": "Farah Nouri was the person to whom Imani Voss was most emotionally exposed during the Imani Voss lifetime. Their relationship developed alongside the events in which security chief for the Palimpsest witnesses; captured during the final raid., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Rubs the bridge of her nose when reading a neural map and corrects medical terminology even during arguments.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC05-1-enemy",
+    "pcId": "PC05",
+    "pcName": "Cass Ren",
+    "pcSleeveId": "PC05-S1",
+    "pcSleeveName": "Cass Ren",
+    "contactId": "C07",
+    "contactHistoricalIdentity": "Dax Marrow",
+    "category": "enemy",
+    "historicalIncident": "During the Cass Ren lifetime, Dax Marrow became a direct enemy while rainline courier; stole a stack from the Blue Lotus Combine. Their conflict was personal enough that the PC learned to recognise Dax Marrow by methods and choices rather than appearance.",
+    "presentAgenda": "Trade whichever fragments create the greatest leverage, erase evidence of old betrayals, and preserve the Combine’s monopoly over identity laundering.",
+    "recognitionClues": [
+      "Flips a coin across the knuckles when lying and uses the phrase “debts outlive bodies.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC05-1-rival",
+    "pcId": "PC05",
+    "pcName": "Cass Ren",
+    "pcSleeveId": "PC05-S1",
+    "pcSleeveName": "Cass Ren",
+    "contactId": "C16",
+    "contactHistoricalIdentity": "Juno Sera",
+    "category": "rival",
+    "historicalIncident": "Juno Sera pursued the same objective as Cass Ren during the Cass Ren lifetime, repeatedly forcing the two to compete over evidence, access and credibility while rainline courier; stole a stack from the Blue Lotus Combine. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "Sell information to both sides while keeping Cass alive; their old intimacy is real, but so is the business built during Cass’s absence.",
+    "recognitionClues": [
+      "Humms the first four notes of an old Rainline song when opening a secure channel and never sits with their back to glass.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC05-1-ally",
+    "pcId": "PC05",
+    "pcName": "Cass Ren",
+    "pcSleeveId": "PC05-S1",
+    "pcSleeveName": "Cass Ren",
+    "contactId": "C05",
+    "contactHistoricalIdentity": "Ysabel Chen",
+    "category": "ally",
+    "historicalIncident": "Ysabel Chen became a trusted operational ally during the Cass Ren lifetime. While rainline courier; stole a stack from the Blue Lotus Combine., the ally provided access, cover or expertise that kept Cass Ren alive long enough to carry the investigation forward.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Folds paper into a tiny crane while thinking and remembers exactly how each PC took their coffee or stimulant.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC05-1-loved-one",
+    "pcId": "PC05",
+    "pcName": "Cass Ren",
+    "pcSleeveId": "PC05-S1",
+    "pcSleeveName": "Cass Ren",
+    "contactId": "C20",
+    "contactHistoricalIdentity": "Sera Bale",
+    "category": "loved-one",
+    "historicalIncident": "Sera Bale was the person to whom Cass Ren was most emotionally exposed during the Cass Ren lifetime. Their relationship developed alongside the events in which rainline courier; stole a stack from the Blue Lotus Combine., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Takes notes by hand first, then digitises them, and repeats the phrase “consent survives the sleeve.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC05-2-enemy",
+    "pcId": "PC05",
+    "pcName": "Cass Ren",
+    "pcSleeveId": "PC05-S2",
+    "pcSleeveName": "Mara Qin",
+    "contactId": "C17",
+    "contactHistoricalIdentity": "Hanzo Irei",
+    "category": "enemy",
+    "historicalIncident": "During the Mara Qin lifetime, Hanzo Irei became a direct enemy while criminal logistics specialist; smuggled political prisoners off-world. Their conflict was personal enough that the PC learned to recognise Hanzo Irei by methods and choices rather than appearance.",
+    "presentAgenda": "Destroy the smuggling-route fragment and capture technical witnesses who can tie corporate extraction teams to Palimpsest.",
+    "recognitionClues": [
+      "Snaps disposable gloves before negotiations and refers to people by contract role rather than name.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC05-2-rival",
+    "pcId": "PC05",
+    "pcName": "Cass Ren",
+    "pcSleeveId": "PC05-S2",
+    "pcSleeveName": "Mara Qin",
+    "contactId": "C07",
+    "contactHistoricalIdentity": "Dax Marrow",
+    "category": "rival",
+    "historicalIncident": "Dax Marrow pursued the same objective as Cass Ren during the Mara Qin lifetime, repeatedly forcing the two to compete over evidence, access and credibility while criminal logistics specialist; smuggled political prisoners off-world. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "Trade whichever fragments create the greatest leverage, erase evidence of old betrayals, and preserve the Combine’s monopoly over identity laundering.",
+    "recognitionClues": [
+      "Flips a coin across the knuckles when lying and uses the phrase “debts outlive bodies.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC05-2-ally",
+    "pcId": "PC05",
+    "pcName": "Cass Ren",
+    "pcSleeveId": "PC05-S2",
+    "pcSleeveName": "Mara Qin",
+    "contactId": "C11",
+    "contactHistoricalIdentity": "Keiko Marr",
+    "category": "ally",
+    "historicalIncident": "Keiko Marr became a trusted operational ally during the Mara Qin lifetime. While criminal logistics specialist; smuggled political prisoners off-world., the ally provided access, cover or expertise that kept Cass Ren alive long enough to carry the investigation forward.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Counts down network handshakes under her breath and still uses Latch’s obsolete diagnostic nickname for corrupted packets.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC05-2-loved-one",
+    "pcId": "PC05",
+    "pcName": "Cass Ren",
+    "pcSleeveId": "PC05-S2",
+    "pcSleeveName": "Mara Qin",
+    "contactId": "C16",
+    "contactHistoricalIdentity": "Juno Sera",
+    "category": "loved-one",
+    "historicalIncident": "Juno Sera was the person to whom Cass Ren was most emotionally exposed during the Mara Qin lifetime. Their relationship developed alongside the events in which criminal logistics specialist; smuggled political prisoners off-world., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "Sell information to both sides while keeping Cass alive; their old intimacy is real, but so is the business built during Cass’s absence.",
+    "recognitionClues": [
+      "Humms the first four notes of an old Rainline song when opening a secure channel and never sits with their back to glass.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC05-3-enemy",
+    "pcId": "PC05",
+    "pcName": "Cass Ren",
+    "pcSleeveId": "PC05-S3",
+    "pcSleeveName": "Pavel Soren",
+    "contactId": "C10",
+    "contactHistoricalIdentity": "Petar Volkov",
+    "category": "enemy",
+    "historicalIncident": "During the Pavel Soren lifetime, Petar Volkov became a direct enemy while bounty broker; exposed an illegal double-sleeving arrangement. Their conflict was personal enough that the PC learned to recognise Petar Volkov by methods and choices rather than appearance.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Checks exits before faces and rolls the right shoulder before violence, an old injury habit recreated in every sleeve.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC05-3-rival",
+    "pcId": "PC05",
+    "pcName": "Cass Ren",
+    "pcSleeveId": "PC05-S3",
+    "pcSleeveName": "Pavel Soren",
+    "contactId": "C14",
+    "contactHistoricalIdentity": "Emil Navarro",
+    "category": "rival",
+    "historicalIncident": "Emil Navarro pursued the same objective as Cass Ren during the Pavel Soren lifetime, repeatedly forcing the two to compete over evidence, access and credibility while bounty broker; exposed an illegal double-sleeving arrangement. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Pauses before saying a suspect’s name and still uses the private code phrase “blue rain” for a compromised scene.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC05-3-ally",
+    "pcId": "PC05",
+    "pcName": "Cass Ren",
+    "pcSleeveId": "PC05-S3",
+    "pcSleeveName": "Pavel Soren",
+    "contactId": "C06",
+    "contactHistoricalIdentity": "Osei Quade",
+    "category": "ally",
+    "historicalIncident": "Osei Quade became a trusted operational ally during the Pavel Soren lifetime. While bounty broker; exposed an illegal double-sleeving arrangement., the ally provided access, cover or expertise that kept Cass Ren alive long enough to carry the investigation forward.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Touches thumb to brow before making a promise and refuses to call a stored DHF “cargo.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC05-3-loved-one",
+    "pcId": "PC05",
+    "pcName": "Cass Ren",
+    "pcSleeveId": "PC05-S3",
+    "pcSleeveName": "Pavel Soren",
+    "contactId": "C05",
+    "contactHistoricalIdentity": "Ysabel Chen",
+    "category": "loved-one",
+    "historicalIncident": "Ysabel Chen was the person to whom Cass Ren was most emotionally exposed during the Pavel Soren lifetime. Their relationship developed alongside the events in which bounty broker; exposed an illegal double-sleeving arrangement., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Folds paper into a tiny crane while thinking and remembers exactly how each PC took their coffee or stimulant.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC05-4-enemy",
+    "pcId": "PC05",
+    "pcName": "Cass Ren",
+    "pcSleeveId": "PC05-S4",
+    "pcSleeveName": "Aya Ren",
+    "contactId": "C13",
+    "contactHistoricalIdentity": "Celeste Ardan",
+    "category": "enemy",
+    "historicalIncident": "During the Aya Ren lifetime, Celeste Ardan became a direct enemy while nightclub owner and information dealer; died in a deliberately set fire. Their conflict was personal enough that the PC learned to recognise Celeste Ardan by methods and choices rather than appearance.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Never uses contractions when angry and wears a recreated signet scar beneath the right thumb.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC05-4-rival",
+    "pcId": "PC05",
+    "pcName": "Cass Ren",
+    "pcSleeveId": "PC05-S4",
+    "pcSleeveName": "Aya Ren",
+    "contactId": "C16",
+    "contactHistoricalIdentity": "Juno Sera",
+    "category": "rival",
+    "historicalIncident": "Juno Sera pursued the same objective as Cass Ren during the Aya Ren lifetime, repeatedly forcing the two to compete over evidence, access and credibility while nightclub owner and information dealer; died in a deliberately set fire. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "Sell information to both sides while keeping Cass alive; their old intimacy is real, but so is the business built during Cass’s absence.",
+    "recognitionClues": [
+      "Humms the first four notes of an old Rainline song when opening a secure channel and never sits with their back to glass.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC05-4-ally",
+    "pcId": "PC05",
+    "pcName": "Cass Ren",
+    "pcSleeveId": "PC05-S4",
+    "pcSleeveName": "Aya Ren",
+    "contactId": "C18",
+    "contactHistoricalIdentity": "Delia Frost",
+    "category": "ally",
+    "historicalIncident": "Delia Frost became a trusted operational ally during the Aya Ren lifetime. While nightclub owner and information dealer; died in a deliberately set fire., the ally provided access, cover or expertise that kept Cass Ren alive long enough to carry the investigation forward.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Builds virtual rooms with one deliberately impossible shadow and asks visitors what they think is “real enough.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC05-4-loved-one",
+    "pcId": "PC05",
+    "pcName": "Cass Ren",
+    "pcSleeveId": "PC05-S4",
+    "pcSleeveName": "Aya Ren",
+    "contactId": "C07",
+    "contactHistoricalIdentity": "Dax Marrow",
+    "category": "loved-one",
+    "historicalIncident": "Dax Marrow was the person to whom Cass Ren was most emotionally exposed during the Aya Ren lifetime. Their relationship developed alongside the events in which nightclub owner and information dealer; died in a deliberately set fire., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "Trade whichever fragments create the greatest leverage, erase evidence of old betrayals, and preserve the Combine’s monopoly over identity laundering.",
+    "recognitionClues": [
+      "Flips a coin across the knuckles when lying and uses the phrase “debts outlive bodies.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC05-5-enemy",
+    "pcId": "PC05",
+    "pcName": "Cass Ren",
+    "pcSleeveId": "PC05-S5",
+    "pcSleeveName": "Cass Ren",
+    "contactId": "C07",
+    "contactHistoricalIdentity": "Dax Marrow",
+    "category": "enemy",
+    "historicalIncident": "During the Cass Ren lifetime, Dax Marrow became a direct enemy while witness smuggler; tried to move the Palimpsest witnesses beyond Protectorate control. Their conflict was personal enough that the PC learned to recognise Dax Marrow by methods and choices rather than appearance.",
+    "presentAgenda": "Trade whichever fragments create the greatest leverage, erase evidence of old betrayals, and preserve the Combine’s monopoly over identity laundering.",
+    "recognitionClues": [
+      "Flips a coin across the knuckles when lying and uses the phrase “debts outlive bodies.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC05-5-rival",
+    "pcId": "PC05",
+    "pcName": "Cass Ren",
+    "pcSleeveId": "PC05-S5",
+    "pcSleeveName": "Cass Ren",
+    "contactId": "C17",
+    "contactHistoricalIdentity": "Hanzo Irei",
+    "category": "rival",
+    "historicalIncident": "Hanzo Irei pursued the same objective as Cass Ren during the Cass Ren lifetime, repeatedly forcing the two to compete over evidence, access and credibility while witness smuggler; tried to move the Palimpsest witnesses beyond Protectorate control. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "Destroy the smuggling-route fragment and capture technical witnesses who can tie corporate extraction teams to Palimpsest.",
+    "recognitionClues": [
+      "Snaps disposable gloves before negotiations and refers to people by contract role rather than name.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC05-5-ally",
+    "pcId": "PC05",
+    "pcName": "Cass Ren",
+    "pcSleeveId": "PC05-S5",
+    "pcSleeveName": "Cass Ren",
+    "contactId": "C20",
+    "contactHistoricalIdentity": "Sera Bale",
+    "category": "ally",
+    "historicalIncident": "Sera Bale became a trusted operational ally during the Cass Ren lifetime. While witness smuggler; tried to move the Palimpsest witnesses beyond Protectorate control., the ally provided access, cover or expertise that kept Cass Ren alive long enough to carry the investigation forward.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Takes notes by hand first, then digitises them, and repeats the phrase “consent survives the sleeve.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC05-5-loved-one",
+    "pcId": "PC05",
+    "pcName": "Cass Ren",
+    "pcSleeveId": "PC05-S5",
+    "pcSleeveName": "Cass Ren",
+    "contactId": "C16",
+    "contactHistoricalIdentity": "Juno Sera",
+    "category": "loved-one",
+    "historicalIncident": "Juno Sera was the person to whom Cass Ren was most emotionally exposed during the Cass Ren lifetime. Their relationship developed alongside the events in which witness smuggler; tried to move the Palimpsest witnesses beyond Protectorate control., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "Sell information to both sides while keeping Cass alive; their old intimacy is real, but so is the business built during Cass’s absence.",
+    "recognitionClues": [
+      "Humms the first four notes of an old Rainline song when opening a secure channel and never sits with their back to glass.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC06-1-enemy",
+    "pcId": "PC06",
+    "pcName": "Dr Edda Sorn",
+    "pcSleeveId": "PC06-S1",
+    "pcSleeveName": "Edda Sorn",
+    "contactId": "C01",
+    "contactHistoricalIdentity": "Lucan Vey",
+    "category": "enemy",
+    "historicalIncident": "During the Edda Sorn lifetime, Lucan Vey became a direct enemy while resleeving physician; exposed neglect in state sleeve allocation. Their conflict was personal enough that the PC learned to recognise Lucan Vey by methods and choices rather than appearance.",
+    "presentAgenda": "Complete Palimpsest by recovering the eight experiential fragments, while convincing the PCs that the project is the only way to repair the damage already done to them.",
+    "recognitionClues": [
+      "When cornered, taps two fingers against the inside of the left wrist before answering; still calls difficult problems “dirty mirrors.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC06-1-rival",
+    "pcId": "PC06",
+    "pcName": "Dr Edda Sorn",
+    "pcSleeveId": "PC06-S1",
+    "pcSleeveName": "Edda Sorn",
+    "contactId": "C15",
+    "contactHistoricalIdentity": "Farah Nouri",
+    "category": "rival",
+    "historicalIncident": "Farah Nouri pursued the same objective as Dr Edda Sorn during the Edda Sorn lifetime, repeatedly forcing the two to compete over evidence, access and credibility while resleeving physician; exposed neglect in state sleeve allocation. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "Obtain the original Palimpsest procedure to prove her rival Edda crossed ethical lines, while secretly fearing her own memories were edited.",
+    "recognitionClues": [
+      "Rubs the bridge of her nose when reading a neural map and corrects medical terminology even during arguments.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC06-1-ally",
+    "pcId": "PC06",
+    "pcName": "Dr Edda Sorn",
+    "pcSleeveId": "PC06-S1",
+    "pcSleeveName": "Edda Sorn",
+    "contactId": "C04",
+    "contactHistoricalIdentity": "Talia Venn",
+    "category": "ally",
+    "historicalIncident": "Talia Venn became a trusted operational ally during the Edda Sorn lifetime. While resleeving physician; exposed neglect in state sleeve allocation., the ally provided access, cover or expertise that kept Dr Edda Sorn alive long enough to carry the investigation forward.",
+    "presentAgenda": "Keep the awakened DHFs alive long enough to choose for themselves. She helped finance their illegal resleeving and is concealing how much of Palimpsest she once understood.",
+    "recognitionClues": [
+      "Checks a patient’s pupils with the same three-count rhythm and says “stay with me” before difficult medical truths.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC06-1-loved-one",
+    "pcId": "PC06",
+    "pcName": "Dr Edda Sorn",
+    "pcSleeveId": "PC06-S1",
+    "pcSleeveName": "Edda Sorn",
+    "contactId": "C19",
+    "contactHistoricalIdentity": "Amos Dain",
+    "category": "loved-one",
+    "historicalIncident": "Amos Dain was the person to whom Dr Edda Sorn was most emotionally exposed during the Edda Sorn lifetime. Their relationship developed alongside the events in which resleeving physician; exposed neglect in state sleeve allocation., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "Determine whether forged religious coding invalidates decades of testimony and help Edda distinguish guilt from implanted guilt.",
+    "recognitionClues": [
+      "Uses the same short blessing before touching a stack and keeps analogue prayer beads with one missing bead.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC06-2-enemy",
+    "pcId": "PC06",
+    "pcName": "Dr Edda Sorn",
+    "pcSleeveId": "PC06-S2",
+    "pcSleeveName": "Malik Venn",
+    "contactId": "C02",
+    "contactHistoricalIdentity": "Mara Kest",
+    "category": "enemy",
+    "historicalIncident": "During the Malik Venn lifetime, Mara Kest became a direct enemy while combat medic; disobeyed orders to abandon wounded civilians. Their conflict was personal enough that the PC learned to recognise Mara Kest by methods and choices rather than appearance.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Squares every object on a table before an interrogation and uses the old field phrase “secure the person, not the sleeve.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC06-2-rival",
+    "pcId": "PC06",
+    "pcName": "Dr Edda Sorn",
+    "pcSleeveId": "PC06-S2",
+    "pcSleeveName": "Malik Venn",
+    "contactId": "C15",
+    "contactHistoricalIdentity": "Farah Nouri",
+    "category": "rival",
+    "historicalIncident": "Farah Nouri pursued the same objective as Dr Edda Sorn during the Malik Venn lifetime, repeatedly forcing the two to compete over evidence, access and credibility while combat medic; disobeyed orders to abandon wounded civilians. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "Obtain the original Palimpsest procedure to prove her rival Edda crossed ethical lines, while secretly fearing her own memories were edited.",
+    "recognitionClues": [
+      "Rubs the bridge of her nose when reading a neural map and corrects medical terminology even during arguments.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC06-2-ally",
+    "pcId": "PC06",
+    "pcName": "Dr Edda Sorn",
+    "pcSleeveId": "PC06-S2",
+    "pcSleeveName": "Malik Venn",
+    "contactId": "C06",
+    "contactHistoricalIdentity": "Osei Quade",
+    "category": "ally",
+    "historicalIncident": "Osei Quade became a trusted operational ally during the Malik Venn lifetime. While combat medic; disobeyed orders to abandon wounded civilians., the ally provided access, cover or expertise that kept Dr Edda Sorn alive long enough to carry the investigation forward.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Touches thumb to brow before making a promise and refuses to call a stored DHF “cargo.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC06-2-loved-one",
+    "pcId": "PC06",
+    "pcName": "Dr Edda Sorn",
+    "pcSleeveId": "PC06-S2",
+    "pcSleeveName": "Malik Venn",
+    "contactId": "C04",
+    "contactHistoricalIdentity": "Talia Venn",
+    "category": "loved-one",
+    "historicalIncident": "Talia Venn was the person to whom Dr Edda Sorn was most emotionally exposed during the Malik Venn lifetime. Their relationship developed alongside the events in which combat medic; disobeyed orders to abandon wounded civilians., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "Keep the awakened DHFs alive long enough to choose for themselves. She helped finance their illegal resleeving and is concealing how much of Palimpsest she once understood.",
+    "recognitionClues": [
+      "Checks a patient’s pupils with the same three-count rhythm and says “stay with me” before difficult medical truths.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC06-3-enemy",
+    "pcId": "PC06",
+    "pcName": "Dr Edda Sorn",
+    "pcSleeveId": "PC06-S3",
+    "pcSleeveName": "Jian Orell",
+    "contactId": "C03",
+    "contactHistoricalIdentity": "Gideon Saye",
+    "category": "enemy",
+    "historicalIncident": "During the Jian Orell lifetime, Gideon Saye became a direct enemy while dHF trauma specialist; became trapped inside a patient's construct. Their conflict was personal enough that the PC learned to recognise Gideon Saye by methods and choices rather than appearance.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Never drinks from the first glass offered and still quotes account numbers from memory when irritated.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC06-3-rival",
+    "pcId": "PC06",
+    "pcName": "Dr Edda Sorn",
+    "pcSleeveId": "PC06-S3",
+    "pcSleeveName": "Jian Orell",
+    "contactId": "C18",
+    "contactHistoricalIdentity": "Delia Frost",
+    "category": "rival",
+    "historicalIncident": "Delia Frost pursued the same objective as Dr Edda Sorn during the Jian Orell lifetime, repeatedly forcing the two to compete over evidence, access and credibility while dHF trauma specialist; became trapped inside a patient's construct. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Builds virtual rooms with one deliberately impossible shadow and asks visitors what they think is “real enough.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC06-3-ally",
+    "pcId": "PC06",
+    "pcName": "Dr Edda Sorn",
+    "pcSleeveId": "PC06-S3",
+    "pcSleeveName": "Jian Orell",
+    "contactId": "C12",
+    "contactHistoricalIdentity": "Arun Bell",
+    "category": "ally",
+    "historicalIncident": "Arun Bell became a trusted operational ally during the Jian Orell lifetime. While dHF trauma specialist; became trapped inside a patient's construct., the ally provided access, cover or expertise that kept Dr Edda Sorn alive long enough to carry the investigation forward.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Draws diagrams as nested circles and always asks “who owns the copy?” before discussing a system.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC06-3-loved-one",
+    "pcId": "PC06",
+    "pcName": "Dr Edda Sorn",
+    "pcSleeveId": "PC06-S3",
+    "pcSleeveName": "Jian Orell",
+    "contactId": "C15",
+    "contactHistoricalIdentity": "Farah Nouri",
+    "category": "loved-one",
+    "historicalIncident": "Farah Nouri was the person to whom Dr Edda Sorn was most emotionally exposed during the Jian Orell lifetime. Their relationship developed alongside the events in which dHF trauma specialist; became trapped inside a patient's construct., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "Obtain the original Palimpsest procedure to prove her rival Edda crossed ethical lines, while secretly fearing her own memories were edited.",
+    "recognitionClues": [
+      "Rubs the bridge of her nose when reading a neural map and corrects medical terminology even during arguments.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC06-4-enemy",
+    "pcId": "PC06",
+    "pcName": "Dr Edda Sorn",
+    "pcSleeveId": "PC06-S4",
+    "pcSleeveName": "Eleni Sorn",
+    "contactId": "C13",
+    "contactHistoricalIdentity": "Celeste Ardan",
+    "category": "enemy",
+    "historicalIncident": "During the Eleni Sorn lifetime, Celeste Ardan became a direct enemy while aerium clone clinician; exposed involuntary memory alteration. Their conflict was personal enough that the PC learned to recognise Celeste Ardan by methods and choices rather than appearance.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Never uses contractions when angry and wears a recreated signet scar beneath the right thumb.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC06-4-rival",
+    "pcId": "PC06",
+    "pcName": "Dr Edda Sorn",
+    "pcSleeveId": "PC06-S4",
+    "pcSleeveName": "Eleni Sorn",
+    "contactId": "C04",
+    "contactHistoricalIdentity": "Talia Venn",
+    "category": "rival",
+    "historicalIncident": "Talia Venn pursued the same objective as Dr Edda Sorn during the Eleni Sorn lifetime, repeatedly forcing the two to compete over evidence, access and credibility while aerium clone clinician; exposed involuntary memory alteration. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "Keep the awakened DHFs alive long enough to choose for themselves. She helped finance their illegal resleeving and is concealing how much of Palimpsest she once understood.",
+    "recognitionClues": [
+      "Checks a patient’s pupils with the same three-count rhythm and says “stay with me” before difficult medical truths.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC06-4-ally",
+    "pcId": "PC06",
+    "pcName": "Dr Edda Sorn",
+    "pcSleeveId": "PC06-S4",
+    "pcSleeveName": "Eleni Sorn",
+    "contactId": "C20",
+    "contactHistoricalIdentity": "Sera Bale",
+    "category": "ally",
+    "historicalIncident": "Sera Bale became a trusted operational ally during the Eleni Sorn lifetime. While aerium clone clinician; exposed involuntary memory alteration., the ally provided access, cover or expertise that kept Dr Edda Sorn alive long enough to carry the investigation forward.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Takes notes by hand first, then digitises them, and repeats the phrase “consent survives the sleeve.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC06-4-loved-one",
+    "pcId": "PC06",
+    "pcName": "Dr Edda Sorn",
+    "pcSleeveId": "PC06-S4",
+    "pcSleeveName": "Eleni Sorn",
+    "contactId": "C19",
+    "contactHistoricalIdentity": "Amos Dain",
+    "category": "loved-one",
+    "historicalIncident": "Amos Dain was the person to whom Dr Edda Sorn was most emotionally exposed during the Eleni Sorn lifetime. Their relationship developed alongside the events in which aerium clone clinician; exposed involuntary memory alteration., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "Determine whether forged religious coding invalidates decades of testimony and help Edda distinguish guilt from implanted guilt.",
+    "recognitionClues": [
+      "Uses the same short blessing before touching a stack and keeps analogue prayer beads with one missing bead.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC06-5-enemy",
+    "pcId": "PC06",
+    "pcName": "Dr Edda Sorn",
+    "pcSleeveId": "PC06-S5",
+    "pcSleeveName": "Dr Edda Sorn",
+    "contactId": "C01",
+    "contactHistoricalIdentity": "Lucan Vey",
+    "category": "enemy",
+    "historicalIncident": "During the Dr Edda Sorn lifetime, Lucan Vey became a direct enemy while palimpsest ethics lead and covert saboteur. Their conflict was personal enough that the PC learned to recognise Lucan Vey by methods and choices rather than appearance.",
+    "presentAgenda": "Complete Palimpsest by recovering the eight experiential fragments, while convincing the PCs that the project is the only way to repair the damage already done to them.",
+    "recognitionClues": [
+      "When cornered, taps two fingers against the inside of the left wrist before answering; still calls difficult problems “dirty mirrors.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC06-5-rival",
+    "pcId": "PC06",
+    "pcName": "Dr Edda Sorn",
+    "pcSleeveId": "PC06-S5",
+    "pcSleeveName": "Dr Edda Sorn",
+    "contactId": "C15",
+    "contactHistoricalIdentity": "Farah Nouri",
+    "category": "rival",
+    "historicalIncident": "Farah Nouri pursued the same objective as Dr Edda Sorn during the Dr Edda Sorn lifetime, repeatedly forcing the two to compete over evidence, access and credibility while palimpsest ethics lead and covert saboteur. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "Obtain the original Palimpsest procedure to prove her rival Edda crossed ethical lines, while secretly fearing her own memories were edited.",
+    "recognitionClues": [
+      "Rubs the bridge of her nose when reading a neural map and corrects medical terminology even during arguments.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC06-5-ally",
+    "pcId": "PC06",
+    "pcName": "Dr Edda Sorn",
+    "pcSleeveId": "PC06-S5",
+    "pcSleeveName": "Dr Edda Sorn",
+    "contactId": "C04",
+    "contactHistoricalIdentity": "Talia Venn",
+    "category": "ally",
+    "historicalIncident": "Talia Venn became a trusted operational ally during the Dr Edda Sorn lifetime. While palimpsest ethics lead and covert saboteur., the ally provided access, cover or expertise that kept Dr Edda Sorn alive long enough to carry the investigation forward.",
+    "presentAgenda": "Keep the awakened DHFs alive long enough to choose for themselves. She helped finance their illegal resleeving and is concealing how much of Palimpsest she once understood.",
+    "recognitionClues": [
+      "Checks a patient’s pupils with the same three-count rhythm and says “stay with me” before difficult medical truths.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC06-5-loved-one",
+    "pcId": "PC06",
+    "pcName": "Dr Edda Sorn",
+    "pcSleeveId": "PC06-S5",
+    "pcSleeveName": "Dr Edda Sorn",
+    "contactId": "C19",
+    "contactHistoricalIdentity": "Amos Dain",
+    "category": "loved-one",
+    "historicalIncident": "Amos Dain was the person to whom Dr Edda Sorn was most emotionally exposed during the Dr Edda Sorn lifetime. Their relationship developed alongside the events in which palimpsest ethics lead and covert saboteur., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "Determine whether forged religious coding invalidates decades of testimony and help Edda distinguish guilt from implanted guilt.",
+    "recognitionClues": [
+      "Uses the same short blessing before touching a stack and keeps analogue prayer beads with one missing bead.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC07-1-enemy",
+    "pcId": "PC07",
+    "pcName": "Anik Rao",
+    "pcSleeveId": "PC07-S1",
+    "pcSleeveName": "Anik Rao",
+    "contactId": "C03",
+    "contactHistoricalIdentity": "Gideon Saye",
+    "category": "enemy",
+    "historicalIncident": "During the Anik Rao lifetime, Gideon Saye became a direct enemy while virtuality-game architect; a corporate client stole the programme and killed the sleeve. Their conflict was personal enough that the PC learned to recognise Gideon Saye by methods and choices rather than appearance.",
+    "presentAgenda": "Keep the Meth investment chain hidden, acquire the publication fragment, and turn Palimpsest into an exclusive continuity service for dynastic clients.",
+    "recognitionClues": [
+      "Never drinks from the first glass offered and still quotes account numbers from memory when irritated.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC07-1-rival",
+    "pcId": "PC07",
+    "pcName": "Anik Rao",
+    "pcSleeveId": "PC07-S1",
+    "pcSleeveName": "Anik Rao",
+    "contactId": "C18",
+    "contactHistoricalIdentity": "Delia Frost",
+    "category": "rival",
+    "historicalIncident": "Delia Frost pursued the same objective as Anik Rao during the Anik Rao lifetime, repeatedly forcing the two to compete over evidence, access and credibility while virtuality-game architect; a corporate client stole the programme and killed the sleeve. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "Regain control of the Palimpsest architecture and prove that Anik stole credit for work they once built together.",
+    "recognitionClues": [
+      "Builds virtual rooms with one deliberately impossible shadow and asks visitors what they think is “real enough.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC07-1-ally",
+    "pcId": "PC07",
+    "pcName": "Anik Rao",
+    "pcSleeveId": "PC07-S1",
+    "pcSleeveName": "Anik Rao",
+    "contactId": "C12",
+    "contactHistoricalIdentity": "Arun Bell",
+    "category": "ally",
+    "historicalIncident": "Arun Bell became a trusted operational ally during the Anik Rao lifetime. While virtuality-game architect; a corporate client stole the programme and killed the sleeve., the ally provided access, cover or expertise that kept Anik Rao alive long enough to carry the investigation forward.",
+    "presentAgenda": "Prove that continuity rights belong to the DHF rather than the corporation or state that owns a sleeve, then publish a defensible technical record.",
+    "recognitionClues": [
+      "Draws diagrams as nested circles and always asks “who owns the copy?” before discussing a system.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC07-1-loved-one",
+    "pcId": "PC07",
+    "pcName": "Anik Rao",
+    "pcSleeveId": "PC07-S1",
+    "pcSleeveName": "Anik Rao",
+    "contactId": "C16",
+    "contactHistoricalIdentity": "Juno Sera",
+    "category": "loved-one",
+    "historicalIncident": "Juno Sera was the person to whom Anik Rao was most emotionally exposed during the Anik Rao lifetime. Their relationship developed alongside the events in which virtuality-game architect; a corporate client stole the programme and killed the sleeve., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Humms the first four notes of an old Rainline song when opening a secure channel and never sits with their back to glass.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC07-2-enemy",
+    "pcId": "PC07",
+    "pcName": "Anik Rao",
+    "pcSleeveId": "PC07-S2",
+    "pcSleeveName": "Lian Rao",
+    "contactId": "C01",
+    "contactHistoricalIdentity": "Lucan Vey",
+    "category": "enemy",
+    "historicalIncident": "During the Lian Rao lifetime, Lucan Vey became a direct enemy while synthetic-interface tester; abandoned inside a collapsing construct. Their conflict was personal enough that the PC learned to recognise Lucan Vey by methods and choices rather than appearance.",
+    "presentAgenda": "Complete Palimpsest by recovering the eight experiential fragments, while convincing the PCs that the project is the only way to repair the damage already done to them.",
+    "recognitionClues": [
+      "When cornered, taps two fingers against the inside of the left wrist before answering; still calls difficult problems “dirty mirrors.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC07-2-rival",
+    "pcId": "PC07",
+    "pcName": "Anik Rao",
+    "pcSleeveId": "PC07-S2",
+    "pcSleeveName": "Lian Rao",
+    "contactId": "C11",
+    "contactHistoricalIdentity": "Keiko Marr",
+    "category": "rival",
+    "historicalIncident": "Keiko Marr pursued the same objective as Anik Rao during the Lian Rao lifetime, repeatedly forcing the two to compete over evidence, access and credibility while synthetic-interface tester; abandoned inside a collapsing construct. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Counts down network handshakes under her breath and still uses Latch’s obsolete diagnostic nickname for corrupted packets.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC07-2-ally",
+    "pcId": "PC07",
+    "pcName": "Anik Rao",
+    "pcSleeveId": "PC07-S2",
+    "pcSleeveName": "Lian Rao",
+    "contactId": "C18",
+    "contactHistoricalIdentity": "Delia Frost",
+    "category": "ally",
+    "historicalIncident": "Delia Frost became a trusted operational ally during the Lian Rao lifetime. While synthetic-interface tester; abandoned inside a collapsing construct., the ally provided access, cover or expertise that kept Anik Rao alive long enough to carry the investigation forward.",
+    "presentAgenda": "Regain control of the Palimpsest architecture and prove that Anik stole credit for work they once built together.",
+    "recognitionClues": [
+      "Builds virtual rooms with one deliberately impossible shadow and asks visitors what they think is “real enough.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC07-2-loved-one",
+    "pcId": "PC07",
+    "pcName": "Anik Rao",
+    "pcSleeveId": "PC07-S2",
+    "pcSleeveName": "Lian Rao",
+    "contactId": "C12",
+    "contactHistoricalIdentity": "Arun Bell",
+    "category": "loved-one",
+    "historicalIncident": "Arun Bell was the person to whom Anik Rao was most emotionally exposed during the Lian Rao lifetime. Their relationship developed alongside the events in which synthetic-interface tester; abandoned inside a collapsing construct., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "Prove that continuity rights belong to the DHF rather than the corporation or state that owns a sleeve, then publish a defensible technical record.",
+    "recognitionClues": [
+      "Draws diagrams as nested circles and always asks “who owns the copy?” before discussing a system.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC07-3-enemy",
+    "pcId": "PC07",
+    "pcName": "Anik Rao",
+    "pcSleeveId": "PC07-S3",
+    "pcSleeveName": "Mateo Kest",
+    "contactId": "C02",
+    "contactHistoricalIdentity": "Mara Kest",
+    "category": "enemy",
+    "historicalIncident": "During the Mateo Kest lifetime, Mara Kest became a direct enemy while protectorate cyber-intelligence officer; defected after discovering memory wipes. Their conflict was personal enough that the PC learned to recognise Mara Kest by methods and choices rather than appearance.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Squares every object on a table before an interrogation and uses the old field phrase “secure the person, not the sleeve.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC07-3-rival",
+    "pcId": "PC07",
+    "pcName": "Anik Rao",
+    "pcSleeveId": "PC07-S3",
+    "pcSleeveName": "Mateo Kest",
+    "contactId": "C17",
+    "contactHistoricalIdentity": "Hanzo Irei",
+    "category": "rival",
+    "historicalIncident": "Hanzo Irei pursued the same objective as Anik Rao during the Mateo Kest lifetime, repeatedly forcing the two to compete over evidence, access and credibility while protectorate cyber-intelligence officer; defected after discovering memory wipes. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Snaps disposable gloves before negotiations and refers to people by contract role rather than name.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC07-3-ally",
+    "pcId": "PC07",
+    "pcName": "Anik Rao",
+    "pcSleeveId": "PC07-S3",
+    "pcSleeveName": "Mateo Kest",
+    "contactId": "C06",
+    "contactHistoricalIdentity": "Osei Quade",
+    "category": "ally",
+    "historicalIncident": "Osei Quade became a trusted operational ally during the Mateo Kest lifetime. While protectorate cyber-intelligence officer; defected after discovering memory wipes., the ally provided access, cover or expertise that kept Anik Rao alive long enough to carry the investigation forward.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Touches thumb to brow before making a promise and refuses to call a stored DHF “cargo.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC07-3-loved-one",
+    "pcId": "PC07",
+    "pcName": "Anik Rao",
+    "pcSleeveId": "PC07-S3",
+    "pcSleeveName": "Mateo Kest",
+    "contactId": "C18",
+    "contactHistoricalIdentity": "Delia Frost",
+    "category": "loved-one",
+    "historicalIncident": "Delia Frost was the person to whom Anik Rao was most emotionally exposed during the Mateo Kest lifetime. Their relationship developed alongside the events in which protectorate cyber-intelligence officer; defected after discovering memory wipes., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "Regain control of the Palimpsest architecture and prove that Anik stole credit for work they once built together.",
+    "recognitionClues": [
+      "Builds virtual rooms with one deliberately impossible shadow and asks visitors what they think is “real enough.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC07-4-enemy",
+    "pcId": "PC07",
+    "pcName": "Anik Rao",
+    "pcSleeveId": "PC07-S4",
+    "pcSleeveName": "Noor Bell",
+    "contactId": "C13",
+    "contactHistoricalIdentity": "Celeste Ardan",
+    "category": "enemy",
+    "historicalIncident": "During the Noor Bell lifetime, Celeste Ardan became a direct enemy while aI-network mediator; prevented destruction of obsolete service AIs. Their conflict was personal enough that the PC learned to recognise Celeste Ardan by methods and choices rather than appearance.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Never uses contractions when angry and wears a recreated signet scar beneath the right thumb.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC07-4-rival",
+    "pcId": "PC07",
+    "pcName": "Anik Rao",
+    "pcSleeveId": "PC07-S4",
+    "pcSleeveName": "Noor Bell",
+    "contactId": "C12",
+    "contactHistoricalIdentity": "Arun Bell",
+    "category": "rival",
+    "historicalIncident": "Arun Bell pursued the same objective as Anik Rao during the Noor Bell lifetime, repeatedly forcing the two to compete over evidence, access and credibility while aI-network mediator; prevented destruction of obsolete service AIs. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "Prove that continuity rights belong to the DHF rather than the corporation or state that owns a sleeve, then publish a defensible technical record.",
+    "recognitionClues": [
+      "Draws diagrams as nested circles and always asks “who owns the copy?” before discussing a system.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC07-4-ally",
+    "pcId": "PC07",
+    "pcName": "Anik Rao",
+    "pcSleeveId": "PC07-S4",
+    "pcSleeveName": "Noor Bell",
+    "contactId": "C05",
+    "contactHistoricalIdentity": "Ysabel Chen",
+    "category": "ally",
+    "historicalIncident": "Ysabel Chen became a trusted operational ally during the Noor Bell lifetime. While aI-network mediator; prevented destruction of obsolete service AIs., the ally provided access, cover or expertise that kept Anik Rao alive long enough to carry the investigation forward.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Folds paper into a tiny crane while thinking and remembers exactly how each PC took their coffee or stimulant.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC07-4-loved-one",
+    "pcId": "PC07",
+    "pcName": "Anik Rao",
+    "pcSleeveId": "PC07-S4",
+    "pcSleeveName": "Noor Bell",
+    "contactId": "C18",
+    "contactHistoricalIdentity": "Delia Frost",
+    "category": "loved-one",
+    "historicalIncident": "Delia Frost was the person to whom Anik Rao was most emotionally exposed during the Noor Bell lifetime. Their relationship developed alongside the events in which aI-network mediator; prevented destruction of obsolete service AIs., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "Regain control of the Palimpsest architecture and prove that Anik stole credit for work they once built together.",
+    "recognitionClues": [
+      "Builds virtual rooms with one deliberately impossible shadow and asks visitors what they think is “real enough.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC07-5-enemy",
+    "pcId": "PC07",
+    "pcName": "Anik Rao",
+    "pcSleeveId": "PC07-S5",
+    "pcSleeveName": "Anik Rao",
+    "contactId": "C01",
+    "contactHistoricalIdentity": "Lucan Vey",
+    "category": "enemy",
+    "historicalIncident": "During the Anik Rao lifetime, Lucan Vey became a direct enemy while palimpsest simulation architect; built a hidden route into its memory archive. Their conflict was personal enough that the PC learned to recognise Lucan Vey by methods and choices rather than appearance.",
+    "presentAgenda": "Complete Palimpsest by recovering the eight experiential fragments, while convincing the PCs that the project is the only way to repair the damage already done to them.",
+    "recognitionClues": [
+      "When cornered, taps two fingers against the inside of the left wrist before answering; still calls difficult problems “dirty mirrors.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC07-5-rival",
+    "pcId": "PC07",
+    "pcName": "Anik Rao",
+    "pcSleeveId": "PC07-S5",
+    "pcSleeveName": "Anik Rao",
+    "contactId": "C18",
+    "contactHistoricalIdentity": "Delia Frost",
+    "category": "rival",
+    "historicalIncident": "Delia Frost pursued the same objective as Anik Rao during the Anik Rao lifetime, repeatedly forcing the two to compete over evidence, access and credibility while palimpsest simulation architect; built a hidden route into its memory archive. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "Regain control of the Palimpsest architecture and prove that Anik stole credit for work they once built together.",
+    "recognitionClues": [
+      "Builds virtual rooms with one deliberately impossible shadow and asks visitors what they think is “real enough.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC07-5-ally",
+    "pcId": "PC07",
+    "pcName": "Anik Rao",
+    "pcSleeveId": "PC07-S5",
+    "pcSleeveName": "Anik Rao",
+    "contactId": "C12",
+    "contactHistoricalIdentity": "Arun Bell",
+    "category": "ally",
+    "historicalIncident": "Arun Bell became a trusted operational ally during the Anik Rao lifetime. While palimpsest simulation architect; built a hidden route into its memory archive., the ally provided access, cover or expertise that kept Anik Rao alive long enough to carry the investigation forward.",
+    "presentAgenda": "Prove that continuity rights belong to the DHF rather than the corporation or state that owns a sleeve, then publish a defensible technical record.",
+    "recognitionClues": [
+      "Draws diagrams as nested circles and always asks “who owns the copy?” before discussing a system.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC07-5-loved-one",
+    "pcId": "PC07",
+    "pcName": "Anik Rao",
+    "pcSleeveId": "PC07-S5",
+    "pcSleeveName": "Anik Rao",
+    "contactId": "C16",
+    "contactHistoricalIdentity": "Juno Sera",
+    "category": "loved-one",
+    "historicalIncident": "Juno Sera was the person to whom Anik Rao was most emotionally exposed during the Anik Rao lifetime. Their relationship developed alongside the events in which palimpsest simulation architect; built a hidden route into its memory archive., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Humms the first four notes of an old Rainline song when opening a secure channel and never sits with their back to glass.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC08-1-enemy",
+    "pcId": "PC08",
+    "pcName": "Solenne Pryce",
+    "pcSleeveId": "PC08-S1",
+    "pcSleeveName": "Solenne Pryce",
+    "contactId": "C13",
+    "contactHistoricalIdentity": "Celeste Ardan",
+    "category": "enemy",
+    "historicalIncident": "During the Solenne Pryce lifetime, Celeste Ardan became a direct enemy while grounder journalist; exposed corrupt sleeve allocation. Their conflict was personal enough that the PC learned to recognise Celeste Ardan by methods and choices rather than appearance.",
+    "presentAgenda": "Preserve the Ardan fortune and prevent the Palimpsest funding trail from becoming admissible evidence; if that fails, buy the PCs.",
+    "recognitionClues": [
+      "Never uses contractions when angry and wears a recreated signet scar beneath the right thumb.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC08-1-rival",
+    "pcId": "PC08",
+    "pcName": "Solenne Pryce",
+    "pcSleeveId": "PC08-S1",
+    "pcSleeveName": "Solenne Pryce",
+    "contactId": "C09",
+    "contactHistoricalIdentity": "Rhea Damar",
+    "category": "rival",
+    "historicalIncident": "Rhea Damar pursued the same objective as Solenne Pryce during the Solenne Pryce lifetime, repeatedly forcing the two to compete over evidence, access and credibility while grounder journalist; exposed corrupt sleeve allocation. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "Build a legally survivable case while keeping her own role in the 2274 suppression outside the chain of evidence.",
+    "recognitionClues": [
+      "Straightens her cuffs before contradicting someone and says “for the record” even in private.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC08-1-ally",
+    "pcId": "PC08",
+    "pcName": "Solenne Pryce",
+    "pcSleeveId": "PC08-S1",
+    "pcSleeveName": "Solenne Pryce",
+    "contactId": "C14",
+    "contactHistoricalIdentity": "Emil Navarro",
+    "category": "ally",
+    "historicalIncident": "Emil Navarro became a trusted operational ally during the Solenne Pryce lifetime. While grounder journalist; exposed corrupt sleeve allocation., the ally provided access, cover or expertise that kept Solenne Pryce alive long enough to carry the investigation forward.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Pauses before saying a suspect’s name and still uses the private code phrase “blue rain” for a compromised scene.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC08-1-loved-one",
+    "pcId": "PC08",
+    "pcName": "Solenne Pryce",
+    "pcSleeveId": "PC08-S1",
+    "pcSleeveName": "Solenne Pryce",
+    "contactId": "C20",
+    "contactHistoricalIdentity": "Sera Bale",
+    "category": "loved-one",
+    "historicalIncident": "Sera Bale was the person to whom Solenne Pryce was most emotionally exposed during the Solenne Pryce lifetime. Their relationship developed alongside the events in which grounder journalist; exposed corrupt sleeve allocation., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "Keep the PCs legally free, protect the right of victims to control whether they are spun up, and force the state to disclose the sealed 2274 order.",
+    "recognitionClues": [
+      "Takes notes by hand first, then digitises them, and repeats the phrase “consent survives the sleeve.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC08-2-enemy",
+    "pcId": "PC08",
+    "pcName": "Solenne Pryce",
+    "pcSleeveId": "PC08-S2",
+    "pcSleeveName": "Rafael Pryce",
+    "contactId": "C02",
+    "contactHistoricalIdentity": "Mara Kest",
+    "category": "enemy",
+    "historicalIncident": "During the Rafael Pryce lifetime, Mara Kest became a direct enemy while colonial war correspondent; recorded an unlawful Protectorate action. Their conflict was personal enough that the PC learned to recognise Mara Kest by methods and choices rather than appearance.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Squares every object on a table before an interrogation and uses the old field phrase “secure the person, not the sleeve.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC08-2-rival",
+    "pcId": "PC08",
+    "pcName": "Solenne Pryce",
+    "pcSleeveId": "PC08-S2",
+    "pcSleeveName": "Rafael Pryce",
+    "contactId": "C10",
+    "contactHistoricalIdentity": "Petar Volkov",
+    "category": "rival",
+    "historicalIncident": "Petar Volkov pursued the same objective as Solenne Pryce during the Rafael Pryce lifetime, repeatedly forcing the two to compete over evidence, access and credibility while colonial war correspondent; recorded an unlawful Protectorate action. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Checks exits before faces and rolls the right shoulder before violence, an old injury habit recreated in every sleeve.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC08-2-ally",
+    "pcId": "PC08",
+    "pcName": "Solenne Pryce",
+    "pcSleeveId": "PC08-S2",
+    "pcSleeveName": "Rafael Pryce",
+    "contactId": "C06",
+    "contactHistoricalIdentity": "Osei Quade",
+    "category": "ally",
+    "historicalIncident": "Osei Quade became a trusted operational ally during the Rafael Pryce lifetime. While colonial war correspondent; recorded an unlawful Protectorate action., the ally provided access, cover or expertise that kept Solenne Pryce alive long enough to carry the investigation forward.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Touches thumb to brow before making a promise and refuses to call a stored DHF “cargo.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC08-2-loved-one",
+    "pcId": "PC08",
+    "pcName": "Solenne Pryce",
+    "pcSleeveId": "PC08-S2",
+    "pcSleeveName": "Rafael Pryce",
+    "contactId": "C19",
+    "contactHistoricalIdentity": "Amos Dain",
+    "category": "loved-one",
+    "historicalIncident": "Amos Dain was the person to whom Solenne Pryce was most emotionally exposed during the Rafael Pryce lifetime. Their relationship developed alongside the events in which colonial war correspondent; recorded an unlawful Protectorate action., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Uses the same short blessing before touching a stack and keeps analogue prayer beads with one missing bead.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC08-3-enemy",
+    "pcId": "PC08",
+    "pcName": "Solenne Pryce",
+    "pcSleeveId": "PC08-S3",
+    "pcSleeveName": "Hana Bell",
+    "contactId": "C01",
+    "contactHistoricalIdentity": "Lucan Vey",
+    "category": "enemy",
+    "historicalIncident": "During the Hana Bell lifetime, Lucan Vey became a direct enemy while neo-C legal researcher; defended families whose stacks were withheld. Their conflict was personal enough that the PC learned to recognise Lucan Vey by methods and choices rather than appearance.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "When cornered, taps two fingers against the inside of the left wrist before answering; still calls difficult problems “dirty mirrors.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC08-3-rival",
+    "pcId": "PC08",
+    "pcName": "Solenne Pryce",
+    "pcSleeveId": "PC08-S3",
+    "pcSleeveName": "Hana Bell",
+    "contactId": "C08",
+    "contactHistoricalIdentity": "Hyeon Park",
+    "category": "rival",
+    "historicalIncident": "Hyeon Park pursued the same objective as Solenne Pryce during the Hana Bell lifetime, repeatedly forcing the two to compete over evidence, access and credibility while neo-C legal researcher; defended families whose stacks were withheld. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "Authenticate the PCs through analogue records and prevent Palimpsest from rewriting the testimony of the dead.",
+    "recognitionClues": [
+      "Recites dates before names in prayer and carries a handwritten list of people whose stacks were never spun up.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC08-3-ally",
+    "pcId": "PC08",
+    "pcName": "Solenne Pryce",
+    "pcSleeveId": "PC08-S3",
+    "pcSleeveName": "Hana Bell",
+    "contactId": "C20",
+    "contactHistoricalIdentity": "Sera Bale",
+    "category": "ally",
+    "historicalIncident": "Sera Bale became a trusted operational ally during the Hana Bell lifetime. While neo-C legal researcher; defended families whose stacks were withheld., the ally provided access, cover or expertise that kept Solenne Pryce alive long enough to carry the investigation forward.",
+    "presentAgenda": "Keep the PCs legally free, protect the right of victims to control whether they are spun up, and force the state to disclose the sealed 2274 order.",
+    "recognitionClues": [
+      "Takes notes by hand first, then digitises them, and repeats the phrase “consent survives the sleeve.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC08-3-loved-one",
+    "pcId": "PC08",
+    "pcName": "Solenne Pryce",
+    "pcSleeveId": "PC08-S3",
+    "pcSleeveName": "Hana Bell",
+    "contactId": "C19",
+    "contactHistoricalIdentity": "Amos Dain",
+    "category": "loved-one",
+    "historicalIncident": "Amos Dain was the person to whom Solenne Pryce was most emotionally exposed during the Hana Bell lifetime. Their relationship developed alongside the events in which neo-C legal researcher; defended families whose stacks were withheld., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Uses the same short blessing before touching a stack and keeps analogue prayer beads with one missing bead.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC08-4-enemy",
+    "pcId": "PC08",
+    "pcName": "Solenne Pryce",
+    "pcSleeveId": "PC08-S4",
+    "pcSleeveName": "Omar Venn",
+    "contactId": "C03",
+    "contactHistoricalIdentity": "Gideon Saye",
+    "category": "enemy",
+    "historicalIncident": "During the Omar Venn lifetime, Gideon Saye became a direct enemy while aerium scandal archivist; blackmailed by Meth investors. Their conflict was personal enough that the PC learned to recognise Gideon Saye by methods and choices rather than appearance.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Never drinks from the first glass offered and still quotes account numbers from memory when irritated.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC08-4-rival",
+    "pcId": "PC08",
+    "pcName": "Solenne Pryce",
+    "pcSleeveId": "PC08-S4",
+    "pcSleeveName": "Omar Venn",
+    "contactId": "C16",
+    "contactHistoricalIdentity": "Juno Sera",
+    "category": "rival",
+    "historicalIncident": "Juno Sera pursued the same objective as Solenne Pryce during the Omar Venn lifetime, repeatedly forcing the two to compete over evidence, access and credibility while aerium scandal archivist; blackmailed by Meth investors. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Humms the first four notes of an old Rainline song when opening a secure channel and never sits with their back to glass.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC08-4-ally",
+    "pcId": "PC08",
+    "pcName": "Solenne Pryce",
+    "pcSleeveId": "PC08-S4",
+    "pcSleeveName": "Omar Venn",
+    "contactId": "C05",
+    "contactHistoricalIdentity": "Ysabel Chen",
+    "category": "ally",
+    "historicalIncident": "Ysabel Chen became a trusted operational ally during the Omar Venn lifetime. While aerium scandal archivist; blackmailed by Meth investors., the ally provided access, cover or expertise that kept Solenne Pryce alive long enough to carry the investigation forward.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Folds paper into a tiny crane while thinking and remembers exactly how each PC took their coffee or stimulant.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC08-4-loved-one",
+    "pcId": "PC08",
+    "pcName": "Solenne Pryce",
+    "pcSleeveId": "PC08-S4",
+    "pcSleeveName": "Omar Venn",
+    "contactId": "C14",
+    "contactHistoricalIdentity": "Emil Navarro",
+    "category": "loved-one",
+    "historicalIncident": "Emil Navarro was the person to whom Solenne Pryce was most emotionally exposed during the Omar Venn lifetime. Their relationship developed alongside the events in which aerium scandal archivist; blackmailed by Meth investors., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "This connection remains part of the historical archive unless the GM promotes it into the active plot.",
+    "recognitionClues": [
+      "Pauses before saying a suspect’s name and still uses the private code phrase “blue rain” for a compromised scene.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": false
+  },
+  {
+    "id": "R-PC08-5-enemy",
+    "pcId": "PC08",
+    "pcName": "Solenne Pryce",
+    "pcSleeveId": "PC08-S5",
+    "pcSleeveName": "Solenne Pryce",
+    "contactId": "C13",
+    "contactHistoricalIdentity": "Celeste Ardan",
+    "category": "enemy",
+    "historicalIncident": "During the Solenne Pryce lifetime, Celeste Ardan became a direct enemy while investigative broadcaster; assembled the public Palimpsest accusation. Their conflict was personal enough that the PC learned to recognise Celeste Ardan by methods and choices rather than appearance.",
+    "presentAgenda": "Preserve the Ardan fortune and prevent the Palimpsest funding trail from becoming admissible evidence; if that fails, buy the PCs.",
+    "recognitionClues": [
+      "Never uses contractions when angry and wears a recreated signet scar beneath the right thumb.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC08-5-rival",
+    "pcId": "PC08",
+    "pcName": "Solenne Pryce",
+    "pcSleeveId": "PC08-S5",
+    "pcSleeveName": "Solenne Pryce",
+    "contactId": "C09",
+    "contactHistoricalIdentity": "Rhea Damar",
+    "category": "rival",
+    "historicalIncident": "Rhea Damar pursued the same objective as Solenne Pryce during the Solenne Pryce lifetime, repeatedly forcing the two to compete over evidence, access and credibility while investigative broadcaster; assembled the public Palimpsest accusation. Neither ever fully accepted the other’s version of what happened.",
+    "presentAgenda": "Build a legally survivable case while keeping her own role in the 2274 suppression outside the chain of evidence.",
+    "recognitionClues": [
+      "Straightens her cuffs before contradicting someone and says “for the record” even in private.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC08-5-ally",
+    "pcId": "PC08",
+    "pcName": "Solenne Pryce",
+    "pcSleeveId": "PC08-S5",
+    "pcSleeveName": "Solenne Pryce",
+    "contactId": "C08",
+    "contactHistoricalIdentity": "Hyeon Park",
+    "category": "ally",
+    "historicalIncident": "Hyeon Park became a trusted operational ally during the Solenne Pryce lifetime. While investigative broadcaster; assembled the public Palimpsest accusation., the ally provided access, cover or expertise that kept Solenne Pryce alive long enough to carry the investigation forward.",
+    "presentAgenda": "Authenticate the PCs through analogue records and prevent Palimpsest from rewriting the testimony of the dead.",
+    "recognitionClues": [
+      "Recites dates before names in prayer and carries a handwritten list of people whose stacks were never spun up.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  },
+  {
+    "id": "R-PC08-5-loved-one",
+    "pcId": "PC08",
+    "pcName": "Solenne Pryce",
+    "pcSleeveId": "PC08-S5",
+    "pcSleeveName": "Solenne Pryce",
+    "contactId": "C20",
+    "contactHistoricalIdentity": "Sera Bale",
+    "category": "loved-one",
+    "historicalIncident": "Sera Bale was the person to whom Solenne Pryce was most emotionally exposed during the Solenne Pryce lifetime. Their relationship developed alongside the events in which investigative broadcaster; assembled the public Palimpsest accusation., leaving memories that are powerful but no longer sufficient proof of identity in 2384.",
+    "presentAgenda": "Keep the PCs legally free, protect the right of victims to control whether they are spun up, and force the state to disclose the sealed 2274 order.",
+    "recognitionClues": [
+      "Takes notes by hand first, then digitises them, and repeats the phrase “consent survives the sleeve.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealState": "unknown",
+    "plotCritical": true
+  }
+]

@@ -1,0 +1,78 @@
+{
+  "source": "Altered Carbon RPG Core Rulebook (2020)",
+  "sourcePages": "206–207",
+  "entries": [
+    {
+      "id": "core.upgrade.composite-construction",
+      "name": "Composite Construction",
+      "q": 1,
+      "effect": "Durability 20 or +10 Durability; a second Q can make the weapon nonmetallic to detectors."
+    },
+    {
+      "id": "core.upgrade.enhanced-power-cell",
+      "name": "Enhanced Power Cell",
+      "q": 1,
+      "effect": "Powered device Capacity +5."
+    },
+    {
+      "id": "core.upgrade.extended-barrel",
+      "name": "Extended Barrel",
+      "q": 1,
+      "effect": "Firearms +1 vs Adjacent Zone, but Firearms -1 into Shared Zone."
+    },
+    {
+      "id": "core.upgrade.extended-magazine",
+      "name": "Extended Magazine",
+      "q": 1,
+      "effect": "Increase firearm Capacity by roughly 3–5+ rounds; large extensions may remove Defensive/Concealment."
+    },
+    {
+      "id": "core.upgrade.genemapped-security",
+      "name": "Genemapped Security",
+      "q": 1,
+      "effect": "Powered functions only work for a specified individual; Hardwired."
+    },
+    {
+      "id": "core.upgrade.mag-plating",
+      "name": "Mag-Plating",
+      "q": 1,
+      "effect": "Linked one-handed/pistol weapon can be magnetically recalled to the user; requires compatible synthetic/bionic interface."
+    },
+    {
+      "id": "core.upgrade.magazine",
+      "name": "Magazine",
+      "q": 1,
+      "effect": "Attachment providing rapid reload up to weapon Capacity; spare magazines occupy space."
+    },
+    {
+      "id": "core.upgrade.scope",
+      "name": "Scope",
+      "q": 1,
+      "effect": "While Deployed, Aim can grant Firearms +1 against Shared-Zone targets."
+    },
+    {
+      "id": "core.upgrade.scope-longshot",
+      "name": "Scope, Longshot",
+      "q": 1,
+      "effect": "Deployed long-range Aim grants Firearms +1 and ignores one Distant Zone for Difficulty."
+    },
+    {
+      "id": "core.upgrade.scope-sniper",
+      "name": "Scope, Sniper",
+      "q": 1,
+      "effect": "Advanced long-range Aim/Rangefinder; Linked ocular/helmet systems improve bonuses and range."
+    },
+    {
+      "id": "core.upgrade.sight-laser",
+      "name": "Sight, Laser",
+      "q": 1,
+      "effect": "Firearms — Pistol/Small Arms +1 in Shared Zone; Powered; often an Attachment."
+    },
+    {
+      "id": "core.upgrade.stock-folding",
+      "name": "Stock, Folding",
+      "q": 1,
+      "effect": "Small Arm can be deployed for Firearms +1; increases size and requires both hands while deployed."
+    }
+  ]
+}

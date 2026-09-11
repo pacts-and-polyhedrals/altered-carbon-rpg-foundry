@@ -7,10 +7,13 @@
     <div class="ac-hero-copy">
       <div class="ac-eyebrow">ITEM DATA // {{item.type}}</div>
       <input class="ac-name" name="name" value="{{item.name}}" aria-label="Item name">
-      <div class="ac-subline"><span>{{item.type}}</span><span>{{system.rulesRef}}</span></div>
+      <div class="ac-subline"><span>{{item.type}}</span><span>{{system.category}}</span><span>{{system.rulesRef}}</span></div>
     </div>
   </header>
   <main class="ac-item-body">
+    {{#if system.catalogId}}
+    <div class="ac-core-source-strip"><span>CORE CATALOG</span><strong>{{system.catalogId}}</strong><b>{{system.rulesRef}}</b></div>
+    {{/if}}
     <div class="ac-page-title"><div><span class="ac-kicker">EDITABLE RECORD</span><h1>System Fields</h1></div><p>Typed mechanical values are separated from descriptive/reference data so the item remains easy to read during play.</p></div>
     <article class="ac-panel">
       <header class="ac-panel-title"><span>Mechanical Data</span><small>{{item.type}}</small></header>
@@ -28,10 +31,14 @@
     <article class="ac-panel" style="margin-top:12px">
       <header class="ac-panel-title"><span>Reference & Description</span><small>CONTEXT</small></header>
       <section class="ac-item-fields">
+        <label class="ac-field"><span>Catalog ID</span><input name="system.catalogId" value="{{system.catalogId}}"></label>
+        <label class="ac-field"><span>Category</span><input name="system.category" value="{{system.category}}"></label>
+        <label class="ac-field"><span>Source Book</span><input name="system.sourceBook" value="{{system.sourceBook}}"></label>
+        <label class="ac-field"><span>Source Page</span><input type="number" name="system.sourcePage" value="{{system.sourcePage}}"></label>
         <label class="ac-field"><span>Rules Reference</span><input name="system.rulesRef" value="{{system.rulesRef}}"></label>
         <label class="ac-field"><span>Description</span><textarea name="system.description" rows="10">{{system.description}}</textarea></label>
       </section>
-      <p class="muted">Mechanically typed fields are editable here. Source-derived reference text in this private build assumes lawful access to the supplied 2020 Core Rulebook.</p>
+      <p class="muted">Core Library descriptions are concise system records. The supplied 2020 Core Rulebook remains the authority for full licensed rules text.</p>
     </article>
   </main>
 </form>

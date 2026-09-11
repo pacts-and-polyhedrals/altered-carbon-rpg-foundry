@@ -1,11 +1,10 @@
 {
   "id": "altered-carbon-rpg",
-  "title": "Altered Carbon RPG — Unofficial",
+  "title": "Altered Carbon RPG \u2014 Unofficial",
   "description": "Unofficial Foundry VTT v14 implementation of the 2020 Altered Carbon RPG rules. Requires lawful access to the original tabletop rules. Not affiliated with or endorsed by the Altered Carbon rights holders or Foundry Gaming LLC.",
-  "version": "1.2.1",
+  "version": "1.4.0",
   "compatibility": {
-    "minimum": "14",
-    "verified": "14"
+    "minimum": "14"
   },
   "authors": [
     {
@@ -17,7 +16,8 @@
     "altered-carbon-rpg.mjs"
   ],
   "styles": [
-    "styles/altered-carbon.css"
+    "styles/altered-carbon.css",
+    "styles/adventure-book.css"
   ],
   "languages": [
     {
@@ -110,6 +110,7 @@
       "equipment": {
         "htmlFields": [
           "description",
+          "triggeredEffects",
           "upgrades"
         ]
       },
@@ -179,12 +180,27 @@
       "software": {
         "htmlFields": [
           "description",
-          "triggeredEffects"
+          "triggeredEffects",
+          "upgrades"
         ]
       },
       "virtualConstruct": {
         "htmlFields": [
           "description"
+        ]
+      },
+      "ammunition": {
+        "htmlFields": [
+          "description",
+          "effect"
+        ]
+      },
+      "drug": {
+        "htmlFields": [
+          "description",
+          "effects",
+          "underInfluence",
+          "upgrades"
         ]
       }
     }
@@ -198,5 +214,5 @@
   "secondaryTokenAttribute": "resources.ego",
   "url": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry",
   "manifest": "https://raw.githubusercontent.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/main/system.json",
-  "download": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v1.2.1/altered-carbon-rpg-v1.2.1.zip"
+  "download": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v1.4.0/altered-carbon-rpg-v1.4.0.zip"
 }

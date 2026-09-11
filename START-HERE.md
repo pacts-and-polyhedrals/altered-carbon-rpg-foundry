@@ -1,102 +1,60 @@
-# START HERE — Updating the Altered Carbon System to v1.2.1
+# Altered Carbon 1.4.0 - Start Here
 
-Repository: **pacts-and-polyhedrals/altered-carbon-rpg-foundry**
+This is the continuation of the supplied UI/system v1.3.0. The complete Cold Storage 1.1.1 journal book is now embedded in the system. The optional Cold Storage module is included separately for the original pregens, sleeve archives, contacts, relationships and placeholder scenes.
 
-Foundry system ID: **altered-carbon-rpg**
+## Choose the right ZIP
 
-Version: **1.2.1**
+- `01-FOUNDRY-INSTALL-altered-carbon-rpg-v1.4.0.zip`: the actual system installation package, with system.json at its root.
+- `00-GITHUB-REPOSITORY-altered-carbon-rpg-foundry-v1.4.0.zip`: repository source, tests, build scripts and documentation. This is not the installation ZIP.
+- `02-OPTIONAL-MODULE-cold-storage-v1.1.1.zip`: the optional adventure module, with module.json at its root.
+- `03-READY-FOLDERS/`: extracted `systems/altered-carbon-rpg/` and `modules/cold-storage/` directories for a manual data-folder installation. Use these OR the matching install ZIPs, not duplicate installations.
 
-## What changed
+The manifest retains the existing repository's intended v1.4.0 release URL. No release has been uploaded or published on your behalf. Automatic manifest installation needs the versioned ZIP and matching system.json published to that repository first. A sandbox download is not a hosted Foundry manifest.
 
-v1.2.1 repairs and hardens the GM-facing play layer introduced in v1.2.0:
+## Upgrade an existing world
 
-- a generated **Altered Carbon — GM Guide** Journal with 21 walkthrough pages and automatic version-aware refresh;
-- an **Altered Carbon — GM Control** panel;
-- a Cold Storage/cyber-noir library of preset Skill Check requests;
-- multi-character chat requests that eligible players answer by clicking their button in chat;
-- futuristic styling for the chat log and all system-generated chat cards;
-- degree-coded Success +1 to +5 and Failure -1 to -5, plus distinct Ace, Stroke of Luck and Catastrophe states.
+1. Back up the world and its current system/module folders. Test this release on a duplicate world before using it for a paid session.
+2. Stop the world. Replace the existing `systems/altered-carbon-rpg` files with the new system, keeping exactly one system folder of that name. Do not place the repository ZIP inside it. For a managed host, use its custom-system deployment workflow or publish the matching release through your existing repository workflow.
+3. The optional module may be replaced with 1.1.1 in `modules/cold-storage`; it is not required just to use the new journal book. Restart and refresh the client.
+4. Open **GM Control -> Cold Storage Book -> Import / Update Book Only**. Alternatively use the system settings menu **Cold Storage Adventure Book**.
+5. Check a player account, a character sheet and the Actors sidebar using `docs/live-qa.md` before the next session.
 
-## 1. Update the repository source
+**Do not use Full Import in a played world to update its book.** The optional module's Full Import is for a fresh setup and can rebuild source-managed pregen data. Book Only leaves Actors, Items, resources, inventory and relationship states untouched. It fills a missing scene-to-journal link only; it does not replace a custom link or scene art.
 
-Use the supplied FULL REPOSITORY ZIP. Extract it and replace/update the contents of the existing `altered-carbon-rpg-foundry` repository on the `main` branch.
+## Where the controls are
 
-The repository root must contain `system.json` directly.
+**Actors tab / sidebar:** Character Creator creates a new Actor. The same button is added to its popout. It is shown to GMs and users with Actor-creation permission. It is not injected into character sheets.
 
-## 2. Create GitHub release v1.2.1
+**Existing character sheet:** Level Up opens that Actor's advancement window. It does not create another Actor or resleeve the character. It is available to owners and GMs on character, AI and NPC sheets. Vehicles/threat-only records do not receive this progression control.
 
-Create a normal published release:
+**Skills tab:** every Skill row has Roll in its collapsed summary, replacing Open. Clicking Roll opens the existing check-options dialog without expanding the description. Click the Skill name/chevron to read the rules. Roll and Opposed Roll are also at the top of an expanded Skill, before its text. Other record types retain Open because they are not Skill checks.
 
-Tag: `v1.2.1`
+**Character Creator:** stage 7 of 8 is Level Up & Starting SP. Queue Skill Levels or rolled Attribute increases, see the starting/planned/remaining SP, remove purchases or clear the plan. Purchases are applied once after the new Actor is created. The checked option opens the full Level Up window for Traits, Specialisations and further purchases. Stage 8 reviews the final allocation. No dice are rolled while simply planning.
 
-Title: `Altered Carbon RPG — Unofficial v1.2.1`
+**Level Up window:** Skills, Attributes, Specialisations, Traits and History. Confirmed purchases deduct the quoted SP and append a dated history entry. Cancelling costs nothing. Physical increases update the active sleeve; mental increases update the persistent DHF. Existing Health/Ego are not rerolled or refilled.
 
-Attach exactly:
+This uses the supplied system's Stack Point advancement, not a newly invented numbered-level/XP system. Trait prose, choice-based benefits and cap-changing Traits still require GM adjudication. For advanced configuration see `docs/ADVANCEMENT.md`.
 
-`altered-carbon-rpg-v1.2.1.zip`
+## Journal folders
 
-The supplied install ZIP is already flat. Do not put its contents inside another directory and do not rename the release asset.
+The GM imports the book explicitly; it is not automatically inserted on world startup.
 
-## 3. Stable Foundry / Forge manifest
+```
+Cold Storage
+  01 - GM Adventure Book
+  02 - Player Briefing
+  03 - Private Character Cards
+  04 - Evidence - Reveal Individually
+  05 - GM Reference
+  99 - GM Recovery Copies
+```
 
-Continue using:
+The book contains 74 authored entries plus 22 generated reference entries: 96 managed Journals. This includes 30 GM chapters, 16 evidence handouts and 8 private character cards. Existing matching source IDs are updated in place, including entries imported by an earlier Cold Storage module. Their Journal IDs and external links are retained.
 
-`https://raw.githubusercontent.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/main/system.json`
+Public primers receive read permission. GM entries and undisclosed handouts/cards begin hidden. Private cards require a named player recipient; the console rejects reveal-to-everyone for those cards. The importer preserves intentional disclosure on already-migrated cards/handouts. Review player ownership before sending evidence.
 
-The v1.2.1 manifest points to:
+Changed managed pages are copied into GM-only Recovery Copies before replacement. Additional custom pages are preserved. Recovery is a convenience, not a replacement for a world backup. Only source-managed journals are updated; unrelated folders and journals are left alone.
 
-`https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v1.2.1/altered-carbon-rpg-v1.2.1.zip`
+## Test status
 
-## 4. Verify the public files before Forge
-
-After committing `main` and publishing v1.2.1, open both URLs in a logged-out/incognito browser.
-
-Manifest:
-
-`https://raw.githubusercontent.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/main/system.json`
-
-Release ZIP:
-
-`https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v1.2.1/altered-carbon-rpg-v1.2.1.zip`
-
-The first must return the v1.2.1 JSON manifest. The second must download the ZIP without requiring a GitHub login.
-
-## 5. First launch in Foundry
-
-Open a world that uses **Altered Carbon RPG — Unofficial** as a GM.
-
-The system will create a GM-only Journal named:
-
-**Altered Carbon — GM Guide**
-
-If an existing generated guide is stale, the system refreshes its generated pages automatically when a GM opens the world. From v1.2.1 onward, custom unflagged notes pages appended to that Journal are preserved. **Refresh Guide** remains available for a manual rebuild.
-
-With a Scene open, use **Token Controls → satellite-dish Altered Carbon — GM Control**. The system-settings entry remains as a fallback. The panel lets you:
-
-1. select one or more Character/AI Actors;
-2. select a Cold Storage/cyber-noir preset or compose a custom check;
-3. send one request to the selected characters;
-4. let each eligible player click the Roll button in chat;
-5. see each returned result graded and recorded in the request card.
-
-## 6. Chat appearance
-
-All chat messages inherit the Altered Carbon black-glass/cyan shell while this system is active. System checks add semantic color grades for Success +1 through +5 and Failure -1 through -5, with separate treatments for Ace, Stroke of Luck and Catastrophe.
-
-The text label is always present; color is supplemental.
-
-## 7. Existing character-sheet behavior remains
-
-Actor sheets remain scroll-safe and view-first. Embedded records disclose information inline. **Edit Sheet** is still required for actual document editing. Traits/Skills/etc. remain deduplicated on the sheet. Baggage and equipment/gear now also collapse doubled presentation records, including duplicate gear that only differs in mutable depletion/exhaustion state.
-
-## 8. Live acceptance test
-
-Run `docs/RUNTIME-TEST.md` in a real Foundry v14 world with at least one GM and one non-GM user. Static tests cannot certify browser rendering, world permissions, socket delivery or Forge-specific hosting behavior.
-
-## Duplicate / GM Guide repair
-
-After the world starts under v1.2.1, the character sheet collapses literal duplicate embedded records before rendering, including the duplicated Baggage and equipment seen in earlier builds. This does not destructively delete world documents.
-
-A GM login also checks **Altered Carbon — GM Guide**. If its stored guide version or generated page count is stale, the system replaces the generated guide pages with the current v1.2.1 set automatically.
-
-With a Scene open, choose **Token Controls** and press the satellite-dish **Altered Carbon — GM Control** tool to open the GM roll-request panel.
+115 Node automated checks and 17 Chromium harness checks passed. The browser harness uses mock Foundry APIs and a QA-only subset template renderer, not Foundry's full Handlebars/runtime. The actual Foundry 14 server, a live world, multiplayer sync, popout windows and Forge were not tested here. The manifest targets minimum Foundry 14 but deliberately omits a live-verified claim. See QA-REPORT.md and docs/live-qa.md.

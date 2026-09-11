@@ -86,3 +86,13 @@ test('full sheet presentation removes exact cloned records on every page without
   const duplicated=originals.flatMap(x=>[x,{...x,system:{...x.system}}]);
   assert.equal(dedupeSheetRecords(duplicated).length,originals.length);
 });
+
+test('duplicate ammunition and drugs collapse on sheets even when mutable quantity differs',()=>{
+  const ammoA=rec('ammunition','EMP Rounds',{catalogId:'core.ammo.emp-rounds',quantity:1,damageBonus:0,syntheticDamageBonus:2});
+  const ammoB=rec('ammunition','EMP Rounds',{catalogId:'core.ammo.emp-rounds',quantity:4,damageBonus:0,syntheticDamageBonus:2});
+  const drugA=rec('drug','Lethinol',{catalogId:'core.drug.lethinol',quantity:1,administration:'Pill',controlledBy:'medicine',controlledTier:2});
+  const drugB=rec('drug','Lethinol',{catalogId:'core.drug.lethinol',quantity:3,administration:'Pill',controlledBy:'medicine',controlledTier:2});
+  assert.equal(displayRecordKey(ammoA),displayRecordKey(ammoB));
+  assert.equal(displayRecordKey(drugA),displayRecordKey(drugB));
+  assert.equal(dedupeSheetRecords([ammoA,ammoB,drugA,drugB]).length,2);
+});

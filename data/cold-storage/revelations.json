@@ -1,0 +1,295 @@
+[
+  {
+    "id": "REV-PC01",
+    "revelation": "Names of compromised officials",
+    "essential": false,
+    "pcId": "PC01",
+    "clues": [
+      {
+        "channel": "voluntary memory",
+        "source": "PC01; see G26 for personal spotlight"
+      },
+      {
+        "channel": "independent record",
+        "source": "Quiet Archive personnel docket"
+      },
+      {
+        "channel": "external witness or route",
+        "source": "Asha's witnessed custody account"
+      }
+    ]
+  },
+  {
+    "id": "REV-PC02",
+    "revelation": "Palimpsest's encryption seed",
+    "essential": false,
+    "pcId": "PC02",
+    "clues": [
+      {
+        "channel": "voluntary memory",
+        "source": "PC02; see G26 for personal spotlight"
+      },
+      {
+        "channel": "independent record",
+        "source": "Lena's sealed maintenance token"
+      },
+      {
+        "channel": "external witness or route",
+        "source": "Spire public escrow"
+      }
+    ]
+  },
+  {
+    "id": "REV-PC03",
+    "revelation": "Funding and ownership records",
+    "essential": false,
+    "pcId": "PC03",
+    "clues": [
+      {
+        "channel": "voluntary memory",
+        "source": "PC03; see G26 for personal spotlight"
+      },
+      {
+        "channel": "independent record",
+        "source": "Recorded trust deed H03"
+      },
+      {
+        "channel": "external witness or route",
+        "source": "Blue Lotus ledger H04"
+      }
+    ]
+  },
+  {
+    "id": "REV-PC04",
+    "revelation": "Security recordings of the 2274 raid",
+    "essential": false,
+    "pcId": "PC04",
+    "clues": [
+      {
+        "channel": "voluntary memory",
+        "source": "PC04; see G26 for personal spotlight"
+      },
+      {
+        "channel": "independent record",
+        "source": "Original gate relay H07"
+      },
+      {
+        "channel": "external witness or route",
+        "source": "Asha's account"
+      }
+    ]
+  },
+  {
+    "id": "REV-PC05",
+    "revelation": "Stack-transfer and smuggling routes",
+    "essential": false,
+    "pcId": "PC05",
+    "clues": [
+      {
+        "channel": "voluntary memory",
+        "source": "PC05; see G26 for personal spotlight"
+      },
+      {
+        "channel": "independent record",
+        "source": "Cargo transfer manifest H04"
+      },
+      {
+        "channel": "external witness or route",
+        "source": "Mira's reserve transit receipt"
+      }
+    ]
+  },
+  {
+    "id": "REV-PC06",
+    "revelation": "Original memory-editing procedure",
+    "essential": false,
+    "pcId": "PC06",
+    "clues": [
+      {
+        "channel": "voluntary memory",
+        "source": "PC06; see G26 for personal spotlight"
+      },
+      {
+        "channel": "independent record",
+        "source": "Clinical exception sheet H08"
+      },
+      {
+        "channel": "external witness or route",
+        "source": "Serin's admission"
+      }
+    ]
+  },
+  {
+    "id": "REV-PC07",
+    "revelation": "Virtuality architecture and access path",
+    "essential": false,
+    "pcId": "PC07",
+    "clues": [
+      {
+        "channel": "voluntary memory",
+        "source": "PC07; see G26 for personal spotlight"
+      },
+      {
+        "channel": "independent record",
+        "source": "External read-only maintenance route"
+      },
+      {
+        "channel": "external witness or route",
+        "source": "Public escrow terminal"
+      }
+    ]
+  },
+  {
+    "id": "REV-PC08",
+    "revelation": "Publication key and complete accusation",
+    "essential": false,
+    "pcId": "PC08",
+    "clues": [
+      {
+        "channel": "voluntary memory",
+        "source": "PC08; see G26 for personal spotlight"
+      },
+      {
+        "channel": "independent record",
+        "source": "Protected publication packet H09"
+      },
+      {
+        "channel": "external witness or route",
+        "source": "Ash's independent custody channel"
+      }
+    ]
+  },
+  {
+    "id": "REV-CENTRAL-1",
+    "revelation": "The PCs were stored under a sealed Protectorate continuity order rather than lawfully executed.",
+    "essential": true,
+    "clues": [
+      {
+        "channel": "record",
+        "source": "Continuity order stub"
+      },
+      {
+        "channel": "testimony",
+        "source": "Continuity Office dissenter"
+      },
+      {
+        "channel": "memory",
+        "source": "2274 raid reconstruction"
+      }
+    ]
+  },
+  {
+    "id": "REV-CENTRAL-2",
+    "revelation": "The Continuity Foundation is the modern institutional shell of Project Palimpsest.",
+    "essential": true,
+    "clues": [
+      {
+        "channel": "finance",
+        "source": "Sabine-linked ledger"
+      },
+      {
+        "channel": "virtual",
+        "source": "Palimpsest architecture signature"
+      },
+      {
+        "channel": "testimony",
+        "source": "Talia or Arun"
+      }
+    ]
+  },
+  {
+    "id": "REV-CENTRAL-3",
+    "revelation": "Faces cannot verify identity; verification requires independent evidence because Palimpsest can copy memories.",
+    "essential": true,
+    "clues": [
+      {
+        "channel": "AI",
+        "source": "Marlowe behavioural archive"
+      },
+      {
+        "channel": "analogue",
+        "source": "Quiet Archive record"
+      },
+      {
+        "channel": "technical",
+        "source": "Sable Needle continuity logs"
+      }
+    ]
+  },
+  {
+    "id": "REV-AI-ORIGIN",
+    "revelation": "The three ruling minds have artificial, not human-DHF, origins.",
+    "essential": true,
+    "clues": [
+      {
+        "channel": "archival register",
+        "source": "Root genesis register H10."
+      },
+      {
+        "channel": "isolated hardware",
+        "source": "2269 runtime wafer, physically independent of the live Foundation network."
+      },
+      {
+        "channel": "witnessed testimony",
+        "source": "Vey deposition, corroborated against register and wafer."
+      }
+    ]
+  },
+  {
+    "id": "REV-AI-BODIES",
+    "revelation": "The same three roots reside in the Benefactors' purpose-grown living organic clones.",
+    "essential": true,
+    "clues": [
+      {
+        "channel": "direct examination",
+        "source": "Current body/root attestation H11."
+      },
+      {
+        "channel": "clinical manufacturing record",
+        "source": "Independent substrate record with external witness."
+      },
+      {
+        "channel": "forensic interface",
+        "source": "Seized intact interface, tested against recorded root signatures."
+      }
+    ]
+  },
+  {
+    "id": "REV-AI-AUTHORITY",
+    "revelation": "These artificial residents exercise citywide binding civic authority.",
+    "essential": true,
+    "clues": [
+      {
+        "channel": "live observation",
+        "source": "Harmless queue command and read-only audit H12."
+      },
+      {
+        "channel": "independent relay",
+        "source": "Lena's externally retained relay receipt."
+      },
+      {
+        "channel": "public transaction",
+        "source": "Municipal service receipt carrying the identical root signature."
+      }
+    ]
+  },
+  {
+    "id": "REV-SAFE-HANDOVER",
+    "revelation": "Revoking the civic lease need not shut down clinics, pumps or emergency routing.",
+    "essential": true,
+    "clues": [
+      {
+        "channel": "system documentation",
+        "source": "Control diagram H13."
+      },
+      {
+        "channel": "physical inspection",
+        "source": "Distinct labelled life-safety bus."
+      },
+      {
+        "channel": "independent operator",
+        "source": "Lena's printed handover procedure and staff undertaking."
+      }
+    ]
+  }
+]

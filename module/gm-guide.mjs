@@ -1,5 +1,5 @@
 const SYS='altered-carbon-rpg';
-export const GUIDE_VERSION='1.2.1';
+export const GUIDE_VERSION='1.4.0';
 export const GUIDE_NAME='Altered Carbon — GM Guide';
 
 async function loadJSON(path){const r=await fetch(`systems/${SYS}/data/${path}`);if(!r.ok)throw new Error(`Unable to load ${path}`);return r.json();}
@@ -24,7 +24,7 @@ export async function buildGMGuidePages(){
   const add=(name,content)=>pages.push({name,type:'text',text:{format:1,content},flags:{[SYS]:{gmGuidePage:true,guideVersion:GUIDE_VERSION}}});
 
   add('00 — Start Here',shell('GM Guide','SYSTEM OPERATIONS',
-    panel('What this journal is',`<p><strong>Generated guide build: v${GUIDE_VERSION}.</strong></p><p>This is the table-facing GM reference for the unofficial Foundry implementation. It summarizes the rules the system automates, the rules that still require judgment, and the fastest way to call for checks during play.</p><p>For exhaustive catalog entries such as individual Traits, Baggage, equipment reference pages, and source-indexed material, use <strong>Altered Carbon — Rules Reference</strong>.</p>`)+
+    panel('What this journal is',`<p><strong>Generated guide build: v${GUIDE_VERSION}.</strong></p><p>This is the table-facing GM reference for the unofficial Foundry implementation. It summarizes the rules the system automates, the rules that still require judgment, and the fastest way to call for checks during play.</p><p>For exhaustive rule references use <strong>Altered Carbon — Rules Reference</strong>. For ready-to-use weapons, ammunition, apparel, devices, decks, software, drugs and sleeve augmentations use <strong>Altered Carbon — Core Equipment Library</strong>.</p>`)+
     panel('The core play loop',list([
       '<strong>Describe the situation.</strong> Establish what is at stake and what happens if nobody intervenes.',
       '<strong>Choose the Skill.</strong> Use the Skill whose fictional action best matches the attempt.',
@@ -195,6 +195,7 @@ export async function buildGMGuidePages(){
   ));
 
   add('17 — Advancement & Campaign Rewards',shell('Advancement','LONG-TERM PLAY',
+    panel('Use the Level Up wizard','<p>Open an existing character and choose <strong>Level Up</strong>. Skills, Attributes, Specialisations and Traits show costs before purchase and retain an advancement history. Create new DHFs with <strong>Character Creator</strong> in the Actors tab. The creator now includes a starting SP allocation step.</p>')+
     panel('Skill advancement',table(['Advance','SP'],Object.entries(m.skillAdvancement).map(([k,v])=>[e(k),e(v)])))+
     panel('Trait costs',table(['Commonality','Unlock','Tiers'],Object.entries(m.traitCosts).map(([k,v])=>[e(k),v.unlock,e(v.tiers.join(' / '))])))+
     panel('Campaign rewards',`<p>${e(m.campaign.sessionReward)}</p><p>${e(m.campaign.campaignReward)}</p>`)+
@@ -203,6 +204,7 @@ export async function buildGMGuidePages(){
 
   const byCategory={};for(const p of presets.presets)(byCategory[p.category]??=[]).push(p);
   add('18 — Cold Storage Roll Presets',shell('Cold Storage Presets','GM CONTROL PANEL',
+    panel('The complete adventure book','<p>Use <strong>GM Control &gt; Cold Storage Book &gt; Import / Update Book Only</strong> to place all 96 managed journals in the Cold Storage folder. This does not rebuild existing Actors or Items. Changed managed pages are kept in GM Recovery Copies, and individual handout permissions are retained. The optional adventure module is needed only for full pregen, contact and scene setup.</p>')+
     panel('How to use them',`<p>The GM Control panel contains ready-to-send checks chosen for investigation, identity, infiltration, technical, physical, movement, knowledge and Virtual scenes. Select one or more character recipients and press <strong>Send Request</strong>. Each player answers from the card in chat; the result is returned with color-coded Degrees.</p>`)+
     Object.entries(byCategory).map(([category,items])=>panel(category,table(['Preset','Skill','Difficulty','Use'],items.map(x=>[e(x.label),e(x.skill),x.difficulty,e(x.gmNote)])))).join('')+
     callout('Presets are not scripts','Change the Difficulty or use the custom request tool whenever the fiction demands it. The preset name is a prompt, not a replacement for GM judgment.','cyan')
@@ -242,6 +244,20 @@ export async function buildGMGuidePages(){
       ['Catastrophe','High-alert red treatment.']
     ]))+
     callout('Accessibility','Color is supplemental. Every card also prints the outcome and Degree value in text.','violet')
+  ));
+
+  add('21 — Core Equipment Library',shell('Core Equipment Library','GEAR / DRUGS / AUGMENTS',
+    panel('What is included',`<p>Version 1.3.0 adds <strong>95 structured Core Item records</strong>: 30 weapons, 13 ammunition profiles, 8 apparel/armour records, 12 device/deck records, 3 software records, 7 drugs/medical chemicals, and 22 sleeve augmentations. It also provides the three example Core Vehicle Actor templates and a 12-entry generic weapon-upgrade index.</p>`)+
+    panel('Fast table workflow',list([
+      '<strong>Open Core Gear.</strong> From a character sheet press Core Gear, or open the Core Equipment Library from Game Settings.',
+      '<strong>Add to Actor.</strong> The Library creates a typed embedded Item. Re-adding ammunition or drugs increases quantity instead of creating a duplicate row.',
+      '<strong>Load ammunition.</strong> On a Weapon record press Load Ammo, choose a special round or shell profile, then Use / Attack. Attack and damage cards inherit the ammunition profile.',
+      '<strong>Administer drugs.</strong> Drug Items expose administration, Addiction, Controlled Substance requirements, duration, active effects and Under-the-Influence effects. Administer consumes a dose and posts a table-facing effect card.',
+      '<strong>Install to world.</strong> A GM can create all missing Core records in the world Item directory and the three Vehicle Actors without overwriting customized records.'
+    ]))+
+    panel('Automatic augment support',`<p>Active augment records with explicit Attribute effects feed the character’s derived Attribute Bonuses. Speed Neurachem adds a Speed Die; Subdermal Plating adds Damage Threshold and passive Protection; Bestial Dermis adds passive Protection. Ambiguous installation-dependent effects remain displayed for GM adjudication instead of being guessed.</p>`)+
+    panel('Source priority',`<p>The 2020 Core Rulebook is authoritative for these records. The Quick Start remains secondary. The Quick Start-only <strong>Reinforced Dermis</strong> is therefore not installed into the canonical Core catalog.</p>`)+
+    callout('Licensed source remains authoritative','The Library stores concise typed mechanics and source-page references. Use the supplied Core Rulebook when an edge case or full entry wording matters.','cyan')
   ));
 
   return pages;

@@ -34,6 +34,8 @@ export const DISPLAY_SEMANTIC_RECORD_TYPES = new Set([
   'equipment',
   'augmentation',
   'software',
+  'ammunition',
+  'drug',
   'creditSet',
   'virtualConstruct',
   'resourceEntry'
@@ -130,7 +132,11 @@ export function displayRecordKey(record) {
     case 'software':
       return `${type}:gear:${name}:${fingerprint({priceLevel:system.priceLevel,techPoints:system.techPoints,techUsed:system.techUsed,cargoUnits:system.cargoUnits,heavy:system.heavy,bodySlots:system.bodySlots,powered:system.powered,specialRules:system.specialRules,capacity:system.capacity,depletionMode:system.depletionMode,depletionFormula:system.depletionFormula,triggeredEffects:system.triggeredEffects})}`;
     case 'augmentation':
-      return `${type}:gear:${name}:${fingerprint({priceLevel:system.priceLevel,techCost:system.techCost,techPoints:system.techPoints,techUsed:system.techUsed,cargoUnits:system.cargoUnits,heavy:system.heavy,bodySlots:system.bodySlots,powered:system.powered,specialRules:system.specialRules,upgrades:system.upgrades})}`;
+      return `${type}:gear:${name}:${fingerprint({priceLevel:system.priceLevel,techCost:system.techCost,techPoints:system.techPoints,techUsed:system.techUsed,cargoUnits:system.cargoUnits,heavy:system.heavy,bodySlots:system.bodySlots,powered:system.powered,specialRules:system.specialRules,egoCost:system.egoCost,prerequisites:system.prerequisites,attributeEffects:system.attributeEffects,upgrades:system.upgrades})}`;
+    case 'ammunition':
+      return `${type}:ammo:${catalogId||name}:${fingerprint({compatibleWith:system.compatibleWith,damage:system.damage,damageType:system.damageType,damageBonus:system.damageBonus,organicDamage:system.organicDamage,syntheticDamage:system.syntheticDamage,organicDamageBonus:system.organicDamageBonus,syntheticDamageBonus:system.syntheticDamageBonus,armorPiercing:system.armorPiercing,deadly:system.deadly,effect:system.effect,requiresUpgrade:system.requiresUpgrade,zoneDamageShared:system.zoneDamageShared,zoneDamageAdjacent:system.zoneDamageAdjacent})}`;
+    case 'drug':
+      return `${type}:drug:${catalogId||name}:${fingerprint({administration:system.administration,addiction:system.addiction,controlledBy:system.controlledBy,controlledTier:system.controlledTier,duration:system.duration,effects:system.effects,underInfluence:system.underInfluence,metabolism:system.metabolism,upgrades:system.upgrades})}`;
     case 'creditSet':
       return `${type}:credit:${name}:${fingerprint({value:system.value,untraceable:system.untraceable})}`;
     case 'virtualConstruct':

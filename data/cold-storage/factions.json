@@ -1,0 +1,44 @@
+[
+  {
+    "id": "F01",
+    "name": "The Continuity Foundation",
+    "public": "Charity restoring damaged DHFs and supplying sleeves to victims.",
+    "secret": "Palimpsest persists as a human-biography and interface programme serving MERCY-9, JANUS-4 and ATLAS-12, three artificial minds resident in the Benefactors' organic clones.",
+    "goal": "Renew private custody and civic authority while concealing coerced clinical work and artificial provenance."
+  },
+  {
+    "id": "F02",
+    "name": "Protectorate Continuity Office",
+    "public": "Stack evidence, state resleeving and continuity-crimes authority.",
+    "secret": "Its sealed order placed the PCs on ice; present officers are divided over disclosure.",
+    "goal": "Control legal continuity and the institutional consequences of the 2274 order."
+  },
+  {
+    "id": "F03",
+    "name": "Sable Needle Corporation",
+    "public": "Needlecast relays, clone storage and secure DHF transmission.",
+    "secret": "Independent relay receipts link the Benefactors to civic commands. Lena can preserve life-safety operations while the administrative lease changes.",
+    "goal": "Protect its infrastructure and surviving records."
+  },
+  {
+    "id": "F04",
+    "name": "Blue Lotus Combine",
+    "public": "Criminal network around sleeves and identity services.",
+    "secret": "Long history of illegal sleeves, identity laundering, stacks, backups and witness disappearance.",
+    "goal": "Profit while avoiding ownership by Palimpsest."
+  },
+  {
+    "id": "F05",
+    "name": "The Quiet Archive",
+    "public": "Neo-C organisation recording testimony without spinning up the dead.",
+    "secret": "Preserved analogue evidence resistant to memory tampering.",
+    "goal": "Protect testimony and religious autonomy."
+  },
+  {
+    "id": "F06",
+    "name": "The Chainbreakers",
+    "public": "Loose Quellist-influenced anti-Meth resistance.",
+    "secret": "Some members want Palimpsest repurposed to erase obedience conditioning.",
+    "goal": "Break Protectorate and Meth control without becoming a new continuity tyranny."
+  }
+]

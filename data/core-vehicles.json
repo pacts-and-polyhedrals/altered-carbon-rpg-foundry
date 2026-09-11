@@ -1,0 +1,279 @@
+{
+  "source": "Altered Carbon RPG Core Rulebook (2020)",
+  "count": 3,
+  "actors": [
+    {
+      "id": "core.vehicle.airbike",
+      "name": "Airbike",
+      "type": "vehicle",
+      "category": "Vehicles",
+      "sourcePage": 257,
+      "system": {
+        "biography": "Fast anti-grav personal vehicle favored by risk-takers and outlaws.",
+        "identity": {
+          "trueName": "",
+          "publicName": "Airbike",
+          "pronouns": "",
+          "sleevePronouns": "",
+          "dhfAge": 0,
+          "storageYears": 0,
+          "archetype": "",
+          "variant": "standard",
+          "currentObjective": ""
+        },
+        "attributes": {
+          "strength": 30,
+          "perception": 30,
+          "empathy": 30,
+          "willpower": 30,
+          "acuity": 30,
+          "intelligence": 30
+        },
+        "resources": {
+          "health": {
+            "value": 10,
+            "max": 10
+          },
+          "ego": {
+            "value": 20,
+            "max": 20
+          },
+          "wounds": {
+            "value": 0,
+            "max": 0
+          },
+          "stackPoints": {
+            "value": 0,
+            "max": 0
+          },
+          "influence": {
+            "value": 0,
+            "max": 0
+          }
+        },
+        "wealth": 0,
+        "economy": {
+          "deferral": 0,
+          "debt": false
+        },
+        "backup": {
+          "enabled": false,
+          "priceLevel": 0,
+          "routine": false,
+          "notes": ""
+        },
+        "egoState": "stable",
+        "stackState": "intact",
+        "sleeveState": "healthy",
+        "defense": 0,
+        "speedModifier": 0,
+        "notes": "Core Rulebook p.257–258",
+        "vehicle": {
+          "size": 1,
+          "durability": 10,
+          "structure": {
+            "value": 2,
+            "max": 2
+          },
+          "velocity": "100 ft or 45 degrees",
+          "speedDice": 3,
+          "fuel": {
+            "value": 5,
+            "max": 5
+          },
+          "crewSkeleton": 1,
+          "crewStandard": 1,
+          "crewFull": 1,
+          "handling": 3,
+          "fireControl": 0,
+          "travel": "city",
+          "cargo": 2,
+          "passengers": 1,
+          "systems": "Anti-Grav; Controlled Descent. Upgrades: Sidecar; Stripped Down."
+        }
+      }
+    },
+    {
+      "id": "core.vehicle.aircar",
+      "name": "Aircar",
+      "type": "vehicle",
+      "category": "Vehicles",
+      "sourcePage": 258,
+      "system": {
+        "biography": "Common high-status anti-grav personal transport for fast city and regional travel.",
+        "identity": {
+          "trueName": "",
+          "publicName": "Aircar",
+          "pronouns": "",
+          "sleevePronouns": "",
+          "dhfAge": 0,
+          "storageYears": 0,
+          "archetype": "",
+          "variant": "standard",
+          "currentObjective": ""
+        },
+        "attributes": {
+          "strength": 30,
+          "perception": 30,
+          "empathy": 30,
+          "willpower": 30,
+          "acuity": 30,
+          "intelligence": 30
+        },
+        "resources": {
+          "health": {
+            "value": 10,
+            "max": 10
+          },
+          "ego": {
+            "value": 20,
+            "max": 20
+          },
+          "wounds": {
+            "value": 0,
+            "max": 0
+          },
+          "stackPoints": {
+            "value": 0,
+            "max": 0
+          },
+          "influence": {
+            "value": 0,
+            "max": 0
+          }
+        },
+        "wealth": 0,
+        "economy": {
+          "deferral": 0,
+          "debt": false
+        },
+        "backup": {
+          "enabled": false,
+          "priceLevel": 0,
+          "routine": false,
+          "notes": ""
+        },
+        "egoState": "stable",
+        "stackState": "intact",
+        "sleeveState": "healthy",
+        "defense": 0,
+        "speedModifier": 0,
+        "notes": "Core Rulebook p.258",
+        "vehicle": {
+          "size": 2,
+          "durability": 20,
+          "structure": {
+            "value": 3,
+            "max": 3
+          },
+          "velocity": "100 ft or 30 degrees",
+          "speedDice": 3,
+          "fuel": {
+            "value": 10,
+            "max": 10
+          },
+          "crewSkeleton": 1,
+          "crewStandard": 1,
+          "crewFull": 1,
+          "handling": 2,
+          "fireControl": 0,
+          "travel": "region",
+          "cargo": 4,
+          "passengers": 4,
+          "systems": "Anti-Grav. Upgrades: Advanced Traffic Guidance; Autopilot; Reinforced Hull."
+        }
+      }
+    },
+    {
+      "id": "core.vehicle.ground-car",
+      "name": "Ground Car",
+      "type": "vehicle",
+      "category": "Vehicles",
+      "sourcePage": 259,
+      "system": {
+        "biography": "Modernized ground automobile with strong cargo capacity and extensive customization options.",
+        "identity": {
+          "trueName": "",
+          "publicName": "Ground Car",
+          "pronouns": "",
+          "sleevePronouns": "",
+          "dhfAge": 0,
+          "storageYears": 0,
+          "archetype": "",
+          "variant": "standard",
+          "currentObjective": ""
+        },
+        "attributes": {
+          "strength": 30,
+          "perception": 30,
+          "empathy": 30,
+          "willpower": 30,
+          "acuity": 30,
+          "intelligence": 30
+        },
+        "resources": {
+          "health": {
+            "value": 10,
+            "max": 10
+          },
+          "ego": {
+            "value": 20,
+            "max": 20
+          },
+          "wounds": {
+            "value": 0,
+            "max": 0
+          },
+          "stackPoints": {
+            "value": 0,
+            "max": 0
+          },
+          "influence": {
+            "value": 0,
+            "max": 0
+          }
+        },
+        "wealth": 0,
+        "economy": {
+          "deferral": 0,
+          "debt": false
+        },
+        "backup": {
+          "enabled": false,
+          "priceLevel": 0,
+          "routine": false,
+          "notes": ""
+        },
+        "egoState": "stable",
+        "stackState": "intact",
+        "sleeveState": "healthy",
+        "defense": 0,
+        "speedModifier": 0,
+        "notes": "Core Rulebook p.259",
+        "vehicle": {
+          "size": 2,
+          "durability": 30,
+          "structure": {
+            "value": 4,
+            "max": 4
+          },
+          "velocity": "50 ft or 45 degrees",
+          "speedDice": 3,
+          "fuel": {
+            "value": 10,
+            "max": 10
+          },
+          "crewSkeleton": 1,
+          "crewStandard": 1,
+          "crewFull": 1,
+          "handling": 2,
+          "fireControl": 0,
+          "travel": "city",
+          "cargo": 5,
+          "passengers": 5,
+          "systems": "Upgrades include Hauler, Shuttle, Off-road Vehicle, Reinforced Hull."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,462 @@
+[
+  {
+    "id": "C01",
+    "historicalIdentity": "Dr Lucan Vey",
+    "currentIdentity": "Elias North",
+    "presentFunction": "Palimpsest mastermind",
+    "alignment": "principal-adversary",
+    "currentSleeve": {
+      "name": "Elias North current sleeve",
+      "appearance": "An unfamiliar 2384 sleeve chosen to sever visual continuity with Dr Lucan Vey. Final portrait art is intentionally deferred; the dossier relies on behaviour, voice patterns and evidence rather than facial recognition."
+    },
+    "faction": "The Continuity Foundation",
+    "agenda": "Complete Palimpsest by recovering the eight experiential fragments, while convincing the PCs that the project is the only way to repair the damage already done to them.",
+    "recognitionClues": [
+      "When cornered, taps two fingers against the inside of the left wrist before answering; still calls difficult problems “dirty mirrors.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealPath": [
+      "familiarity",
+      "identification",
+      "verification"
+    ]
+  },
+  {
+    "id": "C02",
+    "historicalIdentity": "Commander Mara Kest",
+    "currentIdentity": "Captain Asha Rhyne",
+    "presentFunction": "Protectorate tactical commander",
+    "alignment": "principal-adversary",
+    "currentSleeve": {
+      "name": "Captain Asha Rhyne current sleeve",
+      "appearance": "An unfamiliar 2384 sleeve chosen to sever visual continuity with Commander Mara Kest. Final portrait art is intentionally deferred; the dossier relies on behaviour, voice patterns and evidence rather than facial recognition."
+    },
+    "faction": "Protectorate Continuity Office",
+    "agenda": "Recover the PCs as sealed continuity evidence and prevent a scandal that would destroy careers, but quietly preserve them from Lucan Vey’s extraction teams.",
+    "recognitionClues": [
+      "Squares every object on a table before an interrogation and uses the old field phrase “secure the person, not the sleeve.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealPath": [
+      "familiarity",
+      "identification",
+      "verification"
+    ]
+  },
+  {
+    "id": "C03",
+    "historicalIdentity": "Gideon Saye",
+    "currentIdentity": "Morrow Locke",
+    "presentFunction": "Meth financier",
+    "alignment": "principal-adversary",
+    "currentSleeve": {
+      "name": "Morrow Locke current sleeve",
+      "appearance": "An unfamiliar 2384 sleeve chosen to sever visual continuity with Gideon Saye. Final portrait art is intentionally deferred; the dossier relies on behaviour, voice patterns and evidence rather than facial recognition."
+    },
+    "faction": "The Continuity Foundation",
+    "agenda": "Keep the Meth investment chain hidden, acquire the publication fragment, and turn Palimpsest into an exclusive continuity service for dynastic clients.",
+    "recognitionClues": [
+      "Never drinks from the first glass offered and still quotes account numbers from memory when irritated.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealPath": [
+      "familiarity",
+      "identification",
+      "verification"
+    ]
+  },
+  {
+    "id": "C04",
+    "historicalIdentity": "Dr Talia Venn",
+    "currentIdentity": "Dr Serin Kael",
+    "presentFunction": "Resleeving specialist and secret benefactor",
+    "alignment": "potential-ally",
+    "currentSleeve": {
+      "name": "Dr Serin Kael current sleeve",
+      "appearance": "An unfamiliar 2384 sleeve chosen to sever visual continuity with Dr Talia Venn. Final portrait art is intentionally deferred; the dossier relies on behaviour, voice patterns and evidence rather than facial recognition."
+    },
+    "faction": "The Continuity Foundation",
+    "agenda": "Keep the awakened DHFs alive long enough to choose for themselves. She helped finance their illegal resleeving and is concealing how much of Palimpsest she once understood.",
+    "recognitionClues": [
+      "Checks a patient’s pupils with the same three-count rhythm and says “stay with me” before difficult medical truths.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealPath": [
+      "familiarity",
+      "identification",
+      "verification"
+    ]
+  },
+  {
+    "id": "C05",
+    "historicalIdentity": "Ysabel Chen",
+    "currentIdentity": "Mira Sol",
+    "presentFunction": "Grounder mutual-aid leader",
+    "alignment": "potential-ally",
+    "currentSleeve": {
+      "name": "Mira Sol current sleeve",
+      "appearance": "An unfamiliar 2384 sleeve chosen to sever visual continuity with Ysabel Chen. Final portrait art is intentionally deferred; the dossier relies on behaviour, voice patterns and evidence rather than facial recognition."
+    },
+    "faction": "Independent / Rainline Mutual Aid",
+    "agenda": "Protect Grounders from forced resleeving and use the PCs’ evidence to break the Continuity Foundation’s hold over cheap sleeve allocation.",
+    "recognitionClues": [
+      "Folds paper into a tiny crane while thinking and remembers exactly how each PC took their coffee or stimulant.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealPath": [
+      "familiarity",
+      "identification",
+      "verification"
+    ]
+  },
+  {
+    "id": "C06",
+    "historicalIdentity": "Osei Quade",
+    "currentIdentity": "Brother Cinder",
+    "presentFunction": "Chainbreaker organiser",
+    "alignment": "potential-ally",
+    "currentSleeve": {
+      "name": "Brother Cinder current sleeve",
+      "appearance": "An unfamiliar 2384 sleeve chosen to sever visual continuity with Osei Quade. Final portrait art is intentionally deferred; the dossier relies on behaviour, voice patterns and evidence rather than facial recognition."
+    },
+    "faction": "The Chainbreakers",
+    "agenda": "Expose Palimpsest, but salvage its ability to remove coercive conditioning from political prisoners.",
+    "recognitionClues": [
+      "Touches thumb to brow before making a promise and refuses to call a stored DHF “cargo.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealPath": [
+      "familiarity",
+      "identification",
+      "verification"
+    ]
+  },
+  {
+    "id": "C07",
+    "historicalIdentity": "Dax Marrow",
+    "currentIdentity": "Niko Saint",
+    "presentFunction": "Blue Lotus leader",
+    "alignment": "opportunist",
+    "currentSleeve": {
+      "name": "Niko Saint current sleeve",
+      "appearance": "An unfamiliar 2384 sleeve chosen to sever visual continuity with Dax Marrow. Final portrait art is intentionally deferred; the dossier relies on behaviour, voice patterns and evidence rather than facial recognition."
+    },
+    "faction": "Blue Lotus Combine",
+    "agenda": "Trade whichever fragments create the greatest leverage, erase evidence of old betrayals, and preserve the Combine’s monopoly over identity laundering.",
+    "recognitionClues": [
+      "Flips a coin across the knuckles when lying and uses the phrase “debts outlive bodies.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealPath": [
+      "familiarity",
+      "identification",
+      "verification"
+    ]
+  },
+  {
+    "id": "C08",
+    "historicalIdentity": "Hyeon Park",
+    "currentIdentity": "Father Ash",
+    "presentFunction": "Quiet Archive custodian",
+    "alignment": "potential-ally",
+    "currentSleeve": {
+      "name": "Father Ash current sleeve",
+      "appearance": "An unfamiliar 2384 sleeve chosen to sever visual continuity with Hyeon Park. Final portrait art is intentionally deferred; the dossier relies on behaviour, voice patterns and evidence rather than facial recognition."
+    },
+    "faction": "The Quiet Archive",
+    "agenda": "Authenticate the PCs through analogue records and prevent Palimpsest from rewriting the testimony of the dead.",
+    "recognitionClues": [
+      "Recites dates before names in prayer and carries a handwritten list of people whose stacks were never spun up.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealPath": [
+      "familiarity",
+      "identification",
+      "verification"
+    ]
+  },
+  {
+    "id": "C09",
+    "historicalIdentity": "Rhea Damar",
+    "currentIdentity": "June Halden",
+    "presentFunction": "Continuity prosecutor",
+    "alignment": "opportunist",
+    "currentSleeve": {
+      "name": "June Halden current sleeve",
+      "appearance": "An unfamiliar 2384 sleeve chosen to sever visual continuity with Rhea Damar. Final portrait art is intentionally deferred; the dossier relies on behaviour, voice patterns and evidence rather than facial recognition."
+    },
+    "faction": "Protectorate Continuity Office",
+    "agenda": "Build a legally survivable case while keeping her own role in the 2274 suppression outside the chain of evidence.",
+    "recognitionClues": [
+      "Straightens her cuffs before contradicting someone and says “for the record” even in private.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealPath": [
+      "familiarity",
+      "identification",
+      "verification"
+    ]
+  },
+  {
+    "id": "C10",
+    "historicalIdentity": "Petar Volkov",
+    "currentIdentity": "Jalen Cross",
+    "presentFunction": "Bounty hunter",
+    "alignment": "opportunist",
+    "currentSleeve": {
+      "name": "Jalen Cross current sleeve",
+      "appearance": "An unfamiliar 2384 sleeve chosen to sever visual continuity with Petar Volkov. Final portrait art is intentionally deferred; the dossier relies on behaviour, voice patterns and evidence rather than facial recognition."
+    },
+    "faction": "Independent Bounty Network",
+    "agenda": "Capture one or more PCs alive for the highest bidder, but refuses a contract that explicitly requires stack destruction.",
+    "recognitionClues": [
+      "Checks exits before faces and rolls the right shoulder before violence, an old injury habit recreated in every sleeve.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealPath": [
+      "familiarity",
+      "identification",
+      "verification"
+    ]
+  },
+  {
+    "id": "C11",
+    "historicalIdentity": "Keiko Marr",
+    "currentIdentity": "Lena Orr",
+    "presentFunction": "Sable Needle engineer",
+    "alignment": "potential-ally",
+    "currentSleeve": {
+      "name": "Lena Orr current sleeve",
+      "appearance": "An unfamiliar 2384 sleeve chosen to sever visual continuity with Keiko Marr. Final portrait art is intentionally deferred; the dossier relies on behaviour, voice patterns and evidence rather than facial recognition."
+    },
+    "faction": "Sable Needle Corporation",
+    "agenda": "Deliver the 2274 relay logs and help Latch verify the encryption seed before corporate security deletes the last cold backups.",
+    "recognitionClues": [
+      "Counts down network handshakes under her breath and still uses Latch’s obsolete diagnostic nickname for corrupted packets.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealPath": [
+      "familiarity",
+      "identification",
+      "verification"
+    ]
+  },
+  {
+    "id": "C12",
+    "historicalIdentity": "Arun Bell",
+    "currentIdentity": "Soren Gray",
+    "presentFunction": "DHF-rights data architect",
+    "alignment": "potential-ally",
+    "currentSleeve": {
+      "name": "Soren Gray current sleeve",
+      "appearance": "An unfamiliar 2384 sleeve chosen to sever visual continuity with Arun Bell. Final portrait art is intentionally deferred; the dossier relies on behaviour, voice patterns and evidence rather than facial recognition."
+    },
+    "faction": "The Chainbreakers",
+    "agenda": "Prove that continuity rights belong to the DHF rather than the corporation or state that owns a sleeve, then publish a defensible technical record.",
+    "recognitionClues": [
+      "Draws diagrams as nested circles and always asks “who owns the copy?” before discussing a system.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealPath": [
+      "familiarity",
+      "identification",
+      "verification"
+    ]
+  },
+  {
+    "id": "C13",
+    "historicalIdentity": "Celeste Ardan",
+    "currentIdentity": "Vivian Locke",
+    "presentFunction": "Meth dynast and Palimpsest investor",
+    "alignment": "principal-adversary",
+    "currentSleeve": {
+      "name": "Vivian Locke current sleeve",
+      "appearance": "An unfamiliar 2384 sleeve chosen to sever visual continuity with Celeste Ardan. Final portrait art is intentionally deferred; the dossier relies on behaviour, voice patterns and evidence rather than facial recognition."
+    },
+    "faction": "The Continuity Foundation",
+    "agenda": "Preserve the Ardan fortune and prevent the Palimpsest funding trail from becoming admissible evidence; if that fails, buy the PCs.",
+    "recognitionClues": [
+      "Never uses contractions when angry and wears a recreated signet scar beneath the right thumb.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealPath": [
+      "familiarity",
+      "identification",
+      "verification"
+    ]
+  },
+  {
+    "id": "C14",
+    "historicalIdentity": "Emil Navarro",
+    "currentIdentity": "Tom Arlen",
+    "presentFunction": "Bay City detective",
+    "alignment": "potential-ally",
+    "currentSleeve": {
+      "name": "Tom Arlen current sleeve",
+      "appearance": "An unfamiliar 2384 sleeve chosen to sever visual continuity with Emil Navarro. Final portrait art is intentionally deferred; the dossier relies on behaviour, voice patterns and evidence rather than facial recognition."
+    },
+    "faction": "Bay City Police / Continuity Liaison",
+    "agenda": "Help Nia and Solenne establish a chain of evidence while avoiding Protectorate seizure of the case.",
+    "recognitionClues": [
+      "Pauses before saying a suspect’s name and still uses the private code phrase “blue rain” for a compromised scene.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealPath": [
+      "familiarity",
+      "identification",
+      "verification"
+    ]
+  },
+  {
+    "id": "C15",
+    "historicalIdentity": "Farah Nouri",
+    "currentIdentity": "Rin Azad",
+    "presentFunction": "Psychosurgeon",
+    "alignment": "opportunist",
+    "currentSleeve": {
+      "name": "Rin Azad current sleeve",
+      "appearance": "An unfamiliar 2384 sleeve chosen to sever visual continuity with Farah Nouri. Final portrait art is intentionally deferred; the dossier relies on behaviour, voice patterns and evidence rather than facial recognition."
+    },
+    "faction": "Independent Psychosurgery Practice",
+    "agenda": "Obtain the original Palimpsest procedure to prove her rival Edda crossed ethical lines, while secretly fearing her own memories were edited.",
+    "recognitionClues": [
+      "Rubs the bridge of her nose when reading a neural map and corrects medical terminology even during arguments.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealPath": [
+      "familiarity",
+      "identification",
+      "verification"
+    ]
+  },
+  {
+    "id": "C16",
+    "historicalIdentity": "Juno Sera",
+    "currentIdentity": "Hale Mercer",
+    "presentFunction": "Information broker",
+    "alignment": "opportunist",
+    "currentSleeve": {
+      "name": "Hale Mercer current sleeve",
+      "appearance": "An unfamiliar 2384 sleeve chosen to sever visual continuity with Juno Sera. Final portrait art is intentionally deferred; the dossier relies on behaviour, voice patterns and evidence rather than facial recognition."
+    },
+    "faction": "Independent Information Brokerage",
+    "agenda": "Sell information to both sides while keeping Cass alive; their old intimacy is real, but so is the business built during Cass’s absence.",
+    "recognitionClues": [
+      "Humms the first four notes of an old Rainline song when opening a secure channel and never sits with their back to glass.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealPath": [
+      "familiarity",
+      "identification",
+      "verification"
+    ]
+  },
+  {
+    "id": "C17",
+    "historicalIdentity": "Hanzo Irei",
+    "currentIdentity": "Ren Ko",
+    "presentFunction": "Corporate extraction specialist",
+    "alignment": "principal-adversary",
+    "currentSleeve": {
+      "name": "Ren Ko current sleeve",
+      "appearance": "An unfamiliar 2384 sleeve chosen to sever visual continuity with Hanzo Irei. Final portrait art is intentionally deferred; the dossier relies on behaviour, voice patterns and evidence rather than facial recognition."
+    },
+    "faction": "Corporate Extraction Consortium",
+    "agenda": "Destroy the smuggling-route fragment and capture technical witnesses who can tie corporate extraction teams to Palimpsest.",
+    "recognitionClues": [
+      "Snaps disposable gloves before negotiations and refers to people by contract role rather than name.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealPath": [
+      "familiarity",
+      "identification",
+      "verification"
+    ]
+  },
+  {
+    "id": "C18",
+    "historicalIdentity": "Delia Frost",
+    "currentIdentity": "Lark Seven",
+    "presentFunction": "Virtuality sculptor",
+    "alignment": "opportunist",
+    "currentSleeve": {
+      "name": "Lark Seven current sleeve",
+      "appearance": "An unfamiliar 2384 sleeve chosen to sever visual continuity with Delia Frost. Final portrait art is intentionally deferred; the dossier relies on behaviour, voice patterns and evidence rather than facial recognition."
+    },
+    "faction": "Independent Virtuality Studio",
+    "agenda": "Regain control of the Palimpsest architecture and prove that Anik stole credit for work they once built together.",
+    "recognitionClues": [
+      "Builds virtual rooms with one deliberately impossible shadow and asks visitors what they think is “real enough.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealPath": [
+      "familiarity",
+      "identification",
+      "verification"
+    ]
+  },
+  {
+    "id": "C19",
+    "historicalIdentity": "Amos Dain",
+    "currentIdentity": "Deacon Marr",
+    "presentFunction": "Neo-C theologian",
+    "alignment": "potential-ally",
+    "currentSleeve": {
+      "name": "Deacon Marr current sleeve",
+      "appearance": "An unfamiliar 2384 sleeve chosen to sever visual continuity with Amos Dain. Final portrait art is intentionally deferred; the dossier relies on behaviour, voice patterns and evidence rather than facial recognition."
+    },
+    "faction": "The Quiet Archive",
+    "agenda": "Determine whether forged religious coding invalidates decades of testimony and help Edda distinguish guilt from implanted guilt.",
+    "recognitionClues": [
+      "Uses the same short blessing before touching a stack and keeps analogue prayer beads with one missing bead.",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealPath": [
+      "familiarity",
+      "identification",
+      "verification"
+    ]
+  },
+  {
+    "id": "C20",
+    "historicalIdentity": "Sera Bale",
+    "currentIdentity": "Iris Tan",
+    "presentFunction": "Continuity defence advocate",
+    "alignment": "potential-ally",
+    "currentSleeve": {
+      "name": "Iris Tan current sleeve",
+      "appearance": "An unfamiliar 2384 sleeve chosen to sever visual continuity with Sera Bale. Final portrait art is intentionally deferred; the dossier relies on behaviour, voice patterns and evidence rather than facial recognition."
+    },
+    "faction": "Independent Continuity Defence",
+    "agenda": "Keep the PCs legally free, protect the right of victims to control whether they are spun up, and force the state to disclose the sealed 2274 order.",
+    "recognitionClues": [
+      "Takes notes by hand first, then digitises them, and repeats the phrase “consent survives the sleeve.”",
+      "A private memory shared with at least one pregen",
+      "An archival or analogue record that can independently verify the claimed identity"
+    ],
+    "revealPath": [
+      "familiarity",
+      "identification",
+      "verification"
+    ]
+  }
+]

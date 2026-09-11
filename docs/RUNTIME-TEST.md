@@ -1,61 +1,57 @@
-# First live Foundry v14 runtime test
+# First live Foundry v14 runtime test — v1.3.0
 
-Run this after installing/updating the system in a real Foundry v14 world. Start with no third-party modules enabled.
+Run this after installing/updating the system in a real Foundry v14 world. Start with third-party modules disabled.
 
-## Core system and character-sheet duplicate handling
+## Package and base sheets
 
-1. Create/open a world using **Altered Carbon RPG — Unofficial**.
-2. Open browser developer tools and confirm there are no red errors from `altered-carbon-rpg` during `init` or `ready`.
-3. Create one Character Actor, one NPC Actor and one Vehicle Actor.
-4. Open each Actor sheet and confirm every page scrolls and renders.
-5. Create representative Skill, Sleeve, Weapon, Armour, Equipment, Trait, Baggage, Condition and Relationship Items.
-6. Confirm embedded records expand read-only and only expose document editing after **Edit Sheet** is enabled.
-7. On a disposable Actor, deliberately create two identical Baggage Items and two identical equipment/weapon Items. Confirm each duplicate pair renders as a single sheet row.
-8. Change only mutable state such as Depletion, Exhausted, Credit spent, or Baggage resolved-state on one of the doubled records and confirm the sheet still does not show an accidental second row.
-9. Create two same-name weapons whose actual identity differs (for example, different damage or range) and confirm both remain visible.
-10. Roll a Skill from the Actor sheet.
-11. Open the Character Creator and Rules Reference menus.
-12. Create a Combat encounter and open the Altered Carbon Combat Console.
-13. Test weapon use, damage, Wounds/Health mutation and resleeving.
+1. Open a world using **Altered Carbon RPG — Unofficial** and confirm there are no Altered Carbon errors during `init`/`ready`.
+2. Create/open a Character, NPC and Vehicle Actor and confirm every sheet page scrolls and renders.
+3. Confirm the Character sheet opens in View Mode and embedded records edit only after **Edit Sheet**.
+4. Deliberately duplicate Baggage, Weapon, Ammunition and Drug Items. Confirm cloned sheet rows collapse while genuinely different same-name weapons remain distinct.
+5. Roll a Skill, open Character Creator, Rules Reference, Combat Console and GM Control.
 
-## GM Guide automatic migration and refresh
+## Core Equipment Library
 
-14. Log in as a GM and confirm a Journal named **Altered Carbon — GM Guide** exists after `ready`.
-15. Open the Journal and confirm **Start Here** visibly reports generated guide build **v1.2.1**.
-16. Confirm the guide contains **21 generated pages**, including **GM Control & Chat Requests**.
-17. Inspect Situational Rolls, Combat, Damage, Gear, Requests, Resleeving, Virtual, Cold Storage Presets, and GM Control & Chat Requests.
-18. Confirm long Journal pages remain scrollable/readable with the system's futuristic styling.
-19. In a disposable copy of the world, install v1.2.1 over a v1.2.0-generated guide (or deliberately make the guide-version flag stale), reload as GM, and confirm the generated pages refresh automatically without pressing **Refresh Guide**.
-20. Append a separate custom notes page that is not system-generated. Use **Refresh Guide** and confirm the custom notes page remains while the generated pages are rebuilt.
-21. Open GM Control and click **Open GM Guide**; confirm it opens the refreshed Journal.
+6. Press **Core Gear** on a Character sheet. Confirm the Library opens and reports **95 Item records, 3 Vehicle Actor templates and 12 generic weapon upgrades**.
+7. Search for `NEMEX`, `Lethinol`, `EMP`, `Flak Coat` and `Speed Neurachem`; confirm filters hide/show records without console errors.
+8. Add one Weapon, one Ammunition, one Armour, one Equipment, one Software, one Drug and one Augmentation to the Actor. Confirm each appears once on Gear.
+9. Add the same non-repeatable Core Weapon again. Confirm it is not duplicated.
+10. Add the same Core Ammunition and Drug again. Confirm their quantities increase instead of creating a second embedded row.
+11. As GM, create one Core world Item and one Core Vehicle Actor from the Library.
+12. In a disposable world, press **Install Missing Records to World** and confirm all missing Core Items and all three Vehicle Actors are created while existing matching catalog records are preserved.
 
-## GM Control Token Controls button
+## Ammunition
 
-22. Open a Scene as GM and select **Token Controls**.
-23. Confirm a GM-only satellite-dish tool titled **Altered Carbon — GM Control** appears in the Token Controls palette.
-24. Click it and confirm the GM Control application opens or comes to the front.
-25. Log in as a non-GM player and confirm that player does not receive the GM Control tool.
-26. Confirm the Game Settings GM Control entry still works as a fallback.
+13. Put a compatible weapon and special ammunition on a test Actor. Press **Load Ammo** and select the ammunition.
+14. Use the weapon and confirm the attack card names/reflects the loaded profile.
+15. Test an Armor Penetrating profile and confirm the damage card marks Armor Piercing.
+16. Test EMP or Plasma ammunition against organic and synthetic/vehicle targets; confirm the correct profile/bonus is used.
+17. Test Buckshot in Shared and Adjacent ranges and confirm the range-specific formula is selected.
+18. Confirm weapon Capacity/Depletion still operates normally while special ammunition changes the profile rather than creating a second weapon.
 
-## GM Control and chat requests
+## Drugs and augmentations
 
-27. Create or use two player-owned Character Actors with the system's core Skill Items.
-28. Join the world from a second non-GM user in another browser/profile.
-29. Open **Altered Carbon — GM Control** as GM and select one player character.
-30. Send **Notice the Anomaly**. Confirm the request appears only to GMs and the selected Actor's owner.
-31. On the player client, click the Actor's **Roll Detection** button in chat.
-32. Confirm a real Detection check is rolled, its grade card appears, and the original GM request updates to show the returned result.
-33. Select two or more player-owned Actors and send one group preset. Have each owner respond and confirm each row updates independently.
-34. Confirm a player cannot roll for an Actor they do not own and cannot answer the same request again after its response has been recorded.
-35. Send a custom check with Difficulty, TR bonus and a player-facing Context note. Confirm all values appear correctly and affect the roll as intended.
+19. Add Merge, Lethinol, Stallion and Tetrameth. Press **Administer** and confirm one dose is consumed and a futuristic effect card is posted.
+20. With Panic present, administer Lethinol and confirm the direct supported Panic-removal behavior works; verify remaining effects are shown for adjudication.
+21. Administer Stallion and confirm the Enraged condition is added.
+22. Test active Cognition/Combat/Congenial/Military neurachem or Bestial Attribute augments and confirm derived Attribute bonuses change without overwriting the Actor's stored base Attribute values.
+23. Test Speed Neurachem, Subdermal Plating and Bestial Dermis and confirm their supported derived effects appear.
 
-## Chat presentation
+## GM Guide migration
 
-36. Send a normal IC/OOC chat message and confirm it receives the Altered Carbon chat shell.
-37. Generate ordinary Success and Failure checks and confirm the grade chip and five-pip degree track render.
-38. Where practical in a test Actor, exercise/check the visual classes for Success +1 through +5 and Failure -1 through -5.
-39. Exercise Ace, Stroke of Luck and Catastrophe outcomes or inspect their test cards in a development world.
-40. Confirm weapon, equipment, damage and opposed-check cards share the same visual language.
-41. Confirm result labels remain readable without relying on color alone.
+24. Log in as GM and confirm **Altered Carbon — GM Guide** exists.
+25. Confirm **Start Here** reports generated guide build **v1.3.0**.
+26. Confirm the guide contains **22 generated pages**, including **21 — Core Equipment Library**.
+27. Upgrade a disposable world from the v1.2.1 guide to v1.3.0 and confirm the generated pages refresh automatically without deleting a custom unflagged notes page.
 
-If any step fails, capture the first Altered Carbon-related console error, the Foundry build number, the browser/client role, and a screenshot of the affected sheet, Journal, control palette, chat message, or card.
+## GM Control and chat
+
+28. Open a Scene, select **Token Controls**, and confirm the GM-only satellite-dish **Altered Carbon — GM Control** button appears and opens the panel.
+29. Log in as a non-GM user and confirm that user does not receive the GM Control tool.
+30. Send **Notice the Anomaly** to one player-owned Actor and answer it from the player client. Confirm the real Detection check is rolled and the original request card updates.
+31. Send a request to two or more player-owned Actors and confirm each owner can answer only their Actor once.
+32. Send a custom check with Difficulty, TR bonus and context; confirm values affect the roll correctly.
+33. Generate normal Success/Failure checks and confirm graded futuristic chat remains readable without color as the only signal.
+34. Confirm weapon, ammunition, drug, equipment, damage and opposed-check cards share the system chat styling.
+
+If a step fails, capture the first Altered Carbon-related console error, exact Foundry build number, browser/client role and a screenshot of the affected sheet, Journal, control palette or chat card.

@@ -1,0 +1,682 @@
+{
+  "title": "Cold Storage: The Faces We Left Behind",
+  "version": "1.1.0",
+  "journalCount": 74,
+  "wordCount": 35008,
+  "chapters": [
+    {
+      "id": "G00",
+      "title": "Start Here: The Night in One Page",
+      "visibility": "gm",
+      "category": "gm",
+      "order": 1,
+      "source": "book-src/gm/G00.md",
+      "wordCount": 687
+    },
+    {
+      "id": "G01",
+      "title": "The Truth Beneath the Case",
+      "visibility": "gm",
+      "category": "gm",
+      "order": 2,
+      "source": "book-src/gm/G01.md",
+      "wordCount": 970
+    },
+    {
+      "id": "G02",
+      "title": "A City That Remembers Selectively",
+      "visibility": "gm",
+      "category": "gm",
+      "order": 3,
+      "source": "book-src/gm/G02.md",
+      "wordCount": 840
+    },
+    {
+      "id": "G03",
+      "title": "Running the Investigation Without Dead Ends",
+      "visibility": "gm",
+      "category": "gm",
+      "order": 4,
+      "source": "book-src/gm/G03.md",
+      "wordCount": 739
+    },
+    {
+      "id": "G04",
+      "title": "Fray: The Price of Remembering",
+      "visibility": "gm",
+      "category": "gm",
+      "order": 5,
+      "source": "book-src/gm/G04.md",
+      "wordCount": 1100
+    },
+    {
+      "id": "G05",
+      "title": "Tone, Consent and Character Agency",
+      "visibility": "gm",
+      "category": "gm",
+      "order": 6,
+      "source": "book-src/gm/G05.md",
+      "wordCount": 586
+    },
+    {
+      "id": "G06",
+      "title": "Evidence Docket and Revelation Web",
+      "visibility": "gm",
+      "category": "gm",
+      "order": 7,
+      "source": "book-src/gm/G06.md",
+      "wordCount": 782
+    },
+    {
+      "id": "G07",
+      "title": "Pressure Clocks and Fair Consequences",
+      "visibility": "gm",
+      "category": "gm",
+      "order": 8,
+      "source": "book-src/gm/G07.md",
+      "wordCount": 692
+    },
+    {
+      "id": "G08",
+      "title": "SC01: The Resurrection Ward",
+      "visibility": "gm",
+      "category": "gm",
+      "order": 9,
+      "source": "book-src/gm/G08.md",
+      "wordCount": 907
+    },
+    {
+      "id": "G09",
+      "title": "SC02: Breach of Cold Storage",
+      "visibility": "gm",
+      "category": "gm",
+      "order": 10,
+      "source": "book-src/gm/G09.md",
+      "wordCount": 826
+    },
+    {
+      "id": "G10",
+      "title": "SC03: The Dead City They Remember",
+      "visibility": "gm",
+      "category": "gm",
+      "order": 11,
+      "source": "book-src/gm/G10.md",
+      "wordCount": 727
+    },
+    {
+      "id": "G11",
+      "title": "Lead A: The Quiet Archive",
+      "visibility": "gm",
+      "category": "gm",
+      "order": 12,
+      "source": "book-src/gm/G11.md",
+      "wordCount": 844
+    },
+    {
+      "id": "G12",
+      "title": "Lead B: Blue Lotus, Black Water",
+      "visibility": "gm",
+      "category": "gm",
+      "order": 13,
+      "source": "book-src/gm/G12.md",
+      "wordCount": 855
+    },
+    {
+      "id": "G13",
+      "title": "Lead C: Relay Seventeen",
+      "visibility": "gm",
+      "category": "gm",
+      "order": 14,
+      "source": "book-src/gm/G13.md",
+      "wordCount": 860
+    },
+    {
+      "id": "G14",
+      "title": "SC04: Anansi House",
+      "visibility": "gm",
+      "category": "gm",
+      "order": 15,
+      "source": "book-src/gm/G14.md",
+      "wordCount": 972
+    },
+    {
+      "id": "G15",
+      "title": "SC05: Palimpsest Virtuality",
+      "visibility": "gm",
+      "category": "gm",
+      "order": 16,
+      "source": "book-src/gm/G15.md",
+      "wordCount": 734
+    },
+    {
+      "id": "G16",
+      "title": "Memory Node A: The Court of Unreliable Witnesses",
+      "visibility": "gm",
+      "category": "gm",
+      "order": 17,
+      "source": "book-src/gm/G16.md",
+      "wordCount": 696
+    },
+    {
+      "id": "G17",
+      "title": "Memory Node B: The Operating Theatre",
+      "visibility": "gm",
+      "category": "gm",
+      "order": 18,
+      "source": "book-src/gm/G17.md",
+      "wordCount": 818
+    },
+    {
+      "id": "G18",
+      "title": "Memory Node C: The Last Broadcast",
+      "visibility": "gm",
+      "category": "gm",
+      "order": 19,
+      "source": "book-src/gm/G18.md",
+      "wordCount": 802
+    },
+    {
+      "id": "G19",
+      "title": "SC06, Part One: Entering the Spire",
+      "visibility": "gm",
+      "category": "gm",
+      "order": 20,
+      "source": "book-src/gm/G19.md",
+      "wordCount": 860
+    },
+    {
+      "id": "G20",
+      "title": "SC06, Part Two: The Council Beneath the Skin",
+      "visibility": "gm",
+      "category": "gm",
+      "order": 21,
+      "source": "book-src/gm/G20.md",
+      "wordCount": 1294
+    },
+    {
+      "id": "G21",
+      "title": "SC06, Part Three: The Final Operation",
+      "visibility": "gm",
+      "category": "gm",
+      "order": 22,
+      "source": "book-src/gm/G21.md",
+      "wordCount": 1147
+    },
+    {
+      "id": "G22",
+      "title": "Six Resolutions, None Without a Cost",
+      "visibility": "gm",
+      "category": "gm",
+      "order": 23,
+      "source": "book-src/gm/G22.md",
+      "wordCount": 1541
+    },
+    {
+      "id": "G23",
+      "title": "SC07: What Survives the Night",
+      "visibility": "gm",
+      "category": "gm",
+      "order": 24,
+      "source": "book-src/gm/G23.md",
+      "wordCount": 668
+    },
+    {
+      "id": "G24",
+      "title": "The Principal Cast: Voices at the Table",
+      "visibility": "gm",
+      "category": "gm",
+      "order": 25,
+      "source": "book-src/gm/G24.md",
+      "wordCount": 1081
+    },
+    {
+      "id": "G25",
+      "title": "The Twenty Contacts: A Playable Ensemble",
+      "visibility": "gm",
+      "category": "gm",
+      "order": 26,
+      "source": "book-src/gm/G25.md",
+      "wordCount": 1676
+    },
+    {
+      "id": "G26",
+      "title": "Eight Investigators, Forty Echoes",
+      "visibility": "gm",
+      "category": "gm",
+      "order": 27,
+      "source": "book-src/gm/G26.md",
+      "wordCount": 1656
+    },
+    {
+      "id": "G27",
+      "title": "Threats, Action and Nonlethal Objectives",
+      "visibility": "gm",
+      "category": "gm",
+      "order": 28,
+      "source": "book-src/gm/G27.md",
+      "wordCount": 715
+    },
+    {
+      "id": "G28",
+      "title": "When the Players Go Somewhere Else",
+      "visibility": "gm",
+      "category": "gm",
+      "order": 29,
+      "source": "book-src/gm/G28.md",
+      "wordCount": 904
+    },
+    {
+      "id": "G29",
+      "title": "Foundry Use, Editorial Notes and Sources",
+      "visibility": "gm",
+      "category": "gm",
+      "order": 30,
+      "source": "book-src/gm/G29.md",
+      "wordCount": 895
+    },
+    {
+      "id": "J00",
+      "title": "Player Briefing: The Faces We Left Behind",
+      "visibility": "public",
+      "category": "primer",
+      "order": 31,
+      "source": "book-src/players/J00.md",
+      "wordCount": 217
+    },
+    {
+      "id": "J01",
+      "title": "What Is a Person?",
+      "visibility": "public",
+      "category": "primer",
+      "order": 32,
+      "source": "book-src/players/J01.md",
+      "wordCount": 126
+    },
+    {
+      "id": "J02",
+      "title": "Sleeves and Resleeving",
+      "visibility": "public",
+      "category": "primer",
+      "order": 33,
+      "source": "book-src/players/J02.md",
+      "wordCount": 129
+    },
+    {
+      "id": "J03",
+      "title": "Death, Continuity and Choice",
+      "visibility": "public",
+      "category": "primer",
+      "order": 34,
+      "source": "book-src/players/J03.md",
+      "wordCount": 122
+    },
+    {
+      "id": "J04",
+      "title": "Bay City and the Rainline",
+      "visibility": "public",
+      "category": "primer",
+      "order": 35,
+      "source": "book-src/players/J04.md",
+      "wordCount": 152
+    },
+    {
+      "id": "J05",
+      "title": "The Aerium and Wealth",
+      "visibility": "public",
+      "category": "primer",
+      "order": 36,
+      "source": "book-src/players/J05.md",
+      "wordCount": 108
+    },
+    {
+      "id": "J06",
+      "title": "The Protectorate and Official Custody",
+      "visibility": "public",
+      "category": "primer",
+      "order": 37,
+      "source": "book-src/players/J06.md",
+      "wordCount": 108
+    },
+    {
+      "id": "J07",
+      "title": "Faith, Testimony and Consent",
+      "visibility": "public",
+      "category": "primer",
+      "order": 38,
+      "source": "book-src/players/J07.md",
+      "wordCount": 114
+    },
+    {
+      "id": "J08",
+      "title": "Needlecasting and the Journey of a Person",
+      "visibility": "public",
+      "category": "primer",
+      "order": 39,
+      "source": "book-src/players/J08.md",
+      "wordCount": 119
+    },
+    {
+      "id": "J09",
+      "title": "Virtuality and Psychosurgery",
+      "visibility": "public",
+      "category": "primer",
+      "order": 40,
+      "source": "book-src/players/J09.md",
+      "wordCount": 121
+    },
+    {
+      "id": "J10",
+      "title": "Artificial Intelligence",
+      "visibility": "public",
+      "category": "primer",
+      "order": 41,
+      "source": "book-src/players/J10.md",
+      "wordCount": 109
+    },
+    {
+      "id": "J11",
+      "title": "Distant Worlds and Older Histories",
+      "visibility": "public",
+      "category": "primer",
+      "order": 42,
+      "source": "book-src/players/J11.md",
+      "wordCount": 105
+    },
+    {
+      "id": "J12",
+      "title": "Crime and the Sleeve Economy",
+      "visibility": "public",
+      "category": "primer",
+      "order": 43,
+      "source": "book-src/players/J12.md",
+      "wordCount": 113
+    },
+    {
+      "id": "J13",
+      "title": "Everyday Life in an Unfamiliar Body",
+      "visibility": "public",
+      "category": "primer",
+      "order": 44,
+      "source": "book-src/players/J13.md",
+      "wordCount": 117
+    },
+    {
+      "id": "J14",
+      "title": "The Lost 110 Years",
+      "visibility": "public",
+      "category": "primer",
+      "order": 45,
+      "source": "book-src/players/J14.md",
+      "wordCount": 110
+    },
+    {
+      "id": "J15",
+      "title": "Project Palimpsest: GM Navigation",
+      "visibility": "gm",
+      "category": "primer",
+      "order": 46,
+      "source": "book-src/players/J15.md",
+      "wordCount": 71
+    },
+    {
+      "id": "J16",
+      "title": "Organisations You May Meet",
+      "visibility": "public",
+      "category": "primer",
+      "order": 47,
+      "source": "book-src/players/J16.md",
+      "wordCount": 103
+    },
+    {
+      "id": "J17",
+      "title": "Relationship Archive: GM Navigation",
+      "visibility": "gm",
+      "category": "primer",
+      "order": 48,
+      "source": "book-src/players/J17.md",
+      "wordCount": 113
+    },
+    {
+      "id": "J18",
+      "title": "Glossary",
+      "visibility": "public",
+      "category": "primer",
+      "order": 49,
+      "source": "book-src/players/J18.md",
+      "wordCount": 135
+    },
+    {
+      "id": "P-FRAY",
+      "title": "The Fray Agreement",
+      "visibility": "public",
+      "category": "primer",
+      "order": 50,
+      "source": "book-src/players/P-FRAY.md",
+      "wordCount": 455
+    },
+    {
+      "id": "PC01-CARD",
+      "title": "Nia Calder: A Private Echo",
+      "visibility": "gm",
+      "category": "personal",
+      "order": 51,
+      "source": "book-src/personal/PC01-CARD.md",
+      "wordCount": 197,
+      "pcId": "PC01"
+    },
+    {
+      "id": "PC02-CARD",
+      "title": "Tomas “Latch” Araya: A Private Echo",
+      "visibility": "gm",
+      "category": "personal",
+      "order": 52,
+      "source": "book-src/personal/PC02-CARD.md",
+      "wordCount": 200,
+      "pcId": "PC02"
+    },
+    {
+      "id": "PC03-CARD",
+      "title": "Sabine Kade: A Private Echo",
+      "visibility": "gm",
+      "category": "personal",
+      "order": 53,
+      "source": "book-src/personal/PC03-CARD.md",
+      "wordCount": 192,
+      "pcId": "PC03"
+    },
+    {
+      "id": "PC04-CARD",
+      "title": "Imani Voss: A Private Echo",
+      "visibility": "gm",
+      "category": "personal",
+      "order": 54,
+      "source": "book-src/personal/PC04-CARD.md",
+      "wordCount": 197,
+      "pcId": "PC04"
+    },
+    {
+      "id": "PC05-CARD",
+      "title": "Cass Ren: A Private Echo",
+      "visibility": "gm",
+      "category": "personal",
+      "order": 55,
+      "source": "book-src/personal/PC05-CARD.md",
+      "wordCount": 197,
+      "pcId": "PC05"
+    },
+    {
+      "id": "PC06-CARD",
+      "title": "Dr Edda Sorn: A Private Echo",
+      "visibility": "gm",
+      "category": "personal",
+      "order": 56,
+      "source": "book-src/personal/PC06-CARD.md",
+      "wordCount": 192,
+      "pcId": "PC06"
+    },
+    {
+      "id": "PC07-CARD",
+      "title": "Anik Rao: A Private Echo",
+      "visibility": "gm",
+      "category": "personal",
+      "order": 57,
+      "source": "book-src/personal/PC07-CARD.md",
+      "wordCount": 196,
+      "pcId": "PC07"
+    },
+    {
+      "id": "PC08-CARD",
+      "title": "Solenne Pryce: A Private Echo",
+      "visibility": "gm",
+      "category": "personal",
+      "order": 58,
+      "source": "book-src/personal/PC08-CARD.md",
+      "wordCount": 198,
+      "pcId": "PC08"
+    },
+    {
+      "id": "H01",
+      "title": "H01 - Continuity Withdrawal Receipt",
+      "visibility": "gm",
+      "category": "handout",
+      "order": 59,
+      "source": "book-src/handouts/H01.md",
+      "wordCount": 171
+    },
+    {
+      "id": "H02",
+      "title": "H02 - Recall and Recovery Order",
+      "visibility": "gm",
+      "category": "handout",
+      "order": 60,
+      "source": "book-src/handouts/H02.md",
+      "wordCount": 131
+    },
+    {
+      "id": "H03",
+      "title": "H03 - The Quiet Archive's Paper Record",
+      "visibility": "gm",
+      "category": "handout",
+      "order": 61,
+      "source": "book-src/handouts/H03.md",
+      "wordCount": 191
+    },
+    {
+      "id": "H04",
+      "title": "H04 - Blue Lotus Delivery Ledger",
+      "visibility": "gm",
+      "category": "handout",
+      "order": 62,
+      "source": "book-src/handouts/H04.md",
+      "wordCount": 166
+    },
+    {
+      "id": "H05",
+      "title": "H05 - Relay Seventeen Cold Log",
+      "visibility": "gm",
+      "category": "handout",
+      "order": 63,
+      "source": "book-src/handouts/H05.md",
+      "wordCount": 173
+    },
+    {
+      "id": "H06",
+      "title": "H06 - Serin Kael's Statement and Escrow",
+      "visibility": "gm",
+      "category": "handout",
+      "order": 64,
+      "source": "book-src/handouts/H06.md",
+      "wordCount": 196
+    },
+    {
+      "id": "H07",
+      "title": "H07 - Gate Record: Two Versions",
+      "visibility": "gm",
+      "category": "handout",
+      "order": 65,
+      "source": "book-src/handouts/H07.md",
+      "wordCount": 166
+    },
+    {
+      "id": "H08",
+      "title": "H08 - Clinical Exception and Altered Certification",
+      "visibility": "gm",
+      "category": "handout",
+      "order": 66,
+      "source": "book-src/handouts/H08.md",
+      "wordCount": 178
+    },
+    {
+      "id": "H09",
+      "title": "H09 - The Audit Route",
+      "visibility": "gm",
+      "category": "handout",
+      "order": 67,
+      "source": "book-src/handouts/H09.md",
+      "wordCount": 170
+    },
+    {
+      "id": "H10",
+      "title": "H10 - Root Genesis Register",
+      "visibility": "gm",
+      "category": "handout",
+      "order": 68,
+      "source": "book-src/handouts/H10.md",
+      "wordCount": 159
+    },
+    {
+      "id": "H11",
+      "title": "H11 - Organic Embodiment Attestation",
+      "visibility": "gm",
+      "category": "handout",
+      "order": 69,
+      "source": "book-src/handouts/H11.md",
+      "wordCount": 163
+    },
+    {
+      "id": "H12",
+      "title": "H12 - Civic Authority Dispatch",
+      "visibility": "gm",
+      "category": "handout",
+      "order": 70,
+      "source": "book-src/handouts/H12.md",
+      "wordCount": 170
+    },
+    {
+      "id": "H13",
+      "title": "H13 - The Three Buses and the Evidence Port",
+      "visibility": "gm",
+      "category": "handout",
+      "order": 71,
+      "source": "book-src/handouts/H13.md",
+      "wordCount": 204
+    },
+    {
+      "id": "H14",
+      "title": "H14 - Three Places to Start",
+      "visibility": "gm",
+      "category": "handout",
+      "order": 72,
+      "source": "book-src/handouts/H14.md",
+      "wordCount": 183
+    },
+    {
+      "id": "H15",
+      "title": "H15 - Read-Only Archive Agreement",
+      "visibility": "gm",
+      "category": "handout",
+      "order": 73,
+      "source": "book-src/handouts/H15.md",
+      "wordCount": 190
+    },
+    {
+      "id": "H16",
+      "title": "H16 - What Can Be Chosen Tonight",
+      "visibility": "gm",
+      "category": "handout",
+      "order": 74,
+      "source": "book-src/handouts/H16.md",
+      "wordCount": 207
+    }
+  ]
+}

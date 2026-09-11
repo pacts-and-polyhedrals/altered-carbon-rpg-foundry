@@ -5,7 +5,7 @@
       <h1>Character Creator</h1>
       <p>Build the character in the same order the sheet is organised. Each stage explains what the choice means, where it appears, and what the system calculates for you.</p>
     </div>
-    <div class="ac-wizard-counter" data-step-counter>01 / 07</div>
+    <div class="ac-wizard-counter" data-step-counter>01 / 08</div>
   </header>
 
   <div class="ac-wizard-progress"><span class="ac-wizard-progress-fill"></span></div>
@@ -125,7 +125,19 @@
       </section>
 
       <section class="ac-wizard-step" data-wizard-step="6">
-        <div class="ac-step-heading"><span>STEP 07</span><h2>Review & Instantiate</h2><p>Confirm the concept. The creator will make the Actor, starting sleeve, full Skill list, package content and deterministic starting resources in one operation.</p></div>
+        <div class="ac-step-heading"><span>STEP 07</span><h2>Level Up &amp; Starting SP</h2><p>Spend starting Stack Points before finishing, or keep them for play. Queued purchases are applied once when you create the character. No dice are rolled during planning.</p></div>
+        <div class="ac-plan-budget"><span>Starting <strong data-starting-sp>0</strong> SP</span><span>Planned <strong data-planned-sp>0</strong> SP</span><span>Remaining <strong data-remaining-sp>0</strong> SP</span></div>
+        <div class="ac-wizard-grid">
+          <article class="ac-panel"><h3>Improve a Skill</h3><label class="ac-select-field"><span>Skill</span><select name="planSkill">{{#each creationSkills}}<option value="{{id}}">{{name}}</option>{{/each}}</select></label><p>Queue one Skill Level at a time. The starting Archetype level determines the cost.</p><button type="button" data-action="queueSkill">Queue Skill Level</button></article>
+          <article class="ac-panel"><h3>Improve an Attribute</h3><label class="ac-select-field"><span>Attribute</span><select name="planAttribute">{{#each attributeHelp}}<option value="{{id}}">{{name}}</option>{{/each}}</select></label><label class="ac-select-field"><span>SP to spend (1d4 per SP)</span><input name="planAttributeSP" type="number" min="1" step="1" value="1"></label><button type="button" data-action="queueAttribute">Queue Attribute Increase</button></article>
+        </div>
+        <article class="ac-panel"><h3>Planned Purchases</h3><ol class="ac-creation-plan" data-creation-plan></ol><p class="ac-plan-error" data-plan-error role="alert" hidden></p><button type="button" data-action="clearQueued">Clear Plan</button></article>
+        <div class="ac-callout">Costs recalculate when age, Archetype or Attributes change. Attribute gains stop at the displayed sleeve/DHF cap and excess dice are lost. Starting resource rolls are not rerolled by advancement.</div>
+        <label class="ac-check-field"><input type="checkbox" name="openAdvancementAfter" checked> Open the full Level Up wizard after creation for Traits, Specialisations and further purchases.</label>
+      </section>
+
+      <section class="ac-wizard-step" data-wizard-step="7">
+        <div class="ac-step-heading"><span>STEP 08</span><h2>Review & Instantiate</h2><p>Confirm the concept. The creator will make the Actor, starting sleeve, full Skill list, package content and deterministic starting resources in one operation.</p></div>
         <article class="ac-panel ac-review-panel">
           <div class="ac-review-row"><span>True DHF</span><strong data-summary="name">New DHF</strong></div>
           <div class="ac-review-row"><span>Public Name</span><strong data-summary="publicName">New DHF</strong></div>
@@ -137,6 +149,7 @@
           <div class="ac-review-row wide"><span>Attributes</span><strong data-summary="attributes">STR 30 · PER 30 · EMP 30 · WIL 30 · ACU 30 · INT 30</strong></div>
           <div class="ac-review-row"><span>Wealth</span><strong data-summary="wealth">Archetype default</strong></div>
         </article>
+        <p class="ac-plan-budget">Starting allocation: <strong data-planned-sp>0</strong> SP spent; <strong data-remaining-sp>0</strong> SP remaining.</p>
         <div class="ac-callout success"><strong>Ready.</strong> Anything not chosen by the source rules remains editable on the finished sheet rather than being silently invented.</div>
       </section>
     </main>

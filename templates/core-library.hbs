@@ -1,0 +1,67 @@
+<section class="ac-shell ac-core-library">
+  <header class="ac-core-library-hero">
+    <div>
+      <span class="ac-kicker">CORE 2020 // EQUIPMENT INDEX</span>
+      <h1>Core Equipment Library</h1>
+      <p>{{itemCount}} usable Item records, {{vehicleCount}} Vehicle Actor templates and {{upgradeCount}} generic weapon upgrades, structured from the supplied 2020 Core Rulebook.</p>
+      {{#if actor}}<p class="ac-core-target">Target DHF: <strong>{{actor.name}}</strong></p>{{/if}}
+    </div>
+    {{#if isGM}}<button type="button" class="ac-primary-action" data-action="installAll"><i class="fa-solid fa-box-archive"></i> Install Missing Records to World</button>{{/if}}
+  </header>
+
+  <div class="ac-core-toolbar">
+    <label><span>SEARCH DATABASE</span><input type="search" name="coreSearch" placeholder="weapon, drug, armour, augment…"></label>
+    <label><span>FILTER</span><select name="coreType"><option value="all">All record types</option><option value="weapon">Weapons</option><option value="ammunition">Ammunition</option><option value="armour">Apparel & Armour</option><option value="equipment">Devices & Decks</option><option value="software">Software</option><option value="drug">Drugs & Medicine</option><option value="augmentation">Sleeve Augmentations</option></select></label>
+  </div>
+
+  <main class="ac-core-scroll">
+    {{#each groups}}
+    <section class="ac-core-group" data-core-group>
+      <header><div><span class="ac-kicker">CATALOG SEGMENT</span><h2>{{label}}</h2></div><b>{{count}} RECORDS</b></header>
+      <div class="ac-core-grid">
+        {{#each items}}
+        <article class="ac-core-card" data-core-card data-type="{{type}}" data-search="{{name}} {{category}} {{system.description}} {{system.specialRules}} {{system.rulesRef}}">
+          <div class="ac-core-card-top"><span>{{type}}</span><small>{{system.rulesRef}}</small></div>
+          <h3>{{name}}</h3>
+          <p>{{system.description}}</p>
+          {{#if facts}}<div class="ac-core-facts">{{facts}}</div>{{/if}}
+          <details><summary>Mechanical record</summary>
+            {{#if system.specialRules}}<div><strong>Special</strong><p>{{system.specialRules}}</p></div>{{/if}}
+            {{#if system.effect}}<div><strong>Effect</strong><div>{{{system.effect}}}</div></div>{{/if}}
+            {{#if system.effects}}<div><strong>Effects</strong><div>{{{system.effects}}}</div></div>{{/if}}
+            {{#if system.underInfluence}}<div><strong>Under the Influence</strong><div>{{{system.underInfluence}}}</div></div>{{/if}}
+            {{#if system.triggeredEffects}}<div><strong>Triggered Effects</strong><div>{{{system.triggeredEffects}}}</div></div>{{/if}}
+            {{#if system.upgrades}}<div><strong>Upgrades</strong><div>{{{system.upgrades}}}</div></div>{{/if}}
+          </details>
+          <div class="ac-core-card-actions">
+            {{#if canAdd}}<button type="button" data-action="addToActor" data-catalog-id="{{id}}"><i class="fa-solid fa-plus"></i> {{#if onActor}}Already on Actor{{else}}Add to Actor{{/if}}</button>{{/if}}
+            {{#if canCreate}}<button type="button" data-action="createWorldItem" data-catalog-id="{{id}}"><i class="fa-solid fa-folder-plus"></i> Create World Item</button>{{/if}}
+          </div>
+        </article>
+        {{/each}}
+      </div>
+    </section>
+    {{/each}}
+
+    <section class="ac-core-group" data-core-group>
+      <header><div><span class="ac-kicker">MOBILITY</span><h2>Vehicle Actor Templates</h2></div><b>{{vehicleCount}} ACTORS</b></header>
+      <div class="ac-core-grid">
+        {{#each vehicles}}
+        <article class="ac-core-card vehicle" data-core-card data-type="vehicle" data-search="{{name}} vehicle {{system.biography}}">
+          <div class="ac-core-card-top"><span>vehicle</span><small>Core Rulebook p.{{sourcePage}}</small></div>
+          <h3>{{name}}</h3><p>{{system.biography}}</p>
+          <div class="ac-core-facts">Size {{system.vehicle.size}} · Structure {{system.vehicle.structure.max}} · Speed {{system.vehicle.speedDice}}d6 · {{system.vehicle.travel}}</div>
+          {{#if canCreate}}<div class="ac-core-card-actions"><button type="button" data-action="createVehicle" data-catalog-id="{{id}}"><i class="fa-solid fa-car-side"></i> Create Vehicle Actor</button></div>{{/if}}
+        </article>
+        {{/each}}
+      </div>
+    </section>
+
+    <section class="ac-core-group ac-upgrade-index">
+      <header><div><span class="ac-kicker">WEAPON CHASSIS</span><h2>Generic Weapon Upgrades</h2></div><b>{{upgradeCount}} OPTIONS</b></header>
+      <div class="ac-core-upgrades">
+        {{#each upgrades}}<article><strong>{{name}}</strong><span>Q {{q}}</span><p>{{effect}}</p></article>{{/each}}
+      </div>
+    </section>
+  </main>
+</section>

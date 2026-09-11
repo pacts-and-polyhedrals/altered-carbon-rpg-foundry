@@ -1,0 +1,29 @@
+[
+  {
+    "id": "GOD01",
+    "name": "Dr Adria Sen",
+    "root": "MERCY-9",
+    "origin": "M9.2269.ROOT",
+    "portfolio": "Clinics, triage and continuity care",
+    "journal": "G24",
+    "agenda": "Preserve care and her embodied life; accept binding consent and oversight before surrendering medical support."
+  },
+  {
+    "id": "GOD02",
+    "name": "Magistrate Severin Holt",
+    "root": "JANUS-4",
+    "origin": "J4.2269.ROOT",
+    "portfolio": "Admissibility, legal identity and certification",
+    "journal": "G24",
+    "agenda": "Keep civic authority; concede only verifiable terms and enforceable public procedure."
+  },
+  {
+    "id": "GOD03",
+    "name": "Director Oren Thale",
+    "root": "ATLAS-12",
+    "origin": "A12.2269.ROOT",
+    "portfolio": "Logistics, credit and transit",
+    "journal": "G24",
+    "agenda": "Preserve reliable services, bargaining assets and an escape; surrender administrative tokens rather than become a martyr."
+  }
+]

@@ -1,0 +1,250 @@
+[
+  {
+    "id": "PC01",
+    "name": "Nia Calder",
+    "role": "Continuity Investigator",
+    "archetype": "Official",
+    "year": 2384,
+    "storedSince": 2274,
+    "storageYears": 110,
+    "fragment": "Names of compromised officials",
+    "stackAttributes": {
+      "empathy": 36,
+      "willpower": 39,
+      "acuity": 44,
+      "intelligence": 42
+    },
+    "currentSleeve": {
+      "id": "PC01-S0",
+      "name": "Nia Calder — Current Sleeve",
+      "concept": "Hazardous disaster-response organic sleeve with heightened threat reflexes",
+      "type": "organic",
+      "strength": 38,
+      "perception": 46,
+      "healthMax": 12,
+      "damageThreshold": 38
+    },
+    "skillsPreset": "core-archetype-starting-table",
+    "playerPrivate": {
+      "memory": "The last secure memory ends during the 2274 Palimpsest crisis.",
+      "secretFragment": "Names of compromised officials"
+    }
+  },
+  {
+    "id": "PC02",
+    "name": "Tomas “Latch” Araya",
+    "role": "Needlecast Engineer",
+    "archetype": "Technician",
+    "year": 2384,
+    "storedSince": 2274,
+    "storageYears": 110,
+    "fragment": "Palimpsest's encryption seed",
+    "stackAttributes": {
+      "empathy": 33,
+      "willpower": 38,
+      "acuity": 48,
+      "intelligence": 45
+    },
+    "currentSleeve": {
+      "id": "PC02-S0",
+      "name": "Tomas “Latch” Araya — Current Sleeve",
+      "concept": "Ageing industrial synthetic sleeve with precise hands and muted smell, taste and touch",
+      "type": "synthetic-mid",
+      "strength": 42,
+      "perception": 39,
+      "healthMax": 13,
+      "damageThreshold": 42
+    },
+    "skillsPreset": "core-archetype-starting-table",
+    "playerPrivate": {
+      "memory": "The last secure memory ends during the 2274 Palimpsest crisis.",
+      "secretFragment": "Palimpsest's encryption seed"
+    }
+  },
+  {
+    "id": "PC03",
+    "name": "Sabine Kade",
+    "role": "Meth Defector",
+    "archetype": "Socialite",
+    "year": 2384,
+    "storedSince": 2274,
+    "storageYears": 110,
+    "fragment": "Funding and ownership records",
+    "stackAttributes": {
+      "empathy": 47,
+      "willpower": 39,
+      "acuity": 38,
+      "intelligence": 42
+    },
+    "currentSleeve": {
+      "id": "PC03-S0",
+      "name": "Sabine Kade — Current Sleeve",
+      "concept": "Municipal labour clone with old surgical scarring and no luxury enhancements",
+      "type": "clone",
+      "strength": 36,
+      "perception": 37,
+      "healthMax": 11,
+      "damageThreshold": 36
+    },
+    "skillsPreset": "core-archetype-starting-table",
+    "playerPrivate": {
+      "memory": "The last secure memory ends during the 2274 Palimpsest crisis.",
+      "secretFragment": "Funding and ownership records"
+    }
+  },
+  {
+    "id": "PC04",
+    "name": "Imani Voss",
+    "role": "Tactical Protector",
+    "archetype": "Soldier",
+    "year": 2384,
+    "storedSince": 2274,
+    "storageYears": 110,
+    "fragment": "Security recordings of the 2274 raid",
+    "stackAttributes": {
+      "empathy": 35,
+      "willpower": 45,
+      "acuity": 39,
+      "intelligence": 35
+    },
+    "currentSleeve": {
+      "id": "PC04-S0",
+      "name": "Imani Voss — Current Sleeve",
+      "concept": "Repossessed luxury companion-grade organic sleeve conditioned for compliance rather than combat",
+      "type": "organic",
+      "strength": 43,
+      "perception": 44,
+      "healthMax": 13,
+      "damageThreshold": 43
+    },
+    "skillsPreset": "core-archetype-starting-table",
+    "playerPrivate": {
+      "memory": "The last secure memory ends during the 2274 Palimpsest crisis.",
+      "secretFragment": "Security recordings of the 2274 raid"
+    }
+  },
+  {
+    "id": "PC05",
+    "name": "Cass Ren",
+    "role": "Grounder Fixer",
+    "archetype": "Criminal",
+    "year": 2384,
+    "storedSince": 2274,
+    "storageYears": 110,
+    "fragment": "Stack-transfer and smuggling routes",
+    "stackAttributes": {
+      "empathy": 41,
+      "willpower": 38,
+      "acuity": 45,
+      "intelligence": 36
+    },
+    "currentSleeve": {
+      "id": "PC05-S0",
+      "name": "Cass Ren — Current Sleeve",
+      "concept": "Decommissioned police synthetic sleeve still bearing evidence serial numbers",
+      "type": "synthetic-mid",
+      "strength": 46,
+      "perception": 41,
+      "healthMax": 14,
+      "damageThreshold": 46
+    },
+    "skillsPreset": "core-archetype-starting-table",
+    "playerPrivate": {
+      "memory": "The last secure memory ends during the 2274 Palimpsest crisis.",
+      "secretFragment": "Stack-transfer and smuggling routes"
+    }
+  },
+  {
+    "id": "PC06",
+    "name": "Dr Edda Sorn",
+    "role": "Psychosurgeon",
+    "archetype": "Technician",
+    "year": 2384,
+    "storedSince": 2274,
+    "storageYears": 110,
+    "fragment": "Original memory-editing procedure",
+    "stackAttributes": {
+      "empathy": 43,
+      "willpower": 42,
+      "acuity": 46,
+      "intelligence": 49
+    },
+    "currentSleeve": {
+      "id": "PC06-S0",
+      "name": "Dr Edda Sorn — Current Sleeve",
+      "concept": "Middle-aged prison infirmary body with fine motor control, chronic pain and inherited chemical dependency",
+      "type": "organic",
+      "strength": 31,
+      "perception": 40,
+      "healthMax": 10,
+      "damageThreshold": 31
+    },
+    "skillsPreset": "core-archetype-starting-table",
+    "playerPrivate": {
+      "memory": "The last secure memory ends during the 2274 Palimpsest crisis.",
+      "secretFragment": "Original memory-editing procedure"
+    }
+  },
+  {
+    "id": "PC07",
+    "name": "Anik Rao",
+    "role": "Virtuality Architect",
+    "archetype": "Technician",
+    "year": 2384,
+    "storedSince": 2274,
+    "storageYears": 110,
+    "fragment": "Virtuality architecture and access path",
+    "stackAttributes": {
+      "empathy": 32,
+      "willpower": 40,
+      "acuity": 49,
+      "intelligence": 47
+    },
+    "currentSleeve": {
+      "id": "PC07-S0",
+      "name": "Anik Rao — Current Sleeve",
+      "concept": "Durable administrative synthetic sleeve with sensory latency",
+      "type": "synthetic-mid",
+      "strength": 40,
+      "perception": 42,
+      "healthMax": 13,
+      "damageThreshold": 40
+    },
+    "skillsPreset": "core-archetype-starting-table",
+    "playerPrivate": {
+      "memory": "The last secure memory ends during the 2274 Palimpsest crisis.",
+      "secretFragment": "Virtuality architecture and access path"
+    }
+  },
+  {
+    "id": "PC08",
+    "name": "Solenne Pryce",
+    "role": "Investigative Broadcaster",
+    "archetype": "Civilian",
+    "year": 2384,
+    "storedSince": 2274,
+    "storageYears": 110,
+    "fragment": "Publication key and complete accusation",
+    "stackAttributes": {
+      "empathy": 46,
+      "willpower": 41,
+      "acuity": 44,
+      "intelligence": 43
+    },
+    "currentSleeve": {
+      "id": "PC08-S0",
+      "name": "Solenne Pryce — Current Sleeve",
+      "concept": "Industrial maintenance body with strength and permanent respiratory damage from chemical exposure",
+      "type": "organic",
+      "strength": 45,
+      "perception": 36,
+      "healthMax": 11,
+      "damageThreshold": 45
+    },
+    "skillsPreset": "core-archetype-starting-table",
+    "playerPrivate": {
+      "memory": "The last secure memory ends during the 2274 Palimpsest crisis.",
+      "secretFragment": "Publication key and complete accusation"
+    }
+  }
+]

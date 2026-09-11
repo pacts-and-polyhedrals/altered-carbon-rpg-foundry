@@ -1,5 +1,8 @@
 import {ageResources,validateSleeveAttributes,SLEEVE_LIMITS,sleeveHealthFormula,damageThresholdFromStrength,baggageEntryForTotal} from './rules-engine.mjs';
 import {dedupeUniqueSheetRecords} from './sheet-record-utils.mjs';
+import {quoteAdvancement,applyAdvancement} from './advancement.mjs';
+import {openAdvancement} from './advancement-wizard.mjs';
+import {canCreateCharacters} from './actor-directory.mjs';
 
 const SYS='altered-carbon-rpg';
 async function loadJSON(path){const r=await fetch(`systems/${SYS}/data/${path}`);if(!r.ok)throw new Error(`Unable to load ${path}`);return r.json();}
@@ -34,7 +37,7 @@ const ATTRIBUTE_HELP=[
   {id:'intelligence',code:'INT',name:'Intelligence',class:'mental',description:'A persistent DHF Attribute used for reasoning, knowledge and technical Skills.'}
 ];
 
-const STEP_LABELS=['Identity','Archetype','Variant','Sleeve','Attributes','Resources','Review'];
+const STEP_LABELS=['Identity','Archetype','Variant','Sleeve','Attributes','Resources','Level Up','Review'];
 
 export class ACCharacterCreator extends foundry.applications.api.HandlebarsApplicationMixin(foundry.applications.api.ApplicationV2){
   static DEFAULT_OPTIONS={
@@ -42,18 +45,22 @@ export class ACCharacterCreator extends foundry.applications.api.HandlebarsAppli
     classes:['altered-carbon','ac-creator-window'],
     window:{title:'Altered Carbon — Guided Character Creator'},
     position:{width:980,height:840},
-    actions:{create:this._create,nextStep:this._nextStep,prevStep:this._prevStep,jumpStep:this._jumpStep}
+    actions:{create:this._create,nextStep:this._nextStep,prevStep:this._prevStep,jumpStep:this._jumpStep,queueSkill:this._queueSkill,queueAttribute:this._queueAttribute,removeQueued:this._removeQueued,clearQueued:this._clearQueued}
   };
   static PARTS={main:{template:'systems/altered-carbon-rpg/templates/character-creator.hbs'}};
   _step=0;
+  _creationRequests=[];
+  _creating=false;
+  _createdActor=null;
 
   async _prepareContext(options){
-    const context=await super._prepareContext(options),ref=await loadJSON('archetype-reference.json');
+    const context=await super._prepareContext(options),[ref,skills,presets]=await Promise.all([loadJSON('archetype-reference.json'),loadJSON('core-skills.json'),loadJSON('archetype-skills.json')]);
+    this._skillsData=skills;this._presetsData=presets;
     const archetypes=Object.entries(ref.archetypes).map(([name,data])=>({name,defaultSleeve:data.defaultSleeve,wealth:data.wealth,features:data.features||[],packages:Object.keys(data.packages||{})}));
     const packageOptions=[];
     for(const [a,data] of Object.entries(ref.archetypes))for(const p of Object.keys(data.packages))packageOptions.push({value:`${a}::${p}`,archetype:a,label:p});
     const sleeveTypes=Object.keys(SLEEVE_LIMITS).filter(x=>x!=='other').map(id=>({id,label:id.replaceAll('-',' ').replace(/\b\w/g,m=>m.toUpperCase()),description:SLEEVE_DESCRIPTIONS[id]||'',limits:SLEEVE_LIMITS[id]}));
-    return{...context,archetypes,variants:VARIANTS,sleeveTypes,packageOptions,attributeHelp:ATTRIBUTE_HELP,steps:STEP_LABELS.map((label,index)=>({label,index,number:index+1}))};
+    return{...context,creationSkills:skills,archetypes,variants:VARIANTS,sleeveTypes,packageOptions,attributeHelp:ATTRIBUTE_HELP,steps:STEP_LABELS.map((label,index)=>({label,index,number:index+1}))};
   }
 
   async _onRender(context,options){
@@ -135,13 +142,55 @@ export class ACCharacterCreator extends foundry.applications.api.HandlebarsAppli
     set('sleeve',sleeve.replaceAll('-',' '));
     set('attributes',`STR ${this._value('strength')||30} · PER ${this._value('perception')||30} · EMP ${this._value('empathy')||30} · WIL ${this._value('willpower')||30} · ACU ${this._value('acuity')||30} · INT ${this._value('intelligence')||30}`);
     set('wealth',this._value('wealth')||'Archetype default');
+    this._refreshCreationPlan();
   }
+
+  _creationState(){
+    const q=n=>this._value(n),variant=q('variant')||'standard',archetype=q('archetype')||'Civilian',age=variant==='ai'?0:Number(q('age')||30);
+    const attributes=Object.fromEntries(ATTRIBUTE_HELP.map(a=>[a.id,Number(q(a.id)||30)]));
+    let sp=variant==='ai'?Number(q('manualSP')):ageResources(age,attributes).stackPoints;
+    if(variant==='ai'&&q('manualSP')==='')throw new Error('Enter the AI starting SP in Resources first.');
+    if(variant==='religious'&&age<=40)sp+=25;
+    const levels=new Map((this._presetsData.archetypes[archetype]||this._presetsData.archetypes.Civilian).map(s=>[s.id,s.level]));
+    const items=this._skillsData.map(s=>({_id:s.id,name:s.name,type:'skill',system:{catalogId:s.id,level:levels.get(s.id)||1,attribute:s.attribute}}));
+    items.push({_id:'creator-sleeve',name:'Starting sleeve',type:'sleeve',system:{status:'active',sleeveType:q('sleeveType')||'birth',strength:attributes.strength,perception:attributes.perception}});
+    return {system:{identity:{archetype,variant,dhfAge:age},attributes,resources:{stackPoints:{value:sp,max:sp}}},items,flags:{}};
+  }
+  _creationQuote(){const state=this._creationState();return this._creationRequests.length?quoteAdvancement(state,this._creationRequests):{before:state.system.resources.stackPoints.value,after:state.system.resources.stackPoints.value,total:0,steps:[]};}
+  _refreshCreationPlan(){
+    if(!this._skillsData||!this.element)return;
+    const root=this.element,list=root.querySelector('[data-creation-plan]'),error=root.querySelector('[data-plan-error]');
+    if(!list)return;
+    try{
+      const quote=this._creationQuote(),e=v=>foundry.utils.escapeHTML(String(v));
+      root.querySelectorAll('[data-starting-sp]').forEach(el=>el.textContent=quote.before);
+      root.querySelectorAll('[data-planned-sp]').forEach(el=>el.textContent=quote.total);
+      root.querySelectorAll('[data-remaining-sp]').forEach(el=>el.textContent=quote.after);
+      list.innerHTML=quote.steps.map((step,i)=>`<li><span>${e(step.label)} <strong>${step.cost} SP</strong></span><button type="button" data-action="removeQueued" data-index="${i}" aria-label="Remove ${e(step.label)}">Remove</button></li>`).join('')||'<li>No purchases queued. Unspent SP stay on the character.</li>';
+      error.textContent='';error.hidden=true;
+      const button=root.querySelector('[data-action="create"]');if(button)button.disabled=this._creating;
+    }catch(e){
+      error.textContent=e.message;error.hidden=false;
+      list.innerHTML='<li>The allocation no longer fits these creation choices. Clear it and choose again.</li>';
+      const button=root.querySelector('[data-action="create"]');if(button)button.disabled=true;
+    }
+  }
+  _queue(request){try{quoteAdvancement(this._creationState(),[...this._creationRequests,request]);this._creationRequests.push(request);this._refreshCreationPlan();}catch(e){ui.notifications.warn(e.message);}}
+  static async _queueSkill(){this._queue({kind:'skill',itemId:this._value('planSkill')});}
+  static async _queueAttribute(){this._queue({kind:'attribute',attribute:this._value('planAttribute'),sp:Number(this._value('planAttributeSP'))});}
+  static async _removeQueued(event,target){this._creationRequests.splice(Number(target.dataset.index),1);this._refreshCreationPlan();}
+  static async _clearQueued(){this._creationRequests=[];this._refreshCreationPlan();}
 
   static async _nextStep(){this._showStep(this._step+1);}
   static async _prevStep(){this._showStep(this._step-1);}
   static async _jumpStep(event,target){this._showStep(Number(target.dataset.stepIndex)||0);}
 
   static async _create(){
+    if(this._creating||this._createdActor)return;
+    if(!canCreateCharacters())return ui.notifications.warn('Your role cannot create Actors. Ask the GM to create or assign a character.');
+    this._creating=true;
+    try{
+    this._creationQuote();
     const q=n=>this.element.querySelector(`[name="${n}"]`)?.value;
     const name=q('name')?.trim()||'New DHF',publicName=q('publicName')?.trim()||name,pronouns=q('pronouns')?.trim()||'',archetype=q('archetype')||'Civilian',variant=q('variant')||'standard',age=variant==='ai'?0:Math.max(18,Number(q('age')||30)),sleeveType=q('sleeveType')||'birth',packageChoice=q('package')||'';
     if(packageChoice&&packageChoice.split('::')[0]!==archetype)return ui.notifications.error('The selected Starting Package must belong to the selected Archetype.');
@@ -158,12 +207,23 @@ export class ACCharacterCreator extends foundry.applications.api.HandlebarsAppli
     const archetypeData=archetypeRef.archetypes[archetype],wealth=Number(q('wealth')||archetypeData?.wealth||1);
     const actorType=variant==='ai'?'ai':'character';const backup=variant==='meth'?{enabled:true,priceLevel:4,routine:false,notes:'Meth starting backup — lower-tier source default.'}:undefined;
     const actor=await Actor.create({name:publicName,type:actorType,ownership:{default:0,[game.user.id]:3},system:{identity:{trueName:name,publicName,pronouns,dhfAge:age,storageYears:0,archetype,variant},attributes:attrs,resources:{health:{value:hp,max:hp},ego:{value:ep,max:ep},wounds:{value:0,max:threshold},stackPoints:{value:starting.stackPoints,max:starting.stackPoints},influence:{value:ip,max:ip}},wealth,stackState:'intact',sleeveState:'healthy',...(backup?{backup}:{})}});
+    this._createdActor=actor;
     const items=[{name:`${publicName} — Starting Sleeve`,type:'sleeve',system:{status:'active',sleeveType,strength:attrs.strength,perception:attrs.perception,healthMax:hp,damageThreshold:threshold,techCapacity:validation.limits.techCapacity,geoRestricted:variant==='ai',rulesRef:'Core Rulebook 2020, Chapter 2: Sleeves'}},...skills.map(s=>({name:s.name,type:'skill',system:{catalogId:s.id,attribute:s.attribute,level:levelById.get(s.id)||1,rulesRef:s.rulesRef,rulesText:s.rulesText||''}}))];
     if(packageChoice){const packageName=packageChoice.split('::')[1],pkg=archetypeData.packages[packageName];for(const spec of pkg.traits||[]){const t=findTrait(traitsData.traits,spec);if(!t)continue;const commonality=commonalityFor(archetype,t.tree,age);items.push({name:t.name,type:'trait',system:{catalogId:t.id,tree:t.tree,branch:t.branch,tier:t.tier,commonality,spCost:0,effect:t.effect,description:t.effect,rulesRef:t.rulesRef}});}items.push({name:`Starting Package — ${packageName}`,type:'equipment',system:{description:`<p>${pkg.gear}</p>`,rulesRef:'Core Rulebook 2020, Archetype Starting Package'}});}
     if(variant!=='standard')items.push({name:`Variant — ${variant}`,type:'equipment',system:{description:'<p>Advanced variant selected. Open the 2020 Rules Reference for all mandatory rules and choice-based benefits. Runtime-enforced invariants are applied where deterministic; choice-based Traits/benefits remain explicit player/GM selections.</p>',rulesRef:'Core Rulebook 2020, Variant Characters'}});
     for(let i=0;i<starting.lifeEventRolls;i++){const roll=await new Roll(`${starting.baggageDice}d6`).evaluate(),b=baggageEntryForTotal(baggageData,roll.total);if(b)items.push({name:b.name,type:'baggage',system:{catalogId:b.id,rollMin:b.min,rollMax:Number.isFinite(b.max)?b.max:999,appliesTo:b.sleeveOrStack?'Sleeve or Stack':'Narrative',description:b.effect,rulesRef:b.rulesRef}});}
     await actor.createEmbeddedDocuments('Item',dedupeUniqueSheetRecords(items));
-    ui.notifications.info(`${publicName} created: ${starting.stackPoints} SP, ${ep} EP, ${ip} IP, ${hp} HP; ${starting.lifeEventRolls} Baggage roll(s) resolved.`);
-    actor.sheet.render(true);this.close();
+    if(this._creationRequests.length){
+      const requests=this._creationRequests.map(r=>r.kind==='skill'?{...r,itemId:actor.items.find(i=>i.type==='skill'&&i.system.catalogId===r.itemId)?.id}:r);
+      await applyAdvancement(actor,requests,{reason:'Character creation - starting Stack Point allocation'});
+    }
+    ui.notifications.info(`${publicName} created: ${actor.system.resources.stackPoints.value} SP remaining, ${ep} EP, ${ip} IP, ${hp} HP; ${starting.lifeEventRolls} Baggage roll(s) resolved.`);
+    const openAfter=Boolean(this.element.querySelector('[name="openAdvancementAfter"]')?.checked);
+    actor.sheet.render({force:true});await this.close();if(openAfter)openAdvancement(actor);
+    }catch(error){
+      console.error('Altered Carbon | Character creation',error);
+      ui.notifications.error(this._createdActor?`The Actor was created but setup needs attention: ${error.message} Do not create a duplicate; inspect the existing Actor and Level Up history.`:error.message);
+      if(this._createdActor){this._createdActor.sheet.render({force:true});await this.close();}
+    }finally{this._creating=false;this._refreshCreationPlan();}
   }
 }

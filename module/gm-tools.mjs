@@ -127,7 +127,7 @@ export function installGMToolsHooks(){
 export class ACGMPanel extends foundry.applications.api.HandlebarsApplicationMixin(foundry.applications.api.ApplicationV2){
   static DEFAULT_OPTIONS={
     id:'ac-gm-panel',classes:['altered-carbon','ac-gm-window'],window:{title:'Altered Carbon — GM Control'},position:{width:1100,height:850},
-    actions:{sendPreset:this._sendPreset,sendCustom:this._sendCustom,selectAll:this._selectAll,clearSelection:this._clearSelection,openGuide:this._openGuide,refreshGuide:this._refreshGuide}
+    actions:{sendPreset:this._sendPreset,sendCustom:this._sendCustom,selectAll:this._selectAll,clearSelection:this._clearSelection,openGuide:this._openGuide,refreshGuide:this._refreshGuide,openAdventure:this._openAdventure}
   };
   static PARTS={main:{template:'systems/altered-carbon-rpg/templates/gm-panel.hbs'}};
   async _prepareContext(options){
@@ -148,9 +148,10 @@ export class ACGMPanel extends foundry.applications.api.HandlebarsApplicationMix
   }
   static async _selectAll(){for(const el of this.element?.querySelectorAll('input[name="gmRecipients"]')||[])el.checked=true;}
   static async _clearSelection(){for(const el of this.element?.querySelectorAll('input[name="gmRecipients"]')||[])el.checked=false;}
+  static async _openAdventure(){try{game.alteredCarbon.openAdventureBook();}catch(error){ui.notifications.error(error.message);}}
   static async _openGuide(){try{await ensureGMGuide({open:true});}catch(error){ui.notifications.error(error.message);}}
   static async _refreshGuide(){
-    const ok=await foundry.applications.api.DialogV2.confirm({window:{title:'Refresh GM Guide'},content:'<p>Replace the system-generated GM Guide pages with the current v1.2.1 reference?</p><p class="hint">Any notes typed directly into those generated pages will be replaced.</p>'});
+    const ok=await foundry.applications.api.DialogV2.confirm({window:{title:'Refresh GM Guide'},content:'<p>Replace the system-generated GM Guide pages with the current v1.4.0 reference?</p><p class="hint">Any notes typed directly into those generated pages will be replaced.</p>'});
     if(ok)await ensureGMGuide({refresh:true,open:true});
   }
 }
