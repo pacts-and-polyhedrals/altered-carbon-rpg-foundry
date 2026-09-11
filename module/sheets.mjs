@@ -35,15 +35,18 @@ async function checkOptionsDialog(skill,defaults={}){
 }
 
 export class ACActorSheet extends HandlebarsApplicationMixin(sheets.ActorSheetV2){
- static DEFAULT_OPTIONS={classes:['altered-carbon','actor-sheet'],position:{width:900,height:800},form:{closeOnSubmit:false},actions:{rollSkill:this._rollSkill,opposedRoll:this._opposedRoll,useWeapon:this._useWeapon,useEquipment:this._useEquipment,addDepletion:this._addDepletion,activateSleeve:this._activateSleeve,spendSP:this._spendSP,openCombat:this._openCombat,openRules:this._openRules,editItem:this._editItem,setTab:this._setTab}};
+ static DEFAULT_OPTIONS={classes:['altered-carbon','actor-sheet'],position:{width:1080,height:860},form:{closeOnSubmit:false},actions:{rollSkill:this._rollSkill,opposedRoll:this._opposedRoll,useWeapon:this._useWeapon,useEquipment:this._useEquipment,addDepletion:this._addDepletion,activateSleeve:this._activateSleeve,spendSP:this._spendSP,openCombat:this._openCombat,openRules:this._openRules,openCreator:this._openCreator,editItem:this._editItem,setTab:this._setTab}};
  static PARTS={main:{template:'systems/altered-carbon-rpg/templates/actor-sheet.hbs'}};
  _tab='identity';
  async _prepareContext(options){
    const context=await super._prepareContext(options),actor=this.actor,tab=this._tab||'identity';
    const all=actor.items.contents;
+   const skills=all.filter(i=>i.type==='skill').sort((a,b)=>a.system.attribute.localeCompare(b.system.attribute)||a.name.localeCompare(b.name));
+   const attrMeta=[['strength','Strength','STR'],['perception','Perception','PER'],['empathy','Empathy','EMP'],['willpower','Willpower','WIL'],['acuity','Acuity','ACU'],['intelligence','Intelligence','INT']];
+   const skillGroups=attrMeta.map(([key,label,code])=>({key,label,code,bonus:actor.ac?.bonuses?.[key]??0,items:skills.filter(i=>i.system.attribute===key)}));
    return {...context,actor,system:actor.system,ac:actor.ac,tab,
      isIdentity:tab==='identity',isSleeve:tab==='sleeve',isSkills:tab==='skills',isTraits:tab==='traits',isHistory:tab==='history',isRelationships:tab==='relationships',isEvidence:tab==='evidence',isGear:tab==='gear',isCombat:tab==='combat',
-     skills:all.filter(i=>i.type==='skill').sort((a,b)=>a.system.attribute.localeCompare(b.system.attribute)||a.name.localeCompare(b.name)),
+     skills,skillGroups,
      sleeves:all.filter(i=>i.type==='sleeve').map(i=>({id:i.id,name:i.name,system:i.system,isActive:i.system.status==='active'})),
      archivedSleeves:all.filter(i=>i.type==='archivedSleeve').sort((a,b)=>String(a.system.acquired).localeCompare(String(b.system.acquired))),
      traits:all.filter(i=>i.type==='trait'),specialisations:all.filter(i=>i.type==='specialisation'),baggage:all.filter(i=>i.type==='baggage'),conditions:all.filter(i=>i.type==='condition'),injuries:all.filter(i=>i.type==='injury'),scandals:all.filter(i=>i.type==='scandal'),networks:all.filter(i=>i.type==='network'),resources:all.filter(i=>i.type==='resourceEntry'),
@@ -57,6 +60,7 @@ export class ACActorSheet extends HandlebarsApplicationMixin(sheets.ActorSheetV2
  static async _activateSleeve(event,target){const ok=await api.DialogV2.confirm({window:{title:'Activate Sleeve'},content:'<p>Archive the current sleeve and activate this sleeve? Core resleeving psychological effects will be applied when determinable from the sleeve records.</p>'});if(ok){const r=await this.actor.activateSleeve(target.dataset.itemId);if(r.consequences?.egoLoss||r.consequences?.stackLoss)ui.notifications.warn(`Resleeving cost: ${r.consequences.egoLoss} EP and ${r.consequences.stackLoss} SP.`);}}
  static async _openCombat(){game.alteredCarbon.openCombatConsole();}
  static async _openRules(){new ACRulesBrowser({actorId:this.actor.id}).render({force:true});}
+ static async _openCreator(){game.alteredCarbon.openCharacterCreator();}
  static async _setTab(event,target){this._tab=target.dataset.tab||'identity';this.render({force:true});}
  static async _spendSP(){const amount=await api.DialogV2.prompt({window:{title:'Spend Stack Points'},content:'<div class="form-group"><label>Amount</label><input type="number" name="amount" min="1" value="1"></div>',ok:{label:'Spend',callback:(event,button,dialog)=>Number(dialog.element.querySelector('[name=amount]')?.value||1)}});if(amount)await this.actor.spendStackPoints(amount);}
  static async _editItem(event,target){this.actor.items.get(target.dataset.itemId)?.sheet?.render(true);}

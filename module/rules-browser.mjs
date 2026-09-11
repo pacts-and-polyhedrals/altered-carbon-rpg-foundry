@@ -2,7 +2,7 @@ const SYS='altered-carbon-rpg';
 async function loadJSON(path){const r=await fetch(`systems/${SYS}/data/${path}`);if(!r.ok)throw new Error(`Unable to load ${path}`);return r.json();}
 const {ApplicationV2,HandlebarsApplicationMixin}=foundry.applications.api;
 export class ACRulesBrowser extends HandlebarsApplicationMixin(ApplicationV2){
- static DEFAULT_OPTIONS={id:'ac-rules-browser',window:{title:'Altered Carbon — 2020 Rules Reference'},position:{width:940,height:820},actions:{add:this._add}};
+ static DEFAULT_OPTIONS={id:'ac-rules-browser',classes:['altered-carbon','ac-rules-window'],window:{title:'Altered Carbon — 2020 Rules Reference'},position:{width:980,height:840},actions:{add:this._add}};
  static PARTS={main:{template:'systems/altered-carbon-rpg/templates/rules-browser.hbs'}};
  constructor(options={}){super(options);this.actorId=options.actorId||null;}
  async _prepareContext(options){

@@ -1,1 +1,151 @@
-<section class="ac-character-creator"><h2>Create DHF</h2><p>This creates the 2020 rules chassis, rolls sleeve Health, applies Archetype resource modifiers, embeds all 32 starting Skill levels, optionally applies a published Starting Package, and rolls age-based Baggage.</p><div class="form-group"><label>Name</label><input name="name" value="New DHF"></div><div class="form-group"><label>Archetype</label><select name="archetype">{{#each archetypes}}<option value="{{this}}">{{this}}</option>{{/each}}</select></div><div class="form-group"><label>Starting Package</label><select name="package"><option value="">Custom / choose later</option>{{#each packageOptions}}<option value="{{value}}">{{label}}</option>{{/each}}</select></div><div class="form-group"><label>Variant</label><select name="variant"><option value="standard">Standard</option><option value="ai">AI</option><option value="religious">Religious Coding</option><option value="envoy">Envoy</option><option value="meth">Meth</option></select></div><div class="form-group"><label>DHF age</label><input type="number" name="age" value="30" min="18"><p class="muted">Ignored for AI, which has no DHF age.</p></div><div class="form-group"><label>AI Stack Points override</label><input type="number" name="manualSP" value="" min="0"><p class="muted">Required for AI because the 2020 Core gives no age-based starting SP row for AI.</p></div><div class="form-group"><label>AI Influence Points override</label><input type="number" name="manualIP" value="" min="0"><p class="muted">Required for AI for the same reason; no value is silently invented.</p></div><div class="form-group"><label>Wealth (defaults to Archetype if left blank)</label><input type="number" name="wealth" value="" min="0" max="6"></div><div class="form-group"><label>Sleeve type</label><select name="sleeveType">{{#each sleeveTypes}}<option value="{{this}}">{{this}}</option>{{/each}}</select></div><h3>Attributes</h3><p class="muted">Stack Attributes begin at 30. Higher values here are supported for pregenerated/GM-authored characters; normal advancement spends SP and rolls d4 increases.</p><div class="attributes"><label>Strength <input type="number" name="strength" value="30"></label><label>Perception <input type="number" name="perception" value="30"></label><label>Empathy <input type="number" name="empathy" value="30"></label><label>Willpower <input type="number" name="willpower" value="30"></label><label>Acuity <input type="number" name="acuity" value="30"></label><label>Intelligence <input type="number" name="intelligence" value="30"></label></div><button type="button" data-action="create"><i class="fa-solid fa-user-plus"></i> Create Character</button></section>
+<section class="ac-character-creator ac-shell">
+  <header class="ac-wizard-header">
+    <div>
+      <span class="ac-kicker">GUIDED DHF INITIALISATION</span>
+      <h1>Character Creator</h1>
+      <p>Build the character in the same order the sheet is organised. Each stage explains what the choice means, where it appears, and what the system calculates for you.</p>
+    </div>
+    <div class="ac-wizard-counter" data-step-counter>01 / 07</div>
+  </header>
+
+  <div class="ac-wizard-progress"><span class="ac-wizard-progress-fill"></span></div>
+
+  <div class="ac-wizard-layout">
+    <aside class="ac-wizard-rail" aria-label="Character creation steps">
+      {{#each steps}}
+      <button type="button" data-action="jumpStep" data-step-index="{{index}}" class="{{#if @first}}active{{/if}}">
+        <span>{{number}}</span><div><strong>{{label}}</strong><small>{{#if @first}}Begin here{{else}}Character build{{/if}}</small></div><i class="fa-solid fa-check"></i>
+      </button>
+      {{/each}}
+    </aside>
+
+    <main class="ac-wizard-stage">
+      <section class="ac-wizard-step active" data-wizard-step="0">
+        <div class="ac-step-heading"><span>STEP 01</span><h2>Who is the DHF?</h2><p>Start with the person, not the body. These details persist when the character changes sleeves.</p></div>
+        <div class="ac-wizard-grid">
+          <article class="ac-panel">
+            <header class="ac-panel-title"><span>Persistent Identity</span><small>DHF RECORD</small></header>
+            <div class="ac-field-grid one">
+              <label><span>True DHF Name <em>The character's actual persistent identity.</em></span><input name="name" value="New DHF" data-live-summary></label>
+              <label><span>Public / Current Name <em>The name shown on the Actor and used by people around them. Leave blank to use the true name.</em></span><input name="publicName" value="" data-live-summary></label>
+              <label><span>Pronouns <em>Pronouns for the DHF identity; sleeve presentation can be recorded separately.</em></span><input name="pronouns" value="" placeholder="they/them, she/her, he/him…"></label>
+              <label><span>DHF Age <em>Total lived age. This feeds the 2020 age-based starting resource and Baggage procedures.</em></span><input type="number" name="age" value="30" min="18" data-live-summary></label>
+            </div>
+          </article>
+          <aside class="ac-explainer">
+            <i class="fa-solid fa-id-card"></i>
+            <h3>What appears on the sheet?</h3>
+            <p><strong>True DHF</strong> is the person who survives resleeving. <strong>Public Name</strong> is the current identity people see. <strong>DHF Age</strong> is not the apparent age of the body; the sleeve tracks that separately.</p>
+            <div class="ac-callout">You can change names, pronouns and objectives later without rebuilding the character.</div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="ac-wizard-step" data-wizard-step="1">
+        <div class="ac-step-heading"><span>STEP 02</span><h2>Choose an Archetype</h2><p>The Archetype is the broad career/life chassis. It establishes the starting Skill profile, Wealth baseline and access/commonality patterns used by the rules.</p></div>
+        <div class="ac-wizard-grid">
+          <article class="ac-panel">
+            <label class="ac-select-field"><span>Archetype</span><select name="archetype" data-live-summary>{{#each archetypes}}<option value="{{name}}" data-default-sleeve="{{defaultSleeve}}">{{name}}</option>{{/each}}</select></label>
+            <label class="ac-select-field"><span>Starting Package</span><select name="package" data-live-summary><option value="">Custom / choose later</option>{{#each packageOptions}}<option value="{{value}}" data-archetype="{{archetype}}">{{label}}</option>{{/each}}</select><small>Starting Packages belong to one Archetype. The wizard filters the list automatically.</small></label>
+          </article>
+          <aside class="ac-explainer">
+            {{#each archetypes}}
+            <div data-archetype-panel="{{name}}" {{#unless @first}}hidden{{/unless}}>
+              <i class="fa-solid fa-diagram-project"></i><h3>{{name}}</h3>
+              <p>Default sleeve suggestion: <strong>{{defaultSleeve}}</strong> · Wealth baseline: <strong>{{wealth}}</strong></p>
+              <ul>{{#each features}}<li>{{this}}</li>{{/each}}</ul>
+              <div class="ac-callout">Packages: {{#each packages}}{{this}}{{#unless @last}} · {{/unless}}{{/each}}</div>
+            </div>
+            {{/each}}
+          </aside>
+        </div>
+      </section>
+
+      <section class="ac-wizard-step" data-wizard-step="2">
+        <div class="ac-step-heading"><span>STEP 03</span><h2>Choose a Character Variant</h2><p>Most characters should start as Standard. Advanced variants alter continuity, resources, Virtual behaviour or social rules.</p></div>
+        <div class="ac-wizard-grid">
+          <article class="ac-panel">
+            <label class="ac-select-field"><span>Variant</span><select name="variant" data-live-summary>{{#each variants}}<option value="{{id}}">{{name}}</option>{{/each}}</select></label>
+            <div class="ac-choice-list">
+              {{#each variants}}
+              <div class="ac-choice-preview"><span>{{tag}}</span><strong>{{name}}</strong><small>{{description}}</small></div>
+              {{/each}}
+            </div>
+          </article>
+          <aside class="ac-explainer">
+            {{#each variants}}
+            <div data-variant-panel="{{id}}" {{#unless @first}}hidden{{/unless}}><i class="fa-solid fa-brain"></i><h3>{{name}}</h3><p>{{description}}</p>{{#if @first}}<div class="ac-callout">Recommended for players learning the system.</div>{{else}}<div class="ac-callout">Advanced rules remain visible in the Rules Browser and on the finished sheet.</div>{{/if}}</div>
+            {{/each}}
+          </aside>
+        </div>
+      </section>
+
+      <section class="ac-wizard-step" data-wizard-step="3">
+        <div class="ac-step-heading"><span>STEP 04</span><h2>Select the Starting Sleeve</h2><p>The sleeve is the current body. It supplies Strength, Perception, Health and body-specific technology limits; the DHF identity remains separate.</p></div>
+        <div class="ac-wizard-grid">
+          <article class="ac-panel">
+            <label class="ac-select-field"><span>Sleeve Type</span><select name="sleeveType" data-live-summary>{{#each sleeveTypes}}<option value="{{id}}">{{label}}</option>{{/each}}</select></label>
+            <div class="ac-callout"><strong>AI characters:</strong> the guided creator requires a synthetic sleeve because the 2020 Core does not give a simple age-table chassis for AI. Building/mainframe AIs can still be created manually.</div>
+          </article>
+          <aside class="ac-explainer">
+            {{#each sleeveTypes}}
+            <div data-sleeve-panel="{{id}}" {{#unless @first}}hidden{{/unless}}><i class="fa-solid fa-dna"></i><h3>{{label}}</h3><p>{{description}}</p><div class="ac-tech-spec"><span>STR {{lookup limits.strength 0}}–{{lookup limits.strength 1}}</span><span>PER {{lookup limits.perception 0}}–{{lookup limits.perception 1}}</span><span>TECH {{limits.techCapacity}}</span></div></div>
+            {{/each}}
+          </aside>
+        </div>
+      </section>
+
+      <section class="ac-wizard-step" data-wizard-step="4">
+        <div class="ac-step-heading"><span>STEP 05</span><h2>Set Attributes</h2><p>All six Attributes are visible here at once. The two cyan-coded values are sleeve hardware; the four violet-coded values belong to the persistent DHF.</p></div>
+        <article class="ac-panel">
+          <div class="ac-creator-attributes">
+            {{#each attributeHelp}}
+            <label class="ac-creator-attribute {{class}}"><span class="code">{{code}}</span><span class="copy"><strong>{{name}}</strong><small>{{description}}</small></span><input type="number" name="{{id}}" value="30" data-live-summary></label>
+            {{/each}}
+          </div>
+          <div class="ac-callout">Standard Stack Attributes begin at 30. Higher values are available here for pre-generated or GM-authored final characters; normal play advancement uses Stack Points and the system's advancement procedures.</div>
+        </article>
+      </section>
+
+      <section class="ac-wizard-step" data-wizard-step="5">
+        <div class="ac-step-heading"><span>STEP 06</span><h2>Resources & Economy</h2><p>The wizard calculates most starting resources automatically from age, Attributes, Archetype and Variant. Only values the rules leave open are requested from you.</p></div>
+        <div class="ac-wizard-grid">
+          <article class="ac-panel">
+            <label class="ac-select-field"><span>Wealth Override <small>Leave blank to use the Archetype baseline.</small></span><input type="number" name="wealth" value="" min="0" max="6" data-live-summary placeholder="Archetype default"></label>
+            <div data-ai-only hidden>
+              <label class="ac-select-field"><span>AI Stack Points <small>Required because the Core gives AI no age-based starting SP row.</small></span><input type="number" name="manualSP" value="" min="0"></label>
+              <label class="ac-select-field"><span>AI Influence Points <small>Required for the same reason; the wizard will not invent a value.</small></span><input type="number" name="manualIP" value="" min="0"></label>
+            </div>
+          </article>
+          <aside class="ac-explainer">
+            <i class="fa-solid fa-coins"></i><h3>What the system creates</h3>
+            <ul><li><strong>Health:</strong> rolled from sleeve type and Strength Bonus.</li><li><strong>Damage Threshold:</strong> derived from Strength.</li><li><strong>Ego / SP / IP:</strong> calculated from the source procedures and variant modifiers where deterministic.</li><li><strong>Skills:</strong> all 32 are embedded at the Archetype starting levels.</li><li><strong>Baggage:</strong> age-based rolls are resolved automatically.</li><li><strong>Starting Package:</strong> package Traits and gear note are embedded.</li></ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="ac-wizard-step" data-wizard-step="6">
+        <div class="ac-step-heading"><span>STEP 07</span><h2>Review & Instantiate</h2><p>Confirm the concept. The creator will make the Actor, starting sleeve, full Skill list, package content and deterministic starting resources in one operation.</p></div>
+        <article class="ac-panel ac-review-panel">
+          <div class="ac-review-row"><span>True DHF</span><strong data-summary="name">New DHF</strong></div>
+          <div class="ac-review-row"><span>Public Name</span><strong data-summary="publicName">New DHF</strong></div>
+          <div class="ac-review-row"><span>Age</span><strong data-summary="age">30 years</strong></div>
+          <div class="ac-review-row"><span>Archetype</span><strong data-summary="archetype">Civilian</strong></div>
+          <div class="ac-review-row"><span>Starting Package</span><strong data-summary="package">Custom / choose later</strong></div>
+          <div class="ac-review-row"><span>Variant</span><strong data-summary="variant">Standard DHF</strong></div>
+          <div class="ac-review-row"><span>Sleeve</span><strong data-summary="sleeve">birth</strong></div>
+          <div class="ac-review-row wide"><span>Attributes</span><strong data-summary="attributes">STR 30 · PER 30 · EMP 30 · WIL 30 · ACU 30 · INT 30</strong></div>
+          <div class="ac-review-row"><span>Wealth</span><strong data-summary="wealth">Archetype default</strong></div>
+        </article>
+        <div class="ac-callout success"><strong>Ready.</strong> Anything not chosen by the source rules remains editable on the finished sheet rather than being silently invented.</div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="ac-wizard-footer">
+    <button type="button" data-action="prevStep" disabled><i class="fa-solid fa-arrow-left"></i> Back</button>
+    <div><span>2020 Core rules chassis</span><small>Guided workflow · editable after creation</small></div>
+    <button type="button" data-action="nextStep" class="ac-primary-action">Continue <i class="fa-solid fa-arrow-right"></i></button>
+    <button type="button" data-action="create" class="ac-primary-action" hidden><i class="fa-solid fa-user-plus"></i> Create DHF</button>
+  </footer>
+</section>

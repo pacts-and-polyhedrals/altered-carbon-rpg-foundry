@@ -1,20 +1,213 @@
-<form class="ac-sheet {{actor.type}}" autocomplete="off">
-<header class="ac-header"><img src="{{actor.img}}" data-edit="img" alt="{{actor.name}}"><div><input class="name" name="name" value="{{actor.name}}"><div class="subline">{{system.identity.trueName}} · {{system.identity.archetype}} · {{system.identity.variant}}</div></div><div class="stack-state">STACK: {{system.stackState}}</div></header>
-<nav class="ac-tabs">
-<button type="button" data-action="setTab" data-tab="identity">Identity</button><button type="button" data-action="setTab" data-tab="sleeve">Current Sleeve</button><button type="button" data-action="setTab" data-tab="skills">Skills</button><button type="button" data-action="setTab" data-tab="traits">Traits & State</button><button type="button" data-action="setTab" data-tab="history">Prior Sleeves</button><button type="button" data-action="setTab" data-tab="relationships">Relationships</button><button type="button" data-action="setTab" data-tab="evidence">Evidence</button><button type="button" data-action="setTab" data-tab="gear">Gear</button><button type="button" data-action="setTab" data-tab="combat">Combat</button><button type="button" data-action="openRules">2020 Rules</button>
-</nav>
-{{#if isIdentity}}
-<section class="ac-grid"><section><h2>Identity</h2><label>True DHF <input name="system.identity.trueName" value="{{system.identity.trueName}}"></label><label>Public Name <input name="system.identity.publicName" value="{{system.identity.publicName}}"></label><label>Pronouns <input name="system.identity.pronouns" value="{{system.identity.pronouns}}"></label><label>DHF Age <input type="number" name="system.identity.dhfAge" value="{{system.identity.dhfAge}}"></label><label>Storage Years <input type="number" name="system.identity.storageYears" value="{{system.identity.storageYears}}"></label><label>Archetype <input name="system.identity.archetype" value="{{system.identity.archetype}}"></label><label>Variant <input name="system.identity.variant" value="{{system.identity.variant}}"></label><label>Objective <input name="system.identity.currentObjective" value="{{system.identity.currentObjective}}"></label></section>
-<section><h2>Resources</h2><label>Health <input type="number" name="system.resources.health.value" value="{{system.resources.health.value}}"> / {{system.resources.health.max}}</label><label>Wounds <input type="number" name="system.resources.wounds.value" value="{{system.resources.wounds.value}}"> / {{ac.damageThreshold}}</label><label>Ego <input type="number" name="system.resources.ego.value" value="{{system.resources.ego.value}}"> / {{system.resources.ego.max}}</label><label>SP <input type="number" name="system.resources.stackPoints.value" value="{{system.resources.stackPoints.value}}"> <button type="button" data-action="spendSP">Spend</button></label><label>IP <input type="number" name="system.resources.influence.value" value="{{system.resources.influence.value}}"></label><label>Wealth <input type="number" min="0" max="6" name="system.wealth" value="{{system.wealth}}"> (effective {{ac.effectiveWealth}})</label><label>Deferral <input type="number" min="0" max="5" name="system.economy.deferral" value="{{system.economy.deferral}}"></label><label>Debt <input type="checkbox" name="system.economy.debt" {{checked system.economy.debt}}></label></section></section>
-<section><h2>Attributes</h2><div class="attributes">{{#each system.attributes as |value key|}}<label><span>{{key}}</span><input type="number" name="system.attributes.{{key}}" value="{{value}}"><b>{{lookup ../ac.bonuses key}}</b></label>{{/each}}</div></section>
-<section><h2>Backup</h2><label>Backup active <input type="checkbox" name="system.backup.enabled" {{checked system.backup.enabled}}></label><label>Price Level <input type="number" name="system.backup.priceLevel" value="{{system.backup.priceLevel}}"></label><label>Routinely updated <input type="checkbox" name="system.backup.routine" {{checked system.backup.routine}}></label></section>
-{{/if}}
-{{#if isSleeve}}<section><h2>Current / Candidate Sleeves</h2>{{#each sleeves}}<article class="item-row"><span><strong>{{name}}</strong><br>{{system.sleeveType}} · {{system.status}} · STR {{system.strength}} PER {{system.perception}} · HP {{system.healthMax}} · DT {{system.strength}} · Q {{system.techUsed}}/{{system.techCapacity}}</span>{{#unless isActive}}<button type="button" data-action="activateSleeve" data-item-id="{{id}}">Activate</button>{{/unless}}<button type="button" data-action="editItem" data-item-id="{{id}}">Edit</button></article>{{/each}}<p>Cargo: {{ac.cargo.used}} / {{ac.cargo.capacity}} {{#if ac.cargo.encumbered}}— Encumbered {{ac.cargo.level}}{{/if}}</p></section>{{/if}}
-{{#if isSkills}}<section><h2>Skills</h2><div class="item-list">{{#each skills}}<div class="item-row" data-item-id="{{id}}"><span>{{name}}</span><span>{{system.attribute}} · Lv.{{system.level}} d{{skillDieSides}} · TV +{{system.trainingBonus}}</span><button type="button" data-action="rollSkill" data-item-id="{{id}}">Roll</button><button type="button" data-action="opposedRoll" data-item-id="{{id}}">Opposed</button><button type="button" data-action="editItem" data-item-id="{{id}}">✎</button></div>{{/each}}</div></section>{{/if}}
-{{#if isTraits}}<section><h2>Traits</h2>{{#each traits}}<div class="item-row"><span>{{system.tree}} / {{system.branch}} — {{name}} (T{{system.tier}})</span><button type="button" data-action="editItem" data-item-id="{{id}}">Open</button></div>{{/each}}<h2>Specialisations</h2>{{#each specialisations}}<div class="item-row"><span>{{system.skill}} — {{name}}</span><button type="button" data-action="editItem" data-item-id="{{id}}">Open</button></div>{{/each}}<h2>Baggage</h2>{{#each baggage}}<div class="item-row"><span>{{name}}</span><button type="button" data-action="editItem" data-item-id="{{id}}">Open</button></div>{{/each}}<h2>Conditions & Injuries</h2>{{#each conditions}}<div class="item-row"><span>Condition: {{name}}</span><button type="button" data-action="editItem" data-item-id="{{id}}">Open</button></div>{{/each}}{{#each injuries}}<div class="item-row"><span>Injury: {{name}} ×{{system.count}}</span><button type="button" data-action="editItem" data-item-id="{{id}}">Open</button></div>{{/each}}<h2>Scandals</h2>{{#each scandals}}<div class="item-row"><span>{{name}}</span><button type="button" data-action="editItem" data-item-id="{{id}}">Open</button></div>{{/each}}</section>{{/if}}
-{{#if isHistory}}<section><h2>Previous Sleeves</h2>{{#each archivedSleeves}}<details><summary>{{system.acquired}}–{{system.lost}} · {{name}}</summary><div>{{{system.description}}}</div><button type="button" data-action="editItem" data-item-id="{{id}}">Edit dossier</button></details>{{/each}}</section>{{/if}}
-{{#if isRelationships}}<section><h2>Relationships</h2>{{#each relationships}}<div class="item-row"><span>{{name}}</span><span>{{system.category}} · {{system.revealState}}</span><button type="button" data-action="editItem" data-item-id="{{id}}">Edit</button></div>{{/each}}<h2>Networks</h2>{{#each networks}}<div class="item-row"><span>{{name}} · Lv.{{system.level}}</span><button type="button" data-action="editItem" data-item-id="{{id}}">Edit</button></div>{{/each}}</section>{{/if}}
-{{#if isEvidence}}<section><h2>Evidence & Memories</h2>{{#each clues}}<div class="item-row"><span>{{name}}</span><span>{{type}}</span><button type="button" data-action="editItem" data-item-id="{{id}}">Open</button></div>{{/each}}</section>{{/if}}
-{{#if isGear}}<section><h2>Equipment</h2>{{#each equipment}}<div class="item-row"><span><strong>{{name}}</strong><br>{{type}}{{#if canDeplete}} · Capacity {{system.capacity}} · DP {{system.depletion}}{{#if system.exhausted}} · <strong>EXHAUSTED</strong>{{/if}}{{/if}}</span><span>{{#if canUse}}<button type="button" data-action="useWeapon" data-item-id="{{id}}">Use / Attack</button>{{/if}}{{#if canUseEquipment}}<button type="button" data-action="useEquipment" data-item-id="{{id}}">Use with Skill</button>{{/if}}{{#if canDeplete}}<button type="button" data-action="addDepletion" data-item-id="{{id}}">+DP</button>{{/if}}<button type="button" data-action="editItem" data-item-id="{{id}}">Edit</button></span></div>{{/each}}<p class="muted">Weapon Use rolls the linked Skill, applies Gear/Bonus Dice, then resolves Core Depletion. Damage cards provide GM/owner controls for Wounds, Protection, Ego, sleeve death, stack damage, Real Death, and resleeving state.</p><h2>Resource Catalog</h2>{{#each resources}}<div class="item-row"><span>{{name}} · Price {{system.priceLevel}} · Capacity {{system.capacity}} · DP {{system.depletion}}</span><button type="button" data-action="editItem" data-item-id="{{id}}">Edit</button></div>{{/each}}</section>{{/if}}
-{{#if isCombat}}<section><h2>Combat</h2><button type="button" data-action="openCombat">Open Combat Console</button><p>Speed Dice: <strong>{{ac.speedDice}}d6</strong> · Defense {{system.defense}} · Damage Threshold {{ac.damageThreshold}}</p><p>Intent → Check → Resolution. Uncommitted Speed Dice remain available for Save Throws. Additional check-based actions increase Difficulty cumulatively.</p><h3>State</h3><p>Sleeve: {{system.sleeveState}} · Ego: {{system.egoState}} · Stack: {{system.stackState}}</p></section>{{/if}}
+<form class="ac-sheet ac-shell {{actor.type}}" autocomplete="off">
+  <header class="ac-hero">
+    <div class="ac-portrait-frame">
+      <img src="{{actor.img}}" data-edit="img" alt="{{actor.name}}">
+      <span class="ac-scan-corner tl"></span><span class="ac-scan-corner tr"></span><span class="ac-scan-corner bl"></span><span class="ac-scan-corner br"></span>
+    </div>
+    <div class="ac-hero-copy">
+      <div class="ac-eyebrow">DIGITAL HUMAN FREIGHT // ACTIVE PROFILE</div>
+      <input class="ac-name" name="name" value="{{actor.name}}" aria-label="Actor name">
+      <div class="ac-subline">
+        <span>{{system.identity.trueName}}</span>
+        <span>{{system.identity.archetype}}</span>
+        <span>{{system.identity.variant}}</span>
+      </div>
+    </div>
+    <div class="ac-status-cluster">
+      <div class="ac-status-chip"><small>STACK</small><strong>{{system.stackState}}</strong></div>
+      <div class="ac-status-chip"><small>SLEEVE</small><strong>{{system.sleeveState}}</strong></div>
+      <div class="ac-status-chip"><small>EGO</small><strong>{{system.egoState}}</strong></div>
+    </div>
+  </header>
+
+  <div class="ac-vitals-strip" aria-label="Character vital resources">
+    <div class="ac-vital"><span>HEALTH</span><strong>{{system.resources.health.value}} / {{system.resources.health.max}}</strong></div>
+    <div class="ac-vital"><span>WOUNDS</span><strong>{{system.resources.wounds.value}} / {{ac.damageThreshold}}</strong></div>
+    <div class="ac-vital"><span>EGO</span><strong>{{system.resources.ego.value}} / {{system.resources.ego.max}}</strong></div>
+    <div class="ac-vital"><span>SP</span><strong>{{system.resources.stackPoints.value}}</strong></div>
+    <div class="ac-vital"><span>IP</span><strong>{{system.resources.influence.value}}</strong></div>
+    <div class="ac-vital"><span>WEALTH</span><strong>{{ac.effectiveWealth}}</strong></div>
+    <div class="ac-vital"><span>SPEED</span><strong>{{ac.speedDice}}d6</strong></div>
+  </div>
+
+  <nav class="ac-tabs" aria-label="Character sheet sections">
+    <button type="button" data-action="setTab" data-tab="identity" class="{{#if isIdentity}}active{{/if}}"><i class="fa-solid fa-id-card"></i><span>Identity</span></button>
+    <button type="button" data-action="setTab" data-tab="sleeve" class="{{#if isSleeve}}active{{/if}}"><i class="fa-solid fa-dna"></i><span>Sleeve</span></button>
+    <button type="button" data-action="setTab" data-tab="skills" class="{{#if isSkills}}active{{/if}}"><i class="fa-solid fa-wave-square"></i><span>Skills</span></button>
+    <button type="button" data-action="setTab" data-tab="traits" class="{{#if isTraits}}active{{/if}}"><i class="fa-solid fa-diagram-project"></i><span>Traits</span></button>
+    <button type="button" data-action="setTab" data-tab="history" class="{{#if isHistory}}active{{/if}}"><i class="fa-solid fa-clock-rotate-left"></i><span>Sleeve Archive</span></button>
+    <button type="button" data-action="setTab" data-tab="relationships" class="{{#if isRelationships}}active{{/if}}"><i class="fa-solid fa-share-nodes"></i><span>Networks</span></button>
+    <button type="button" data-action="setTab" data-tab="evidence" class="{{#if isEvidence}}active{{/if}}"><i class="fa-solid fa-fingerprint"></i><span>Evidence</span></button>
+    <button type="button" data-action="setTab" data-tab="gear" class="{{#if isGear}}active{{/if}}"><i class="fa-solid fa-microchip"></i><span>Gear</span></button>
+    <button type="button" data-action="setTab" data-tab="combat" class="{{#if isCombat}}active{{/if}}"><i class="fa-solid fa-crosshairs"></i><span>Combat</span></button>
+    <button type="button" data-action="openCreator" class="utility"><i class="fa-solid fa-user-plus"></i><span>Creator</span></button>
+    <button type="button" data-action="openRules" class="utility"><i class="fa-solid fa-book-open"></i><span>Rules</span></button>
+  </nav>
+
+  <main class="ac-sheet-viewport">
+    {{#if isIdentity}}
+    <section class="ac-page">
+      <div class="ac-page-title">
+        <div><span class="ac-kicker">01 // IDENTITY CORE</span><h1>DHF Profile</h1></div>
+        <p>The DHF is the person. Your sleeve is the body currently carrying that person. Identity, resources and Stack Attributes live here.</p>
+      </div>
+
+      <div class="ac-dashboard-grid two">
+        <article class="ac-panel">
+          <header class="ac-panel-title"><span>DHF Identity</span><small>PERSISTENT</small></header>
+          <div class="ac-field-grid two">
+            <label><span>True DHF Name <em>The identity that persists across sleeves.</em></span><input name="system.identity.trueName" value="{{system.identity.trueName}}"></label>
+            <label><span>Public Name <em>The name people currently know you by.</em></span><input name="system.identity.publicName" value="{{system.identity.publicName}}"></label>
+            <label><span>Pronouns <em>Pronouns for the DHF identity.</em></span><input name="system.identity.pronouns" value="{{system.identity.pronouns}}"></label>
+            <label><span>DHF Age <em>Total lived age used by several character-creation rules.</em></span><input type="number" name="system.identity.dhfAge" value="{{system.identity.dhfAge}}"></label>
+            <label><span>Storage Years <em>Time spent inactive in storage.</em></span><input type="number" name="system.identity.storageYears" value="{{system.identity.storageYears}}"></label>
+            <label><span>Archetype <em>Your broad life/career chassis.</em></span><input name="system.identity.archetype" value="{{system.identity.archetype}}"></label>
+            <label><span>Variant <em>Standard, AI, Religious Coding, Envoy or Meth.</em></span><input name="system.identity.variant" value="{{system.identity.variant}}"></label>
+            <label class="span-two"><span>Current Objective <em>Your immediate personal or operational goal.</em></span><input name="system.identity.currentObjective" value="{{system.identity.currentObjective}}"></label>
+          </div>
+        </article>
+
+        <article class="ac-panel">
+          <header class="ac-panel-title"><span>Operational Resources</span><small>LIVE VALUES</small></header>
+          <div class="ac-resource-grid">
+            <label><span>Health</span><div><input type="number" name="system.resources.health.value" value="{{system.resources.health.value}}"><b>/ {{system.resources.health.max}}</b></div><small>Sleeve physical integrity.</small></label>
+            <label><span>Wounds</span><div><input type="number" name="system.resources.wounds.value" value="{{system.resources.wounds.value}}"><b>/ {{ac.damageThreshold}}</b></div><small>Organic trauma before direct Health loss.</small></label>
+            <label><span>Ego</span><div><input type="number" name="system.resources.ego.value" value="{{system.resources.ego.value}}"><b>/ {{system.resources.ego.max}}</b></div><small>Psychological and virtual resilience.</small></label>
+            <label><span>Stack Points</span><div><input type="number" name="system.resources.stackPoints.value" value="{{system.resources.stackPoints.value}}"><button type="button" data-action="spendSP">Spend</button></div><small>Long-term growth and resilience resource.</small></label>
+            <label><span>Influence</span><div><input type="number" name="system.resources.influence.value" value="{{system.resources.influence.value}}"></div><small>Social leverage and network capital.</small></label>
+            <label><span>Wealth</span><div><input type="number" min="0" max="6" name="system.wealth" value="{{system.wealth}}"><b>EFF {{ac.effectiveWealth}}</b></div><small>Abstract purchasing power.</small></label>
+            <label><span>Deferral</span><div><input type="number" min="0" max="5" name="system.economy.deferral" value="{{system.economy.deferral}}"></div><small>Temporary pressure on effective Wealth.</small></label>
+            <label class="switch-row"><span>Debt</span><input type="checkbox" name="system.economy.debt" {{checked system.economy.debt}}><small>Persistent financial obligation.</small></label>
+          </div>
+        </article>
+      </div>
+
+      <article class="ac-panel ac-attributes-panel">
+        <header class="ac-panel-title"><span>Attributes</span><small>SLEEVE + STACK MATRIX</small></header>
+        <p class="ac-help-line">Strength and Perception describe the active sleeve. Empathy, Willpower, Acuity and Intelligence describe the persistent DHF. The bonus shown at right is derived automatically.</p>
+        <div class="ac-attribute-grid">
+          <label class="ac-attribute physical"><span class="code">STR</span><span class="label">Strength<small>Physical power. Also sets Damage Threshold.</small></span><input type="number" name="system.attributes.strength" value="{{system.attributes.strength}}"><b>{{lookup ac.bonuses "strength"}}</b></label>
+          <label class="ac-attribute physical"><span class="code">PER</span><span class="label">Perception<small>Sleeve senses. Its bonus drives natural Speed Dice.</small></span><input type="number" name="system.attributes.perception" value="{{system.attributes.perception}}"><b>{{lookup ac.bonuses "perception"}}</b></label>
+          <label class="ac-attribute mental"><span class="code">EMP</span><span class="label">Empathy<small>Social and emotional reading of people.</small></span><input type="number" name="system.attributes.empathy" value="{{system.attributes.empathy}}"><b>{{lookup ac.bonuses "empathy"}}</b></label>
+          <label class="ac-attribute mental"><span class="code">WIL</span><span class="label">Willpower<small>Mental resistance, resolve and self-control.</small></span><input type="number" name="system.attributes.willpower" value="{{system.attributes.willpower}}"><b>{{lookup ac.bonuses "willpower"}}</b></label>
+          <label class="ac-attribute mental"><span class="code">ACU</span><span class="label">Acuity<small>Fast cognitive processing and situational response.</small></span><input type="number" name="system.attributes.acuity" value="{{system.attributes.acuity}}"><b>{{lookup ac.bonuses "acuity"}}</b></label>
+          <label class="ac-attribute mental"><span class="code">INT</span><span class="label">Intelligence<small>Reasoning, knowledge and technical understanding.</small></span><input type="number" name="system.attributes.intelligence" value="{{system.attributes.intelligence}}"><b>{{lookup ac.bonuses "intelligence"}}</b></label>
+        </div>
+      </article>
+
+      <article class="ac-panel">
+        <header class="ac-panel-title"><span>DHF Backup</span><small>CONTINUITY INSURANCE</small></header>
+        <div class="ac-field-grid three">
+          <label class="switch-row"><span>Backup Active <em>Whether a recoverable backup currently exists.</em></span><input type="checkbox" name="system.backup.enabled" {{checked system.backup.enabled}}></label>
+          <label><span>Price Level <em>Economic tier of the backup service.</em></span><input type="number" name="system.backup.priceLevel" value="{{system.backup.priceLevel}}"></label>
+          <label class="switch-row"><span>Routine Updates <em>Whether the backup is regularly refreshed.</em></span><input type="checkbox" name="system.backup.routine" {{checked system.backup.routine}}></label>
+        </div>
+      </article>
+    </section>
+    {{/if}}
+
+    {{#if isSleeve}}
+    <section class="ac-page">
+      <div class="ac-page-title"><div><span class="ac-kicker">02 // EMBODIMENT</span><h1>Current Sleeve</h1></div><p>Your sleeve is replaceable hardware: physical Attributes, body integrity, appearance and augment capacity belong here.</p></div>
+      <article class="ac-panel">
+        <header class="ac-panel-title"><span>Sleeve Registry</span><small>{{sleeves.length}} RECORDS</small></header>
+        <div class="ac-card-list">
+          {{#each sleeves}}
+          <article class="ac-data-card {{#if isActive}}active{{/if}}">
+            <div class="ac-data-card-main"><span class="ac-data-icon"><i class="fa-solid fa-dna"></i></span><div><div class="ac-card-eyebrow">{{system.sleeveType}} // {{system.status}}</div><h3>{{name}}</h3><p>STR {{system.strength}} · PER {{system.perception}} · HP {{system.healthMax}} · DT {{system.strength}} · TECH {{system.techUsed}}/{{system.techCapacity}}</p></div></div>
+            <div class="ac-card-actions">{{#unless isActive}}<button type="button" data-action="activateSleeve" data-item-id="{{id}}"><i class="fa-solid fa-bolt"></i> Activate</button>{{/unless}}<button type="button" data-action="editItem" data-item-id="{{id}}"><i class="fa-solid fa-pen"></i> Edit</button></div>
+          </article>
+          {{else}}<div class="ac-empty-state"><i class="fa-solid fa-dna"></i><h3>No sleeve records</h3><p>Create a sleeve Item or use the Character Creator to generate a starting body.</p></div>{{/each}}
+        </div>
+        <div class="ac-inline-stat"><span>CARGO LOAD</span><strong>{{ac.cargo.used}} / {{ac.cargo.capacity}}</strong>{{#if ac.cargo.encumbered}}<em>ENCUMBERED {{ac.cargo.level}}</em>{{/if}}</div>
+      </article>
+    </section>
+    {{/if}}
+
+    {{#if isSkills}}
+    <section class="ac-page">
+      <div class="ac-page-title"><div><span class="ac-kicker">03 // CAPABILITY MATRIX</span><h1>Skills</h1></div><p>Skill Level sets the die size. Checks roll low against a Target Result derived from the linked Attribute and modifiers.</p></div>
+      <div class="ac-skill-groups">
+        {{#each skillGroups}}
+        <article class="ac-panel ac-skill-panel">
+          <header class="ac-panel-title"><span>{{label}}</span><small>{{code}} // BONUS {{bonus}}</small></header>
+          <div class="ac-skill-list">
+            {{#each items}}
+            <div class="ac-skill-row" data-item-id="{{id}}">
+              <div><strong>{{name}}</strong><small>Level {{system.level}} · d{{skillDieSides}} · Training +{{system.trainingBonus}}</small></div>
+              <div class="ac-row-actions"><button type="button" data-action="rollSkill" data-item-id="{{id}}"><i class="fa-solid fa-dice-d20"></i> Roll</button><button type="button" data-action="opposedRoll" data-item-id="{{id}}">Opposed</button><button type="button" data-action="editItem" data-item-id="{{id}}" title="Edit"><i class="fa-solid fa-pen"></i></button></div>
+            </div>
+            {{else}}<p class="ac-muted">No skills linked to this Attribute.</p>{{/each}}
+          </div>
+        </article>
+        {{/each}}
+      </div>
+    </section>
+    {{/if}}
+
+    {{#if isTraits}}
+    <section class="ac-page">
+      <div class="ac-page-title"><div><span class="ac-kicker">04 // PERSONA MODIFIERS</span><h1>Traits & State</h1></div><p>Long-term advantages, specialisations, Baggage and active conditions are separated so permanent identity never gets confused with temporary state.</p></div>
+      <div class="ac-dashboard-grid two">
+        <article class="ac-panel"><header class="ac-panel-title"><span>Traits</span><small>{{traits.length}}</small></header>{{#each traits}}<div class="ac-line-item"><div><strong>{{name}}</strong><small>{{system.tree}} / {{system.branch}} · Tier {{system.tier}}</small></div><button type="button" data-action="editItem" data-item-id="{{id}}">Open</button></div>{{else}}<p class="ac-muted">No Traits recorded.</p>{{/each}}</article>
+        <article class="ac-panel"><header class="ac-panel-title"><span>Specialisations</span><small>{{specialisations.length}}</small></header>{{#each specialisations}}<div class="ac-line-item"><div><strong>{{name}}</strong><small>{{system.skill}}</small></div><button type="button" data-action="editItem" data-item-id="{{id}}">Open</button></div>{{else}}<p class="ac-muted">No Specialisations recorded.</p>{{/each}}</article>
+        <article class="ac-panel"><header class="ac-panel-title"><span>Baggage</span><small>{{baggage.length}}</small></header>{{#each baggage}}<div class="ac-line-item"><div><strong>{{name}}</strong><small>{{system.appliesTo}}</small></div><button type="button" data-action="editItem" data-item-id="{{id}}">Open</button></div>{{else}}<p class="ac-muted">No unresolved life-event baggage.</p>{{/each}}</article>
+        <article class="ac-panel"><header class="ac-panel-title"><span>Conditions & Injuries</span><small>ACTIVE STATE</small></header>{{#each conditions}}<div class="ac-line-item warning"><div><strong>{{name}}</strong><small>Condition · Severity {{system.severity}}</small></div><button type="button" data-action="editItem" data-item-id="{{id}}">Open</button></div>{{/each}}{{#each injuries}}<div class="ac-line-item danger"><div><strong>{{name}}</strong><small>Injury ×{{system.count}}</small></div><button type="button" data-action="editItem" data-item-id="{{id}}">Open</button></div>{{/each}}{{#unless conditions.length}}{{#unless injuries.length}}<p class="ac-muted">No current conditions or injuries.</p>{{/unless}}{{/unless}}</article>
+      </div>
+      <article class="ac-panel"><header class="ac-panel-title"><span>Scandals</span><small>{{scandals.length}}</small></header>{{#each scandals}}<div class="ac-line-item"><div><strong>{{name}}</strong><small>Influence loss {{system.influenceLoss}}</small></div><button type="button" data-action="editItem" data-item-id="{{id}}">Open</button></div>{{else}}<p class="ac-muted">No Scandals recorded.</p>{{/each}}</article>
+    </section>
+    {{/if}}
+
+    {{#if isHistory}}
+    <section class="ac-page">
+      <div class="ac-page-title"><div><span class="ac-kicker">05 // EMBODIMENT HISTORY</span><h1>Sleeve Archive</h1></div><p>Your bodies are chapters, not your identity. Track when each sleeve was acquired, lost, and what happened while you wore it.</p></div>
+      <article class="ac-panel ac-timeline">
+        {{#each archivedSleeves}}
+        <details class="ac-timeline-entry">
+          <summary><span class="ac-timeline-node"></span><div><small>{{system.acquired}} → {{system.lost}}</small><strong>{{name}}</strong><em>{{system.sleeveType}}</em></div><i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="ac-timeline-content"><div>{{{system.description}}}</div><button type="button" data-action="editItem" data-item-id="{{id}}">Edit dossier</button></div>
+        </details>
+        {{else}}<div class="ac-empty-state"><i class="fa-solid fa-clock-rotate-left"></i><h3>No archived sleeves</h3><p>Previous embodiments appear here after resleeving or when added manually.</p></div>{{/each}}
+      </article>
+    </section>
+    {{/if}}
+
+    {{#if isRelationships}}
+    <section class="ac-page">
+      <div class="ac-page-title"><div><span class="ac-kicker">06 // SOCIAL GRAPH</span><h1>Relationships & Networks</h1></div><p>People, organisations and trust states are operational assets. Recognition and verification can change without changing the underlying history.</p></div>
+      <div class="ac-dashboard-grid two">
+        <article class="ac-panel"><header class="ac-panel-title"><span>Relationships</span><small>{{relationships.length}} LINKS</small></header>{{#each relationships}}<div class="ac-relationship-card"><div class="ac-rel-sigil">{{system.category}}</div><div><strong>{{name}}</strong><small>{{system.revealState}} · {{system.category}}</small></div><button type="button" data-action="editItem" data-item-id="{{id}}">Open</button></div>{{else}}<p class="ac-muted">No relationship records.</p>{{/each}}</article>
+        <article class="ac-panel"><header class="ac-panel-title"><span>Networks</span><small>{{networks.length}}</small></header>{{#each networks}}<div class="ac-line-item"><div><strong>{{name}}</strong><small>{{system.organization}} · Request Lv.{{system.level}}</small></div><button type="button" data-action="editItem" data-item-id="{{id}}">Open</button></div>{{else}}<p class="ac-muted">No Networks recorded.</p>{{/each}}</article>
+      </div>
+    </section>
+    {{/if}}
+
+    {{#if isEvidence}}
+    <section class="ac-page">
+      <div class="ac-page-title"><div><span class="ac-kicker">07 // MEMORY FORENSICS</span><h1>Evidence & Memories</h1></div><p>Clues, recovered memory fragments and verification records live here. Treat recollection as data that may require corroboration.</p></div>
+      <article class="ac-panel"><header class="ac-panel-title"><span>Archive</span><small>{{clues.length}} RECORDS</small></header><div class="ac-evidence-grid">{{#each clues}}<article class="ac-evidence-card"><span class="ac-data-icon"><i class="fa-solid fa-fingerprint"></i></span><div><small>{{type}}</small><strong>{{name}}</strong></div><button type="button" data-action="editItem" data-item-id="{{id}}">Inspect</button></article>{{else}}<div class="ac-empty-state"><i class="fa-solid fa-fingerprint"></i><h3>No evidence stored</h3><p>Clues and Memory Items appear here as the investigation grows.</p></div>{{/each}}</div></article>
+    </section>
+    {{/if}}
+
+    {{#if isGear}}
+    <section class="ac-page">
+      <div class="ac-page-title"><div><span class="ac-kicker">08 // LOADOUT</span><h1>Gear & Resources</h1></div><p>Weapons, armour, equipment, augmentations and software share a single operational loadout with visible Depletion state.</p></div>
+      <article class="ac-panel"><header class="ac-panel-title"><span>Equipment</span><small>{{equipment.length}} ITEMS</small></header><div class="ac-card-list">{{#each equipment}}<article class="ac-data-card"><div class="ac-data-card-main"><span class="ac-data-icon"><i class="fa-solid fa-microchip"></i></span><div><div class="ac-card-eyebrow">{{type}}{{#if canDeplete}} // DP {{system.depletion}} / {{system.capacity}}{{/if}}</div><h3>{{name}}</h3>{{#if system.exhausted}}<p class="ac-danger-text">EXHAUSTED</p>{{/if}}</div></div><div class="ac-card-actions">{{#if canUse}}<button type="button" data-action="useWeapon" data-item-id="{{id}}">Use / Attack</button>{{/if}}{{#if canUseEquipment}}<button type="button" data-action="useEquipment" data-item-id="{{id}}">Use with Skill</button>{{/if}}{{#if canDeplete}}<button type="button" data-action="addDepletion" data-item-id="{{id}}">+DP</button>{{/if}}<button type="button" data-action="editItem" data-item-id="{{id}}"><i class="fa-solid fa-pen"></i></button></div></article>{{else}}<p class="ac-muted">No equipment recorded.</p>{{/each}}</div></article>
+      <article class="ac-panel"><header class="ac-panel-title"><span>Resource Catalog</span><small>{{resources.length}} ENTRIES</small></header>{{#each resources}}<div class="ac-line-item"><div><strong>{{name}}</strong><small>Price {{system.priceLevel}} · Capacity {{system.capacity}} · DP {{system.depletion}}</small></div><button type="button" data-action="editItem" data-item-id="{{id}}">Open</button></div>{{else}}<p class="ac-muted">No Resource Catalog entries.</p>{{/each}}</article>
+    </section>
+    {{/if}}
+
+    {{#if isCombat}}
+    <section class="ac-page">
+      <div class="ac-page-title"><div><span class="ac-kicker">09 // TACTICAL STATE</span><h1>Combat</h1></div><p>Altered Carbon combat flows through Intent → Check → Resolution. Speed Dice are both timing and action economy.</p></div>
+      <div class="ac-combat-hud">
+        <div><span>SPEED DICE</span><strong>{{ac.speedDice}}d6</strong><small>Natural count from Perception, modified by state.</small></div>
+        <div><span>DEFENSE</span><strong>{{system.defense}}</strong><small>Current defensive modifier.</small></div>
+        <div><span>DAMAGE THRESHOLD</span><strong>{{ac.damageThreshold}}</strong><small>Equal to current Strength.</small></div>
+        <div><span>STACK</span><strong>{{system.stackState}}</strong><small>Intact, damaged or destroyed.</small></div>
+      </div>
+      <article class="ac-panel ac-combat-brief"><header class="ac-panel-title"><span>Turn Procedure</span><small>INTENT // CHECK // RESOLUTION</small></header><p>Uncommitted Speed Dice remain available for Save Throws. Additional check-based actions increase Difficulty cumulatively. Open the tactical console to commit, reveal and resolve Speed Dice.</p><button class="ac-primary-action" type="button" data-action="openCombat"><i class="fa-solid fa-crosshairs"></i> Open Combat Console</button></article>
+    </section>
+    {{/if}}
+  </main>
 </form>

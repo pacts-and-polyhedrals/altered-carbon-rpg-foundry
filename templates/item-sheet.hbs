@@ -1,16 +1,37 @@
-<form class="ac-sheet item" autocomplete="off">
-<header class="ac-header"><img src="{{item.img}}" data-edit="img" alt="{{item.name}}"><div><input class="name" name="name" value="{{item.name}}"><div class="subline">{{item.type}}</div></div></header>
-<section class="ac-item-fields">
-  {{#each fields}}
-    <label class="ac-field"><span>{{label}}</span>
-    {{#if isCheckbox}}<input type="checkbox" name="{{path}}" {{checked value}}>
-    {{else if isTextarea}}<textarea name="{{path}}" rows="4">{{value}}</textarea>
-    {{else if isNumber}}<input type="number" name="{{path}}" value="{{value}}">
-    {{else}}<input name="{{path}}" value="{{value}}">{{/if}}
-    </label>
-  {{/each}}
-  <label class="ac-field"><span>Rules Reference</span><input name="system.rulesRef" value="{{system.rulesRef}}"></label>
-  <label class="ac-field"><span>Description</span><textarea name="system.description" rows="10">{{system.description}}</textarea></label>
-  <p class="muted">Mechanically typed fields are editable here. This private build includes source-derived mechanical reference text from the supplied 2020 Core Rulebook. Keep it with your legally owned source material and do not redistribute it unless you have the necessary rights.</p>
-</section>
+<form class="ac-sheet item ac-item-shell" autocomplete="off">
+  <header class="ac-hero ac-item-hero">
+    <div class="ac-portrait-frame">
+      <img src="{{item.img}}" data-edit="img" alt="{{item.name}}">
+      <span class="ac-scan-corner tl"></span><span class="ac-scan-corner tr"></span><span class="ac-scan-corner bl"></span><span class="ac-scan-corner br"></span>
+    </div>
+    <div class="ac-hero-copy">
+      <div class="ac-eyebrow">ITEM DATA // {{item.type}}</div>
+      <input class="ac-name" name="name" value="{{item.name}}" aria-label="Item name">
+      <div class="ac-subline"><span>{{item.type}}</span><span>{{system.rulesRef}}</span></div>
+    </div>
+  </header>
+  <main class="ac-item-body">
+    <div class="ac-page-title"><div><span class="ac-kicker">EDITABLE RECORD</span><h1>System Fields</h1></div><p>Typed mechanical values are separated from descriptive/reference data so the item remains easy to read during play.</p></div>
+    <article class="ac-panel">
+      <header class="ac-panel-title"><span>Mechanical Data</span><small>{{item.type}}</small></header>
+      <section class="ac-item-fields">
+        {{#each fields}}
+          <label class="ac-field"><span>{{label}}</span>
+          {{#if isCheckbox}}<input type="checkbox" name="{{path}}" {{checked value}}>
+          {{else if isTextarea}}<textarea name="{{path}}" rows="4">{{value}}</textarea>
+          {{else if isNumber}}<input type="number" name="{{path}}" value="{{value}}">
+          {{else}}<input name="{{path}}" value="{{value}}">{{/if}}
+          </label>
+        {{/each}}
+      </section>
+    </article>
+    <article class="ac-panel" style="margin-top:12px">
+      <header class="ac-panel-title"><span>Reference & Description</span><small>CONTEXT</small></header>
+      <section class="ac-item-fields">
+        <label class="ac-field"><span>Rules Reference</span><input name="system.rulesRef" value="{{system.rulesRef}}"></label>
+        <label class="ac-field"><span>Description</span><textarea name="system.description" rows="10">{{system.description}}</textarea></label>
+      </section>
+      <p class="muted">Mechanically typed fields are editable here. Source-derived reference text in this private build assumes lawful access to the supplied 2020 Core Rulebook.</p>
+    </article>
+  </main>
 </form>
