@@ -30,6 +30,13 @@
     <div class="ac-vital"><span>SPEED</span><strong>{{ac.speedDice}}d6</strong></div>
   </div>
 
+  {{#if gmBonusDiceAwards}}
+  <details class="ac-assigned-bonuses"><summary><i class="fa-solid fa-dice"></i> GM Bonus Dice assigned (automatic)</summary>
+    <p>These dice are added automatically to matching Skill Checks. Do not enter them again in roll options.</p>
+    {{#each gmBonusDiceAwards}}<p><strong>{{description}}</strong> / {{label}} / {{scopeLabel}} / {{durationLabel}}</p>{{/each}}
+  </details>
+  {{/if}}
+
   <nav class="ac-tabs" aria-label="Character sheet sections">
     <button type="button" data-action="setTab" data-tab="identity" class="{{#if isIdentity}}active{{/if}}"><i class="fa-solid fa-id-card"></i><span>Identity</span></button>
     <button type="button" data-action="setTab" data-tab="sleeve" class="{{#if isSleeve}}active{{/if}}"><i class="fa-solid fa-dna"></i><span>Sleeve</span></button>

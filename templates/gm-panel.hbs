@@ -1,80 +1,79 @@
 <section class="ac-shell ac-gm-console">
   <header class="ac-gm-hero">
-    <div>
-      <span class="ac-kicker">GM OPERATIONS / LIVE TABLE</span>
-      <h1>Control Surface</h1>
-      <p>Send structured Skill Checks to one or more player characters. Their responses return to chat with degree-coded diagnostics.</p>
-    </div>
+    <div><span class="ac-kicker">GM OPERATIONS / LIVE TABLE / v1.4.1</span><h1>Control Surface</h1><p>Assign Bonus Dice, tune preset TRs, and send checks to one or more characters.</p></div>
     <div class="ac-gm-hero-actions">
-      <button type="button" data-action="openGuide"><i class="fa-solid fa-book-open"></i> Open GM Guide</button>
+      <button type="button" data-action="focusBonusDice"><i class="fa-solid fa-dice"></i> Bonus Dice</button>
       <button type="button" data-action="openAdventure"><i class="fa-solid fa-book-atlas"></i> Cold Storage Book</button>
+      <button type="button" data-action="openGuide"><i class="fa-solid fa-book-open"></i> GM Guide</button>
+      <button type="button" data-action="systemCheck"><i class="fa-solid fa-stethoscope"></i> System Check</button>
       <button type="button" data-action="refreshGuide"><i class="fa-solid fa-arrows-rotate"></i> Refresh Guide</button>
     </div>
   </header>
-
+  {{#unless health.ok}}<aside class="ac-install-warning" role="alert"><strong>Installation mismatch</strong><p>{{health.summary}}</p><p>{{health.remedy}}</p></aside>{{/unless}}
   <div class="ac-gm-layout">
     <aside class="ac-gm-recipient-rail ac-panel">
-      <header>
-        <div><span class="ac-kicker">RECIPIENT MATRIX</span><h2>Characters</h2></div>
-        <div class="ac-mini-actions">
-          <button type="button" data-action="selectAll">All</button>
-          <button type="button" data-action="clearSelection">Clear</button>
-        </div>
-      </header>
-      <p class="hint">Select every character who should receive the same roll request.</p>
+      <header><div><span class="ac-kicker">RECIPIENT MATRIX</span><h2>Characters</h2></div><div class="ac-mini-actions"><button type="button" data-action="selectAll">All</button><button type="button" data-action="clearSelection">Clear</button></div></header>
+      <p class="hint">Choose one or more characters. Each receives an independent bonus or roll request.</p>
       <div class="ac-gm-recipient-list">
         {{#each characters}}
-        <label class="ac-gm-recipient">
-          <input type="checkbox" name="gmRecipients" value="{{id}}">
-          <span class="ac-recipient-node"><i class="fa-solid fa-user-ninja"></i></span>
-          <span class="ac-recipient-copy"><strong>{{publicName}}</strong><small>{{name}} · {{owners}}</small></span>
-        </label>
-        {{else}}
-        <div class="ac-empty-state"><i class="fa-solid fa-triangle-exclamation"></i><p>No character Actors exist yet.</p></div>
-        {{/each}}
+        <article class="ac-gm-recipient-block">
+          <label class="ac-gm-recipient"><input type="checkbox" name="gmRecipients" value="{{id}}"><span class="ac-recipient-node"><i class="fa-solid fa-user-ninja"></i></span><span class="ac-recipient-copy"><strong>{{publicName}}</strong><small>{{name}} / {{owners}}</small></span></label>
+          {{#each awards}}<div class="ac-award-row"><span><strong>{{description}}</strong><small>{{label}} / {{scopeLabel}} / {{durationLabel}}</small></span><button type="button" data-action="removeBonusDice" data-actor-id="{{actorId}}" data-award-id="{{id}}" title="Remove this award" aria-label="Remove {{label}}">Remove</button></div>{{/each}}
+        </article>
+        {{else}}<div class="ac-empty-state"><p>No character Actors exist yet.</p></div>{{/each}}
       </div>
-      <div class="ac-guide-shortcut">
-        <span>GM JOURNAL</span>
-        <strong>Altered Carbon — GM Guide</strong>
-        <small>Created automatically for GMs. Use Refresh Guide after a system update.</small>
-      </div>
+      <div class="ac-award-rail-actions"><button type="button" data-action="refreshAwards">Refresh Awards</button><button type="button" data-action="clearBonusDice">Clear Selected Bonuses</button></div>
+      <p class="hint">Next-check awards are spent only by that character's matching check. Persistent awards remain until removed.</p>
     </aside>
-
     <main class="ac-gm-main">
+      <section class="ac-panel ac-gm-bonus" data-bonus-panel>
+        <header><span class="ac-kicker">BONUS DICE / ASSIGN TO SELECTED CHARACTERS</span><h2>Award Bonus Dice</h2></header>
+        <p class="hint">Automatically added to sheet, weapon, opposed and GM-requested Skill Checks. Do not type these dice in again.</p>
+        <div class="ac-bonus-grid">
+          <label><span>Number of dice</span><input type="number" name="awardCount" value="1" min="1" max="10" step="1"></label>
+          <label><span>Die size</span><select name="awardDie"><option value="skill">Match Skill die</option><option value="4">d4</option><option value="6">d6</option><option value="8">d8</option><option value="10">d10</option><option value="12">d12</option><option value="20">d20</option></select></label>
+          <label><span>Duration</span><select name="awardDuration"><option value="next">Next matching check</option><option value="persistent">Until removed</option></select></label>
+          <label><span>Applies to</span><select name="awardSkill"><option value="">Any Skill</option>{{#each skills}}<option value="{{name}}">{{name}}</option>{{/each}}</select></label>
+          <label class="ac-bonus-label"><span>Reason / label</span><input type="text" name="awardLabel" value="GM Bonus Dice" maxlength="200"></label>
+          <button type="button" class="ac-primary-action" data-action="grantBonusDice"><i class="fa-solid fa-dice"></i> Assign Bonus Dice</button>
+        </div>
+      </section>
       <section class="ac-panel ac-gm-custom">
         <header><span class="ac-kicker">CUSTOM TRANSMISSION</span><h2>Request Any Check</h2></header>
         <div class="ac-gm-custom-grid">
           <label><span>Request title</span><input type="text" name="customTitle" placeholder="e.g. Hold onto the memory"></label>
-          <label><span>Skill</span><select name="customSkill"><option value="">Choose Skill</option>{{#each skills}}<option value="{{name}}">{{name}} · {{attribute}}</option>{{/each}}</select></label>
-          <label><span>Difficulty penalty</span><input type="number" name="customDifficulty" value="0" min="0" max="10"></label>
-          <label><span>TR bonus</span><input type="number" name="customBonus" value="0" min="-10" max="10"></label>
+          <label><span>Skill</span><select name="customSkill"><option value="">Choose Skill</option>{{#each skills}}<option value="{{name}}">{{name}} / {{attribute}}</option>{{/each}}</select></label>
+          <label><span>Base TR override</span><input type="number" name="customBaseTR" value="" min="-100" max="100" step="1" placeholder="Character"></label>
+          <label><span>TR modifier (+/-)</span><input type="number" name="customBonus" value="0" min="-100" max="100" step="1"></label>
+          <label><span>Difficulty penalty</span><input type="number" name="customDifficulty" value="0" min="0" max="100" step="1"></label>
+          <label><span>Bonus Dice count</span><input type="number" name="customDiceCount" value="0" min="0" max="10" step="1"></label>
+          <label><span>Bonus die size</span><select name="customDie"><option value="skill">Match Skill die</option><option value="4">d4</option><option value="6">d6</option><option value="8">d8</option><option value="10">d10</option><option value="12">d12</option><option value="20">d20</option></select></label>
           <label class="wide"><span>Player-facing prompt</span><textarea name="customPrompt" rows="2" placeholder="What are they attempting or resisting?"></textarea></label>
-          <label class="wide"><span>Context note</span><textarea name="customNote" rows="2" placeholder="Optional reminder shown on the request card."></textarea></label>
+          <label class="wide"><span>Player-facing context note</span><textarea name="customNote" rows="2" placeholder="Shown on the request card; not a secret GM note."></textarea></label>
         </div>
-        <div class="ac-gm-toggle-row">
-          <label><input type="checkbox" name="customSightReliant"> Sight-reliant</label>
-          <label><input type="checkbox" name="customSightOnly"> Sight-only</label>
-          <button type="button" class="ac-primary-action" data-action="sendCustom"><i class="fa-solid fa-paper-plane"></i> Send Custom Request</button>
-        </div>
+        <div class="ac-gm-toggle-row"><label><input type="checkbox" name="customSightReliant"> Sight-reliant</label><label><input type="checkbox" name="customSightOnly"> Sight-only</label><button type="button" class="ac-primary-action" data-action="sendCustom"><i class="fa-solid fa-paper-plane"></i> Send Custom Request</button></div>
       </section>
-
       <section class="ac-gm-presets">
-        <header class="ac-section-heading"><div><span class="ac-kicker">COLD STORAGE / CYBER-NOIR</span><h2>Preset Requests</h2></div><p>Fast calls for the situations most likely to recur in an investigative Altered Carbon game.</p></header>
+        <header class="ac-section-heading"><div><span class="ac-kicker">COLD STORAGE / CYBER-NOIR</span><h2>Preset Requests</h2></div><button type="button" data-action="focusBonusDice"><i class="fa-solid fa-dice"></i> Bonus Dice</button></header>
+        <p class="ac-preset-help">Edit a card and Send to use it once. Save keeps its settings in this world; Reset restores the supplied preset. Already-sent requests do not change.</p>
+        <p class="ac-preset-help"><strong>TR = base - difficulty + training/gear + modifier.</strong> Blank base uses each character's Attribute Bonus. Conditions still apply. A higher TR is easier. Bonus Dice are additional rolls, not a TR increase.</p>
         {{#each groups}}
-        <section class="ac-preset-group">
-          <h3>{{name}}</h3>
-          <div class="ac-preset-grid">
-            {{#each presets}}
-            <article class="ac-preset-card">
-              <div class="ac-preset-topline"><span>{{skill}}</span><b>D{{difficulty}}</b></div>
-              <h4>{{label}}</h4>
-              <p>{{prompt}}</p>
-              <small>{{gmNote}}</small>
-              <button type="button" data-action="sendPreset" data-preset-id="{{id}}"><i class="fa-solid fa-bolt"></i> Send Request</button>
-            </article>
-            {{/each}}
-          </div>
-        </section>
+        <section class="ac-preset-group"><h3>{{name}}</h3><div class="ac-preset-grid">
+          {{#each presets}}
+          <article class="ac-preset-card" data-preset="{{id}}">
+            <div class="ac-preset-topline"><span>{{skill}}</span><b>{{#if saved}}WORLD PRESET{{else}}DEFAULT{{/if}}</b></div>
+            <h4>{{label}}</h4><p>{{prompt}}</p><small>{{gmNote}}</small>
+            <div class="ac-preset-controls">
+              <label><span>Base TR override</span><input type="number" name="preset-{{id}}-BaseTR" value="{{baseTR}}" min="-100" max="100" step="1" placeholder="Character"></label>
+              <label><span>TR modifier (+/-)</span><input type="number" name="preset-{{id}}-Bonus" value="{{bonus}}" min="-100" max="100" step="1"></label>
+              <label><span>Difficulty penalty</span><input type="number" name="preset-{{id}}-Difficulty" value="{{difficulty}}" min="0" max="100" step="1"></label>
+              <label><span>Bonus Dice count</span><input type="number" name="preset-{{id}}-DiceCount" value="{{bonusDiceCount}}" min="0" max="10" step="1"></label>
+              <label><span>Bonus die size</span><select name="preset-{{id}}-Die">{{#each dieOptions}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select></label>
+            </div>
+            <div class="ac-preset-actions"><button type="button" class="ac-primary-action" data-action="sendPreset" data-preset-id="{{id}}"><i class="fa-solid fa-bolt"></i> Send Request</button><button type="button" data-action="savePreset" data-preset-id="{{id}}">Save</button><button type="button" data-action="resetPreset" data-preset-id="{{id}}">Reset</button></div>
+          </article>
+          {{/each}}
+        </div></section>
         {{/each}}
       </section>
     </main>

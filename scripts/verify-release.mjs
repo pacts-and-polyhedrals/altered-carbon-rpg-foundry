@@ -11,6 +11,7 @@ for (const required of ['altered-carbon-rpg.mjs', 'module/', 'data/', 'lang/', '
   if (!listing.some(x => x === required || x.startsWith(required))) throw new Error(`Release ZIP missing ${required}`);
 }
 for (const required of [
+  'module/gm-bonus-dice.mjs', 'module/gm-roll-options.mjs', 'module/system-health.mjs',
   'module/advancement.mjs', 'module/advancement-wizard.mjs', 'module/actor-directory.mjs',
   'module/adventure-book.mjs', 'templates/advancement-wizard.hbs', 'templates/adventure-book.hbs',
   'styles/adventure-book.css', 'data/cold-storage/journals.json', 'data/cold-storage/book-index.json',
@@ -22,3 +23,8 @@ for (const required of [
   if (!listing.includes(required)) throw new Error(`Release ZIP missing required integration/Core file: ${required}`);
 }
 console.log(`Release ZIP verified: ${zip}`);
+
+const packagedManifest = JSON.parse(execFileSync('unzip', ['-p', zip, 'system.json'], {encoding:'utf8'}));
+if (JSON.stringify(packagedManifest) !== JSON.stringify(manifest)) throw new Error('Release ZIP contains a stale or different system.json');
+for (const type of ['ammunition', 'drug']) if (!packagedManifest.documentTypes.Item[type]) throw new Error(`Release manifest omits ${type}`);
+console.log('Release ZIP manifest is identical to source and declares ammunition and drug.');

@@ -36,3 +36,25 @@ for (const dir of ['data', 'lang']) {
 console.log(`Validated ${manifest.title} v${manifest.version}`);
 console.log(`Manifest: ${manifest.manifest}`);
 console.log(`Download: ${manifest.download}`);
+
+const main = fs.readFileSync('altered-carbon-rpg.mjs', 'utf8');
+const models = fs.readFileSync('module/data-models.mjs', 'utf8');
+for (const documentName of ['Actor', 'Item']) {
+  const start = main.indexOf(`Object.assign(CONFIG.${documentName}.dataModels,{`);
+  if (start < 0) fail(`Missing ${documentName} data model registration`);
+  const registration = main.slice(start, main.indexOf('});', start));
+  const registered = new Map([...registration.matchAll(/([a-zA-Z][a-zA-Z0-9]*):Models\.([a-zA-Z0-9]+)/g)].map(m => [m[1], m[2]]));
+  for (const type of Object.keys(manifest.documentTypes?.[documentName] || {})) {
+    if (!registered.has(type)) fail(`Manifest ${documentName}.${type} has no registered data model`);
+    if (!models.includes(`export class ${registered.get(type)} `)) fail(`Missing model class for ${documentName}.${type}`);
+  }
+  for (const type of registered.keys()) if (!Object.hasOwn(manifest.documentTypes[documentName], type)) fail(`Data model ${documentName}.${type} is undeclared in system.json`);
+}
+for (const name of fs.readdirSync('data').filter(n => n.startsWith('core-') && n.endsWith('.json'))) {
+  const catalog = JSON.parse(fs.readFileSync(path.join('data', name), 'utf8'));
+  for (const [documentName, entries] of [['Item', catalog.items || []], ['Actor', catalog.actors || []]]) {
+    for (const entry of entries) if (!Object.hasOwn(manifest.documentTypes[documentName], entry.type)) fail(`${name}: undeclared ${documentName} type ${entry.type}`);
+  }
+}
+if (!fs.readFileSync('module/system-health.mjs', 'utf8').includes(`BUILD_VERSION = '${manifest.version}'`)) fail('System health build version does not match manifest');
+console.log('All catalog types, manifest declarations, model registrations and build versions agree.');

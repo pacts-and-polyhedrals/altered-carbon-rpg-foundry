@@ -1,3 +1,5 @@
+import {diagnoseSystem} from './module/system-health.mjs';
+import {grantBonusDice,getBonusDiceAwards,removeBonusDiceAward,clearBonusDiceAwards} from './module/gm-bonus-dice.mjs';
 import * as Models from './module/data-models.mjs';
 import {AlteredCarbonActor,AlteredCarbonItem} from './module/documents.mjs';
 import {ACActorSheet,ACItemSheet} from './module/sheets.mjs';
@@ -12,12 +14,12 @@ import {ACRulesBrowser} from './module/rules-browser.mjs';
 import * as Opposed from './module/opposed.mjs';
 import * as ChatActions from './module/chat-actions.mjs';
 import {installChatUIHooks} from './module/chat-ui.mjs';
-import {ACGMPanel,installGMToolsHooks,installGMSceneControlsHook} from './module/gm-tools.mjs';
+import {ACGMPanel,installGMToolsHooks,installGMSceneControlsHook,registerGMToolsSettings} from './module/gm-tools.mjs';
 import {ensureGMGuide} from './module/gm-guide.mjs';
 import {ACCoreLibrary,loadCoreCatalog,addCoreItemById,installCoreLibraryToWorld} from './module/core-content.mjs';
 
 Hooks.once('init',()=>{
-  console.log('Altered Carbon RPG | Initializing v1.4.0');
+  console.log('Altered Carbon RPG | Initializing v1.4.1');
   CONFIG.Actor.documentClass=AlteredCarbonActor;CONFIG.Item.documentClass=AlteredCarbonItem;
   Object.assign(CONFIG.Actor.dataModels,{character:Models.CharacterModel,npc:Models.NPCModel,threat:Models.ThreatModel,ai:Models.AIModel,vehicle:Models.VehicleModel});
   Object.assign(CONFIG.Item.dataModels,{sleeve:Models.SleeveModel,archivedSleeve:Models.ArchivedSleeveModel,skill:Models.SkillModel,trait:Models.TraitModel,specialisation:Models.SpecialisationModel,weapon:Models.WeaponModel,armour:Models.ArmourModel,equipment:Models.EquipmentModel,augmentation:Models.AugmentationModel,ammunition:Models.AmmunitionModel,drug:Models.DrugModel,baggage:Models.BaggageModel,condition:Models.ConditionModel,injury:Models.InjuryModel,scandal:Models.ScandalModel,network:Models.NetworkModel,resourceEntry:Models.ResourceEntryModel,relationship:Models.RelationshipModel,clue:Models.ClueModel,memory:Models.MemoryModel,creditSet:Models.CreditSetModel,software:Models.SoftwareModel,virtualConstruct:Models.VirtualConstructModel});
@@ -29,12 +31,13 @@ Hooks.once('init',()=>{
   game.settings.registerMenu(game.system.id,'rulesBrowser',{name:'AC 2020 Rules Reference',label:'Open Rules Reference',hint:'Browse structured mechanics, Skills, Traits, Baggage, conditions, gear rules, Requests, Virtual and vehicles from the supplied 2020 Core Rulebook.',icon:'fa-solid fa-book',type:ACRulesBrowser,restricted:false});
   game.settings.registerMenu(game.system.id,'coreLibrary',{name:'AC Core Equipment Library',label:'Open Core Equipment',hint:'Browse the structured 2020 Core equipment library: weapons, ammunition, apparel, devices, decks, software, drugs and sleeve augmentations.',icon:'fa-solid fa-boxes-stacked',type:ACCoreLibrary,restricted:false});
   game.settings.registerMenu(game.system.id,'gmControl',{name:'Altered Carbon GM Control',label:'Open GM Control',hint:'GM-only roll requests, Cold Storage presets, and the system GM Guide.',icon:'fa-solid fa-satellite-dish',type:ACGMPanel,restricted:true});
-  game.alteredCarbon={Rules,Combat,Opposed,ChatActions,Book:bookAPI(),openAdvancement,CoreContent:{loadCoreCatalog,addCoreItemById,installCoreLibraryToWorld},version:'1.4.0',openCombatConsole:()=>new ACCombatConsole().render({force:true}),openCharacterCreator:()=>new ACCharacterCreator().render({force:true}),openRules:actor=>new ACRulesBrowser({actorId:actor?.id}).render({force:true}),openCoreLibrary:actor=>new ACCoreLibrary({actorId:actor?.id}).render({force:true}),openAdventureBook:()=>bookAPI().openBook(),importAdventureBook:options=>bookAPI().importBook(options),openGMControl:()=>new ACGMPanel().render({force:true}),openGMGuide:()=>ensureGMGuide({open:true})};
+  game.alteredCarbon={diagnoseSystem,BonusDice:{grant:grantBonusDice,get:getBonusDiceAwards,remove:removeBonusDiceAward,clear:clearBonusDiceAwards},Rules,Combat,Opposed,ChatActions,Book:bookAPI(),openAdvancement,CoreContent:{loadCoreCatalog,addCoreItemById,installCoreLibraryToWorld},version:'1.4.1',openCombatConsole:()=>new ACCombatConsole().render({force:true}),openCharacterCreator:()=>new ACCharacterCreator().render({force:true}),openRules:actor=>new ACRulesBrowser({actorId:actor?.id}).render({force:true}),openCoreLibrary:actor=>new ACCoreLibrary({actorId:actor?.id}).render({force:true}),openAdventureBook:()=>bookAPI().openBook(),importAdventureBook:options=>bookAPI().importBook(options),openGMControl:()=>new ACGMPanel().render({force:true}),openGMGuide:()=>ensureGMGuide({open:true})};
   registerBook();
+  registerGMToolsSettings();
   installCharacterDirectoryHooks();
   Opposed.installOpposedHooks();
   ChatActions.installChatActionHooks();
   installChatUIHooks();
   installGMSceneControlsHook();
 });
-Hooks.once('ready',async()=>{Combat.installSocket();installGMToolsHooks();if(game.user.isGM){try{await ensureGMGuide();}catch(error){console.error('Altered Carbon RPG | Unable to create GM Guide',error);}}console.log('Altered Carbon RPG | Ready');});
+Hooks.once('ready',async()=>{Combat.installSocket();installGMToolsHooks();if(game.user.isGM){await diagnoseSystem({notify:true});try{await ensureGMGuide();}catch(error){console.error('Altered Carbon RPG | Unable to create GM Guide',error);}}console.log('Altered Carbon RPG | Ready');});

@@ -1,60 +1,41 @@
-# GM Operations — v1.3.0
+# GM Operations - v1.4.1
 
-## Altered Carbon — GM Guide
+## Open GM Control
 
-When a GM opens a world using this system, the system creates or refreshes **Altered Carbon — GM Guide**. Version 1.3.0 contains 22 generated pages:
+Use Token Controls -> Altered Carbon - GM Control with a Scene open, the system settings menu, or `game.alteredCarbon.openGMControl()`. Select the Character/AI Actors in the recipient rail; this is an Actor selection, not a global award to every character owned by a User.
 
-1. Start Here
-2. Character Anatomy
-3. Skills & Target Results
-4. Luck, Bonus Dice & Outcomes
-5. Difficulty & Situational Rolls
-6. Combat: Intent, Check, Resolution
-7. Combat: Movement, Range & Defense
-8. Damage, Dying & Healing
-9. Conditions & Injuries
-10. Gear, Depletion & Weapons
-11. Wealth, Credits & Resource Catalogs
-12. Contacts, Networks & Requests
-13. Sleeves, Resleeving & Continuity
-14. Ego, Backups & Psychosurgery
-15. Virtual, Viruses & AI
-16. Character Variants
-17. Vehicles, Minions & Nemeses
-18. Advancement & Campaign Rewards
-19. Cold Storage Roll Presets
-20. GM Quick Checklist
-21. GM Control & Chat Requests
-22. Core Equipment Library
+## Assign Bonus Dice
 
-The guide self-refreshes on GM login whenever its generated-guide version or generated-page count is stale. Only system-generated pages are replaced on modern guides, so unflagged campaign-note pages appended by the GM remain intact.
+Press Bonus Dice in the header or preset section. Set count (1-10), Skill-sized or fixed d4/d6/d8/d10/d12/d20, duration, Skill scope and reason, then Assign Bonus Dice. Each selected Actor receives an independent keyed flag award. The player owners are notified by a whispered card; inability to post that notification does not trigger a duplicate grant.
 
-## Core Equipment Library
+Next matching check awards are automatically included and consumed only after the matching check resolves, success or failure. A cancelled, blocked or dice-engine-failed check retains them. Until removed awards remain active. The sheet banner and check dialog display automatic awards; do not also type them into manual extra dice. Actor awards combine with request-specific and other applicable extra dice under the existing roll-under best/lowest rules.
 
-Open the Library from a character sheet with **Core Gear**, from the Rules Reference, or from the system menu. It ships 95 source-backed Item records, 3 Vehicle Actor templates and 12 generic weapon upgrades.
+The rail lists each award and its Remove control. Clear Selected Bonuses asks for confirmation and affects only selected Actors. Refresh Awards fetches the current Actor flags. Selected recipients, form inputs and scroll survive panel rerendering. Opening and using the panel requires GM permission; players cannot invoke its grant/remove API as an authorized GM operation.
 
-Adding a normal Core Item twice to the same Actor is prevented by its stable catalog ID. Ammunition and drugs are quantity-bearing; adding the same one again increments quantity. **Install Missing Records to World** creates missing Items and Vehicle Actors without overwriting existing records with the same Core catalog IDs.
+Use one rolling client per Actor at a time. This implementation prevents overlapping rolls within a client; it does not implement a server-side transaction across simultaneous clients controlling the same Actor.
 
-Weapons expose **Load Ammo** and use the selected special-ammunition profile in their attack/damage workflow. Drug records expose **Administer**, consume doses and post the current effects to chat. Explicit augmentation bonuses participate in derived character data; context-dependent effects remain visible for GM adjudication.
+## Editable presets and custom requests
 
-## Altered Carbon — GM Control
+All 24 presets have Base TR override, TR modifier, Difficulty penalty, Bonus Dice count and die size. Blank base uses each Actor's Attribute Bonus; zero is a valid override. Base is not final TR: normal training/gear and conditions still apply. Positive modifiers make the roll-under check easier; Difficulty subtracts.
 
-With a Scene open, choose **Token Controls** and click the GM-only satellite-dish **Altered Carbon — GM Control** tool. The system menu remains available as a fallback. Advanced users can also call `game.alteredCarbon.openGMControl()`.
+Send uses the edited fields once. Save stores the card's numeric/dice override in this world's settings. Reset restores supplied defaults. Saving/sending validates integer values. Requests retain a snapshot and are not changed by subsequent preset edits. Custom requests use the same fields and allow a player-facing prompt/context; those text fields are not secret GM notes.
 
-The left rail lists Character and AI Actors and their player owners. Select every character who should receive the same check.
+The request is whispered to GMs and the selected Actors' non-GM owners. Each selected Actor has a response row. Owners or GMs roll using the actual current Skill and rules state. Results include the effective TR, additional dice and ordinary outcome grades. Each character's response is recorded separately. Socket response processing validates the persisted check/author/Actor rather than trusting an arbitrary client result payload.
 
-### Preset requests
+## Core Library and System Check
 
-The bundled presets target **Cold Storage: The Faces We Left Behind** and similar cyber-noir play. Each preset defines a player-facing title, core Skill, default Difficulty, player prompt and GM usage guidance. A custom request can instead choose any core Skill, Difficulty, extra TR modifier, player-facing prompt/context, and Dazzled sight flags.
+The Library still supplies 95 Item records, 3 Vehicle templates and 12 generic weapon upgrades. Install Missing Records to World preserves matched catalog IDs; adding a quantity-bearing ammunition/drug record to an Actor increases its quantity. Explicit augmentation mechanics remain as before.
 
-### Chat response flow
+System Check inspects the loaded build/manifest and registered Core Item types, and attempts to read the installed system.json without caching. Missing ammunition/drug declarations or stale loaded versions stop Core creation before repeated batch errors. The complete system folder must be deployed and the game/server restarted; a browser-only registry patch is not used. See ITEM-TYPE-TROUBLESHOOTING.md.
 
-A sent request is whispered to every GM and the selected Actors' non-GM owners. Each selected Actor receives a separate row. An eligible owner presses **Roll <Skill>**; the system uses that Actor's actual Skill and current rules state, posts the grade card, then updates the request card with the returned result. Ownership checks prevent a player from answering for another Actor or answering the same request twice.
+## Journals
 
-### Result grades
+The integrated Cold Storage book remains available from GM Control. There is no new book reimport requirement for 1.4.1. When needed, use Book Only to update existing journals; Full Import belongs to a fresh optional-module setup.
 
-Success +1 through +5 and Failure -1 through -5 use escalating visual grades. Ace, Stroke of Luck and Catastrophe have dedicated treatments. The literal outcome label is always present, so color is supplemental.
+The generated Altered Carbon - GM Guide now has 23 pages (numbered 00-22). The final page explains Bonus Dice, editable presets and system health. Generated guide pages refresh with the new version, while extra unflagged notes remain. Back up edits to generated text before updates.
 
-## Permissions and live QA
+## Developer entry points
 
-GM Control and world-library installation are GM-only. Actor owners can add/use Core records on Actors they own through Actor-context workflows. A real Foundry v14 world remains necessary to verify rendering, permissions, sockets and Forge-hosted behavior; follow `docs/RUNTIME-TEST.md` before treating a release as runtime-certified.
+`game.alteredCarbon.diagnoseSystem()` returns a health report. `game.alteredCarbon.BonusDice` exposes grant, get, remove and clear. Award mutators require a GM. These helpers operate on real Actor documents and are not a workaround for server permissions or manifest registration. See module/gm-bonus-dice.mjs for parameter contracts.
+
+Read live-qa.md for pending real-server validation.

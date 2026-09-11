@@ -4,7 +4,19 @@ Use a backed-up disposable Foundry 14 world and the exact host/browser you use f
 
 ## Installation and core controls
 
-Confirm the system reports 1.4.0 and there are no console startup errors. Reopen an existing world and a fresh world. Verify the existing GM Control, Rules and Core Gear controls still work. Open the Actors sidebar and its popout: there must be one Character Creator button, not duplicates after rerendering. An unprivileged player without ACTOR_CREATE should not see it. Existing sheets must show Level Up, not Character Creator.
+Confirm the system reports 1.4.1 and there are no console startup errors. Reopen an existing world and a fresh world. Verify the existing GM Control, Rules and Core Gear controls still work. Open the Actors sidebar and its popout: there must be one Character Creator button, not duplicates after rerendering. An unprivileged player without ACTOR_CREATE should not see it. Existing sheets must show Level Up, not Character Creator.
+
+## Registration and Core Library recovery
+
+Deploy the complete package and restart the host process. Check loaded/running/disk versions in GM Control -> System Check; both ammunition and drug must be registered. In a disposable copy, create one of each, open them and test Load Ammo/Administer with expected quantity changes. Run Install Missing Records twice from a single GM client: expect 95 catalog-ID Items and 3 Vehicle templates without duplicate catalog IDs (plus any unrelated world records). Inspect failed prior records separately; do not delete player inventory. Verify a stale manifest produces an actionable warning rather than repeated attempted creates.
+
+## Bonus Dice and editable preset requests
+
+Use a GM and at least two player clients with different owned PCs. Select two Actors, assign one next-check Skill-size die, then a persistent fixed d6 restricted to a named Skill. Confirm owner visibility, actual dice and TR readout, independent consumption and retained nonmatching awards. Cancel a dialog and a permission-blocked check; neither should spend an award. Reload clients/world and verify persistent awards remain. Remove one and clear only selected characters. Try a sheet check, weapon check, opposed check and a GM request.
+
+On a preset, change base TR (including zero), modifier, Difficulty and dice. Send and compare actual resolved TR to the formula using each PC's attributes/training/conditions. Save, reopen and verify persistence; Reset and verify defaults. Change the preset after sending and ensure the old card retains its snapshot. Have two DIFFERENT Actors respond close together and verify neither response overwrites the other. A player should not answer for an unowned Actor. Use one rolling owner per Actor at a time; this release does not offer a cross-client atomic same-Actor lock.
+
+Resize the GM window; verify preset and custom input visibility, keyboard focus, scrolling, active awards and saved selection. Check popup/sidebar and player sheet updates in native Foundry, not only the standalone mock browser.
 
 ## Rolls and creation
 

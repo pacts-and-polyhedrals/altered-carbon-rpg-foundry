@@ -470,3 +470,51 @@
 .altered-carbon .ac-plan-error{color:var(--ac-red);border:1px solid var(--ac-red);padding:10px}
 .altered-carbon .ac-advancement [hidden],.altered-carbon .ac-character-creator [hidden]{display:none!important}
 @media(max-width:760px){.altered-carbon .ac-advance-row{flex-wrap:wrap;gap:8px}.altered-carbon .ac-advance-row>div{flex-basis:65%}.altered-carbon .ac-advance-footer{flex-direction:column;align-items:stretch}.altered-carbon .ac-advance-balance{min-width:85px}.altered-carbon .ac-advance-tabs{padding:8px}}
+
+/* v1.4.1: direct GM dice assignments, editable presets and installation health. */
+.ac-gm-hero-actions{flex-wrap:wrap;max-width:520px}
+.ac-gm-bonus{margin-bottom:14px;border-color:var(--ac-cyan)}
+.ac-bonus-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
+.ac-bonus-grid label,.ac-preset-controls label{display:grid;gap:5px;min-width:0}
+.ac-bonus-grid label>span,.ac-preset-controls label>span{font-size:.69rem;line-height:1.3;color:var(--ac-muted)}
+.ac-bonus-grid input,.ac-bonus-grid select,.ac-preset-controls input,.ac-preset-controls select{min-width:0;width:100%;min-height:32px;font-size:.76rem}
+.ac-bonus-grid .ac-primary-action{align-self:end;min-height:35px}
+.ac-gm-recipient-block{border-bottom:1px solid var(--ac-line);padding-bottom:6px;margin-bottom:6px}
+.ac-award-row{display:flex;gap:6px;align-items:start;margin:5px 4px 3px;padding:7px;border:1px solid var(--ac-line);border-radius:6px}
+.ac-award-row>span{flex:1;min-width:0;overflow-wrap:anywhere}
+.ac-award-row strong{display:block;color:var(--ac-cyan);font-size:.68rem}
+.ac-award-row small{display:block;color:var(--ac-muted);font-size:.64rem;line-height:1.4;margin-top:4px}
+.ac-award-row button{flex:0 0 auto;font-size:.61rem;padding:3px 6px;min-height:27px}
+.ac-award-rail-actions{display:grid;gap:5px;margin-top:8px}
+.ac-preset-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:9px 0 12px}
+.ac-preset-controls label:last-child{grid-column:1/-1}
+.ac-preset-actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.ac-preset-actions button{margin:0;flex:0 0 auto;padding:6px 9px;font-size:.68rem}
+.ac-preset-actions .ac-primary-action{flex:1 1 auto}
+.ac-preset-help{font-size:.74rem;line-height:1.5;color:var(--ac-muted);margin:8px 0}
+.ac-preset-card h4{font-size:.88rem}.ac-preset-card p{font-size:.74rem}.ac-preset-card small{font-size:.67rem}
+.ac-install-warning{border:1px solid #f7b95c;background:#33291d;color:#fff1d9;border-radius:7px;padding:10px;margin:0 10px 10px;font-size:.75rem;line-height:1.45}
+.ac-install-warning p{margin:4px 0;overflow-wrap:anywhere}
+.ac-assigned-bonuses{margin:7px 12px;padding:9px 11px;border:1px solid var(--ac-cyan);border-radius:7px;background:var(--ac-panel);font-size:.74rem}
+.ac-assigned-bonuses summary{cursor:pointer;color:var(--ac-cyan);font-weight:700}
+.ac-assigned-bonuses p{margin:5px 0;color:var(--ac-text-soft);line-height:1.4}
+.ac-bonus-readout{font-size:.76rem;line-height:1.4;margin:8px 0;color:var(--ac-text-soft)}
+.ac-gm-console{height:100%;min-height:0;overflow:hidden;display:flex;flex-direction:column}
+.ac-gm-layout{flex:1;min-height:0}
+@media(max-width:700px){.ac-gm-hero-actions{max-width:none}.ac-bonus-grid{grid-template-columns:1fr}.ac-gm-recipient-rail{max-height:320px}.ac-preset-controls{grid-template-columns:1fr}.ac-preset-controls label:last-child{grid-column:auto}}
+/* Adapt to the Foundry window's content width, not just the browser viewport. */
+.ac-gm-main{container-type:inline-size;container-name:ac-gm-content}
+.ac-gm-custom-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.ac-gm-custom-grid label{min-width:0}
+.ac-gm-custom-grid input,.ac-gm-custom-grid select,.ac-gm-custom-grid textarea{min-width:0;width:100%;max-width:100%;box-sizing:border-box}
+@container ac-gm-content (max-width:650px){
+  .ac-gm-custom-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ac-gm-custom-grid label.wide{grid-column:span 2}
+  .ac-preset-grid{grid-template-columns:minmax(0,1fr)}
+  .ac-gm-toggle-row{flex-wrap:wrap}
+  .ac-gm-toggle-row .ac-primary-action{width:100%;margin-left:0}
+}
+@container ac-gm-content (max-width:340px){
+  .ac-gm-custom-grid,.ac-bonus-grid,.ac-preset-controls{grid-template-columns:minmax(0,1fr)}
+  .ac-gm-custom-grid label.wide{grid-column:auto}
+}

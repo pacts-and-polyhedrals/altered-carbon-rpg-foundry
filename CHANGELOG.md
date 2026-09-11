@@ -1,3 +1,15 @@
+# v1.4.1 - Bonus Dice, editable preset TR and registry diagnostics
+
+- Added GM multi-character Bonus Dice awards: independent Actor flags, Skill-sized or fixed dice, next matching check or until removed, Skill filters, label, removal and selected clearing.
+- Applied awards automatically across the shared Skill roll path; cancelled/blocked/failed dice execution does not spend one-use awards. Added sheet/dialog/chat display and same-client overlapping-roll protection.
+- Added editable base TR, TR modifier, Difficulty and Bonus Dice to all 24 presets and custom requests. Added world Save/Reset and immutable request snapshots.
+- Preserved selected recipients and input state during panel refresh, and improved narrow-window layout.
+- Hardened request response validation and same-client simultaneous response updates.
+- Retained real ammunition/drug Item types. Added startup/manual/pre-import registry/version diagnostics; complete manifest/data-model/catalog alignment checks; and single-flight bulk library import.
+- The original v1.4.0 ZIP already declared ammunition and drug. This package and restart instructions address potential stale/mixed deployment, without claiming inspection of the user's host or masking errors through type coercion.
+- Preserved all data files, adventure journals, advancement and existing character resources. Added GM Guide page 22 and troubleshooting documentation.
+- 155 Node tests and 35 mock-browser checks passed. Actual Foundry/Forge verification and release publication remain pending.
+
 # v1.4.0 - Integrated book and advancement
 
 - Integrated all 74 authored Cold Storage journals and 22 generated references, with GM folders, safe update/recovery and explicit handout disclosure.

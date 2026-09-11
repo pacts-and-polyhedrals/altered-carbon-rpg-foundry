@@ -1,3 +1,4 @@
+import {assertRegisteredDocumentTypes} from './system-health.mjs';
 const SYS='altered-carbon-rpg';
 const ITEM_FILES=[
   ['Weapons','core-weapons.json'],
@@ -40,6 +41,7 @@ export function catalogItemData(entry){
 export async function addCatalogItemToActor(actor,entry,{notify=true}={}){
   if(!actor)throw new Error('Choose an Actor first.');
   if(!game.user.isGM&&!actor.isOwner)throw new Error(`You do not have permission to add equipment to ${actor.name}.`);
+  assertRegisteredDocumentTypes({itemTypes:[entry?.type]});
   const data=catalogItemData(entry);
   const catalogId=String(data.system.catalogId||entry.id||'');
   const existing=actor.items.find(item=>catalogId&&itemCatalogId(item)===catalogId);
@@ -67,6 +69,7 @@ export async function addCoreItemById(actor,catalogId,options={}){
 
 export async function createWorldCoreItem(entry,{notify=true}={}){
   if(!game.user.isGM)throw new Error('Only the GM can create world Items.');
+  assertRegisteredDocumentTypes({itemTypes:[entry?.type]});
   const data=catalogItemData(entry),catalogId=String(data.system.catalogId||entry.id||'');
   const existing=game.items.find(item=>catalogId&&itemCatalogId(item)===catalogId);
   if(existing){if(notify)ui.notifications.info(`${entry.name} already exists in the world Items directory.`);return existing;}
@@ -78,6 +81,7 @@ export async function createWorldCoreItem(entry,{notify=true}={}){
 export async function createCoreVehicle(entry,{notify=true}={}){
   if(!game.user.isGM)throw new Error('Only the GM can create Vehicle Actors.');
   if(!entry?.name||entry.type!=='vehicle')throw new Error('Invalid Core Library vehicle record.');
+  assertRegisteredDocumentTypes({actorTypes:['vehicle']});
   const marker=String(entry.id||'');
   const existing=game.actors.find(actor=>actor.type==='vehicle'&&(actor.getFlag?.(SYS,'coreCatalogId')===marker||(!actor.getFlag?.(SYS,'coreCatalogId')&&actor.name===entry.name)));
   if(existing){if(notify)ui.notifications.info(`${entry.name} already exists in the Actors directory.`);return existing;}
@@ -87,9 +91,17 @@ export async function createCoreVehicle(entry,{notify=true}={}){
   return created;
 }
 
+let coreInstallInProgress=null;
 export async function installCoreLibraryToWorld(){
   if(!game.user.isGM)throw new Error('Only the GM can install the Core Library into a world.');
+  if(coreInstallInProgress)return coreInstallInProgress;
+  const task=performCoreLibraryImport();coreInstallInProgress=task;
+  try{return await task;}finally{if(coreInstallInProgress===task)coreInstallInProgress=null;}
+}
+async function performCoreLibraryImport(){
+  if(!game.user.isGM)throw new Error('Only the GM can install the Core Library into a world.');
   const catalog=await loadCoreCatalog();
+  assertRegisteredDocumentTypes({itemTypes:[...new Set(catalog.items.map(entry=>entry.type))],actorTypes:catalog.vehicles.length?['vehicle']:[]});
   const missing=catalog.items.filter(entry=>!game.items.some(item=>itemCatalogId(item)===(entry.system?.catalogId||entry.id)));
   const createdItems=[];
   for(const entry of missing)createdItems.push(await createWorldCoreItem(entry,{notify:false}));

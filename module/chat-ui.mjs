@@ -28,6 +28,7 @@ export function renderCheckCard({actorName='',skillName='',result={},contextLabe
       <span><small>RESULT</small><b>${Number(result.best??0)}</b></span>
       <span><small>DIE</small><b>d${Number(result.sides??0)}</b></span>
     </div>
+    ${result.bonusDice?.length?`<p class="ac-bonus-readout"><strong>Bonus Dice:</strong> ${result.bonusDice.map(d=>`d${Number(d.sides)} = ${Number(d.result)}`).join(" / ")}</p>`:''}
     <div class="ac-degree-track" aria-label="${esc(grade.label)}">${gradePips(result)}</div>
     ${cleanTags.length?`<p class="ac-chat-tags">${cleanTags.join('<span>•</span>')}</p>`:''}
   </section>`;

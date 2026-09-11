@@ -10,3 +10,12 @@ Consulted 11 September 2026. Primary Foundry documentation was used to check the
 The Actors-directory hook is constrained by the ActorDirectory class or its public `actors` tab name, not merely an Actor document type (which could also describe a sheet). HTML is accessed as native DOM with a legacy jQuery-root fallback. Normal Foundry document create/update APIs handle journal and embedded-item persistence.
 
 Rule costs and adventure prose come from the user-provided system 1.3.0 and Cold Storage 1.1.0 files. This update does not claim a new audit of the published tabletop rulebook.
+
+## v1.4.1 Item registration and public registry checks
+
+- https://foundryvtt.com/api/v14/modules/foundry.documents.html
+- https://foundryvtt.com/article/system-data-models/
+- https://foundryvtt.com/api/v14/classes/foundry.documents.Item.html
+- https://foundryvtt.com/api/v14/classes/foundry.Game.html
+
+Custom document subtype declarations in system.json inform the server; CONFIG dataModels registration defines client data behavior separately. The public Item.TYPES getter provides the valid subtype names. The diagnostic reads these rather than forcing a client-only registry change. The reported remote server mismatch has not been inspected directly.

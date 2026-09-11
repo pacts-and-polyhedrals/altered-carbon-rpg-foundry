@@ -7,10 +7,10 @@ const json=rel=>JSON.parse(read(rel));
 
 test('Foundry manifest and data models register ammunition and drug Item types',()=>{
   const manifest=json('system.json');
-  assert.equal(manifest.version,'1.4.0');
+  assert.equal(manifest.version,'1.4.1');
   assert.ok(manifest.documentTypes.Item.ammunition);
   assert.ok(manifest.documentTypes.Item.drug);
-  assert.match(manifest.download,/v1\.4\.0\/altered-carbon-rpg-v1\.4\.0\.zip$/);
+  assert.match(manifest.download,/v1\.4\.1\/altered-carbon-rpg-v1\.4\.1\.zip$/);
   const models=read('module/data-models.mjs');
   const main=read('altered-carbon-rpg.mjs');
   assert.match(models,/export class AmmunitionModel/);
@@ -85,7 +85,7 @@ test('Rules Browser and GM Guide expose the v1.3 Core Equipment Library',()=>{
   const guide=read('module/gm-guide.mjs');
   assert.match(browser,/Official Core Equipment Library/);
   assert.match(browser,/coreItemCount/);
-  assert.match(guide,/const GUIDE_VERSION='1\.4\.0'/);
+  assert.match(guide,/const GUIDE_VERSION='1\.4\.1'/);
   assert.match(guide,/21 — Core Equipment Library/);
   assert.match(guide,/95 structured Core Item records/);
   assert.match(guide,/Reinforced Dermis/);
