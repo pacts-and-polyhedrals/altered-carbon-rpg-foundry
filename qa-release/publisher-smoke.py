@@ -5,6 +5,7 @@ with tempfile.TemporaryDirectory(prefix='ac-release-smoke-') as td:
  r=Path(td)/'repo'; shutil.copytree(src,r)
  for args in [['git','init','-q'],['git','config','user.name','Offline Test'],['git','config','user.email','test@example.invalid'],['git','add','.'],['git','commit','-qm','Offline release test']]:
   subprocess.run(args,cwd=r,check=True,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+ version=json.loads((r/'system.json').read_text())['version']
  sha=subprocess.check_output(['git','rev-parse','HEAD'],cwd=r,text=True).strip()
  fakebin=Path(td)/'bin';fakebin.mkdir()
  gh=fakebin/'gh'
@@ -32,7 +33,8 @@ raise SystemExit('Unexpected fake GH invocation: '+repr(args))
  fetch.write_text('''import fs from 'node:fs';
 const manifest=JSON.parse(fs.readFileSync('dist/system.json','utf8'));
 globalThis.fetch=async url=>{
- if(url===manifest.manifest)return {ok:true,json:async()=>manifest};
+ const base=manifest.url;
+ if([manifest.manifest,`${base}/releases/latest/download/system.json`,`${base}/releases/download/v${manifest.version}/system.json`].includes(url))return {ok:true,json:async()=>process.env.SMOKE_STALE_ROOT&&url===manifest.manifest?({...manifest,version:'1.0.0'}):manifest};
  if(url===manifest.download)return {ok:true,headers:new Headers(),arrayBuffer:async()=>fs.readFileSync(`dist/altered-carbon-rpg-v${manifest.version}.zip`)};
  throw new Error('Unexpected network request blocked by offline smoke test: '+url);
 };
@@ -42,14 +44,17 @@ globalThis.fetch=async url=>{
  ('successful publication sequence',{},0,None),
  ('private repo blocked',{'visibility':'PRIVATE'},1,'cannot install private'),
  ('older version not promoted',{'history':[['v1.5.0',False,False]]},1,'Refusing to mark an older'),
- ('published version not overwritten',{'history':[['v1.4.2',False,False]]},1,'already published'),
+ ('published version not overwritten',{'history':[['v'+version,False,False]]},1,'already published'),
  ('failed upload never publishes',{'upload_fail':True},2,None),
- ('mismatched pushed tag blocked',{},1,'Tag and manifest do not match')
+ ('mismatched pushed tag blocked',{},1,'Tag and manifest do not match'),
+ ('stale original root blocked before publication',{},1,'Canonical main manifest serves v1.0.0')
  ]
  for name,cfg,expected,text in cases:
   state=Path(td)/'state.json';state.write_text(json.dumps(cfg))
   log=Path(td)/'gh.log';log.write_text('')
   env={**os.environ,'PATH':str(fakebin)+':'+os.environ['PATH'],'SMOKE_STATE':str(state),'SMOKE_LOG':str(log),'GITHUB_REPOSITORY':'pacts-and-polyhedrals/altered-carbon-rpg-foundry','GITHUB_SHA':sha,'NODE_OPTIONS':'--import='+str(fetch)}
+  env.pop('SMOKE_STALE_ROOT',None);
+  if name=='stale original root blocked before publication':env['SMOKE_STALE_ROOT']='1'
   env.pop('GITHUB_REF_TYPE',None);env.pop('GITHUB_REF_NAME',None);env.pop('GITHUB_STEP_SUMMARY',None)
   if name=='mismatched pushed tag blocked':env.update(GITHUB_REF_TYPE='tag',GITHUB_REF_NAME='v1.4.0')
   proc=subprocess.run(['bash','scripts/publish-release.sh'],cwd=r,env=env,capture_output=True,text=True)

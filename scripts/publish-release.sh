@@ -33,6 +33,9 @@ for (const line of fs.readFileSync('dist/release-history.tsv','utf8').split(/\r?
   if (release.tag_name===`v${process.env.VERSION}`) throw new Error('This version is already published. Do not overwrite it; verify it or bump the patch version.');
 }
 JS
+# The original update channel must ALREADY describe this build on main.
+# Never publish a new ZIP while leaving the user's established manifest stale.
+node scripts/verify-published.mjs --root-only
 if ! gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json isDraft >/dev/null 2>&1; then
   gh release create "$TAG" --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --draft --title "Altered Carbon RPG $TAG" --notes-file RELEASE-NOTES.md
 fi

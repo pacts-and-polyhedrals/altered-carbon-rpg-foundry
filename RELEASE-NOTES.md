@@ -1,10 +1,20 @@
-# v1.4.2 - Release and update-link repair
+# Altered Carbon RPG - Unofficial v1.4.3
 
-- Update manifest follows the published latest release's `system.json` asset.
-- Each manifest pins its ZIP to that exact version, not to an independently moving latest ZIP.
-- Build outputs both the install ZIP and standalone `system.json`, plus SHA-256 checksums.
-- New maintainer-triggered release workflow binds URLs to the actual GitHub repository, tests, uploads both assets to a draft, publishes it as Latest, then checks public downloads without authentication.
-- The publisher refuses to overwrite published versions or promote a numerically older version.
-- All v1.4.1 game features, adventure text and equipment catalogs are retained. This patch changes release wiring and displayed build numbers, not character or journal data.
+Distribution repair based on the actual saved v1.1.2 and v1.3.0 packages.
 
-A local build is not a published release. Foundry/Forge installation and live play are not tested by these build checks.
+- Restore the original raw `main/system.json` update manifest.
+- Keep the system ID and exact version-pinned release ZIP convention.
+- Restore the original numbered source/install ZIP presentation.
+- Include a release-manifest bridge for installations diverted by v1.4.2.
+- Stop CI from silently rewriting committed release metadata before validation.
+- Make the optional publisher manual-only; verify public main before publishing.
+- Make flat runtime ZIP builds reproducible for meaningful hash verification.
+- Check original main, bridge manifests and exact ZIP bytes independently.
+
+All game content, rules, CSS and UI behavior are retained. Runtime changes are
+manifest release fields and version labels only. Ammunition and Drug declarations
+remain present; no items are converted or deleted.
+
+Follow START-HERE.md. Do not recreate characters or run Cold Storage Full Import.
+The Forge HTTP 500's backend cause has not been established. Automated tests are
+not a live Forge certification, and this local delivery has not been published.

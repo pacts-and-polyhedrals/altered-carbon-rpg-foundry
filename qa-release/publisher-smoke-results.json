@@ -37,6 +37,11 @@
       "case": "mismatched pushed tag blocked",
       "passed": true,
       "release_writes": []
+    },
+    {
+      "case": "stale original root blocked before publication",
+      "passed": true,
+      "release_writes": []
     }
   ]
 }

@@ -1,70 +1,161 @@
-# START HERE - v1.4.2 release/update repair
+# START HERE - Altered Carbon v1.4.3
 
-## What was wrong with the earlier delivery
+Repository: **pacts-and-polyhedrals/altered-carbon-rpg-foundry**  
+Branch: **main**  
+Foundry system ID: **altered-carbon-rpg**  
+Version: **1.4.3**  
+Foundry minimum: **14**
 
-The supplied v1.4.1 system/source/ready-folder manifests all said 1.4.1. However, their update URL referred to `main/system.json` on GitHub and their download URL referred to a separate GitHub release asset. The local build neither published those URLs nor checked their live contents. The supplied CI workflow only tested and built files; it had no publication step.
+## What this repairs
 
-This proves a gap in the delivery process, not the exact contents of your live host. A stale root manifest, an absent or differently named release ZIP, a different installation URL, or an older GitHub Latest release could each matter. Remote access was not completed, so this package does not claim which one is present on your account.
+This restores the release structure in the saved v1.1.2 and v1.3.0 bundles:
+**the original raw main/system.json manifest, a versioned GitHub release ZIP,
+a full repository ZIP, and the original numbered bundle labels.**
 
-## Files in the repair bundle
+v1.4.2 changed the update channel to a Latest-release manifest. Its direct-import
+variant then removed update metadata. Neither change was necessary for the
+original manual-release workflow. v1.4.3 restores that workflow without removing
+any journals, game mechanics, sheets or GM features.
 
-- `01-GITHUB-REPOSITORY/` is the complete repository source. Put its CONTENTS at the existing repository root, not inside another parent folder.
-- `02-GITHUB-RELEASE-ASSETS/` contains the standalone `system.json`, `altered-carbon-rpg-v1.4.2.zip` and checksum file.
-- `03-MANUAL-INSTALL/systems/altered-carbon-rpg/` is the extracted runtime for hosts that support manual system installation.
-- `04-QA/` contains the test report and logs. The tests are not proof of public hosting or a live Foundry installation.
+This patch does not demonstrate the underlying cause of Forge's HTTP 500.
+It repairs the local distribution regressions found by comparing the actual
+archives. Public GitHub URLs and live Forge installation were not verified here.
 
-Do not upload the whole repair bundle as the Foundry system ZIP. Do not use GitHub's automatically generated source-code ZIP as the system download. Do not rename the versioned runtime asset without updating its manifest and rebuilding.
+## 1. Update the repository source - same route as before
 
-## Recommended GitHub publication
+Extract **00-GITHUB-REPOSITORY-altered-carbon-rpg-foundry-v1.4.3.zip**.
+Put its CONTENTS at the root of the existing repository on **main**.
 
-1. Update the repository with the CONTENTS of `01-GITHUB-REPOSITORY`. `system.json`, `package.json`, `altered-carbon-rpg.mjs`, `module/`, and `.github/` must be at its root. Retain `.github/workflows/release.yml` even if your file explorer hides dot-folders.
-2. In GitHub, open **Actions -> Publish Foundry Release -> Run workflow**, selecting the branch with the new source. The workflow binds URLs to the actual repository, validates/tests the build, uploads both assets to a draft, then publishes that release as Latest.
-3. Use the manifest URL printed in the successful run summary. It has the form `https://github.com/OWNER/REPO/releases/latest/download/system.json`. A successful publication check means that URL serves the expected JSON and the referenced ZIP matches the tested archive's SHA-256.
+The root must contain `system.json`, `altered-carbon-rpg.mjs`, `module/`, `data/`,
+`templates/`, `styles/`, `lang/` and the development files directly. Do not put
+another `altered-carbon-rpg-foundry/` folder around them. Do not upload the outer
+bundle ZIP as though it were the repository source or the Foundry package.
 
-The workflow needs repository Contents write permission from its GITHUB_TOKEN and permission to run GitHub Actions. No personal token belongs in source code. It refuses private repositories because unauthenticated Foundry downloads must work. A red workflow is not a verified published update. A partially failed upload stays in draft; a failure in verification after publication must be investigated before telling players to update.
+Update hidden files too, particularly `.github/workflows/ci.yml`,
+`.github/workflows/release.yml` and `.gitattributes`. They are inside the repository
+ZIP. The normal manual publishing route does NOT require GitHub Actions.
 
-A run refuses to overwrite an already published version or move an existing version tag to another commit. Use a new patch version for changes to a published build. For a release that is already correct, use `npm run verify:published` instead of trying to publish it again.
+The root `system.json` must say `"version": "1.4.3"`. It is not sufficient to upload
+new scripts while leaving the root manifest on an earlier build. The CI now
+validates committed files without silently rewriting their release configuration.
 
-## Manual GitHub publication instead
+## 2. Publish the matching release
 
-For the repository already configured in the supplied archives, update `main` with the source at the root, create a normal release with tag **v1.4.2**, and attach BOTH of these files from `02-GITHUB-RELEASE-ASSETS`:
+Use the original GitHub Releases workflow. Create a normal published release:
 
+- Tag: **v1.4.3**
+- Target: the **main commit containing the v1.4.3 source**
+- Title: **Altered Carbon RPG - Unofficial v1.4.3**
+- Assets: **altered-carbon-rpg-v1.4.3.zip** and **system.json** from this bundle
+- Set this release as **Latest**, not Draft or Pre-release, unless a genuinely newer
+  version has already been published. Do not overwrite an existing v1.4.3 release.
+
+The exact ZIP asset name matters. Do not attach the source ZIP, the complete
+bundle ZIP or the file with the `01-FOUNDRY-INSTALL-` prefix as the named release
+asset. The unprefixed `altered-carbon-rpg-v1.4.3.zip` is included ready to attach.
+The prefixed copy is byte-identical and exists only to retain the old bundle layout.
+
+The extra `system.json` release asset is a compatibility bridge for installations
+that were switched to the v1.4.2 Latest-release URL. Its contents point back to the
+ORIGINAL raw-main URL. It is not a new required update strategy. Publishing the
+ZIP alone still supports the original raw-main route, but does not repair that
+v1.4.2 bridge.
+
+No asset or release has been uploaded to your repository by this delivery.
+
+## 3. Keep using the ORIGINAL Foundry / Forge manifest
+
+```text
+https://raw.githubusercontent.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/main/system.json
 ```
-system.json
-altered-carbon-rpg-v1.4.2.zip
+
+That file should contain:
+
+```json
+{
+  "id": "altered-carbon-rpg",
+  "version": "1.4.3",
+  "manifest": "https://raw.githubusercontent.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/main/system.json",
+  "download": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v1.4.3/altered-carbon-rpg-v1.4.3.zip"
+}
 ```
 
-Attach `SHA256SUMS.txt` too, and explicitly set the release as **Latest**. Publish it, not Draft or Pre-release. Open the stable manifest link in a logged-out browser and check its version and download field, then open the ZIP URL. Local preparation is not a substitute for these checks.
+This excerpt is NOT the complete manifest. Upload the supplied full `system.json`,
+which includes every Actor/Item type, scripts, styles and other required metadata.
 
-The default configured URLs are:
+## 4. Verify the hosted files BEFORE asking Forge to install
 
+Open the original manifest URL in a logged-out/incognito browser. It must display
+v1.4.3 JSON with the exact v1.4.3 download URL. Open that download URL: it must
+return the named ZIP without requiring a login. Open its `system.json`: it must
+also say v1.4.3 and include `ammunition` and `drug` under `documentTypes.Item`.
+
+For a complete automated check, the repository includes:
+
+```sh
+npm run release:check
+npm run verify:published
 ```
-https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/latest/download/system.json
-https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v1.4.2/altered-carbon-rpg-v1.4.2.zip
-```
 
-These are configuration targets, NOT a statement that they are live. For a different repository, use the workflow above, or run `npm run prepare:release -- --repository OWNER/REPO` and rebuild BEFORE attaching the assets. Do not manually attach this default-repository manifest to a different repository unchanged.
+The first command is local and does not prove publication. The second makes real,
+unauthenticated requests to the original main manifest, the versioned release
+manifest, the Latest-release compatibility bridge, and the exact versioned ZIP.
+It checks the full manifest and ZIP hash. It must NOT be described as a successful
+public check until it actually succeeds after upload.
 
-## Existing installations using the old manifest URL
+`npm run verify:published -- --canonical-only` checks just the original main
+manifest and its ZIP when the temporary v1.4.2 bridge is not relevant.
 
-The old raw `main/system.json` URL is not inherently invalid. Existing installs will continue consulting whatever URL is saved locally until their package metadata is updated. Keeping the repository-root manifest current is therefore important during this migration. Publishing only a new release leaves an old `main/system.json` untouched.
+Builds use reproducible flat ZIPs, with fixed metadata and no compression, so
+identical runtime files produce the same archive across operating systems. The
+runtime is about 2 MB. No dependencies or world data have been added.
 
-Once that root manifest and its matching release are deployed, the old URL can deliver v1.4.2 and the new package switches future checks to the published-latest release manifest. Alternatively, use the new verified manifest URL via your host's supported system-install/update process. Do not delete worlds to change a system URL. A different old repository or branch cannot be repaired by editing an unrelated repository.
+## 5. Update Forge with the original manifest
 
-## Manual system installation
+Back up your world, stop the running game, then use **Install from Manifest** with
+the original raw-main URL above. For this custom package, turn OFF **Install from
+the Bazaar if the package is found**. This remains a manifest installation; it is
+not the direct-upload workaround from the previous reply.
 
-Back up the existing world, stop the game/server, and replace the existing `systems/altered-carbon-rpg/` with the provided runtime folder through the host's supported installation method. Restart the server and reload all clients. Open **GM Control -> System Check**: loaded and running versions should both read **1.4.2**.
+Do not uninstall/delete the world or change its system ID. Do not use the outer
+bundle ZIP, source ZIP or automatic GitHub source-code archive as the install ZIP.
+Restart the game server after the package update and reload connected clients.
 
-Manual replacement installs the local files but does NOT publish an online update. GitHub/Forge must still have a correctly hosted manifest and ZIP for subsequent automatic updates.
+GM Control -> System Check should show both loaded manifest and running code at
+**1.4.3**, with `ammunition` and `drug` registered. Then retry **Core Equipment
+Library -> Install Missing Records to World** if those records previously failed.
+Do not recreate characters or run Cold Storage Full Import for this update.
 
-No character recreation, resleeving, world reset, Cold Storage Full Import or equipment reimport is needed for this release-pointer patch. The adventure and equipment JSON are unchanged. The existing v1.4.1 feature instructions are retained in `docs/archive/START-HERE-v1.4.1.md`.
+Installations that still check the original raw-main URL stay on that route.
+Installations that check the v1.4.2 Latest-release URL can receive the attached
+bridge manifest and then return to raw-main. The no-update direct-import variant
+needs an explicit manifest install once because it contains no update URL.
 
-## How the URLs are meant to work
+## What remains unchanged
 
-The manifest uses a stable Latest-release asset URL. That manifest's download points to a fixed versioned ZIP, so it cannot describe one version while an independently moving Latest ZIP serves another. The publisher puts both files into a draft before changing Latest. The verifier then checks the public manifest contents and the complete ZIP hash, not just the version label.
+Integrated Cold Storage journals and folder importer; direct Skill Roll buttons;
+GM-assigned Bonus Dice; editable preset TR; eight-stage character creation;
+Actor-sidebar Character Creator; sheet Level Up; Core Equipment Library;
+Ammunition and Drug types; current game data; existing view/edit sheet presentation.
 
-References:
-- Foundry package update process: https://foundryvtt.com/article/package-management/
-- Foundry manifest/download fields: https://foundryvtt.com/article/system-development/
-- GitHub latest release asset links: https://docs.github.com/en/repositories/releasing-projects-on-github/linking-to-releases
-- GitHub release draft publication: https://cli.github.com/manual/gh_release_edit
+The runtime differences from v1.4.2 are the three release manifest fields and
+version labels in five files. All 31 game data files and the CSS are unchanged.
+
+## When a 500 persists
+
+A 500 from Forge's task-status endpoint is not a diagnosis of its underlying
+cause. If the public checker succeeds but Forge still fails, the hosted package
+chain has been verified; the Forge installation task still needs inspection.
+Keep the first task's Response body and full task ID for Forge support, excluding
+cookies, authorization headers and other credentials. Do not delete world data,
+repeatedly create new package versions, or change Item types to disguise this.
+
+## References
+
+The original saved instructions are in `docs/reference/`. Their existence does
+not certify that a particular older version ran successfully on the live host.
+
+- Foundry manifest fields and stable update URL: https://foundryvtt.com/article/system-development/
+- Foundry update process: https://foundryvtt.com/article/package-management/
+- Forge custom manifest installation: https://forums.forge-vtt.com/t/how-to-upload-a-modified-version-of-a-module-system/10510
+- GitHub release asset management: https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository

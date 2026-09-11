@@ -4,13 +4,15 @@ export function releaseConfig(repository, version) {
     throw new Error('Repository must be OWNER/REPO, without a URL, branch or trailing slash.');
   }
   if (!/^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$/.test(String(version))) {
-    throw new Error('Stable release version must be MAJOR.MINOR.PATCH, for example 1.4.2.');
+    throw new Error('Stable release version must be MAJOR.MINOR.PATCH, for example 1.4.3.');
   }
   const url = `https://github.com/${repository}`;
   const tag = `v${version}`;
   const asset = `altered-carbon-rpg-${tag}.zip`;
   return {repository, version, url, tag, asset,
-    manifest: `${url}/releases/latest/download/system.json`,
+    manifest: `https://raw.githubusercontent.com/${repository}/main/system.json`,
+    releaseManifest: `${url}/releases/download/${tag}/system.json`,
+    legacyManifest: `${url}/releases/latest/download/system.json`,
     download: `${url}/releases/download/${tag}/${asset}`};
 }
 

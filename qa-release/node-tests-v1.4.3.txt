@@ -1,0 +1,1256 @@
+
+> altered-carbon-rpg-foundry@1.4.3 release:check
+> npm test && npm run validate && npm run build && node scripts/verify-release.mjs
+
+
+> altered-carbon-rpg-foundry@1.4.3 test
+> node --test tests/**/*.test.mjs
+
+TAP version 13
+# Subtest: core data catalogs cover all source-backed mechanical records
+ok 1 - core data catalogs cover all source-backed mechanical records
+  ---
+  duration_ms: 6.626612
+  type: 'test'
+  ...
+# Subtest: all published Starting Package trait references resolve to the 240-trait catalog
+ok 2 - all published Starting Package trait references resolve to the 240-trait catalog
+  ---
+  duration_ms: 3.861845
+  type: 'test'
+  ...
+# Subtest: v1.3.0 Core Equipment Library contains the complete approved 2020 equipment set
+ok 3 - v1.3.0 Core Equipment Library contains the complete approved 2020 equipment set
+  ---
+  duration_ms: 1.63438
+  type: 'test'
+  ...
+# Subtest: Core vehicles and generic weapon upgrades are complete
+ok 4 - Core vehicles and generic weapon upgrades are complete
+  ---
+  duration_ms: 0.862614
+  type: 'test'
+  ...
+# Subtest: ammunition and drug records carry their operational fields
+ok 5 - ammunition and drug records carry their operational fields
+  ---
+  duration_ms: 0.585584
+  type: 'test'
+  ...
+# Subtest: source-backed augmentation attribute changes are encoded for derived-data automation
+ok 6 - source-backed augmentation attribute changes are encoded for derived-data automation
+  ---
+  duration_ms: 0.339794
+  type: 'test'
+  ...
+# Traceback (most recent call last):
+#   File "/mnt/data/ac-repair-audit/1.4.3/scripts/build-runtime.py", line 46, in <module>
+#     print(build(root, output))
+#           ~~~~~^^^^^^^^^^^^^^
+#   File "/mnt/data/ac-repair-audit/1.4.3/scripts/build-runtime.py", line 24, in build
+#     raise ValueError(f'Symlinks are not allowed in a release: {entry}')
+# ValueError: Symlinks are not allowed in a release: /tmp/ac-zip-91s3AN/module/link.json
+# Subtest: runtime ZIP stays flat and excludes repository, docs, tests, and nested bundles
+ok 7 - runtime ZIP stays flat and excludes repository, docs, tests, and nested bundles
+  ---
+  duration_ms: 701.251698
+  type: 'test'
+  ...
+# Subtest: ZIP bytes do not depend on source timestamps or filesystem mode
+ok 8 - ZIP bytes do not depend on source timestamps or filesystem mode
+  ---
+  duration_ms: 1225.894106
+  type: 'test'
+  ...
+# Subtest: changed runtime content changes the ZIP bytes
+ok 9 - changed runtime content changes the ZIP bytes
+  ---
+  duration_ms: 1210.738095
+  type: 'test'
+  ...
+# Subtest: runtime symlinks are rejected instead of copying unrelated files
+ok 10 - runtime symlinks are rejected instead of copying unrelated files
+  ---
+  duration_ms: 565.52156
+  type: 'test'
+  ...
+# Subtest: local HTTP chain verifies original manifest, both bridges, and real runtime ZIP
+ok 11 - local HTTP chain verifies original manifest, both bridges, and real runtime ZIP
+  ---
+  duration_ms: 806.377307
+  type: 'test'
+  ...
+# Subtest: local HTTP chain catches stale main despite current release assets
+ok 12 - local HTTP chain catches stale main despite current release assets
+  ---
+  duration_ms: 649.261651
+  type: 'test'
+  ...
+# Subtest: local HTTP chain catches missing download rather than reporting an installable release
+ok 13 - local HTTP chain catches missing download rather than reporting an installable release
+  ---
+  duration_ms: 669.596977
+  type: 'test'
+  ...
+# Subtest: local HTTP chain catches wrong bytes even when download returns HTTP 200
+ok 14 - local HTTP chain catches wrong bytes even when download returns HTTP 200
+  ---
+  duration_ms: 731.350374
+  type: 'test'
+  ...
+# Subtest: original raw-main manifest is stable and its archive is version-pinned
+ok 15 - original raw-main manifest is stable and its archive is version-pinned
+  ---
+  duration_ms: 1.093021
+  type: 'test'
+  ...
+# Subtest: arbitrary actual repository is accepted rather than a hardcoded organisation
+ok 16 - arbitrary actual repository is accepted rather than a hardcoded organisation
+  ---
+  duration_ms: 0.352453
+  type: 'test'
+  ...
+# Subtest: invalid repository input rejected: 
+ok 17 - invalid repository input rejected: 
+  ---
+  duration_ms: 0.213513
+  type: 'test'
+  ...
+# Subtest: invalid repository input rejected: https://github.com/a/b
+ok 18 - invalid repository input rejected: https://github.com/a/b
+  ---
+  duration_ms: 0.083777
+  type: 'test'
+  ...
+# Subtest: invalid repository input rejected: a/b/main
+ok 19 - invalid repository input rejected: a/b/main
+  ---
+  duration_ms: 0.070286
+  type: 'test'
+  ...
+# Subtest: invalid repository input rejected: a/b/
+ok 20 - invalid repository input rejected: a/b/
+  ---
+  duration_ms: 0.07287
+  type: 'test'
+  ...
+# Subtest: invalid repository input rejected: a/..
+ok 21 - invalid repository input rejected: a/..
+  ---
+  duration_ms: 0.088764
+  type: 'test'
+  ...
+# Subtest: invalid repository input rejected: a/b?ref=old
+ok 22 - invalid repository input rejected: a/b?ref=old
+  ---
+  duration_ms: 0.061473
+  type: 'test'
+  ...
+# Subtest: invalid stable version rejected: v1.4.2
+ok 23 - invalid stable version rejected: v1.4.2
+  ---
+  duration_ms: 0.248896
+  type: 'test'
+  ...
+# Subtest: invalid stable version rejected: 1.4
+ok 24 - invalid stable version rejected: 1.4
+  ---
+  duration_ms: 0.271971
+  type: 'test'
+  ...
+# Subtest: invalid stable version rejected: 1.4.2-beta
+ok 25 - invalid stable version rejected: 1.4.2-beta
+  ---
+  duration_ms: 0.123717
+  type: 'test'
+  ...
+# Subtest: invalid stable version rejected: 01.4.2
+ok 26 - invalid stable version rejected: 01.4.2
+  ---
+  duration_ms: 0.853069
+  type: 'test'
+  ...
+# Subtest: invalid stable version rejected: 1.4.2/evil
+ok 27 - invalid stable version rejected: 1.4.2/evil
+  ---
+  duration_ms: 0.070857
+  type: 'test'
+  ...
+# Subtest: validator prevents silently migrating away from the original raw-main path
+ok 28 - validator prevents silently migrating away from the original raw-main path
+  ---
+  duration_ms: 0.347375
+  type: 'test'
+  ...
+# Subtest: validator catches a ZIP that points to the previous version
+ok 29 - validator catches a ZIP that points to the previous version
+  ---
+  duration_ms: 0.199311
+  type: 'test'
+  ...
+# Subtest: validator catches a mismatched owner during CI
+ok 30 - validator catches a mismatched owner during CI
+  ---
+  duration_ms: 0.113662
+  type: 'test'
+  ...
+# Subtest: validator rejects a moving latest ZIP
+ok 31 - validator rejects a moving latest ZIP
+  ---
+  duration_ms: 0.098118
+  type: 'test'
+  ...
+# Subtest: numeric version comparison handles 1.10 greater than 1.9 and equality
+ok 32 - numeric version comparison handles 1.10 greater than 1.9 and equality
+  ---
+  duration_ms: 0.120792
+  type: 'test'
+  ...
+# Subtest: preparation binds actual repository and all runtime labels without touching game data
+ok 33 - preparation binds actual repository and all runtime labels without touching game data
+  ---
+  duration_ms: 35.483452
+  type: 'test'
+  ...
+# Subtest: release workflow is explicit, uploads a standalone manifest, and verifies after publication
+ok 34 - release workflow is explicit, uploads a standalone manifest, and verifies after publication
+  ---
+  duration_ms: 0.325732
+  type: 'test'
+  ...
+# Subtest: CI validates committed files without rewriting source URLs or versions
+ok 35 - CI validates committed files without rewriting source URLs or versions
+  ---
+  duration_ms: 0.096817
+  type: 'test'
+  ...
+# Subtest: missing update metadata is rejected rather than breaking automatic updates
+ok 36 - missing update metadata is rejected rather than breaking automatic updates
+  ---
+  duration_ms: 0.168034
+  type: 'test'
+  ...
+# Subtest: public verifier accepts matching manifest and exact ZIP bytes
+ok 37 - public verifier accepts matching manifest and exact ZIP bytes
+  ---
+  duration_ms: 18.878454
+  type: 'test'
+  ...
+# Subtest: public verifier rejects a stale canonical main manifest
+ok 38 - public verifier rejects a stale canonical main manifest
+  ---
+  duration_ms: 0.707389
+  type: 'test'
+  ...
+# Subtest: public verifier rejects a previous-version download link
+ok 39 - public verifier rejects a previous-version download link
+  ---
+  duration_ms: 0.235336
+  type: 'test'
+  ...
+# Subtest: public verifier rejects a changed document schema even with matching version
+ok 40 - public verifier rejects a changed document schema even with matching version
+  ---
+  duration_ms: 0.513255
+  type: 'test'
+  ...
+# Subtest: public verifier reports manifest HTTP 404
+ok 41 - public verifier reports manifest HTTP 404
+  ---
+  duration_ms: 0.255606
+  type: 'test'
+  ...
+# Subtest: public verifier reports manifest HTTP 403
+ok 42 - public verifier reports manifest HTTP 403
+  ---
+  duration_ms: 0.484592
+  type: 'test'
+  ...
+# Subtest: public verifier reports manifest HTTP 500
+ok 43 - public verifier reports manifest HTTP 500
+  ---
+  duration_ms: 0.260023
+  type: 'test'
+  ...
+# Subtest: public verifier rejects a missing release ZIP
+ok 44 - public verifier rejects a missing release ZIP
+  ---
+  duration_ms: 0.341786
+  type: 'test'
+  ...
+# Subtest: public verifier rejects HTML/wrong content masquerading as a successful ZIP download
+ok 45 - public verifier rejects HTML/wrong content masquerading as a successful ZIP download
+  ---
+  duration_ms: 0.5098
+  type: 'test'
+  ...
+# Subtest: public verifier reports unparseable manifest content
+ok 46 - public verifier reports unparseable manifest content
+  ---
+  duration_ms: 0.531593
+  type: 'test'
+  ...
+# Subtest: stale main is rejected even when both release-asset manifests are correct
+ok 47 - stale main is rejected even when both release-asset manifests are correct
+  ---
+  duration_ms: 0.302707
+  type: 'test'
+  ...
+# Subtest: full verification checks canonical, pinned bridge, latest bridge, then the exact ZIP
+ok 48 - full verification checks canonical, pinned bridge, latest bridge, then the exact ZIP
+  ---
+  duration_ms: 0.378271
+  type: 'test'
+  ...
+# Subtest: a missing compatibility bridge is reported distinctly from a bad canonical URL
+ok 49 - a missing compatibility bridge is reported distinctly from a bad canonical URL
+  ---
+  duration_ms: 0.298541
+  type: 'test'
+  ...
+# Subtest: a stale version-pinned manifest fails even with a matching canonical manifest
+ok 50 - a stale version-pinned manifest fails even with a matching canonical manifest
+  ---
+  duration_ms: 0.38414
+  type: 'test'
+  ...
+# Subtest: canonical-only verification remains usable for the original single-asset deployment
+ok 51 - canonical-only verification remains usable for the original single-asset deployment
+  ---
+  duration_ms: 0.416449
+  type: 'test'
+  ...
+# Subtest: advancement quotes chained skill levels at the existing SP costs
+ok 52 - advancement quotes chained skill levels at the existing SP costs
+  ---
+  duration_ms: 1.574298
+  type: 'test'
+  ...
+# Subtest: all requests are validated before any purchase is committed
+ok 53 - all requests are validated before any purchase is committed
+  ---
+  duration_ms: 0.426404
+  type: 'test'
+  ...
+# Subtest: maximum skills, unknown types and foreign skill IDs are rejected
+ok 54 - maximum skills, unknown types and foreign skill IDs are rejected
+  ---
+  duration_ms: 5.622936
+  type: 'test'
+  ...
+# Subtest: attribute spending rejects fractions, negatives, NaN and cap overflow
+ok 55 - attribute spending rejects fractions, negatives, NaN and cap overflow
+  ---
+  duration_ms: 0.574458
+  type: 'test'
+  ...
+# Subtest: Attribute caps follow sleeve types and explicit overrides
+ok 56 - Attribute caps follow sleeve types and explicit overrides
+  ---
+  duration_ms: 0.301085
+  type: 'test'
+  ...
+# Subtest: specialisation costs count existing explicit and inline entries without duplicates
+ok 57 - specialisation costs count existing explicit and inline entries without duplicates
+  ---
+  duration_ms: 1.378502
+  type: 'test'
+  ...
+# Subtest: Trait prerequisite checks reject skipping tiers and allow the installed common-tree progression
+ok 58 - Trait prerequisite checks reject skipping tiers and allow the installed common-tree progression
+  ---
+  duration_ms: 5.054777
+  type: 'test'
+  ...
+# Subtest: Civilian Commonality is explicit instead of invented
+ok 59 - Civilian Commonality is explicit instead of invented
+  ---
+  duration_ms: 0.404371
+  type: 'test'
+  ...
+# Subtest: known archetype and older Praxis Commonalities remain source-derived
+ok 60 - known archetype and older Praxis Commonalities remain source-derived
+  ---
+  duration_ms: 0.328777
+  type: 'test'
+  ...
+# Subtest: applying a skill advancement charges SP once and preserves resources, gear and relationships
+ok 61 - applying a skill advancement charges SP once and preserves resources, gear and relationships
+  ---
+  duration_ms: 7.991534
+  type: 'test'
+  ...
+# Subtest: physical advancement updates the current sleeve; mental advancement updates the persistent DHF
+ok 62 - physical advancement updates the current sleeve; mental advancement updates the persistent DHF
+  ---
+  duration_ms: 0.589972
+  type: 'test'
+  ...
+# Subtest: rolled gains stop at caps and record the actual change
+ok 63 - rolled gains stop at caps and record the actual change
+  ---
+  duration_ms: 0.382378
+  type: 'test'
+  ...
+# Subtest: specialisations and Traits are purchased, not silently added for free
+ok 64 - specialisations and Traits are purchased, not silently added for free
+  ---
+  duration_ms: 5.974587
+  type: 'test'
+  ...
+# Subtest: confirmed Civilian tree Commonality persists after purchase
+ok 65 - confirmed Civilian tree Commonality persists after purchase
+  ---
+  duration_ms: 0.429489
+  type: 'test'
+  ...
+# Subtest: failed final Actor write rolls back embedded skills and new items without charging SP
+ok 66 - failed final Actor write rolls back embedded skills and new items without charging SP
+  ---
+  duration_ms: 0.679707
+  type: 'test'
+  ...
+# Subtest: failed Item creation rolls back earlier embedded changes
+ok 67 - failed Item creation rolls back earlier embedded changes
+  ---
+  duration_ms: 0.573857
+  type: 'test'
+  ...
+# Subtest: stale confirmed quotes are rejected without modifying the actor
+ok 68 - stale confirmed quotes are rejected without modifying the actor
+  ---
+  duration_ms: 0.378983
+  type: 'test'
+  ...
+# Subtest: non-owners cannot advance someone else or spend their points
+ok 69 - non-owners cannot advance someone else or spend their points
+  ---
+  duration_ms: 0.186541
+  type: 'test'
+  ...
+# Subtest: same-client duplicate submissions are blocked while the first request runs
+ok 70 - same-client duplicate submissions are blocked while the first request runs
+  ---
+  duration_ms: 0.405383
+  type: 'test'
+  ...
+# Subtest: attribute bonuses use tens digit
+ok 71 - attribute bonuses use tens digit
+  ---
+  duration_ms: 0.910186
+  type: 'test'
+  ...
+# Subtest: skill levels map to roll-low dice and auto-pass bands
+ok 72 - skill levels map to roll-low dice and auto-pass bands
+  ---
+  duration_ms: 0.6551
+  type: 'test'
+  ...
+# Subtest: TR applies one Training and one Gear bonus, plus explicitly stackable modifiers
+ok 73 - TR applies one Training and one Gear bonus, plus explicitly stackable modifiers
+  ---
+  duration_ms: 0.355497
+  type: 'test'
+  ...
+# Subtest: degrees follow roll-low and cap at five
+ok 74 - degrees follow roll-low and cap at five
+  ---
+  duration_ms: 0.239171
+  type: 'test'
+  ...
+# Subtest: ace succeeds even under an impossible TR
+ok 75 - ace succeeds even under an impossible TR
+  ---
+  duration_ms: 0.312232
+  type: 'test'
+  ...
+# Subtest: luckMode is honored and catastrophe requires failed max skill and max luck
+ok 76 - luckMode is honored and catastrophe requires failed max skill and max luck
+  ---
+  duration_ms: 0.138069
+  type: 'test'
+  ...
+# Subtest: beginner luck is a bonus result but does not become an Ace
+ok 77 - beginner luck is a bonus result but does not become an Ace
+  ---
+  duration_ms: 0.15237
+  type: 'test'
+  ...
+# Subtest: Dumb Luck replaces result and costs the difference when legal
+ok 78 - Dumb Luck replaces result and costs the difference when legal
+  ---
+  duration_ms: 0.123346
+  type: 'test'
+  ...
+# Subtest: opposed resolution uses degrees then attribute
+ok 79 - opposed resolution uses degrees then attribute
+  ---
+  duration_ms: 1.090367
+  type: 'test'
+  ...
+# Subtest: degrees can cancel and opponent failure can be exploited as difference
+ok 80 - degrees can cancel and opponent failure can be exploited as difference
+  ---
+  duration_ms: 0.355917
+  type: 'test'
+  ...
+# Subtest: speed dice use Perception Bonus with the Core natural maximum of five
+ok 81 - speed dice use Perception Bonus with the Core natural maximum of five
+  ---
+  duration_ms: 0.158479
+  type: 'test'
+  ...
+# Subtest: active speed total and next active use lowest committed total
+ok 82 - active speed total and next active use lowest committed total
+  ---
+  duration_ms: 0.154283
+  type: 'test'
+  ...
+# Subtest: additional check-based actions incur cumulative Difficulty
+ok 83 - additional check-based actions incur cumulative Difficulty
+  ---
+  duration_ms: 0.111418
+  type: 'test'
+  ...
+# Subtest: depletion and Wealth depletion dice
+ok 84 - depletion and Wealth depletion dice
+  ---
+  duration_ms: 0.121674
+  type: 'test'
+  ...
+# Subtest: equipment Use adds DP before checking Capacity - DP and can auto-exhaust
+ok 85 - equipment Use adds DP before checking Capacity - DP and can auto-exhaust
+  ---
+  duration_ms: 0.167824
+  type: 'test'
+  ...
+# Subtest: protection never reduces positive Wounds below one
+ok 86 - protection never reduces positive Wounds below one
+  ---
+  duration_ms: 0.079149
+  type: 'test'
+  ...
+# Subtest: age resource bands use AB/WB/EB and baggage schedule
+ok 87 - age resource bands use AB/WB/EB and baggage schedule
+  ---
+  duration_ms: 0.178019
+  type: 'test'
+  ...
+# Subtest: attribute advancement is 1d4 per SP and skill/specialization costs match core
+ok 88 - attribute advancement is 1d4 per SP and skill/specialization costs match core
+  ---
+  duration_ms: 0.11243
+  type: 'test'
+  ...
+# Subtest: trait costs and prerequisite logic distinguish Common from Uncommon
+ok 89 - trait costs and prerequisite logic distinguish Common from Uncommon
+  ---
+  duration_ms: 0.243628
+  type: 'test'
+  ...
+# Subtest: Tier 5 requires three Traits from the same branch
+ok 90 - Tier 5 requires three Traits from the same branch
+  ---
+  duration_ms: 0.161404
+  type: 'test'
+  ...
+# Subtest: Baggage rerolls escalate by SP5 and lookup resolves ranges
+ok 91 - Baggage rerolls escalate by SP5 and lookup resolves ranges
+  ---
+  duration_ms: 0.1329
+  type: 'test'
+  ...
+# Subtest: Damage Threshold equals Strength and sleeve HP formula varies by sleeve
+ok 92 - Damage Threshold equals Strength and sleeve HP formula varies by sleeve
+  ---
+  duration_ms: 0.179882
+  type: 'test'
+  ...
+# Subtest: wounds above threshold convert to Health loss and cause Dying
+ok 93 - wounds above threshold convert to Health loss and cause Dying
+  ---
+  duration_ms: 0.12612
+  type: 'test'
+  ...
+# Subtest: dying, severe-organic, and instant death helpers
+ok 94 - dying, severe-organic, and instant death helpers
+  ---
+  duration_ms: 0.101814
+  type: 'test'
+  ...
+# Subtest: SP damage mitigation doubles each use and rest heals published amounts
+ok 95 - SP damage mitigation doubles each use and rest heals published amounts
+  ---
+  duration_ms: 0.151819
+  type: 'test'
+  ...
+# Subtest: sleeve attribute limits
+ok 96 - sleeve attribute limits
+  ---
+  duration_ms: 0.104618
+  type: 'test'
+  ...
+# Subtest: resleeving only applies cross-sleeve dissociation when compulsory, divergent and under 100
+ok 97 - resleeving only applies cross-sleeve dissociation when compulsory, divergent and under 100
+  ---
+  duration_ms: 0.214394
+  type: 'test'
+  ...
+# Subtest: wealth purchases map gaps to Deferral and Deferral itself lowers effective Wealth
+ok 98 - wealth purchases map gaps to Deferral and Deferral itself lowers effective Wealth
+  ---
+  duration_ms: 0.130858
+  type: 'test'
+  ...
+# Subtest: Credits cover Price Level and change can be broken into a lower Credit level
+ok 99 - Credits cover Price Level and change can be broken into a lower Credit level
+  ---
+  duration_ms: 0.123267
+  type: 'test'
+  ...
+# Subtest: gear upgrade and respec TR scale with installed Tech Points
+ok 100 - gear upgrade and respec TR scale with installed Tech Points
+  ---
+  duration_ms: 0.114193
+  type: 'test'
+  ...
+# Subtest: cargo encumbrance penalizes Strength and Speed per unit over SB
+ok 101 - cargo encumbrance penalizes Strength and Speed per unit over SB
+  ---
+  duration_ms: 0.088504
+  type: 'test'
+  ...
+# Subtest: firing modes encode burst and full-auto DP/Damage/success degrees
+ok 102 - firing modes encode burst and full-auto DP/Damage/success degrees
+  ---
+  duration_ms: 0.074513
+  type: 'test'
+  ...
+# Subtest: Request levels scale with Empathy Bonus, AI network die, and exhaustion threshold
+ok 103 - Request levels scale with Empathy Bonus, AI network die, and exhaustion threshold
+  ---
+  duration_ms: 0.214064
+  type: 'test'
+  ...
+# Subtest: Virtual substitutes Willpower/Acuity; Envoy reduces and AI removes projection Difficulty
+ok 104 - Virtual substitutes Willpower/Acuity; Envoy reduces and AI removes projection Difficulty
+  ---
+  duration_ms: 0.116286
+  type: 'test'
+  ...
+# Subtest: virus classes and cumulative viral strike dice respect human caps but not AI caps
+ok 105 - virus classes and cumulative viral strike dice respect human caps but not AI caps
+  ---
+  duration_ms: 0.101122
+  type: 'test'
+  ...
+# Subtest: vehicle Structure and fuel helpers
+ok 106 - vehicle Structure and fuel helpers
+  ---
+  duration_ms: 0.139191
+  type: 'test'
+  ...
+# Subtest: minions and backups
+ok 107 - minions and backups
+  ---
+  duration_ms: 0.105609
+  type: 'test'
+  ...
+# Subtest: ego damage floors at zero
+ok 108 - ego damage floors at zero
+  ---
+  duration_ms: 0.066951
+  type: 'test'
+  ...
+# Subtest: Ego modifiers and synthetic dissociation helpers match source procedures
+ok 109 - Ego modifiers and synthetic dissociation helpers match source procedures
+  ---
+  duration_ms: 0.244479
+  type: 'test'
+  ...
+# Subtest: a successful Bonus Die does not erase a natural Skill+Luck Catastrophe
+ok 110 - a successful Bonus Die does not erase a natural Skill+Luck Catastrophe
+  ---
+  duration_ms: 0.104979
+  type: 'test'
+  ...
+# Subtest: runtime: imports all 96 journals into six child folders, resolving every UUID
+ok 111 - runtime: imports all 96 journals into six child folders, resolving every UUID
+  ---
+  duration_ms: 15.645549
+  type: 'test'
+  ...
+# Subtest: runtime: unchanged repeated and concurrent imports do not duplicate journals
+ok 112 - runtime: unchanged repeated and concurrent imports do not duplicate journals
+  ---
+  duration_ms: 15.934005
+  type: 'test'
+  ...
+# Subtest: runtime: source IDs from older module are reused and edited content is recovered
+ok 113 - runtime: source IDs from older module are reused and edited content is recovered
+  ---
+  duration_ms: 8.473093
+  type: 'test'
+  ...
+# Subtest: runtime: extra user pages survive upgrades while GM-only grants are revoked
+ok 114 - runtime: extra user pages survive upgrades while GM-only grants are revoked
+  ---
+  duration_ms: 11.996605
+  type: 'test'
+  ...
+# Subtest: runtime: all spoilers begin hidden while designated public primers are visible
+ok 115 - runtime: all spoilers begin hidden while designated public primers are visible
+  ---
+  duration_ms: 6.581995
+  type: 'test'
+  ...
+# Subtest: runtime: private cards require named players and disclose no other journal
+ok 116 - runtime: private cards require named players and disclose no other journal
+  ---
+  duration_ms: 11.139451
+  type: 'test'
+  ...
+# Subtest: runtime: evidence can be revealed without exposing unrelated evidence
+ok 117 - runtime: evidence can be revealed without exposing unrelated evidence
+  ---
+  duration_ms: 5.695886
+  type: 'test'
+  ...
+# Subtest: runtime: book-only imports preserve Actors and existing custom scene links
+ok 118 - runtime: book-only imports preserve Actors and existing custom scene links
+  ---
+  duration_ms: 4.963719
+  type: 'test'
+  ...
+# Subtest: runtime: non-GMs cannot import, reveal or alter counters
+ok 119 - runtime: non-GMs cannot import, reveal or alter counters
+  ---
+  duration_ms: 0.453215
+  type: 'test'
+  ...
+# Subtest: runtime: counters persist through imports and respect bounds
+ok 120 - runtime: counters persist through imports and respect bounds
+  ---
+  duration_ms: 5.801636
+  type: 'test'
+  ...
+# Subtest: runtime: active optional-module counters use the shared settings instead of resetting
+ok 121 - runtime: active optional-module counters use the shared settings instead of resetting
+  ---
+  duration_ms: 5.926925
+  type: 'test'
+  ...
+# Subtest: Foundry manifest and data models register ammunition and drug Item types
+ok 122 - Foundry manifest and data models register ammunition and drug Item types
+  ---
+  duration_ms: 2.716804
+  type: 'test'
+  ...
+# Subtest: Core Equipment Library loads all catalog segments and supports safe actor/world installation
+ok 123 - Core Equipment Library loads all catalog segments and supports safe actor/world installation
+  ---
+  duration_ms: 0.311841
+  type: 'test'
+  ...
+# Subtest: actor loadout exposes Core Gear, special ammunition loading, and drug administration
+ok 124 - actor loadout exposes Core Gear, special ammunition loading, and drug administration
+  ---
+  duration_ms: 0.454086
+  type: 'test'
+  ...
+# Subtest: weapon chat flow resolves loaded ammunition and target-specific profiles
+ok 125 - weapon chat flow resolves loaded ammunition and target-specific profiles
+  ---
+  duration_ms: 0.216568
+  type: 'test'
+  ...
+# Subtest: drug use consumes doses and applies supported direct conditions
+ok 126 - drug use consumes doses and applies supported direct conditions
+  ---
+  duration_ms: 0.523721
+  type: 'test'
+  ...
+# Subtest: active Core augmentations affect derived attributes without overwriting stored base attributes
+ok 127 - active Core augmentations affect derived attributes without overwriting stored base attributes
+  ---
+  duration_ms: 0.238931
+  type: 'test'
+  ...
+# Subtest: Rules Browser and GM Guide expose the v1.3 Core Equipment Library
+ok 128 - Rules Browser and GM Guide expose the v1.3 Core Equipment Library
+  ---
+  duration_ms: 1.07274
+  type: 'test'
+  ...
+# Altered Carbon | System registration check {
+#   ok: true,
+#   buildVersion: '1.4.3',
+#   loadedVersion: '1.4.3',
+#   diskVersion: '1.4.3',
+#   missing: [],
+#   issues: [],
+#   summary: 'v1.4.3: Core Item types are registered.',
+#   remedy: 'Stop the Foundry game/server, replace the complete altered-carbon-rpg system folder including system.json with v1.4.3, restart the game/server, and reload every browser client. Updating only JavaScript or refreshing the browser cannot repair a stale server manifest. Then retry the Core Library import; existing catalog records are kept.'
+# }
+# Subtest: options: blank and zero base TR remain distinct, and negative modifiers are preserved
+ok 129 - options: blank and zero base TR remain distinct, and negative modifiers are preserved
+  ---
+  duration_ms: 2.987925
+  type: 'test'
+  ...
+# Subtest: options: invalid dice sizes, fractions, excessive counts and non-numeric TR are rejected
+ok 130 - options: invalid dice sizes, fractions, excessive counts and non-numeric TR are rejected
+  ---
+  duration_ms: 0.771335
+  type: 'test'
+  ...
+# Subtest: options: Skill-size bonus dice resolve independently for differently trained characters
+ok 131 - options: Skill-size bonus dice resolve independently for differently trained characters
+  ---
+  duration_ms: 0.719587
+  type: 'test'
+  ...
+# Subtest: awards: one assignment creates independent grants for several unique characters
+ok 132 - awards: one assignment creates independent grants for several unique characters
+  ---
+  duration_ms: 1.09181
+  type: 'test'
+  ...
+# Subtest: awards: player A rolling does not consume player B bonus
+ok 133 - awards: player A rolling does not consume player B bonus
+  ---
+  duration_ms: 3.425285
+  type: 'test'
+  ...
+# Subtest: awards: persistent grants survive checks until the GM removes them
+ok 134 - awards: persistent grants survive checks until the GM removes them
+  ---
+  duration_ms: 0.967421
+  type: 'test'
+  ...
+# Subtest: awards: a Skill-specific award waits for a matching check
+ok 135 - awards: a Skill-specific award waits for a matching check
+  ---
+  duration_ms: 0.803665
+  type: 'test'
+  ...
+# Subtest: rolls: requested dice combine with assigned dice without turning into a TR bonus
+ok 136 - rolls: requested dice combine with assigned dice without turning into a TR bonus
+  ---
+  duration_ms: 0.628279
+  type: 'test'
+  ...
+# Subtest: rolls: base TR, difficulty, negative modifier and training retain their rules
+ok 137 - rolls: base TR, difficulty, negative modifier and training retain their rules
+  ---
+  duration_ms: 0.780339
+  type: 'test'
+  ...
+# Subtest: rolls: one-use bonuses are spent even when the executed check fails
+ok 138 - rolls: one-use bonuses are spent even when the executed check fails
+  ---
+  duration_ms: 0.903665
+  type: 'test'
+  ...
+# Subtest: rolls: incapacitation does not consume an award or roll any dice
+ok 139 - rolls: incapacitation does not consume an award or roll any dice
+  ---
+  duration_ms: 0.494827
+  type: 'test'
+  ...
+# Subtest: rolls: sight-only Dazzled failure does not consume an award
+ok 140 - rolls: sight-only Dazzled failure does not consume an award
+  ---
+  duration_ms: 0.388097
+  type: 'test'
+  ...
+# Subtest: rolls: a dice evaluation error preserves the unspent award
+ok 141 - rolls: a dice evaluation error preserves the unspent award
+  ---
+  duration_ms: 0.739968
+  type: 'test'
+  ...
+# Subtest: rolls: concurrent same-client attempts cannot reuse a one-check award
+ok 142 - rolls: concurrent same-client attempts cannot reuse a one-check award
+  ---
+  duration_ms: 0.561017
+  type: 'test'
+  ...
+# Subtest: awards: spending an earlier grant preserves a newly granted independent flag
+ok 143 - awards: spending an earlier grant preserves a newly granted independent flag
+  ---
+  duration_ms: 0.610573
+  type: 'test'
+  ...
+# Subtest: permissions: players cannot assign, clear or remove GM awards
+ok 144 - permissions: players cannot assign, clear or remove GM awards
+  ---
+  duration_ms: 0.658295
+  type: 'test'
+  ...
+# Subtest: permissions: owners can use their awarded dice, non-owners cannot roll another character
+ok 145 - permissions: owners can use their awarded dice, non-owners cannot roll another character
+  ---
+  duration_ms: 0.439915
+  type: 'test'
+  ...
+# Subtest: awards: clearing selected characters leaves other awards and resources intact
+ok 146 - awards: clearing selected characters leaves other awards and resources intact
+  ---
+  duration_ms: 0.553427
+  type: 'test'
+  ...
+# Subtest: awards: assignment reports partial failure without hiding successful grants
+ok 147 - awards: assignment reports partial failure without hiding successful grants
+  ---
+  duration_ms: 0.319493
+  type: 'test'
+  ...
+# Subtest: chat: a used grant appears in the roll data and escaped readable dice output
+ok 148 - chat: a used grant appears in the roll data and escaped readable dice output
+  ---
+  duration_ms: 0.850455
+  type: 'test'
+  ...
+# Subtest: presets: overrides persist per world, resetting one preserves others
+ok 149 - presets: overrides persist per world, resetting one preserves others
+  ---
+  duration_ms: 1.676013
+  type: 'test'
+  ...
+# Subtest: presets: invalid saves and player saves never alter stored settings
+ok 150 - presets: invalid saves and player saves never alter stored settings
+  ---
+  duration_ms: 0.461377
+  type: 'test'
+  ...
+# Subtest: requests: use the preset label and carry editable TR and dice to the right recipients
+ok 151 - requests: use the preset label and carry editable TR and dice to the right recipients
+  ---
+  duration_ms: 0.753368
+  type: 'test'
+  ...
+# Subtest: requests: selected players perform the actual requested check with TR and Bonus Dice
+ok 152 - requests: selected players perform the actual requested check with TR and Bonus Dice
+  ---
+  duration_ms: 0.920631
+  type: 'test'
+  ...
+# Subtest: requests: simultaneous recipients keep both response records
+ok 153 - requests: simultaneous recipients keep both response records
+  ---
+  duration_ms: 0.779187
+  type: 'test'
+  ...
+# Subtest: requests: a completed character cannot answer the same request twice
+ok 154 - requests: a completed character cannot answer the same request twice
+  ---
+  duration_ms: 0.446895
+  type: 'test'
+  ...
+# Subtest: requests: non-GMs cannot send requests or respond for someone else
+ok 155 - requests: non-GMs cannot send requests or respond for someone else
+  ---
+  duration_ms: 0.419073
+  type: 'test'
+  ...
+# Subtest: requests: old cards without bonus dice or base TR remain usable
+ok 156 - requests: old cards without bonus dice or base TR remain usable
+  ---
+  duration_ms: 0.506165
+  type: 'test'
+  ...
+# Subtest: requests: socket receipts use the stored rolled check, not a forged result payload
+ok 157 - requests: socket receipts use the stored rolled check, not a forged result payload
+  ---
+  duration_ms: 0.704705
+  type: 'test'
+  ...
+# Subtest: panel: saved settings and independent awards are exposed in actual context
+ok 158 - panel: saved settings and independent awards are exposed in actual context
+  ---
+  duration_ms: 7.708897
+  type: 'test'
+  ...
+# Subtest: health: complete live registration is accepted without registry mutation
+ok 159 - health: complete live registration is accepted without registry mutation
+  ---
+  duration_ms: 0.312983
+  type: 'test'
+  ...
+# Subtest: health: stale server registrations are detected even when client data models exist
+ok 160 - health: stale server registrations are detected even when client data models exist
+  ---
+  duration_ms: 0.485363
+  type: 'test'
+  ...
+# Subtest: health: mismatched code and loaded manifest fail before catalog writes
+ok 161 - health: mismatched code and loaded manifest fail before catalog writes
+  ---
+  duration_ms: 2.565827
+  type: 'test'
+  ...
+# Subtest: health: batch import stops before any write if even one required Item type is missing
+ok 162 - health: batch import stops before any write if even one required Item type is missing
+  ---
+  duration_ms: 0.331651
+  type: 'test'
+  ...
+# Subtest: health: direct world and embedded ammunition imports fail once with actionable guidance
+ok 163 - health: direct world and embedded ammunition imports fail once with actionable guidance
+  ---
+  duration_ms: 0.480075
+  type: 'test'
+  ...
+# Subtest: health: fresh disk metadata and loaded registration can be diagnosed
+ok 164 - health: fresh disk metadata and loaded registration can be diagnosed
+  ---
+  duration_ms: 1.222847
+  type: 'test'
+  ...
+# Subtest: catalog: healthy import creates every Core Item with its declared type and is repeat-safe
+ok 165 - catalog: healthy import creates every Core Item with its declared type and is repeat-safe
+  ---
+  duration_ms: 3.735514
+  type: 'test'
+  ...
+# Subtest: catalog: both ammunition and drug keep their types, quantity and specific fields on Actor add
+ok 166 - catalog: both ammunition and drug keep their types, quantity and specific fields on Actor add
+  ---
+  duration_ms: 1.303229
+  type: 'test'
+  ...
+# Subtest: catalog: overlapping full imports are serialized without duplicate Items or vehicles
+ok 167 - catalog: overlapping full imports are serialized without duplicate Items or vehicles
+  ---
+  duration_ms: 2.164821
+  type: 'test'
+  ...
+# Subtest: rolls: declining an AI temporary license leaves a one-check award intact
+ok 168 - rolls: declining an AI temporary license leaves a one-check award intact
+  ---
+  duration_ms: 0.29804
+  type: 'test'
+  ...
+# Subtest: GM Control is registered and exposed through the system API
+ok 169 - GM Control is registered and exposed through the system API
+  ---
+  duration_ms: 0.945138
+  type: 'test'
+  ...
+# Subtest: Cold Storage GM presets all point at real core Skills
+ok 170 - Cold Storage GM presets all point at real core Skills
+  ---
+  duration_ms: 1.418704
+  type: 'test'
+  ...
+# Subtest: GM requests support multiple recipients and in-chat player responses
+ok 171 - GM requests support multiple recipients and in-chat player responses
+  ---
+  duration_ms: 0.411291
+  type: 'test'
+  ...
+# Subtest: GM Guide is a generated Journal with comprehensive rules pages
+ok 172 - GM Guide is a generated Journal with comprehensive rules pages
+  ---
+  duration_ms: 0.592766
+  type: 'test'
+  ...
+# Subtest: system chat cards use degree-coded futuristic grades
+ok 173 - system chat cards use degree-coded futuristic grades
+  ---
+  duration_ms: 0.379033
+  type: 'test'
+  ...
+# Subtest: Foundry v14 chat integrations use the HTML render hook exactly once per subsystem
+ok 174 - Foundry v14 chat integrations use the HTML render hook exactly once per subsystem
+  ---
+  duration_ms: 1.041363
+  type: 'test'
+  ...
+# Subtest: all chat messages inherit the Altered Carbon shell while graded system cards keep semantic classes
+ok 175 - all chat messages inherit the Altered Carbon shell while graded system cards keep semantic classes
+  ---
+  duration_ms: 0.325252
+  type: 'test'
+  ...
+# Subtest: GM Control is exposed as a GM-only Foundry v14 Token Controls tool
+ok 176 - GM Control is exposed as a GM-only Foundry v14 Token Controls tool
+  ---
+  duration_ms: 0.154453
+  type: 'test'
+  ...
+# Subtest: duplicate Traits are collapsed by catalog id before sheet presentation
+ok 177 - duplicate Traits are collapsed by catalog id before sheet presentation
+  ---
+  duration_ms: 1.671335
+  type: 'test'
+  ...
+# Subtest: duplicate Traits without catalog ids are collapsed by semantic identity
+ok 178 - duplicate Traits without catalog ids are collapsed by semantic identity
+  ---
+  duration_ms: 0.204299
+  type: 'test'
+  ...
+# Subtest: singular Skill, Specialisation, Condition, Scandal and Network records are deduplicated
+ok 179 - singular Skill, Specialisation, Condition, Scandal and Network records are deduplicated
+  ---
+  duration_ms: 0.269227
+  type: 'test'
+  ...
+# Subtest: repeatable collections are preserved even when their names match
+ok 180 - repeatable collections are preserved even when their names match
+  ---
+  duration_ms: 0.141284
+  type: 'test'
+  ...
+# Subtest: duplicate prevention helper catches equivalent unique records only
+ok 181 - duplicate prevention helper catches equivalent unique records only
+  ---
+  duration_ms: 0.160532
+  type: 'test'
+  ...
+# Subtest: full sheet presentation collapses literal duplicate Baggage and equipment records
+ok 182 - full sheet presentation collapses literal duplicate Baggage and equipment records
+  ---
+  duration_ms: 0.625305
+  type: 'test'
+  ...
+# Subtest: sheet presentation keeps doubled gear collapsed when only mutable state differs
+ok 183 - sheet presentation keeps doubled gear collapsed when only mutable state differs
+  ---
+  duration_ms: 0.333514
+  type: 'test'
+  ...
+# Subtest: same-name gear remains distinct when its actual equipment identity differs
+ok 184 - same-name gear remains distinct when its actual equipment identity differs
+  ---
+  duration_ms: 0.245732
+  type: 'test'
+  ...
+# Subtest: full sheet presentation removes exact cloned records on every page without deleting legitimate variants
+ok 185 - full sheet presentation removes exact cloned records on every page without deleting legitimate variants
+  ---
+  duration_ms: 0.448698
+  type: 'test'
+  ...
+# Subtest: duplicate ammunition and drugs collapse on sheets even when mutable quantity differs
+ok 186 - duplicate ammunition and drugs collapse on sheets even when mutable quantity differs
+  ---
+  duration_ms: 0.526635
+  type: 'test'
+  ...
+# Subtest: actor sheet has a dedicated scroll viewport and exposes all six Attributes
+ok 187 - actor sheet has a dedicated scroll viewport and exposes all six Attributes
+  ---
+  duration_ms: 2.298853
+  type: 'test'
+  ...
+# Subtest: guided creator presents eight sequential stages and all six Attribute fields
+ok 188 - guided creator presents eight sequential stages and all six Attribute fields
+  ---
+  duration_ms: 0.383789
+  type: 'test'
+  ...
+# Subtest: major interfaces share the futuristic Altered Carbon shell
+ok 189 - major interfaces share the futuristic Altered Carbon shell
+  ---
+  duration_ms: 1.379114
+  type: 'test'
+  ...
+# Subtest: actor sheet is view-first with an explicit whole-sheet edit mode
+ok 190 - actor sheet is view-first with an explicit whole-sheet edit mode
+  ---
+  duration_ms: 0.369488
+  type: 'test'
+  ...
+# Subtest: sleeve archive relationships and networks disclose read-only information inline
+ok 191 - sleeve archive relationships and networks disclose read-only information inline
+  ---
+  duration_ms: 0.313684
+  type: 'test'
+  ...
+# Subtest: every embedded Actor-sheet collection uses the same read-first disclosure contract
+ok 192 - every embedded Actor-sheet collection uses the same read-first disclosure contract
+  ---
+  duration_ms: 0.428287
+  type: 'test'
+  ...
+# Subtest: sheet preparation deduplicates singular records before rendering
+ok 193 - sheet preparation deduplicates singular records before rendering
+  ---
+  duration_ms: 0.162695
+  type: 'test'
+  ...
+# Subtest: system-owned add paths reject or collapse duplicate singular records
+ok 194 - system-owned add paths reject or collapse duplicate singular records
+  ---
+  duration_ms: 0.250028
+  type: 'test'
+  ...
+# Subtest: skill summaries expose real Roll actions rather than an Open label
+ok 195 - skill summaries expose real Roll actions rather than an Open label
+  ---
+  duration_ms: 1.699177
+  type: 'test'
+  ...
+# Subtest: existing character sheets open advancement, not another creation wizard
+ok 196 - existing character sheets open advancement, not another creation wizard
+  ---
+  duration_ms: 0.400094
+  type: 'test'
+  ...
+# Subtest: Actor Directory creation is native-DOM, permission checked and rerender safe
+ok 197 - Actor Directory creation is native-DOM, permission checked and rerender safe
+  ---
+  duration_ms: 0.183818
+  type: 'test'
+  ...
+# Subtest: creator includes actual queued starting purchases and a duplicate-submit guard
+ok 198 - creator includes actual queued starting purchases and a duplicate-submit guard
+  ---
+  duration_ms: 0.260453
+  type: 'test'
+  ...
+# Subtest: system ships the full authored book and generated reference data
+ok 199 - system ships the full authored book and generated reference data
+  ---
+  duration_ms: 2.042466
+  type: 'test'
+  ...
+# Subtest: book-only import has no Actor creation or Item mutation path
+ok 200 - book-only import has no Actor creation or Item mutation path
+  ---
+  duration_ms: 0.220974
+  type: 'test'
+  ...
+1..200
+# tests 200
+# suites 0
+# pass 200
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3759.302159
+
+> altered-carbon-rpg-foundry@1.4.3 validate
+> node scripts/validate.mjs
+
+Validated Altered Carbon RPG — Unofficial v1.4.3
+Manifest: https://raw.githubusercontent.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/main/system.json
+Download: https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v1.4.3/altered-carbon-rpg-v1.4.3.zip
+All catalog types, manifest declarations, model registrations and build versions agree.
+
+> altered-carbon-rpg-foundry@1.4.3 build
+> bash scripts/build.sh
+
+Validated Altered Carbon RPG — Unofficial v1.4.3
+Manifest: https://raw.githubusercontent.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/main/system.json
+Download: https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v1.4.3/altered-carbon-rpg-v1.4.3.zip
+All catalog types, manifest declarations, model registrations and build versions agree.
+dist/altered-carbon-rpg-v1.4.3.zip
+Built matching release assets: dist/altered-carbon-rpg-v1.4.3.zip, dist/system.json, dist/SHA256SUMS.txt
+Release ZIP verified: dist/altered-carbon-rpg-v1.4.3.zip
+Release ZIP manifest is identical to source and declares ammunition and drug.
+Standalone manifest, immutable download path and release asset checksums agree.

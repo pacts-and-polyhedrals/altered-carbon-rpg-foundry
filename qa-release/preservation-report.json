@@ -1,0 +1,49 @@
+{
+  "reference": "supplied v1.4.2 runtime ZIP",
+  "runtime_file_count": 68,
+  "byte_identical_files": 62,
+  "game_data_files_unchanged": 31,
+  "changed": [
+    {
+      "file": "altered-carbon-rpg.mjs",
+      "version_label_only": true
+    },
+    {
+      "file": "module/gm-guide.mjs",
+      "version_label_only": true
+    },
+    {
+      "file": "module/gm-tools.mjs",
+      "version_label_only": true
+    },
+    {
+      "file": "module/system-health.mjs",
+      "version_label_only": true
+    },
+    {
+      "file": "system.json",
+      "version_label_only": false
+    },
+    {
+      "file": "templates/gm-panel.hbs",
+      "version_label_only": true
+    }
+  ],
+  "manifest_changes": {
+    "download": {
+      "before": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v1.4.2/altered-carbon-rpg-v1.4.2.zip",
+      "after": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v1.4.3/altered-carbon-rpg-v1.4.3.zip"
+    },
+    "manifest": {
+      "before": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/latest/download/system.json",
+      "after": "https://raw.githubusercontent.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/main/system.json"
+    },
+    "version": {
+      "before": "1.4.2",
+      "after": "1.4.3"
+    }
+  },
+  "unrelated_runtime_changes": false,
+  "old_zip_sha256": "0e1232320d6bc7d9bbe97817be94edf98db6f70b07660324f4f57b1c34900aa7",
+  "new_zip_sha256": "b3bfa4ccb2f1ce8ecb71fec557b4e3f793ce5e2724b3a0510bf52628b5128eca"
+}

@@ -1,0 +1,7 @@
+{
+  "validation_did_not_rewrite_source": true,
+  "repeated_builds_byte_identical": true,
+  "stale_root_manifest_rejected_without_rewriting": true,
+  "runtime_zip_sha256": "b3bfa4ccb2f1ce8ecb71fec557b4e3f793ce5e2724b3a0510bf52628b5128eca",
+  "zip_size_bytes": 2046168
+}

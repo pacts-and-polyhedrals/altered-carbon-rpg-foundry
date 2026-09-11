@@ -1,30 +1,83 @@
-# Altered Carbon v1.4.2 - Release repair QA
+# Altered Carbon v1.4.3 - Repair validation
 
-## What was inspected
+## Completed for this delivery
 
-The attached v1.4.1 source ZIP, runtime ZIP and complete bundle were read directly. Their system manifests already agreed on version 1.4.1 and referred to the same configured repository. The earlier build emitted only the runtime ZIP. The earlier CI ran validation/build checks, but had no release publisher. No remote branch or live release was verified; this is not evidence of the current contents of the user's host.
+- **200 Node tests passed**, zero failures/skips. These include the existing game,
+  UI-controller, advancement, bonuses, presets, content and book tests; release
+  configuration checks; reproducible archive tests; public-verifier boundary
+  tests; and four real LOCAL HTTP tests using the actual JSON and runtime ZIP.
+- **7 offline publisher scenarios passed**, using simulated `gh` and HTTP. These
+  cover normal ordering, private-host rejection, refusing older/published
+  versions, failed upload, mismatched tag and stale original main manifest.
+  No GitHub account or publication was used by these tests.
+- JSON parsing, runtime manifest paths, catalog Item/Actor types and model
+  registrations passed. `ammunition` and `drug` are declared in the full manifest.
+- All JavaScript modules were syntax-checked; both shell scripts passed `bash -n`;
+  both workflows parsed as YAML.
+- The full local validation/build process did not rewrite source files.
+- An intentionally stale main manifest (v1.3.0 against package v1.4.3) was rejected
+  without silently rewriting it.
+- Two complete builds produced byte-identical runtime ZIPs. ZIP metadata does not
+  depend on source timestamps or permissions; stored ZIP entries avoid zlib
+  implementation differences. Source line endings are controlled by .gitattributes.
+- The source, standalone and ZIP-embedded `system.json` files are identical.
+  Each uses the ORIGINAL raw-main manifest and exact v1.4.3 ZIP URL.
 
-## Completed local checks
+## Preservation checks against the supplied v1.4.2 runtime
 
-- **185 Node tests passed**, zero failures. This includes the existing 155 rules/UI/data tests and 30 release configuration, preparation and public-verifier tests. The public-verifier tests use injected HTTP responses, not live GitHub.
-- **6 offline publisher smoke tests passed** using fake `gh` and HTTP implementations: successful draft/upload/publish ordering, rejection of private repositories, prevention of promoting an older stable version, prevention of overwriting a published version, no publication after an upload failure, and rejection of a mismatched pushed tag. No real account was contacted by the smoke test.
-- JSON/data/model validation passed. All document types including ammunition and drug remain declared and registered.
-- Both shell scripts passed `bash -n` syntax checking; CI and release workflow files parsed as YAML.
-- The runtime ZIP includes system.json at its root and all required system files. Its manifest, the source manifest and the standalone release manifest agree.
-- SHA-256 checksums were generated and checked for the standalone manifest and versioned runtime ZIP.
-- **All 31 game data files are byte-for-byte unchanged from v1.4.1**, including the adventure and equipment catalogs.
-- Existing runtime source changes are build-number labels only, from 1.4.1 to 1.4.2. No roll, Actor, Item, advancement or journal-import behaviour was rewritten for this fix.
+There are the same **68 runtime files**. **62 are byte-for-byte identical**.
+Five other files differ ONLY by the version label `1.4.2` -> `1.4.3`.
+The last file is `system.json`; only `version`, `manifest` and `download` change.
 
-Run `npm run release:check` for the Node/build checks. After that, `python3 qa-release/publisher-smoke.py` runs the offline publisher smoke test. The smoke test uses only standard Python/Node libraries and a temporary local git repository. It must not be confused with the real `scripts/publish-release.sh` maintainer workflow.
+All **31 game data files**, every stylesheet and all game-mechanics behavior
+remain unchanged. No new world database, dependency or forced reimport is added.
+The source-only development tooling and documentation are intentionally changed.
 
-## Publication checks supplied but NOT executed against the live account
+The ZIP is approximately 2 MB because it uses standard uncompressed ZIP entries
+for exact repeatability. This is not extra runtime content or a source archive.
 
-`npm run verify:published` makes actual unauthenticated HTTP requests AFTER publication. It rejects missing assets, stale manifest versions, wrong repository/download paths, changed manifest contents and ZIP hashes that do not match the tested local build.
+## Package and history evidence
 
-The release workflow prepares URLs from the actual `GITHUB_REPOSITORY`, tests/builds, uploads both assets while the release is still a draft, publishes as Latest, and runs that real public-download verification. A successful workflow summary prints the verified URL. Its real GitHub permission/hosting behaviour was not exercised in this delivery.
+The original v1.1.2 and v1.3.0 saved bundles were extracted and inspected, including
+their full repository ZIPs, root manifests, install ZIPs, original START-HERE
+instructions and CI workflows. Original instructions are retained unmodified in
+`docs/reference/`. The later v1.4.0, v1.4.1, v1.4.2 and direct-import manifests were
+compared too. See REPAIR-AUDIT.md.
 
-## Remaining limitations
+This recovers the actual release reference. It does not independently establish
+which older release the user last ran successfully on their host, nor does it
+mean the full linked conversation was readable.
 
-No repository write, release publication, live GitHub latest-link verification, Foundry installation, Forge deployment, browser rendering or live multiplayer test was performed. GitHub access for the requested repository action was not completed. The previous browser-harness results are historical and have NOT been rerun or counted here. Compatibility is still minimum Foundry 14, with no live-verified compatibility claim.
+## Not verified
 
-This delivery repairs the local release wiring and supplies a publisher; it does not by itself update the hosted manifest or install anything in the user's world.
+- No authenticated GitHub read/write or publication was performed.
+- Public manifest/release fetches could not be completed from this environment.
+  The web fetches returned no usable content; the direct runtime checks failed
+  local DNS resolution. These are NOT observed HTTP 404s and do not prove that
+  the repository is absent or private.
+- No live Foundry server, Forge installation, multiplayer test, server-side type
+  registry check or browser rendering test was performed for v1.4.3.
+- Earlier browser-harness results are historical and are not counted as new tests.
+- The underlying cause of the user's Forge task-status HTTP 500 remains unknown.
+  Its response body and server task diagnostics were not available.
+
+The supplied verifier is designed to make real unauthenticated public requests
+AFTER publication. Its local tests are not a successful public verification.
+The compatibility minimum remains Foundry 14 without a fabricated verified field.
+
+## Repeat the checks
+
+```sh
+npm run release:check
+python3 qa-release/publisher-smoke.py
+```
+
+After uploading the source and release assets through the original route:
+
+```sh
+npm run verify:published
+```
+
+Successful publication and installation must be established separately from these
+local results. No world reset, character recreation or Cold Storage Full Import
+is part of this repair.

@@ -1,9 +1,7 @@
+# Optional maintainer tool. The normal release route remains the original manual upload.
 name: Publish Foundry Release
 on:
   workflow_dispatch:
-  push:
-    tags:
-      - 'v[0-9]*'
 permissions:
   contents: read
 concurrency:
@@ -21,11 +19,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Set actual repository URLs and synchronise versions
-        run: npm run prepare:release
-      - name: Test and build matching release assets
+      - name: Require the original main-branch publication route
+        run: |
+          test "$GITHUB_REF" = refs/heads/main
+      - name: Test the source exactly as committed, without rewriting manifests
         run: npm run release:check
-      - name: Publish both assets and verify public update/download URLs
+      - name: Ensure validation did not rewrite committed source
+        run: git diff --exit-code
+      - name: Publish matching assets and verify the original update URL
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: bash scripts/publish-release.sh

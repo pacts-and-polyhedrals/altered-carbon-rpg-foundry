@@ -12,8 +12,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: npm run prepare:release
       - run: npm test
       - run: npm run validate
       - run: npm run build
       - run: node scripts/verify-release.mjs
+      - name: Ensure validation did not rewrite committed source
+        run: git diff --exit-code

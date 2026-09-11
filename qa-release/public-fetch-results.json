@@ -1,0 +1,18 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/main/system.json",
+    "error": "HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Max retries exceeded with url: /pacts-and-polyhedrals/altered-carbon-rpg-foundry/main/system.json (Caused by NameResolutionError(\"HTTPSConnection(host='raw.githubusercontent.com', port=443): Failed to resolve 'raw.githubusercontent.com' ([Errno -3] Temporary failure in name resolution)\"))"
+  },
+  {
+    "url": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/latest/download/system.json",
+    "error": "HTTPSConnectionPool(host='github.com', port=443): Max retries exceeded with url: /pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/latest/download/system.json (Caused by NameResolutionError(\"HTTPSConnection(host='github.com', port=443): Failed to resolve 'github.com' ([Errno -3] Temporary failure in name resolution)\"))"
+  },
+  {
+    "url": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v1.3.0/altered-carbon-rpg-v1.3.0.zip",
+    "error": "HTTPSConnectionPool(host='github.com', port=443): Max retries exceeded with url: /pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v1.3.0/altered-carbon-rpg-v1.3.0.zip (Caused by NameResolutionError(\"HTTPSConnection(host='github.com', port=443): Failed to resolve 'github.com' ([Errno -3] Temporary failure in name resolution)\"))"
+  },
+  {
+    "url": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v1.4.2/altered-carbon-rpg-v1.4.2.zip",
+    "error": "HTTPSConnectionPool(host='github.com', port=443): Max retries exceeded with url: /pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v1.4.2/altered-carbon-rpg-v1.4.2.zip (Caused by NameResolutionError(\"HTTPSConnection(host='github.com', port=443): Failed to resolve 'github.com' ([Errno -3] Temporary failure in name resolution)\"))"
+  }
+]
