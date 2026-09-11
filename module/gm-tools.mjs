@@ -275,7 +275,7 @@ export class ACGMPanel extends foundry.applications.api.HandlebarsApplicationMix
   static async _openAdventure(){try{game.alteredCarbon.openAdventureBook();}catch(error){ui.notifications.error(error.message);}}
   static async _openGuide(){try{await ensureGMGuide({open:true});}catch(error){ui.notifications.error(error.message);}}
   static async _refreshGuide(){
-    const ok=await foundry.applications.api.DialogV2.confirm({window:{title:'Refresh GM Guide'},content:'<p>Replace the system-generated GM Guide pages with the current v1.4.1 reference?</p><p class="hint">Any notes typed directly into those generated pages will be replaced.</p>'});
+    const ok=await foundry.applications.api.DialogV2.confirm({window:{title:'Refresh GM Guide'},content:'<p>Replace the system-generated GM Guide pages with the current v1.4.2 reference?</p><p class="hint">Any notes typed directly into those generated pages will be replaced.</p>'});
     if(ok)await ensureGMGuide({refresh:true,open:true});
   }
 }

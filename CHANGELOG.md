@@ -1,3 +1,7 @@
+# v1.4.2 - Release/update wiring
+
+The release manifest now follows the published Latest asset; version-pinned downloads, standalone manifest generation, checksums, repository-aware preparation, an explicit publisher and public-download verification are supplied. No game data or roll behaviour changes. Local build only; publication and live Foundry/Forge verification are separate.
+
 # v1.4.1 - Bonus Dice, editable preset TR and registry diagnostics
 
 - Added GM multi-character Bonus Dice awards: independent Actor flags, Skill-sized or fixed dice, next matching check or until removed, Skill filters, label, removal and selected clearing.

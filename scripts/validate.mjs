@@ -1,12 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import {validateReleaseConfig} from './release-config.mjs';
 
 const root = process.cwd();
 const manifestPath = path.join(root, 'system.json');
 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
-const expectedRepo = 'https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry';
-const expectedManifest = 'https://raw.githubusercontent.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/main/system.json';
-const expectedDownload = `${expectedRepo}/releases/download/v${manifest.version}/altered-carbon-rpg-v${manifest.version}.zip`;
+validateReleaseConfig(manifest, {repository: process.env.GITHUB_REPOSITORY || undefined});
 
 const fail = message => { throw new Error(message); };
 if (manifest.id !== 'altered-carbon-rpg') fail('system.json id must be altered-carbon-rpg');
@@ -14,9 +13,6 @@ const pkg = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'))
 if (manifest.version !== pkg.version) fail(`system.json version ${manifest.version} must match package.json ${pkg.version}`);
 if (String(manifest.compatibility?.minimum) !== '14') fail('minimum Foundry version must be 14');
 if (manifest.compatibility?.verified) fail('Do not claim a live verified version without live QA.');
-if (manifest.url !== expectedRepo) fail('repository URL mismatch');
-if (manifest.manifest !== expectedManifest) fail('stable manifest URL mismatch');
-if (manifest.download !== expectedDownload) fail('release download URL mismatch');
 
 for (const rel of [...(manifest.esmodules ?? []), ...(manifest.styles ?? []), ...(manifest.languages ?? []).map(x => x.path)]) {
   const full = path.join(root, rel);

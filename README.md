@@ -1,32 +1,28 @@
-# Altered Carbon RPG - Unofficial for Foundry VTT 14
+# Altered Carbon RPG - Unofficial Foundry system
 
-## v1.4.0 - Journal book, direct Skill rolls and advancement
+## v1.4.2 - Release/update pointer repair
 
-Based on the user's v1.3.0 system. Requires lawful access to the original tabletop rules. Not affiliated with or endorsed by the Altered Carbon rights holders or Foundry Gaming LLC.
+This release preserves the v1.4.1 game features and data. It fixes the distribution process: the stable update URL follows a published `system.json` release asset; the ZIP URL is pinned to the version described by that manifest.
 
-The complete Cold Storage book is embedded in `data/cold-storage`, with a GM-only importer and running console. Roll now replaces Open on collapsed Skill rows. Character Creator lives in the Actors directory; existing characters get Level Up instead. The eight-stage creator includes starting SP allocation, and the full advancement window handles Skills, Attributes, Specialisations and Traits with cost confirmation and history.
+**Prepared locally does not mean published.** These files have not been uploaded to a repository or installed in Foundry/Forge by this delivery. The repository configured in the supplied archives is `pacts-and-polyhedrals/altered-carbon-rpg-foundry`; ownership and its current live releases have not been verified. The publisher uses the actual `GITHUB_REPOSITORY` rather than trusting that default when run elsewhere.
 
-Read **START-HERE.md** for installation, safe upgrades and the exact control locations. Read **QA-REPORT.md** for the limits of validation. A live Foundry/Forge test is still required before using this build in production.
+Read **START-HERE.md** for the two deployment choices. For GitHub/Foundry updates, publishing the runtime ZIP alone is not sufficient. The root source manifest and the release assets must be correctly deployed.
 
-## Preserved from v1.3.0
+## Maintainer release
 
-The Core Equipment Library and its catalog records, ammunition workflow, drug/medicine actions, sleeve augmentations, GM Control, read-first sheets, opposed checks, source rules engine and original documentation remain present. This release does not replace those systems with a new ruleset.
+Upload this source tree at the repository root, including `.github/workflows/release.yml`. Then run **Actions -> Publish Foundry Release -> Run workflow** on the intended source branch. It creates a normal Latest release, with both `system.json` and the tested versioned runtime ZIP attached. It also publishes SHA-256 checksums and verifies both public downloads without authentication. The successful run summary prints the real install/update URL.
 
-The unchanged adventure JSON contains the full authored book and original pregen/contact/sleeve/relationship data. The system's Book Only importer creates only Journals and Journal folders and fills missing scene links; the separate optional module supplies fresh-world Actors, Items and Scenes.
+The workflow is explicit (manual or a pushed `v*` tag); an ordinary source push only validates/builds and does not silently publish. Existing published versions are not overwritten, and older versions are not promoted over newer stable releases. Public GitHub hosting is required for this workflow. It refuses private repositories before publishing anything.
 
-## Development
+## Local development
 
-```sh
-npm test
-npm run validate
-npm run build
-node scripts/verify-release.mjs
+```
+npm run prepare:release -- --repository OWNER/REPO --version 1.4.2
+npm run release:check
 ```
 
-Node 22 or later is expected. The runtime has no added third-party dependencies. Foundry supplies its normal application, document and Handlebars APIs. The install ZIP has `system.json` at its root.
+The build outputs `dist/system.json`, `dist/altered-carbon-rpg-v1.4.2.zip`, and `dist/SHA256SUMS.txt`. `npm run verify:published` is a separate, real-network check intended to run after publication; local unit tests do not establish that a remote release exists.
 
-The stable manifest/release URLs refer to the user's existing repository publishing scheme. They are intended deployment addresses, not evidence that this locally prepared release has been published. No remote repository or live world was modified.
+The runtime has no additional dependency. Node 22+, bash and zip/unzip are needed for the maintainer tooling. Live Foundry/Forge and live GitHub publishing still require verification; see QA-REPORT.md.
 
-## Documentation
-
-START-HERE.md explains user workflows. docs/ADVANCEMENT.md covers costs, caps and API options. docs/live-qa.md is the pre-session checklist. docs/TECHNICAL-SOURCES.md records the API references consulted. docs/CORE-EQUIPMENT.md, docs/GM-TOOLS.md and docs/RUNTIME-TEST.md retain the earlier subsystem guidance. docs/archive contains the historical v1.3.0 README/start guide, whose old UI instructions are superseded by this release.
+Detailed v1.4.1 feature instructions are preserved in `docs/archive/START-HERE-v1.4.1.md`. The integrated adventure, GM Bonus Dice, editable preset TR, direct Skill Roll controls, Actor-sidebar Character Creator, Level Up and typed ammunition/drugs are retained.

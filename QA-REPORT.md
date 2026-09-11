@@ -1,19 +1,30 @@
-# QA report - Altered Carbon 1.4.0 / Cold Storage 1.1.1
+# Altered Carbon v1.4.2 - Release repair QA
 
-Prepared 11 September 2026 from the user's supplied v1.3.0 source and previously generated full adventure.
+## What was inspected
 
-## Completed
+The attached v1.4.1 source ZIP, runtime ZIP and complete bundle were read directly. Their system manifests already agreed on version 1.4.1 and referred to the same configured repository. The earlier build emitted only the runtime ZIP. The earlier CI ran validation/build checks, but had no release publisher. No remote branch or live release was verified; this is not evidence of the current contents of the user's host.
 
-**115 Node tests passed**: original rules/UI contracts plus new SP quote/application checks, ownership, stale state, duplicate submission, rollback, caps, Trait prerequisites, Civilian Commonality, eight-stage creator and direct-roll contracts, and simulated journal import/reimport/migration/recovery/permission/counter/scene-link tests.
+## Completed local checks
 
-**17 Chromium harness checks passed**: all 32 Skill summaries expose Roll; the click leaves details collapsed; cancel posts no roll; confirmed roll posts a check; sheet has Level Up and no Creator; directory hook filters correctly and is idempotent; cancelled advancement spends nothing; confirmed advancement charges SP, retains Health and records history; Traits search; eight creator stages; starting plan costs and rejection/clear; all 30 GM chapter controls render; no uncaught browser exceptions. Screenshots were inspected for the Skill sheet, Level Up Attributes, creator and book console.
+- **185 Node tests passed**, zero failures. This includes the existing 155 rules/UI/data tests and 30 release configuration, preparation and public-verifier tests. The public-verifier tests use injected HTTP responses, not live GitHub.
+- **6 offline publisher smoke tests passed** using fake `gh` and HTTP implementations: successful draft/upload/publish ordering, rejection of private repositories, prevention of promoting an older stable version, prevention of overwriting a published version, no publication after an upload failure, and rejection of a mismatched pushed tag. No real account was contacted by the smoke test.
+- JSON/data/model validation passed. All document types including ammunition and drug remain declared and registered.
+- Both shell scripts passed `bash -n` syntax checking; CI and release workflow files parsed as YAML.
+- The runtime ZIP includes system.json at its root and all required system files. Its manifest, the source manifest and the standalone release manifest agree.
+- SHA-256 checksums were generated and checked for the standalone manifest and versioned runtime ZIP.
+- **All 31 game data files are byte-for-byte unchanged from v1.4.1**, including the adventure and equipment catalogs.
+- Existing runtime source changes are build-number labels only, from 1.4.1 to 1.4.2. No roll, Actor, Item, advancement or journal-import behaviour was rewritten for this fix.
 
-The Chromium harness runs the actual application context/action methods against mock document APIs. Its QA-only template subset renderer supports the constructs used in these templates, but is **not the full Handlebars engine**. It does not prove Foundry's own event dispatcher, CSS environment, sockets or server persistence.
+Run `npm run release:check` for the Node/build checks. After that, `python3 qa-release/publisher-smoke.py` runs the offline publisher smoke test. The smoke test uses only standard Python/Node libraries and a temporary local git repository. It must not be confused with the real `scripts/publish-release.sh` maintainer workflow.
 
-Release validation checks all JSON recursively, package and system version agreement, manifest file paths, JavaScript syntax, the root install-ZIP structure, and the new advancement/book files. Source adventure JSON is copied unchanged from the earlier full module. Three bare chapter tokens are repaired by the importer at rendering time without rewriting the prose source.
+## Publication checks supplied but NOT executed against the live account
 
-## Not completed
+`npm run verify:published` makes actual unauthenticated HTTP requests AFTER publication. It rejects missing assets, stale manifest versions, wrong repository/download paths, changed manifest contents and ZIP hashes that do not match the tested local build.
 
-No live Foundry 14 server/client world, full Foundry Handlebars rendering, multiplayer synchronization, real detached sidebar, Forge deployment or session load test was run. No new version was published to GitHub and no live world was edited. The minimum compatibility target remains Foundry 14; the manifest omits `verified` rather than claiming a live verification.
+The release workflow prepares URLs from the actual `GITHUB_REPOSITORY`, tests/builds, uploads both assets while the release is still a draft, publishes as Latest, and runs that real public-download verification. A successful workflow summary prints the verified URL. Its real GitHub permission/hosting behaviour was not exercised in this delivery.
 
-Book-only runtime tests show no Actor/Item mutation in the simulated API. Full fresh-world import remains the optional module's existing behavior and should not be used as the book upgrade route in a played world. Review docs/live-qa.md before using this build for a paid game.
+## Remaining limitations
+
+No repository write, release publication, live GitHub latest-link verification, Foundry installation, Forge deployment, browser rendering or live multiplayer test was performed. GitHub access for the requested repository action was not completed. The previous browser-harness results are historical and have NOT been rerun or counted here. Compatibility is still minimum Foundry 14, with no live-verified compatibility claim.
+
+This delivery repairs the local release wiring and supplies a publisher; it does not by itself update the hosted manifest or install anything in the user's world.

@@ -1,60 +1,70 @@
-# Altered Carbon 1.4.0 - Start Here
+# START HERE - v1.4.2 release/update repair
 
-This is the continuation of the supplied UI/system v1.3.0. The complete Cold Storage 1.1.1 journal book is now embedded in the system. The optional Cold Storage module is included separately for the original pregens, sleeve archives, contacts, relationships and placeholder scenes.
+## What was wrong with the earlier delivery
 
-## Choose the right ZIP
+The supplied v1.4.1 system/source/ready-folder manifests all said 1.4.1. However, their update URL referred to `main/system.json` on GitHub and their download URL referred to a separate GitHub release asset. The local build neither published those URLs nor checked their live contents. The supplied CI workflow only tested and built files; it had no publication step.
 
-- `01-FOUNDRY-INSTALL-altered-carbon-rpg-v1.4.0.zip`: the actual system installation package, with system.json at its root.
-- `00-GITHUB-REPOSITORY-altered-carbon-rpg-foundry-v1.4.0.zip`: repository source, tests, build scripts and documentation. This is not the installation ZIP.
-- `02-OPTIONAL-MODULE-cold-storage-v1.1.1.zip`: the optional adventure module, with module.json at its root.
-- `03-READY-FOLDERS/`: extracted `systems/altered-carbon-rpg/` and `modules/cold-storage/` directories for a manual data-folder installation. Use these OR the matching install ZIPs, not duplicate installations.
+This proves a gap in the delivery process, not the exact contents of your live host. A stale root manifest, an absent or differently named release ZIP, a different installation URL, or an older GitHub Latest release could each matter. Remote access was not completed, so this package does not claim which one is present on your account.
 
-The manifest retains the existing repository's intended v1.4.0 release URL. No release has been uploaded or published on your behalf. Automatic manifest installation needs the versioned ZIP and matching system.json published to that repository first. A sandbox download is not a hosted Foundry manifest.
+## Files in the repair bundle
 
-## Upgrade an existing world
+- `01-GITHUB-REPOSITORY/` is the complete repository source. Put its CONTENTS at the existing repository root, not inside another parent folder.
+- `02-GITHUB-RELEASE-ASSETS/` contains the standalone `system.json`, `altered-carbon-rpg-v1.4.2.zip` and checksum file.
+- `03-MANUAL-INSTALL/systems/altered-carbon-rpg/` is the extracted runtime for hosts that support manual system installation.
+- `04-QA/` contains the test report and logs. The tests are not proof of public hosting or a live Foundry installation.
 
-1. Back up the world and its current system/module folders. Test this release on a duplicate world before using it for a paid session.
-2. Stop the world. Replace the existing `systems/altered-carbon-rpg` files with the new system, keeping exactly one system folder of that name. Do not place the repository ZIP inside it. For a managed host, use its custom-system deployment workflow or publish the matching release through your existing repository workflow.
-3. The optional module may be replaced with 1.1.1 in `modules/cold-storage`; it is not required just to use the new journal book. Restart and refresh the client.
-4. Open **GM Control -> Cold Storage Book -> Import / Update Book Only**. Alternatively use the system settings menu **Cold Storage Adventure Book**.
-5. Check a player account, a character sheet and the Actors sidebar using `docs/live-qa.md` before the next session.
+Do not upload the whole repair bundle as the Foundry system ZIP. Do not use GitHub's automatically generated source-code ZIP as the system download. Do not rename the versioned runtime asset without updating its manifest and rebuilding.
 
-**Do not use Full Import in a played world to update its book.** The optional module's Full Import is for a fresh setup and can rebuild source-managed pregen data. Book Only leaves Actors, Items, resources, inventory and relationship states untouched. It fills a missing scene-to-journal link only; it does not replace a custom link or scene art.
+## Recommended GitHub publication
 
-## Where the controls are
+1. Update the repository with the CONTENTS of `01-GITHUB-REPOSITORY`. `system.json`, `package.json`, `altered-carbon-rpg.mjs`, `module/`, and `.github/` must be at its root. Retain `.github/workflows/release.yml` even if your file explorer hides dot-folders.
+2. In GitHub, open **Actions -> Publish Foundry Release -> Run workflow**, selecting the branch with the new source. The workflow binds URLs to the actual repository, validates/tests the build, uploads both assets to a draft, then publishes that release as Latest.
+3. Use the manifest URL printed in the successful run summary. It has the form `https://github.com/OWNER/REPO/releases/latest/download/system.json`. A successful publication check means that URL serves the expected JSON and the referenced ZIP matches the tested archive's SHA-256.
 
-**Actors tab / sidebar:** Character Creator creates a new Actor. The same button is added to its popout. It is shown to GMs and users with Actor-creation permission. It is not injected into character sheets.
+The workflow needs repository Contents write permission from its GITHUB_TOKEN and permission to run GitHub Actions. No personal token belongs in source code. It refuses private repositories because unauthenticated Foundry downloads must work. A red workflow is not a verified published update. A partially failed upload stays in draft; a failure in verification after publication must be investigated before telling players to update.
 
-**Existing character sheet:** Level Up opens that Actor's advancement window. It does not create another Actor or resleeve the character. It is available to owners and GMs on character, AI and NPC sheets. Vehicles/threat-only records do not receive this progression control.
+A run refuses to overwrite an already published version or move an existing version tag to another commit. Use a new patch version for changes to a published build. For a release that is already correct, use `npm run verify:published` instead of trying to publish it again.
 
-**Skills tab:** every Skill row has Roll in its collapsed summary, replacing Open. Clicking Roll opens the existing check-options dialog without expanding the description. Click the Skill name/chevron to read the rules. Roll and Opposed Roll are also at the top of an expanded Skill, before its text. Other record types retain Open because they are not Skill checks.
+## Manual GitHub publication instead
 
-**Character Creator:** stage 7 of 8 is Level Up & Starting SP. Queue Skill Levels or rolled Attribute increases, see the starting/planned/remaining SP, remove purchases or clear the plan. Purchases are applied once after the new Actor is created. The checked option opens the full Level Up window for Traits, Specialisations and further purchases. Stage 8 reviews the final allocation. No dice are rolled while simply planning.
-
-**Level Up window:** Skills, Attributes, Specialisations, Traits and History. Confirmed purchases deduct the quoted SP and append a dated history entry. Cancelling costs nothing. Physical increases update the active sleeve; mental increases update the persistent DHF. Existing Health/Ego are not rerolled or refilled.
-
-This uses the supplied system's Stack Point advancement, not a newly invented numbered-level/XP system. Trait prose, choice-based benefits and cap-changing Traits still require GM adjudication. For advanced configuration see `docs/ADVANCEMENT.md`.
-
-## Journal folders
-
-The GM imports the book explicitly; it is not automatically inserted on world startup.
+For the repository already configured in the supplied archives, update `main` with the source at the root, create a normal release with tag **v1.4.2**, and attach BOTH of these files from `02-GITHUB-RELEASE-ASSETS`:
 
 ```
-Cold Storage
-  01 - GM Adventure Book
-  02 - Player Briefing
-  03 - Private Character Cards
-  04 - Evidence - Reveal Individually
-  05 - GM Reference
-  99 - GM Recovery Copies
+system.json
+altered-carbon-rpg-v1.4.2.zip
 ```
 
-The book contains 74 authored entries plus 22 generated reference entries: 96 managed Journals. This includes 30 GM chapters, 16 evidence handouts and 8 private character cards. Existing matching source IDs are updated in place, including entries imported by an earlier Cold Storage module. Their Journal IDs and external links are retained.
+Attach `SHA256SUMS.txt` too, and explicitly set the release as **Latest**. Publish it, not Draft or Pre-release. Open the stable manifest link in a logged-out browser and check its version and download field, then open the ZIP URL. Local preparation is not a substitute for these checks.
 
-Public primers receive read permission. GM entries and undisclosed handouts/cards begin hidden. Private cards require a named player recipient; the console rejects reveal-to-everyone for those cards. The importer preserves intentional disclosure on already-migrated cards/handouts. Review player ownership before sending evidence.
+The default configured URLs are:
 
-Changed managed pages are copied into GM-only Recovery Copies before replacement. Additional custom pages are preserved. Recovery is a convenience, not a replacement for a world backup. Only source-managed journals are updated; unrelated folders and journals are left alone.
+```
+https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/latest/download/system.json
+https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v1.4.2/altered-carbon-rpg-v1.4.2.zip
+```
 
-## Test status
+These are configuration targets, NOT a statement that they are live. For a different repository, use the workflow above, or run `npm run prepare:release -- --repository OWNER/REPO` and rebuild BEFORE attaching the assets. Do not manually attach this default-repository manifest to a different repository unchanged.
 
-115 Node automated checks and 17 Chromium harness checks passed. The browser harness uses mock Foundry APIs and a QA-only subset template renderer, not Foundry's full Handlebars/runtime. The actual Foundry 14 server, a live world, multiplayer sync, popout windows and Forge were not tested here. The manifest targets minimum Foundry 14 but deliberately omits a live-verified claim. See QA-REPORT.md and docs/live-qa.md.
+## Existing installations using the old manifest URL
+
+The old raw `main/system.json` URL is not inherently invalid. Existing installs will continue consulting whatever URL is saved locally until their package metadata is updated. Keeping the repository-root manifest current is therefore important during this migration. Publishing only a new release leaves an old `main/system.json` untouched.
+
+Once that root manifest and its matching release are deployed, the old URL can deliver v1.4.2 and the new package switches future checks to the published-latest release manifest. Alternatively, use the new verified manifest URL via your host's supported system-install/update process. Do not delete worlds to change a system URL. A different old repository or branch cannot be repaired by editing an unrelated repository.
+
+## Manual system installation
+
+Back up the existing world, stop the game/server, and replace the existing `systems/altered-carbon-rpg/` with the provided runtime folder through the host's supported installation method. Restart the server and reload all clients. Open **GM Control -> System Check**: loaded and running versions should both read **1.4.2**.
+
+Manual replacement installs the local files but does NOT publish an online update. GitHub/Forge must still have a correctly hosted manifest and ZIP for subsequent automatic updates.
+
+No character recreation, resleeving, world reset, Cold Storage Full Import or equipment reimport is needed for this release-pointer patch. The adventure and equipment JSON are unchanged. The existing v1.4.1 feature instructions are retained in `docs/archive/START-HERE-v1.4.1.md`.
+
+## How the URLs are meant to work
+
+The manifest uses a stable Latest-release asset URL. That manifest's download points to a fixed versioned ZIP, so it cannot describe one version while an independently moving Latest ZIP serves another. The publisher puts both files into a draft before changing Latest. The verifier then checks the public manifest contents and the complete ZIP hash, not just the version label.
+
+References:
+- Foundry package update process: https://foundryvtt.com/article/package-management/
+- Foundry manifest/download fields: https://foundryvtt.com/article/system-development/
+- GitHub latest release asset links: https://docs.github.com/en/repositories/releasing-projects-on-github/linking-to-releases
+- GitHub release draft publication: https://cli.github.com/manual/gh_release_edit

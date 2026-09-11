@@ -1,0 +1,31 @@
+name: Publish Foundry Release
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v[0-9]*'
+permissions:
+  contents: read
+concurrency:
+  group: foundry-release-${{ github.repository }}
+  cancel-in-progress: false
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Set actual repository URLs and synchronise versions
+        run: npm run prepare:release
+      - name: Test and build matching release assets
+        run: npm run release:check
+      - name: Publish both assets and verify public update/download URLs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bash scripts/publish-release.sh

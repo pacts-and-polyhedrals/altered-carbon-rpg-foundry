@@ -1,0 +1,42 @@
+{
+  "mode": "offline simulated gh and HTTP; no real API calls or publication",
+  "checks": [
+    {
+      "case": "successful publication sequence",
+      "passed": true,
+      "release_writes": [
+        "create",
+        "upload",
+        "edit"
+      ]
+    },
+    {
+      "case": "private repo blocked",
+      "passed": true,
+      "release_writes": []
+    },
+    {
+      "case": "older version not promoted",
+      "passed": true,
+      "release_writes": []
+    },
+    {
+      "case": "published version not overwritten",
+      "passed": true,
+      "release_writes": []
+    },
+    {
+      "case": "failed upload never publishes",
+      "passed": true,
+      "release_writes": [
+        "create",
+        "upload"
+      ]
+    },
+    {
+      "case": "mismatched pushed tag blocked",
+      "passed": true,
+      "release_writes": []
+    }
+  ]
+}
