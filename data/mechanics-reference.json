@@ -1,0 +1,1071 @@
+{
+  "source": "Altered Carbon RPG Core Rulebook 2020; Core rules take precedence over the 2020 Quick Start where values differ.",
+  "skillLevels": [
+    {
+      "level": 1,
+      "die": 12,
+      "autoPassTR": 20
+    },
+    {
+      "level": 2,
+      "die": 10,
+      "autoPassTR": 15
+    },
+    {
+      "level": 3,
+      "die": 8,
+      "autoPassTR": 12
+    },
+    {
+      "level": 4,
+      "die": 6,
+      "autoPassTR": 10
+    },
+    {
+      "level": 5,
+      "die": 4,
+      "autoPassTR": 8
+    }
+  ],
+  "skillAdvancement": {
+    "1to2": 20,
+    "2to3": 50,
+    "3to4": 80,
+    "4to5": 125,
+    "specializationBase": 15,
+    "specializationStep": 5,
+    "specializationCap": 30
+  },
+  "traitCosts": {
+    "common": {
+      "unlock": 1,
+      "tiers": [
+        5,
+        10,
+        15,
+        20,
+        25
+      ],
+      "blackout": 35
+    },
+    "uncommon": {
+      "unlock": 5,
+      "tiers": [
+        10,
+        20,
+        25,
+        30,
+        35
+      ],
+      "blackout": 50
+    },
+    "anomaly": {
+      "unlock": 10,
+      "tiers": [
+        15,
+        30,
+        35,
+        45,
+        55
+      ],
+      "blackout": null
+    }
+  },
+  "sleeves": {
+    "birth": {
+      "strength": [
+        30,
+        50
+      ],
+      "perception": [
+        30,
+        50
+      ],
+      "health": "2d8+SB",
+      "average": 13
+    },
+    "natal": {
+      "strength": [
+        30,
+        50
+      ],
+      "perception": [
+        30,
+        50
+      ],
+      "health": "2d8+SB",
+      "average": 13
+    },
+    "clone": {
+      "strength": [
+        30,
+        50
+      ],
+      "perception": [
+        30,
+        50
+      ],
+      "health": "2d8+SB",
+      "average": 13
+    },
+    "synthetic-low": {
+      "strength": [
+        30,
+        40
+      ],
+      "perception": [
+        20,
+        40
+      ],
+      "health": "2d6+SB",
+      "average": 10
+    },
+    "synthetic-mid": {
+      "strength": [
+        35,
+        55
+      ],
+      "perception": [
+        30,
+        45
+      ],
+      "health": "2d8+SB",
+      "average": 13
+    },
+    "synthetic-high": {
+      "strength": [
+        35,
+        60
+      ],
+      "perception": [
+        35,
+        60
+      ],
+      "health": "2d10+SB",
+      "average": 15
+    }
+  },
+  "conditions": [
+    {
+      "id": "dazzled",
+      "name": "Dazzled",
+      "effect": "Sight-reliant Perception/Acuity checks drop one Skill Level; sight-only checks fail."
+    },
+    {
+      "id": "deferral",
+      "name": "Deferral",
+      "effect": "Effective Wealth is 1 lower while active; purchases during Deferral increase its level and require Bureaucracy/Discipline or risk Debt."
+    },
+    {
+      "id": "debt",
+      "name": "Debt",
+      "effect": "Counts as Deferral and cannot clear through time; buying Credits from a Resource Catalog adds +1 DP."
+    },
+    {
+      "id": "distracted",
+      "name": "Distracted",
+      "effect": "Roll 2 fewer Speed Dice during Intent, minimum 1."
+    },
+    {
+      "id": "drenched",
+      "name": "Drenched",
+      "effect": "Composure, Discipline, Endurance and Survival suffer -2."
+    },
+    {
+      "id": "dying",
+      "name": "Dying",
+      "effect": "At or above Damage Threshold; further Wounds become direct HP loss. Lose HP1 each round and test Endurance/Toughness until stabilized or dead."
+    },
+    {
+      "id": "encumbered",
+      "name": "Encumbered",
+      "effect": "For each Cargo Unit above Strength Bonus: Strength checks -1 and Speed Dice -1, minimum 1 die."
+    },
+    {
+      "id": "enraged",
+      "name": "Enraged",
+      "effect": "Cannot make Intelligence/Acuity checks; +1 Speed Die; non-Strength skills -2."
+    },
+    {
+      "id": "exhausted",
+      "name": "Exhausted",
+      "effect": "Equipment is unusable until at least one Depletion Point is removed."
+    },
+    {
+      "id": "hidden",
+      "name": "Hidden",
+      "effect": "Cannot be targeted except by Detection. Non-Move/Support actions grant opponents a free Detection opposed check and can break Hidden."
+    },
+    {
+      "id": "incapacitated",
+      "name": "Incapacitated",
+      "effect": "Cannot participate in Intent, resolve Speed Dice or make checks; attacks deal maximum Wounds, and close attacks automatically hit with at least one success degree."
+    },
+    {
+      "id": "malnourished",
+      "name": "Malnourished",
+      "effect": "All checks -2; after days exceeding higher of WB/SB, -4; after days exceeding WB+SB the sleeve expires."
+    },
+    {
+      "id": "out-of-place",
+      "name": "Out of Place",
+      "effect": "Stealth, Diplomacy and Expression normally -1 or more when gear/apparel draws inappropriate attention."
+    },
+    {
+      "id": "panic",
+      "name": "Panic",
+      "effect": "Strength, Perception, Acuity and Intelligence skills drop one Skill Level, min Lv.1, until Composure 6 succeeds or encounter ends."
+    },
+    {
+      "id": "prone",
+      "name": "Prone",
+      "effect": "Resolve 2 Speed Dice to stand as a Move Action. Until then no other Move Actions except crawling for 2 Speed Dice, and all Actions suffer -1."
+    },
+    {
+      "id": "pinned",
+      "name": "Pinned",
+      "effect": "Pinned also counts as Prone. To break the Grapple, Resolve at least one Speed Die and/or one success degree per opponent SB. A Pinned character cannot use weapons requiring their hands."
+    },
+    {
+      "id": "scandalized",
+      "name": "Scandalized",
+      "effect": "Applies the active Scandal entry. Socialites and Meths lose an extra IP when a Scandal would not normally cost IP, or one additional IP when it does."
+    },
+    {
+      "id": "squalor",
+      "name": "Squalor",
+      "effect": "Prevents natural healing. Usually imposes Composure and Diplomacy -2 or more; Stealth can also be penalized when smell or similar detection matters."
+    },
+    {
+      "id": "stable",
+      "name": "Stable",
+      "effect": "Suspends Dying without removing the underlying injury/state. Taking any new Wound removes Stable."
+    },
+    {
+      "id": "under-influence",
+      "name": "Under the Influence",
+      "effect": "The drug/chemical Special Rules remain active. Make Endurance each Round; on a pass, it wears off at the end of the Encounter. Each pass gives Endurance +1 to subsequent metabolism checks."
+    },
+    {
+      "id": "virtual",
+      "name": "Virtual",
+      "effect": "Use Willpower in place of Strength and Acuity in place of Perception; converted checks normally -3; combat harms Ego rather than sleeve Wounds."
+    }
+  ],
+  "injuries": [
+    {
+      "id": "bone",
+      "name": "Bone Injury",
+      "effect": "Lose one Speed Die and Strength -1; repeated bone injuries stack further Speed/Difficulty penalties. HP recovery rate: 1/week."
+    },
+    {
+      "id": "flesh",
+      "name": "Flesh Wound",
+      "effect": "Resolving more than one Triggered Effect in a round adds a Wound unless 2 extra Speed Dice are resolved; GM may turn one failure degree in opposed/save contexts into a Wound. HP recovery: 1/day."
+    },
+    {
+      "id": "poisoned",
+      "name": "Poisoned",
+      "effect": "Perception and Acuity -1; Short Rests cannot heal Wounds. HP recovery: 1/hour."
+    }
+  ],
+  "luckModes": [
+    {
+      "id": "beginners",
+      "name": "Beginner's Luck",
+      "effect": "Luck Die acts as a Bonus Die but can still form Stroke/Catastrophe with the Skill die."
+    },
+    {
+      "id": "pressing",
+      "name": "Pressing Their Luck",
+      "effect": "Add Luck result to Skill die result, not Bonus Dice."
+    },
+    {
+      "id": "making",
+      "name": "Making Their Own Luck",
+      "effect": "Add Luck result to Bonus Dice, not Skill die."
+    },
+    {
+      "id": "tough",
+      "name": "Tough Luck",
+      "effect": "Add Luck result to both Skill die and Bonus Dice."
+    },
+    {
+      "id": "dumb",
+      "name": "Dumb Luck",
+      "effect": "Spend SP equal to difference between Skill and Luck results to replace all results with Luck; unavailable if Luck is an Ace or its maximum face."
+    }
+  ],
+  "viralClasses": {
+    "C": {
+      "dice": "1d6",
+      "maxDice": 3,
+      "saveDifficulty": 0
+    },
+    "B": {
+      "dice": "2d6",
+      "maxDice": 6,
+      "saveDifficulty": 1
+    },
+    "A": {
+      "dice": "3d6",
+      "maxDice": 10,
+      "saveDifficulty": 2
+    },
+    "milSpec": {
+      "dice": "4d6",
+      "maxDice": null,
+      "saveDifficulty": 3
+    }
+  },
+  "resleeving": {
+    "crossSleeve": "EP1d6 additional; EP2d6 if DHF age is under 50.",
+    "downgrade": {
+      "birth/clone->synthetic-high": "2d6",
+      "birth/clone->synthetic-mid": "3d6 + SP1d6",
+      "birth/clone->synthetic-low": "4d6 + SP2d6",
+      "natal->synthetic-high": "1d6",
+      "natal->synthetic-mid": "2d6",
+      "natal->synthetic-low": "3d6 + SP1d6",
+      "synthetic-high->synthetic-mid": "1d6",
+      "synthetic-high->synthetic-low": "2d6 + SP1d6",
+      "synthetic-mid->synthetic-low": "1d6"
+    },
+    "doubleSleeving": "EP3d6 and one less IP; duplicate becomes a separate NPC."
+  },
+  "requests": {
+    "levels": {
+      "1": {
+        "baseTR": "10+EB",
+        "networkBonusDie": 4,
+        "exhaustDegrees": 2,
+        "resupply": {
+          "physicalDP": 3,
+          "poweredDP": 5,
+          "rareMax": 1
+        }
+      },
+      "2": {
+        "baseTR": "8+EB",
+        "networkBonusDie": 6,
+        "exhaustDegrees": 3,
+        "resupply": {
+          "physicalDP": 5,
+          "poweredDP": 7,
+          "rareMax": 2
+        }
+      },
+      "3": {
+        "baseTR": "6+EB",
+        "networkBonusDie": 8,
+        "exhaustDegrees": 4,
+        "resupply": {
+          "physicalDP": 7,
+          "poweredDP": 10,
+          "rareMax": 3
+        }
+      },
+      "4": {
+        "baseTR": "4+EB",
+        "networkBonusDie": 10,
+        "exhaustDegrees": 5,
+        "resupply": {
+          "physicalDP": 10,
+          "poweredDP": 15,
+          "rareMax": 4
+        }
+      },
+      "5": {
+        "baseTR": "2+EB",
+        "networkBonusDie": 12,
+        "exhaustDegrees": 5,
+        "resupply": {
+          "physicalDP": "all",
+          "poweredDP": "all",
+          "rareMax": 5
+        }
+      }
+    },
+    "contactAffiliation": [
+      {
+        "id": "none",
+        "sp": 5,
+        "resourceDice": 1,
+        "trBonus": 0,
+        "categories": [
+          "informant",
+          "supplier"
+        ]
+      },
+      {
+        "id": "casual",
+        "sp": 10,
+        "resourceDice": 2,
+        "trBonus": 1,
+        "categories": [
+          "any-1"
+        ]
+      },
+      {
+        "id": "close",
+        "sp": 13,
+        "resourceDice": 3,
+        "trBonus": 1,
+        "categories": [
+          "any-2"
+        ]
+      },
+      {
+        "id": "extremely-close",
+        "sp": 15,
+        "resourceDice": 4,
+        "trBonus": 2,
+        "categories": [
+          "any-2"
+        ]
+      },
+      {
+        "id": "irreplaceable",
+        "sp": 20,
+        "resourceDice": 5,
+        "trBonus": 3,
+        "categories": [
+          "mercenary",
+          "informant",
+          "supplier"
+        ]
+      }
+    ]
+  },
+  "gearRules": [
+    {
+      "id": "accuracy",
+      "name": "Accuracy (X)",
+      "effect": "Triggered Effect cost may be paid repeatedly without extra Speed Dice; repeated uses combine and impose -X per repeat on saves when X is listed."
+    },
+    {
+      "id": "addiction",
+      "name": "Addiction",
+      "effect": "Resist buying/using with Discipline; resisting while addicted gives -1 all checks until use; three failure degrees on the addiction check develops Addiction."
+    },
+    {
+      "id": "ammunition",
+      "name": "Ammunition",
+      "effect": "Finite ammunition uses Depletion; specialized ammunition can alter Price/DP and may require upgrades."
+    },
+    {
+      "id": "armor",
+      "name": "Armor",
+      "effect": "Provides listed Defense/Protection and rules; Armor Piercing ignores all benefits explicitly granted by Armor."
+    },
+    {
+      "id": "armor-piercing",
+      "name": "Armor Piercing",
+      "effect": "Ignores Armor benefits and increases Structure damage: passed Structure save d4, failed d6."
+    },
+    {
+      "id": "attachment",
+      "name": "Attachment",
+      "effect": "No skill check to install/remove; normally changed during Short Rest or by resolving at least 3 Speed Dice."
+    },
+    {
+      "id": "battle-armor",
+      "name": "Battle Armor",
+      "effect": "Cannot be layered; untrained wearers add Heavy +1 to armor and hand-slot equipment."
+    },
+    {
+      "id": "blast",
+      "name": "Blast",
+      "effect": "One center plus radius. Direct Hit costs 2 success degrees; Effect Radius can use Speed/success degree and forces saves at -3; Hit/Glancing Hit use listed damage bands."
+    },
+    {
+      "id": "body-slot",
+      "name": "Body Slot",
+      "effect": "Only one item per slot unless Layering allows it; first Cargo Unit occupying a body slot does not count against carried Cargo."
+    },
+    {
+      "id": "concealment",
+      "name": "Concealment (X)",
+      "effect": "Gear grants Stealth +X to conceal itself; if rating exceeds target PB it passes inspection without a check."
+    },
+    {
+      "id": "deadly",
+      "name": "Deadly (X)",
+      "effect": "Up to X damage dice also inflict direct HP loss; Protection reduces normal damage before Deadly damage."
+    },
+    {
+      "id": "defensive",
+      "name": "Defensive",
+      "effect": "Weapon may be used with its combat skill as a Save Throw in Grapple range; effects resolve immediately."
+    },
+    {
+      "id": "deployed",
+      "name": "Deployed",
+      "effect": "No penalties for Shared/Adjacent use while stationary; moving ends Deployed."
+    },
+    {
+      "id": "designer",
+      "name": "Designer",
+      "effect": "At least +1 Tech Point and higher social visibility; normally raises Price Level by 1 and makes concealment of model/social standing harder."
+    },
+    {
+      "id": "efficiency",
+      "name": "Efficiency (X)",
+      "effect": "Add +X to Depletion Checks; only explicitly additive Efficiency stacks."
+    },
+    {
+      "id": "environment-sealed",
+      "name": "Environmentally Sealed",
+      "effect": "Ignores applicable environmental hazards; extreme environments require sealed protection across all body slots."
+    },
+    {
+      "id": "firing-modes",
+      "name": "Firing Modes / Settings",
+      "effect": "Changing mode resolves one Speed Die. Burst: DP1d3, +1 automatic success degree, +1 damage. Full auto: DP1d6, +2 automatic success degrees, +3 damage."
+    },
+    {
+      "id": "heavy",
+      "name": "Heavy (X)",
+      "effect": "Adds X Cargo Units even when gear occupies a body slot."
+    },
+    {
+      "id": "layering",
+      "name": "Layering",
+      "effect": "Layered apparel combines rules/Defense/Triggered Effects but adds Heavy +1; Battle Armor cannot layer."
+    },
+    {
+      "id": "linked",
+      "name": "Linked",
+      "effect": "Uses shared processor/power and unlocks linked effects; Disarm/interference attempts suffer -2."
+    },
+    {
+      "id": "melee",
+      "name": "Melee Weapon",
+      "effect": "Can attack Engaged targets in a Shared Zone; Engage is a Move Action and resolves a Speed Die or success degree."
+    },
+    {
+      "id": "oni",
+      "name": "ONI",
+      "effect": "Enables network/database functionality and linked features; Powered."
+    },
+    {
+      "id": "pistol",
+      "name": "Pistol",
+      "effect": "Usable in Shared/Adjacent Zones; Adjacent attacks normally -4."
+    },
+    {
+      "id": "powered",
+      "name": "Powered",
+      "effect": "Requires power. Passive powered upgrades normally reduce shared Capacity by 1 each; active features can add DP. EMP/suppression disables powered features."
+    },
+    {
+      "id": "protection",
+      "name": "Protection (X)",
+      "effect": "Reduce applicable incoming Wounds after damage roll but before threshold/HP, to a minimum of 1 Wound."
+    },
+    {
+      "id": "rare",
+      "name": "Rare",
+      "effect": "Requires a specific catalog entry/contact; catalog Capacity uses 2d4+Wealth; resupply costs IP unless price is raised; monetary Price Level +1."
+    },
+    {
+      "id": "requisition",
+      "name": "Requisition",
+      "effect": "Organization loans tracked gear when clearance permits; gear is returnable, traceable and Cargo-limited."
+    },
+    {
+      "id": "revolver",
+      "name": "Revolver",
+      "effect": "Each use adds exactly 1 DP without a Depletion roll; exhausts at Capacity. Reload removes 1 DP per 2 Speed Dice."
+    },
+    {
+      "id": "rifle",
+      "name": "Rifle",
+      "effect": "Two-handed; all zones; Shared Zone -1. Deploy with one Speed Die to remove Shared/Adjacent range penalties while stationary."
+    },
+    {
+      "id": "short-ranged",
+      "name": "Short Ranged",
+      "effect": "Usable only in Shared or Adjacent Zones."
+    },
+    {
+      "id": "slag",
+      "name": "Slag (X)",
+      "effect": "Real Death saves take Toughness -X when HP loss comes from this weapon."
+    },
+    {
+      "id": "standard-issue",
+      "name": "Standard Issue",
+      "effect": "Issued without a Request; supply exhausts when DP reaches Capacity; normally cannot be modified or transferred without reprimand."
+    },
+    {
+      "id": "storage",
+      "name": "Storage",
+      "effect": "Provides additional capacity for partial/full Cargo Units as listed."
+    },
+    {
+      "id": "uniform",
+      "name": "Uniform",
+      "effect": "Provides social/identity benefits or penalties appropriate to rank/organization and can enable disguise interactions."
+    }
+  ],
+  "vehicle": {
+    "structure": "Wounds below Durability in a round are superficial. At/above Durability, save vs Structure: pass loses 1 Structure, fail d4; Armor Piercing changes this to d4/d6. Each lost Structure reduces Handling and Fire Control by 1; Structure 0 destroys vehicle.",
+    "sizePenalty": "Pilot -1 per Size unless Fully Crewed.",
+    "crew": "Skeleton crew adds Pilot -1 per difference from Fully Crewed and halves available Speed Dice. Fully Crewed ignores Size penalty.",
+    "travelFuelDP": {
+      "district": "1",
+      "city": "1 per Size",
+      "region": "2 per Size",
+      "planetary": "1d8 + 2 per Size",
+      "space": "narrative"
+    },
+    "specials": {
+      "antiGrav": "Uses Anti-Grav Vehicle specialization; controlled descent; sample profiles already include -10 Durability/-1 Structure.",
+      "autopilot": "Pilot +3 gear bonus.",
+      "fuelEfficiency": "+2 Fuel Capacity, -1 Speed Die (min 1).",
+      "guidedWeaponry": "+1 Fire Control.",
+      "improvedEngine": "+1 Speed Die.",
+      "reinforcedFrame": "+1 Structure.",
+      "reinforcedHull": "+10 Durability.",
+      "strippedFrame": "-1 Structure, -10 Durability, +1 Speed Die, +1 Handling, +1 Fuel Capacity (Size 2+).",
+      "vectoredPropulsion": "+1 Handling, Anti-Grav only."
+    }
+  },
+  "virtual": {
+    "attributeSubstitution": {
+      "strength": "willpower",
+      "perception": "acuity"
+    },
+    "projectionDifficulty": 3,
+    "envoyProjectionDifficulty": 1,
+    "damageTarget": "ego",
+    "timeBands": [
+      {
+        "id": "days",
+        "ego": "0",
+        "save": "none",
+        "instruction": "1 SP usable during the session as a Bonus Die on a relevant Perception/Acuity/Intelligence check or basic procedural knowledge."
+      },
+      {
+        "id": "month",
+        "ego": "0/1/1d4",
+        "save": "Discipline",
+        "instruction": "SP1d4 for Bonus Dice on one relevant Attribute, or SP1 normal."
+      },
+      {
+        "id": "months-year",
+        "ego": "0/1d4/1d6",
+        "save": "Discipline -1",
+        "instruction": "Halve the cost of one skill upgrade or gain SP1d6+AB."
+      },
+      {
+        "id": "five-years",
+        "ego": "1d6/2d6/3d6",
+        "save": "Discipline -2",
+        "instruction": "One skill upgrade to max Lv.3 or SP2d6+AB."
+      },
+      {
+        "id": "ten-plus-years",
+        "ego": "2d6/3d6/special",
+        "save": "Discipline -3",
+        "instruction": "Choose two: one skill to max Lv.4; two same-attribute skills to max Lv.3; gain SP3d6+AB."
+      }
+    ]
+  },
+  "variants": {
+    "ai": {
+      "restrictions": "May inhabit buildings/local mainframes or synthetic sleeves with GeoRestriction; cannot use Soldier Archetype.",
+      "ego": "No DHF age; starting Ego equals Willpower.",
+      "licenses": "Outside Virtual, Skills below Lv.3 normally cannot be attempted without a temporary license/driver: Lv.1 costs EP1d6 and rolls d8; Lv.2 costs EP2d6 and rolls d6.",
+      "virtual": "Virtual Native: removes the low-skill license restriction and the human projection penalty. Viral strikes have no maximum EP loss against AI.",
+      "networking": "Second Class increases Network Die one step for non-AI Contacts; AI Enclave decreases it one step for AI Contacts.",
+      "nanoswarm": "AI may project through nanoswarm projectors with the source-defined Tech Point tiers and physical limitations."
+    },
+    "religious": {
+      "convert": "If adopted at age 40 or less, gain SP25; if 80 or less, upgrade one Willpower/Empathy Skill Level.",
+      "earthbound": "Cannot needlecast to other sleeves/worlds. Severe Organic Damage/sleeve death is treated as Real Death; cannot be Meth.",
+      "orthodoxy": "Crime Trait Tree becomes Anomaly and Diplomacy +1 applies when interacting with someone without Religious Coding.",
+      "chooseOne": [
+        "Close-knit Community: gain IP1 and religious community Contact",
+        "Ego Barrier: half DHF viral Ego damage and +3 to saves against it",
+        "Eschew Virtual: cannot enter simulspace and is immune to Virtual interrogation/training",
+        "Spotless Soul: halve Baggage rolls and dice, rounding up, with the source maximum reduction"
+      ]
+    },
+    "envoy": {
+      "always": [
+        "Business and Society Trait Tree is Anomaly",
+        "Effective Wealth Level -1, minimum 1"
+      ],
+      "chooseTwo": [
+        "Perfect Recall",
+        "Re-sleeving: +2 to saves against Ego loss from resleeving",
+        "Wolf Pack: restore/gain situational IP when entering new worlds/towns/organizations or developing Contacts",
+        "Resourceful: restore IP1 for SP10 instead of SP15",
+        "Combat Conditioning: all Traits from two Combat/Praxis branches as specified",
+        "Control the Construct: only -1 projection penalty in Virtual"
+      ]
+    },
+    "meth": {
+      "socialite": "Has Socialite options/drawbacks even if another Archetype was chosen.",
+      "influence": "Gain IP2.",
+      "wealth": "Generated Credits count one Level higher.",
+      "social": "Intimidation and Composure +1 vs non-Meths; Read Person +2 vs Meths.",
+      "aloof": "Expression, Read Person and Cultures -3 vs non-Meths; -4 if over 150; -5 if over 200.",
+      "scandals": "Using Meth benefits while Scandalized costs IP1; Scandals also increase IP losses as specified.",
+      "backup": "Starts with one lower-tier DHF Backup."
+    }
+  },
+  "scandals": [
+    {
+      "id": "asset-freeze",
+      "name": "Asset Freeze",
+      "effect": "Cannot automatically generate Credits or remove DP from Resource Catalog entries."
+    },
+    {
+      "id": "corruption",
+      "name": "Corruption",
+      "effect": "Diplomacy/Expression/Intimidation/Bureaucracy -2 outside own Network/organization; Officials leveraging authority -3."
+    },
+    {
+      "id": "criminal-element",
+      "name": "Criminal Element",
+      "effect": "Whenever IP1 is used, a squad of Hitmen/Thugs is attracted. Criminals are not immune."
+    },
+    {
+      "id": "curtailed-liberties",
+      "name": "Curtailed Civil Liberties",
+      "effect": "GM applies one or more: Bureaucracy -3; Requests cost +1 IP; permits suspended; no public transport; restricted automated food/medicine and halved natural Wound healing."
+    },
+    {
+      "id": "cut-off",
+      "name": "Cut Off",
+      "effect": "Between sessions choose only one resupply/credit/purchase/Request activity; Credits are acquired one level below normal."
+    },
+    {
+      "id": "ego-splinter",
+      "name": "Ego Splinter",
+      "effect": "Character develops a compulsive behavioral manifestation from past-sleeve imprints; can be treated with psychosurgery."
+    },
+    {
+      "id": "exposure",
+      "name": "Exposure",
+      "effect": "Empathy -1 (-2 for Socialite); Contacts and Networks cost +1 IP per Request."
+    },
+    {
+      "id": "faustian-bargain",
+      "name": "Faustian Bargain",
+      "effect": "Uses the matching Baggage rules."
+    },
+    {
+      "id": "forced-conversion",
+      "name": "Forced Conversion",
+      "effect": "Religious Coding has been added; Severe Organic Damage sends DHF to storage rather than routine resleeving until rescued."
+    },
+    {
+      "id": "framed",
+      "name": "Framed / Indictment",
+      "effect": "No public transport; travel beyond District costs IP; hidden purchases need Untraceable Credits."
+    },
+    {
+      "id": "hit-squad",
+      "name": "Hit Squad",
+      "effect": "Dedicated hit squads receive +2 overall; each encounter includes a Nemesis or at least one non-Minion."
+    },
+    {
+      "id": "legal-entanglement",
+      "name": "Legal Entanglement",
+      "effect": "Party Requests from legal/government bodies cost +1 IP; the Scandalized character needs IP3 unless an Official of that body."
+    },
+    {
+      "id": "person-interest",
+      "name": "Person of Interest",
+      "effect": "All purchases draw attention; Untraceable Credits avoid purchase tracing."
+    },
+    {
+      "id": "public-ire",
+      "name": "Public Ire",
+      "effect": "Lose up to IP1d4 and cannot use a Network until name is cleared."
+    },
+    {
+      "id": "severe-fines",
+      "name": "Severe Fines",
+      "effect": "Counts as Debt until paying Price Level equal to Wealth +1."
+    },
+    {
+      "id": "turncoat",
+      "name": "Turncoat",
+      "effect": "Using any Contact costs +1 IP until the traitor is identified and dealt with."
+    },
+    {
+      "id": "unemployed",
+      "name": "Unemployed",
+      "effect": "Wealth 0, no monetary/resource-catalog purchasing; all Credit catalog entries Exhausted; gain 5 Credits at former Wealth Level as severance/savings."
+    }
+  ],
+  "adversaries": {
+    "minion": "No Damage Threshold. Must take at least HP + Minion modifier Wounds in one round to be killed/incapacitated; lesser same-round damage is superficial but may consume Speed Dice.",
+    "nemesis": [
+      "Consummate Warrior",
+      "Escape Artist",
+      "Signature Weapon",
+      "Juggernaut",
+      "Mastermind",
+      "Psy-Op",
+      "Well Connected"
+    ],
+    "nonCombatant": [
+      "Bribery",
+      "Conspiracy",
+      "Influence",
+      "Isolation"
+    ]
+  },
+  "backup": {
+    "basic": "IP1 + Price Lv.4; one backup and an extra loss die when restored after RD.",
+    "routine": "IP2 + Price Lv.5; routinely updated and avoids the extra lost-time penalty.",
+    "payment": "Credits only."
+  },
+  "characterResources": {
+    "attributes": {
+      "sleeve": [
+        "Strength",
+        "Perception"
+      ],
+      "stack": [
+        "Empathy",
+        "Willpower",
+        "Acuity",
+        "Intelligence"
+      ],
+      "attributeBonus": "Tens digit of the Attribute."
+    },
+    "damageThreshold": "Equal to current sleeve Strength.",
+    "health": {
+      "birthNatalClone": "2d8 + SB",
+      "syntheticLow": "2d6 + SB",
+      "syntheticMid": "2d8 + SB",
+      "syntheticHigh": "2d10 + SB"
+    },
+    "startingStackAttributes": "All four Stack Attributes begin at 30 and normally cap at 50 before cap-changing Traits.",
+    "stackPointAttributeAdvance": "Spend SP1 to increase one eligible Attribute by 1d4.",
+    "influence": "Influence Points power Requests, Contacts and narrative retcons. Restoring IP is intentionally rare; SP15 can normally restore IP1.",
+    "ego": "Ego Points measure DHF integrity. At EP0 the original personality is broken/splintered enough that normal play as the original character ends unless the group deliberately continues with the altered personality."
+  },
+  "damageAndDying": {
+    "wounds": "Wounds accumulate against Damage Threshold. Each cumulative Wound beyond Damage Threshold removes HP1.",
+    "dying": "At Wounds equal to or greater than Damage Threshold the sleeve is Dying. Further attacks while Dying cause direct HP loss equal to Wounds inflicted. At the end of each turn, test Endurance or Toughness against remaining HP minus 1 per Injury; failure kills the sleeve, success leaves it Dying. Each Dying round also costs HP1 until stabilized.",
+    "stable": "Stable suspends the Dying effect. Taking any new Wound removes Stable.",
+    "realDeath": "Severe Organic Damage/Real Death is normally resolved with Toughness against remaining HP, -1 Difficulty per Injury. Failure can destroy/damage the stack; dying from the ordinary Dying check preserves the stack.",
+    "instantDeath": [
+      "Deliberate lethal attack against a Dying/Prone/dead-to-rights target",
+      "Endurance/Toughness Save fails by more failure degrees than SB+WB",
+      "Wounds from one attack exceed Damage Threshold"
+    ],
+    "protection": "Protection reduces incoming Wounds after damage is rolled, normally to a minimum of 1. Armor Piercing ignores Armor-granted rules/bonuses.",
+    "spMitigation": "At end of a combat Round after taking Wounds, spend escalating SP (1,2,4,8,...) and resolve 3 Speed Dice to reduce incoming Wounds to 0; instead lose HP1 and take/aggravate an Injury.",
+    "healing": {
+      "shortRest": "A couple of hours; one task. Endurance/Toughness success heals Wounds equal to SB, failure heals 1. Poisoned cannot heal Wounds this way.",
+      "longRest": "6-10 uninterrupted hours. Endurance/Toughness with TR equal to HP remaining: success heals 1 Wound per success degree + SB; failure heals SB. Squalor prevents natural healing."
+    }
+  },
+  "ego": {
+    "lossModifiers": {
+      "healthAtSleeveDeath": "Add EP1 for each HP lost when Organic Damage kills the sleeve.",
+      "birthSleeve": "Loss of a birth sleeve doubles the number of Ego-loss dice unless resleeving into a clone.",
+      "willpower": "Reduce Ego loss by EP1 per WB, generally minimum EP1.",
+      "discipline": "Reduce Ego loss by EP1 per success degree on Discipline, generally minimum EP1."
+    },
+    "eventLoss": [
+      {
+        "event": "Organic Damage",
+        "human": "1d6 + HP lost at sleeve death",
+        "ai": "none",
+        "permanent": "maybe"
+      },
+      {
+        "event": "Accidental Death / Unknown Causes",
+        "human": "1d6",
+        "ai": "1d4",
+        "permanent": true
+      },
+      {
+        "event": "Death by Assassination",
+        "human": "2d6",
+        "ai": "1d6",
+        "permanent": true
+      },
+      {
+        "event": "Combat Death",
+        "human": "3d6",
+        "ai": "2d6",
+        "permanent": false
+      },
+      {
+        "event": "Traumatic Death / failed Dying test",
+        "human": "4d6",
+        "ai": "3d6",
+        "permanent": true
+      },
+      {
+        "event": "Time in Virtual",
+        "human": "see Virtual time bands",
+        "ai": "none",
+        "permanent": "maybe"
+      },
+      {
+        "event": "Missleeved",
+        "human": "see Resleeving",
+        "ai": "special",
+        "permanent": false
+      },
+      {
+        "event": "Torture, real world",
+        "human": "1d6 per success degree in Intimidation",
+        "ai": "none",
+        "permanent": "maybe"
+      },
+      {
+        "event": "Torture, simulspace",
+        "human": "1d6 per success degree in Data Engineering",
+        "ai": "special",
+        "permanent": "maybe"
+      }
+    ],
+    "recovery": {
+      "stackPoints": "SP5 restores 1d6 + WB Ego.",
+      "psychosurgery": "Put DHF into Virtual; Medicine 3, Read Person, or Data Engineering 5; resolve the Psychosurgery Triggered Effect. Restored EP depends on skill and success degrees."
+    },
+    "viralCategories": [
+      "Breach",
+      "Ego Assault",
+      "Surveillance",
+      "Trojan/Malware"
+    ]
+  },
+  "economy": {
+    "wealthLevels": {
+      "1": "Poor/Indebted",
+      "2": "Working Class",
+      "3": "Middle Class",
+      "4": "Wealthy",
+      "5": "Rich",
+      "6": "Super Wealthy NPC tier"
+    },
+    "priceLevels": {
+      "1": "Inconsequential",
+      "2": "Inexpensive",
+      "3": "Consequential",
+      "4": "Luxury",
+      "5": "Ludicrously Expensive"
+    },
+    "deferral": {
+      "sameWealth": "One purchase at Wealth Level per day with no Deferral.",
+      "oneAbove": "1 day",
+      "twoAbove": "1 week / +2 existing Deferral",
+      "threeAbove": "1 year / +3",
+      "fourAbove": "1 decade / +4",
+      "fivePlusAbove": "1 decade / +5"
+    },
+    "credits": "Credits are one-use disposable income at a Level. They do not add together to raise Wealth. They can buy an item at equal/lower Price Level, wipe appropriate Deferral, or purchase from a Resource Catalog without adding DP.",
+    "untraceableCredits": "Function like Credits, but do not automatically flag the purchaser; deliberate investigation can still trace them.",
+    "resourceCatalog": {
+      "capacity": "Default added item Capacity is 2d6 + Wealth; Rare uses 2d4 + Wealth.",
+      "take": "Taking an entry at or below Wealth adds DP1 and makes a Depletion Check against Capacity - DP using the Wealth-level die.",
+      "wealthDice": {
+        "1": "d12",
+        "2": "d10",
+        "3": "d8",
+        "4": "d6",
+        "5": "d4"
+      },
+      "belowWealth": "Roll one extra Depletion Die per Price Level below Wealth and keep the most favorable result.",
+      "exhausted": "A failed Depletion Check exhausts the entry until supply is restored by time, Contact/IP, Credits, or narrative means."
+    },
+    "modifiers": {
+      "rare": "Specific Resource Catalog/Contact only; lower Capacity; +1 Monetary Price Level; resupply often needs IP.",
+      "regulated": "+1 Price Level; halve Resource Catalog Capacity.",
+      "unregistered": "+1 Price Level; one example at a Price Level before exhaustion.",
+      "grayMarket": "Halve Resource Catalog Capacity.",
+      "blackMarketCustom": "Specific supplier/catalog only; halve Capacity; +1 Price Level."
+    }
+  },
+  "techPoints": {
+    "applyTR": {
+      "0-1 used": 12,
+      "2 used": 10,
+      "3 used": 8,
+      "4 used": 6,
+      "5+ used": 4
+    },
+    "respecTR": {
+      "1 total": 10,
+      "2 total": 8,
+      "3 total": 6,
+      "4 total": 4,
+      "5+ total": 2
+    },
+    "upgradeKit": "Aftermarket Upgrade Kit spends available Tech Points on allowed modifications.",
+    "chassisUpgrade": "Adds Tech Points to the chassis, but total added capacity cannot raise the chassis above double its default Tech Points (minimum one extra).",
+    "hardwired": "Cannot be removed/respecced.",
+    "modelVariant": "Factory modification. Up to 2 Tech Points can be discounted from Price Level when immediately spent; altering it is -2 Difficulty.",
+    "attachments": "Do not require a Skill Check to apply/remove, but normally require a Short Rest or enough Speed Dice in an encounter.",
+    "linked": "Linked gear can share processors/power and offers linked Triggered Effects; disrupting/disarming linked gear is harder.",
+    "narrativeUpgrade": "A non-weapon device/apparel may permanently spend a Tech Point on a GM-approved situational feature; Technician has the published refund exception."
+  },
+  "campaign": {
+    "oneOff": "Single session; 2-3 Campaign Table rolls are suggested if using campaign generation.",
+    "campaignDice": {
+      "d12": "Extremely bad outcome / abysmal reward",
+      "d10": "Bad outcome / low reward",
+      "d8": "Poor outcome / moderate reward",
+      "d6": "Good outcome / decent reward",
+      "d4": "Extremely good outcome / large reward"
+    },
+    "sessionReward": "Suggested SP reward: (10 - Campaign Die Result) x2, with at least SP3-5 recommended even for poor results.",
+    "campaignReward": "For continuing characters after a full campaign, a substantial reward is about SP10 x number of sessions.",
+    "backup": {
+      "standard": "At least IP1 and Price Lv.4; one backup; roll an extra die for EP/SP loss because of stale memory.",
+      "routine": "IP2 and Price Lv.5; updated routinely and does not take that extra loss die."
+    },
+    "minion": "No Damage Threshold. Must take Health + Minion modifier Wounds within one Round to be killed/incapacitated; lesser Wounds are superficial, though the GM can spend their Speed.",
+    "nemesis": "Recurring adversaries may use published Nemesis protections such as Consummate Warrior, Escape Artist, Signature Weapon, Juggernaut, Mastermind, Psy-Op and Well Connected."
+  },
+  "combat": {
+    "speedDice": "Roll one d6 Speed Die per Perception Bonus, minimum 1 and natural maximum 5 after modifiers. Triggered Effects and Special Rules can alter the pool as stated.",
+    "phases": [
+      "Intent",
+      "Check",
+      "Resolution"
+    ],
+    "intent": "Declare intended actions, equipment Uses, movement and targets; roll Speed Dice and secretly choose which become Active for the Round.",
+    "activeOrder": "The combatant with the lowest total on committed Active Speed Dice becomes Active. Uncommitted dice remain available for Save Throws and later resolution.",
+    "actionComplexity": {
+      "simple": "1 Speed Die",
+      "standard": "2 Speed Dice",
+      "complex": "3 or more Speed Dice",
+      "movement": "Add 1 or more Speed Dice to the action as required."
+    },
+    "additionalActions": "Each additional Action that requires a Skill Check in the same Turn adds cumulative Difficulty: second +1, third +2, and so on. Move/Support actions do not count by default unless the GM rules otherwise.",
+    "zones": {
+      "shared": "Same Zone; close combat can be engaged with a Move Action.",
+      "adjacent": "Targets commonly impose -2 Difficulty.",
+      "distant": "Ranged attacks commonly impose -3 Difficulty per Zone crossed; thrown weapons cannot target Distant Zones."
+    },
+    "protectionTiming": "Protection is applied once at the end of Resolution to the aggregate Wounds taken that Turn/Resolution, not separately to each individual attack."
+  },
+  "depletion": {
+    "use": "Relevant finite gear accumulates Depletion Points (DP) with each Use.",
+    "check": "Whenever DP are added, make a Depletion Check. When gear is used with a Skill Check, use a second die of the same type as that Skill Check.",
+    "targetResult": "TR = Capacity - 1 per accumulated DP.",
+    "failure": "A failed Depletion Check makes the gear Exhausted and unusable after the current Turn until DP are removed.",
+    "automatic": "If accumulated DP equals Capacity, the gear is automatically Exhausted.",
+    "firingModes": {
+      "semiAutomatic": "Normally DP 1 per Use when finite ammunition/power applies.",
+      "threeRoundBurst": "DP 1d3 per Use; generates one additional success degree and +1 Damage.",
+      "fullyAutomatic": "DP 1d6 per Use; generates two additional success degrees and +3 Damage."
+    },
+    "counterOnly": "Some entries such as Revolvers or Fire Control weapons explicitly skip the Depletion roll and exhaust only when DP reaches Capacity."
+  }
+}

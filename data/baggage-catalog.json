@@ -1,0 +1,275 @@
+{
+  "rerollSPBase": 5,
+  "entries": [
+    {
+      "id": "baggage-01",
+      "min": 1,
+      "max": 3,
+      "name": "No Baggage",
+      "sleeveOrStack": false,
+      "effect": "The character has led a pretty clean life until now, or they have maintained a low profile, not causing much trouble.",
+      "rulesRef": "Core Rulebook 2020, pp.75–77"
+    },
+    {
+      "id": "baggage-02",
+      "min": 4,
+      "max": 6,
+      "name": "Personality Quirk",
+      "sleeveOrStack": false,
+      "effect": "The character has inherited a personality trait from their current sleeve that is outside of their normal behavior. An addiction, food preference, attraction, or a proclivity towards different hobbies or pastimes are among the most common inherited traits. This is such a common but innocuous and interesting quirk to which a character can attain. Rolling this result multiple times indicates a particularly strong inherited predilection.",
+      "rulesRef": "Core Rulebook 2020, pp.75–77"
+    },
+    {
+      "id": "baggage-03",
+      "min": 7,
+      "max": 9,
+      "name": "Minor Run-In",
+      "sleeveOrStack": true,
+      "effect": "The character has run afoul from either the Protectorate or a large corporation to whom some debt is required as part of some fine or settlement. The character starts the game in Debt and must spend Credits Lv.5 in order to alleviate it.",
+      "rulesRef": "Core Rulebook 2020, pp.75–77"
+    },
+    {
+      "id": "baggage-04",
+      "min": 10,
+      "max": 12,
+      "name": "Missleeved",
+      "sleeveOrStack": false,
+      "effect": "As a result of either the Protectorate’s bureaucratic process of handling a sleeve death, or a hasty measure to prevent some larger catastrophe, a character starts the game missleeved. This could be a cheap synthetic sleeve, a crosssleeve, or the sleeve of a convict whose cortical stack is in storage on a long-term sentence.",
+      "rulesRef": "Core Rulebook 2020, pp.75–77"
+    },
+    {
+      "id": "baggage-05",
+      "min": 13,
+      "max": 15,
+      "name": "Mistaken Identity",
+      "sleeveOrStack": false,
+      "effect": "As a result of cross-sleeving or by some happenstance, the sleeve a character occupies is someone with an extensive list of enemies. They will either be victims of the sleeve’s past corporate espionage, or they will be rival gang members or criminals.",
+      "rulesRef": "Core Rulebook 2020, pp.75–77"
+    },
+    {
+      "id": "baggage-06",
+      "min": 16,
+      "max": 18,
+      "name": "Major Run-In",
+      "sleeveOrStack": true,
+      "effect": "This character was responsible for a considerable crime very early on in their lives, and they are still paying the price. The character starts the game in Debt and must spend Credits Lv.5 in order to alleviate it and have one Scandal generated at random until it is paid in addition to normal Debt rules.",
+      "rulesRef": "Core Rulebook 2020, pp.75–77"
+    },
+    {
+      "id": "baggage-07",
+      "min": 19,
+      "max": 21,
+      "name": "Checkered Past",
+      "sleeveOrStack": true,
+      "effect": "Roll twice on this table with the same number of dice. Both results apply. Rolling this result again will demand another roll. The character must also make an additional Trait Tree an Anomaly, but may make their original Anomaly Trait Tree into an Uncommon one. G A M E M A S T E R N O T E Some Baggage on this table would be extremely detrimental to a character who is playing a specific Archetype. While this is more or less the point of Baggage, if a player feels they would not be able to play the character effectively after having rolled a certain result, a Gamemaster can allow a re-roll, but each re-roll will cost a cumulative SP5 in order to do so. So, the first re-roll will cost SP5, the second SP10, the third SP15, and so on. However, before doing this, a Gamemaster should let the player know that playing at a disadvantage often makes characters more interesting and memorable to play. Also, while baggage is long-lasting, it is rarely permanent and very frequently a vector of an important story arc that features their character in some meaningful way. C H 2 | C H A R A C T E R S 76",
+      "rulesRef": "Core Rulebook 2020, pp.75–77"
+    },
+    {
+      "id": "baggage-08",
+      "min": 22,
+      "max": 24,
+      "name": "Vendetta",
+      "sleeveOrStack": false,
+      "effect": "This character has a decent sleeve, but mostly because their previous sleeve’s death was particularly heinous or tragic. The character knows full well who is responsible and will dedicate considerable resources to seeking revenge, even to the peril of those close to them.",
+      "rulesRef": "Core Rulebook 2020, pp.75–77"
+    },
+    {
+      "id": "baggage-09",
+      "min": 25,
+      "max": 27,
+      "name": "Synthetic Sleeve",
+      "sleeveOrStack": false,
+      "effect": "The character is given a low quality synthetic sleeve with which to start. This likely indicates that the character was re-sleeved secretively or was given this sleeve as a remedial replacement by the Protectorate due to backlogs. See the “Synthetic Sleeves” section for a description of what having a low quality model entails.",
+      "rulesRef": "Core Rulebook 2020, pp.75–77"
+    },
+    {
+      "id": "baggage-10",
+      "min": 28,
+      "max": 30,
+      "name": "Trauma",
+      "sleeveOrStack": false,
+      "effect": "The character has suffered greatly or has been the victim of some sort of torture that involved psychosurgery. As a result, the character’s ego is still fragile, even if they are now functioning human beings. Choose two Willpower Skills to downgrade by 1 Skill Level, or lose EP EP2d6.",
+      "rulesRef": "Core Rulebook 2020, pp.75–77"
+    },
+    {
+      "id": "baggage-11",
+      "min": 31,
+      "max": 33,
+      "name": "Personality Frag",
+      "sleeveOrStack": false,
+      "effect": "This character has spent an inordinate amount of time in virtual, or has been re-sleeved several times in low quality synthetic sleeves. As a result, they have a difficult time distinguishing reality from the digital fiction of virtual. Choose two Acuity {Skill Checks} to downgrade by 1 Skill Level, or lose EP EP2d6.",
+      "rulesRef": "Core Rulebook 2020, pp.75–77"
+    },
+    {
+      "id": "baggage-12",
+      "min": 34,
+      "max": 36,
+      "name": "Compromised DHF",
+      "sleeveOrStack": false,
+      "effect": "Repeated re-sleevings, improper storage, an overzealous dipper (a DHF hacker), and/or damage to the cortical stack has produced considerable quality issues in the Digital Human Freight. As such, their memory is not at all what it ought to be. Choose two Intelligence {Skill Checks} to downgrade by one Skill Level, or lose EP EP2d6.",
+      "rulesRef": "Core Rulebook 2020, pp.75–77"
+    },
+    {
+      "id": "baggage-13",
+      "min": 37,
+      "max": 38,
+      "name": "Financial Liability",
+      "sleeveOrStack": true,
+      "effect": "The character has their Wealth Level reduced by 1 to a minimum of 1, as a substantial amount of their money goes toward paying off the debt or sleeve mortgage of an incarcerated family member or close friend.",
+      "rulesRef": "Core Rulebook 2020, pp.75–77"
+    },
+    {
+      "id": "baggage-14",
+      "min": 39,
+      "max": 40,
+      "name": "Revenge",
+      "sleeveOrStack": false,
+      "effect": "The character is determined to get revenge against someone who has harmed someone close to them. Characters are so consumed by this that if they spend Influence Points on anything but pursuing this goal, they cannot use any Traits to prevent or offset the cost.",
+      "rulesRef": "Core Rulebook 2020, pp.75–77"
+    },
+    {
+      "id": "baggage-15",
+      "min": 41,
+      "max": 42,
+      "name": "Amnesiac",
+      "sleeveOrStack": false,
+      "effect": "The character has absolutely no idea who they are, which is likely the result of catastrophic needlecasting or aggressive dipping (hacking the DHF mid-needlecast). They are unable to take any bonuses or Special Rules from their Archetype until they undergo severe psychosurgery. Until then, the character does not start with any Contacts, Networks or a personal Resource Catalog based on Archetype.",
+      "rulesRef": "Core Rulebook 2020, pp.75–77"
+    },
+    {
+      "id": "baggage-16",
+      "min": 43,
+      "max": 44,
+      "name": "The Post-Transhuman Experience",
+      "sleeveOrStack": false,
+      "effect": "The magnitude of the character’s mental burdens over the decades (or even centuries) has caused the character to disassociate themselves from the human experience. They start with EP EP2d6 less. Interacting with an NPC or stranger less than 80 years old will downgrade all Empathy {Skill Checks} by 1 Skill Level.",
+      "rulesRef": "Core Rulebook 2020, pp.75–77"
+    },
+    {
+      "id": "baggage-17",
+      "min": 45,
+      "max": 46,
+      "name": "Long Con",
+      "sleeveOrStack": false,
+      "effect": "The character has a very long term plan that involves decades of foresight. The various stages of this plan may leave their fellow characters twisting in the wind. The character with this Baggage must spend IP2 or more when generating a new Contact, as in the latter stages of their con, they must become increasingly careful with whom they interact.",
+      "rulesRef": "Core Rulebook 2020, pp.75–77"
+    },
+    {
+      "id": "baggage-18",
+      "min": 47,
+      "max": 48,
+      "name": "Shadowy Contact",
+      "sleeveOrStack": true,
+      "effect": "The character can recover IP1 by forcing another character to roll a random Scandal, or by losing one of their own Contacts. This can be deferred to a trusted NPC.",
+      "rulesRef": "Core Rulebook 2020, pp.75–77"
+    },
+    {
+      "id": "baggage-19",
+      "min": 49,
+      "max": 50,
+      "name": "Informant/Bugged",
+      "sleeveOrStack": true,
+      "effect": "This character is bugged or under surveillance. They are also sometimes forced to share their ocular visual or aural data with authorities. Characters in a party with this character must spend IP1 or more if they wish to remain anonymous in what they do.",
+      "rulesRef": "Core Rulebook 2020, pp.75–77"
+    },
+    {
+      "id": "baggage-20",
+      "min": 51,
+      "max": 52,
+      "name": "Be More Human",
+      "sleeveOrStack": false,
+      "effect": "The character is unsure if they are human or AI. The Gamemaster is able to play with the ambiguity of this answer as much as they would like. It is possible that the DHF of a human character was so damaged that the psyhosurgery required for repair involved replacing damaged blocks of DHF data with AI constructs to the extent that a person’s own humanity is in serious question. Character loses EP EP3d6. C H 2 | C H A R A C T E R S 77",
+      "rulesRef": "Core Rulebook 2020, pp.75–77"
+    },
+    {
+      "id": "baggage-21",
+      "min": 53,
+      "max": 54,
+      "name": "Double Agent",
+      "sleeveOrStack": true,
+      "effect": "The character’s past sleeve worked closely with a rival organization. This character will not be able to restore any Influence Points unless they betray their party somehow. Once this is revealed and Resolved to the Gamemaster’s satisfaction, the character can restore Influence Points normally.",
+      "rulesRef": "Core Rulebook 2020, pp.75–77"
+    },
+    {
+      "id": "baggage-22",
+      "min": 55,
+      "max": 56,
+      "name": "Double-Sleeved",
+      "sleeveOrStack": false,
+      "effect": "Whether the character intended to or not, there is at least one other sleeve with a copy of the cortical stack the character now occupies. This duplicate is making life complicated for the player character. See Double Sleeving pg.74 for more information.",
+      "rulesRef": "Core Rulebook 2020, pp.75–77"
+    },
+    {
+      "id": "baggage-23",
+      "min": 57,
+      "max": 58,
+      "name": "Justice Delayed",
+      "sleeveOrStack": true,
+      "effect": "The character is re-sleeved, but their original cortical stack was slagged. A copy was either backed up or made illicitly. As a result, the character has survived, but there is a tremendous lapse of time between the backup and the character’s death. This delay can sometimes last years depending on when the backup was made, and it is possible the character has only recently been made aware of the original cortical stack’s fate in order to finally explain their mysterious lapse in memory.",
+      "rulesRef": "Core Rulebook 2020, pp.75–77"
+    },
+    {
+      "id": "baggage-24",
+      "min": 59,
+      "max": 60,
+      "name": "World Weary",
+      "sleeveOrStack": false,
+      "effect": "This character has seen enough in their life, and as a result, they will not re-sleeve after the death of their current sleeve. Instead, they would prefer to go into storage. This can be avoided if a character spends SP100 during the campaign before sleeve death in order to revive their will to live. Character loses EP EP3d6.",
+      "rulesRef": "Core Rulebook 2020, pp.75–77"
+    },
+    {
+      "id": "baggage-25",
+      "min": 61,
+      "max": 62,
+      "name": "Nihilism",
+      "sleeveOrStack": false,
+      "effect": "Over the course of the character’s multiple lifetimes, they have developed a deep conviction that existence is devoid of all meaning. All SP the character earns is reduced by half.",
+      "rulesRef": "Core Rulebook 2020, pp.75–77"
+    },
+    {
+      "id": "baggage-26",
+      "min": 63,
+      "max": 64,
+      "name": "Deathwish",
+      "sleeveOrStack": false,
+      "effect": "The character has been resleeved after so many deaths or has avoided death so many times that they lose their self-preservation instincts. Reduce Damage Threshold by 2.",
+      "rulesRef": "Core Rulebook 2020, pp.75–77"
+    },
+    {
+      "id": "baggage-27",
+      "min": 65,
+      "max": 66,
+      "name": "Trouble",
+      "sleeveOrStack": true,
+      "effect": "This character has problems that follow them wherever they go with almost a supernatural frequency. When rolling for Campaign Progress Die, roll an additional die of same type indicated and choose the higher of the two. See pg. 271, the “Campaign Generation” section for more details.",
+      "rulesRef": "Core Rulebook 2020, pp.75–77"
+    },
+    {
+      "id": "baggage-28",
+      "min": 67,
+      "max": 68,
+      "name": "Faustian Bargain",
+      "sleeveOrStack": false,
+      "effect": "The character has made a bargain with a very unsavory character in which they are able to exchange SP for IP . This represents morally dubious transactions from which the character is rewarded by the influence of shadowy organizations or characters with surprisingly deep pockets and long reach. Each IP IPbought in this way costs SP5+5 per IP purchased in this way previously. If a character ever spends more than SP25 by this method, they will also generate a Scandal. Characters can only restore IP IPby way of this Contact. If the character does restore IP or gains IP in any other way outside of spending SP on this Contact, whether or not they intended to, the character (or a random party member or Contact at the Gamemaster’s discretion) will generate a new Scandal. This Contact cannot be removed or exhausted, but also no Requests can be made of them directly. This Contact’s influence cannot be overstated, and even if they are killed, an associate comes to take their place (or the Contact has a ready backup of their DHF).",
+      "rulesRef": "Core Rulebook 2020, pp.75–77"
+    },
+    {
+      "id": "baggage-29",
+      "min": 69,
+      "max": 70,
+      "name": "Powerful Enemies",
+      "sleeveOrStack": true,
+      "effect": "This character has made some extremely powerful enemies and have entered this sleeve in order to escape pursuit. One network or organization has considerable legal or logistical means by which to make the character’s life a living hell, and has no issues bringing other characters onboard to harm the character, should this character be discovered.",
+      "rulesRef": "Core Rulebook 2020, pp.75–77"
+    },
+    {
+      "id": "baggage-30",
+      "min": 71,
+      "max": null,
+      "name": "Meth Exile",
+      "sleeveOrStack": true,
+      "effect": "The character is not only longlived, they are inducted into the highly selective social circle of the meths and have since fallen from grace. See the “Meth Characters” section for details on roleplaying meth characters. They must take the entire High Society Trait Branch and pay the SP cost required, but will count as being Scandalized, as per both the Socialite and Meth rules.",
+      "rulesRef": "Core Rulebook 2020, pp.75–77"
+    }
+  ]
+}

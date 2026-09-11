@@ -1,0 +1,47 @@
+{
+  "source":"Core Rulebook 2020, Chapter 2 — Archetypes",
+  "archetypes":{
+    "Civilian":{"defaultSleeve":"birth","wealth":1,"common":"custom-two","anomaly":"custom-one","features":["Gain EP1d6","Citizenship branch unlocks at Common cost"],"packages":{
+      "Corporate Stooge":{"gear":"3x Credits Lv.2; Corporation Network; Clothing QQQ; +1 IP","traits":[["Corporation","Worker"],["Corporation","Middle Manager"],["High Society","Donor"]]},
+      "Entertainer":{"gear":"2x Credits Lv.2; Device QQQ; Entertainment venue/agency Network; +1 IP","traits":[["Entertainment","Below the Line"],["Entertainment","Booking Agent"],["Citizenship","Citizen"]]},
+      "Entrepreneur":{"gear":"5x Credits Lv.1; Credits Lv.4; Portable Deck QQQ","traits":[["Professional Network, Business","Commission"],["Professional Network, Business","Outside Consultant"],["Permits","Class C"]]},
+      "Mafia":{"gear":"3x Credits Lv.2; Directed Energy Weapon QQ or Firearm QQQ; criminal organization Network","traits":[["Thuggery","Strong-Arm"],["Thuggery","Hired Muscle"],["Trafficking","Minor Contraband"]]},
+      "Vagrant":{"gear":"3x Credits Lv.1; Clothing Q; Device QQ; Tool Kit — Survival/Navigation +1","traits":[["Larceny","Pickpocketing"],["Evasion","Concealment"],["Trafficking","Minor Contraband"]]}
+    }},
+    "Criminal":{"defaultSleeve":"synthetic-mid","wealth":1,"common":"Crime","anomaly":"Law and Government","features":["Gain EP1d8","One sleeve augment/upgrade QQ or less","One criminal organization Network"],"packages":{
+      "Dipper":{"gear":"3x Credits Lv.1; Portable Deck QQQ; Programs/Drivers QQ; Data Storage QQ","traits":[["Evasion","Concealment"],["Evasion","Saferoom"],["Programming","Basic Programming"]]},
+      "Fixer":{"gear":"2x Credits Lv.2; Device QQ; Clothes QQ; criminal organization or corporation Network","traits":[["Fraud","Forgery, Physical"],["Fraud","Laundering"],["Professional Network, Business","Commission"]]},
+      "Hitman":{"gear":"2x Credits Lv.1; Credits Lv.2; Small Arms QQ; One-Handed Melee QQ; Flak Coat QQ","traits":[["Thuggery","Strong-Arm"],["Evasion","Concealment"],["Professional Network, Crime Syndicate","Goon Squad"]]},
+      "Mob Technician":{"gear":"2x Credits Lv.2; Credits Lv.3; Tool Kit QQQ; Portable Deck QQ","traits":[["Evasion","Concealment"],["Evasion","Saferoom"],["Engineering","Repair"]]},
+      "Thief":{"gear":"3x Credits Lv.1; One-Handed Melee QQ; 2x Tool Kits QQ; Combat Suit QQ","traits":[["Larceny","Pickpocketing"],["Evasion","Concealment"],["Urban","Streetwise"]]}
+    }},
+    "Official":{"defaultSleeve":"natal","wealth":1,"common":"Law and Government","anomaly":"Crime","features":["Requisition","Gain IP1"],"packages":{
+      "Bureaucrat":{"gear":"3x Credits Lv.1; Device QQ with ONI; Programs/Drivers QQ; Protectorate agency Network","traits":[["Citizenship","Citizen"],["Citizenship","Politician"],["Law Enforcement","Basic Law"]]},
+      "Investigator":{"gear":"2x Credits Lv.2; Device QQ; Investigation Tool Kit +1 QQ; Pistol/Small Arms QQ","traits":[["Law Enforcement","Basic Law"],["Law Enforcement","Criminal Defense"],["Science","Observation"]]},
+      "Police Officer":{"gear":"Pistol/Small Arms QQ; Flak Coat QQ; Pistol/Small Arms Magazine; Law Enforcement Network","traits":[["Professional Network, Police","Good Standing"],["Law Enforcement","Basic Law"],["Small Arms","Basic Training"]]},
+      "Politician":{"gear":"3x Credits Lv.2; Credits Lv.3; Clothes QQ; Device Q","traits":[["Citizenship","Citizen"],["Citizenship","Politician"],["High Society","Donor"]]},
+      "Lawyer":{"gear":"3x Credits Lv.1; Device QQ; Law Enforcement and legal organization Networks","traits":[["Law Enforcement","Basic Law"],["Law Enforcement","Criminal Defense"],["Law Enforcement","Jurisdiction"]]}
+    }},
+    "Socialite":{"defaultSleeve":"natal","wealth":2,"common":"Business and Society","anomaly":"Survival","features":["Gain IP2"],"packages":{
+      "Celebrity":{"gear":"4x Credits Lv.2; 2x Credits Lv.3; Device QQQ with ONI; Clothes QQ","traits":[["Entertainment","Below the Line"],["Entertainment","Booking Agent"],["Charity","Donor"]]},
+      "Corporate Asset":{"gear":"3x Credits Lv.3; Directed Energy Weapon QQ; Flak Coat Q","traits":[["Professional Network, Business","Commission"],["Professional Network, Business","Outside Consultant"],["Trafficking","Minor Contraband"]]},
+      "Heir/Heiress":{"gear":"5x Credits Lv.3; 3x Credits Lv.4; Device QQ; Clothes QQ; 2x Drug QQQ","traits":[["Entertainment","Below the Line"],["Entertainment","Booking Agent"],["Media","Newswire"]]},
+      "Mogul":{"gear":"5x Credits Lv.3; 3x Credits Lv.4; Device QQ; corporation Network","traits":[["Professional Network, Business","Commission"],["Professional Network, Business","Outside Consultant"],["Corporation","Worker"]]},
+      "Spy":{"gear":"2x Credits Lv.3; Credits Lv.4; 2x Devices QQ; Clothes Q; Poison or Drug QQ","traits":[["Media","Newswire"],["Media","Media Researcher"],["Evasion","Concealment"]]}
+    }},
+    "Soldier":{"defaultSleeve":"synthetic-mid","wealth":1,"common":"Combat","anomaly":"Business and Society","features":["Requisition","Gain EP1d10","Protectorate military Network"],"packages":{
+      "Combat Engineer":{"gear":"Pistol/Small Arms QQ; Combat Suit QQ; 2x Tool Kits QQ","traits":[["Small Arms","Basic Training"],["Energy Weaponry","Energy Weaponry"],["Sapper","Explosives"]]},
+      "Colonial Tactical Assault Corps":{"gear":"CTAC Praetorian Railgun; Protectorate Marine Armor Q; Pistol/Small Arms QQ","traits":[["Energy Weaponry","Rail Weapons Training"],["Long Guns","Basic Training"],["Armor","Battle Armor Training"]]},
+      "Mercenary":{"gear":"CTAC Praetorian Railgun; Flak Coat QQ; Tool Kit Q; 3x Credits Lv.1","traits":[["Energy Weaponry","Rail Weapons Training"],["Long Guns","Basic Training"],["Professional Network, Business","Commission"]]},
+      "Infiltrator":{"gear":"Directed Energy Weapon Q; Stealth/Survival Tool Kit +1; Tool Kit QQ; Flak Coat QQ","traits":[["Energy Weaponry","Energy Weaponry"],["Martial Arts","Martial Arts Training"],["Evasion","Concealment"]]},
+      "Grenadier":{"gear":"Small Arms QQ; Frag Grenades QQ; Protectorate Marine Armor QQ","traits":[["Small Arms","Basic Training"],["Armor","Battle Armor Training"],["Thrown Weapons","Grenades"]]}
+    }},
+    "Technician":{"defaultSleeve":"synthetic-mid","wealth":1,"common":"Technology","anomaly":"Combat","features":["QQQ starting custom-equipment upgrade pool","Narrative Upgrade refund feature"],"packages":{
+      "Dipper":{"gear":"3x Credits Lv.1; Portable Deck QQQ; Programs/Drivers QQ; Data Storage QQ","traits":[["Programming","Basic Programming"],["Programming","Data Engineer"],["Programming","Dipping"]]},
+      "Engineer":{"gear":"2x Credits Lv.1; Portable Deck QQ; Engineering/Data Engineering Tool Kit +2; Drone QQ","traits":[["Programming","Basic Programming"],["Engineering","Repair"],["Engineering","Fabrication"]]},
+      "Med Tech":{"gear":"3x Credits Lv.1; Tissue Welder QQ; 2x Rapid Regrowth Bios Q; Drugs QQ","traits":[["Medicine","Medical Technician"],["Medicine","Organic Surgery"],["Augments","Bionics"]]},
+      "Repair/Maintenance Tech":{"gear":"2x Credits Lv.1; 3x Tool Kits QQ; Clothing QQ","traits":[["Engineering","Repair"],["Engineering","Fabrication"],["Engineering","Reverse Engineer"]]},
+      "Scientist":{"gear":"2x Credits Lv.2; Portable Deck QQQ; Science/Investigation Tool Kit +1; Tool Kit QQ","traits":[["Science","Observation"],["Science","Research"],["Science","Forensics"]]}
+    }}
+  }
+}

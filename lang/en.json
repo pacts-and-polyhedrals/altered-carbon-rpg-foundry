@@ -1,0 +1,21 @@
+{
+  "ACRPG.Title": "Altered Carbon RPG",
+  "ACRPG.Identity": "Identity",
+  "ACRPG.Attributes": "Attributes",
+  "ACRPG.Skills": "Skills",
+  "ACRPG.CurrentSleeve": "Current Sleeve",
+  "ACRPG.Combat": "Combat",
+  "ACRPG.Relationships": "Relationships",
+  "ACRPG.Evidence": "Evidence & Memories",
+  "ACRPG.Roll": "Roll",
+  "ACRPG.Difficulty": "Difficulty",
+  "ACRPG.Bonus": "TR Bonus",
+  "ACRPG.BonusDice": "Bonus Dice",
+  "ACRPG.Luck": "Luck",
+  "ACRPG.Resleeve": "Resleeve",
+  "ACRPG.ApplyDamage": "Apply Damage",
+  "ACRPG.SpeedDice": "Speed Dice",
+  "ACRPG.Intent": "Intent",
+  "ACRPG.Check": "Check",
+  "ACRPG.Resolution": "Resolution"
+}

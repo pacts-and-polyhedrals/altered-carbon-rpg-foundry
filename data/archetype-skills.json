@@ -1,0 +1,818 @@
+{
+  "skillOrder": [
+    "SK01",
+    "SK02",
+    "SK03",
+    "SK04",
+    "SK05",
+    "SK06",
+    "SK07",
+    "SK08",
+    "SK09",
+    "SK10",
+    "SK11",
+    "SK12",
+    "SK13",
+    "SK14",
+    "SK15",
+    "SK16",
+    "SK17",
+    "SK18",
+    "SK19",
+    "SK20",
+    "SK21",
+    "SK22",
+    "SK23",
+    "SK24",
+    "SK25",
+    "SK26",
+    "SK27",
+    "SK28",
+    "SK29",
+    "SK30",
+    "SK31",
+    "SK32"
+  ],
+  "archetypes": {
+    "Civilian": [
+      {
+        "id": "SK01",
+        "level": 1
+      },
+      {
+        "id": "SK02",
+        "level": 2
+      },
+      {
+        "id": "SK03",
+        "level": 2
+      },
+      {
+        "id": "SK04",
+        "level": 1
+      },
+      {
+        "id": "SK05",
+        "level": 1
+      },
+      {
+        "id": "SK06",
+        "level": 2
+      },
+      {
+        "id": "SK07",
+        "level": 1
+      },
+      {
+        "id": "SK08",
+        "level": 1
+      },
+      {
+        "id": "SK09",
+        "level": 1
+      },
+      {
+        "id": "SK10",
+        "level": 1
+      },
+      {
+        "id": "SK11",
+        "level": 1
+      },
+      {
+        "id": "SK12",
+        "level": 2
+      },
+      {
+        "id": "SK13",
+        "level": 3
+      },
+      {
+        "id": "SK14",
+        "level": 2
+      },
+      {
+        "id": "SK15",
+        "level": 2
+      },
+      {
+        "id": "SK16",
+        "level": 2
+      },
+      {
+        "id": "SK17",
+        "level": 1
+      },
+      {
+        "id": "SK18",
+        "level": 3
+      },
+      {
+        "id": "SK19",
+        "level": 2
+      },
+      {
+        "id": "SK20",
+        "level": 3
+      },
+      {
+        "id": "SK21",
+        "level": 2
+      },
+      {
+        "id": "SK22",
+        "level": 2
+      },
+      {
+        "id": "SK23",
+        "level": 1
+      },
+      {
+        "id": "SK24",
+        "level": 3
+      },
+      {
+        "id": "SK25",
+        "level": 1
+      },
+      {
+        "id": "SK26",
+        "level": 4
+      },
+      {
+        "id": "SK27",
+        "level": 3
+      },
+      {
+        "id": "SK28",
+        "level": 2
+      },
+      {
+        "id": "SK29",
+        "level": 2
+      },
+      {
+        "id": "SK30",
+        "level": 3
+      },
+      {
+        "id": "SK31",
+        "level": 1
+      },
+      {
+        "id": "SK32",
+        "level": 1
+      }
+    ],
+    "Criminal": [
+      {
+        "id": "SK01",
+        "level": 2
+      },
+      {
+        "id": "SK02",
+        "level": 3
+      },
+      {
+        "id": "SK03",
+        "level": 2
+      },
+      {
+        "id": "SK04",
+        "level": 3
+      },
+      {
+        "id": "SK05",
+        "level": 2
+      },
+      {
+        "id": "SK06",
+        "level": 3
+      },
+      {
+        "id": "SK07",
+        "level": 2
+      },
+      {
+        "id": "SK08",
+        "level": 3
+      },
+      {
+        "id": "SK09",
+        "level": 1
+      },
+      {
+        "id": "SK10",
+        "level": 4
+      },
+      {
+        "id": "SK11",
+        "level": 2
+      },
+      {
+        "id": "SK12",
+        "level": 1
+      },
+      {
+        "id": "SK13",
+        "level": 2
+      },
+      {
+        "id": "SK14",
+        "level": 3
+      },
+      {
+        "id": "SK15",
+        "level": 1
+      },
+      {
+        "id": "SK16",
+        "level": 2
+      },
+      {
+        "id": "SK17",
+        "level": 3
+      },
+      {
+        "id": "SK18",
+        "level": 1
+      },
+      {
+        "id": "SK19",
+        "level": 2
+      },
+      {
+        "id": "SK20",
+        "level": 2
+      },
+      {
+        "id": "SK21",
+        "level": 1
+      },
+      {
+        "id": "SK22",
+        "level": 1
+      },
+      {
+        "id": "SK23",
+        "level": 1
+      },
+      {
+        "id": "SK24",
+        "level": 1
+      },
+      {
+        "id": "SK25",
+        "level": 1
+      },
+      {
+        "id": "SK26",
+        "level": 1
+      },
+      {
+        "id": "SK27",
+        "level": 2
+      },
+      {
+        "id": "SK28",
+        "level": 1
+      },
+      {
+        "id": "SK29",
+        "level": 1
+      },
+      {
+        "id": "SK30",
+        "level": 1
+      },
+      {
+        "id": "SK31",
+        "level": 1
+      },
+      {
+        "id": "SK32",
+        "level": 1
+      }
+    ],
+    "Official": [
+      {
+        "id": "SK01",
+        "level": 1
+      },
+      {
+        "id": "SK02",
+        "level": 1
+      },
+      {
+        "id": "SK03",
+        "level": 1
+      },
+      {
+        "id": "SK04",
+        "level": 1
+      },
+      {
+        "id": "SK05",
+        "level": 1
+      },
+      {
+        "id": "SK06",
+        "level": 1
+      },
+      {
+        "id": "SK07",
+        "level": 1
+      },
+      {
+        "id": "SK08",
+        "level": 1
+      },
+      {
+        "id": "SK09",
+        "level": 2
+      },
+      {
+        "id": "SK10",
+        "level": 1
+      },
+      {
+        "id": "SK11",
+        "level": 1
+      },
+      {
+        "id": "SK12",
+        "level": 4
+      },
+      {
+        "id": "SK13",
+        "level": 3
+      },
+      {
+        "id": "SK14",
+        "level": 3
+      },
+      {
+        "id": "SK15",
+        "level": 2
+      },
+      {
+        "id": "SK16",
+        "level": 1
+      },
+      {
+        "id": "SK17",
+        "level": 3
+      },
+      {
+        "id": "SK18",
+        "level": 2
+      },
+      {
+        "id": "SK19",
+        "level": 1
+      },
+      {
+        "id": "SK20",
+        "level": 2
+      },
+      {
+        "id": "SK21",
+        "level": 3
+      },
+      {
+        "id": "SK22",
+        "level": 2
+      },
+      {
+        "id": "SK23",
+        "level": 1
+      },
+      {
+        "id": "SK24",
+        "level": 2
+      },
+      {
+        "id": "SK25",
+        "level": 1
+      },
+      {
+        "id": "SK26",
+        "level": 3
+      },
+      {
+        "id": "SK27",
+        "level": 3
+      },
+      {
+        "id": "SK28",
+        "level": 2
+      },
+      {
+        "id": "SK29",
+        "level": 2
+      },
+      {
+        "id": "SK30",
+        "level": 2
+      },
+      {
+        "id": "SK31",
+        "level": 1
+      },
+      {
+        "id": "SK32",
+        "level": 2
+      }
+    ],
+    "Socialite": [
+      {
+        "id": "SK01",
+        "level": 1
+      },
+      {
+        "id": "SK02",
+        "level": 1
+      },
+      {
+        "id": "SK03",
+        "level": 1
+      },
+      {
+        "id": "SK04",
+        "level": 1
+      },
+      {
+        "id": "SK05",
+        "level": 1
+      },
+      {
+        "id": "SK06",
+        "level": 2
+      },
+      {
+        "id": "SK07",
+        "level": 2
+      },
+      {
+        "id": "SK08",
+        "level": 1
+      },
+      {
+        "id": "SK09",
+        "level": 2
+      },
+      {
+        "id": "SK10",
+        "level": 1
+      },
+      {
+        "id": "SK11",
+        "level": 1
+      },
+      {
+        "id": "SK12",
+        "level": 2
+      },
+      {
+        "id": "SK13",
+        "level": 4
+      },
+      {
+        "id": "SK14",
+        "level": 3
+      },
+      {
+        "id": "SK15",
+        "level": 3
+      },
+      {
+        "id": "SK16",
+        "level": 3
+      },
+      {
+        "id": "SK17",
+        "level": 2
+      },
+      {
+        "id": "SK18",
+        "level": 2
+      },
+      {
+        "id": "SK19",
+        "level": 1
+      },
+      {
+        "id": "SK20",
+        "level": 2
+      },
+      {
+        "id": "SK21",
+        "level": 2
+      },
+      {
+        "id": "SK22",
+        "level": 1
+      },
+      {
+        "id": "SK23",
+        "level": 2
+      },
+      {
+        "id": "SK24",
+        "level": 1
+      },
+      {
+        "id": "SK25",
+        "level": 1
+      },
+      {
+        "id": "SK26",
+        "level": 3
+      },
+      {
+        "id": "SK27",
+        "level": 3
+      },
+      {
+        "id": "SK28",
+        "level": 1
+      },
+      {
+        "id": "SK29",
+        "level": 2
+      },
+      {
+        "id": "SK30",
+        "level": 3
+      },
+      {
+        "id": "SK31",
+        "level": 1
+      },
+      {
+        "id": "SK32",
+        "level": 1
+      }
+    ],
+    "Soldier": [
+      {
+        "id": "SK01",
+        "level": 3
+      },
+      {
+        "id": "SK02",
+        "level": 3
+      },
+      {
+        "id": "SK03",
+        "level": 2
+      },
+      {
+        "id": "SK04",
+        "level": 3
+      },
+      {
+        "id": "SK05",
+        "level": 1
+      },
+      {
+        "id": "SK06",
+        "level": 2
+      },
+      {
+        "id": "SK07",
+        "level": 3
+      },
+      {
+        "id": "SK08",
+        "level": 4
+      },
+      {
+        "id": "SK09",
+        "level": 2
+      },
+      {
+        "id": "SK10",
+        "level": 2
+      },
+      {
+        "id": "SK11",
+        "level": 1
+      },
+      {
+        "id": "SK12",
+        "level": 1
+      },
+      {
+        "id": "SK13",
+        "level": 1
+      },
+      {
+        "id": "SK14",
+        "level": 1
+      },
+      {
+        "id": "SK15",
+        "level": 3
+      },
+      {
+        "id": "SK16",
+        "level": 3
+      },
+      {
+        "id": "SK17",
+        "level": 2
+      },
+      {
+        "id": "SK18",
+        "level": 1
+      },
+      {
+        "id": "SK19",
+        "level": 1
+      },
+      {
+        "id": "SK20",
+        "level": 2
+      },
+      {
+        "id": "SK21",
+        "level": 1
+      },
+      {
+        "id": "SK22",
+        "level": 1
+      },
+      {
+        "id": "SK23",
+        "level": 2
+      },
+      {
+        "id": "SK24",
+        "level": 2
+      },
+      {
+        "id": "SK25",
+        "level": 2
+      },
+      {
+        "id": "SK26",
+        "level": 1
+      },
+      {
+        "id": "SK27",
+        "level": 1
+      },
+      {
+        "id": "SK28",
+        "level": 1
+      },
+      {
+        "id": "SK29",
+        "level": 1
+      },
+      {
+        "id": "SK30",
+        "level": 1
+      },
+      {
+        "id": "SK31",
+        "level": 1
+      },
+      {
+        "id": "SK32",
+        "level": 1
+      }
+    ],
+    "Technician": [
+      {
+        "id": "SK01",
+        "level": 1
+      },
+      {
+        "id": "SK02",
+        "level": 1
+      },
+      {
+        "id": "SK03",
+        "level": 1
+      },
+      {
+        "id": "SK04",
+        "level": 1
+      },
+      {
+        "id": "SK05",
+        "level": 1
+      },
+      {
+        "id": "SK06",
+        "level": 1
+      },
+      {
+        "id": "SK07",
+        "level": 1
+      },
+      {
+        "id": "SK08",
+        "level": 1
+      },
+      {
+        "id": "SK09",
+        "level": 2
+      },
+      {
+        "id": "SK10",
+        "level": 1
+      },
+      {
+        "id": "SK11",
+        "level": 1
+      },
+      {
+        "id": "SK12",
+        "level": 4
+      },
+      {
+        "id": "SK13",
+        "level": 3
+      },
+      {
+        "id": "SK14",
+        "level": 3
+      },
+      {
+        "id": "SK15",
+        "level": 2
+      },
+      {
+        "id": "SK16",
+        "level": 1
+      },
+      {
+        "id": "SK17",
+        "level": 3
+      },
+      {
+        "id": "SK18",
+        "level": 2
+      },
+      {
+        "id": "SK19",
+        "level": 1
+      },
+      {
+        "id": "SK20",
+        "level": 2
+      },
+      {
+        "id": "SK21",
+        "level": 3
+      },
+      {
+        "id": "SK22",
+        "level": 2
+      },
+      {
+        "id": "SK23",
+        "level": 1
+      },
+      {
+        "id": "SK24",
+        "level": 2
+      },
+      {
+        "id": "SK25",
+        "level": 1
+      },
+      {
+        "id": "SK26",
+        "level": 3
+      },
+      {
+        "id": "SK27",
+        "level": 3
+      },
+      {
+        "id": "SK28",
+        "level": 2
+      },
+      {
+        "id": "SK29",
+        "level": 2
+      },
+      {
+        "id": "SK30",
+        "level": 2
+      },
+      {
+        "id": "SK31",
+        "level": 1
+      },
+      {
+        "id": "SK32",
+        "level": 2
+      }
+    ]
+  }
+}

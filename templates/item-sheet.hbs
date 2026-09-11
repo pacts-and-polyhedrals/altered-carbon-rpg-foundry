@@ -1,0 +1,16 @@
+<form class="ac-sheet item" autocomplete="off">
+<header class="ac-header"><img src="{{item.img}}" data-edit="img" alt="{{item.name}}"><div><input class="name" name="name" value="{{item.name}}"><div class="subline">{{item.type}}</div></div></header>
+<section class="ac-item-fields">
+  {{#each fields}}
+    <label class="ac-field"><span>{{label}}</span>
+    {{#if isCheckbox}}<input type="checkbox" name="{{path}}" {{checked value}}>
+    {{else if isTextarea}}<textarea name="{{path}}" rows="4">{{value}}</textarea>
+    {{else if isNumber}}<input type="number" name="{{path}}" value="{{value}}">
+    {{else}}<input name="{{path}}" value="{{value}}">{{/if}}
+    </label>
+  {{/each}}
+  <label class="ac-field"><span>Rules Reference</span><input name="system.rulesRef" value="{{system.rulesRef}}"></label>
+  <label class="ac-field"><span>Description</span><textarea name="system.description" rows="10">{{system.description}}</textarea></label>
+  <p class="muted">Mechanically typed fields are editable here. This private build includes source-derived mechanical reference text from the supplied 2020 Core Rulebook. Keep it with your legally owned source material and do not redistribute it unless you have the necessary rights.</p>
+</section>
+</form>

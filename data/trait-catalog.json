@@ -1,0 +1,2461 @@
+{
+  "source": "Altered Carbon RPG Core Rulebook 2020, Chapter 5",
+  "count": 240,
+  "traits": [
+    {
+      "id": "trait-001",
+      "tree": "Business and Society",
+      "branch": "High Society",
+      "tier": 1,
+      "name": "Donor",
+      "effect": "While not being of considerable means themselves, this character is a known benefactor who has successfully fundraised for any number of causes. This allows them to treat any professional Network as their own, but all requests will have +1 Request Level.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-002",
+      "tree": "Business and Society",
+      "branch": "High Society",
+      "tier": 2,
+      "name": "Benefactor",
+      "effect": "This character is known as a generous donor to various causes. These repeated donations will reduce their Wealth Level by 1 to a minimum of 1, but they gain an additonal IP1. They can treat any Professional Network as their own.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-003",
+      "tree": "Business and Society",
+      "branch": "High Society",
+      "tier": 3,
+      "name": "Influence Peddler",
+      "effect": "This character is known for brokering many high powered deals. When making requests from their Networks at Request Levels of 2 or less will not cost any Influence Points.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-004",
+      "tree": "Business and Society",
+      "branch": "High Society",
+      "tier": 4,
+      "name": "Rarefied Taste",
+      "effect": "This character has developed a taste for finer things. The cost of everything they buy is increased in Price Level by 1, but they are of exceptional quality, gaining a rating of +1 to all bonuses provided or at least QQ more to upgrade the equipment with.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-005",
+      "tree": "Business and Society",
+      "branch": "High Society",
+      "tier": 5,
+      "name": "Meth",
+      "effect": "This character has been inducted into the very cloistered social circles that the Meths maintain (See pg.83).",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-006",
+      "tree": "Business and Society",
+      "branch": "Corporation",
+      "tier": 1,
+      "name": "Worker",
+      "effect": "This character has all the security clearances and accesses allowed by a worker for a corporation. Their Wealth Level is 2 and generates Credits Lv.1 every month.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-007",
+      "tree": "Business and Society",
+      "branch": "Corporation",
+      "tier": 2,
+      "name": "Middle Manager",
+      "effect": "This character has a modicum of responsibility over a department and/or a small number of employees. Their Wealth Level is 2 and generates Credits Lv.2 every month.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-008",
+      "tree": "Business and Society",
+      "branch": "Corporation",
+      "tier": 3,
+      "name": "Executive",
+      "effect": "This character has an extremely high level of access and managerial responsibility. Their Wealth Level is 3 and generates Credits Lv.2 every month and has Credits Lv1. (15) on their Resource Catalog at Wealth Lv2.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-009",
+      "tree": "Business and Society",
+      "branch": "Corporation",
+      "tier": 4,
+      "name": "Chief Executive",
+      "effect": "This character is one of the three letter acronym officer positions, such as CEO, CFO, CMO, and so on. This will give them tremendous responsibility, and whose missteps can bring ruin to a company for years if not decades. Their Wealth Level is 3 and they generate Credits Lv.3 every month and has Credits Lv1. (15) on their Resource Catalog at Wealth Lv1.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-010",
+      "tree": "Business and Society",
+      "branch": "Corporation",
+      "tier": 5,
+      "name": "Captain of Industry",
+      "effect": "The character is known as being an innovator in their business. Either they have pioneered an extremely popular product line or they have parlayed their success into celebrity status, to the point where they are recognized by people who aren’t in their industry sector. Their Wealth Level is 4, they generate Credits Lv. 3 every month and Gain an additional IP . In addition, they can spend IP1 to get a Credits Lv.5.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-011",
+      "tree": "Business and Society",
+      "branch": "Media",
+      "tier": 1,
+      "name": "Newswire",
+      "effect": "The character is plugged into the unfiltered news aggregators that media outlets cherry-pick from to get the news they want to report on. They can spend IP1 in order to get unrestricted access to every news outlet, but will still need to search the database to find what they are looking for.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-012",
+      "tree": "Business and Society",
+      "branch": "Media",
+      "tier": 2,
+      "name": "Media Researcher",
+      "effect": "This character has access to multiple news outlets and data centers. This has the same mechanical benefit as Newswire, but the character can pass an {Investigation, Digital Networking} instead of using an Influence Point.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-013",
+      "tree": "Business and Society",
+      "branch": "Media",
+      "tier": 3,
+      "name": "Press Pass",
+      "effect": "The character is trusted by their network to have a UN Press Pass, which will gives direct access to newsrooms to question key political or corporate figures by spending IP1. Unfortunately, the character will have to jockey for position and will likely only be able to ask a question or two. Of course, there’s no guarantee of an answer that is not a boilerplate talking point.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-014",
+      "tree": "Business and Society",
+      "branch": "Media",
+      "tier": 4,
+      "name": "Anchor",
+      "effect": "This character is a fairly well known news anchor and their fame gives them a great deal of access and the cream of the investigative leads developed by the media research team. Gain IP1.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-015",
+      "tree": "Business and Society",
+      "branch": "Media",
+      "tier": 5,
+      "name": "Media Blackout",
+      "effect": "This character is so highly positioned that they are able to censor news they don’t want released to the public. They can spend IP1 to prevent a new Scandal (See pg.316) from coming to light. This will not remove the Scandal, just temporarily suppress it. They can also “spin doctor” an existing story by either omitting unsavory details or obfuscating it by elevating an inflammatory non-story to the status of crisis.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-016",
+      "tree": "Business and Society",
+      "branch": "Charity",
+      "tier": 1,
+      "name": "Volunteer",
+      "effect": "This character’s generosity with their time is well known. When determining the amount of General Request Modifiers a character gets, increase the die roll by +2.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-017",
+      "tree": "Business and Society",
+      "branch": "Charity",
+      "tier": 2,
+      "name": "Donor",
+      "effect": "This character can spend Credits Lv.3 or higher to Restore IP1.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-018",
+      "tree": "Business and Society",
+      "branch": "Charity",
+      "tier": 3,
+      "name": "Community Organizer",
+      "effect": "This character has mingled charity with politics and counts major political figures as part of their Network. A character can spend IP1 to use contacts to help bury one Scandal, suppressing its penalty for the duration of a session. A GM can assign a Request level to this if they wish.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-019",
+      "tree": "Business and Society",
+      "branch": "Charity",
+      "tier": 4,
+      "name": "Major Donor",
+      "effect": "Decrease Wealth Level by 1, but gain IP2. A character cannot reduce their Wealth Level to less than 1, and if they cannot reduce their Wealth Level, only gain IP1 .",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-020",
+      "tree": "Business and Society",
+      "branch": "Charity",
+      "tier": 5,
+      "name": "Benefactor",
+      "effect": "A character has made charity their business and attracts tremendous amounts of wealth to causes they deem important. Add 1 to their Wealth Level, and expand their Network to include arts, entertainment, education, and research companies.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-021",
+      "tree": "Business and Society",
+      "branch": "Entertainment",
+      "tier": 1,
+      "name": "Below the Line",
+      "effect": "Character gets intermittent work as crew on experia shoots or as technical support or minor performer roles. A character gains Credits Lv.2 (10) to their Resource Catalog at Wealth Lv.1. (See pg.190)",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-022",
+      "tree": "Business and Society",
+      "branch": "Entertainment",
+      "tier": 2,
+      "name": "Booking Agent",
+      "effect": "Spend IP1 to gain Credits (Lv.1 per Contact in the Entertainment industry, max 1 per Tier in Entertainment Trait Branch), so 2 Contacts results in Credits Lv.2, etc.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-023",
+      "tree": "Business and Society",
+      "branch": "Entertainment",
+      "tier": 3,
+      "name": "Celebrity",
+      "effect": "{Expression +2, Stealth -1} when visiting or performing in public places or venues. They can use IP1 to change this to {Expression +3, Stealth -2} for the duration of a session.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-024",
+      "tree": "Business and Society",
+      "branch": "Entertainment",
+      "tier": 4,
+      "name": "Superstar",
+      "effect": "This character has access to news outlets and data centers with the same effect as Press Pass (See pg.158). They Gain +1 Wealth Level (Max Lv.4) and are always Out of Place.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-025",
+      "tree": "Business and Society",
+      "branch": "Entertainment",
+      "tier": 5,
+      "name": "Celebrity Mogul",
+      "effect": "This character can leverage their personal celebrity into multiple profitable ventures. Gain Wealth Level +1 and IP1. This character is always Out of Place. Professional Network: “Business”",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-026",
+      "tree": "Business and Society",
+      "branch": "Professional Network: Business",
+      "tier": 1,
+      "name": "Commission",
+      "effect": "One corporation is a Network. Whenever IP is used on one named Corporation on any Request, also gain Credits (Lv.1 per Tier in this Branch). Two tiers in this branch will generate Credits Lv.2, etc.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-027",
+      "tree": "Business and Society",
+      "branch": "Professional Network: Business",
+      "tier": 2,
+      "name": "Outside Consultant",
+      "effect": "All Corporations within the same industry as their Network are treated as part of the same Network.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-028",
+      "tree": "Business and Society",
+      "branch": "Professional Network: Business",
+      "tier": 3,
+      "name": "Ladder Climber",
+      "effect": "For one specific Corporation, the character is not required to spend any IP to make a Request unless they choose to (for the Commission Trait.)",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-029",
+      "tree": "Business and Society",
+      "branch": "Professional Network: Business",
+      "tier": 4,
+      "name": "Freelancer",
+      "effect": "This character can use the Commission trait with any corporation in the same Industry as their Network.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-030",
+      "tree": "Business and Society",
+      "branch": "Professional Network: Business",
+      "tier": 5,
+      "name": "Board Member",
+      "effect": "As a board member for several of them, this character never needs to spend IP when dealing with any Corporation in their Network. Gain Wealth Level +1.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-031",
+      "tree": "Combat",
+      "branch": "Melee Weapons, 1 Handed",
+      "tier": 1,
+      "name": "Basic Training",
+      "effect": "As a Training Value, gain {Melee Combat — One Handed +1}.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-032",
+      "tree": "Combat",
+      "branch": "Melee Weapons, 1 Handed",
+      "tier": 2,
+      "name": "Counter",
+      "effect": "In Melee or Grapple Range, Resolve an opponent’s d d to inflict 1d3 Wounds as Damage.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-033",
+      "tree": "Combat",
+      "branch": "Melee Weapons, 1 Handed",
+      "tier": 3,
+      "name": "Advanced Weapon Training",
+      "effect": "A character Resolving an extra ^ ^ avoids penalties for using one-handed Advanced Cutting Weapons or Force Weapons as if they had Specializations. Also, accidentally inflicting Wounds on themselves or others with such weapons requires an extra to be Resolved.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-034",
+      "tree": "Combat",
+      "branch": "Melee Weapons, 1 Handed",
+      "tier": 4,
+      "name": "Damage",
+      "effect": "Add +1 to Damage to all One-handed Weapons used. This can combine with other bonuses.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-035",
+      "tree": "Combat",
+      "branch": "Melee Weapons, 1 Handed",
+      "tier": 5,
+      "name": "Mastery",
+      "effect": "Add +1x Bonus to all Melee Weapons used. This can combine with other bonuses.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-036",
+      "tree": "Combat",
+      "branch": "Melee Weapons, 2 Handed",
+      "tier": 1,
+      "name": "Basic Training",
+      "effect": "Gain {Melee Combat — 2 Handed +1} as a Training Value.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-037",
+      "tree": "Combat",
+      "branch": "Melee Weapons, 2 Handed",
+      "tier": 2,
+      "name": "Sweeping Defense",
+      "effect": "Resolve d d to increase Protection by +1 per d d against attacks made by all Opponents in Melee and Grapple Range. This can combine with other bonuses.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-038",
+      "tree": "Combat",
+      "branch": "Melee Weapons, 2 Handed",
+      "tier": 3,
+      "name": "Mighty Strike",
+      "effect": "Resolve an additional ^ ^ in order to increase Damage by +2 when attacking a single target with a two handed Melee Weapon.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-039",
+      "tree": "Combat",
+      "branch": "Melee Weapons, 2 Handed",
+      "tier": 4,
+      "name": "Sweep Attack",
+      "effect": "When Attacking with a 2 handed weapon, when resolving at least d d and/or + per target SB you can inflict the Prone status effect with that Attack.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-040",
+      "tree": "Combat",
+      "branch": "Melee Weapons, 2 Handed",
+      "tier": 5,
+      "name": "Mastery",
+      "effect": "Add +1x bonus to all 2 Handed Melee Weapons used. This can combine with other bonuses.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-041",
+      "tree": "Combat",
+      "branch": "Small Arms",
+      "tier": 1,
+      "name": "Basic Training",
+      "effect": "As a Training Value, gain {Firearms — Pistol +1} for any Small Arms used.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-042",
+      "tree": "Combat",
+      "branch": "Small Arms",
+      "tier": 2,
+      "name": "Point Blank Shot",
+      "effect": "Using small arms with {Firearms — Pistol} as a Save Throw will not require any ^ ^ to be Resolved in order to do so.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-043",
+      "tree": "Combat",
+      "branch": "Small Arms",
+      "tier": 3,
+      "name": "Focus Fire",
+      "effect": "Add an extra DP 1 in order to increase Damage by +2 this Round against targets in a Shared Zone.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-044",
+      "tree": "Combat",
+      "branch": "Small Arms",
+      "tier": 4,
+      "name": "Trigger Discipline",
+      "effect": "Add Efficiency +1 to attacks with Small Arms.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-045",
+      "tree": "Combat",
+      "branch": "Small Arms",
+      "tier": 5,
+      "name": "Mastery",
+      "effect": "Gain +1x Bonus for all Small Arms used.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-046",
+      "tree": "Combat",
+      "branch": "Long Guns",
+      "tier": 1,
+      "name": "Basic Training",
+      "effect": "As a Training Value, gain {Firearms — Long Gun +1}.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-047",
+      "tree": "Combat",
+      "branch": "Long Guns",
+      "tier": 2,
+      "name": "Aim",
+      "effect": "Character always use the Aim Triggered Effect (see pg.207) with any Long Gun, even without the use of a Scope or Deploying. The character also gains a gain {Firearms +1} as a Training Value.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-048",
+      "tree": "Combat",
+      "branch": "Long Guns",
+      "tier": 3,
+      "name": "Trigger Discipline",
+      "effect": "Add Efficiency +1 to attacks with Long Guns.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-049",
+      "tree": "Combat",
+      "branch": "Long Guns",
+      "tier": 4,
+      "name": "Damage",
+      "effect": "Add +1 to Damage for attacks with Long Guns. This can combine with other bonuses.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-050",
+      "tree": "Combat",
+      "branch": "Long Guns",
+      "tier": 5,
+      "name": "Mastery",
+      "effect": "Add +1x Bonus to all attacks with Long Guns. This can combine with other bonuses.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-051",
+      "tree": "Combat",
+      "branch": "Energy Weaponry",
+      "tier": 1,
+      "name": "Rail Weapons Training",
+      "effect": "This character can use Rail Weapons as if they were Long Guns or Small Arms (depending on the model), and gain bonuses from their use as described in the Long Guns or Small Arms Trait Branches.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-052",
+      "tree": "Combat",
+      "branch": "Energy Weaponry",
+      "tier": 2,
+      "name": "Energy Weaponry",
+      "effect": "Gain {Directed Energy Weapon +1} as a Training Value.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-053",
+      "tree": "Combat",
+      "branch": "Energy Weaponry",
+      "tier": 3,
+      "name": "Trigger Discipline",
+      "effect": "Add Efficiency +1 to attacks with Rail or Directed Energy Weaponry.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-054",
+      "tree": "Combat",
+      "branch": "Energy Weaponry",
+      "tier": 4,
+      "name": "Sustained Charge",
+      "effect": "Increase Damage of a Directed Energy Weapon by +2 when a character only attacks a single target.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-055",
+      "tree": "Combat",
+      "branch": "Energy Weaponry",
+      "tier": 5,
+      "name": "Mastery",
+      "effect": "Add +1x Bonus to all attacks with Directed Energy Weapons and Hybrid Weapons. This can combine with other bonuses.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-056",
+      "tree": "Combat",
+      "branch": "Martial Arts",
+      "tier": 1,
+      "name": "Martial Arts Training",
+      "effect": "This character only penalizes {Brawl -1} instead of -2 for Unarmed Attacks.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-057",
+      "tree": "Combat",
+      "branch": "Martial Arts",
+      "tier": 2,
+      "name": "Advanced Martial Arts",
+      "effect": "This character does not suffer penalties for attacking Unarmed and does not take penalties for making multiple {Brawl} checks in the same Turn.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-058",
+      "tree": "Combat",
+      "branch": "Martial Arts",
+      "tier": 3,
+      "name": "Way of the Open Hand",
+      "effect": "Character increases Damage by +2 for Unarmed Attacks and can use the Disarm Triggered Effect (See pg.136) while unarmed.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-059",
+      "tree": "Combat",
+      "branch": "Martial Arts",
+      "tier": 4,
+      "name": "Martial Arts Weapons",
+      "effect": "Gain +1x for Melee Weapons that are Martial Arts Weapons. This does not combine with other bonuses.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-060",
+      "tree": "Combat",
+      "branch": "Martial Arts",
+      "tier": 5,
+      "name": "Grand Master",
+      "effect": "Add +1x Bonus to all Unarmed and Melee Weapons used. This can combine with other bonuses.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-061",
+      "tree": "Combat",
+      "branch": "Thrown Weapons",
+      "tier": 1,
+      "name": "Basic Training",
+      "effect": "As a Training Value, gain {Throw +1}.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-062",
+      "tree": "Combat",
+      "branch": "Thrown Weapons",
+      "tier": 2,
+      "name": "Grenades",
+      "effect": "As a Training Value, gain {Throw — Grenades +2}.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-063",
+      "tree": "Combat",
+      "branch": "Thrown Weapons",
+      "tier": 3,
+      "name": "Blades",
+      "effect": "As a Training Value, gain {Throw — Knives +2}.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-064",
+      "tree": "Combat",
+      "branch": "Thrown Weapons",
+      "tier": 4,
+      "name": "Rapid Throwing",
+      "effect": "Save Throws attempted against a Thrown weapon from this character are penalized {Athletics — Dodge -1}.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-065",
+      "tree": "Combat",
+      "branch": "Thrown Weapons",
+      "tier": 5,
+      "name": "Mastery",
+      "effect": "Add +1x Bonus to all Thrown Weapons used. This can combine with other bonuses.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-066",
+      "tree": "Combat",
+      "branch": "Armor",
+      "tier": 1,
+      "name": "Battle Armor Training",
+      "effect": "This character has training with Battle Armor and does not suffer the Heavy +1 penalty for untrained use.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-067",
+      "tree": "Combat",
+      "branch": "Armor",
+      "tier": 2,
+      "name": "Requisition (Battle Armor)",
+      "effect": "This character has contacts with one of the mercenary police forces under contract by the Protectorate and can have “Battle Armor” requisitioned to them. This will vary by organization.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-068",
+      "tree": "Combat",
+      "branch": "Armor",
+      "tier": 3,
+      "name": "Armor Specialist",
+      "effect": "Resolve an extra ^ ^ and take a penalty of {-2} in an attack to find a weakness in armor and add Armor Piercing to any “Hit” Triggered Effect used.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-069",
+      "tree": "Combat",
+      "branch": "Armor",
+      "tier": 4,
+      "name": "Guard Flank",
+      "effect": "If this character is not Prone (See pg.142), they do not lose Armor when hit with Armor Piercing attacks granted by Triggered Effects. Armor Piercing damage that is intrinsic to the damage type or the weapon used will still be effective normally.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-070",
+      "tree": "Combat",
+      "branch": "Armor",
+      "tier": 5,
+      "name": "Armor Mastery",
+      "effect": "Add Protection +1 against all damage types except against Armor Piercing. This can combine with other bonuses.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-071",
+      "tree": "Crime",
+      "branch": "Larceny",
+      "tier": 1,
+      "name": "Pickpocketing",
+      "effect": "Add {Stealth +1} as a Training Value when pickpocketing or stealing anything ,, ,, or smaller. This can combine with other Bonuses.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-072",
+      "tree": "Crime",
+      "branch": "Larceny",
+      "tier": 2,
+      "name": "Security Protocol",
+      "effect": "Add {Detect, Search +1} as a Training Value to any check made to detect security systems. This can combine with other Bonuses.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-073",
+      "tree": "Crime",
+      "branch": "Larceny",
+      "tier": 3,
+      "name": "Hotwiring",
+      "effect": "This character is able to override security measures either manually or with assistance from tools with digital components. Add +1 Training Value with these types of tools. This can combine with other Bonuses.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-074",
+      "tree": "Crime",
+      "branch": "Larceny",
+      "tier": 4,
+      "name": "Abduction",
+      "effect": "This character is able to abduct another target while remaining relatively unharmed. They may increase the Damage of any weapon with a Stun or Subdual feature by +2. Add {+1} to Training Value when using any kind of security restraints.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-075",
+      "tree": "Crime",
+      "branch": "Larceny",
+      "tier": 5,
+      "name": "Thief",
+      "effect": "Gain the following Triggered Effect when using {Stealth}:  Legerdemain: (Special) Something that is ,, ,, per + is stolen or hidden from view or planted on another without them noticing. Add a further +1 to the Training Value bonus for Pickpocketing, Security Protocol, Hotwiring and Abduction Traits. Gain 1x to any Tools used explicitly for",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-076",
+      "tree": "Crime",
+      "branch": "Trafficking",
+      "tier": 1,
+      "name": "Minor Contraband",
+      "effect": "This character specializes in moving minor contraband that results in little more than a fine if caught. They have a Wealth Lv. 2 and can generate Credits Lv.2 once a month for free.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-077",
+      "tree": "Crime",
+      "branch": "Trafficking",
+      "tier": 2,
+      "name": "Arms and Armor",
+      "effect": "The character excels at trafficking arms and armor of a wide variety of types. They can purchase weapons and ammunition as if they were not Regulated or Registered, but must purchase using Credits.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-078",
+      "tree": "Crime",
+      "branch": "Trafficking",
+      "tier": 3,
+      "name": "Exotic Goods",
+      "effect": "Spend IP1 to remove Rare from any item obtained from illicit Contacts, but the character must make the purchase with Credits.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-079",
+      "tree": "Crime",
+      "branch": "Trafficking",
+      "tier": 4,
+      "name": "Gray Market Supplier",
+      "effect": "Spend IP1 and an item can be purchased without any Gray Market restrictions or penalties, but the purchase must be made with Credits.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-080",
+      "tree": "Crime",
+      "branch": "Trafficking",
+      "tier": 5,
+      "name": "Black Market Supplier",
+      "effect": "Spend IP1 and an item can be purchased without any Black Market restrictions or penalties, but they must make the purchase with Credits.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-081",
+      "tree": "Crime",
+      "branch": "Thuggery",
+      "tier": 1,
+      "name": "Strong-Arm",
+      "effect": "Add {Intimidation +1} if the character threatens physical violence.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-082",
+      "tree": "Crime",
+      "branch": "Thuggery",
+      "tier": 2,
+      "name": "Hired Muscle",
+      "effect": "This character can hire themselves out as security or as a bodyguard. Add +1 Wealth Lv.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-083",
+      "tree": "Crime",
+      "branch": "Thuggery",
+      "tier": 3,
+      "name": "Arson",
+      "effect": "This character is adept at destroying things using incendiary devices or anything that inflicts [Thermal] Damage. Add +2 Training Value when constructing and using such equipment.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-084",
+      "tree": "Crime",
+      "branch": "Thuggery",
+      "tier": 4,
+      "name": "Interrogator",
+      "effect": "Gain {Intimidation, Expression, Discipline +1} when using any virtual or physical interrogation methods.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-085",
+      "tree": "Crime",
+      "branch": "Thuggery",
+      "tier": 5,
+      "name": "Hitman",
+      "effect": "This character is a professional assassin and adept at singling out one target among many. Designate one specific opponent and add {+2} to hit when targeting them in an Encounter. Reduce the bonus to {+1} if the target is aware of the character’s presence. Professional Network: “Crime Syndicate”",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-086",
+      "tree": "Crime",
+      "branch": "Professional Network: Crime Syndicate",
+      "tier": 1,
+      "name": "Goon Squad",
+      "effect": "This character can Request (See pg.307) some additional muscle from the criminal organization to come to their assistance.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-087",
+      "tree": "Crime",
+      "branch": "Professional Network: Crime Syndicate",
+      "tier": 2,
+      "name": "Fixer",
+      "effect": "This character is a known contact in coordinating illicit deals. Add {Diplomacy — Criminal Organization +2}.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-088",
+      "tree": "Crime",
+      "branch": "Professional Network: Crime Syndicate",
+      "tier": 3,
+      "name": "Professional",
+      "effect": "The character has a reputation as being a legitimate front man for the various illegal activities of a criminal organization, such as being manager of a restaurant, bar or social club that has secret gambling, prostitution, smuggling, and extortion schemes. They are extremely valuable to a criminal enterprise and indispensable save for the most desperate of circumstances. Gain IP1.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-089",
+      "tree": "Crime",
+      "branch": "Professional Network: Crime Syndicate",
+      "tier": 4,
+      "name": "Boss",
+      "effect": "Add {Bureaucracy, Diplomacy — Criminal Organization” +2} when making Requests (See pg.307) of a Criminal Organization.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-090",
+      "tree": "Crime",
+      "branch": "Professional Network: Crime Syndicate",
+      "tier": 5,
+      "name": "Crime Lord",
+      "effect": "When making Requests of a relevant Criminal Organization add Bonus +1. Gain IP1. Gain a Training Value bonus of {Intimidation, Bureaucracy, Culture +1}. This can combine with other Bonuses.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-091",
+      "tree": "Crime",
+      "branch": "Evasion",
+      "tier": 1,
+      "name": "Concealment",
+      "effect": "This character can add Concealment +1 to anything that is a combined ,, ,, or smaller on their person without detection. When encountering dedicated security screenings, add +2 Training Value to {Stealth} to conceal the gear.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-092",
+      "tree": "Crime",
+      "branch": "Evasion",
+      "tier": 2,
+      "name": "Saferoom",
+      "effect": "This character can use a Criminal Network to provide a saferoom for themselves or others. Reduce the Request Level (See pg.308) for asylum by 1, but expect to also pay a bribe with Credits or use IP1. The duration of the stay will be up to the GM, but it is clear that this is a temporary lodging. A saferoom allows characters the benefits of a Long Rest.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-093",
+      "tree": "Crime",
+      "branch": "Evasion",
+      "tier": 3,
+      "name": "Shadow",
+      "effect": "This character excels at following closely without being noticed. Add {Read Person, Survival, Stealth +1} when following a mark. This can combine with other Bonuses.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-094",
+      "tree": "Crime",
+      "branch": "Evasion",
+      "tier": 4,
+      "name": "Master of Disguise",
+      "effect": "A character can adds a Bonus to {Stealth +2}. They are not restricted to only an {Expression} bonus when wearing a Uniform as a disguise.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-095",
+      "tree": "Crime",
+      "branch": "Evasion",
+      "tier": 5,
+      "name": "Safehouse",
+      "effect": "This character has procured or built for themselves a very secure, relatively cozy safehouse with broadcast screeners, living quarters, and hidden compartments and rooms. A party or character, even one with Scandals, can utilize it without making a Request or spending any IP . A Safehouse allows characters the benefits of a Long Rest.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-096",
+      "tree": "Crime",
+      "branch": "Fraud",
+      "tier": 1,
+      "name": "Forgery, Physical",
+      "effect": "Any physical object can be forged. The character adds {Expression, Engineering +2} when attempting to duplicate an object that is purely physical and without any digital verifications.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-097",
+      "tree": "Crime",
+      "branch": "Fraud",
+      "tier": 2,
+      "name": "Laundering",
+      "effect": "This character can spend an IP to convert any Credits owned by the party to untraceable. However, this will reduce the Credits’ Level by 1.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-098",
+      "tree": "Crime",
+      "branch": "Fraud",
+      "tier": 3,
+      "name": "Racketeering",
+      "effect": "Add Untraceable Credits Lv.3 to a character’s Resource Catalog at Wealth Lv.3 (See pg.183). Capacity will be equal to 2d6.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-099",
+      "tree": "Crime",
+      "branch": "Fraud",
+      "tier": 4,
+      "name": "Forgery, Digital",
+      "effect": "The character adds {Data Engineering, Digital Networking +2} when attempting to fake digital credentials of any kind.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-100",
+      "tree": "Crime",
+      "branch": "Fraud",
+      "tier": 5,
+      "name": "Dark Net",
+      "effect": "This character maintains a network that is able to launder money and make purchases without alerting digital watchdogs to their presence. Every purchase this character makes as well as all Credits they generate are untraced by authorities.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-101",
+      "tree": "Law and Government",
+      "branch": "Permits",
+      "tier": 1,
+      "name": "Class C",
+      "effect": "Spend IP1 to obtain a permit that allows one of the following without Scandal (See pg.316) or legal reprisal: drive a personal non-commercial vehicle, run a small business, or own Small Arms privately.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-102",
+      "tree": "Law and Government",
+      "branch": "Permits",
+      "tier": 2,
+      "name": "Class B",
+      "effect": "Spend IP1 to obtain a permit that allows one of the following without Scandal or legal reprisal: pilot a commercial vehicle, pilot an aircar, run a large business, practice medicine or be a med-tech, own Large Arms or Energy Arms, or own and carry Small Arms in public.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-103",
+      "tree": "Law and Government",
+      "branch": "Permits",
+      "tier": 3,
+      "name": "Class A",
+      "effect": "Spend IP1 to obtain a permit that allows one of the following without Scandal or legal reprisal: pilot starships, run corporations, or own and carry Large Arms or Energy Arms in public.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-104",
+      "tree": "Law and Government",
+      "branch": "Permits",
+      "tier": 4,
+      "name": "Military Clearance",
+      "effect": "This character has clearance to carry and use military hardware or software. They must be in good standing with the military organization and can spend IP to requisition military grade weaponry.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-105",
+      "tree": "Law and Government",
+      "branch": "Permits",
+      "tier": 5,
+      "name": "Protectorate Clearance",
+      "effect": "This character has clearance from the Protectorate in order to access secure government sites. Very few locations within the Protectorate are off limits.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-106",
+      "tree": "Law and Government",
+      "branch": "Law Enforcement",
+      "tier": 1,
+      "name": "Basic Law",
+      "effect": "This character knows the basic laws that all citizens are required to know and obey. They do not need to make any {Culture} checks to determine whether or not a specific action is legal.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-107",
+      "tree": "Law and Government",
+      "branch": "Law Enforcement",
+      "tier": 2,
+      "name": "Criminal Defense",
+      "effect": "This character knows the rights of the accused. They can take preventive measures to avoid lawbreaking (or warn another), take action to prevent further incrimination of oneself and know any loopholes that might allow exoneration. They also know the proper chain of custody for evidence gathering. As a Training Value, a character gets {Composure, Bureaucracy, Culture +1} as a save throw against {Interrogation, Intimidation, Investigation} made by lawyers or law enforcement.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-108",
+      "tree": "Law and Government",
+      "branch": "Law Enforcement",
+      "tier": 3,
+      "name": "Jurisdiction",
+      "effect": "The character’s role in a department or bureau grants them the ability to interact with and make demands of a bureau, citizen or corporation. They can use their authority to make a Request (See pg.307) at Request Level 3 or less without using any Influence Points or fear of a Scandal (See pg.316).",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-109",
+      "tree": "Law and Government",
+      "branch": "Law Enforcement",
+      "tier": 4,
+      "name": "Investigator",
+      "effect": "Thischaracterhasuniqueclearancetoenter,observe, and gather evidence from active crime scenes and get classified information about ongoing investigations without spending IP . If they are part of a law enforcement agency, this character’s handling of evidence gathered with their special access does not violate any required chain of custody, and is still valuable to law enforcement agencies. Add {Investigation +2}. However, this access can be revoked if a character’s commanding officer (CO) deems it necessary. In this case, a character can go over the head of their CO by using an IP in order to allow",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-110",
+      "tree": "Law and Government",
+      "branch": "Law Enforcement",
+      "tier": 5,
+      "name": "Special Agent",
+      "effect": "This character is a highly influential and trusted investigator from the Protectorate Intelligence Agency, not just local police. This functions the same as Investigator, but they have unfettered access to any ongoing investigation or crime scene from any jurisdiction. Only a Scandal (See pg.316)can prevent a character from access in this way. A character cannot have rank pulled on them by members of other agencies and they cannot legally be denied access from any information requests from law enforcement departments.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-111",
+      "tree": "Law and Government",
+      "branch": "Professional Network: Police",
+      "tier": 1,
+      "name": "Good Standing",
+      "effect": "This character is in good legal standing and can expect respectful treatment by law enforcement and add {Diplomacy, Bureaucracy +1} when interacting with them. This is increased to +2 if they are an Official Archetype.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-112",
+      "tree": "Law and Government",
+      "branch": "Professional Network: Police",
+      "tier": 2,
+      "name": "Friend of the Law",
+      "effect": "This character is known favorably by law enforcement and is able to treat them as a Network (See pg.304).",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-113",
+      "tree": "Law and Government",
+      "branch": "Professional Network: Police",
+      "tier": 3,
+      "name": "Ranking Officer, Police",
+      "effect": "This character is a sergeant or a detective and treats all Law Enforcement and related bureaucracies as a Network. Increase Wealth Lv. by 1.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-114",
+      "tree": "Law and Government",
+      "branch": "Professional Network: Police",
+      "tier": 4,
+      "name": "Protectorate Contact",
+      "effect": "A character has a high ranking Protectoate contact. The Bonus Die provided by using a Protectorate Contact is increased by one Level when determining the success of Requests (See pg.307) made of any Protectorate agency or Bureaucracy.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-115",
+      "tree": "Law and Government",
+      "branch": "Professional Network: Police",
+      "tier": 5,
+      "name": "Meth Contact",
+      "effect": "This character has a Contact that is a powerful and influential Meth, and is able to request favors from them. The character gains IP2 and is able to interact with Meths without any penalties to {Composure}.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-116",
+      "tree": "Law and Government",
+      "branch": "Citizenship",
+      "tier": 1,
+      "name": "Citizen",
+      "effect": "This character is an official citizen of a specific city, or any of the other offworld colony and is granted the rights and privileges thereof. If they have the appropriate Wealth Level, They can have a dwelling that is secure enough for a Long Rest, provided they also have no Scandals (See pg.316).",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-117",
+      "tree": "Law and Government",
+      "branch": "Citizenship",
+      "tier": 2,
+      "name": "Politician",
+      "effect": "This character is a low-level regional politician or bureaucrat. Gain IP1.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-118",
+      "tree": "Law and Government",
+      "branch": "Citizenship",
+      "tier": 3,
+      "name": "Ambassador",
+      "effect": "When determining the success of Requests (See pg.307) made to any Protectorate agency or Bureaucracy, the Bonus Die provided by using a foreign government as a Contact is increased by one Level.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-119",
+      "tree": "Law and Government",
+      "branch": "Citizenship",
+      "tier": 4,
+      "name": "Transnational",
+      "effect": "The character has multiple citizenships across the Protectorate and is able to use the Citizen privileges within multiple governments or regions.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-120",
+      "tree": "Law and Government",
+      "branch": "Citizenship",
+      "tier": 5,
+      "name": "Major Politician",
+      "effect": "A character is a very recognizable and highly influential politician. Their opinion may carry with it the force of law, even if it is a de-facto exercise of legal authority. Gain IP1 and +1 Wealth Level.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-121",
+      "tree": "Law and Government",
+      "branch": "Mercenary",
+      "tier": 1,
+      "name": "Private",
+      "effect": "A character is a registered member of a military organization or are UN Marines in a reserve company. They have to report to a commanding officer, but are also allowed to Requisition equipment that is considered standard issue.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-122",
+      "tree": "Law and Government",
+      "branch": "Mercenary",
+      "tier": 2,
+      "name": "Ranking Officer, Mercenary",
+      "effect": "{Diplomacy +2} and gain IP1. Apparel with appropriate rank markings that gives Uniform special rule will increase it by +1.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-123",
+      "tree": "Law and Government",
+      "branch": "Mercenary",
+      "tier": 3,
+      "name": "Training Range",
+      "effect": "A character has the Specialization for any firearm they can Requisition.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-124",
+      "tree": "Law and Government",
+      "branch": "Mercenary",
+      "tier": 4,
+      "name": "Special Forces",
+      "effect": "This character is (or was) a member of an elite Special Forces unit. They add +1 Training Value to all Weapon categories and Recon. Gear.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-125",
+      "tree": "Law and Government",
+      "branch": "Mercenary",
+      "tier": 5,
+      "name": "General",
+      "effect": "This character is among the highest ranking officers in the Protectorate and can pull rank on nearly any active duty service members except Special Forces or Protectorate Intelligence agencies. Gain IP1 and +1 Wealth Level.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-126",
+      "tree": "Survival",
+      "branch": "Urban",
+      "tier": 1,
+      "name": "Streetwise",
+      "effect": "This character has extensive understanding and history with the underbelly of urban life. Add {Expression, Culture, History +2} when an Urban specialization is applicable.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-127",
+      "tree": "Survival",
+      "branch": "Urban",
+      "tier": 2,
+      "name": "Underground",
+      "effect": "This character has several contacts with underground networks, both literally and figuratively. When using an IP in an urban area, the bonus die rolled based on Request Level will be one level higher than normal.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-128",
+      "tree": "Survival",
+      "branch": "Urban",
+      "tier": 3,
+      "name": "Sidestreets",
+      "effect": "The character gains +2 Training Value when making any {Navigation, Stealth} in urban environments.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-129",
+      "tree": "Survival",
+      "branch": "Urban",
+      "tier": 4,
+      "name": "Urban Network",
+      "effect": "This character maintains close ties to an urban network that may be affiliated with both legitimate businesses and illicit ones. Gain IP1 that can be used when interacting with such an organization.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-130",
+      "tree": "Survival",
+      "branch": "Urban",
+      "tier": 5,
+      "name": "Rat King",
+      "effect": "The character is a leader (insofar as one can be) of a street organization. They command a certain amount of respect from the organization, local businesses and even rivals who may give the character some begrudging respect. Gain EP1 and +1 Wealth Level.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-131",
+      "tree": "Survival",
+      "branch": "Wilderness",
+      "tier": 1,
+      "name": "Biome Naturalization",
+      "effect": "This character has developed a harmony with their surroundings and is able to understand the rhythm of the environment, making changes readily noticeable to them. They gain a Training Value to any {“Perception”, “Acuity” +1} used as a Save Throw.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-132",
+      "tree": "Survival",
+      "branch": "Wilderness",
+      "tier": 2,
+      "name": "Navigation",
+      "effect": "The character is adept at leaving or discovering discreet trail markers that indicate a safe passage. Gain +1 Training Value when using Recon. Gear and Survival Gear to aid {Navigation}.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-133",
+      "tree": "Survival",
+      "branch": "Wilderness",
+      "tier": 3,
+      "name": "Survival Acumen",
+      "effect": "This character has an uncanny knack to survive in the wilderness using minimal tools. Gain +2 Training Value when using Tools that add a Gear bonus to {Survival} or anything listed as Survival Gear.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-134",
+      "tree": "Survival",
+      "branch": "Wilderness",
+      "tier": 4,
+      "name": "Tracking",
+      "effect": "This character is a capable tracker and is able to find telltale signs that the environment has been disturbed. Add {Investigation, Search +1} as a Training Value to pick up the trail of a person or animal.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-135",
+      "tree": "Survival",
+      "branch": "Wilderness",
+      "tier": 5,
+      "name": "Survivor",
+      "effect": "This character is almost a force of nature unto themselves and has no problem functioning within almost any environment. If they have a Specialization for {Survival} in a specific region, they no longer need to make {Survival} checks for day-to-day needs of food, water and shelter.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-136",
+      "tree": "Survival",
+      "branch": "Bushcraft",
+      "tier": 1,
+      "name": "Basic Survival Skills",
+      "effect": "Increase Training Value for {Survival} checks by +1.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-137",
+      "tree": "Survival",
+      "branch": "Bushcraft",
+      "tier": 2,
+      "name": "Identify",
+      "effect": "This character is able to identify the medicinal properties of any herb, mineral, etc. Gain {Medicine +2} when in the wild.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-138",
+      "tree": "Survival",
+      "branch": "Bushcraft",
+      "tier": 3,
+      "name": "Shelter",
+      "effect": "This character can construct or find suitable shelter with an additional Training Value of {Survival +2}.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-139",
+      "tree": "Survival",
+      "branch": "Bushcraft",
+      "tier": 4,
+      "name": "Advanced Survival Skills",
+      "effect": "Increase the Training Value for any {Survival} checks by +2.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-140",
+      "tree": "Survival",
+      "branch": "Bushcraft",
+      "tier": 5,
+      "name": "Bushmaster",
+      "effect": "This character is able to make almost anything they need out of found objects in nature. Any Tool Kit — Survivalwillget+2toitsbonus.Sheltersthecharacter constructs will have an additional {+1} and can allow Long Rests with a successful {Survival}.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-141",
+      "tree": "Survival",
+      "branch": "First Aid",
+      "tier": 1,
+      "name": "Basic First Aid",
+      "effect": "Remove an additional +1 Wound per + from a target when using {Medicine} provided the target has not taken any Injuries.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-142",
+      "tree": "Survival",
+      "branch": "First Aid",
+      "tier": 2,
+      "name": "Stabilize Injury",
+      "effect": "Gain a bonus of {Medicine +2} when attempting to Stabilize a Dying character.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-143",
+      "tree": "Survival",
+      "branch": "First Aid",
+      "tier": 3,
+      "name": "Poisons",
+      "effect": "Identify and treat [Poison] wounds and Poisoned status as if the character had no Injuries.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-144",
+      "tree": "Survival",
+      "branch": "First Aid",
+      "tier": 4,
+      "name": "Advanced First Aid",
+      "effect": "Gain {Medicine +2} as a Training Value.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-145",
+      "tree": "Survival",
+      "branch": "First Aid",
+      "tier": 5,
+      "name": "Field Medic",
+      "effect": "Gain the following Triggered Effects when using {Medicine}:  Expert First Aid: ( + ) During a Short Rest, remove 1d6+ IB Wounds. During a Long Rest, remove 1d10+ IB Wounds.  Expert Triage: ( +++ ) Target up to 5 characters with the same Use of a Medical Tool or Device.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-146",
+      "tree": "Technology",
+      "branch": "Programming",
+      "tier": 1,
+      "name": "Basic Programming",
+      "effect": "This character knows numerous basic command prompts in programming languages. They can treat a command prompt as if they had a simple user interface. Gain {+1} Training Value when using Decks (See pg.246).",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-147",
+      "tree": "Technology",
+      "branch": "Programming",
+      "tier": 2,
+      "name": "Data Engineer",
+      "effect": "This character is able to apply a Generic Software Upgrade to a Deck without using an additional Q and gains a {+1} Training Value when using Decks.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-148",
+      "tree": "Technology",
+      "branch": "Programming",
+      "tier": 3,
+      "name": "Dipping",
+      "effect": "This character is able to tap into secure broadcasts, including needlecasts and gains {+1} Training Value when using Decks.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-149",
+      "tree": "Technology",
+      "branch": "Programming",
+      "tier": 4,
+      "name": "Digital Spectre",
+      "effect": "This character can better operate in a digital space with total secrecy. When using an ONI Network, they can add an extra +2 Training Value when using Decks to mask the physical location where they’re accessing the system, their activity, and their or another’s identity. If the character also has the “Dark Net” Trait, then the extra bonus to Training Value is increased to +3. Disabling ONI Network access on their local devices will allow them to cover their tracks completely regarding their current location and activity.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-150",
+      "tree": "Technology",
+      "branch": "Programming",
+      "tier": 5,
+      "name": "Tech Maven",
+      "effect": "All Decks the character uses gain a +1x Bonus and can be loaded with QQ worth of additional drivers, upgrades, and programs. Other characters can use this upgraded Deck without the +1x Bonus,",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-151",
+      "tree": "Technology",
+      "branch": "Medicine",
+      "tier": 1,
+      "name": "Medical Technician",
+      "effect": "This character is trained to use med-tech devices like BioWelders and Autosurgeons (See pg.240). Gain +1 Training Value to Medical Gear.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-152",
+      "tree": "Technology",
+      "branch": "Medicine",
+      "tier": 2,
+      "name": "Organic Surgery",
+      "effect": "Increase the number of Wounds removed by tissue or bone welding by +1 per + in {Medicine}. Gain +1 Training Value to Medical Gear. This bonus is not usable in Virtual.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-153",
+      "tree": "Technology",
+      "branch": "Medicine",
+      "tier": 3,
+      "name": "Psychosurgery",
+      "effect": "Character is able to utilize complex programs to undo the mental trauma (or inflict it) upon DHF. Gain +1 Training Value to Medical Gear used in Virtual. Ego Point recovery or deliberate damage as a result of a character Resolving + when attempting psychosurgery in Virtual will be increased by EP1 per IB the character has.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-154",
+      "tree": "Technology",
+      "branch": "Medicine",
+      "tier": 4,
+      "name": "Advanced Medicine",
+      "effect": "Perform any surgery involving organic and synthetic sleeves including augments (See pg.262). Gain +1 Training Value to Medical Gear.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-155",
+      "tree": "Technology",
+      "branch": "Medicine",
+      "tier": 5,
+      "name": "Surgeon",
+      "effect": "Increase the number of Bonus Dice rolled for all Medical Gear the character uses by +1x.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-156",
+      "tree": "Technology",
+      "branch": "Augments",
+      "tier": 1,
+      "name": "Bionics",
+      "effect": "This character can use {Medicine} to apply Q as implanted augments. Gain +1 Training Value with Medical Gear. This character also knows how to repair Flesh Wounds to Synth sleeves.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-157",
+      "tree": "Technology",
+      "branch": "Augments",
+      "tier": 2,
+      "name": "Skeleton/Muscle Augments",
+      "effect": "This character can use {Medicine, Science} to apply an augment to a sleeve’s muscles or skeleton and repair Bone Injury to Synth sleeves. This includes bionic replacements of limbs and organs. Gain +1 Training Value to Medical Gear.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-158",
+      "tree": "Technology",
+      "branch": "Augments",
+      "tier": 3,
+      "name": "Organic Augments",
+      "effect": "This character is able to transplant vat grown organs or enhanced organic augments to sleeves. Gain +1 Training Value to Medical Gear.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-159",
+      "tree": "Technology",
+      "branch": "Augments",
+      "tier": 4,
+      "name": "Splice Augments",
+      "effect": "This character can apply or remove Freak augments, splicing animal organs or augments to organic sleeves. Gain +1 Training Value to Medical Gear.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-160",
+      "tree": "Technology",
+      "branch": "Augments",
+      "tier": 5,
+      "name": "BioEngineer",
+      "effect": "This character can replicate synthetic augments up to QQ as organs or biological augmentations. This will require an additional Price Level, but an organic augment will not use up a Q and will be indistinguishable from a normal human organ. That this can also be used to replicate or synthesize natural chemicals. Engineer",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-161",
+      "tree": "Technology",
+      "branch": "Engineering",
+      "tier": 1,
+      "name": "Repair",
+      "effect": "By paying a Price Level of 1 per Q of the gear a character can remove any kind of Damage done to equipment. This cost includes wasted Q from failed modification attempts. Destroyed gear cannot be fixed in this way.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-162",
+      "tree": "Technology",
+      "branch": "Engineering",
+      "tier": 2,
+      "name": "Fabrication",
+      "effect": "A character is able to apply a Generic Upgrade (See pg.194) to a specific piece of equipment without using an additional Q .",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-163",
+      "tree": "Technology",
+      "branch": "Engineering",
+      "tier": 3,
+      "name": "Reverse Engineer",
+      "effect": "This character can reproduce or remove Model Variant upgrades as if they were After Market upgrades for the benefit of others. Lastly, getting +++ or more in a Respec will preserve the removed Upgrade as a functioning Upgrade Kit in addition to refunding the Q used.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-164",
+      "tree": "Technology",
+      "branch": "Engineering",
+      "tier": 4,
+      "name": "Rig",
+      "effect": "By using an additional Q a character can apply a Generic Upgrade of one category to an entirely different category of equipment.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-165",
+      "tree": "Technology",
+      "branch": "Engineering",
+      "tier": 5,
+      "name": "Master Fabricator",
+      "effect": "This character can spend IP1 to combine the effects of two Upgrade Kits and use only the Q Qcost of the higher of the two when applying it to Gear. Applying this Upgrade has a penalty of {-2}.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-166",
+      "tree": "Technology",
+      "branch": "Science",
+      "tier": 1,
+      "name": "Observation",
+      "effect": "Gain {Science, Data Analysis +1} as a Training Value bonus.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-167",
+      "tree": "Technology",
+      "branch": "Science",
+      "tier": 2,
+      "name": "Research",
+      "effect": "Increase Gear bonus by {+1} provided by a Tool Kit Science, Data Analysis or Research Equipment.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-168",
+      "tree": "Technology",
+      "branch": "Science",
+      "tier": 3,
+      "name": "Forensics",
+      "effect": "This character can use any Training Value or Gear Bonus normally added to Science and apply it to {Search, Investigation}.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-169",
+      "tree": "Technology",
+      "branch": "Science",
+      "tier": 4,
+      "name": "Field Expertise",
+      "effect": "Gain an additional +1 Bonus to any Training Value and Gear bonus whenever making a {Science, Data Analysis}, but only when using a Specialization of Science or Data Analysis specifically.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-170",
+      "tree": "Technology",
+      "branch": "Science",
+      "tier": 5,
+      "name": "Pioneer Researcher",
+      "effect": "This character has every Science and Data Analysis Specialization. This counts as a prerequisite of “Field Expertise” Trait.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-171",
+      "tree": "Technology",
+      "branch": "Sapper",
+      "tier": 1,
+      "name": "Explosives",
+      "effect": "Gain +2 Training Value when using grenades and any weapons with the Blast special rule.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-172",
+      "tree": "Technology",
+      "branch": "Sapper",
+      "tier": 2,
+      "name": "Demolitions",
+      "effect": "Add +2 to Damage when using explosives against buildings and vehicles.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-173",
+      "tree": "Technology",
+      "branch": "Sapper",
+      "tier": 3,
+      "name": "Mines",
+      "effect": "This character is skilled at placing both anti-material and anti-personnel mines. Locating and disarming the mines they place has a Difficulty of {-2} and Damage from the mines increases by +2.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-174",
+      "tree": "Technology",
+      "branch": "Sapper",
+      "tier": 4,
+      "name": "Combat Engineering",
+      "effect": "Characters increase the Structure of any building, reinforcement or fortification they make by +1. If the character has at least 3 Traits from the Survival: Urban, Bushcraft branches, the Structure will increase by a further +1 in urban or natural environments respectively.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-175",
+      "tree": "Technology",
+      "branch": "Sapper",
+      "tier": 5,
+      "name": "Material Support",
+      "effect": "The Sapper has strong ties with suppliers that deal in explosives and military hardware. They will not need to spend IP in order to procure any kind of commercial explosive they are able to afford and personally use (Generally ones that roll d6 or lower for Damage). If the character has at least 3 Traits from the Trafficking or Mercenary branches, they can also choose spend IP in order to procure military grade explosives (generally anything that rolls d8s or higher for damage).",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-176",
+      "tree": "Praxis",
+      "branch": "Avatar",
+      "tier": 1,
+      "name": "Morph",
+      "effect": "This character takes one die less of EP damage (to a minimum of a single die) when losing EP due to Polymorph (See pg.265). Increase all Gear bonuses provided by Polymorph by {+1}.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-177",
+      "tree": "Praxis",
+      "branch": "Avatar",
+      "tier": 2,
+      "name": "Modification",
+      "effect": "This character does not lose EP when taking bionic upgrades of any kind.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-178",
+      "tree": "Praxis",
+      "branch": "Avatar",
+      "tier": 3,
+      "name": "Freak",
+      "effect": "This character is allowed to add Freak Augments (See pg.261) to their Sleeve.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-179",
+      "tree": "Praxis",
+      "branch": "Avatar",
+      "tier": 4,
+      "name": "Disassociation",
+      "effect": "A character does not take any penalties for being Missleeved and will not lose any EP from using Polymorph. When determining how many EP are lost due to augments, roll d4s instead of d6s.",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-180",
+      "tree": "Praxis",
+      "branch": "Avatar",
+      "tier": 5,
+      "name": "Apotheosis",
+      "effect": "This character does not lose any EP from Sleeve upgrades of any kind and does not take any additional EP loss from Missleeving or Downgrading when being resleeved. When taking EP damage from viruses or attacks in Virtual, reduce the type of die rolled by one step (Example: d8s become d6s and d6s become d4s) to a minimum die type of d4. A character with Apotheosis is also extremely difficult for Virtual sub-routines to form a picture of in simulspace. Characters will appear (by default) to be a confused amalgamation of multiple past sleeves as well as the sheer construction of a character’s will. They are immune to intrusions on these distortions of their projected body in virtual and can make a {Discipline} in order to Polymorph themselves in Virtual at will without EP damage. WHERE IS THE VOICE THAT SAID ALTERED CARBON WOULD FREE US FROM THE CELLS OF OUR FLESH? THE VISION THAT SAID WE WOULD BE ANGELS. Dimitri Kadmin",
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-181",
+      "tree": "Business and Society",
+      "branch": "Stack Augment: Acumen",
+      "tier": 1,
+      "name": "Acumen Lv.1",
+      "effect": "Increase Acuity maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "acuity",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-182",
+      "tree": "Business and Society",
+      "branch": "Stack Augment: Acumen",
+      "tier": 2,
+      "name": "Acumen Lv.2",
+      "effect": "Increase Acuity maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "acuity",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-183",
+      "tree": "Business and Society",
+      "branch": "Stack Augment: Acumen",
+      "tier": 3,
+      "name": "Acumen Lv.3",
+      "effect": "Increase Acuity maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "acuity",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-184",
+      "tree": "Business and Society",
+      "branch": "Stack Augment: Acumen",
+      "tier": 4,
+      "name": "Acumen Lv.4",
+      "effect": "Increase Acuity maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "acuity",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-185",
+      "tree": "Business and Society",
+      "branch": "Stack Augment: Acumen",
+      "tier": 5,
+      "name": "Acumen Lv.5",
+      "effect": "Increase Acuity maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "acuity",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-186",
+      "tree": "Business and Society",
+      "branch": "Stack Augment: Humanity",
+      "tier": 1,
+      "name": "Humanity Lv.1",
+      "effect": "Increase Empathy maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "empathy",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-187",
+      "tree": "Business and Society",
+      "branch": "Stack Augment: Humanity",
+      "tier": 2,
+      "name": "Humanity Lv.2",
+      "effect": "Increase Empathy maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "empathy",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-188",
+      "tree": "Business and Society",
+      "branch": "Stack Augment: Humanity",
+      "tier": 3,
+      "name": "Humanity Lv.3",
+      "effect": "Increase Empathy maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "empathy",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-189",
+      "tree": "Business and Society",
+      "branch": "Stack Augment: Humanity",
+      "tier": 4,
+      "name": "Humanity Lv.4",
+      "effect": "Increase Empathy maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "empathy",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-190",
+      "tree": "Business and Society",
+      "branch": "Stack Augment: Humanity",
+      "tier": 5,
+      "name": "Humanity Lv.5",
+      "effect": "Increase Empathy maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "empathy",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-191",
+      "tree": "Crime",
+      "branch": "Stack Augment: Acumen",
+      "tier": 1,
+      "name": "Acumen Lv.1",
+      "effect": "Increase Acuity maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "acuity",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-192",
+      "tree": "Crime",
+      "branch": "Stack Augment: Acumen",
+      "tier": 2,
+      "name": "Acumen Lv.2",
+      "effect": "Increase Acuity maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "acuity",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-193",
+      "tree": "Crime",
+      "branch": "Stack Augment: Acumen",
+      "tier": 3,
+      "name": "Acumen Lv.3",
+      "effect": "Increase Acuity maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "acuity",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-194",
+      "tree": "Crime",
+      "branch": "Stack Augment: Acumen",
+      "tier": 4,
+      "name": "Acumen Lv.4",
+      "effect": "Increase Acuity maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "acuity",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-195",
+      "tree": "Crime",
+      "branch": "Stack Augment: Acumen",
+      "tier": 5,
+      "name": "Acumen Lv.5",
+      "effect": "Increase Acuity maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "acuity",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-196",
+      "tree": "Crime",
+      "branch": "Sleeve Mastery: Power",
+      "tier": 1,
+      "name": "Power Lv.1",
+      "effect": "Increase Strength maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "strength",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-197",
+      "tree": "Crime",
+      "branch": "Sleeve Mastery: Power",
+      "tier": 2,
+      "name": "Power Lv.2",
+      "effect": "Increase Strength maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "strength",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-198",
+      "tree": "Crime",
+      "branch": "Sleeve Mastery: Power",
+      "tier": 3,
+      "name": "Power Lv.3",
+      "effect": "Increase Strength maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "strength",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-199",
+      "tree": "Crime",
+      "branch": "Sleeve Mastery: Power",
+      "tier": 4,
+      "name": "Power Lv.4",
+      "effect": "Increase Strength maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "strength",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-200",
+      "tree": "Crime",
+      "branch": "Sleeve Mastery: Power",
+      "tier": 5,
+      "name": "Power Lv.5",
+      "effect": "Increase Strength maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "strength",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-201",
+      "tree": "Crime",
+      "branch": "Sleeve Mastery: Awareness",
+      "tier": 1,
+      "name": "Awareness Lv.1",
+      "effect": "Increase Perception maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "perception",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-202",
+      "tree": "Crime",
+      "branch": "Sleeve Mastery: Awareness",
+      "tier": 2,
+      "name": "Awareness Lv.2",
+      "effect": "Increase Perception maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "perception",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-203",
+      "tree": "Crime",
+      "branch": "Sleeve Mastery: Awareness",
+      "tier": 3,
+      "name": "Awareness Lv.3",
+      "effect": "Increase Perception maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "perception",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-204",
+      "tree": "Crime",
+      "branch": "Sleeve Mastery: Awareness",
+      "tier": 4,
+      "name": "Awareness Lv.4",
+      "effect": "Increase Perception maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "perception",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-205",
+      "tree": "Crime",
+      "branch": "Sleeve Mastery: Awareness",
+      "tier": 5,
+      "name": "Awareness Lv.5",
+      "effect": "Increase Perception maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "perception",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-206",
+      "tree": "Law and Government",
+      "branch": "Stack Augment: Humanity",
+      "tier": 1,
+      "name": "Humanity Lv.1",
+      "effect": "Increase Empathy maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "empathy",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-207",
+      "tree": "Law and Government",
+      "branch": "Stack Augment: Humanity",
+      "tier": 2,
+      "name": "Humanity Lv.2",
+      "effect": "Increase Empathy maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "empathy",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-208",
+      "tree": "Law and Government",
+      "branch": "Stack Augment: Humanity",
+      "tier": 3,
+      "name": "Humanity Lv.3",
+      "effect": "Increase Empathy maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "empathy",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-209",
+      "tree": "Law and Government",
+      "branch": "Stack Augment: Humanity",
+      "tier": 4,
+      "name": "Humanity Lv.4",
+      "effect": "Increase Empathy maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "empathy",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-210",
+      "tree": "Law and Government",
+      "branch": "Stack Augment: Humanity",
+      "tier": 5,
+      "name": "Humanity Lv.5",
+      "effect": "Increase Empathy maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "empathy",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-211",
+      "tree": "Law and Government",
+      "branch": "Stack Augment: Education",
+      "tier": 1,
+      "name": "Education Lv.1",
+      "effect": "Increase Intelligence maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "intelligence",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-212",
+      "tree": "Law and Government",
+      "branch": "Stack Augment: Education",
+      "tier": 2,
+      "name": "Education Lv.2",
+      "effect": "Increase Intelligence maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "intelligence",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-213",
+      "tree": "Law and Government",
+      "branch": "Stack Augment: Education",
+      "tier": 3,
+      "name": "Education Lv.3",
+      "effect": "Increase Intelligence maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "intelligence",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-214",
+      "tree": "Law and Government",
+      "branch": "Stack Augment: Education",
+      "tier": 4,
+      "name": "Education Lv.4",
+      "effect": "Increase Intelligence maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "intelligence",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-215",
+      "tree": "Law and Government",
+      "branch": "Stack Augment: Education",
+      "tier": 5,
+      "name": "Education Lv.5",
+      "effect": "Increase Intelligence maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "intelligence",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-216",
+      "tree": "Survival",
+      "branch": "Stack Augment: Acumen",
+      "tier": 1,
+      "name": "Acumen Lv.1",
+      "effect": "Increase Acuity maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "acuity",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-217",
+      "tree": "Survival",
+      "branch": "Stack Augment: Acumen",
+      "tier": 2,
+      "name": "Acumen Lv.2",
+      "effect": "Increase Acuity maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "acuity",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-218",
+      "tree": "Survival",
+      "branch": "Stack Augment: Acumen",
+      "tier": 3,
+      "name": "Acumen Lv.3",
+      "effect": "Increase Acuity maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "acuity",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-219",
+      "tree": "Survival",
+      "branch": "Stack Augment: Acumen",
+      "tier": 4,
+      "name": "Acumen Lv.4",
+      "effect": "Increase Acuity maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "acuity",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-220",
+      "tree": "Survival",
+      "branch": "Stack Augment: Acumen",
+      "tier": 5,
+      "name": "Acumen Lv.5",
+      "effect": "Increase Acuity maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "acuity",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-221",
+      "tree": "Survival",
+      "branch": "Stack Augment: Control",
+      "tier": 1,
+      "name": "Control Lv.1",
+      "effect": "Increase Willpower maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "willpower",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-222",
+      "tree": "Survival",
+      "branch": "Stack Augment: Control",
+      "tier": 2,
+      "name": "Control Lv.2",
+      "effect": "Increase Willpower maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "willpower",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-223",
+      "tree": "Survival",
+      "branch": "Stack Augment: Control",
+      "tier": 3,
+      "name": "Control Lv.3",
+      "effect": "Increase Willpower maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "willpower",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-224",
+      "tree": "Survival",
+      "branch": "Stack Augment: Control",
+      "tier": 4,
+      "name": "Control Lv.4",
+      "effect": "Increase Willpower maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "willpower",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-225",
+      "tree": "Survival",
+      "branch": "Stack Augment: Control",
+      "tier": 5,
+      "name": "Control Lv.5",
+      "effect": "Increase Willpower maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "willpower",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-226",
+      "tree": "Technology",
+      "branch": "Stack Augment: Education",
+      "tier": 1,
+      "name": "Education Lv.1",
+      "effect": "Increase Intelligence maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "intelligence",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-227",
+      "tree": "Technology",
+      "branch": "Stack Augment: Education",
+      "tier": 2,
+      "name": "Education Lv.2",
+      "effect": "Increase Intelligence maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "intelligence",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-228",
+      "tree": "Technology",
+      "branch": "Stack Augment: Education",
+      "tier": 3,
+      "name": "Education Lv.3",
+      "effect": "Increase Intelligence maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "intelligence",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-229",
+      "tree": "Technology",
+      "branch": "Stack Augment: Education",
+      "tier": 4,
+      "name": "Education Lv.4",
+      "effect": "Increase Intelligence maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "intelligence",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-230",
+      "tree": "Technology",
+      "branch": "Stack Augment: Education",
+      "tier": 5,
+      "name": "Education Lv.5",
+      "effect": "Increase Intelligence maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "intelligence",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-231",
+      "tree": "Technology",
+      "branch": "Stack Augment: Control",
+      "tier": 1,
+      "name": "Control Lv.1",
+      "effect": "Increase Willpower maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "willpower",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-232",
+      "tree": "Technology",
+      "branch": "Stack Augment: Control",
+      "tier": 2,
+      "name": "Control Lv.2",
+      "effect": "Increase Willpower maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "willpower",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-233",
+      "tree": "Technology",
+      "branch": "Stack Augment: Control",
+      "tier": 3,
+      "name": "Control Lv.3",
+      "effect": "Increase Willpower maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "willpower",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-234",
+      "tree": "Technology",
+      "branch": "Stack Augment: Control",
+      "tier": 4,
+      "name": "Control Lv.4",
+      "effect": "Increase Willpower maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "willpower",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-235",
+      "tree": "Technology",
+      "branch": "Stack Augment: Control",
+      "tier": 5,
+      "name": "Control Lv.5",
+      "effect": "Increase Willpower maximum by +10 per level in this branch.",
+      "automation": {
+        "type": "attributeCap",
+        "attribute": "willpower",
+        "perTier": 10
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-236",
+      "tree": "Praxis",
+      "branch": "Ego",
+      "tier": 1,
+      "name": "Ego Lv.1",
+      "effect": "Increase maximum Ego by 10 + Willpower Bonus; +1 to saves made to prevent Ego Point loss.",
+      "automation": {
+        "type": "egoMastery",
+        "tier": 1
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-237",
+      "tree": "Praxis",
+      "branch": "Ego",
+      "tier": 2,
+      "name": "Ego Lv.2",
+      "effect": "Increase maximum Ego by 10 + Willpower Bonus; +2 to saves made to prevent Ego Point loss.",
+      "automation": {
+        "type": "egoMastery",
+        "tier": 2
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-238",
+      "tree": "Praxis",
+      "branch": "Ego",
+      "tier": 3,
+      "name": "Ego Lv.3",
+      "effect": "Increase maximum Ego by 10 + Willpower Bonus; +3 to saves made to prevent Ego Point loss.",
+      "automation": {
+        "type": "egoMastery",
+        "tier": 3
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-239",
+      "tree": "Praxis",
+      "branch": "Ego",
+      "tier": 4,
+      "name": "Ego Lv.4",
+      "effect": "Increase maximum Ego by 10 + Willpower Bonus; +4 to saves made to prevent Ego Point loss.",
+      "automation": {
+        "type": "egoMastery",
+        "tier": 4
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    },
+    {
+      "id": "trait-240",
+      "tree": "Praxis",
+      "branch": "Ego",
+      "tier": 5,
+      "name": "Ego Lv.5",
+      "effect": "Increase maximum Ego by 10 + Willpower Bonus; +5 to saves made to prevent Ego Point loss.",
+      "automation": {
+        "type": "egoMastery",
+        "tier": 5
+      },
+      "rulesRef": "Core Rulebook 2020, Chapter 5"
+    }
+  ]
+}
