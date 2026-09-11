@@ -1,3 +1,4 @@
+import {hasEquivalentUniqueRecord} from './sheet-record-utils.mjs';
 const SYS='altered-carbon-rpg';
 async function loadJSON(path){const r=await fetch(`systems/${SYS}/data/${path}`);if(!r.ok)throw new Error(`Unable to load ${path}`);return r.json();}
 const {ApplicationV2,HandlebarsApplicationMixin}=foundry.applications.api;
@@ -21,6 +22,10 @@ export class ACRulesBrowser extends HandlebarsApplicationMixin(ApplicationV2){
    if(type==='condition'){const x=mechanics.conditions.find(x=>x.id===id);if(x)data={name:x.name,type:'condition',system:{catalogId:x.id,key:x.id,description:x.effect,rulesRef:'Core Rulebook, Status Effects'}};}
    if(type==='injury'){const x=mechanics.injuries.find(x=>x.id===id);if(x)data={name:x.name,type:'injury',system:{catalogId:x.id,key:x.id,recoveryRate:x.recoveryRate||'',description:x.effect,rulesRef:'Core Rulebook, Injuries'}};}
    if(type==='scandal'){const x=mechanics.scandals.find(x=>x.id===id);if(x)data={name:x.name,type:'scandal',system:{catalogId:x.id,key:x.id,description:x.effect,rulesRef:'Core Rulebook, Scandals'}};}
-   if(data){await actor.createEmbeddedDocuments('Item',[data]);ui.notifications.info(`${data.name} added to ${actor.name}.`);}
+   if(data){
+     if(hasEquivalentUniqueRecord(actor.items.contents,data))return ui.notifications.info(`${data.name} is already recorded on ${actor.name}.`);
+     await actor.createEmbeddedDocuments('Item',[data]);
+     ui.notifications.info(`${data.name} added to ${actor.name}.`);
+   }
  }
 }

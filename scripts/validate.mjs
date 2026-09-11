@@ -10,7 +10,8 @@ const expectedDownload = `${expectedRepo}/releases/download/v${manifest.version}
 
 const fail = message => { throw new Error(message); };
 if (manifest.id !== 'altered-carbon-rpg') fail('system.json id must be altered-carbon-rpg');
-if (manifest.version !== '1.0.0') fail('system.json version must be 1.0.0');
+const pkg = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'));
+if (manifest.version !== pkg.version) fail(`system.json version ${manifest.version} must match package.json ${pkg.version}`);
 if (String(manifest.compatibility?.minimum) !== '14') fail('minimum Foundry version must be 14');
 if (String(manifest.compatibility?.verified) !== '14') fail('verified Foundry version must be 14');
 if (manifest.url !== expectedRepo) fail('repository URL mismatch');

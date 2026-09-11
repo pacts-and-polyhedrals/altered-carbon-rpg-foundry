@@ -1,4 +1,5 @@
 import {ageResources,validateSleeveAttributes,SLEEVE_LIMITS,sleeveHealthFormula,damageThresholdFromStrength,baggageEntryForTotal} from './rules-engine.mjs';
+import {dedupeUniqueSheetRecords} from './sheet-record-utils.mjs';
 
 const SYS='altered-carbon-rpg';
 async function loadJSON(path){const r=await fetch(`systems/${SYS}/data/${path}`);if(!r.ok)throw new Error(`Unable to load ${path}`);return r.json();}
@@ -161,7 +162,7 @@ export class ACCharacterCreator extends foundry.applications.api.HandlebarsAppli
     if(packageChoice){const packageName=packageChoice.split('::')[1],pkg=archetypeData.packages[packageName];for(const spec of pkg.traits||[]){const t=findTrait(traitsData.traits,spec);if(!t)continue;const commonality=commonalityFor(archetype,t.tree,age);items.push({name:t.name,type:'trait',system:{catalogId:t.id,tree:t.tree,branch:t.branch,tier:t.tier,commonality,spCost:0,effect:t.effect,description:t.effect,rulesRef:t.rulesRef}});}items.push({name:`Starting Package — ${packageName}`,type:'equipment',system:{description:`<p>${pkg.gear}</p>`,rulesRef:'Core Rulebook 2020, Archetype Starting Package'}});}
     if(variant!=='standard')items.push({name:`Variant — ${variant}`,type:'equipment',system:{description:'<p>Advanced variant selected. Open the 2020 Rules Reference for all mandatory rules and choice-based benefits. Runtime-enforced invariants are applied where deterministic; choice-based Traits/benefits remain explicit player/GM selections.</p>',rulesRef:'Core Rulebook 2020, Variant Characters'}});
     for(let i=0;i<starting.lifeEventRolls;i++){const roll=await new Roll(`${starting.baggageDice}d6`).evaluate(),b=baggageEntryForTotal(baggageData,roll.total);if(b)items.push({name:b.name,type:'baggage',system:{catalogId:b.id,rollMin:b.min,rollMax:Number.isFinite(b.max)?b.max:999,appliesTo:b.sleeveOrStack?'Sleeve or Stack':'Narrative',description:b.effect,rulesRef:b.rulesRef}});}
-    await actor.createEmbeddedDocuments('Item',items);
+    await actor.createEmbeddedDocuments('Item',dedupeUniqueSheetRecords(items));
     ui.notifications.info(`${publicName} created: ${starting.stackPoints} SP, ${ep} EP, ${ip} IP, ${hp} HP; ${starting.lifeEventRolls} Baggage roll(s) resolved.`);
     actor.sheet.render(true);this.close();
   }

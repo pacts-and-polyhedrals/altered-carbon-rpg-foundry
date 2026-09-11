@@ -1,106 +1,71 @@
-# START HERE — GitHub + Foundry Setup
+# START HERE — Updating the Altered Carbon System to v1.1.2
 
-Repository name: **altered-carbon-rpg-foundry**
-
-Expected repository URL:
-`https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry`
+Repository: **pacts-and-polyhedrals/altered-carbon-rpg-foundry**
 
 Foundry system ID: **altered-carbon-rpg**
 
-Version: **1.0.0**
+Version: **1.1.2**
 
-## 1. Create the GitHub repository
+## What changed
 
-Create a new repository under the `pacts-and-polyhedrals` account named exactly:
+This patch makes the character sheet view-first. Previous Sleeves, Relationships and Networks now disclose their information inline, while actual editing is available only after the owner or GM explicitly enables whole-sheet Edit Mode.
 
-`altered-carbon-rpg-foundry`
+## 1. Replace/update the repository source
 
-Do not initialize it with a README, .gitignore, or license if you are uploading this prepared repository tree.
+Use the supplied FULL REPOSITORY ZIP. Extract it and update the contents of your existing `altered-carbon-rpg-foundry` repository on the `main` branch.
 
-The manifest URL used by Foundry is deliberately the stable raw-main URL:
+The repository root must still contain `system.json` directly.
+
+## 2. Create GitHub release v1.1.2
+
+Create a normal published release:
+
+Tag: `v1.1.2`
+
+Title: `Altered Carbon RPG — Unofficial v1.1.2`
+
+Attach exactly:
+
+`altered-carbon-rpg-v1.1.2.zip`
+
+Do not put the ZIP contents inside an extra folder. The supplied install ZIP is already flat and verified.
+
+## 3. Stable Foundry/Forge manifest
+
+Continue using:
 
 `https://raw.githubusercontent.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/main/system.json`
 
-This avoids GitHub `releases/latest` prerelease/draft behaviour entirely.
+The v1.1.2 manifest points to:
 
-## 2. Upload the repository files
+`https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v1.1.2/altered-carbon-rpg-v1.1.2.zip`
 
-Extract the repository ZIP supplied with this build. Upload the CONTENTS of the extracted folder to the root of the GitHub repository.
+## 4. Verify before Forge
 
-The GitHub root must show `system.json` directly. It must NOT show another wrapper folder first.
-
-Expected root:
-
-- system.json
-- altered-carbon-rpg.mjs
-- module/
-- data/
-- lang/
-- styles/
-- templates/
-- tests/
-- scripts/
-- docs/
-- .github/
-- package.json
-- README.md
-
-Commit to the `main` branch.
-
-## 3. Create release v1.0.0
-
-On GitHub open **Releases** -> **Draft a new release**.
-
-Tag: `v1.0.0`
-
-Title: `Altered Carbon RPG — Unofficial v1.0.0`
-
-This must be a NORMAL release. Do not mark it Draft or Pre-release.
-
-Upload the release asset:
-
-`altered-carbon-rpg-v1.0.0.zip`
-
-You may also attach `system.json` and `SHA256SUMS.txt` for convenience, but Foundry will use the raw-main manifest URL above.
-
-Publish the release.
-
-## 4. Test the public URLs before Forge
-
-Open these in a private/incognito browser window where you are not logged into GitHub:
+After committing `main` and publishing v1.1.2, open both URLs in a logged-out/incognito browser:
 
 Manifest:
 `https://raw.githubusercontent.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/main/system.json`
 
 Release ZIP:
-`https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v1.0.0/altered-carbon-rpg-v1.0.0.zip`
+`https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v1.1.2/altered-carbon-rpg-v1.1.2.zip`
 
-The first must show/download JSON. The second must download a ZIP without asking for authentication.
+The first must show JSON. The second must download the ZIP immediately.
 
-## 5. Install in Foundry / Forge
+## 5. Expected UI after update
 
-Use this Manifest URL:
+The Actor window opens in read-only View Mode. Use **Edit Sheet** to unlock manual fields and embedded-record edit buttons; **Finish Editing** saves and locks the sheet again. Sleeve Archive, Relationships and Networks can always be opened as read-only inline dossiers without entering Edit Mode.
 
-`https://raw.githubusercontent.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/main/system.json`
+The Character Creator is available from Foundry system settings and from the **Creator** button on the Actor sheet. It guides players through:
 
-Foundry reads that manifest and follows its `download` field to the v1.0.0 release ZIP.
+1. Identity
+2. Archetype and Starting Package
+3. Variant
+4. Sleeve
+5. Attributes
+6. Resources and economy
+7. Review and character creation
 
-If Forge offers **Install from the Bazaar if the package is found**, disable that option for this custom-manifest test so Forge uses the URL you supplied.
+## 6. Validation
 
-## 6. Important archive structure
-
-The INSTALL ZIP is intentionally flat. Opening it must immediately show:
-
-- system.json
-- altered-carbon-rpg.mjs
-- module/
-- data/
-- lang/
-- styles/
-- templates/
-
-There must not be an extra `altered-carbon-rpg/` wrapper directory inside the ZIP.
-
-## 7. Source/distribution warning
-
-This project is an unofficial implementation and contains material derived from a commercial tabletop RPG. Before making a repository or release public, ensure you have the rights/permission needed for any source-derived text or data you distribute. Forge/Foundry custom-manifest installation requires the manifest and ZIP to be reachable by the server that installs them.
+The package has static syntax, data, rules and UI-contract tests. A live Foundry/Forge runtime test is still required after upload because this build environment does not run your hosted Foundry instance.

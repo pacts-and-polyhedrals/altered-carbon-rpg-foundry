@@ -2,6 +2,7 @@ import {rollSkill} from './rolls.mjs';
 import {createOpposedChallenge} from './opposed.mjs';
 import {ACRulesBrowser} from './rules-browser.mjs';
 import {useWeapon,useEquipment} from './chat-actions.mjs';
+import {dedupeUniqueSheetRecords} from './sheet-record-utils.mjs';
 const {api,sheets}=foundry.applications;const {HandlebarsApplicationMixin}=api;
 
 const ITEM_FIELDS={
@@ -35,22 +36,37 @@ async function checkOptionsDialog(skill,defaults={}){
 }
 
 export class ACActorSheet extends HandlebarsApplicationMixin(sheets.ActorSheetV2){
- static DEFAULT_OPTIONS={classes:['altered-carbon','actor-sheet'],position:{width:1080,height:860},form:{closeOnSubmit:false},actions:{rollSkill:this._rollSkill,opposedRoll:this._opposedRoll,useWeapon:this._useWeapon,useEquipment:this._useEquipment,addDepletion:this._addDepletion,activateSleeve:this._activateSleeve,spendSP:this._spendSP,openCombat:this._openCombat,openRules:this._openRules,openCreator:this._openCreator,editItem:this._editItem,setTab:this._setTab}};
+ static DEFAULT_OPTIONS={classes:['altered-carbon','actor-sheet'],position:{width:1080,height:860},form:{closeOnSubmit:false,submitOnChange:true},actions:{rollSkill:this._rollSkill,opposedRoll:this._opposedRoll,useWeapon:this._useWeapon,useEquipment:this._useEquipment,addDepletion:this._addDepletion,activateSleeve:this._activateSleeve,spendSP:this._spendSP,openCombat:this._openCombat,openRules:this._openRules,openCreator:this._openCreator,toggleEditMode:this._toggleEditMode,editItem:this._editItem,setTab:this._setTab}};
  static PARTS={main:{template:'systems/altered-carbon-rpg/templates/actor-sheet.hbs'}};
  _tab='identity';
+ _editMode=false;
  async _prepareContext(options){
    const context=await super._prepareContext(options),actor=this.actor,tab=this._tab||'identity';
-   const all=actor.items.contents;
-   const skills=all.filter(i=>i.type==='skill').sort((a,b)=>a.system.attribute.localeCompare(b.system.attribute)||a.name.localeCompare(b.name));
+   // Presentation-level normalization: singular rule records (notably Traits and
+   // core Skills) are deduplicated by semantic identity. Collections where a
+   // repeated name can be intentional — gear, sleeves, Baggage, relationships,
+   // memories and injuries — are preserved exactly as authored.
+   const all=dedupeUniqueSheetRecords(actor.items.contents);
+   const skills=all.filter(i=>i.type==='skill').sort((a,b)=>String(a.system.attribute||'').localeCompare(String(b.system.attribute||''))||a.name.localeCompare(b.name));
    const attrMeta=[['strength','Strength','STR'],['perception','Perception','PER'],['empathy','Empathy','EMP'],['willpower','Willpower','WIL'],['acuity','Acuity','ACU'],['intelligence','Intelligence','INT']];
    const skillGroups=attrMeta.map(([key,label,code])=>({key,label,code,bonus:actor.ac?.bonuses?.[key]??0,items:skills.filter(i=>i.system.attribute===key)}));
-   return {...context,actor,system:actor.system,ac:actor.ac,tab,
+   const canEdit=Boolean(game.user.isGM||actor.isOwner);
+   if(!canEdit)this._editMode=false;
+   const equipment=all.filter(i=>['weapon','armour','equipment','augmentation','software','creditSet','virtualConstruct'].includes(i.type)).map(i=>({
+     id:i.id,name:i.name,type:i.type,system:i.system,
+     canUse:i.type==='weapon',canUseEquipment:['equipment','software'].includes(i.type),canDeplete:['weapon','equipment','software'].includes(i.type),
+     isWeapon:i.type==='weapon',isArmour:i.type==='armour',isEquipment:i.type==='equipment',isAugmentation:i.type==='augmentation',isSoftware:i.type==='software',isCreditSet:i.type==='creditSet',isVirtualConstruct:i.type==='virtualConstruct'
+   }));
+   const clues=all.filter(i=>['clue','memory'].includes(i.type)).map(i=>({id:i.id,name:i.name,type:i.type,system:i.system,isClue:i.type==='clue',isMemory:i.type==='memory'}));
+   return {...context,actor,system:actor.system,ac:actor.ac,tab,editMode:this._editMode,canEdit,isGM:game.user.isGM,
      isIdentity:tab==='identity',isSleeve:tab==='sleeve',isSkills:tab==='skills',isTraits:tab==='traits',isHistory:tab==='history',isRelationships:tab==='relationships',isEvidence:tab==='evidence',isGear:tab==='gear',isCombat:tab==='combat',
      skills,skillGroups,
      sleeves:all.filter(i=>i.type==='sleeve').map(i=>({id:i.id,name:i.name,system:i.system,isActive:i.system.status==='active'})),
      archivedSleeves:all.filter(i=>i.type==='archivedSleeve').sort((a,b)=>String(a.system.acquired).localeCompare(String(b.system.acquired))),
-     traits:all.filter(i=>i.type==='trait'),specialisations:all.filter(i=>i.type==='specialisation'),baggage:all.filter(i=>i.type==='baggage'),conditions:all.filter(i=>i.type==='condition'),injuries:all.filter(i=>i.type==='injury'),scandals:all.filter(i=>i.type==='scandal'),networks:all.filter(i=>i.type==='network'),resources:all.filter(i=>i.type==='resourceEntry'),
-     relationships:all.filter(i=>i.type==='relationship'),clues:all.filter(i=>['clue','memory'].includes(i.type)),equipment:all.filter(i=>['weapon','armour','equipment','augmentation','software','creditSet','virtualConstruct'].includes(i.type)).map(i=>({id:i.id,name:i.name,type:i.type,system:i.system,canUse:i.type==='weapon',canUseEquipment:['equipment','software'].includes(i.type),canDeplete:['weapon','equipment','software'].includes(i.type)}))};
+     traits:all.filter(i=>i.type==='trait').sort((a,b)=>a.name.localeCompare(b.name)),
+     specialisations:all.filter(i=>i.type==='specialisation').sort((a,b)=>String(a.system.skill||'').localeCompare(String(b.system.skill||''))||a.name.localeCompare(b.name)),
+     baggage:all.filter(i=>i.type==='baggage'),conditions:all.filter(i=>i.type==='condition'),injuries:all.filter(i=>i.type==='injury'),scandals:all.filter(i=>i.type==='scandal'),
+     networks:all.filter(i=>i.type==='network'),resources:all.filter(i=>i.type==='resourceEntry'),relationships:all.filter(i=>i.type==='relationship'),clues,equipment};
  }
  static async _rollSkill(event,target){const skill=this.actor.items.get(target.dataset.itemId);if(!skill)return;const opts=await checkOptionsDialog(skill);if(opts)await rollSkill(this.actor,skill,opts);}
  static async _opposedRoll(event,target){const skill=this.actor.items.get(target.dataset.itemId);if(!skill)return;const opts=await checkOptionsDialog(skill);if(!opts)return;const token=[...game.user.targets][0];await createOpposedChallenge(this.actor,skill,{...opts,targetActor:token?.actor||null});}
@@ -61,9 +77,11 @@ export class ACActorSheet extends HandlebarsApplicationMixin(sheets.ActorSheetV2
  static async _openCombat(){game.alteredCarbon.openCombatConsole();}
  static async _openRules(){new ACRulesBrowser({actorId:this.actor.id}).render({force:true});}
  static async _openCreator(){game.alteredCarbon.openCharacterCreator();}
+ static async _toggleEditMode(){if(!(game.user.isGM||this.actor.isOwner))return ui.notifications.warn('You do not have permission to edit this character.');if(this._editMode)await this.submit();this._editMode=!this._editMode;this.render({force:true});}
+ async _onRender(context,options){await super._onRender(context,options);const editable=Boolean(this._editMode&&(game.user.isGM||this.actor.isOwner));const root=this.element;root?.querySelectorAll('input[name],select[name],textarea[name]').forEach(el=>{el.disabled=!editable;});}
  static async _setTab(event,target){this._tab=target.dataset.tab||'identity';this.render({force:true});}
  static async _spendSP(){const amount=await api.DialogV2.prompt({window:{title:'Spend Stack Points'},content:'<div class="form-group"><label>Amount</label><input type="number" name="amount" min="1" value="1"></div>',ok:{label:'Spend',callback:(event,button,dialog)=>Number(dialog.element.querySelector('[name=amount]')?.value||1)}});if(amount)await this.actor.spendStackPoints(amount);}
- static async _editItem(event,target){this.actor.items.get(target.dataset.itemId)?.sheet?.render(true);}
+ static async _editItem(event,target){if(!this._editMode)return ui.notifications.warn('Switch the character sheet to Edit Mode before editing records.');this.actor.items.get(target.dataset.itemId)?.sheet?.render(true);}
 }
 
 export class ACItemSheet extends HandlebarsApplicationMixin(sheets.ItemSheetV2){

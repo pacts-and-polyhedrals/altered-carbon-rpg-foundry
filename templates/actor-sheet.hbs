@@ -1,7 +1,7 @@
-<form class="ac-sheet ac-shell {{actor.type}}" autocomplete="off">
+<form class="ac-sheet ac-shell {{actor.type}} {{#if editMode}}is-editing{{else}}is-viewing{{/if}}" autocomplete="off">
   <header class="ac-hero">
     <div class="ac-portrait-frame">
-      <img src="{{actor.img}}" data-edit="img" alt="{{actor.name}}">
+      <img src="{{actor.img}}" {{#if editMode}}data-edit="img"{{/if}} alt="{{actor.name}}">
       <span class="ac-scan-corner tl"></span><span class="ac-scan-corner tr"></span><span class="ac-scan-corner bl"></span><span class="ac-scan-corner br"></span>
     </div>
     <div class="ac-hero-copy">
@@ -42,6 +42,7 @@
     <button type="button" data-action="setTab" data-tab="combat" class="{{#if isCombat}}active{{/if}}"><i class="fa-solid fa-crosshairs"></i><span>Combat</span></button>
     <button type="button" data-action="openCreator" class="utility"><i class="fa-solid fa-user-plus"></i><span>Creator</span></button>
     <button type="button" data-action="openRules" class="utility"><i class="fa-solid fa-book-open"></i><span>Rules</span></button>
+    {{#if canEdit}}<button type="button" data-action="toggleEditMode" class="utility ac-edit-mode-toggle {{#if editMode}}active{{/if}}" title="{{#if editMode}}Return to read-only view{{else}}Enable character sheet editing{{/if}}"><i class="fa-solid {{#if editMode}}fa-lock-open{{else}}fa-lock{{/if}}"></i><span>{{#if editMode}}Finish Editing{{else}}Edit Sheet{{/if}}</span></button>{{/if}}
   </nav>
 
   <main class="ac-sheet-viewport">
@@ -111,12 +112,24 @@
       <div class="ac-page-title"><div><span class="ac-kicker">02 // EMBODIMENT</span><h1>Current Sleeve</h1></div><p>Your sleeve is replaceable hardware: physical Attributes, body integrity, appearance and augment capacity belong here.</p></div>
       <article class="ac-panel">
         <header class="ac-panel-title"><span>Sleeve Registry</span><small>{{sleeves.length}} RECORDS</small></header>
-        <div class="ac-card-list">
+        <div class="ac-record-list">
           {{#each sleeves}}
-          <article class="ac-data-card {{#if isActive}}active{{/if}}">
-            <div class="ac-data-card-main"><span class="ac-data-icon"><i class="fa-solid fa-dna"></i></span><div><div class="ac-card-eyebrow">{{system.sleeveType}} // {{system.status}}</div><h3>{{name}}</h3><p>STR {{system.strength}} · PER {{system.perception}} · HP {{system.healthMax}} · DT {{system.strength}} · TECH {{system.techUsed}}/{{system.techCapacity}}</p></div></div>
-            <div class="ac-card-actions">{{#unless isActive}}<button type="button" data-action="activateSleeve" data-item-id="{{id}}"><i class="fa-solid fa-bolt"></i> Activate</button>{{/unless}}<button type="button" data-action="editItem" data-item-id="{{id}}"><i class="fa-solid fa-pen"></i> Edit</button></div>
-          </article>
+          <details class="ac-disclosure-record ac-sleeve-record {{#if isActive}}active{{/if}}">
+            <summary><span class="ac-data-icon"><i class="fa-solid fa-dna"></i></span><div><strong class="ac-record-name">{{name}}</strong><small>{{system.sleeveType}} · {{system.status}} · STR {{system.strength}} · PER {{system.perception}}</small></div><span class="ac-open-label">Open</span><i class="fa-solid fa-chevron-down ac-disclosure-chevron"></i></summary>
+            <div class="ac-record-detail">
+              {{#if system.description}}<div class="ac-record-description">{{{system.description}}}</div>{{/if}}
+              <div class="ac-record-facts four">
+                <div><span>Status</span><strong>{{system.status}}</strong></div><div><span>Sleeve Type</span><strong>{{system.sleeveType}}</strong></div><div><span>Quality</span><strong>{{system.quality}}</strong></div><div><span>Sex</span><strong>{{system.sex}}</strong></div>
+                <div><span>Strength</span><strong>{{system.strength}}</strong></div><div><span>Perception</span><strong>{{system.perception}}</strong></div><div><span>Health</span><strong>{{system.healthMax}}</strong></div><div><span>Damage Threshold</span><strong>{{system.damageThreshold}}</strong></div>
+                <div><span>Tech</span><strong>{{system.techUsed}} / {{system.techCapacity}}</strong></div><div><span>Apparent Age</span><strong>{{system.apparentAge}}</strong></div><div><span>Acquired</span><strong>{{system.acquired}}</strong></div><div><span>Acquisition Source</span><strong>{{system.acquisitionSource}}</strong></div>
+              </div>
+              {{#if system.appearance}}<div class="ac-record-block"><span>Appearance</span><div>{{{system.appearance}}}</div></div>{{/if}}
+              {{#if system.complications}}<div class="ac-record-block"><span>Complications</span><div>{{{system.complications}}}</div></div>{{/if}}
+              <div class="ac-record-tags">{{#if system.compulsoryTransfer}}<span>Compulsory Transfer</span>{{/if}}{{#if system.crossSleeved}}<span>Cross-Sleeved</span>{{/if}}{{#if system.preferredBirthClone}}<span>Birth-Sleeve Clone</span>{{/if}}{{#if system.geoRestricted}}<span>GeoRestricted</span>{{/if}}{{#if system.lowQuality}}<span>Low Quality Synthetic</span>{{/if}}</div>
+              {{#unless isActive}}<div class="ac-record-actions"><button type="button" data-action="activateSleeve" data-item-id="{{id}}"><i class="fa-solid fa-bolt"></i> Activate Sleeve</button></div>{{/unless}}
+              <div class="ac-edit-only-actions"><button type="button" data-action="editItem" data-item-id="{{id}}"><i class="fa-solid fa-pen"></i> Edit Sleeve</button></div>
+            </div>
+          </details>
           {{else}}<div class="ac-empty-state"><i class="fa-solid fa-dna"></i><h3>No sleeve records</h3><p>Create a sleeve Item or use the Character Creator to generate a starting body.</p></div>{{/each}}
         </div>
         <div class="ac-inline-stat"><span>CARGO LOAD</span><strong>{{ac.cargo.used}} / {{ac.cargo.capacity}}</strong>{{#if ac.cargo.encumbered}}<em>ENCUMBERED {{ac.cargo.level}}</em>{{/if}}</div>
@@ -126,17 +139,24 @@
 
     {{#if isSkills}}
     <section class="ac-page">
-      <div class="ac-page-title"><div><span class="ac-kicker">03 // CAPABILITY MATRIX</span><h1>Skills</h1></div><p>Skill Level sets the die size. Checks roll low against a Target Result derived from the linked Attribute and modifiers.</p></div>
+      <div class="ac-page-title"><div><span class="ac-kicker">03 // CAPABILITY MATRIX</span><h1>Skills</h1></div><p>Skill Level sets the die size. Click any Skill to inspect its complete record; Roll and Opposed are operational actions, while editing only appears in Edit Mode.</p></div>
       <div class="ac-skill-groups">
         {{#each skillGroups}}
         <article class="ac-panel ac-skill-panel">
           <header class="ac-panel-title"><span>{{label}}</span><small>{{code}} // BONUS {{bonus}}</small></header>
-          <div class="ac-skill-list">
+          <div class="ac-record-list compact">
             {{#each items}}
-            <div class="ac-skill-row" data-item-id="{{id}}">
-              <div><strong>{{name}}</strong><small>Level {{system.level}} · d{{skillDieSides}} · Training +{{system.trainingBonus}}</small></div>
-              <div class="ac-row-actions"><button type="button" data-action="rollSkill" data-item-id="{{id}}"><i class="fa-solid fa-dice-d20"></i> Roll</button><button type="button" data-action="opposedRoll" data-item-id="{{id}}">Opposed</button><button type="button" data-action="editItem" data-item-id="{{id}}" title="Edit"><i class="fa-solid fa-pen"></i></button></div>
-            </div>
+            <details class="ac-disclosure-record ac-skill-record" data-item-id="{{id}}">
+              <summary><span class="ac-data-icon"><i class="fa-solid fa-wave-square"></i></span><div><strong class="ac-record-name">{{name}}</strong><small>Level {{system.level}} · d{{skillDieSides}} · Training +{{system.trainingBonus}}</small></div><span class="ac-open-label">Open</span><i class="fa-solid fa-chevron-down ac-disclosure-chevron"></i></summary>
+              <div class="ac-record-detail">
+                {{#if system.description}}<div class="ac-record-description">{{{system.description}}}</div>{{/if}}
+                <div class="ac-record-facts four"><div><span>Primary Attribute</span><strong>{{system.attribute}}</strong></div><div><span>Level</span><strong>{{system.level}}</strong></div><div><span>Skill Die</span><strong>d{{skillDieSides}}</strong></div><div><span>Training</span><strong>+{{system.trainingBonus}}</strong></div></div>
+                {{#if system.specialisations}}<div class="ac-record-block"><span>Specialisations</span><div>{{system.specialisations}}</div></div>{{/if}}
+                {{#if system.rulesText}}<div class="ac-record-block"><span>Rules</span><div>{{{system.rulesText}}}</div></div>{{/if}}
+                <div class="ac-record-actions"><button type="button" data-action="rollSkill" data-item-id="{{id}}"><i class="fa-solid fa-dice-d20"></i> Roll Skill</button><button type="button" data-action="opposedRoll" data-item-id="{{id}}"><i class="fa-solid fa-scale-balanced"></i> Opposed Roll</button></div>
+                <div class="ac-edit-only-actions"><button type="button" data-action="editItem" data-item-id="{{id}}"><i class="fa-solid fa-pen"></i> Edit Skill</button></div>
+              </div>
+            </details>
             {{else}}<p class="ac-muted">No skills linked to this Attribute.</p>{{/each}}
           </div>
         </article>
@@ -147,25 +167,83 @@
 
     {{#if isTraits}}
     <section class="ac-page">
-      <div class="ac-page-title"><div><span class="ac-kicker">04 // PERSONA MODIFIERS</span><h1>Traits & State</h1></div><p>Long-term advantages, specialisations, Baggage and active conditions are separated so permanent identity never gets confused with temporary state.</p></div>
+      <div class="ac-page-title"><div><span class="ac-kicker">04 // PERSONA MODIFIERS</span><h1>Traits & State</h1></div><p>Every record on this page uses the same disclosure pattern: click the name or Open to read it; editing is only exposed while the whole sheet is in Edit Mode.</p></div>
       <div class="ac-dashboard-grid two">
-        <article class="ac-panel"><header class="ac-panel-title"><span>Traits</span><small>{{traits.length}}</small></header>{{#each traits}}<div class="ac-line-item"><div><strong>{{name}}</strong><small>{{system.tree}} / {{system.branch}} · Tier {{system.tier}}</small></div><button type="button" data-action="editItem" data-item-id="{{id}}">Open</button></div>{{else}}<p class="ac-muted">No Traits recorded.</p>{{/each}}</article>
-        <article class="ac-panel"><header class="ac-panel-title"><span>Specialisations</span><small>{{specialisations.length}}</small></header>{{#each specialisations}}<div class="ac-line-item"><div><strong>{{name}}</strong><small>{{system.skill}}</small></div><button type="button" data-action="editItem" data-item-id="{{id}}">Open</button></div>{{else}}<p class="ac-muted">No Specialisations recorded.</p>{{/each}}</article>
-        <article class="ac-panel"><header class="ac-panel-title"><span>Baggage</span><small>{{baggage.length}}</small></header>{{#each baggage}}<div class="ac-line-item"><div><strong>{{name}}</strong><small>{{system.appliesTo}}</small></div><button type="button" data-action="editItem" data-item-id="{{id}}">Open</button></div>{{else}}<p class="ac-muted">No unresolved life-event baggage.</p>{{/each}}</article>
-        <article class="ac-panel"><header class="ac-panel-title"><span>Conditions & Injuries</span><small>ACTIVE STATE</small></header>{{#each conditions}}<div class="ac-line-item warning"><div><strong>{{name}}</strong><small>Condition · Severity {{system.severity}}</small></div><button type="button" data-action="editItem" data-item-id="{{id}}">Open</button></div>{{/each}}{{#each injuries}}<div class="ac-line-item danger"><div><strong>{{name}}</strong><small>Injury ×{{system.count}}</small></div><button type="button" data-action="editItem" data-item-id="{{id}}">Open</button></div>{{/each}}{{#unless conditions.length}}{{#unless injuries.length}}<p class="ac-muted">No current conditions or injuries.</p>{{/unless}}{{/unless}}</article>
+        <article class="ac-panel"><header class="ac-panel-title"><span>Traits</span><small>{{traits.length}}</small></header><div class="ac-record-list compact">
+          {{#each traits}}
+          <details class="ac-disclosure-record ac-trait-record"><summary><span class="ac-data-icon"><i class="fa-solid fa-diagram-project"></i></span><div><strong class="ac-record-name">{{name}}</strong><small>{{system.tree}} / {{system.branch}} · Tier {{system.tier}}</small></div><span class="ac-open-label">Open</span><i class="fa-solid fa-chevron-down ac-disclosure-chevron"></i></summary><div class="ac-record-detail">
+            {{#if system.description}}<div class="ac-record-description">{{{system.description}}}</div>{{/if}}
+            <div class="ac-record-facts four"><div><span>Trait Tree</span><strong>{{system.tree}}</strong></div><div><span>Branch</span><strong>{{system.branch}}</strong></div><div><span>Tier</span><strong>{{system.tier}}</strong></div><div><span>Commonality</span><strong>{{system.commonality}}</strong></div><div><span>SP Cost</span><strong>{{system.spCost}}</strong></div></div>
+            {{#if system.effect}}<div class="ac-record-block"><span>Mechanical Effect</span><div>{{{system.effect}}}</div></div>{{/if}}{{#if system.trigger}}<div class="ac-record-block"><span>Trigger / Note</span><div>{{{system.trigger}}}</div></div>{{/if}}
+            <div class="ac-edit-only-actions"><button type="button" data-action="editItem" data-item-id="{{id}}"><i class="fa-solid fa-pen"></i> Edit Trait</button></div>
+          </div></details>
+          {{else}}<p class="ac-muted">No Traits recorded.</p>{{/each}}
+        </div></article>
+
+        <article class="ac-panel"><header class="ac-panel-title"><span>Specialisations</span><small>{{specialisations.length}}</small></header><div class="ac-record-list compact">
+          {{#each specialisations}}
+          <details class="ac-disclosure-record"><summary><span class="ac-data-icon"><i class="fa-solid fa-bullseye"></i></span><div><strong class="ac-record-name">{{name}}</strong><small>{{system.skill}}</small></div><span class="ac-open-label">Open</span><i class="fa-solid fa-chevron-down ac-disclosure-chevron"></i></summary><div class="ac-record-detail">
+            {{#if system.description}}<div class="ac-record-description">{{{system.description}}}</div>{{/if}}<div class="ac-record-facts two"><div><span>Skill</span><strong>{{system.skill}}</strong></div><div><span>Untrained Difficulty</span><strong>{{system.missingDifficulty}}</strong></div></div>
+            <div class="ac-edit-only-actions"><button type="button" data-action="editItem" data-item-id="{{id}}"><i class="fa-solid fa-pen"></i> Edit Specialisation</button></div>
+          </div></details>
+          {{else}}<p class="ac-muted">No Specialisations recorded.</p>{{/each}}
+        </div></article>
+
+        <article class="ac-panel"><header class="ac-panel-title"><span>Baggage</span><small>{{baggage.length}}</small></header><div class="ac-record-list compact">
+          {{#each baggage}}
+          <details class="ac-disclosure-record"><summary><span class="ac-data-icon"><i class="fa-solid fa-suitcase"></i></span><div><strong class="ac-record-name">{{name}}</strong><small>{{system.appliesTo}}{{#if system.resolved}} · RESOLVED{{/if}}</small></div><span class="ac-open-label">Open</span><i class="fa-solid fa-chevron-down ac-disclosure-chevron"></i></summary><div class="ac-record-detail">
+            {{#if system.description}}<div class="ac-record-description">{{{system.description}}}</div>{{/if}}<div class="ac-record-facts four"><div><span>Applies To</span><strong>{{system.appliesTo}}</strong></div><div><span>Severity</span><strong>{{system.severity}}</strong></div><div><span>Roll Range</span><strong>{{system.rollMin}}–{{system.rollMax}}</strong></div><div><span>Status</span><strong>{{#if system.resolved}}Resolved{{else}}Active{{/if}}</strong></div></div>
+            <div class="ac-edit-only-actions"><button type="button" data-action="editItem" data-item-id="{{id}}"><i class="fa-solid fa-pen"></i> Edit Baggage</button></div>
+          </div></details>
+          {{else}}<p class="ac-muted">No unresolved life-event baggage.</p>{{/each}}
+        </div></article>
+
+        <article class="ac-panel"><header class="ac-panel-title"><span>Conditions & Injuries</span><small>ACTIVE STATE</small></header><div class="ac-record-list compact">
+          {{#each conditions}}
+          <details class="ac-disclosure-record warning"><summary><span class="ac-data-icon"><i class="fa-solid fa-triangle-exclamation"></i></span><div><strong class="ac-record-name">{{name}}</strong><small>Condition · Severity {{system.severity}}</small></div><span class="ac-open-label">Open</span><i class="fa-solid fa-chevron-down ac-disclosure-chevron"></i></summary><div class="ac-record-detail">
+            {{#if system.description}}<div class="ac-record-description">{{{system.description}}}</div>{{/if}}<div class="ac-record-facts four"><div><span>Category</span><strong>{{system.category}}</strong></div><div><span>Difficulty</span><strong>{{system.difficulty}}</strong></div><div><span>Severity</span><strong>{{system.severity}}</strong></div><div><span>Duration</span><strong>{{system.duration}}</strong></div></div><div class="ac-record-tags">{{#if system.stacking}}<span>Stacks</span>{{/if}}</div>
+            <div class="ac-edit-only-actions"><button type="button" data-action="editItem" data-item-id="{{id}}"><i class="fa-solid fa-pen"></i> Edit Condition</button></div>
+          </div></details>
+          {{/each}}
+          {{#each injuries}}
+          <details class="ac-disclosure-record danger"><summary><span class="ac-data-icon"><i class="fa-solid fa-bone"></i></span><div><strong class="ac-record-name">{{name}}</strong><small>Injury ×{{system.count}}</small></div><span class="ac-open-label">Open</span><i class="fa-solid fa-chevron-down ac-disclosure-chevron"></i></summary><div class="ac-record-detail">
+            {{#if system.description}}<div class="ac-record-description">{{{system.description}}}</div>{{/if}}<div class="ac-record-facts three"><div><span>Count</span><strong>{{system.count}}</strong></div><div><span>Recovery Rate</span><strong>{{system.recoveryRate}}</strong></div><div><span>Status</span><strong>{{#if system.active}}Active{{else}}Recovered{{/if}}</strong></div></div>
+            <div class="ac-edit-only-actions"><button type="button" data-action="editItem" data-item-id="{{id}}"><i class="fa-solid fa-pen"></i> Edit Injury</button></div>
+          </div></details>
+          {{/each}}
+          {{#unless conditions.length}}{{#unless injuries.length}}<p class="ac-muted">No current conditions or injuries.</p>{{/unless}}{{/unless}}
+        </div></article>
       </div>
-      <article class="ac-panel"><header class="ac-panel-title"><span>Scandals</span><small>{{scandals.length}}</small></header>{{#each scandals}}<div class="ac-line-item"><div><strong>{{name}}</strong><small>Influence loss {{system.influenceLoss}}</small></div><button type="button" data-action="editItem" data-item-id="{{id}}">Open</button></div>{{else}}<p class="ac-muted">No Scandals recorded.</p>{{/each}}</article>
+
+      <article class="ac-panel"><header class="ac-panel-title"><span>Scandals</span><small>{{scandals.length}}</small></header><div class="ac-record-list compact">
+        {{#each scandals}}
+        <details class="ac-disclosure-record"><summary><span class="ac-data-icon"><i class="fa-solid fa-user-secret"></i></span><div><strong class="ac-record-name">{{name}}</strong><small>Influence loss {{system.influenceLoss}}</small></div><span class="ac-open-label">Open</span><i class="fa-solid fa-chevron-down ac-disclosure-chevron"></i></summary><div class="ac-record-detail">
+          {{#if system.description}}<div class="ac-record-description">{{{system.description}}}</div>{{/if}}<div class="ac-record-facts two"><div><span>Influence Loss</span><strong>{{system.influenceLoss}}</strong></div><div><span>Status</span><strong>{{#if system.active}}Active{{else}}Inactive{{/if}}</strong></div></div>
+          <div class="ac-edit-only-actions"><button type="button" data-action="editItem" data-item-id="{{id}}"><i class="fa-solid fa-pen"></i> Edit Scandal</button></div>
+        </div></details>
+        {{else}}<p class="ac-muted">No Scandals recorded.</p>{{/each}}
+      </div></article>
     </section>
     {{/if}}
 
     {{#if isHistory}}
     <section class="ac-page">
-      <div class="ac-page-title"><div><span class="ac-kicker">05 // EMBODIMENT HISTORY</span><h1>Sleeve Archive</h1></div><p>Your bodies are chapters, not your identity. Track when each sleeve was acquired, lost, and what happened while you wore it.</p></div>
+      <div class="ac-page-title"><div><span class="ac-kicker">05 // EMBODIMENT HISTORY</span><h1>Sleeve Archive</h1></div><p>Your bodies are chapters, not your identity. Click any archived sleeve to inspect its complete record; edits only appear in Edit Mode.</p></div>
       <article class="ac-panel ac-timeline">
         {{#each archivedSleeves}}
-        <details class="ac-timeline-entry">
-          <summary><span class="ac-timeline-node"></span><div><small>{{system.acquired}} → {{system.lost}}</small><strong>{{name}}</strong><em>{{system.sleeveType}}</em></div><i class="fa-solid fa-chevron-down"></i></summary>
-          <div class="ac-timeline-content"><div>{{{system.description}}}</div><button type="button" data-action="editItem" data-item-id="{{id}}">Edit dossier</button></div>
+        <details class="ac-timeline-entry ac-disclosure-record">
+          <summary><span class="ac-timeline-node"></span><div><small>{{system.acquired}} → {{system.lost}}</small><strong class="ac-record-name">{{name}}</strong><em>{{system.sleeveType}} // {{system.status}}</em></div><span class="ac-open-label">Open</span><i class="fa-solid fa-chevron-down ac-disclosure-chevron"></i></summary>
+          <div class="ac-timeline-content ac-record-detail">
+            {{#if system.description}}<div class="ac-record-description">{{{system.description}}}</div>{{/if}}
+            <div class="ac-record-facts four">
+              <div><span>Strength</span><strong>{{system.strength}}</strong></div><div><span>Perception</span><strong>{{system.perception}}</strong></div><div><span>Health</span><strong>{{system.healthMax}}</strong></div><div><span>Damage Threshold</span><strong>{{system.damageThreshold}}</strong></div>
+              <div><span>Sex</span><strong>{{system.sex}}</strong></div><div><span>Acquired</span><strong>{{system.acquired}}</strong></div><div><span>Lost</span><strong>{{system.lost}}</strong></div><div><span>Loss / Transfer</span><strong>{{system.lossCause}}</strong></div>
+            </div>
+            {{#if system.appearance}}<div class="ac-record-block"><span>Appearance</span><div>{{{system.appearance}}}</div></div>{{/if}}
+            {{#if system.complications}}<div class="ac-record-block"><span>Complications</span><div>{{{system.complications}}}</div></div>{{/if}}
+            <div class="ac-record-tags">{{#if system.compulsoryTransfer}}<span>Compulsory Transfer</span>{{/if}}{{#if system.crossSleeved}}<span>Cross-Sleeved</span>{{/if}}{{#if system.preferredBirthClone}}<span>Birth-Sleeve Clone</span>{{/if}}{{#if system.geoRestricted}}<span>GeoRestricted</span>{{/if}}{{#if system.lowQuality}}<span>Low Quality Synthetic</span>{{/if}}</div>
+            <div class="ac-edit-only-actions"><button type="button" data-action="editItem" data-item-id="{{id}}"><i class="fa-solid fa-pen"></i> Edit Sleeve Record</button></div>
+          </div>
         </details>
         {{else}}<div class="ac-empty-state"><i class="fa-solid fa-clock-rotate-left"></i><h3>No archived sleeves</h3><p>Previous embodiments appear here after resleeving or when added manually.</p></div>{{/each}}
       </article>
@@ -174,29 +252,97 @@
 
     {{#if isRelationships}}
     <section class="ac-page">
-      <div class="ac-page-title"><div><span class="ac-kicker">06 // SOCIAL GRAPH</span><h1>Relationships & Networks</h1></div><p>People, organisations and trust states are operational assets. Recognition and verification can change without changing the underlying history.</p></div>
+      <div class="ac-page-title"><div><span class="ac-kicker">06 // SOCIAL GRAPH</span><h1>Relationships & Networks</h1></div><p>People, organisations and trust states use the same read-first record behaviour as the rest of the sheet. Open reveals data; Edit Mode exposes the editor.</p></div>
       <div class="ac-dashboard-grid two">
-        <article class="ac-panel"><header class="ac-panel-title"><span>Relationships</span><small>{{relationships.length}} LINKS</small></header>{{#each relationships}}<div class="ac-relationship-card"><div class="ac-rel-sigil">{{system.category}}</div><div><strong>{{name}}</strong><small>{{system.revealState}} · {{system.category}}</small></div><button type="button" data-action="editItem" data-item-id="{{id}}">Open</button></div>{{else}}<p class="ac-muted">No relationship records.</p>{{/each}}</article>
-        <article class="ac-panel"><header class="ac-panel-title"><span>Networks</span><small>{{networks.length}}</small></header>{{#each networks}}<div class="ac-line-item"><div><strong>{{name}}</strong><small>{{system.organization}} · Request Lv.{{system.level}}</small></div><button type="button" data-action="editItem" data-item-id="{{id}}">Open</button></div>{{else}}<p class="ac-muted">No Networks recorded.</p>{{/each}}</article>
+        <article class="ac-panel"><header class="ac-panel-title"><span>Relationships</span><small>{{relationships.length}} LINKS</small></header><div class="ac-record-list compact">
+          {{#each relationships}}
+          <details class="ac-disclosure-record ac-relationship-record">
+            <summary><div class="ac-rel-sigil">{{system.category}}</div><div><strong class="ac-record-name">{{name}}</strong><small>{{system.revealState}} · {{system.category}}</small></div><span class="ac-open-label">Open</span><i class="fa-solid fa-chevron-down ac-disclosure-chevron"></i></summary>
+            <div class="ac-record-detail">
+              {{#if system.description}}<div class="ac-record-description">{{{system.description}}}</div>{{/if}}
+              <div class="ac-record-facts two"><div><span>Relationship</span><strong>{{system.category}}</strong></div><div><span>Reveal State</span><strong>{{system.revealState}}</strong></div><div><span>Historical Identity</span><strong>{{system.contactHistoricalIdentity}}</strong></div><div><span>Current Alias</span><strong>{{system.currentAlias}}</strong></div></div>
+              {{#if system.historicalIncident}}<div class="ac-record-block"><span>Historical Incident</span><div>{{{system.historicalIncident}}}</div></div>{{/if}}
+              {{#if system.recognitionClues}}<div class="ac-record-block"><span>Recognition Clues</span><div>{{{system.recognitionClues}}}</div></div>{{/if}}
+              {{#if system.evidence}}<div class="ac-record-block"><span>Evidence</span><div>{{{system.evidence}}}</div></div>{{/if}}
+              {{#if ../isGM}}{{#if system.presentAgenda}}<div class="ac-record-block gm"><span>GM // Present Agenda</span><div>{{{system.presentAgenda}}}</div></div>{{/if}}{{/if}}
+              <div class="ac-edit-only-actions"><button type="button" data-action="editItem" data-item-id="{{id}}"><i class="fa-solid fa-pen"></i> Edit Relationship</button></div>
+            </div>
+          </details>
+          {{else}}<p class="ac-muted">No relationship records.</p>{{/each}}
+        </div></article>
+        <article class="ac-panel"><header class="ac-panel-title"><span>Networks</span><small>{{networks.length}}</small></header><div class="ac-record-list compact">
+          {{#each networks}}
+          <details class="ac-disclosure-record ac-network-record">
+            <summary><span class="ac-data-icon"><i class="fa-solid fa-share-nodes"></i></span><div><strong class="ac-record-name">{{name}}</strong><small>{{system.organization}} · Request Lv.{{system.level}}</small></div><span class="ac-open-label">Open</span><i class="fa-solid fa-chevron-down ac-disclosure-chevron"></i></summary>
+            <div class="ac-record-detail">
+              {{#if system.description}}<div class="ac-record-description">{{{system.description}}}</div>{{/if}}
+              <div class="ac-record-facts two"><div><span>Organisation</span><strong>{{system.organization}}</strong></div><div><span>Request Level</span><strong>{{system.level}}</strong></div><div><span>Request Bonus</span><strong>{{system.requestBonus}}</strong></div><div><span>Status</span><strong>{{#if system.exhausted}}Exhausted{{else}}Available{{/if}}</strong></div></div>
+              {{#if system.categories}}<div class="ac-record-block"><span>Categories</span><div>{{system.categories}}</div></div>{{/if}}
+              <div class="ac-edit-only-actions"><button type="button" data-action="editItem" data-item-id="{{id}}"><i class="fa-solid fa-pen"></i> Edit Network</button></div>
+            </div>
+          </details>
+          {{else}}<p class="ac-muted">No Networks recorded.</p>{{/each}}
+        </div></article>
       </div>
     </section>
     {{/if}}
 
     {{#if isEvidence}}
     <section class="ac-page">
-      <div class="ac-page-title"><div><span class="ac-kicker">07 // MEMORY FORENSICS</span><h1>Evidence & Memories</h1></div><p>Clues, recovered memory fragments and verification records live here. Treat recollection as data that may require corroboration.</p></div>
-      <article class="ac-panel"><header class="ac-panel-title"><span>Archive</span><small>{{clues.length}} RECORDS</small></header><div class="ac-evidence-grid">{{#each clues}}<article class="ac-evidence-card"><span class="ac-data-icon"><i class="fa-solid fa-fingerprint"></i></span><div><small>{{type}}</small><strong>{{name}}</strong></div><button type="button" data-action="editItem" data-item-id="{{id}}">Inspect</button></article>{{else}}<div class="ac-empty-state"><i class="fa-solid fa-fingerprint"></i><h3>No evidence stored</h3><p>Clues and Memory Items appear here as the investigation grows.</p></div>{{/each}}</div></article>
+      <div class="ac-page-title"><div><span class="ac-kicker">07 // MEMORY FORENSICS</span><h1>Evidence & Memories</h1></div><p>Clues and memories are read-first records too. Click the name or Open to inspect the data; the Item editor is only available in Edit Mode.</p></div>
+      <article class="ac-panel"><header class="ac-panel-title"><span>Archive</span><small>{{clues.length}} RECORDS</small></header><div class="ac-record-list">
+        {{#each clues}}
+        <details class="ac-disclosure-record ac-evidence-record">
+          <summary><span class="ac-data-icon"><i class="fa-solid fa-fingerprint"></i></span><div><strong class="ac-record-name">{{name}}</strong><small>{{type}}{{#if isClue}} · {{#if system.verified}}VERIFIED{{else}}UNVERIFIED{{/if}}{{/if}}{{#if isMemory}} · {{#if system.recovered}}RECOVERED{{else}}LOCKED{{/if}}{{/if}}</small></div><span class="ac-open-label">Open</span><i class="fa-solid fa-chevron-down ac-disclosure-chevron"></i></summary>
+          <div class="ac-record-detail">
+            {{#if system.description}}<div class="ac-record-description">{{{system.description}}}</div>{{/if}}
+            {{#if isClue}}<div class="ac-record-facts three"><div><span>Revelation</span><strong>{{system.revelationId}}</strong></div><div><span>Essential</span><strong>{{#if system.essential}}Yes{{else}}No{{/if}}</strong></div><div><span>Verification</span><strong>{{#if system.verified}}Verified{{else}}Unverified{{/if}}</strong></div></div>{{/if}}
+            {{#if isMemory}}<div class="ac-record-facts three"><div><span>Year</span><strong>{{system.year}}</strong></div><div><span>Sleeve Reference</span><strong>{{system.sleeveId}}</strong></div><div><span>Status</span><strong>{{#if system.recovered}}Recovered{{else}}Locked{{/if}}</strong></div></div>{{/if}}
+            {{#if ../isGM}}{{#if system.secret}}<div class="ac-record-block gm"><span>GM / Private Note</span><div>{{{system.secret}}}</div></div>{{/if}}{{/if}}
+            <div class="ac-edit-only-actions"><button type="button" data-action="editItem" data-item-id="{{id}}"><i class="fa-solid fa-pen"></i> Edit {{type}}</button></div>
+          </div>
+        </details>
+        {{else}}<div class="ac-empty-state"><i class="fa-solid fa-fingerprint"></i><h3>No evidence stored</h3><p>Clues and Memory Items appear here as the investigation grows.</p></div>{{/each}}
+      </div></article>
     </section>
     {{/if}}
 
     {{#if isGear}}
     <section class="ac-page">
-      <div class="ac-page-title"><div><span class="ac-kicker">08 // LOADOUT</span><h1>Gear & Resources</h1></div><p>Weapons, armour, equipment, augmentations and software share a single operational loadout with visible Depletion state.</p></div>
-      <article class="ac-panel"><header class="ac-panel-title"><span>Equipment</span><small>{{equipment.length}} ITEMS</small></header><div class="ac-card-list">{{#each equipment}}<article class="ac-data-card"><div class="ac-data-card-main"><span class="ac-data-icon"><i class="fa-solid fa-microchip"></i></span><div><div class="ac-card-eyebrow">{{type}}{{#if canDeplete}} // DP {{system.depletion}} / {{system.capacity}}{{/if}}</div><h3>{{name}}</h3>{{#if system.exhausted}}<p class="ac-danger-text">EXHAUSTED</p>{{/if}}</div></div><div class="ac-card-actions">{{#if canUse}}<button type="button" data-action="useWeapon" data-item-id="{{id}}">Use / Attack</button>{{/if}}{{#if canUseEquipment}}<button type="button" data-action="useEquipment" data-item-id="{{id}}">Use with Skill</button>{{/if}}{{#if canDeplete}}<button type="button" data-action="addDepletion" data-item-id="{{id}}">+DP</button>{{/if}}<button type="button" data-action="editItem" data-item-id="{{id}}"><i class="fa-solid fa-pen"></i></button></div></article>{{else}}<p class="ac-muted">No equipment recorded.</p>{{/each}}</div></article>
-      <article class="ac-panel"><header class="ac-panel-title"><span>Resource Catalog</span><small>{{resources.length}} ENTRIES</small></header>{{#each resources}}<div class="ac-line-item"><div><strong>{{name}}</strong><small>Price {{system.priceLevel}} · Capacity {{system.capacity}} · DP {{system.depletion}}</small></div><button type="button" data-action="editItem" data-item-id="{{id}}">Open</button></div>{{else}}<p class="ac-muted">No Resource Catalog entries.</p>{{/each}}</article>
+      <div class="ac-page-title"><div><span class="ac-kicker">08 // LOADOUT</span><h1>Gear & Resources</h1></div><p>Equipment uses the same disclosure interface as every other record. Operational Use and Depletion actions remain available without exposing the editor.</p></div>
+      <article class="ac-panel"><header class="ac-panel-title"><span>Equipment</span><small>{{equipment.length}} ITEMS</small></header><div class="ac-record-list">
+        {{#each equipment}}
+        <details class="ac-disclosure-record ac-gear-record">
+          <summary><span class="ac-data-icon"><i class="fa-solid fa-microchip"></i></span><div><strong class="ac-record-name">{{name}}</strong><small>{{type}}{{#if canDeplete}} · DP {{system.depletion}} / {{system.capacity}}{{/if}}{{#if system.exhausted}} · EXHAUSTED{{/if}}</small></div><span class="ac-open-label">Open</span><i class="fa-solid fa-chevron-down ac-disclosure-chevron"></i></summary>
+          <div class="ac-record-detail">
+            {{#if system.description}}<div class="ac-record-description">{{{system.description}}}</div>{{/if}}
+            {{#if isWeapon}}<div class="ac-record-facts four"><div><span>Skill</span><strong>{{system.skill}}</strong></div><div><span>Damage</span><strong>{{system.damage}} {{system.damageType}}</strong></div><div><span>Range</span><strong>{{system.range}}</strong></div><div><span>Complexity</span><strong>{{system.complexity}}</strong></div><div><span>Accuracy</span><strong>{{system.accuracy}}</strong></div><div><span>Deadly</span><strong>{{system.deadly}}</strong></div><div><span>Firing Mode</span><strong>{{system.firingMode}}</strong></div><div><span>Armor Piercing</span><strong>{{#if system.armorPiercing}}Yes{{else}}No{{/if}}</strong></div></div>{{/if}}
+            {{#if isArmour}}<div class="ac-record-facts four"><div><span>Defense</span><strong>{{system.defense}}</strong></div><div><span>Protection</span><strong>{{system.protection}}</strong></div><div><span>Damage Types</span><strong>{{system.damageTypes}}</strong></div><div><span>Battle Armor</span><strong>{{#if system.battleArmor}}Yes{{else}}No{{/if}}</strong></div></div>{{/if}}
+            {{#if isAugmentation}}<div class="ac-record-facts four"><div><span>Tech Cost</span><strong>{{system.techCost}}</strong></div><div><span>Tech Points</span><strong>{{system.techPoints}}</strong></div><div><span>Powered</span><strong>{{#if system.powered}}Yes{{else}}No{{/if}}</strong></div><div><span>Status</span><strong>{{#if system.active}}Active{{else}}Inactive{{/if}}</strong></div></div>{{/if}}
+            {{#if isCreditSet}}<div class="ac-record-facts three"><div><span>Credit Level</span><strong>{{system.value}}</strong></div><div><span>Spent</span><strong>{{system.spent}}</strong></div><div><span>Untraceable</span><strong>{{#if system.untraceable}}Yes{{else}}No{{/if}}</strong></div></div>{{/if}}
+            {{#if isVirtualConstruct}}<div class="ac-record-facts four"><div><span>Integrity</span><strong>{{system.integrity}}</strong></div><div><span>Access Level</span><strong>{{system.accessLevel}}</strong></div><div><span>Firewall Class</span><strong>{{system.firewallClass}}</strong></div><div><span>Virus Class</span><strong>{{system.virusClass}}</strong></div></div>{{/if}}
+            {{#if isEquipment}}<div class="ac-record-facts four"><div><span>Price</span><strong>{{system.priceLevel}}</strong></div><div><span>Tech</span><strong>{{system.techUsed}} / {{system.techPoints}}</strong></div><div><span>Cargo</span><strong>{{system.cargoUnits}}</strong></div><div><span>Powered</span><strong>{{#if system.powered}}Yes{{else}}No{{/if}}</strong></div></div>{{/if}}
+            {{#if isSoftware}}<div class="ac-record-facts four"><div><span>Price</span><strong>{{system.priceLevel}}</strong></div><div><span>Tech Points</span><strong>{{system.techPoints}}</strong></div><div><span>Powered</span><strong>{{#if system.powered}}Yes{{else}}No{{/if}}</strong></div><div><span>Status</span><strong>{{#if system.exhausted}}Exhausted{{else}}Available{{/if}}</strong></div></div>{{/if}}
+            {{#if canDeplete}}<div class="ac-record-facts three"><div><span>Capacity</span><strong>{{system.capacity}}</strong></div><div><span>Depletion</span><strong>{{system.depletion}}</strong></div><div><span>Depletion Mode</span><strong>{{system.depletionMode}}</strong></div></div>{{/if}}
+            {{#if system.specialRules}}<div class="ac-record-block"><span>Special Rules</span><div>{{system.specialRules}}</div></div>{{/if}}{{#if system.triggeredEffects}}<div class="ac-record-block"><span>Triggered Effects</span><div>{{{system.triggeredEffects}}}</div></div>{{/if}}{{#if system.upgrades}}<div class="ac-record-block"><span>Upgrades</span><div>{{{system.upgrades}}}</div></div>{{/if}}
+            <div class="ac-record-actions">{{#if canUse}}<button type="button" data-action="useWeapon" data-item-id="{{id}}"><i class="fa-solid fa-crosshairs"></i> Use / Attack</button>{{/if}}{{#if canUseEquipment}}<button type="button" data-action="useEquipment" data-item-id="{{id}}"><i class="fa-solid fa-bolt"></i> Use with Skill</button>{{/if}}{{#if canDeplete}}<button type="button" data-action="addDepletion" data-item-id="{{id}}">+DP</button>{{/if}}</div>
+            <div class="ac-edit-only-actions"><button type="button" data-action="editItem" data-item-id="{{id}}"><i class="fa-solid fa-pen"></i> Edit {{type}}</button></div>
+          </div>
+        </details>
+        {{else}}<p class="ac-muted">No equipment recorded.</p>{{/each}}
+      </div></article>
+
+      <article class="ac-panel"><header class="ac-panel-title"><span>Resource Catalog</span><small>{{resources.length}} ENTRIES</small></header><div class="ac-record-list compact">
+        {{#each resources}}
+        <details class="ac-disclosure-record ac-resource-record"><summary><span class="ac-data-icon"><i class="fa-solid fa-database"></i></span><div><strong class="ac-record-name">{{name}}</strong><small>Price {{system.priceLevel}} · Capacity {{system.capacity}} · DP {{system.depletion}}</small></div><span class="ac-open-label">Open</span><i class="fa-solid fa-chevron-down ac-disclosure-chevron"></i></summary><div class="ac-record-detail">
+          {{#if system.description}}<div class="ac-record-description">{{{system.description}}}</div>{{/if}}<div class="ac-record-facts four"><div><span>Item / Service</span><strong>{{system.itemName}}</strong></div><div><span>Price Level</span><strong>{{system.priceLevel}}</strong></div><div><span>Capacity</span><strong>{{system.capacity}}</strong></div><div><span>Depletion</span><strong>{{system.depletion}}</strong></div></div>
+          <div class="ac-record-tags">{{#if system.rare}}<span>Rare</span>{{/if}}{{#if system.regulated}}<span>Regulated</span>{{/if}}{{#if system.unregistered}}<span>Unregistered</span>{{/if}}{{#if system.grayMarket}}<span>Gray Market</span>{{/if}}{{#if system.blackMarket}}<span>Black Market / Custom</span>{{/if}}{{#if system.exhausted}}<span>Exhausted</span>{{/if}}</div>
+          <div class="ac-edit-only-actions"><button type="button" data-action="editItem" data-item-id="{{id}}"><i class="fa-solid fa-pen"></i> Edit Resource</button></div>
+        </div></details>
+        {{else}}<p class="ac-muted">No Resource Catalog entries.</p>{{/each}}
+      </div></article>
     </section>
     {{/if}}
-
     {{#if isCombat}}
     <section class="ac-page">
       <div class="ac-page-title"><div><span class="ac-kicker">09 // TACTICAL STATE</span><h1>Combat</h1></div><p>Altered Carbon combat flows through Intent → Check → Resolution. Speed Dice are both timing and action economy.</p></div>

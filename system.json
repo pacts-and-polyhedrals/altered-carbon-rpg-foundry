@@ -1,8 +1,8 @@
 {
   "id": "altered-carbon-rpg",
-  "title": "Altered Carbon RPG — Unofficial",
+  "title": "Altered Carbon RPG \u2014 Unofficial",
   "description": "Unofficial Foundry VTT v14 implementation of the 2020 Altered Carbon RPG rules. Requires lawful access to the original tabletop rules. Not affiliated with or endorsed by the Altered Carbon rights holders or Foundry Gaming LLC.",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "compatibility": {
     "minimum": "14",
     "verified": "14"
@@ -198,5 +198,5 @@
   "secondaryTokenAttribute": "resources.ego",
   "url": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry",
   "manifest": "https://raw.githubusercontent.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/main/system.json",
-  "download": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v1.1.0/altered-carbon-rpg-v1.1.0.zip"
+  "download": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v1.1.2/altered-carbon-rpg-v1.1.2.zip"
 }
