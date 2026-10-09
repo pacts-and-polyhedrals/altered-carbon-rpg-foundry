@@ -2,7 +2,7 @@
   "id": "altered-carbon-rpg",
   "title": "Altered Carbon RPG — Unofficial",
   "description": "Unofficial Foundry VTT v14 implementation of the 2020 Altered Carbon RPG rules. Requires lawful access to the original tabletop rules. Not affiliated with or endorsed by the Altered Carbon rights holders or Foundry Gaming LLC.",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "compatibility": {
     "minimum": "14",
     "verified": "14"
@@ -241,83 +241,83 @@
   "secondaryTokenAttribute": "resources.ego",
   "url": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry",
   "manifest": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/latest/download/system.json",
-  "download": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v2.4.0/altered-carbon-rpg-v2.4.0.zip",
+  "download": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v2.4.1/altered-carbon-rpg-v2.4.1.zip",
   "packs": [
     {
       "name": "core-skills",
       "label": "Core Skills",
       "type": "Item",
-      "path": "./packs/core-skills.db",
+      "path": "packs/core-skills",
       "system": "altered-carbon-rpg"
     },
     {
       "name": "core-traits",
       "label": "Core Traits",
       "type": "Item",
-      "path": "./packs/core-traits.db",
+      "path": "packs/core-traits",
       "system": "altered-carbon-rpg"
     },
     {
       "name": "core-baggage",
       "label": "Core Baggage",
       "type": "Item",
-      "path": "./packs/core-baggage.db",
+      "path": "packs/core-baggage",
       "system": "altered-carbon-rpg"
     },
     {
       "name": "core-conditions",
       "label": "Core Conditions and Injuries",
       "type": "Item",
-      "path": "./packs/core-conditions.db",
+      "path": "packs/core-conditions",
       "system": "altered-carbon-rpg"
     },
     {
       "name": "core-scandals",
       "label": "Core Scandals",
       "type": "Item",
-      "path": "./packs/core-scandals.db",
+      "path": "packs/core-scandals",
       "system": "altered-carbon-rpg"
     },
     {
       "name": "core-items",
       "label": "Core Equipment (95 Items)",
       "type": "Item",
-      "path": "./packs/core-items.db",
+      "path": "packs/core-items",
       "system": "altered-carbon-rpg"
     },
     {
       "name": "weapon-upgrades",
       "label": "Generic Weapon Upgrades",
       "type": "Item",
-      "path": "./packs/weapon-upgrades.db",
+      "path": "packs/weapon-upgrades",
       "system": "altered-carbon-rpg"
     },
     {
       "name": "core-networks",
       "label": "Core Networks",
       "type": "Item",
-      "path": "./packs/core-networks.db",
+      "path": "packs/core-networks",
       "system": "altered-carbon-rpg"
     },
     {
       "name": "official-vehicles",
       "label": "Core Vehicles",
       "type": "Actor",
-      "path": "./packs/official-vehicles.db",
+      "path": "packs/official-vehicles",
       "system": "altered-carbon-rpg"
     },
     {
       "name": "official-adversaries",
       "label": "Core Adversaries",
       "type": "Actor",
-      "path": "./packs/official-adversaries.db",
+      "path": "packs/official-adversaries",
       "system": "altered-carbon-rpg"
     },
     {
       "name": "system-guides",
       "label": "Player and GM Guides",
       "type": "JournalEntry",
-      "path": "./packs/system-guides.db"
+      "path": "packs/system-guides"
     }
   ],
   "packFolders": [
