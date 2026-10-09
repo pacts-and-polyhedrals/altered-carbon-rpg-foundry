@@ -2,7 +2,7 @@
   "id": "altered-carbon-rpg",
   "title": "Altered Carbon RPG — Unofficial",
   "description": "Unofficial Foundry VTT v14 implementation of the 2020 Altered Carbon RPG rules. Requires lawful access to the original tabletop rules. Not affiliated with or endorsed by the Altered Carbon rights holders or Foundry Gaming LLC.",
-  "version": "2.4.7",
+  "version": "2.4.9",
   "compatibility": {
     "minimum": "14",
     "verified": "14"
@@ -241,7 +241,7 @@
   "secondaryTokenAttribute": "resources.ego",
   "url": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry",
   "manifest": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/latest/download/system.json",
-  "download": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v2.4.7/altered-carbon-rpg-v2.4.7.zip",
+  "download": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v2.4.9/altered-carbon-rpg-v2.4.9.zip",
   "packs": [
     {
       "name": "core-skills",
@@ -318,6 +318,13 @@
       "label": "Player and GM Guides",
       "type": "JournalEntry",
       "path": "packs/system-guides"
+    },
+    {
+      "name": "bay-city-maps",
+      "label": "Bay City Maps (Zoned)",
+      "type": "Scene",
+      "path": "packs/bay-city-maps",
+      "system": "altered-carbon-rpg"
     }
   ],
   "packFolders": [
@@ -343,7 +350,8 @@
         "core-networks",
         "official-vehicles",
         "official-adversaries",
-        "system-guides"
+        "system-guides",
+        "bay-city-maps"
       ]
     }
   ]

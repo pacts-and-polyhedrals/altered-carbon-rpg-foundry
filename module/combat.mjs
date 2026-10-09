@@ -22,6 +22,12 @@ function requireGM(){if(!game.user?.isGM)throw new Error('Only the GM can contro
 function requireOwner(combatant){if(!game.user?.isGM&&!combatant?.actor?.isOwner)throw new Error('You do not own this combatant.');}
 async function newBoard(combat){const st=state(combat);const msg=await ChatMessage.implementation.create({content:speedBoardHTML({...publicSpeedSummary(combat),combatants:publicSpeedSummary(combat).entries}),flags:{[NS]:{speedBoard:{combatId:combat.id,intentKey:st.intentKey,selectionKey:st.selectionKey}}}});await combat.setFlag(NS,'state',{...state(combat),boardMessageId:msg.id});return msg;}
 export async function refreshSpeedBoard(combat){if(!game.user?.isGM||!combat)return;const st=state(combat);const message=game.messages.get(st.boardMessageId);if(!message)return;const summary=publicSpeedSummary(combat);await message.update({content:speedBoardHTML({...summary,combatants:summary.entries})});}
+export async function repostSpeedBoard(combat,note='Updated below'){
+ if(!game.user?.isGM||!combat)return null;const old=game.messages.get(state(combat).boardMessageId);
+ const message=await newBoard(combat);
+ if(old&&old.id!==message.id){try{await old.update({content:`<section class="ac-chat-card ac-speed-board ac-speed-board-superseded"><header class="ac-chat-card-header"><div><span class="ac-chat-kicker">SPEED DICE</span><strong>${foundry.utils.escapeHTML(note)}</strong></div><span class="ac-grade-chip">SUPERSEDED</span></header></section>`});}catch(error){console.warn('Altered Carbon | could not collapse old Speed Dice card',error);}}
+ return message;
+}
 export async function beginIntent(combat){
  requireGM();if(!combat||!combatants(combat).length)throw new Error('Add combatants to the encounter first.');
  const prev=state(combat),intentKey=id();await combat.setFlag(NS,'state',{phase:'intent',turn:Number(prev.turn||0)+1,round:1,intentKey,selectionKey:id(),activeCombatantId:null,commitmentsRevealed:false,boardMessageId:null});
@@ -59,7 +65,10 @@ export async function revealCommitments(combat){
  const validated=combatants(combat).map(c=>({c,roll:privateRollFor(c),choice:speedProgress(speedState(c).total,speedState(c).spentIndexes).remaining===0?{indexes:[]}:privateCommitmentFor(c)}));
  if(!validated.length||validated.some(x=>!x.roll||!x.choice))throw new Error('Cannot reveal until every combatant rolls privately and locks a valid Active Dice selection.');
  await combat.updateEmbeddedDocuments('Combatant',validated.map(({c,roll,choice})=>{const s=speedState(c);return {_id:c.id,flags:{[NS]:{speed:{...s,results:roll.results,revealedActiveIndexes:choice.indexes,rolled:true,submitted:true}}}};}));
- await combat.setFlag(NS,'state',{...st,commitmentsRevealed:true});await refreshSpeedBoard(combat);return validated.length;
+ await combat.setFlag(NS,'state',{...st,commitmentsRevealed:true});
+ // Repost the revealed board at the bottom of chat so nobody scrolls up in a long fight;
+ // the old waiting card collapses to a pointer.
+ await repostSpeedBoard(combat,'Revealed below');return validated.length;
 }
 export async function unlockSpeedDice(combatant){requireGM();const st=state(combatant.parent);if(st.commitmentsRevealed)throw new Error('Already revealed. Spend dice or start the next round.');const s=speedState(combatant);await combatant.setFlag(NS,'speed',{...s,revealedActiveIndexes:[],submitted:false,commitRevision:Number(s.commitRevision||0)+1});await refreshSpeedBoard(combatant.parent);}
 export function chooseNext(combat){const entries=combatants(combat).map(c=>{const s=speedState(c);return{id:c.id,combatant:c,speedResults:s.results||[],activeIndexes:(s.revealedActiveIndexes||[]).filter(i=>!(s.spentIndexes||[]).includes(i))};});return nextActiveCombatant(entries)?.combatant||null;}

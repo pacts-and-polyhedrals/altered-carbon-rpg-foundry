@@ -1,6 +1,6 @@
 # Altered Carbon RPG — Unofficial Foundry VTT System
 
-**Current version: v2.4.7** · Foundry VTT v14
+**Current version: v2.4.9** · Foundry VTT v14
 
 Unofficial Foundry VTT implementation of the 2020 Altered Carbon RPG rules. Requires lawful
 access to the original tabletop rules. Not affiliated with or endorsed by the Altered Carbon
@@ -22,7 +22,24 @@ Older installs that still use `.../main/system.json` keep working because the `s
 version, uninstall it and reinstall from the manifest URL above. Uninstalling a system does
 not delete your worlds.
 
-## What's in v2.4.7
+## What's in v2.4.9
+
+- **Speed Dice reveal is reposted** as a new chat card at the bottom of chat, so no one scrolls
+  up in a long fight. The old waiting card collapses to a one-line "Revealed below".
+
+## v2.4.8
+
+- **Bay City Maps (Zoned)** compendium: 10 maps in the Cold Storage noir-schematic style — The Neon
+  Strip, Rain Alley, BCPD Precinct House, Resleeving Clinic, Meth Spire Penthouse, The Fight Pit,
+  Bay Docks, Skyport Landing Deck, Lower Bay Market and Neon Nightclub. Each has numbered zone
+  plaques, doors and connectors between zones, cover markers, exits and a title cartouche.
+- Scenes are gridless with Altered Carbon zone units and the zone graph already filled in, so
+  range and the Zone Assistant work at once. Tokens dropped or moved into a zone are assigned to it
+  automatically (setting: *Assign tokens to map zones automatically*).
+- Install them with **Install / Update Content** (they are included by default) or import from the
+  compendium. Map generator source: `tools/maps/`.
+
+## v2.4.7
 
 - **Speed Dice run the Combat Tracker.** Begin Combat starts a Speed Dice Turn; Roll Initiative
   (single, Roll All, Roll NPCs) rolls Speed Dice privately; after the GM reveals, each combatant's

@@ -1,5 +1,5 @@
 const SYS='altered-carbon-rpg';
-export const GUIDE_VERSION='2.4.7';
+export const GUIDE_VERSION='2.4.9';
 export const GUIDE_NAME='Altered Carbon — GM Guide';
 
 async function loadJSON(path){const r=await fetch(`systems/${SYS}/data/${path}`);if(!r.ok)throw new Error(`Unable to load ${path}`);return r.json();}

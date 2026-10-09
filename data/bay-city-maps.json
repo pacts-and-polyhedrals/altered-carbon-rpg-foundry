@@ -1,0 +1,1118 @@
+{
+ "maps": [
+  {
+   "id": "BAY-STRIP",
+   "name": "The Neon Strip",
+   "code": "BC01",
+   "district": "STREET",
+   "file": "bc01-the-neon-strip.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "north-walk",
+     "name": "North Sidewalk",
+     "rect": [
+      100,
+      100,
+      2600,
+      300
+     ],
+     "adjacent": [
+      "strip-road"
+     ]
+    },
+    {
+     "id": "strip-road",
+     "name": "Strip Road",
+     "rect": [
+      100,
+      400,
+      2600,
+      500
+     ],
+     "adjacent": [
+      "north-walk",
+      "skyway-stair",
+      "south-walk"
+     ]
+    },
+    {
+     "id": "south-walk",
+     "name": "South Sidewalk",
+     "rect": [
+      100,
+      900,
+      1800,
+      300
+     ],
+     "adjacent": [
+      "alley-mouth",
+      "noodle-bar",
+      "pachinko",
+      "skyway-stair",
+      "strip-road"
+     ]
+    },
+    {
+     "id": "noodle-bar",
+     "name": "Noodle Bar",
+     "rect": [
+      100,
+      1200,
+      800,
+      500
+     ],
+     "adjacent": [
+      "alley-mouth",
+      "south-walk"
+     ]
+    },
+    {
+     "id": "alley-mouth",
+     "name": "Alley Mouth",
+     "rect": [
+      900,
+      1200,
+      500,
+      500
+     ],
+     "adjacent": [
+      "noodle-bar",
+      "south-walk"
+     ]
+    },
+    {
+     "id": "pachinko",
+     "name": "Pachinko Parlour",
+     "rect": [
+      1400,
+      1200,
+      500,
+      500
+     ],
+     "adjacent": [
+      "south-walk"
+     ]
+    },
+    {
+     "id": "skyway-stair",
+     "name": "Skyway Stair",
+     "rect": [
+      1900,
+      900,
+      800,
+      560.0
+     ],
+     "adjacent": [
+      "south-walk",
+      "strip-road"
+     ]
+    }
+   ],
+   "exits": [
+    "DOWNTOWN",
+    "WATERFRONT",
+    "THE ALLEY"
+   ]
+  },
+  {
+   "id": "BAY-ALLEY",
+   "name": "Rain Alley",
+   "code": "BC02",
+   "district": "STREET",
+   "file": "bc02-rain-alley.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "alley-entrance",
+     "name": "Alley Entrance",
+     "rect": [
+      100,
+      600,
+      600,
+      600
+     ],
+     "adjacent": [
+      "dumpster-run"
+     ]
+    },
+    {
+     "id": "dumpster-run",
+     "name": "Dumpster Run",
+     "rect": [
+      700,
+      600,
+      1100,
+      600
+     ],
+     "adjacent": [
+      "alley-entrance",
+      "back-court",
+      "fire-escape",
+      "loading-dock"
+     ]
+    },
+    {
+     "id": "loading-dock",
+     "name": "Loading Dock",
+     "rect": [
+      1800,
+      600,
+      900,
+      600
+     ],
+     "adjacent": [
+      "dumpster-run",
+      "service-door"
+     ]
+    },
+    {
+     "id": "fire-escape",
+     "name": "Fire Escape",
+     "rect": [
+      700,
+      100,
+      1100,
+      500
+     ],
+     "adjacent": [
+      "dumpster-run",
+      "service-door"
+     ]
+    },
+    {
+     "id": "service-door",
+     "name": "Service Door",
+     "rect": [
+      1800,
+      100,
+      900,
+      500
+     ],
+     "adjacent": [
+      "fire-escape",
+      "loading-dock"
+     ]
+    },
+    {
+     "id": "back-court",
+     "name": "Back Court",
+     "rect": [
+      700,
+      1200,
+      1200,
+      500
+     ],
+     "adjacent": [
+      "dumpster-run"
+     ]
+    }
+   ],
+   "exits": [
+    "THE STRIP",
+    "DELIVERY ROAD",
+    "ROOFTOPS"
+   ]
+  },
+  {
+   "id": "BAY-PRECINCT",
+   "name": "BCPD Precinct House",
+   "code": "BC03",
+   "district": "LAW",
+   "file": "bc03-bcpd-precinct.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "front-desk",
+     "name": "Front Desk",
+     "rect": [
+      100,
+      100,
+      800,
+      700
+     ],
+     "adjacent": [
+      "bullpen",
+      "holding-cells"
+     ]
+    },
+    {
+     "id": "bullpen",
+     "name": "Bullpen",
+     "rect": [
+      900,
+      100,
+      1100,
+      900
+     ],
+     "adjacent": [
+      "captain-office",
+      "evidence-locker",
+      "front-desk",
+      "interrogation",
+      "motor-pool"
+     ]
+    },
+    {
+     "id": "captain-office",
+     "name": "Captain's Office",
+     "rect": [
+      2000,
+      100,
+      700,
+      500
+     ],
+     "adjacent": [
+      "bullpen"
+     ]
+    },
+    {
+     "id": "interrogation",
+     "name": "Interrogation",
+     "rect": [
+      2000,
+      600,
+      700,
+      500
+     ],
+     "adjacent": [
+      "bullpen"
+     ]
+    },
+    {
+     "id": "holding-cells",
+     "name": "Holding Cells",
+     "rect": [
+      100,
+      800,
+      800,
+      900
+     ],
+     "adjacent": [
+      "evidence-locker",
+      "front-desk"
+     ]
+    },
+    {
+     "id": "evidence-locker",
+     "name": "Evidence Locker",
+     "rect": [
+      900,
+      1000,
+      500,
+      700
+     ],
+     "adjacent": [
+      "bullpen",
+      "holding-cells"
+     ]
+    },
+    {
+     "id": "motor-pool",
+     "name": "Motor Pool",
+     "rect": [
+      1400,
+      1000,
+      540.0,
+      480.0
+     ],
+     "adjacent": [
+      "bullpen"
+     ]
+    }
+   ],
+   "exits": [
+    "STREET",
+    "GARAGE RAMP"
+   ]
+  },
+  {
+   "id": "BAY-CLINIC",
+   "name": "Resleeving Clinic",
+   "code": "BC04",
+   "district": "MEDICAL",
+   "file": "bc04-resleeving-clinic.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "lobby",
+     "name": "Reception Lobby",
+     "rect": [
+      100,
+      100,
+      900,
+      700
+     ],
+     "adjacent": [
+      "consult",
+      "sleeve-storage"
+     ]
+    },
+    {
+     "id": "consult",
+     "name": "Consultation",
+     "rect": [
+      100,
+      800,
+      900,
+      500
+     ],
+     "adjacent": [
+      "loading-bay",
+      "lobby",
+      "resleeve-theatre"
+     ]
+    },
+    {
+     "id": "sleeve-storage",
+     "name": "Sleeve Storage",
+     "rect": [
+      1000,
+      100,
+      1000,
+      700
+     ],
+     "adjacent": [
+      "lobby",
+      "resleeve-theatre",
+      "stack-vault"
+     ]
+    },
+    {
+     "id": "resleeve-theatre",
+     "name": "Resleeve Theatre",
+     "rect": [
+      1000,
+      800,
+      1000,
+      680.0
+     ],
+     "adjacent": [
+      "consult",
+      "sleeve-storage",
+      "staff-corridor"
+     ]
+    },
+    {
+     "id": "stack-vault",
+     "name": "Stack Vault",
+     "rect": [
+      2000,
+      100,
+      700,
+      600
+     ],
+     "adjacent": [
+      "sleeve-storage",
+      "staff-corridor"
+     ]
+    },
+    {
+     "id": "staff-corridor",
+     "name": "Staff Corridor",
+     "rect": [
+      2000,
+      700,
+      700,
+      460.0
+     ],
+     "adjacent": [
+      "resleeve-theatre",
+      "stack-vault"
+     ]
+    },
+    {
+     "id": "loading-bay",
+     "name": "Morgue Lift",
+     "rect": [
+      100,
+      1300,
+      900,
+      400
+     ],
+     "adjacent": [
+      "consult"
+     ]
+    }
+   ],
+   "exits": [
+    "STREET",
+    "FIRE STAIR"
+   ]
+  },
+  {
+   "id": "BAY-SPIRE",
+   "name": "Meth Spire Penthouse",
+   "code": "BC05",
+   "district": "AERIUM",
+   "file": "bc05-meth-spire-penthouse.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "landing-pad",
+     "name": "Landing Pad",
+     "rect": [
+      100,
+      100,
+      900,
+      900
+     ],
+     "adjacent": [
+      "atrium",
+      "lift-core"
+     ]
+    },
+    {
+     "id": "atrium",
+     "name": "Atrium",
+     "rect": [
+      1000,
+      100,
+      1000,
+      900
+     ],
+     "adjacent": [
+      "gallery",
+      "landing-pad",
+      "private-study",
+      "salon"
+     ]
+    },
+    {
+     "id": "gallery",
+     "name": "Gallery",
+     "rect": [
+      2000,
+      100,
+      700,
+      900
+     ],
+     "adjacent": [
+      "atrium"
+     ]
+    },
+    {
+     "id": "lift-core",
+     "name": "Lift Core",
+     "rect": [
+      100,
+      1000,
+      600,
+      660.0
+     ],
+     "adjacent": [
+      "landing-pad",
+      "salon"
+     ]
+    },
+    {
+     "id": "salon",
+     "name": "Salon",
+     "rect": [
+      700,
+      1000,
+      700,
+      660.0
+     ],
+     "adjacent": [
+      "atrium",
+      "lift-core",
+      "private-study"
+     ]
+    },
+    {
+     "id": "private-study",
+     "name": "Private Study",
+     "rect": [
+      1400,
+      1000,
+      540.0,
+      660.0
+     ],
+     "adjacent": [
+      "atrium",
+      "salon"
+     ]
+    }
+   ],
+   "exits": [
+    "STREET LEVEL",
+    "SKY BRIDGE"
+   ]
+  },
+  {
+   "id": "BAY-PIT",
+   "name": "The Fight Pit",
+   "code": "BC06",
+   "district": "UNDERWORLD",
+   "file": "bc06-fight-pit.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "the-pit",
+     "name": "The Pit",
+     "rect": [
+      900,
+      400,
+      1000,
+      800
+     ],
+     "adjacent": [
+      "east-stands",
+      "locker-room",
+      "north-stands",
+      "west-stands"
+     ]
+    },
+    {
+     "id": "north-stands",
+     "name": "North Stands",
+     "rect": [
+      900,
+      100,
+      1000,
+      300
+     ],
+     "adjacent": [
+      "east-stands",
+      "the-pit",
+      "west-stands"
+     ]
+    },
+    {
+     "id": "west-stands",
+     "name": "West Stands",
+     "rect": [
+      100,
+      100,
+      800,
+      1100
+     ],
+     "adjacent": [
+      "betting-booth",
+      "north-stands",
+      "the-pit"
+     ]
+    },
+    {
+     "id": "east-stands",
+     "name": "East Stands",
+     "rect": [
+      1900,
+      100,
+      800,
+      1100
+     ],
+     "adjacent": [
+      "back-exit",
+      "north-stands",
+      "the-pit"
+     ]
+    },
+    {
+     "id": "betting-booth",
+     "name": "Betting Booth",
+     "rect": [
+      100,
+      1200,
+      800,
+      500
+     ],
+     "adjacent": [
+      "locker-room",
+      "west-stands"
+     ]
+    },
+    {
+     "id": "locker-room",
+     "name": "Locker Room",
+     "rect": [
+      900,
+      1200,
+      1000,
+      500
+     ],
+     "adjacent": [
+      "back-exit",
+      "betting-booth",
+      "the-pit"
+     ]
+    },
+    {
+     "id": "back-exit",
+     "name": "Back Exit",
+     "rect": [
+      1900,
+      1200,
+      800,
+      260.0
+     ],
+     "adjacent": [
+      "east-stands",
+      "locker-room"
+     ]
+    }
+   ],
+   "exits": [
+    "STAIRS UP",
+    "SERVICE TUNNEL"
+   ]
+  },
+  {
+   "id": "BAY-DOCKS",
+   "name": "Bay Docks",
+   "code": "BC07",
+   "district": "WATERFRONT",
+   "file": "bc07-bay-docks.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "pier",
+     "name": "The Pier",
+     "rect": [
+      100,
+      100,
+      2600,
+      340.0
+     ],
+     "adjacent": [
+      "container-yard",
+      "crane-deck",
+      "warehouse"
+     ]
+    },
+    {
+     "id": "container-yard",
+     "name": "Container Yard",
+     "rect": [
+      100,
+      440.0,
+      1200,
+      760.0
+     ],
+     "adjacent": [
+      "access-road",
+      "crane-deck",
+      "gate-house",
+      "pier"
+     ]
+    },
+    {
+     "id": "crane-deck",
+     "name": "Crane Deck",
+     "rect": [
+      1300,
+      440.0,
+      700,
+      760.0
+     ],
+     "adjacent": [
+      "access-road",
+      "container-yard",
+      "pier",
+      "warehouse"
+     ]
+    },
+    {
+     "id": "warehouse",
+     "name": "Warehouse 9",
+     "rect": [
+      2000,
+      440.0,
+      700,
+      760.0
+     ],
+     "adjacent": [
+      "crane-deck",
+      "pier"
+     ]
+    },
+    {
+     "id": "gate-house",
+     "name": "Gate House",
+     "rect": [
+      100,
+      1200,
+      700,
+      500
+     ],
+     "adjacent": [
+      "access-road",
+      "container-yard"
+     ]
+    },
+    {
+     "id": "access-road",
+     "name": "Access Road",
+     "rect": [
+      800,
+      1200,
+      1140.0,
+      500
+     ],
+     "adjacent": [
+      "container-yard",
+      "crane-deck",
+      "gate-house"
+     ]
+    }
+   ],
+   "exits": [
+    "CITY",
+    "BOAT SLIPS"
+   ]
+  },
+  {
+   "id": "BAY-SKYPORT",
+   "name": "Skyport Landing Deck",
+   "code": "BC08",
+   "district": "TRANSIT",
+   "file": "bc08-skyport-deck.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "pad-a",
+     "name": "Pad A",
+     "rect": [
+      100,
+      100,
+      900,
+      900
+     ],
+     "adjacent": [
+      "pad-b",
+      "terminal"
+     ]
+    },
+    {
+     "id": "pad-b",
+     "name": "Pad B",
+     "rect": [
+      1000,
+      100,
+      900,
+      900
+     ],
+     "adjacent": [
+      "control-booth",
+      "fuel-bay",
+      "lift-lobby",
+      "pad-a"
+     ]
+    },
+    {
+     "id": "control-booth",
+     "name": "Control Booth",
+     "rect": [
+      1900,
+      100,
+      800,
+      500
+     ],
+     "adjacent": [
+      "fuel-bay",
+      "pad-b"
+     ]
+    },
+    {
+     "id": "fuel-bay",
+     "name": "Charging Bay",
+     "rect": [
+      1900,
+      600,
+      800,
+      600
+     ],
+     "adjacent": [
+      "control-booth",
+      "lift-lobby",
+      "pad-b"
+     ]
+    },
+    {
+     "id": "terminal",
+     "name": "Terminal Gate",
+     "rect": [
+      100,
+      1000,
+      1100,
+      660.0
+     ],
+     "adjacent": [
+      "lift-lobby",
+      "pad-a"
+     ]
+    },
+    {
+     "id": "lift-lobby",
+     "name": "Lift Lobby",
+     "rect": [
+      1200,
+      1000,
+      700,
+      480.0
+     ],
+     "adjacent": [
+      "fuel-bay",
+      "pad-b",
+      "terminal"
+     ]
+    }
+   ],
+   "exits": [
+    "FLIGHT LANE",
+    "CONCOURSE"
+   ]
+  },
+  {
+   "id": "BAY-MARKET",
+   "name": "Lower Bay Market",
+   "code": "BC09",
+   "district": "UNDERWORLD",
+   "file": "bc09-lower-bay-market.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "stall-row",
+     "name": "Stall Row",
+     "rect": [
+      100,
+      100,
+      1800,
+      500
+     ],
+     "adjacent": [
+      "chop-shop",
+      "food-court",
+      "stack-dealer"
+     ]
+    },
+    {
+     "id": "food-court",
+     "name": "Food Court",
+     "rect": [
+      100,
+      600,
+      900,
+      600
+     ],
+     "adjacent": [
+      "chop-shop",
+      "stairwell",
+      "stall-row"
+     ]
+    },
+    {
+     "id": "chop-shop",
+     "name": "Chop Shop",
+     "rect": [
+      1000,
+      600,
+      900,
+      600
+     ],
+     "adjacent": [
+      "back-room",
+      "drainage-tunnel",
+      "food-court",
+      "stall-row"
+     ]
+    },
+    {
+     "id": "stack-dealer",
+     "name": "Stack Dealer's Den",
+     "rect": [
+      1900,
+      100,
+      800,
+      700
+     ],
+     "adjacent": [
+      "drainage-tunnel",
+      "stall-row"
+     ]
+    },
+    {
+     "id": "drainage-tunnel",
+     "name": "Drainage Tunnel",
+     "rect": [
+      1900,
+      800,
+      800,
+      660.0
+     ],
+     "adjacent": [
+      "chop-shop",
+      "stack-dealer"
+     ]
+    },
+    {
+     "id": "stairwell",
+     "name": "Market Stairwell",
+     "rect": [
+      100,
+      1200,
+      900,
+      500
+     ],
+     "adjacent": [
+      "food-court"
+     ]
+    },
+    {
+     "id": "back-room",
+     "name": "Back Room",
+     "rect": [
+      1000,
+      1200,
+      900,
+      280.0
+     ],
+     "adjacent": [
+      "chop-shop"
+     ]
+    }
+   ],
+   "exits": [
+    "STREET",
+    "STORM DRAINS"
+   ]
+  },
+  {
+   "id": "BAY-CLUB",
+   "name": "Neon Nightclub",
+   "code": "BC10",
+   "district": "NIGHTLIFE",
+   "file": "bc10-neon-nightclub.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "queue",
+     "name": "Door Queue",
+     "rect": [
+      100,
+      100,
+      600,
+      1600
+     ],
+     "adjacent": [
+      "dance-floor",
+      "main-bar"
+     ]
+    },
+    {
+     "id": "dance-floor",
+     "name": "Dance Floor",
+     "rect": [
+      700,
+      100,
+      1200,
+      900
+     ],
+     "adjacent": [
+      "dj-stage",
+      "main-bar",
+      "queue",
+      "vip-booths"
+     ]
+    },
+    {
+     "id": "main-bar",
+     "name": "Main Bar",
+     "rect": [
+      700,
+      1000,
+      1200,
+      500
+     ],
+     "adjacent": [
+      "back-office",
+      "dance-floor",
+      "queue",
+      "restrooms"
+     ]
+    },
+    {
+     "id": "dj-stage",
+     "name": "DJ Stage",
+     "rect": [
+      1900,
+      100,
+      800,
+      400
+     ],
+     "adjacent": [
+      "dance-floor",
+      "vip-booths"
+     ]
+    },
+    {
+     "id": "vip-booths",
+     "name": "VIP Booths",
+     "rect": [
+      1900,
+      500,
+      800,
+      600
+     ],
+     "adjacent": [
+      "back-office",
+      "dance-floor",
+      "dj-stage"
+     ]
+    },
+    {
+     "id": "back-office",
+     "name": "Back Office",
+     "rect": [
+      1900,
+      1100,
+      800,
+      360.0
+     ],
+     "adjacent": [
+      "main-bar",
+      "vip-booths"
+     ]
+    },
+    {
+     "id": "restrooms",
+     "name": "Restrooms",
+     "rect": [
+      700,
+      1500,
+      600,
+      200
+     ],
+     "adjacent": [
+      "main-bar"
+     ]
+    }
+   ],
+   "exits": [
+    "STREET",
+    "ALLEY DOOR"
+   ]
+  }
+ ]
+}

@@ -954,3 +954,4 @@
 .ac-tracker-speed button{flex:0 0 auto;width:auto;line-height:1.2;padding:3px 8px;font-size:.8rem}
 .ac-tracker-phase{font-size:.7rem;letter-spacing:.1em;color:#78ecf3;text-transform:uppercase}
 .ac-speed-open-console{margin-top:6px;width:100%}
+.ac-speed-board-superseded{opacity:.6}.ac-speed-board-superseded .ac-chat-card-header{margin:0}
