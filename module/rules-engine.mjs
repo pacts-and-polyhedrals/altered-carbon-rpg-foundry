@@ -110,11 +110,11 @@ export function actionDifficulty(actionNumber=1) { return Math.max(0, Number(act
 
 export function depletionTR(capacity, depletionPoints=0) { return Number(capacity||0)-Number(depletionPoints||0); }
 export function isExhausted(capacity, depletionPoints=0) { return Number(capacity||0)>0 && Number(depletionPoints||0)>=Number(capacity||0); }
-export function depletionCheckOutcome({capacity=0,currentDepletion=0,addedDepletion=1,rollResult=null,counterOnly=false}={}) {
+export function depletionCheckOutcome({capacity=0,currentDepletion=0,addedDepletion=1,rollResult=null,counterOnly=false,efficiency=0}={}) {
   capacity=Math.max(0,Number(capacity)||0); currentDepletion=Math.max(0,Number(currentDepletion)||0); addedDepletion=Math.max(0,Number(addedDepletion)||0);
   const depletion=currentDepletion+addedDepletion;
   if(capacity<=0)return {depletion,capacity,tr:0,automatic:false,checkRequired:false,passed:true,exhausted:false};
-  const tr=depletionTR(capacity,depletion),automatic=depletion>=capacity;
+  const tr=depletionTR(capacity,depletion)+Math.max(0,Number(efficiency)||0),automatic=depletion>=capacity;
   if(automatic)return {depletion,capacity,tr,automatic:true,checkRequired:false,passed:false,exhausted:true};
   if(counterOnly)return {depletion,capacity,tr,automatic:false,checkRequired:false,passed:true,exhausted:false};
   if(rollResult==null)return {depletion,capacity,tr,automatic:false,checkRequired:true,passed:null,exhausted:false};

@@ -1,0 +1,725 @@
+{
+  "version": "2.4.0",
+  "authority": "2020 Altered Carbon Core Rulebook (user-provided); Quick Start subordinate",
+  "assessment": "Local source-to-Core coverage review; not Foundry or Forge certification. A mapped numeric component does not indicate complete automation of an entire Trait or augmentation.",
+  "automatedTraitMappings": 170,
+  "totalCoreTraits": 240,
+  "entries": [
+    {
+      "id": "core-001",
+      "chapter": 1,
+      "printedPages": "12-31",
+      "mechanic": "Bay City, DHF and cortical stack primer",
+      "status": "reference",
+      "evidence": [
+        "module/rules-browser.mjs"
+      ],
+      "limitations": "The rules browser and Player Primer are a summary; the published setting remains a separate book."
+    },
+    {
+      "id": "core-002",
+      "chapter": 1,
+      "printedPages": "12-31",
+      "mechanic": "Protectorate, corporate/criminal context",
+      "status": "reference",
+      "evidence": [
+        "data/network-catalog.json"
+      ],
+      "limitations": "Story history, licensing and canon are not machine adjudicated."
+    },
+    {
+      "id": "core-003",
+      "chapter": 2,
+      "printedPages": "32-35",
+      "mechanic": "Six Attributes, sleeve versus stack",
+      "status": "implemented",
+      "evidence": [
+        "module/data-models.mjs"
+      ],
+      "limitations": "Source-backed attribute data and active Sleeve separation; runtime recalculation needs live verification."
+    },
+    {
+      "id": "core-004",
+      "chapter": 2,
+      "printedPages": "34-35",
+      "mechanic": "Attribute Bonuses and Strength threshold",
+      "status": "implemented",
+      "evidence": [
+        "module/rules-engine.mjs"
+      ],
+      "limitations": "Pure numeric resolution is unit tested."
+    },
+    {
+      "id": "core-005",
+      "chapter": 2,
+      "printedPages": "34-37",
+      "mechanic": "Health, Ego and Stack resources",
+      "status": "implemented",
+      "evidence": [
+        "module/documents.mjs"
+      ],
+      "limitations": "Persistent values and bounds; complex death/AI edge cases remain guided."
+    },
+    {
+      "id": "core-006",
+      "chapter": 2,
+      "printedPages": "37-39",
+      "mechanic": "Influence gained versus restored",
+      "status": "implemented",
+      "evidence": [
+        "module/gm-workflows.mjs"
+      ],
+      "limitations": "v2 correction: gained IP raises max; restored IP does not."
+    },
+    {
+      "id": "core-007",
+      "chapter": 2,
+      "printedPages": "40-41",
+      "mechanic": "Skill advancement and SP costs",
+      "status": "implemented",
+      "evidence": [
+        "module/creator-build.mjs"
+      ],
+      "limitations": "Creator SP ledger tested; post-creation long-term advancement remains partly manual."
+    },
+    {
+      "id": "core-008",
+      "chapter": 2,
+      "printedPages": "41-47",
+      "mechanic": "Core character creation sequence",
+      "status": "partial",
+      "evidence": [
+        "module/character-creator.mjs"
+      ],
+      "limitations": "Seven-stage creator validates budgets; Baggage 10/11/12 now get a GM-only, one-time choice to reduce two same-Attribute Skills or apply 2d6 Ego. Other Baggage, Packages and substitutions require adjudication."
+    },
+    {
+      "id": "core-009",
+      "chapter": 2,
+      "printedPages": "43",
+      "mechanic": "Expedited creation",
+      "status": "implemented",
+      "evidence": [
+        "module/creator-build.mjs"
+      ],
+      "limitations": "Fixed archetype/package shortcut with unspent SP."
+    },
+    {
+      "id": "core-010",
+      "chapter": 2,
+      "printedPages": "44-45",
+      "mechanic": "DHF age and Baggage dice",
+      "status": "implemented",
+      "evidence": [
+        "module/creator-build.mjs"
+      ],
+      "limitations": "Age resource and dice calculations tested."
+    },
+    {
+      "id": "core-011",
+      "chapter": 2,
+      "printedPages": "44-45",
+      "mechanic": "Sleeve quality/Attribute caps",
+      "status": "implemented",
+      "evidence": [
+        "module/creator-build.mjs"
+      ],
+      "limitations": "Caps validated with GM choice for exceptional sleeves."
+    },
+    {
+      "id": "core-012",
+      "chapter": 2,
+      "printedPages": "46-47",
+      "mechanic": "Attribute/SP improvements",
+      "status": "implemented",
+      "evidence": [
+        "module/creator-build.mjs"
+      ],
+      "limitations": "Auditable d4 Attribute rolls and no overspend."
+    },
+    {
+      "id": "core-013",
+      "chapter": 2,
+      "printedPages": "48-65",
+      "mechanic": "Archetypes and thirty packages",
+      "status": "partial",
+      "evidence": [
+        "data/archetype-reference.json"
+      ],
+      "limitations": "30 structured packages and typed entitlements; generic choices demand player resolution."
+    },
+    {
+      "id": "core-014",
+      "chapter": 2,
+      "printedPages": "66-75",
+      "mechanic": "Active Sleeves and resleeving",
+      "status": "partial",
+      "evidence": [
+        "module/documents.mjs"
+      ],
+      "limitations": "Sleeve archive and transfer persist; active augmentation effects now filtered by Sleeve ID; Avatar prevents harmful resleeving errors. Age, compulsory cross-sleeving and all downgrade/trauma exceptions remain incompletely modelled."
+    },
+    {
+      "id": "core-015",
+      "chapter": 2,
+      "printedPages": "75-79",
+      "mechanic": "Thirty Baggage entries",
+      "status": "partial",
+      "evidence": [
+        "data/baggage-catalog.json"
+      ],
+      "limitations": "Thirty Baggage records; Trauma, Personality Frag, and Compromised DHF now have permissioned, one-time two-Skill downgrades or Ego2d6 rolls, with GM confirmations. Remaining Baggage types can require manual resource and narrative changes."
+    },
+    {
+      "id": "core-016",
+      "chapter": 2,
+      "printedPages": "78-84",
+      "mechanic": "Religious/Envoy/Meth/AI variants",
+      "status": "partial",
+      "evidence": [
+        "module/creator-build.mjs"
+      ],
+      "limitations": "Selectable features and some formulas; numerous triggered/narrative consequences still manual."
+    },
+    {
+      "id": "core-017",
+      "chapter": 3,
+      "printedPages": "87-95",
+      "mechanic": "Skill dice, TR and automatic pass",
+      "status": "implemented",
+      "evidence": [
+        "module/rules-engine.mjs"
+      ],
+      "limitations": "Pure Check engine unit-tested."
+    },
+    {
+      "id": "core-018",
+      "chapter": 3,
+      "printedPages": "87-95",
+      "mechanic": "Degrees, Ace, Stroke, Catastrophe",
+      "status": "implemented",
+      "evidence": [
+        "module/rules-engine.mjs"
+      ],
+      "limitations": "Check outcome calculations implemented."
+    },
+    {
+      "id": "core-019",
+      "chapter": 3,
+      "printedPages": "88-95",
+      "mechanic": "Training, Gear and Bonus Die stacking",
+      "status": "partial",
+      "evidence": [
+        "module/rolls.mjs"
+      ],
+      "limitations": "Authored contextual Trait and augmentation Training, Gear and Bonus Die effects are now resolved in actual Skill rolls. Certain gear combination, activation resource and prohibited stacking cases still require GM review."
+    },
+    {
+      "id": "core-020",
+      "chapter": 3,
+      "printedPages": "92-96",
+      "mechanic": "Luck and Dumb Luck",
+      "status": "implemented",
+      "evidence": [
+        "module/rolls.mjs"
+      ],
+      "limitations": "Guided Luck alternatives and resource cost."
+    },
+    {
+      "id": "core-021",
+      "chapter": 3,
+      "printedPages": "97-122",
+      "mechanic": "Thirty-two Core Skills",
+      "status": "reference",
+      "evidence": [
+        "data/core-skills.json"
+      ],
+      "limitations": "All 32 reference records shipped; skill-specific triggered actions not exhaustively wired."
+    },
+    {
+      "id": "core-022",
+      "chapter": 3,
+      "printedPages": "99-122",
+      "mechanic": "Skill-specific triggered effects",
+      "status": "partial",
+      "evidence": [
+        "module/rolls.mjs"
+      ],
+      "limitations": "New source-checked conditional bonuses and weapon damage modifiers now affect actual checks, but unique multi-stage Skill triggers, opposing-target effects, durations and immunity remain incomplete."
+    },
+    {
+      "id": "core-023",
+      "chapter": 3,
+      "printedPages": "100-122",
+      "mechanic": "Missing specialisations",
+      "status": "partial",
+      "evidence": [
+        "module/rolls.mjs"
+      ],
+      "limitations": "Specialisation mismatch now checked for common contexts; specialisation Items and named weapon categories can be matched. Less common contexts remain GM-reviewed."
+    },
+    {
+      "id": "core-024",
+      "chapter": 3,
+      "printedPages": "100-122",
+      "mechanic": "Opposed Checks and Saves",
+      "status": "implemented",
+      "evidence": [
+        "module/opposed.mjs"
+      ],
+      "limitations": "Core opposed resolution helper; special contexts may need GM input."
+    },
+    {
+      "id": "core-025",
+      "chapter": 4,
+      "printedPages": "123-128",
+      "mechanic": "Speed Dice and round actions",
+      "status": "implemented",
+      "evidence": [
+        "module/combat.mjs"
+      ],
+      "limitations": "Private speed rolls, player Active selection, GM reveal, expenditure counters and subsequent rounds locally tested in v2.1; multi-client timing and permission verification not tested live."
+    },
+    {
+      "id": "core-026",
+      "chapter": 4,
+      "printedPages": "128-131",
+      "mechanic": "Shared, Adjacent and Distant Zones",
+      "status": "partial",
+      "evidence": [
+        "module/zone-assistant.mjs"
+      ],
+      "limitations": "GM-authored Zone adjacency; no universally inferred scene geography."
+    },
+    {
+      "id": "core-027",
+      "chapter": 4,
+      "printedPages": "130-131",
+      "mechanic": "Engage and Grapple",
+      "status": "partial",
+      "evidence": [
+        "module/combat-workflow.mjs"
+      ],
+      "limitations": "Speed-die contest implemented; other grapple effects require GM adjudication."
+    },
+    {
+      "id": "core-028",
+      "chapter": 4,
+      "printedPages": "132-134",
+      "mechanic": "Defense, cover and Armor Piercing",
+      "status": "partial",
+      "evidence": [
+        "module/combat-equipment.mjs"
+      ],
+      "limitations": "Armor-piercing bypasses physical armour and augment plating but preserves independent non-armour Protection. Cover and rare mixed damage interactions still require GM confirmation."
+    },
+    {
+      "id": "core-029",
+      "chapter": 4,
+      "printedPages": "132-134",
+      "mechanic": "Protection and aggregate Wounds",
+      "status": "partial",
+      "evidence": [
+        "module/combat-workflow.mjs"
+      ],
+      "limitations": "Damage queue, Physical-Armor versus other Protection and Wounds model expanded; mixed damage remains GM-reviewed, not guaranteed end-to-end."
+    },
+    {
+      "id": "core-030",
+      "chapter": 4,
+      "printedPages": "134-135",
+      "mechanic": "Health overflow and Injuries",
+      "status": "partial",
+      "evidence": [
+        "module/documents.mjs"
+      ],
+      "limitations": "Damage Threshold overflow and injury state; optional location rules are guided."
+    },
+    {
+      "id": "core-031",
+      "chapter": 4,
+      "printedPages": "136-137",
+      "mechanic": "Dodge, Parry, Disarm and Stun",
+      "status": "partial",
+      "evidence": [
+        "module/combat-app.mjs"
+      ],
+      "limitations": "Some special actions confirm with GM; none should be considered universal automation."
+    },
+    {
+      "id": "core-032",
+      "chapter": 4,
+      "printedPages": "136-137",
+      "mechanic": "SP-based damage mitigation",
+      "status": "partial",
+      "evidence": [
+        "module/documents.mjs"
+      ],
+      "limitations": "Rules helper exists; confirm escalation/round state in a live world."
+    },
+    {
+      "id": "core-033",
+      "chapter": 4,
+      "printedPages": "136-138",
+      "mechanic": "Slag and Real Death",
+      "status": "partial",
+      "evidence": [
+        "module/chat-actions.mjs"
+      ],
+      "limitations": "Manual GM confirmation deliberately required for character-ending outcomes."
+    },
+    {
+      "id": "core-034",
+      "chapter": 4,
+      "printedPages": "138-139",
+      "mechanic": "Short and Long Rest healing",
+      "status": "partial",
+      "evidence": [
+        "module/clinical-workflow.mjs"
+      ],
+      "limitations": "Basic rest/medical calculations present; some treatment combinations remain adjudicated."
+    },
+    {
+      "id": "core-035",
+      "chapter": 4,
+      "printedPages": "139-144",
+      "mechanic": "Conditions, wounds, injuries",
+      "status": "partial",
+      "evidence": [
+        "data/mechanics-reference.json"
+      ],
+      "limitations": "21 Conditions plus 3 Injury groups; not every condition consequence has executable rules. Traits that affect Healing may require a GM decision."
+    },
+    {
+      "id": "core-036",
+      "chapter": 4,
+      "printedPages": "144-147",
+      "mechanic": "Ego, viruses, psychosurgery",
+      "status": "partial",
+      "evidence": [
+        "module/clinical-workflow.mjs"
+      ],
+      "limitations": "Procedures and permanent loss supported; unusual attacks and specialty upgrades require GM."
+    },
+    {
+      "id": "core-037",
+      "chapter": 5,
+      "printedPages": "151-183",
+      "mechanic": "All 240 printed Traits",
+      "status": "partial",
+      "evidence": [
+        "data/trait-catalog.json",
+        "data/trait-adjudications.json",
+        "module/trait-adjudication.mjs"
+      ],
+      "limitations": "All 240 source Traits are indexed for contextual GM adjudication; 170 have at least one authored numeric component and some additional triggered effects remain manually resolved. An index entry is not complete automation."
+    },
+    {
+      "id": "core-038",
+      "chapter": 5,
+      "printedPages": "152-183",
+      "mechanic": "Source-checked numeric and conditional Trait components",
+      "status": "implemented",
+      "evidence": [
+        "module/core-trait-effects.mjs",
+        "module/effects.mjs"
+      ],
+      "limitations": "170 of 240 Trait IDs have at least one authored source-checked element; coverage includes training, weapon damage, efficiency, caps, resource and social modifiers. This does NOT mean each full Trait is automated.. GM cards identify remaining Triggered Effect clauses; this is not complete Trait automation."
+    },
+    {
+      "id": "core-039",
+      "chapter": 5,
+      "printedPages": "151-183",
+      "mechanic": "Trait prerequisites and SP tier costs",
+      "status": "partial",
+      "evidence": [
+        "module/creator-build.mjs"
+      ],
+      "limitations": "Character creator validates common Trait prerequisites and costs; some dynamic acquisition and branching still require GM review cards."
+    },
+    {
+      "id": "core-040",
+      "chapter": 5,
+      "printedPages": "163-164",
+      "mechanic": "Sleeve mastery Attribute caps",
+      "status": "implemented",
+      "evidence": [
+        "module/core-trait-effects.mjs",
+        "module/documents.mjs"
+      ],
+      "limitations": "Mastery cap modifiers are authored for 55 Attribute-cap Trait Tiers, and a cap-aware advancement method rejects overspend. Does not grant Attribute points automatically; live save/reload remains unverified."
+    },
+    {
+      "id": "core-041",
+      "chapter": 5,
+      "printedPages": "173-183",
+      "mechanic": "Narrative/triggered Tier effects",
+      "status": "partial",
+      "evidence": [
+        "module/effects.mjs",
+        "module/trait-adjudication.mjs",
+        "data/trait-adjudications.json"
+      ],
+      "limitations": "GM-only contextual adjudication cards cover pending triggered source effects; resource spending, statuses and narrative choices are never silently applied."
+    },
+    {
+      "id": "core-042",
+      "chapter": 6,
+      "printedPages": "184-193",
+      "mechanic": "Wealth, Credit sets, Depletion",
+      "status": "partial",
+      "evidence": [
+        "module/rules-engine.mjs"
+      ],
+      "limitations": "Wealth, Credits, Depletion with additional weapon Efficiency and some social modifiers implemented. Credit sets and rare procurement still guided."
+    },
+    {
+      "id": "core-043",
+      "chapter": 6,
+      "printedPages": "193-194",
+      "mechanic": "Cargo, slots, Layering, Heavy",
+      "status": "partial",
+      "evidence": [
+        "module/combat-equipment.mjs"
+      ],
+      "limitations": "Body Slot collisions and layered penalties calculated; exceptional inventories require review."
+    },
+    {
+      "id": "core-044",
+      "chapter": 6,
+      "printedPages": "194-197",
+      "mechanic": "Tech Points and Upgrade Workbench",
+      "status": "partial",
+      "evidence": [
+        "module/upgrade-workbench.mjs"
+      ],
+      "limitations": "Kits, TR, chassis and respec; custom upgrades require judgement."
+    },
+    {
+      "id": "core-045",
+      "chapter": 6,
+      "printedPages": "198",
+      "mechanic": "Accuracy: repeated full damage effects",
+      "status": "implemented",
+      "evidence": [
+        "module/damage-formulas.mjs"
+      ],
+      "limitations": "Repeated Triggered Effects include full damage dice and constants and weapon-category Trait damage applied on each triggered occurrence."
+    },
+    {
+      "id": "core-046",
+      "chapter": 6,
+      "printedPages": "198-204",
+      "mechanic": "General gear special rules",
+      "status": "partial",
+      "evidence": [
+        "module/combat-equipment.mjs"
+      ],
+      "limitations": "Additional equipment tags, conditional deck/medical effects and Augment protection modelled; advanced modes and item-specific triggered rules incomplete."
+    },
+    {
+      "id": "core-047",
+      "chapter": 6,
+      "printedPages": "205-233",
+      "mechanic": "Thirty Core weapons",
+      "status": "partial",
+      "evidence": [
+        "data/item-catalog.json"
+      ],
+      "limitations": "Structured catalogue; special attack/upgrade variants not all executable."
+    },
+    {
+      "id": "core-048",
+      "chapter": 6,
+      "printedPages": "221-234",
+      "mechanic": "Thirteen ammunition entries",
+      "status": "partial",
+      "evidence": [
+        "module/chat-actions.mjs"
+      ],
+      "limitations": "Ammo consumption, compatibility, penetration and Efficiency bonuses; specialised triggered ammo effects partially GM-assisted."
+    },
+    {
+      "id": "core-049",
+      "chapter": 6,
+      "printedPages": "234-246",
+      "mechanic": "Eight apparel and devices",
+      "status": "partial",
+      "evidence": [
+        "module/combat-equipment.mjs"
+      ],
+      "limitations": "Armor and slots automated in common cases; unusual device rules manual."
+    },
+    {
+      "id": "core-050",
+      "chapter": 6,
+      "printedPages": "240-243",
+      "mechanic": "Bio Welder and med devices",
+      "status": "partial",
+      "evidence": [
+        "module/clinical-workflow.mjs"
+      ],
+      "limitations": "Wound/HP options implemented; treat ambiguous courses with GM."
+    },
+    {
+      "id": "core-051",
+      "chapter": 6,
+      "printedPages": "248-250",
+      "mechanic": "Interrogation and psychosurgery software",
+      "status": "partial",
+      "evidence": [
+        "module/clinical-workflow.mjs"
+      ],
+      "limitations": "Ego and clinical pathways exist and selected contextual bonuses apply in Skill checks; unusual opposed interrogation, forced therapy and special upgrade resolutions remain GM-adjudicated. Basic First Aid and Field Medic Expert First Aid now have explicit GM-supervised recovery paths."
+    },
+    {
+      "id": "core-052",
+      "chapter": 6,
+      "printedPages": "250-254",
+      "mechanic": "Seven drugs and medicines",
+      "status": "partial",
+      "evidence": [
+        "module/drug-medical-virtual.mjs"
+      ],
+      "limitations": "Admin, metabolization, addiction, drug effects; some combinations GM-assisted."
+    },
+    {
+      "id": "core-053",
+      "chapter": 6,
+      "printedPages": "254-261",
+      "mechanic": "Three vehicle templates",
+      "status": "partial",
+      "evidence": [
+        "module/vehicle-sheet.mjs"
+      ],
+      "limitations": "Vehicle Actor and structure/fuel sheet; full chase/combat simulator not present."
+    },
+    {
+      "id": "core-054",
+      "chapter": 6,
+      "printedPages": "262-269",
+      "mechanic": "Twenty-two sleeve augmentations",
+      "status": "partial",
+      "evidence": [
+        "data/item-catalog.json",
+        "module/core-augmentation-effects.mjs",
+        "module/documents.mjs"
+      ],
+      "limitations": "All 22 AUG IDs have at least one source-checked numeric element or guarded contextual procedure. Installation/location, armour, ability, unarmed and Speed effects integrated; triggered uses, resource costs, physical equipment prerequisites and complex stacking still GM-assisted."
+    },
+    {
+      "id": "core-055",
+      "chapter": 7,
+      "printedPages": "271-284",
+      "mechanic": "Noir and Action campaign prompts",
+      "status": "partial",
+      "evidence": [
+        "module/gm-content.mjs"
+      ],
+      "limitations": "Persistent progress and original paraphrased prompts; endings are GM narratives."
+    },
+    {
+      "id": "core-056",
+      "chapter": 7,
+      "printedPages": "285-293",
+      "mechanic": "Eight official adversaries",
+      "status": "partial",
+      "evidence": [
+        "data/adversary-catalog.json"
+      ],
+      "limitations": "Official adversary base Actors, Skills and equipment; bespoke triggered attacks and enemy-specific tactical restrictions not yet exhaustively automated."
+    },
+    {
+      "id": "core-057",
+      "chapter": 7,
+      "printedPages": "285-286",
+      "mechanic": "Minion and Nemesis options",
+      "status": "partial",
+      "evidence": [
+        "module/gm-content.mjs"
+      ],
+      "limitations": "Variants calculated where deterministic; narrative special rules guided."
+    },
+    {
+      "id": "core-058",
+      "chapter": 7,
+      "printedPages": "294-303",
+      "mechanic": "Contact generation",
+      "status": "partial",
+      "evidence": [
+        "module/gm-content.mjs"
+      ],
+      "limitations": "Typed resources/affiliations/rolls; social histories and rare options manual."
+    },
+    {
+      "id": "core-059",
+      "chapter": 7,
+      "printedPages": "304-306",
+      "mechanic": "Seven Network categories",
+      "status": "implemented",
+      "evidence": [
+        "data/network-catalog.json"
+      ],
+      "limitations": "Structured categories and duplicate-safe world installation."
+    },
+    {
+      "id": "core-060",
+      "chapter": 7,
+      "printedPages": "307-309",
+      "mechanic": "Requests, resupply and paid help",
+      "status": "partial",
+      "evidence": [
+        "module/gm-workflows.mjs"
+      ],
+      "limitations": "GM Requests and IP exhaustion transactional, with select professional, criminal, charity, corporate and law-enforcement Trait bonuses now applied contextually. Narrative obligations and uncommon Request rule variants remain GM-driven."
+    },
+    {
+      "id": "core-061",
+      "chapter": 7,
+      "printedPages": "310-315",
+      "mechanic": "Virtual encounters and time dilation",
+      "status": "partial",
+      "evidence": [
+        "module/drug-medical-virtual.mjs"
+      ],
+      "limitations": "Virtual state and training; simulations require GM narrative and multi-client verification."
+    },
+    {
+      "id": "core-062",
+      "chapter": 7,
+      "printedPages": "316-319",
+      "mechanic": "Seventeen Scandals",
+      "status": "reference",
+      "evidence": [
+        "data/mechanics-reference.json"
+      ],
+      "limitations": "Catalog entries; detailed social fallout/removal mostly manual."
+    },
+    {
+      "id": "core-063",
+      "chapter": 7,
+      "printedPages": "302-309",
+      "mechanic": "GM Request exhaustion and restoration",
+      "status": "implemented",
+      "evidence": [
+        "module/gm-workflows.mjs"
+      ],
+      "limitations": "Core table and influence logic with GM-confirmed resolution."
+    },
+    {
+      "id": "core-064",
+      "chapter": 7,
+      "printedPages": "310-315",
+      "mechanic": "AI versus human virtual vulnerabilities",
+      "status": "partial",
+      "evidence": [
+        "module/clinical-workflow.mjs"
+      ],
+      "limitations": "Specific distinctions implemented; not complete across every virus/upgrade."
+    }
+  ],
+  "augmentTemplatesWithNumericElements": 22,
+  "guidedBaggageOutcomes": 3,
+  "manualTraitAdjudicationIndex": 240,
+  "baselineUnmappedTraitsCovered": 79
+}

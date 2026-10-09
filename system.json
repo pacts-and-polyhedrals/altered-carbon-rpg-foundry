@@ -2,9 +2,10 @@
   "id": "altered-carbon-rpg",
   "title": "Altered Carbon RPG — Unofficial",
   "description": "Unofficial Foundry VTT v14 implementation of the 2020 Altered Carbon RPG rules. Requires lawful access to the original tabletop rules. Not affiliated with or endorsed by the Altered Carbon rights holders or Foundry Gaming LLC.",
-  "version": "1.4.3",
+  "version": "2.4.0",
   "compatibility": {
-    "minimum": "14"
+    "minimum": "14",
+    "verified": "14"
   },
   "authors": [
     {
@@ -66,88 +67,116 @@
         "htmlFields": [
           "description",
           "appearance",
-          "complications"
+          "complications",
+          "legacyReferenceNotes"
         ]
       },
       "archivedSleeve": {
         "htmlFields": [
           "description",
           "appearance",
-          "complications"
+          "complications",
+          "legacyReferenceNotes"
         ]
       },
       "skill": {
         "htmlFields": [
           "description",
-          "rulesText"
+          "rulesText",
+          "legacyReferenceNotes"
         ]
       },
       "trait": {
         "htmlFields": [
           "description",
           "trigger",
-          "effect"
+          "effect",
+          "legacyReferenceNotes"
         ]
       },
       "specialisation": {
         "htmlFields": [
-          "description"
+          "description",
+          "legacyReferenceNotes"
         ]
       },
       "weapon": {
         "htmlFields": [
           "description",
           "triggeredEffects",
-          "upgrades"
+          "upgrades",
+          "legacyReferenceNotes"
+        ]
+      },
+      "ammunition": {
+        "htmlFields": [
+          "description",
+          "legacyReferenceNotes"
         ]
       },
       "armour": {
         "htmlFields": [
           "description",
-          "upgrades"
+          "upgrades",
+          "legacyReferenceNotes"
         ]
       },
       "equipment": {
         "htmlFields": [
           "description",
           "triggeredEffects",
-          "upgrades"
+          "upgrades",
+          "legacyReferenceNotes"
+        ]
+      },
+      "drug": {
+        "htmlFields": [
+          "description",
+          "upgrades",
+          "legacyReferenceNotes"
         ]
       },
       "augmentation": {
         "htmlFields": [
           "description",
-          "upgrades"
+          "upgrades",
+          "legacyReferenceNotes"
         ]
       },
       "baggage": {
         "htmlFields": [
-          "description"
+          "description",
+          "legacyReferenceNotes"
         ]
       },
       "condition": {
         "htmlFields": [
-          "description"
+          "description",
+          "legacyReferenceNotes"
         ]
       },
       "injury": {
         "htmlFields": [
-          "description"
+          "description",
+          "legacyReferenceNotes"
         ]
       },
       "scandal": {
         "htmlFields": [
-          "description"
+          "description",
+          "legacyReferenceNotes"
         ]
       },
       "network": {
         "htmlFields": [
-          "description"
+          "description",
+          "legacyReferenceNotes"
         ]
       },
       "resourceEntry": {
         "htmlFields": [
-          "description"
+          "description",
+          "legacyReferenceNotes"
         ]
       },
       "relationship": {
@@ -157,50 +186,48 @@
           "historicalIncident",
           "presentAgenda",
           "recognitionClues",
-          "evidence"
+          "evidence",
+          "legacyReferenceNotes"
         ]
       },
       "clue": {
         "htmlFields": [
           "description",
-          "secret"
+          "secret",
+          "legacyReferenceNotes"
         ]
       },
       "memory": {
         "htmlFields": [
           "description",
-          "secret"
+          "secret",
+          "legacyReferenceNotes"
         ]
       },
       "creditSet": {
         "htmlFields": [
-          "description"
+          "description",
+          "legacyReferenceNotes"
         ]
       },
       "software": {
         "htmlFields": [
           "description",
           "triggeredEffects",
-          "upgrades"
+          "upgrades",
+          "legacyReferenceNotes"
         ]
       },
       "virtualConstruct": {
         "htmlFields": [
-          "description"
+          "description",
+          "legacyReferenceNotes"
         ]
       },
-      "ammunition": {
+      "contact": {
         "htmlFields": [
           "description",
-          "effect"
-        ]
-      },
-      "drug": {
-        "htmlFields": [
-          "description",
-          "effects",
-          "underInfluence",
-          "upgrades"
+          "legacyReferenceNotes"
         ]
       }
     }
@@ -213,6 +240,111 @@
   "primaryTokenAttribute": "resources.health",
   "secondaryTokenAttribute": "resources.ego",
   "url": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry",
-  "manifest": "https://raw.githubusercontent.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/main/system.json",
-  "download": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v1.4.3/altered-carbon-rpg-v1.4.3.zip"
+  "manifest": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/latest/download/system.json",
+  "download": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v2.4.0/altered-carbon-rpg-v2.4.0.zip",
+  "packs": [
+    {
+      "name": "core-skills",
+      "label": "Core Skills",
+      "type": "Item",
+      "path": "./packs/core-skills.db",
+      "system": "altered-carbon-rpg"
+    },
+    {
+      "name": "core-traits",
+      "label": "Core Traits",
+      "type": "Item",
+      "path": "./packs/core-traits.db",
+      "system": "altered-carbon-rpg"
+    },
+    {
+      "name": "core-baggage",
+      "label": "Core Baggage",
+      "type": "Item",
+      "path": "./packs/core-baggage.db",
+      "system": "altered-carbon-rpg"
+    },
+    {
+      "name": "core-conditions",
+      "label": "Core Conditions and Injuries",
+      "type": "Item",
+      "path": "./packs/core-conditions.db",
+      "system": "altered-carbon-rpg"
+    },
+    {
+      "name": "core-scandals",
+      "label": "Core Scandals",
+      "type": "Item",
+      "path": "./packs/core-scandals.db",
+      "system": "altered-carbon-rpg"
+    },
+    {
+      "name": "core-items",
+      "label": "Core Equipment (95 Items)",
+      "type": "Item",
+      "path": "./packs/core-items.db",
+      "system": "altered-carbon-rpg"
+    },
+    {
+      "name": "weapon-upgrades",
+      "label": "Generic Weapon Upgrades",
+      "type": "Item",
+      "path": "./packs/weapon-upgrades.db",
+      "system": "altered-carbon-rpg"
+    },
+    {
+      "name": "core-networks",
+      "label": "Core Networks",
+      "type": "Item",
+      "path": "./packs/core-networks.db",
+      "system": "altered-carbon-rpg"
+    },
+    {
+      "name": "official-vehicles",
+      "label": "Core Vehicles",
+      "type": "Actor",
+      "path": "./packs/official-vehicles.db",
+      "system": "altered-carbon-rpg"
+    },
+    {
+      "name": "official-adversaries",
+      "label": "Core Adversaries",
+      "type": "Actor",
+      "path": "./packs/official-adversaries.db",
+      "system": "altered-carbon-rpg"
+    },
+    {
+      "name": "system-guides",
+      "label": "Player and GM Guides",
+      "type": "JournalEntry",
+      "path": "./packs/system-guides.db"
+    }
+  ],
+  "packFolders": [
+    {
+      "name": "Altered Carbon — Characters & Gear",
+      "sorting": "a",
+      "color": "#32c7d6",
+      "packs": [
+        "core-skills",
+        "core-traits",
+        "core-baggage",
+        "core-conditions",
+        "core-scandals",
+        "core-items",
+        "weapon-upgrades"
+      ]
+    },
+    {
+      "name": "Altered Carbon — GM Library",
+      "sorting": "a",
+      "color": "#9e7dd6",
+      "packs": [
+        "core-networks",
+        "official-vehicles",
+        "official-adversaries",
+        "system-guides"
+      ]
+    }
+  ]
 }

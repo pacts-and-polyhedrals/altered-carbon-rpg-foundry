@@ -1,0 +1,86 @@
+<section class="ac-shell ac-gm-operations-shell">
+  <header class="ac-gm-hero ac-gm-operations-hero">
+    <div>
+      <span class="ac-kicker">CHAPTER SEVEN // AUTHORIZED GAMEMASTER</span>
+      <h1>Operations &amp; Campaign Intelligence</h1>
+      <p>Official adversary baselines, developed Contacts, organizational Networks, Noir / Action campaign progress and Influence-backed Requests.</p>
+    </div>
+    <div class="ac-gm-operations-status"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> GM ONLY · CORE 2020</div>
+  </header>
+  <div class="ac-gm-ops-body">
+    <section class="ac-panel ac-gm-ops-selector">
+      <label for="ac-gm-operations-actor"><span>Target player character / AI</span>
+        <select id="ac-gm-operations-actor" name="gmOpsActor" aria-label="Choose player character or AI for Contact and Network operations">
+          {{#each actors}}<option value="{{id}}" {{#if selected}}selected{{/if}}>{{name}}</option>{{else}}<option value="">No player character or AI exists</option>{{/each}}
+        </select>
+      </label>
+      <div><span class="ac-kicker">SOCIAL SOURCES</span><strong>{{sourceCount}}</strong><small>Contacts &amp; Networks on {{actorName}}</small></div>
+    </section>
+    <div class="ac-gm-ops-grid">
+      <section class="ac-panel ac-gm-ops-section" aria-label="Official adversaries">
+        <header><span class="ac-kicker">01 // ADVERSARY INTELLIGENCE</span><h2>Published Opponents <small>8 baselines</small></h2><p>Create a ready-to-roll Threat Actor. Optional Minion and legal Nemesis variants are offered in the confirmation dialog.</p></header>
+        <div class="ac-gm-ops-catalog">
+          {{#each adversaries}}
+          <article class="ac-gm-ops-record">
+            <div><strong>{{name}}</strong><small>{{category}} · {{source}}</small></div>
+            <button type="button" data-action="createAdversary" data-id="{{id}}" aria-label="Create {{name}} adversary"><i class="fa-solid fa-plus" aria-hidden="true"></i> Create</button>
+          </article>
+          {{/each}}
+        </div>
+        <p class="hint">Printed statistics and all 32 Skill records are created. Listed gear, unusual armour and narrative Triggered Effects remain GM-reviewed.</p>
+      </section>
+      <section class="ac-panel ac-gm-ops-section" aria-label="Official Networks">
+        <header><span class="ac-kicker">02 // ORGANIZATIONS</span><h2>Official Networks <small>7 categories</small></h2><p>Install reusable catalogue records or develop a specific organization on the selected character.</p></header>
+        <button class="ac-primary-action ac-gm-ops-wide-button" type="button" data-action="installNetworks"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i> Install / Refresh 7 Core Network Templates</button>
+        <div class="ac-gm-ops-catalog">
+          {{#each networks}}
+          <article class="ac-gm-ops-record"><div><strong>{{name}}</strong><small>{{description}}</small></div><button type="button" data-action="addNetwork" data-id="{{id}}" {{#unless ../hasActor}}disabled{{/unless}}><i class="fa-solid fa-plus" aria-hidden="true"></i> Add</button></article>
+          {{/each}}
+        </div>
+      </section>
+      <section class="ac-panel ac-gm-ops-section" aria-label="Contact development">
+        <header><span class="ac-kicker">03 // CONTACT DEVELOPMENT</span><h2>Personal Contacts</h2><p>Roll Social Standing, History, Virtues, Flaws and Resources; validate affiliation categories and the SP budget.</p></header>
+        <button type="button" class="ac-primary-action ac-gm-ops-wide-button" data-action="createContact" {{#unless hasActor}}disabled{{/unless}}><i class="fa-solid fa-address-card" aria-hidden="true"></i> Generate a Contact</button>
+        {{#if hasActor}}
+          <div class="ac-gm-ops-catalog">
+          {{#each sources}}
+            <div class="ac-gm-ops-record"><span>{{label}}</span></div>
+          {{else}}<p class="ac-muted">No Contact or Network records. Add a source before making a Request.</p>{{/each}}
+          </div>
+          <div class="ac-gm-ops-actionline"><button type="button" data-action="virtueIP">Virtue: Gain IP</button><button type="button" data-action="flawIP">Flaw: Restore IP</button></div>
+        {{/if}}
+        <p class="hint">Narrative motives and the additional SP required to develop an existing high-standing NPC need GM approval.</p>
+      </section>
+      <section class="ac-panel ac-gm-ops-section" aria-label="Noir and Action campaign generator">
+        <header><span class="ac-kicker">04 // STORY CAMPAIGN</span><h2>Noir / Action Progress</h2><p>World-scoped dice, session totals, official progress ranges and original GM prompts.</p></header>
+        <div class="ac-gm-ops-campaign-state">
+          <div><small>CAMPAIGN</small><strong>{{campaignTitle}}</strong></div>
+          <div><small>GENRE</small><strong>{{campaign.genre}}</strong></div>
+          <div><small>PROGRESS</small><strong>{{campaign.total}}</strong></div>
+          <div><small>SESSIONS</small><strong>{{campaign.events.length}}</strong></div>
+        </div>
+        <div class="ac-gm-ops-actionline"><button type="button" data-action="startCampaign">New campaign</button><button type="button" class="ac-primary-action" data-action="advanceCampaign" {{#unless hasCampaign}}disabled{{/unless}}>Advance session</button><button type="button" data-action="supportingCast">Cast prompt</button></div>
+        <div class="ac-gm-ops-history" aria-label="Recent campaign progress">
+          {{#each recentEvents}}
+          <article><strong>Session {{session}} · {{title}}</strong><small>Progress {{total}} · d{{die}} · suggested SP {{rewardSP}}</small><p>{{notes}}</p></article>
+          {{else}}<p class="ac-muted">No session dice recorded yet.</p>{{/each}}
+        </div>
+      </section>
+      <section class="ac-panel ac-gm-ops-section ac-gm-ops-full" aria-label="Influence and request workflows">
+        <header><span class="ac-kicker">05 // SOCIAL LEVERAGE</span><h2>Requests &amp; Material Support</h2><p>Resolve a Contact or Network request, allocate material support, resupply Depletion Points, hire assistance or regenerate General Request modifiers. The GM roll and its source status are logged.</p></header>
+        <div class="ac-gm-ops-request-list">
+          <div><i class="fa-solid fa-handshake" aria-hidden="true"></i><strong>Favor / Material</strong><small>Spend IP to leverage the request</small></div>
+          <div><i class="fa-solid fa-battery-three-quarters" aria-hidden="true"></i><strong>Resupply</strong><small>Level-capped physical / power / rare DP</small></div>
+          <div><i class="fa-solid fa-coins" aria-hidden="true"></i><strong>Work for Hire</strong><small>GM-confirmed monetary purchase</small></div>
+          <div><i class="fa-solid fa-people-arrows-left-right" aria-hidden="true"></i><strong>General Requests</strong><small>Generated Contact bonuses, limited per roll</small></div>
+        </div>
+        <div class="ac-gm-ops-actionline">
+          <button type="button" class="ac-primary-action" data-action="makeRequest" {{#unless hasActor}}disabled{{/unless}}>Resolve Request</button>
+          <button type="button" data-action="generalModifiers" {{#unless hasActor}}disabled{{/unless}}>Use Contact Bonus</button>
+          <button type="button" data-action="restoreSource" {{#unless hasActor}}disabled{{/unless}}>Restore Source</button>
+        </div>
+        <p class="hint">A source may become Exhausted from exceptional successes, exceptional failures or a Catastrophe. Results are GM-facing; no unrequested NPC behavior is invented.</p>
+      </section>
+    </div>
+  </div>
+</section>

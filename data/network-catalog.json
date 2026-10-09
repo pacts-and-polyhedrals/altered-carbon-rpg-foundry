@@ -1,0 +1,90 @@
+{
+  "source": "2020 Core Rulebook, Chapter 7, printed pp.304, 307-309",
+  "records": [
+    {
+      "id": "NET-PROTECTORATE",
+      "name": "Protectorate Agency / Bureaucracy",
+      "organization": "Protectorate agency or department",
+      "skillOptions": [
+        "Bureaucracy"
+      ],
+      "description": "Institutional permissions, archives, regulatory authority.",
+      "level": 1
+    },
+    {
+      "id": "NET-POLICE",
+      "name": "Police",
+      "organization": "Police agency / precinct",
+      "skillOptions": [
+        "Bureaucracy",
+        "Investigation"
+      ],
+      "description": "Law-enforcement contacts, evidence and local authority.",
+      "level": 1
+    },
+    {
+      "id": "NET-CTAC",
+      "name": "CTAC",
+      "organization": "Colonial Tactical Assault Corps",
+      "skillOptions": [
+        "Diplomacy"
+      ],
+      "description": "Military access, specialist deployment, off-world operations.",
+      "level": 1
+    },
+    {
+      "id": "NET-CORPORATION",
+      "name": "Corporation",
+      "organization": "Named corporation",
+      "skillOptions": [
+        "Expression",
+        "Cultures",
+        "Diplomacy"
+      ],
+      "description": "Corporate records, technology, facilities and business leverage.",
+      "level": 1
+    },
+    {
+      "id": "NET-SYNDICATE",
+      "name": "Criminal Syndicate",
+      "organization": "Named criminal organization",
+      "skillOptions": [
+        "Expression",
+        "History",
+        "Cultures",
+        "Intimidation",
+        "Investigation",
+        "Diplomacy"
+      ],
+      "description": "Illicit channels, smuggling, covert personnel and information.",
+      "level": 1
+    },
+    {
+      "id": "NET-UNION",
+      "name": "Trade Union / Guild / Social Organization",
+      "organization": "Named guild, trade union or social association",
+      "skillOptions": [
+        "Expression",
+        "Cultures",
+        "Diplomacy"
+      ],
+      "description": "Workers, professional contacts and mutual assistance.",
+      "level": 1
+    },
+    {
+      "id": "NET-INDIVIDUAL",
+      "name": "Influential Individual",
+      "organization": "Named individual with a personal network",
+      "skillOptions": [
+        "Expression",
+        "History",
+        "Cultures",
+        "Intimidation",
+        "Investigation",
+        "Diplomacy"
+      ],
+      "description": "Individual patronage, access to specialized resources or contacts.",
+      "level": 1
+    }
+  ]
+}

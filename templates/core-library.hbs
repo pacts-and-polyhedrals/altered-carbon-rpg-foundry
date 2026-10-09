@@ -30,7 +30,8 @@
             {{#if system.effect}}<div><strong>Effect</strong><div>{{{system.effect}}}</div></div>{{/if}}
             {{#if system.effects}}<div><strong>Effects</strong><div>{{{system.effects}}}</div></div>{{/if}}
             {{#if system.underInfluence}}<div><strong>Under the Influence</strong><div>{{{system.underInfluence}}}</div></div>{{/if}}
-            {{#if system.triggeredEffects}}<div><strong>Triggered Effects</strong><div>{{{system.triggeredEffects}}}</div></div>{{/if}}
+            {{#if system.triggeredEffects}}<div><strong>Triggered Effects</strong><p>{{system.triggeredEffects}}</p></div>{{/if}}
+            {{#if system.legacyReferenceNotes}}<details><summary>Additional 2020 Core reference notes (v1.4.3 source)</summary><div class="ac-core-legacy-note">{{{system.legacyReferenceNotes}}}</div></details>{{/if}}
             {{#if system.upgrades}}<div><strong>Upgrades</strong><div>{{{system.upgrades}}}</div></div>{{/if}}
           </details>
           <div class="ac-core-card-actions">
@@ -50,6 +51,7 @@
         <article class="ac-core-card vehicle" data-core-card data-type="vehicle" data-search="{{name}} vehicle {{system.biography}}">
           <div class="ac-core-card-top"><span>vehicle</span><small>Core Rulebook p.{{sourcePage}}</small></div>
           <h3>{{name}}</h3><p>{{system.biography}}</p>
+          {{#if legacyNotes}}<details><summary>Original v1.4.3 notes</summary><p>{{legacyNotes}}</p></details>{{/if}}
           <div class="ac-core-facts">Size {{system.vehicle.size}} · Structure {{system.vehicle.structure.max}} · Speed {{system.vehicle.speedDice}}d6 · {{system.vehicle.travel}}</div>
           {{#if canCreate}}<div class="ac-core-card-actions"><button type="button" data-action="createVehicle" data-catalog-id="{{id}}"><i class="fa-solid fa-car-side"></i> Create Vehicle Actor</button></div>{{/if}}
         </article>

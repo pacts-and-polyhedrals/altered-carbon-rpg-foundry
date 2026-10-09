@@ -1,8 +1,0 @@
-* text=auto eol=lf
-*.zip -text
-*.png -text
-*.jpg -text
-*.jpeg -text
-*.webp -text
-*.woff -text
-*.woff2 -text

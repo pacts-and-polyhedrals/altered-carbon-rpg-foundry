@@ -1,23 +1,56 @@
-<section class="ac-combat-console ac-shell">
+<section class="ac-combat-console ac-shell ac-command-console" aria-label="Altered Carbon tactical console">
   {{#unless combat}}
-  <div class="ac-empty-state"><i class="fa-solid fa-crosshairs"></i><h3>No active Combat</h3><p>Create a Combat from Foundry's combat tracker, then reopen the Altered Carbon tactical console.</p></div>
+    <div class="ac-empty-state"><i class="fa-solid fa-crosshairs" aria-hidden="true"></i><h3>No active Combat</h3><p>Create or activate an encounter in the Foundry Combat Tracker, then return to this interface.</p></div>
   {{else}}
-  <header>
-    <div class="ac-kicker">TACTICAL RESOLUTION NODE</div>
-    <h2>Turn {{state.turn}} · Round {{state.round}} · {{state.phase}}</h2>
-    {{#if gm}}<div class="ac-controls"><button type="button" data-action="beginIntent">New Intent</button><button type="button" data-action="reveal">Reveal Commitments</button><button type="button" data-action="advance">Begin Check</button><button type="button" data-action="resolution">Resolution</button><button type="button" data-action="next">Next Active</button></div>{{/if}}
-  </header>
-  {{#each combatants}}
-  <section class="ac-combatant {{#if isCurrent}}current{{/if}}">
-    <h3>{{name}} {{#if submitted}}<span class="ac-kicker"> // LOCKED</span>{{/if}}</h3>
-    <div class="speed-dice">
-      {{#each results}}
-      <label class="speed-die {{#if active}}active{{/if}} {{#if spent}}spent{{/if}}"><input type="checkbox" data-speed-for="{{../id}}" value="{{index}}" {{#if spent}}disabled{{/if}}> d6 <strong>{{result}}</strong>{{#if active}} · ACTIVE{{/if}}{{#if spent}} · SPENT{{/if}}</label>
+    <header class="ac-command-header">
+      <div class="ac-kicker"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> TACTICAL UPLINK / SPEED PROTOCOL</div>
+      <div class="ac-command-heading"><div><h2>Turn {{state.turn}} <span>·</span> Round {{state.round}}</h2><p>{{#if revealed}}Active Speed Dice revealed to the table{{else}}Private commitment phase — dice are hidden{{/if}}</p></div><span class="ac-command-state">{{state.phase}}</span></div>
+      <div class="ac-turn-meter" role="status" aria-live="polite"><strong>{{locked}} / {{expected}}</strong><span>Combatants locked</span>{{#if canReveal}}<b>ALL READY — GM REVEAL AVAILABLE</b>{{/if}}</div>
+      <div class="ac-command-toolbar" aria-label="Encounter actions">
+        <button type="button" data-action="zones"><i class="fa-solid fa-map" aria-hidden="true"></i> Zones</button>
+        {{#if gm}}
+          <button type="button" data-action="beginIntent" class="ac-button-subtle"><i class="fa-solid fa-rotate" aria-hidden="true"></i> New Turn / Roll Phase</button>
+          <button type="button" data-action="reveal" class="ac-command-reveal" {{#unless canReveal}}disabled{{/unless}}><i class="fa-solid fa-eye" aria-hidden="true"></i> Reveal Everyone</button>
+          <button type="button" data-action="advance" {{#unless canAdvance}}disabled{{/unless}}>Begin Check</button>
+          <button type="button" data-action="resolution" {{#unless revealed}}disabled{{/unless}}>Resolution</button>
+          <button type="button" data-action="next" {{#unless revealed}}disabled{{/unless}}>Next / Select Again</button>
+          <button type="button" data-action="grapple">Grapple</button>
+          <button type="button" data-action="breakGrapple">Break Grapple</button>
+        {{/if}}
+      </div>
+    </header>
+    <div class="ac-combat-instructions" role="note">
+      <span><b>01</b> Declare Intent</span><span><b>02</b> Roll privately</span><span><b>03</b> Lock Active dice</span><span><b>04</b> GM reveals all</span><span><b>05</b> Spend dice</span>
+    </div>
+    <div class="ac-combatant-stack">
+      {{#each combatants}}
+        <section class="ac-combatant ac-combatant-v2 {{#if isCurrent}}current{{/if}}" aria-label="Speed Dice for {{name}}">
+          <header class="ac-combatant-heading">
+            <div><h3>{{name}}</h3><small>{{#if submitted}}<i class="fa-solid fa-lock" aria-hidden="true"></i> LOCKED{{else}}{{#if rolled}}ROLLED · SELECT ACTIVE DICE{{else}}WAITING FOR PRIVATE ROLL{{/if}}{{/if}}</small></div>
+            <div class="ac-speed-count" aria-label="Used {{used}} out of {{total}} Speed Dice"><span>USED</span><strong>{{used}}/{{total}}</strong><span>{{remaining}} remaining</span></div>
+          </header>
+          <div class="ac-speed-dice-grid" role="group" aria-label="{{name}} Speed Dice choices">
+            {{#each results}}
+            <label class="ac-speed-die-v2 {{#if active}}active{{/if}} {{#if spent}}spent{{/if}} {{#unless visible}}secret{{/unless}}">
+              {{#if canSelect}}<input type="checkbox" data-speed-for="{{../id}}" value="{{index}}" aria-label="Select Speed Die {{index}} with value {{result}}">{{/if}}
+              <span class="ac-speed-die-index">#{{index}}</span>
+              <strong aria-label="{{#if visible}}Speed result {{result}}{{else}}Hidden until reveal{{/if}}">{{#if visible}}{{result}}{{else}}?</strong>
+              <small>{{#if spent}}SPENT{{else}}{{#if active}}ACTIVE{{else}}{{#if visible}}RESERVE{{else}}PRIVATE{{/if}}{{/if}}{{/if}}</small>
+            </label>
+            {{/each}}
+          </div>
+          <div class="ac-speed-selection-bar">
+            {{#if canRoll}}<button type="button" class="ac-primary-action" data-action="rollPrivate" data-combatant-id="{{id}}"><i class="fa-solid fa-dice-d6" aria-hidden="true"></i> Roll {{total}}d6 Privately</button>{{/if}}
+            {{#if canLock}}<button type="button" class="ac-primary-action" data-action="submit" data-combatant-id="{{id}}"><i class="fa-solid fa-lock" aria-hidden="true"></i> Lock Selected Dice</button>{{/if}}
+            {{#if canUnlock}}<button type="button" data-action="unlock" data-combatant-id="{{id}}">GM: Unlock</button>{{/if}}
+            {{#if canSpend}}
+              {{#each results}}{{#unless spent}}<button type="button" data-action="spendDie" data-combatant-id="{{../id}}" data-index="{{index}}" title="Spend die #{{index}} for a legal action, defense or support" aria-label="Spend die {{index}}{{#if visible}} showing {{result}}{{/if}}">Spend #{{index}} · {{result}}</button>{{/unless}}{{/each}}
+            {{/if}}
+            {{#if submitted}}<span class="ac-quiet-label"><i class="fa-solid fa-check" aria-hidden="true"></i> {{#if ../revealed}}Revealed{{else}}Private selection secured{{/if}}</span>{{/if}}
+          </div>
+        </section>
       {{/each}}
     </div>
-    {{#if owned}}<button type="button" data-action="submit" data-combatant-id="{{id}}">Lock Active Dice</button>{{/if}}
-    {{#if ../gm}}{{#each results}}{{#if active}}{{#unless spent}}<button type="button" data-action="spendDie" data-combatant-id="{{../id}}" data-index="{{index}}">Resolve {{result}}</button>{{/unless}}{{/if}}{{/each}}{{/if}}
-  </section>
-  {{/each}}
+    <footer class="ac-combat-footer">Core 2020: roll once per Turn; Active sets are chosen each Round. The smallest sum of Active dice acts first. Unspent reserve dice can defend. Results are never public until the GM reveals the completed set.</footer>
   {{/unless}}
 </section>

@@ -435,7 +435,36 @@
           "supplier"
         ]
       }
-    ]
+    ],
+    "materialSupport": {
+      "1": {
+        "physicalDP": 3,
+        "poweredDP": 5,
+        "rareDP": 1
+      },
+      "2": {
+        "physicalDP": 5,
+        "poweredDP": 7,
+        "rareDP": 2
+      },
+      "3": {
+        "physicalDP": 7,
+        "poweredDP": 10,
+        "rareDP": 3
+      },
+      "4": {
+        "physicalDP": 10,
+        "poweredDP": 15,
+        "rareDP": 4
+      },
+      "5": {
+        "physicalDP": "Full",
+        "poweredDP": "Full",
+        "rareDP": 5
+      }
+    },
+    "materialSupportRule": "IP material support must be tied to the current mission; normal material support generally costs IP1 unless the scenario says otherwise. Resupply removes DP according to Request Level and counts as an untraceable purchase.",
+    "workForHire": "A character can substitute Wealth for some Network help: Request Level corresponds to Price Level. Paid help does not cost IP, but the Contact/Network can still become Exhausted."
   },
   "gearRules": [
     {
@@ -1030,7 +1059,8 @@
       "routine": "IP2 and Price Lv.5; updated routinely and does not take that extra loss die."
     },
     "minion": "No Damage Threshold. Must take Health + Minion modifier Wounds within one Round to be killed/incapacitated; lesser Wounds are superficial, though the GM can spend their Speed.",
-    "nemesis": "Recurring adversaries may use published Nemesis protections such as Consummate Warrior, Escape Artist, Signature Weapon, Juggernaut, Mastermind, Psy-Op and Well Connected."
+    "nemesis": "Recurring adversaries may use published Nemesis protections such as Consummate Warrior, Escape Artist, Signature Weapon, Juggernaut, Mastermind, Psy-Op and Well Connected.",
+    "optionalDoOrDie": "Optional rule: in the last session or a standalone session, a character with no IP remaining may upgrade Skill Checks by one Skill Level (maximum 5) when making Save Throws."
   },
   "combat": {
     "speedDice": "Roll one d6 Speed Die per Perception Bonus, minimum 1 and natural maximum 5 after modifiers. Triggered Effects and Special Rules can alter the pool as stated.",

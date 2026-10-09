@@ -1,0 +1,13 @@
+<section class="ac-shell ac-migration-shell" aria-label="World migration review">
+  <header class="ac-gm-operations-header"><div><span class="ac-kicker">WORLD DATA // SAFE UPGRADE</span><h1>Schema Migration</h1><p>Review the changes before applying them. This is a GM-only, add-only compatibility migration, not a world reset.</p></div></header>
+  <div class="ac-migration-body">
+    <div class="ac-record-facts four" role="status" aria-live="polite"><div><span>Current schema</span><strong>{{current}}</strong></div><div><span>Target</span><strong>{{version}}</strong></div><div><span>Actors</span><strong>{{actors}}</strong></div><div><span>Items</span><strong>{{items}}</strong></div></div>
+    <p class="ac-help-line">{{count}} documents need an update or version stamp; {{fields}} additive patches planned. Entries are rechecked immediately before writing to avoid overwriting newly entered data.</p>
+    <p class="ac-callout" role="note"><strong>Back up your world first.</strong> Nothing is deleted; unchanged legacy fields remain in place. The world version marker changes only after every update succeeds. A partial migration can be safely rerun.</p>
+    <div class="ac-migration-scroll" role="region" aria-label="Proposed migration entries" tabindex="0">
+      <table class="ac-guide-table"><thead><tr><th scope="col">Document</th><th scope="col">Kind</th><th scope="col">Change</th></tr></thead><tbody>{{#each examples}}<tr><td>{{name}}</td><td>{{kind}} · {{scope}}</td><td>{{reasons}}</td></tr>{{else}}<tr><td colspan="3">No documents require a migration.</td></tr>{{/each}}</tbody></table>
+    </div>
+    {{#if result}}<section class="ac-panel" role="status" aria-live="polite"><h2>{{#if result.completed}}Migration complete{{else}}Migration requires attention{{/if}}</h2><p>{{result.migrated}} documents processed.</p>{{#each result.failures}}<p class="ac-danger-text">{{name}}: {{error}}</p>{{/each}}</section>{{/if}}
+    <div class="ac-gm-ops-actionline"><button type="button" data-action="refreshPreview" {{#if busy}}disabled{{/if}}>Refresh dry-run</button><button type="button" class="ac-primary-action" data-action="runMigration" {{#if busy}}disabled{{/if}}{{#unless canApply}}disabled{{/unless}}>{{#if busy}}Migrating…{{else}}Apply after backup{{/if}}</button></div>
+  </div>
+</section>

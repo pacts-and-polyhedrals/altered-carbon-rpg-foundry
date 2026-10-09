@@ -5,6 +5,7 @@
  */
 import {skillUpgradeCost,specializationCost,attributeIncreaseFormula,SLEEVE_LIMITS,traitCost,canPurchaseTrait} from './rules-engine.mjs';
 import {dedupeSheetRecords} from './sheet-record-utils.mjs';
+import {CORE_TRAIT_RULE_ELEMENTS,serializedCoreTraitRules} from './core-trait-effects.mjs';
 export const SYS='altered-carbon-rpg';
 export const ATTRIBUTES=['strength','perception','empathy','willpower','acuity','intelligence'];
 const copy=v=>JSON.parse(JSON.stringify(v));
@@ -32,13 +33,15 @@ export function snapshotFingerprint(state){
   return JSON.stringify({sp:state.system.resources.stackPoints.value,attributes:state.system.attributes,identity:state.system.identity,
     items:state.items.filter(i=>['skill','specialisation','trait'].includes(i.type)||(i.type==='sleeve'&&i.system.status==='active')),
     caps:state.flags[SYS]?.advancementCaps,commonality:state.flags[SYS]?.traitCommonality,unlocks:state.flags[SYS]?.unlockedBranches,
-    history:state.flags[SYS]?.advancementHistory});
+    history:state.flags[SYS]?.advancementHistory,virtualHalfSkillVouchers:state.system.virtualHalfSkillVouchers});
 }
 export function attributeLimit(state,key){
   const custom=state.flags[SYS]?.advancementCaps?.[key];
   if(Number.isFinite(Number(custom))&&Number(custom)>0)return Math.min(150,Number(custom));
   const sleeve=state.items.find(i=>i.type==='sleeve'&&i.system.status==='active');
-  return ['strength','perception'].includes(key)?(SLEEVE_LIMITS[sleeve?.system.sleeveType??'birth']??SLEEVE_LIMITS.other)[key][1]:50;
+  const base=['strength','perception'].includes(key)?(SLEEVE_LIMITS[sleeve?.system.sleeveType??'birth']??SLEEVE_LIMITS.other)[key][1]:50;
+  const mastery=state.items.filter(i=>i.type==='trait'&&i.system?.rulesOverride!==true).reduce((sum,i)=>sum+(CORE_TRAIT_RULE_ELEMENTS[i.system?.catalogId]||[]).filter(r=>r.key===`attribute.${key}.cap`&&r.mode==='add').reduce((n,r)=>n+Number(r.value||0),0),0);
+  return Math.min(150,base+mastery);
 }
 export function attributeValue(state,key){
   const sleeve=state.items.find(i=>i.type==='sleeve'&&i.system.status==='active');
@@ -54,9 +57,12 @@ export function quoteAdvancement(input,requests,{traits=[]}={}){
   for(const request of requests){
     let step;
     if(request.kind==='skill'){
-      const skill=getSkill(state,request.itemId),from=integer(skill.system.level,'Skill level',1),cost=skillUpgradeCost(from);
+      const skill=getSkill(state,request.itemId),from=integer(skill.system.level,'Skill level',1),regularCost=skillUpgradeCost(from);
+      let voucherIds=[];try{voucherIds=JSON.parse(state.system.virtualHalfSkillVouchers||'[]');}catch{}
+      if(!Array.isArray(voucherIds))voucherIds=[];const discounted=voucherIds.includes(skill._id??skill.id),cost=discounted?Math.ceil(regularCost/2):regularCost;
+      if(discounted)state.system.virtualHalfSkillVouchers=JSON.stringify(voucherIds.filter(id=>id!==(skill._id??skill.id)));
       if(!cost)throw new Error(`${skill.name} is already at the maximum Skill Level.`);
-      step={kind:'skill',itemId:skill._id??skill.id,from,to:from+1,cost,label:`${skill.name}: Level ${from} to ${from+1}`};skill.system.level++;
+      step={kind:'skill',itemId:skill._id??skill.id,from,to:from+1,cost,regularCost,virtualDiscount:discounted,label:`${skill.name}: Level ${from} to ${from+1}${discounted?' (Virtual instruction half cost)':''}`};skill.system.level++;
     }else if(request.kind==='attribute'){
       const key=request.attribute;if(!ATTRIBUTES.includes(key))throw new Error('Choose a valid Attribute.');
       const cost=integer(request.sp,'Attribute SP',1),from=attributeValue(state,key),cap=attributeLimit(state,key);
@@ -90,7 +96,7 @@ export function quoteAdvancement(input,requests,{traits=[]}={}){
       const unlockCommonality=state.system.identity.archetype==='Civilian'&&trait.branch==='Citizenship'?'common':commonality;
       const unlockCost=unlocked?0:traitCost(unlockCommonality,1,{unlock:true});
       const cost=traitCost(commonality,trait.tier)+unlockCost;
-      const item={name:trait.name,type:'trait',system:{catalogId:trait.id,tree:trait.tree,branch:trait.branch,tier:trait.tier,commonality,spCost:cost,effect:trait.effect,description:trait.effect,rulesRef:trait.rulesRef}};
+      const item={name:trait.name,type:'trait',system:{catalogId:trait.id,tree:trait.tree,branch:trait.branch,tier:trait.tier,commonality,spCost:cost,effect:trait.effect,description:trait.effect,ruleElements:serializedCoreTraitRules(trait.id),rulesRef:trait.rulesRef}};
       state.flags[SYS]??={};state.flags[SYS].traitCommonality??={};state.flags[SYS].traitCommonality[trait.tree]=commonality;
       step={kind:'trait',cost,unlockCost,commonality,branchKey,tree:trait.tree,label:`${trait.name} (Tier ${trait.tier}, ${commonality}${unlockCost?`, includes ${unlockCost} SP branch unlock`:''})`,item};state.items.push(copy(item));
     }else throw new Error('Unknown advancement type.');
@@ -110,7 +116,10 @@ export async function applyAdvancement(actor,requests,{traits=[],reason='',expec
     if(expectedFingerprint&&expectedFingerprint!==fingerprint)throw new Error('The character changed while this window was open. Review the updated costs and try again.');
     const quote=quoteAdvancement(original,requests,{traits}),state=copy(original),rolls=[],results=[];
     for(const step of quote.steps){
-      if(step.kind==='skill'){const skill=getSkill(state,step.itemId);skill.system.level=step.to;results.push({...step});}
+      if(step.kind==='skill'){const skill=getSkill(state,step.itemId);skill.system.level=step.to;
+        if(step.virtualDiscount){let vouchers=[];try{vouchers=JSON.parse(state.system.virtualHalfSkillVouchers||'[]');}catch{}
+          state.system.virtualHalfSkillVouchers=JSON.stringify((Array.isArray(vouchers)?vouchers:[]).filter(id=>id!==step.itemId));}
+        results.push({...step});}
       if(step.kind==='attribute'){
         const roll=await new Roll(step.formula).evaluate(),raw=Number(roll.total),from=attributeValue(state,step.attribute);
         if(!Number.isFinite(raw)||raw<step.cost)throw new Error('Attribute advancement produced an invalid die result. No SP were spent.');
@@ -135,6 +144,7 @@ export async function applyAdvancement(actor,requests,{traits=[],reason='',expec
     const entry={id:globalThis.crypto?.randomUUID?.()??`${Date.now()}-${Math.random()}`,at:new Date().toISOString(),userId:game.user.id,reason:clean(reason).slice(0,500),spent:quote.total,before:quote.before,after:quote.after,steps:results};
     const history=[...(original.flags[SYS]?.advancementHistory??[]),entry];
     const patch={'system.resources.stackPoints.value':quote.after,[`flags.${SYS}.advancementHistory`]:history};
+    if(state.system.virtualHalfSkillVouchers!==original.system.virtualHalfSkillVouchers)patch['system.virtualHalfSkillVouchers']=state.system.virtualHalfSkillVouchers;
     for(const a of ATTRIBUTES)if(state.system.attributes[a]!==original.system.attributes[a])patch[`system.attributes.${a}`]=state.system.attributes[a];
     if(JSON.stringify(state.flags[SYS]?.traitCommonality)!==JSON.stringify(original.flags[SYS]?.traitCommonality))patch[`flags.${SYS}.traitCommonality`]=state.flags[SYS].traitCommonality;
     // Final Actor write is the SP charge and durable record. No Health, Ego,

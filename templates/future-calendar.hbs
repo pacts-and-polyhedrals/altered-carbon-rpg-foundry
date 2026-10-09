@@ -1,0 +1,12 @@
+<section class="ac-calendar ac-shell" aria-label="Future calendar and current time">
+  <header class="ac-calendar-hero"><span class="ac-kicker">TEMPORAL UPLINK // LIVE REAL-WORLD CLOCK</span><div class="ac-calendar-digital"><div data-ac-clock-time role="timer" aria-live="off">{{display.time}}</div><span data-ac-clock-zone>{{display.zoneShort}}</span></div><strong data-ac-clock-date>{{display.date}}</strong><p>Projected Gregorian display. The month, weekday and time follow the real-world calendar in the chosen time zone; only the year is shifted.</p></header>
+  <div class="ac-calendar-settings"><label for="ac-calendar-zone">My time zone</label><select id="ac-calendar-zone" data-ac-calendar-zone aria-label="Choose your time zone">{{#each zoneOptions}}<option value="{{id}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select>{{#if gm}}<button type="button" data-action="worldOptions" aria-label="Configure world calendar">World settings</button>{{/if}}</div>
+  <section class="ac-calendar-month" aria-label="Projected calendar month">
+    <div class="ac-calendar-month-header"><button type="button" data-action="previous" aria-label="Previous month"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button><h2>{{calendar.title}}</h2><button type="button" data-action="next" aria-label="Next month"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button><button type="button" data-action="today">Today</button></div>
+    <div class="ac-calendar-grid" role="grid" aria-label="Calendar for {{calendar.title}}">
+      {{#each calendar.days}}<span class="ac-calendar-weekday" role="columnheader">{{this}}</span>{{/each}}
+      {{#each calendar.cells}}<span class="ac-calendar-cell {{#if isToday}}today{{/if}} {{#unless day}}empty{{/unless}}" role="gridcell" {{#if isToday}}aria-current="date"{{/if}}>{{day}}</span>{{/each}}
+    </div>
+  </section>
+  <footer class="ac-calendar-footnote"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> A display projection, not Foundry's campaign-world clock or a simulated time-dilation engine. It does not alter game.time.worldTime. The host device's actual clock drives the display.</footer>
+</section>

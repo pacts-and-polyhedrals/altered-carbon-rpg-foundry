@@ -1,0 +1,469 @@
+{
+  "source": "2020 Core Rulebook, Chapter 7, printed pp.285-293",
+  "records": [
+    {
+      "id": "ADV-DIPPER",
+      "name": "Dipper",
+      "category": "Criminal",
+      "source": "2020 Core Rulebook Ch.7, printed pp.287-293",
+      "attributes": {
+        "strength": 35,
+        "perception": 40,
+        "empathy": 15,
+        "willpower": 50,
+        "acuity": 40,
+        "intelligence": 30
+      },
+      "attributeSkillDice": {
+        "strength": 10,
+        "perception": 8,
+        "empathy": 10,
+        "willpower": 8,
+        "acuity": 6,
+        "intelligence": 6
+      },
+      "skillBonuses": {
+        "Athletics": -2,
+        "Brawl": -1,
+        "Melee Combat": -1,
+        "Directed Energy Weapons": 2,
+        "Navigation": 1,
+        "Discipline": 3,
+        "Data Analysis": 4,
+        "Data Engineering": 4,
+        "Digital Networking": 4,
+        "Detection": 3,
+        "Stealth": 1
+      },
+      "health": 10,
+      "ego": 30,
+      "speedDice": 3,
+      "defense": 0,
+      "minionBonus": 0,
+      "nonCombatant": false,
+      "equipment": [
+        "Portable Deck",
+        "Interrogation",
+        "Class B Virus Program",
+        "Directed Energy Derringer",
+        "Flak Coat"
+      ],
+      "specialRules": [
+        "May become a Nemesis",
+        "Virtual specialist",
+        "Viral Strike / Interrogation"
+      ],
+      "triggeredEffects": [
+        "Hit, Ranged: 1d6+4 Thermal Wounds",
+        "Viral Strike: EP2d6 per success, max EP6d6",
+        "Virtual error and system failure"
+      ],
+      "armorNote": "",
+      "gmNotes": "Virtual drivers improve capabilities; published narrative triggers require GM choice."
+    },
+    {
+      "id": "ADV-HITMAN",
+      "name": "Hitman",
+      "category": "Criminal",
+      "source": "2020 Core Rulebook Ch.7, printed pp.287-293",
+      "attributes": {
+        "strength": 55,
+        "perception": 40,
+        "empathy": 15,
+        "willpower": 35,
+        "acuity": 40,
+        "intelligence": 30
+      },
+      "attributeSkillDice": {
+        "strength": 6,
+        "perception": 6,
+        "empathy": 10,
+        "willpower": 8,
+        "acuity": 6,
+        "intelligence": 10
+      },
+      "skillBonuses": {
+        "Athletics": 2,
+        "Brawl": 3,
+        "Melee Combat": 4,
+        "Firearms": 3,
+        "Directed Energy Weapons": 2,
+        "Navigation": 1,
+        "Intimidation": 2,
+        "Detection": 2,
+        "Stealth": 1
+      },
+      "health": 10,
+      "ego": 35,
+      "speedDice": 3,
+      "defense": 0,
+      "minionBonus": 10,
+      "nonCombatant": false,
+      "equipment": [
+        "Bludgeon",
+        "Blade",
+        "Flak Coat",
+        "Steyr M9-A1"
+      ],
+      "specialRules": [
+        "Criminal organization affiliation",
+        "Signature Kill: preferred attack/damage Training +2",
+        "May become a Nemesis"
+      ],
+      "triggeredEffects": [
+        "Hit, Melee: 1d6+5 Bludgeoning or Slashing",
+        "Hit, Ranged: 1d8+4 Thermal",
+        "Intimidation: Panic"
+      ],
+      "armorNote": "",
+      "gmNotes": "For Minion mode base HP10 + Minion 10 =20 Wounds in one round."
+    },
+    {
+      "id": "ADV-THUG",
+      "name": "Thug",
+      "category": "Criminal",
+      "source": "2020 Core Rulebook Ch.7, printed pp.287-293",
+      "attributes": {
+        "strength": 45,
+        "perception": 40,
+        "empathy": 15,
+        "willpower": 30,
+        "acuity": 30,
+        "intelligence": 30
+      },
+      "attributeSkillDice": {
+        "strength": 8,
+        "perception": 8,
+        "empathy": 12,
+        "willpower": 10,
+        "acuity": 6,
+        "intelligence": 10
+      },
+      "skillBonuses": {
+        "Brawl": 1,
+        "Melee Combat": 2,
+        "Firearms": 1,
+        "Directed Energy Weapons": 1,
+        "Navigation": 1,
+        "Detection": 1,
+        "Stealth": 1
+      },
+      "health": 8,
+      "ego": 25,
+      "speedDice": 2,
+      "defense": 0,
+      "minionBonus": 5,
+      "nonCombatant": false,
+      "equipment": [
+        "9mm Pistol",
+        "Stun Baton",
+        "Flak Coat",
+        "Credits Lv.1"
+      ],
+      "specialRules": [
+        "On d6 result 5-6: possible criminal organization affiliate",
+        "May be a Minion"
+      ],
+      "triggeredEffects": [
+        "Hit, Melee: 1d6+4 Bludgeoning",
+        "Hit, Ranged: 1d8+4",
+        "Stun",
+        "Click!: reload"
+      ],
+      "armorNote": "",
+      "gmNotes": "For Minion mode base HP8 + Minion 5 =13 Wounds in one round."
+    },
+    {
+      "id": "ADV-FREAK",
+      "name": "Freak",
+      "category": "Criminal",
+      "source": "2020 Core Rulebook Ch.7, printed pp.287-293",
+      "attributes": {
+        "strength": 65,
+        "perception": 50,
+        "empathy": 10,
+        "willpower": 30,
+        "acuity": 30,
+        "intelligence": 25
+      },
+      "attributeSkillDice": {
+        "strength": 6,
+        "perception": 6,
+        "empathy": 12,
+        "willpower": 8,
+        "acuity": 10,
+        "intelligence": 10
+      },
+      "skillBonuses": {
+        "Athletics": 5,
+        "Brawl": 4,
+        "Melee Combat": 1,
+        "Firearms": 1,
+        "Navigation": 1,
+        "Intimidation": 4,
+        "Detection": 2,
+        "Stealth": -2
+      },
+      "health": 12,
+      "ego": 30,
+      "speedDice": 3,
+      "defense": 0,
+      "minionBonus": 0,
+      "nonCombatant": false,
+      "equipment": [
+        "Power Knuckles",
+        "Clothes"
+      ],
+      "specialRules": [
+        "Charged Hit (3-turn recharge)",
+        "Tetrameth possibility on d6=6",
+        "Bestial augmentation"
+      ],
+      "triggeredEffects": [
+        "Hit, Melee: 1d6+6",
+        "Hit, Ranged: 1d8+5 Piercing/Slashing",
+        "Pin",
+        "Stun",
+        "Terrify",
+        "Fury"
+      ],
+      "armorNote": "",
+      "gmNotes": "Charged attacks and Tetrameth require the GM to enable the correct state."
+    },
+    {
+      "id": "ADV-BCPD",
+      "name": "Bay City Police Officer",
+      "category": "Protectorate",
+      "source": "2020 Core Rulebook Ch.7, printed pp.287-293",
+      "attributes": {
+        "strength": 45,
+        "perception": 40,
+        "empathy": 35,
+        "willpower": 45,
+        "acuity": 40,
+        "intelligence": 40
+      },
+      "attributeSkillDice": {
+        "strength": 10,
+        "perception": 6,
+        "empathy": 8,
+        "willpower": 8,
+        "acuity": 8,
+        "intelligence": 8
+      },
+      "skillBonuses": {
+        "Athletics": 2,
+        "Brawl": 3,
+        "Melee Combat": 2,
+        "Firearms": 2,
+        "Directed Energy Weapons": 1,
+        "Navigation": 1,
+        "Intimidation": 2,
+        "Investigation": 2,
+        "Detection": 2,
+        "Stealth": 1
+      },
+      "health": 10,
+      "ego": 35,
+      "speedDice": 3,
+      "defense": 1,
+      "minionBonus": 8,
+      "nonCombatant": false,
+      "equipment": [
+        "BCPD .357 Magnum Sidearm",
+        "BCPD Riot Armor",
+        "Stun Baton",
+        "Law Enforcement Tools"
+      ],
+      "specialRules": [
+        "Monopoly of Force",
+        "Rule of Law",
+        "Bribery penalty -3",
+        "May be a Minion"
+      ],
+      "triggeredEffects": [
+        "Background Check",
+        "Hit, Melee: 1d6+4 Bludgeoning/Slashing",
+        "Hit, Ranged: 1d8+4 Thermal",
+        "Intimidation: Panic",
+        "Stun"
+      ],
+      "armorNote": "Protection 2 against Bludgeoning/Slashing (Armor rule)",
+      "gmNotes": "Core has overlapping Monopoly of Force / Rule of Law penalties. GM adjudicates when both apply."
+    },
+    {
+      "id": "ADV-CTAC",
+      "name": "CTAC Special Forces Praetorian",
+      "category": "Protectorate",
+      "source": "2020 Core Rulebook Ch.7, printed pp.287-293",
+      "attributes": {
+        "strength": 55,
+        "perception": 50,
+        "empathy": 45,
+        "willpower": 45,
+        "acuity": 40,
+        "intelligence": 40
+      },
+      "attributeSkillDice": {
+        "strength": 6,
+        "perception": 6,
+        "empathy": 10,
+        "willpower": 8,
+        "acuity": 10,
+        "intelligence": 8
+      },
+      "skillBonuses": {
+        "Athletics": 2,
+        "Brawl": 3,
+        "Melee Combat": 4,
+        "Firearms": 4,
+        "Directed Energy Weapons": 2,
+        "Intimidation": 3,
+        "Detection": 2
+      },
+      "health": 15,
+      "ego": 40,
+      "speedDice": 4,
+      "defense": 2,
+      "minionBonus": 15,
+      "nonCombatant": false,
+      "equipment": [
+        "Shocktrooper AK or Praetorian Railgun",
+        "CTAC Praetorian Armor",
+        "CTAC Praetorian Sidearm"
+      ],
+      "specialRules": [
+        "Monopoly of Force",
+        "Armor: CTAC Praetorian Armor",
+        "May be a Minion or Nemesis"
+      ],
+      "triggeredEffects": [
+        "Database Inquiry",
+        "Hit, Melee: 1d6+4",
+        "Hit, Ranged: 1d8+7 (railgun 1d10+5 AP)",
+        "Intimidation",
+        "Stun",
+        "Scan",
+        "Targeting"
+      ],
+      "armorNote": "Defense 2 vs Bludgeoning/Piercing/Slashing; see armor item for Protection",
+      "gmNotes": "Damage differs by selected weapon. GM must choose weapon and armor in play."
+    },
+    {
+      "id": "ADV-STOOGE",
+      "name": "Corporate Stooge",
+      "category": "Corporation / Society",
+      "source": "2020 Core Rulebook Ch.7, printed pp.287-293",
+      "attributes": {
+        "strength": 25,
+        "perception": 40,
+        "empathy": 30,
+        "willpower": 35,
+        "acuity": 60,
+        "intelligence": 55
+      },
+      "attributeSkillDice": {
+        "strength": 12,
+        "perception": 8,
+        "empathy": 12,
+        "willpower": 6,
+        "acuity": 10,
+        "intelligence": 6
+      },
+      "skillBonuses": {
+        "Brawl": -3,
+        "Bureaucracy": 4,
+        "Melee Combat": -2,
+        "Intimidation": 2,
+        "Detection": 2,
+        "Read Person": 2,
+        "Cultures": 2,
+        "History": 1
+      },
+      "health": 8,
+      "ego": 25,
+      "speedDice": 2,
+      "defense": 0,
+      "minionBonus": 0,
+      "nonCombatant": true,
+      "equipment": [
+        "ONI Device",
+        "Clothing",
+        "Stallion"
+      ],
+      "specialRules": [
+        "Corporation affiliation",
+        "Non-combatant",
+        "Scandal pressure",
+        "Nemesis only as Mastermind / Psy-Op"
+      ],
+      "triggeredEffects": [
+        "Bureaucratic Pressure: constrain contact access",
+        "Doxx: surveillance / Stealth penalty",
+        "Violations: Deferral or gear surrender"
+      ],
+      "armorNote": "",
+      "gmNotes": "Non-combatant. Use social and procedural opposition, not automatic combat effects."
+    },
+    {
+      "id": "ADV-METH",
+      "name": "Generational Meth",
+      "category": "Corporation / Society",
+      "source": "2020 Core Rulebook Ch.7, printed pp.287-293",
+      "attributes": {
+        "strength": 35,
+        "perception": 45,
+        "empathy": 30,
+        "willpower": 35,
+        "acuity": 60,
+        "intelligence": 75
+      },
+      "attributeSkillDice": {
+        "strength": 10,
+        "perception": 8,
+        "empathy": 12,
+        "willpower": 6,
+        "acuity": 4,
+        "intelligence": 6
+      },
+      "skillBonuses": {
+        "Brawl": -1,
+        "Bureaucracy": 4,
+        "Directed Energy Weapons": 3,
+        "Melee Combat": -1,
+        "Investigation": 2,
+        "Intimidation": 3,
+        "Detection": 3,
+        "Read Person": 4,
+        "Cultures": 3,
+        "History": 3
+      },
+      "health": 10,
+      "ego": 55,
+      "speedDice": 3,
+      "defense": 0,
+      "minionBonus": 0,
+      "nonCombatant": true,
+      "equipment": [
+        "Directed Energy Derringer",
+        "Rigid-Fiber Clothes"
+      ],
+      "specialRules": [
+        "Armor: Protection 2d6 against Bludgeoning/Slashing",
+        "Non-combatant",
+        "Scandal pressure",
+        "Well Connected",
+        "Nemesis only as Mastermind / Psy-Op"
+      ],
+      "triggeredEffects": [
+        "Hit, Ranged: weapon damage (printed die typo; GM verify)",
+        "Intimidation: compliance",
+        "Bureaucratic Pressure",
+        "Trace: exposure / Stealth penalty",
+        "Violations, Severe"
+      ],
+      "armorNote": "Variable 2d6 Bludgeoning/Slashing Armor Protection; not modelled as fixed value",
+      "gmNotes": "Published ranged damage die is printed \"1d0+4\". Do not silently assume its intended die."
+    }
+  ]
+}

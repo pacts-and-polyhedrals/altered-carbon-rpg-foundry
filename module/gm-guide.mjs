@@ -1,5 +1,5 @@
 const SYS='altered-carbon-rpg';
-export const GUIDE_VERSION='1.4.3';
+export const GUIDE_VERSION='2.4.0';
 export const GUIDE_NAME='Altered Carbon — GM Guide';
 
 async function loadJSON(path){const r=await fetch(`systems/${SYS}/data/${path}`);if(!r.ok)throw new Error(`Unable to load ${path}`);return r.json();}
@@ -19,12 +19,18 @@ function skillRows(skills){
 }
 
 export async function buildGMGuidePages(){
-  const [m,skills,presets]=await Promise.all([loadJSON('mechanics-reference.json'),loadJSON('core-skills.json'),loadJSON('gm-presets.json')]);
+  const [m,skills,presets,itemCatalog]=await Promise.all([loadJSON('mechanics-reference.json'),loadJSON('core-skills.json'),loadJSON('gm-presets.json'),loadJSON('item-catalog.json')]);
   const pages=[];
   const add=(name,content)=>pages.push({name,type:'text',text:{format:1,content},flags:{[SYS]:{gmGuidePage:true,guideVersion:GUIDE_VERSION}}});
 
   add('00 — Start Here',shell('GM Guide','SYSTEM OPERATIONS',
-    panel('What this journal is',`<p><strong>Generated guide build: v${GUIDE_VERSION}.</strong></p><p>This is the table-facing GM reference for the unofficial Foundry implementation. It summarizes the rules the system automates, the rules that still require judgment, and the fastest way to call for checks during play.</p><p>For exhaustive rule references use <strong>Altered Carbon — Rules Reference</strong>. For ready-to-use weapons, ammunition, apparel, devices, decks, software, drugs and sleeve augmentations use <strong>Altered Carbon — Core Equipment Library</strong>.</p>`)+
+    panel('What this journal is',`<p><strong>Generated guide build: v${GUIDE_VERSION}.</strong></p><p>This is the table-facing GM reference for the unofficial Foundry implementation. It summarizes the rules the system automates, the rules that still require judgment, and the fastest way to call for checks during play.</p><p>For exhaustive catalog entries such as individual Traits, Baggage, equipment reference pages, and source-indexed material, use <strong>Altered Carbon — Rules Reference</strong>.</p>`)+
+    panel('v1.4–v1.9 — Player, Combat, Clinical and Foundry Integration',`<p>The Actor Combat tab now provides a Zone Assistant, Cover and Stance controls, and a Resolution-phase Wound queue. The Gear tab can mark items Worn, Carried, Equipped or Stored and opens a Tech Point Upgrade Workbench. Use the Combat Console for the GM-guided opposed Grapple procedure, which consumes the combatants' committed Speed Dice.</p><p><strong>Resolution:</strong> queue incoming wound messages and resolve once, not once per attack. Mixed damage or Armor Piercing calls for explicit GM review. The GM should confirm unusual cover, armor, non-Armor Protection and source-specific Triggered Effects.</p><p><strong>Boundary:</strong> this release automates deterministic foundations; it does not claim full special attack, ammunition effect or canonical gear upgrade automation. Use v1.7 Clinical / Virtual Console for drugs, medical recovery, and DHF procedures; some advanced effects still need GM adjudication.</p>`)+
+    panel('v2.1 Command Deck, Private Speed Dice & Temporal Uplink',`<p>Character sheets now open on a command-deck overview with immediate Health, Ego, Wounds, Speed Dice usage, Status Alerts, fast Skills and equipped Items. Expand <strong>DHF Profile & Resource Controls</strong> for less-used fields; the <strong>More</strong> menu groups extra tabs. Full equipment and Traits can be inspected through disclosure rows without entering edit mode.</p><p><strong>Speed Dice:</strong> GM clicks <em>New Turn / Roll Phase</em> in Tactical Console. Each player privately rolls their own d6 pool, selects one or more Active dice, then locks. The GM waits for <strong>all combatants locked</strong> and clicks <strong>Reveal Everyone</strong>. The shared chat card reveals the set simultaneously, showing Active and reserve results and <strong>USED 2/4</strong>-style counters. During Check/Resolution, spend used dice with the same console; once all Active dice are resolved, use <em>Next / Select Again</em> to let players lock a new subset of their original unspent pool without rerolling.</p><p>Only the owner and GMs receive the real private Roll ChatMessage. Public Combatant flags carry rolled/locked booleans and spent counts, but no dice values or Active indexes until GM reveal. Reveal refuses incomplete or invalid commitments. Manual action costs must still be spent deliberately; normal weapon and Skill rolls do not silently debit Speed Dice. Grapple does debit its two selected dice.</p><p><strong>Future Calendar:</strong> open the clock from the sheet or Game Settings. World settings control the base time zone and mapping of real year to fictional year (default 2026 → 2384); players may override only their viewing IANA time zone. This display is based on their real clocks, not Foundry's game.time.worldTime. The weekday and seasonal DST are based on real dates, with the year label projected.</p>`)+
+    panel('v2.0 Core Parity Audit — Read This First','<p>This local release is not Foundry/Forge certified and does not automate the entire 2020 Core Rulebook. It includes 170 Core Traits with at least one authored numeric component, GM-only adjudication cards for 127 Traits with unfinished contextual or triggered clauses, and fixes gained Influence maximums and repeated Accuracy damage formulas. The original Core Rulebook takes precedence over the system when any rule remains GM-assisted.</p><p>Before updating a real campaign, read docs/CORE-RULE-PARITY-v2.0.md and docs/RUNTIME-TEST-v2.0.md. Back up the world, check Compendiums open in Foundry v14, and only migrate a duplicate world. No GitHub publishing action was performed.</p>')+
+    panel('v2.4 Baseline Reconciliation',`<p>The original v1.4.3 bundle added separate Level Up, Core Equipment Library, GM Bonus Dice / Roll Requests, diagnostic checks and a bundled Cold Storage book viewer. These workflows are restored in v2.4 while preserving the newer mechanics and 11 Compendiums. <strong>Level Up</strong> is on an existing Actor sheet; <strong>Core Gear</strong> shows 95 enriched official Core Items. The archived v1.4.3 Cold Storage book updater is restricted so it cannot replace a live standalone Cold Storage v1.2+ game. See the source documentation for the ID crosswalk and excluded private page overlays.</p>`)+
+    panel('v2.3 Full Trait Review Index and GM Prompt Cards',`<p>All 240 printed Core Traits are indexed for adjudication. Of these, 170 have at least one carefully scoped executable component, while 127 have incomplete clauses that can create GM-only chat reminders. All 79 Traits that lacked a numeric mapping in v2.2 are covered by source-linked private GM review, including the 70 that still have no safe numeric rule.</p><p><strong>Skill and weapon rolls:</strong> applicable, unresolved Traits trigger a separate whisper to the GMs. This private card contains the printed source effect, identifiers, implemented numeric keys and a <em>Review and record ruling</em button. Marking a ruling Applied requires a written explanation; it <strong>does not spend IP, award bonuses or mutate documents</strong>. The GM sees a <em>GM: Review owned Trait abilities</em> option on matching chat cards. From an Actor's Traits panel, players can use <em>Ask GM: Trait ruling</em> for non-dice abilities and narrative rights.</p><p>Network Requests and equipment upgrades pause for GM review when there are relevant unresolved Trait clauses; medical rest and resleeving also generate contextual prompts. Medicine / First Aid applies the Basic First Aid conditional bonus only with no active patient Injuries. Field Medic's Expert First Aid resolves chosen positive degrees as 1d6+IB per degree on a Short Rest or 1d10+IB per degree on a Long Rest; Expert Triage remains GM-selected. See docs/TRAIT-ADJUDICATION-v2.3.md.</p><p><strong>Limit:</strong> a mapping and GM prompt are not full 240-Trait rules parity or Foundry v14 certification. Back up a duplicate world and verify player/GM whisper permissions before use.</p>`)+
+    panel('v1.9 Native Compendiums and World Migration','<p>Eleven system-owned native LevelDB Compendiums now carry the official catalogues and guides. Import entries into your world before customization; never edit an installed system pack as a world-storage substitute. A dedicated Vehicle Actor sheet provides structure, fuel, crew assignments, Pilot checks and onboard Items.</p><p>For existing worlds, open <strong>World Data Migration</strong> in Game Settings as GM. Review the dry-run and make a backup. The migration is add-only and requires explicit confirmation.</p>')+
     panel('The core play loop',list([
       '<strong>Describe the situation.</strong> Establish what is at stake and what happens if nobody intervenes.',
       '<strong>Choose the Skill.</strong> Use the Skill whose fictional action best matches the attempt.',
@@ -38,6 +44,7 @@ export async function buildGMGuidePages(){
   ));
 
   add('01 — Character Anatomy',shell('Character Anatomy','DHF / SLEEVE',
+    panel('v1.5.0 Creator',`<p><strong>Guided Mode</strong> records each SP-backed Attribute roll and validates Skill, Specialisation, Trait and Baggage reroll spending. It offers all 30 Core Starting Packages as typed entitlements, and saves a full creation ledger under the Actor's system flags.</p><p><strong>Expedited Mode</strong> uses the Core shortcut: default Attributes and Skills, Starting Package, age resources, required Baggage. SP remains for later customization.</p><p><strong>Variants</strong>: Religious Coding and Envoy now expose verified Core choices; Combat Conditioning grants the chosen branches. AI starting points must be GM-provided.</p><p><strong>Review boundary</strong>: ambiguous gear configurations and narrative Baggage outcomes retain their Core source and require GM confirmation. Do not assume that all Baggage side effects were applied by the wizard.</p>`)+
     panel('Two layers of identity',`<p>A character is a persistent <strong>DHF/stack identity</strong> inhabiting a current <strong>Sleeve</strong>. The system deliberately separates those layers.</p>`+
       table(['Layer','What lives there'],[
         ['Sleeve','Strength, Perception, Health, Damage Threshold, physical technology, body status.'],
@@ -136,6 +143,20 @@ export async function buildGMGuidePages(){
     panel('Protection and weapon properties',`<p>Weapon Items carry Accuracy, Armor Piercing, Deadly, damage type, firing mode, Triggered Effects and Depletion data. Use the sheet’s <strong>Use / Attack</strong> action so the system can keep these procedures connected.</p>`)
   ));
 
+  const itemCounts=itemCatalog.items.reduce((out,item)=>{out[item.type]=(out[item.type]||0)+1;return out;},{});
+  add('09A — Official Item Library',shell('Core Item Library','CHAPTER 6 // v1.3',
+    panel('Canonical typed records',`<p>v1.3 introduced <strong>${itemCatalog.count} canonical Core Item templates</strong>. The Rules Browser can add one record to the active Actor, and a GM can install/refresh the entire set into the world Item Directory.</p>`+
+      table(['Type','Records'],Object.entries(itemCounts).map(([type,count])=>[e(type),count])))+
+    panel('How to use it',list([
+      'Open <strong>Rules Reference</strong> from a character sheet.',
+      'Expand <strong>Official Core Item Library</strong>.',
+      'Use <strong>Add to Actor</strong> for a single item, or as GM use <strong>Install / Refresh 95-Item World Library</strong> to create reusable world Items.',
+      'Weapons can choose typed ammunition using <strong>Use / Attack</strong>. Drugs are activated through the <strong>Clinical / Virtual Console</strong> with doses, administration, Addiction and Endurance metabolization procedures.',
+      'Airbike, Aircar and Ground Car remain Vehicle Actor templates rather than inventory Items.'
+    ]))+
+    callout('Automation boundary','The catalog is complete for the agreed 2020 Core equipment set. Some special Triggered Effects, drug formulation choices, worn Gear corner cases and augment-derived modifiers still require GM decisions and future effect-rule migrations.','violet')
+  ));
+
   add('10 — Wealth, Credits & Resource Catalogs',shell('Economy','WEALTH / PRICE',
     panel('Wealth Levels',table(['Level','Band'],Object.entries(m.economy.wealthLevels).map(([k,v])=>[k,e(v)])))+
     panel('Price Levels',table(['Level','Band'],Object.entries(m.economy.priceLevels).map(([k,v])=>[k,e(v)])))+
@@ -148,6 +169,8 @@ export async function buildGMGuidePages(){
     panel('What a Request does',`<p>Requests convert a Contact or Network into material support, information, permissions, resupply or other source-defined assistance. Influence Points are deliberately scarce; use Requests when the fiction supports a real relationship or institutional route.</p>`)+
     panel('Request Levels',table(['Level','Base TR','Network die','Exhaust at'],Object.entries(m.requests.levels).map(([level,x])=>[level,e(x.baseTR),`d${x.networkBonusDie}`,`${x.exhaustDegrees} success Degrees`])))+
     panel('Contact affiliation',table(['Affiliation','SP','Resource dice','TR bonus'],m.requests.contactAffiliation.map(x=>[e(x.id),x.sp,x.resourceDice,x.trBonus])))+
+    panel('Material Support / Resupply',`<p>${e(m.requests.materialSupportRule)}</p>`+table(['Request','Physical DP','Powered DP','Rare DP'],Object.entries(m.requests.materialSupport).map(([level,x])=>[`Lv.${level}`,x.physicalDP,x.poweredDP,x.rareDP])))+
+    panel('Work for Hire / Bribery',`<p>${e(m.requests.workForHire)}</p>`)+
     callout('Sheet workflow','Networks expand inline in View Mode. Their level, Request Bonus, categories and exhaustion state should be checked before adjudicating support.','violet')
   ));
 
@@ -160,6 +183,7 @@ export async function buildGMGuidePages(){
   ));
 
   add('13 — Ego, Backups & Psychosurgery',shell('Ego & Backups','DHF INTEGRITY',
+    panel('Clinical procedures',`<p>From the Actor Gear or Combat tab, open <strong>Clinical / Virtual Console</strong>. Administer the 2020 Core drugs with method-specific checks; record Addiction, Resist Craving, Endurance each Round, and clear passed metabolization at Encounter end. Rapid Regrowth Bios uses Medicine TR8 administration and separate Short/Long Rest effects. Bio Welder resolves source-defined Tissue/Bone Weld effects. Painkiller aftereffects and Merge Hangover track elapsed fictional time.</p><p>Permanent EP loss limits future recovery; Virtual exposure, Psychosurgery, Viral Strikes, and GM-supervised Interrogation are recorded on the target DHF.</p>`)+
     panel('Ego',`<p>${e(m.characterResources.ego)}</p>`)+
     panel('Common Ego-loss modifiers',table(['Modifier','Rule'],Object.entries(m.ego.lossModifiers).map(([k,v])=>[e(k),e(v)])))+
     panel('Ego-loss events',table(['Event','Human','AI'],m.ego.eventLoss.map(x=>[e(x.event),e(x.human),e(x.ai)])))+
@@ -195,16 +219,15 @@ export async function buildGMGuidePages(){
   ));
 
   add('17 — Advancement & Campaign Rewards',shell('Advancement','LONG-TERM PLAY',
-    panel('Use the Level Up wizard','<p>Open an existing character and choose <strong>Level Up</strong>. Skills, Attributes, Specialisations and Traits show costs before purchase and retain an advancement history. Create new DHFs with <strong>Character Creator</strong> in the Actors tab. The creator now includes a starting SP allocation step.</p>')+
     panel('Skill advancement',table(['Advance','SP'],Object.entries(m.skillAdvancement).map(([k,v])=>[e(k),e(v)])))+
     panel('Trait costs',table(['Commonality','Unlock','Tiers'],Object.entries(m.traitCosts).map(([k,v])=>[e(k),v.unlock,e(v.tiers.join(' / '))])))+
     panel('Campaign rewards',`<p>${e(m.campaign.sessionReward)}</p><p>${e(m.campaign.campaignReward)}</p>`)+
+    panel('Optional: Do or Die',`<p>${e(m.campaign.optionalDoOrDie)}</p>`)+
     callout('Catalog content','The Rules Reference contains the full structured Trait and Baggage catalogs used by the system. Keep this GM Journal focused on procedures at the table.','violet')
   ));
 
   const byCategory={};for(const p of presets.presets)(byCategory[p.category]??=[]).push(p);
   add('18 — Cold Storage Roll Presets',shell('Cold Storage Presets','GM CONTROL PANEL',
-    panel('The complete adventure book','<p>Use <strong>GM Control &gt; Cold Storage Book &gt; Import / Update Book Only</strong> to place all 96 managed journals in the Cold Storage folder. This does not rebuild existing Actors or Items. Changed managed pages are kept in GM Recovery Copies, and individual handout permissions are retained. The optional adventure module is needed only for full pregen, contact and scene setup.</p>')+
     panel('How to use them',`<p>The GM Control panel contains ready-to-send checks chosen for investigation, identity, infiltration, technical, physical, movement, knowledge and Virtual scenes. Select one or more character recipients and press <strong>Send Request</strong>. Each player answers from the card in chat; the result is returned with color-coded Degrees.</p>`)+
     Object.entries(byCategory).map(([category,items])=>panel(category,table(['Preset','Skill','Difficulty','Use'],items.map(x=>[e(x.label),e(x.skill),x.difficulty,e(x.gmNote)])))).join('')+
     callout('Presets are not scripts','Change the Difficulty or use the custom request tool whenever the fiction demands it. The preset name is a prompt, not a replacement for GM judgment.','cyan')
@@ -246,25 +269,28 @@ export async function buildGMGuidePages(){
     callout('Accessibility','Color is supplemental. Every card also prints the outcome and Degree value in text.','violet')
   ));
 
-  add('21 — Core Equipment Library',shell('Core Equipment Library','GEAR / DRUGS / AUGMENTS',
-    panel('What is included',`<p>Version 1.3.0 adds <strong>95 structured Core Item records</strong>: 30 weapons, 13 ammunition profiles, 8 apparel/armour records, 12 device/deck records, 3 software records, 7 drugs/medical chemicals, and 22 sleeve augmentations. It also provides the three example Core Vehicle Actor templates and a 12-entry generic weapon-upgrade index.</p>`)+
-    panel('Fast table workflow',list([
-      '<strong>Open Core Gear.</strong> From a character sheet press Core Gear, or open the Core Equipment Library from Game Settings.',
-      '<strong>Add to Actor.</strong> The Library creates a typed embedded Item. Re-adding ammunition or drugs increases quantity instead of creating a duplicate row.',
-      '<strong>Load ammunition.</strong> On a Weapon record press Load Ammo, choose a special round or shell profile, then Use / Attack. Attack and damage cards inherit the ammunition profile.',
-      '<strong>Administer drugs.</strong> Drug Items expose administration, Addiction, Controlled Substance requirements, duration, active effects and Under-the-Influence effects. Administer consumes a dose and posts a table-facing effect card.',
-      '<strong>Install to world.</strong> A GM can create all missing Core records in the world Item directory and the three Vehicle Actors without overwriting customized records.'
-    ]))+
-    panel('Automatic augment support',`<p>Active augment records with explicit Attribute effects feed the character’s derived Attribute Bonuses. Speed Neurachem adds a Speed Die; Subdermal Plating adds Damage Threshold and passive Protection; Bestial Dermis adds passive Protection. Ambiguous installation-dependent effects remain displayed for GM adjudication instead of being guessed.</p>`)+
-    panel('Source priority',`<p>The 2020 Core Rulebook is authoritative for these records. The Quick Start remains secondary. The Quick Start-only <strong>Reinforced Dermis</strong> is therefore not installed into the canonical Core catalog.</p>`)+
-    callout('Licensed source remains authoritative','The Library stores concise typed mechanics and source-page references. Use the supplied Core Rulebook when an edge case or full entry wording matters.','cyan')
+  add('21 — Chapter 7 GM Operations',shell('GM Operations','ADVERSARIES / CONTACTS / REQUESTS',
+    panel('Opening the Chapter 7 console',`<p>Click <strong>GM Operations</strong> inside GM Control, or open the GM Operations menu in Game Settings. This panel is restricted to the GM. Choose an owning player character/AI before developing Contacts and Networks.</p>`)+
+    panel('Core adversaries',`<p>Eight printed opponent examples can be created as Threat Actors with all 32 Skill records and the printed Attribute baselines. Minion and legal Nemesis options are selectable. The console can equip unambiguous canonical gear; model choices and unusual triggered combat effects remain GM-reviewed; no unsupported damage numbers are invented.</p>`)+
+    panel('Networks and Contacts',`<p>Install the seven official Network categories idempotently; create an organization-specific Network on a character. For a Contact, roll the social-standing and history d10, relationship Virtue/Flaw d12, and affiliation resource d6. Categories and affiliation SP are checked. The additional development SP, Meth status and narrative prerequisites need GM confirmation.</p>`)+
+    panel('Noir / Action campaign dice',`<p>Store one world-scoped campaign. Choose the Genre and advancement method. At the end of each session, GM chooses the appropriate Campaign Die from d4 through d12; the console logs each result and either re-rolls the growing dice pool or adds new results to the running total. It offers an original prose prompt in the relevant published progress band and a suggested SP reward, which the GM may override.</p>`)+
+    panel('Request workflows',`<p>Spend IP1 for regular favors, Material Support, Resupply, and General Request modifiers. Paid Work for Hire / Bribery requires a confirmed equivalent Price Level purchase, but does not cost IP. The Request check uses an appropriate Skill and Network Bonus Die and may exhaust a Contact/Network on either exceptional success, exceptional failure or a Catastrophe. GM controls restore access when the Core requirement is satisfied.</p>`)+
+    callout('Scope and live-world acceptance','Automated tests validate deterministic rules. Contact beliefs, campaign fiction, equipment suggestions, employer/payment consequences, and mixed social interactions remain GM-led. Live Foundry v14, Forge and multiplayer testing are pending.','violet')
   ));
 
-  add('22 - Bonus Dice, Editable Presets & System Health',shell('Live Roll Controls','GM ASSIGNMENTS / PRESET TR',
-    panel('Assign Bonus Dice',`<p>Select one or more characters in GM Control, press <strong>Bonus Dice</strong>, choose a count and die size, and press <strong>Assign Bonus Dice</strong>. Use a specific die or <strong>Match Skill die</strong>; the latter resolves separately for each character and includes current Skill-level adjustments.</p><p>Awards can apply to any Skill or one named Skill. Choose <strong>Next matching check</strong> or <strong>Until removed</strong>. Each recipient receives an independent award. A blocked or cancelled check spends nothing; an executed check spends a one-use award whether it succeeds or fails.</p>`)+
-    panel('Automatic use and removal',`<p>Assigned dice apply to Skill Checks from sheets, GM requests, weapon/equipment checks and opposed checks through the shared roll function. Awards appear on the character sheet, in matching roll options and in the GM recipient rail. They are not flat TR bonuses. Do not enter an assigned award again in the manual Bonus Dice field.</p><p>Use <strong>Remove</strong> beside an award or <strong>Clear Selected Bonuses</strong>. Persistent awards survive reconnection and server restarts until removed; they do not automatically expire at the end of a scene.</p>`)+
-    panel('Adjust preset TR',`<p>Every preset now has <strong>Base TR override</strong>, <strong>TR modifier</strong>, <strong>Difficulty penalty</strong>, <strong>Bonus Dice count</strong> and <strong>Bonus die size</strong>. Leave Base TR empty to use each character's Attribute Bonus. The base override is not a final-TR override: difficulty, Training, Gear and status effects still apply.</p><p><strong>TR = base - difficulty + applicable Training/Gear + modifier.</strong> Higher TR is easier. Send uses current edits; Save persists them for this world; Reset returns to the supplied preset. Sent request cards retain the settings they were created with.</p>`)+
-    panel('Registration health',`<p>If Foundry says ammunition or drug is not a valid Item type, run <strong>System Check</strong>. The system checks the loaded manifest, the public Item.TYPES registry and the installed system.json. An incomplete registration blocks the Core Library import before any new documents are created.</p><p>Replace the complete system package, including <strong>system.json</strong>, with v1.4.3 while the game/server is stopped. Restart the game/server and reconnect clients. The code does not pretend to repair server registration by changing browser-only lists or by converting typed Items into generic equipment. Retry the Core Library installation after the system check passes; existing catalog entries are preserved.</p>`)
+  add('22 — Private Speed Dice & Future Calendar',shell('Private Initiative and Future Clock','TACTICAL UPLINK / TEMPORAL PROJECTION',
+    panel('Core Speed Dice fundamentals',`<p>Roll one d6 for each natural Perception Bonus, modified as applicable (minimum one, natural maximum five). The Speed Dice pool is rolled once at the end of each Turn's Intent Phase. Characters privately choose Active dice for each Round; the combatant with the smallest sum acts first. Unspent dice can be spent for defense, movement and other legal effects, with a new Active selection when the current set resolves. Extra Speed Dice granted by special rules mid-turn still require GM confirmation.</p>`)+
+    panel('Multi-client workflow',list([
+      'GM starts the next Intent phase after all combatants are in the Combat Tracker.',
+      'Each player rolls their own Speed Dice privately; results are whispered to that player and the GMs.',
+      'Players select at least one unspent die and click Lock; GM can unlock before reveal if a change is needed.',
+      'GM waits for the status to show every character Locked, then clicks Reveal Everyone: one public roster card shows all results.',
+      'Used/Total counts remain visible even before the results are revealed; spend each die as the actions and defenses happen.',
+      'Next / Select Again runs a new private Active-selection round using the original unspent dice; it does not reroll the Turn.',
+      'When every Speed Die is spent, start a new Turn and repeat the Intent phase.'
+    ]))+
+    panel('Temporal Uplink',`<p>Open via any character sheet's Calendar action, via Game Settings or via game.alteredCarbon.openCalendar(). World GM can set an IANA time zone and base real/fictional years; players can select their own display time zone in the calendar. The real date and clock determine month, day, weekday, daylight saving and clock time; only the year label is projected, beginning at 2384 by default. The calendar does not change game.time.worldTime, downtime clocks, or a Virtual time-dilation ratio.</p>`)+
+    callout('Release qualification','Automated tests cover privacy states, unlocking, multi-round selections, d6 caps, timezone and DST. Foundry v14 / Forge live multi-client data permissions and native chat rendering remain to be tested.','violet')
   ));
 
   return pages;

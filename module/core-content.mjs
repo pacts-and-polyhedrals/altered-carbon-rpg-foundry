@@ -22,14 +22,37 @@ function clone(value){
 }
 function norm(value){return String(value??'').trim().toLowerCase();}
 function itemCatalogId(item){return String(item?.system?.catalogId||'');}
+/** Both canonical v2.x IDs and old v1.4.3 IDs identify the same official item.
+ * Never create a duplicate simply because an old campaign still uses old IDs.
+ */
+function matchesItem(item,entry){
+  const ids=[entry?.id,entry?.legacyId,entry?.system?.catalogId,entry?.system?.legacyCatalogId].filter(Boolean).map(String);
+  return ids.includes(itemCatalogId(item))||ids.includes(String(item?.system?.legacyCatalogId||''));
+}
+function matchesVehicle(actor,entry){
+  const keys=[entry?.id,entry?.legacyId].filter(Boolean);
+  const marker=actor.getFlag?.(SYS,'coreCatalogId');
+  return actor.type==='vehicle'&&(keys.includes(marker)||(!marker&&actor.name===entry.name));
+}
+
 
 export async function loadCoreCatalog({refresh=false}={}){
   if(cache&&!refresh)return cache;
   const loaded=await Promise.all(ITEM_FILES.map(async([label,file])=>({label,file,data:await loadJSON(file)})));
-  const [vehicles,upgrades]=await Promise.all([loadJSON('core-vehicles.json'),loadJSON('core-upgrades.json')]);
-  const groups=loaded.map(({label,file,data})=>({label,file,items:(data.items||[]).map(entry=>({...entry,groupLabel:label}))}));
+  const [canonical,vehicles,legacyVehicles,upgrades]=await Promise.all([loadJSON('item-catalog.json'),loadJSON('vehicle-catalog.json'),loadJSON('core-vehicles.json'),loadJSON('equipment-upgrades.json')]);
+  const canonicalByLegacy=new Map((canonical.items||[]).map(item=>[item.system?.legacyCatalogId,item]));
+  // Legacy groups supply rich reference context; v2.x remains the single
+  // authority for numeric Item mechanics and world-installed Catalog IDs.
+  const groups=loaded.map(({label,file,data})=>({label,file,items:(data.items||[]).map(old=>{
+    const item=canonicalByLegacy.get(old.id);
+    if(!item)throw new Error(`Old Core gear ${old.id} has no reconciled canonical v2.x record.`);
+    return {...item,legacyId:old.id,groupLabel:label,legacyDescription:old.system?.description||''};
+  })}));
   const items=groups.flatMap(group=>group.items);
-  cache={groups,items,vehicles:vehicles.actors||[],upgrades:upgrades.entries||[],source:'Altered Carbon RPG Core Rulebook (2020)'};
+  if(items.length!==95||new Set(items.map(item=>item.id)).size!==95)throw new Error('Core equipment index must contain exactly 95 unique canonical Items.');
+  const oldVehiclesByName=new Map((legacyVehicles.actors||[]).map(entry=>[entry.name,entry]));
+  const vehicleEntries=(vehicles.vehicles||[]).map(entry=>({...entry,sourcePage:entry.bookPage,legacyId:oldVehiclesByName.get(entry.name)?.id||'',legacyNotes:oldVehiclesByName.get(entry.name)?.system?.biography||''}));
+  cache={groups,items,vehicles:vehicleEntries,upgrades:(upgrades.upgrades||[]).map(entry=>({...entry,q:entry.techCost})),source:'Altered Carbon RPG Core Rulebook (2020)'};
   return cache;
 }
 
@@ -44,7 +67,7 @@ export async function addCatalogItemToActor(actor,entry,{notify=true}={}){
   assertRegisteredDocumentTypes({itemTypes:[entry?.type]});
   const data=catalogItemData(entry);
   const catalogId=String(data.system.catalogId||entry.id||'');
-  const existing=actor.items.find(item=>catalogId&&itemCatalogId(item)===catalogId);
+  const existing=actor.items.find(item=>catalogId&&matchesItem(item,entry));
   if(existing){
     if(REPEATABLE.has(data.type)){
       const quantity=Math.max(0,Number(existing.system.quantity||0))+Math.max(1,Number(data.system.quantity||1));
@@ -62,7 +85,7 @@ export async function addCatalogItemToActor(actor,entry,{notify=true}={}){
 
 export async function addCoreItemById(actor,catalogId,options={}){
   const catalog=await loadCoreCatalog();
-  const entry=catalog.items.find(item=>item.id===catalogId||item.system?.catalogId===catalogId);
+  const entry=catalog.items.find(item=>item.id===catalogId||item.legacyId===catalogId||item.system?.catalogId===catalogId);
   if(!entry)throw new Error(`Core item ${catalogId} was not found.`);
   return addCatalogItemToActor(actor,entry,options);
 }
@@ -71,7 +94,7 @@ export async function createWorldCoreItem(entry,{notify=true}={}){
   if(!game.user.isGM)throw new Error('Only the GM can create world Items.');
   assertRegisteredDocumentTypes({itemTypes:[entry?.type]});
   const data=catalogItemData(entry),catalogId=String(data.system.catalogId||entry.id||'');
-  const existing=game.items.find(item=>catalogId&&itemCatalogId(item)===catalogId);
+  const existing=game.items.find(item=>catalogId&&matchesItem(item,entry));
   if(existing){if(notify)ui.notifications.info(`${entry.name} already exists in the world Items directory.`);return existing;}
   const created=await CONFIG.Item.documentClass.create(data,{renderSheet:false});
   if(notify)ui.notifications.info(`${entry.name} created in the world Items directory.`);
@@ -83,7 +106,7 @@ export async function createCoreVehicle(entry,{notify=true}={}){
   if(!entry?.name||entry.type!=='vehicle')throw new Error('Invalid Core Library vehicle record.');
   assertRegisteredDocumentTypes({actorTypes:['vehicle']});
   const marker=String(entry.id||'');
-  const existing=game.actors.find(actor=>actor.type==='vehicle'&&(actor.getFlag?.(SYS,'coreCatalogId')===marker||(!actor.getFlag?.(SYS,'coreCatalogId')&&actor.name===entry.name)));
+  const existing=game.actors.find(actor=>matchesVehicle(actor,entry));
   if(existing){if(notify)ui.notifications.info(`${entry.name} already exists in the Actors directory.`);return existing;}
   const data={name:entry.name,type:'vehicle',system:clone(entry.system||{}),flags:{[SYS]:{coreCatalogId:marker,sourceBook:'Altered Carbon RPG Core Rulebook (2020)',sourcePage:entry.sourcePage||0}}};
   const created=await CONFIG.Actor.documentClass.create(data,{renderSheet:false});
@@ -102,12 +125,12 @@ async function performCoreLibraryImport(){
   if(!game.user.isGM)throw new Error('Only the GM can install the Core Library into a world.');
   const catalog=await loadCoreCatalog();
   assertRegisteredDocumentTypes({itemTypes:[...new Set(catalog.items.map(entry=>entry.type))],actorTypes:catalog.vehicles.length?['vehicle']:[]});
-  const missing=catalog.items.filter(entry=>!game.items.some(item=>itemCatalogId(item)===(entry.system?.catalogId||entry.id)));
+  const missing=catalog.items.filter(entry=>!game.items.some(item=>matchesItem(item,entry)));
   const createdItems=[];
   for(const entry of missing)createdItems.push(await createWorldCoreItem(entry,{notify:false}));
   const createdVehicles=[];
   for(const entry of catalog.vehicles){
-    const existing=game.actors.some(actor=>actor.type==='vehicle'&&(actor.getFlag?.(SYS,'coreCatalogId')===entry.id||(!actor.getFlag?.(SYS,'coreCatalogId')&&actor.name===entry.name)));
+    const existing=game.actors.some(actor=>matchesVehicle(actor,entry));
     if(!existing)createdVehicles.push(await createCoreVehicle(entry,{notify:false}));
   }
   ui.notifications.info(`Core Library ready: ${createdItems.length} Items and ${createdVehicles.length} Vehicle Actors created; existing catalog records were preserved.`);
@@ -136,9 +159,8 @@ export class ACCoreLibrary extends foundry.applications.api.HandlebarsApplicatio
   async _prepareContext(options){
     const context=await super._prepareContext(options),catalog=await loadCoreCatalog();
     const actor=game.actors.get(this.actorId)||null;
-    const actorCatalogIds=new Set(actor?.items?.map(item=>item.system?.catalogId).filter(Boolean)||[]);
     const isGM=game.user.isGM;
-    const groups=catalog.groups.map(group=>({label:group.label,count:group.items.length,items:group.items.map(entry=>({...entry,facts:itemFacts(entry),onActor:actorCatalogIds.has(entry.system?.catalogId||entry.id),canAdd:Boolean(actor),canCreate:isGM}))}));
+    const groups=catalog.groups.map(group=>({label:group.label,count:group.items.length,items:group.items.map(entry=>({...entry,facts:itemFacts(entry),onActor:Boolean(actor?.items?.some(item=>matchesItem(item,entry))),canAdd:Boolean(actor),canCreate:isGM}))}));
     const vehicles=catalog.vehicles.map(entry=>({...entry,canCreate:isGM}));
     return {...context,actor,isGM,groups,vehicles,upgrades:catalog.upgrades,itemCount:catalog.items.length,vehicleCount:catalog.vehicles.length,upgradeCount:catalog.upgrades.length};
   }

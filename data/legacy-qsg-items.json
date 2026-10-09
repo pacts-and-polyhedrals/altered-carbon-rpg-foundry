@@ -1,0 +1,12 @@
+{
+  "source": "2020 Quick Start Guide (secondary source only)",
+  "items": [
+    {
+      "id": "QSG-AUG001",
+      "name": "Reinforced Dermis",
+      "type": "augmentation",
+      "status": "legacy-secondary-only",
+      "reason": "Appears in the Quick Start sample augment table but no corresponding canonical entry was found in the supplied 2020 Core Rulebook. Not included in the canonical 95-item Core catalog."
+    }
+  ]
+}

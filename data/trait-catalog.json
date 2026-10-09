@@ -674,7 +674,7 @@
       "branch": "Larceny",
       "tier": 5,
       "name": "Thief",
-      "effect": "Gain the following Triggered Effect when using {Stealth}:  Legerdemain: (Special) Something that is ,, ,, per + is stolen or hidden from view or planted on another without them noticing. Add a further +1 to the Training Value bonus for Pickpocketing, Security Protocol, Hotwiring and Abduction Traits. Gain 1x to any Tools used explicitly for",
+      "effect": "Gain the following Triggered Effect when using {Stealth}:  Legerdemain: (Special) Something that is ,, ,, per + is stolen or hidden from view or planted on another without them noticing. Add a further +1 to the Training Value bonus for Pickpocketing, Security Protocol, Hotwiring and Abduction Traits. Gain 1x to any Tools used explicitly for thievery (generally any Tools that grant their bonus to {Stealth, Data Engineering, or Search}).",
       "rulesRef": "Core Rulebook 2020, Chapter 5"
     },
     {

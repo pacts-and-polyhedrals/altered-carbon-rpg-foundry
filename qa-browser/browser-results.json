@@ -1,5 +1,0 @@
-{
-  "version": "1.4.3",
-  "status": "not-run",
-  "note": "No browser test was run for this packaging-only repair. Historical results from the supplied v1.4.2 source are archived in docs/archive; they are not counted as current tests."
-}

@@ -1,0 +1,12 @@
+<section class="ac-workflow-app ac-shell">
+  <div class="ac-page-title"><div><span class="ac-kicker">TACTICAL GEOGRAPHY // 2020 CORE</span><h1>Zone Assistant</h1></div><p>Zones are GM-defined locations, not raw grid distances. Connect Zones which share a boundary; the system calculates shortest connected paths.</p></div>
+  {{#unless hasScene}}<p class="ac-callout">Open a Scene first.</p>{{else}}
+  <header class="ac-panel-title"><span>Scene: {{scene}}</span><small>GM CONFIGURATION</small></header>
+  {{#if gm}}<div class="ac-record-actions"><button type="button" data-action="addZone">+ Add Zone</button><button type="button" data-action="connect">Connect / Disconnect</button></div>{{/if}}
+  <div class="ac-record-list compact">{{#each zones}}<div class="ac-workflow-row"><div><strong>{{name}}</strong><small>Adjacent: {{#if links}}{{links}}{{else}}No links{{/if}}</small></div>{{#if ../gm}}<button type="button" data-action="remove" data-zone-id="{{id}}">Remove</button>{{/if}}</div>{{else}}<p class="ac-muted">No Zones defined. Add a Zone, then assign tokens to it.</p>{{/each}}</div>
+  <header class="ac-panel-title"><span>Token assignments</span><small>{{tokens.length}} TOKENS</small></header>
+  <div class="ac-record-list compact">{{#each tokens}}<div class="ac-workflow-row"><strong>{{name}}</strong><select data-zone-assignment="{{id}}" aria-label="Zone for {{name}}" {{#unless ../gm}}disabled{{/unless}}><option value="">Unassigned</option>{{#each choices}}<option value="{{id}}" {{#if selected}}selected{{/if}}>{{name}}</option>{{/each}}</select>{{#if ../gm}}<button type="button" data-action="assign" data-token-id="{{id}}">Apply</button><button type="button" data-action="clearAssignment" data-token-id="{{id}}">Clear</button>{{/if}}</div>{{else}}<p class="ac-muted">No tokens on this Scene.</p>{{/each}}</div>
+  {{#if distance}}<p class="ac-callout">Controlled token to targeted token: <strong>{{distance.zone}}</strong> ({{distance.steps}} Zone boundaries). {{distance.reason}}</p>{{/if}}
+  <p class="ac-help-line">Shared = same Zone; Adjacent = one connection; Distant = two or more. The GM remains responsible for line of sight, opaque barriers and exceptional perspectives.</p>
+  {{/unless}}
+</section>

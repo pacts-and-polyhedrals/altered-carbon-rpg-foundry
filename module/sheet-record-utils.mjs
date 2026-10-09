@@ -30,12 +30,12 @@ export const DISPLAY_SEMANTIC_RECORD_TYPES = new Set([
   ...UNIQUE_SHEET_RECORD_TYPES,
   'baggage',
   'weapon',
+  'ammunition',
   'armour',
   'equipment',
+  'drug',
   'augmentation',
   'software',
-  'ammunition',
-  'drug',
   'creditSet',
   'virtualConstruct',
   'resourceEntry'
@@ -125,20 +125,20 @@ export function displayRecordKey(record) {
       return `${type}:baggage:${name}:${fingerprint({rollMin:system.rollMin,rollMax:system.rollMax,severity:system.severity,appliesTo:system.appliesTo})}`;
     case 'weapon':
       return `${type}:gear:${name}:${fingerprint({skill:system.skill,damage:system.damage,damageType:system.damageType,complexity:system.complexity,range:system.range,priceLevel:system.priceLevel,techPoints:system.techPoints,techUsed:system.techUsed,cargoUnits:system.cargoUnits,heavy:system.heavy,bodySlots:system.bodySlots,powered:system.powered,specialRules:system.specialRules,capacity:system.capacity,depletionMode:system.depletionMode,depletionFormula:system.depletionFormula,gearBonus:system.gearBonus,bonusDice:system.bonusDice,accuracy:system.accuracy,armorPiercing:system.armorPiercing,deadly:system.deadly,firingMode:system.firingMode,triggeredEffects:system.triggeredEffects,upgrades:system.upgrades})}`;
+    case 'ammunition':
+      return `${type}:ammo:${name}:${fingerprint({compatible:system.compatible,priceLevel:system.priceLevel,damageOverride:system.damageOverride,damageBonus:system.damageBonus,damageFormulaExtra:system.damageFormulaExtra,damageType:system.damageType,armorPiercing:system.armorPiercing,specialRules:system.specialRules})}`;
     case 'armour':
       return `${type}:gear:${name}:${fingerprint({priceLevel:system.priceLevel,techPoints:system.techPoints,techUsed:system.techUsed,cargoUnits:system.cargoUnits,heavy:system.heavy,bodySlots:system.bodySlots,powered:system.powered,specialRules:system.specialRules,defense:system.defense,protection:system.protection,damageTypes:system.damageTypes,layering:system.layering,battleArmor:system.battleArmor,upgrades:system.upgrades})}`;
     case 'equipment':
       return `${type}:gear:${name}:${fingerprint({priceLevel:system.priceLevel,techPoints:system.techPoints,techUsed:system.techUsed,cargoUnits:system.cargoUnits,heavy:system.heavy,bodySlots:system.bodySlots,powered:system.powered,specialRules:system.specialRules,capacity:system.capacity,depletionMode:system.depletionMode,depletionFormula:system.depletionFormula,gearBonus:system.gearBonus,bonusDice:system.bonusDice,upgrades:system.upgrades})}`;
+    case 'drug':
+      return `${type}:drug:${name}:${fingerprint({administration:system.administration,addiction:system.addiction,duration:system.duration,controlledBy:system.controlledBy,controlledTier:system.controlledTier,priceLevel:system.priceLevel,damage:system.damage,damageType:system.damageType,specialRules:system.specialRules,upgrades:system.upgrades})}`;
     case 'software':
       return `${type}:gear:${name}:${fingerprint({priceLevel:system.priceLevel,techPoints:system.techPoints,techUsed:system.techUsed,cargoUnits:system.cargoUnits,heavy:system.heavy,bodySlots:system.bodySlots,powered:system.powered,specialRules:system.specialRules,capacity:system.capacity,depletionMode:system.depletionMode,depletionFormula:system.depletionFormula,triggeredEffects:system.triggeredEffects})}`;
     case 'augmentation':
-      return `${type}:gear:${name}:${fingerprint({priceLevel:system.priceLevel,techCost:system.techCost,techPoints:system.techPoints,techUsed:system.techUsed,cargoUnits:system.cargoUnits,heavy:system.heavy,bodySlots:system.bodySlots,powered:system.powered,specialRules:system.specialRules,egoCost:system.egoCost,prerequisites:system.prerequisites,attributeEffects:system.attributeEffects,upgrades:system.upgrades})}`;
-    case 'ammunition':
-      return `${type}:ammo:${catalogId||name}:${fingerprint({compatibleWith:system.compatibleWith,damage:system.damage,damageType:system.damageType,damageBonus:system.damageBonus,organicDamage:system.organicDamage,syntheticDamage:system.syntheticDamage,organicDamageBonus:system.organicDamageBonus,syntheticDamageBonus:system.syntheticDamageBonus,armorPiercing:system.armorPiercing,deadly:system.deadly,effect:system.effect,requiresUpgrade:system.requiresUpgrade,zoneDamageShared:system.zoneDamageShared,zoneDamageAdjacent:system.zoneDamageAdjacent})}`;
-    case 'drug':
-      return `${type}:drug:${catalogId||name}:${fingerprint({administration:system.administration,addiction:system.addiction,controlledBy:system.controlledBy,controlledTier:system.controlledTier,duration:system.duration,effects:system.effects,underInfluence:system.underInfluence,metabolism:system.metabolism,upgrades:system.upgrades})}`;
+      return `${type}:gear:${name}:${fingerprint({priceLevel:system.priceLevel,techCost:system.techCost,techPoints:system.techPoints,techUsed:system.techUsed,cargoUnits:system.cargoUnits,heavy:system.heavy,bodySlots:system.bodySlots,powered:system.powered,specialRules:system.specialRules,upgrades:system.upgrades})}`;
     case 'creditSet':
-      return `${type}:credit:${name}:${fingerprint({value:system.value,untraceable:system.untraceable})}`;
+      return `${type}:credit:${record.flags?.['altered-carbon-rpg']?.packageEntitlement ? name : ''}:${fingerprint({value:system.value,untraceable:system.untraceable})}`;
     case 'virtualConstruct':
       return `${type}:construct:${name}:${fingerprint({integrity:system.integrity,accessLevel:system.accessLevel,firewallClass:system.firewallClass,virusClass:system.virusClass})}`;
     case 'resourceEntry':

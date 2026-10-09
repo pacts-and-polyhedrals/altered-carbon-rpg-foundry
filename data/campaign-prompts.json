@@ -1,0 +1,302 @@
+{
+  "source": "2020 Core Rulebook, Chapter 7, printed pp.271-284",
+  "notes": [
+    "Rows paraphrase the published charts and add design prompts; high-number bands are thematic, not direct quotations.",
+    "The printed Noir chart overlaps 16-20 and 20-25. For software nonoverlap, the latter is normalized to 21-25.",
+    "A result of 71 or above is a potential finale, not an automatic forced campaign end."
+  ],
+  "genres": {
+    "noir": [
+      {
+        "min": 1,
+        "max": 5,
+        "title": "Unexpected warning",
+        "progress": "An estranged ally sends an encrypted alert.",
+        "result": "Reveal or introduce an NPC Contact.",
+        "finale": null,
+        "possibleFinale": false
+      },
+      {
+        "min": 6,
+        "max": 10,
+        "title": "Suspicious funeral",
+        "progress": "Someone close dies under a dubious account.",
+        "result": "Find who is concealing the cause.",
+        "finale": null,
+        "possibleFinale": false
+      },
+      {
+        "min": 11,
+        "max": 15,
+        "title": "Old debt",
+        "progress": "A party member is pressed to settle a concealed obligation.",
+        "result": "Investigate who owns the debt.",
+        "finale": null,
+        "possibleFinale": false
+      },
+      {
+        "min": 16,
+        "max": 20,
+        "title": "Disrupted routine",
+        "progress": "A mundane system or supply chain has a hidden discrepancy.",
+        "result": "Follow the records to a deeper conspiracy.",
+        "finale": null,
+        "possibleFinale": false
+      },
+      {
+        "min": 21,
+        "max": 25,
+        "title": "Ambiguous benefactor",
+        "progress": "A stranger offers a contract with unspoken stakes.",
+        "result": "Learn the true sponsor and motive.",
+        "finale": null,
+        "possibleFinale": false
+      },
+      {
+        "min": 26,
+        "max": 30,
+        "title": "Private danger",
+        "progress": "Someone with a tie to the characters faces exposure.",
+        "result": "Identify who is manipulating the situation.",
+        "finale": null,
+        "possibleFinale": false
+      },
+      {
+        "min": 31,
+        "max": 35,
+        "title": "Pressure mounts",
+        "progress": "An official investigation or surveillance closes in.",
+        "result": "Protect a lead while the opposition tightens control.",
+        "finale": null,
+        "possibleFinale": false
+      },
+      {
+        "min": 36,
+        "max": 40,
+        "title": "Missing connection",
+        "progress": "A reliable person or access point suddenly vanishes.",
+        "result": "Locate the missing contact and identify their captor.",
+        "finale": "Rescue someone whose disappearance threatens the case.",
+        "possibleFinale": true
+      },
+      {
+        "min": 41,
+        "max": 45,
+        "title": "Scene destroyed",
+        "progress": "An important location is sabotaged or stripped of evidence.",
+        "result": "Recover evidence before the trail is lost.",
+        "finale": "Protect someone trapped by the destruction.",
+        "possibleFinale": true
+      },
+      {
+        "min": 46,
+        "max": 50,
+        "title": "Betrayal exposed",
+        "progress": "An ally has been secretly working against the crew.",
+        "result": "Find the precise point at which trust failed.",
+        "finale": "Confront or neutralize the insider.",
+        "possibleFinale": true
+      },
+      {
+        "min": 51,
+        "max": 55,
+        "title": "Bigger players",
+        "progress": "The inquiry reveals a powerful organization behind the affair.",
+        "result": "Choose whom to expose or how to gain leverage.",
+        "finale": "Take decisive action against institutional cover.",
+        "possibleFinale": true
+      },
+      {
+        "min": 56,
+        "max": 60,
+        "title": "Syndicate crackdown",
+        "progress": "An entrenched criminal force treats the party as a threat.",
+        "result": "Undermine its access and financing.",
+        "finale": "Destroy the operation or erase the party’s trace.",
+        "possibleFinale": true
+      },
+      {
+        "min": 61,
+        "max": 65,
+        "title": "Judgment",
+        "progress": "A trusted figure double-crosses the characters from an unreachable position.",
+        "result": "Collect decisive proof of complicity.",
+        "finale": "Expose or remove the protected betrayer.",
+        "possibleFinale": true
+      },
+      {
+        "min": 66,
+        "max": 70,
+        "title": "Closing net",
+        "progress": "The characters lose options, allies and time.",
+        "result": "Find one narrow escape from coordinated pressure.",
+        "finale": "Take an extreme risk before the window closes.",
+        "possibleFinale": true
+      },
+      {
+        "min": 71,
+        "max": 9999,
+        "title": "Catastrophic reveal",
+        "progress": "The accumulated conspiracy bursts into open violence.",
+        "result": "Choose who survives the collapse.",
+        "finale": "Resolve the conspiracy at terrible personal cost.",
+        "possibleFinale": true
+      }
+    ],
+    "action": [
+      {
+        "min": 1,
+        "max": 5,
+        "title": "Easy mission, hidden cost",
+        "progress": "The opposition was unexpectedly weak.",
+        "result": "Question whether the team missed the real objective.",
+        "finale": null,
+        "possibleFinale": false
+      },
+      {
+        "min": 6,
+        "max": 10,
+        "title": "Surprise stealth",
+        "progress": "An adversary unexpectedly fails to detect the team.",
+        "result": "Discover who was secretly helping.",
+        "finale": null,
+        "possibleFinale": false
+      },
+      {
+        "min": 11,
+        "max": 15,
+        "title": "Collateral consequences",
+        "progress": "The team harms the wrong target.",
+        "result": "An unwanted Scandal follows the party.",
+        "finale": null,
+        "possibleFinale": false
+      },
+      {
+        "min": 16,
+        "max": 20,
+        "title": "Odd weapon",
+        "progress": "The enemy uses unfamiliar equipment or insignia.",
+        "result": "Trace the supplier or capture the prototype.",
+        "finale": null,
+        "possibleFinale": false
+      },
+      {
+        "min": 21,
+        "max": 25,
+        "title": "Escalating pursuit",
+        "progress": "A routine operation draws a more dangerous response.",
+        "result": "Determine who issued the escalation.",
+        "finale": null,
+        "possibleFinale": false
+      },
+      {
+        "min": 26,
+        "max": 30,
+        "title": "Hostile intervention",
+        "progress": "A third party moves against the crew.",
+        "result": "Decide whether to fight, negotiate or evade.",
+        "finale": null,
+        "possibleFinale": false
+      },
+      {
+        "min": 31,
+        "max": 35,
+        "title": "Operational betrayal",
+        "progress": "A tactical partner changes sides at a critical point.",
+        "result": "Identify the compromised command chain.",
+        "finale": null,
+        "possibleFinale": false
+      },
+      {
+        "min": 36,
+        "max": 40,
+        "title": "Team member taken",
+        "progress": "Sensitive intelligence leaks and someone goes missing.",
+        "result": "Find the team member before interrogation begins.",
+        "finale": "Recover the captive and contain the leak.",
+        "possibleFinale": true
+      },
+      {
+        "min": 41,
+        "max": 45,
+        "title": "Retaliation",
+        "progress": "An allied base suffers a deliberate attack.",
+        "result": "Find the perpetrators and account for casualties.",
+        "finale": "Defend or evacuate remaining allies.",
+        "possibleFinale": true
+      },
+      {
+        "min": 46,
+        "max": 50,
+        "title": "Supply crisis",
+        "progress": "A major equipment or logistical dependency collapses.",
+        "result": "Secure a replacement amid hostile surveillance.",
+        "finale": "Protect the last viable resupply channel.",
+        "possibleFinale": true
+      },
+      {
+        "min": 51,
+        "max": 55,
+        "title": "Attack on allies",
+        "progress": "An enemy singles out the party’s support network.",
+        "result": "Identify a high-ranking instigator.",
+        "finale": "Prevent the next strike on sympathetic contacts.",
+        "possibleFinale": true
+      },
+      {
+        "min": 56,
+        "max": 60,
+        "title": "Command disruption",
+        "progress": "The opposition has centralized command and coordination.",
+        "result": "Sever control communications.",
+        "finale": "Neutralize the leader coordinating attacks.",
+        "possibleFinale": true
+      },
+      {
+        "min": 61,
+        "max": 65,
+        "title": "Deep betrayal",
+        "progress": "An influential sponsor is actively manipulating the fighting.",
+        "result": "Find proof before the team is framed.",
+        "finale": "Remove the sponsor without being destroyed politically.",
+        "possibleFinale": true
+      },
+      {
+        "min": 66,
+        "max": 70,
+        "title": "Special weapon threat",
+        "progress": "A specialist weapon or unit is deployed against the party.",
+        "result": "Track the deadly platform.",
+        "finale": "Stop deployment or defeat the special force.",
+        "possibleFinale": true
+      },
+      {
+        "min": 71,
+        "max": 9999,
+        "title": "War of attrition",
+        "progress": "A prolonged conflict threatens everyone in its reach.",
+        "result": "Choose a path through devastating losses.",
+        "finale": "End the conflict or survive its annihilation.",
+        "possibleFinale": true
+      }
+    ]
+  },
+  "supportRoles": {
+    "noir": [
+      "Knight in Dirty Armor",
+      "Femme Fatale / Black Widow",
+      "Angel",
+      "Boy Scout",
+      "Corrupt Authority",
+      "Hidden Benefactor"
+    ],
+    "action": [
+      "Special Forces Unit",
+      "Vigilantes",
+      "Work for Hire",
+      "Revenge / Rescue",
+      "The Gang",
+      "Military / Paramilitary"
+    ]
+  }
+}

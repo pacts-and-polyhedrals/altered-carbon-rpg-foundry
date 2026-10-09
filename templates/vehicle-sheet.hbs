@@ -1,0 +1,43 @@
+<form class="ac-shell ac-sheet ac-vehicle-sheet {{#if editMode}}is-editing{{else}}is-viewing{{/if}}" aria-label="Vehicle sheet for {{actor.name}}">
+  <header class="ac-vehicle-hero"><div class="ac-vehicle-identity"><span class="ac-kicker">SYNTHETIC VEHICLE // 2020 CORE</span><h1>{{actor.name}}</h1><p>Vehicle management. Structure, fuel and crew assignments are persistent; movement and combat decisions remain GM-directed.</p></div>
+   {{#if canEdit}}<button type="button" class="ac-edit-mode-toggle" data-action="toggleVehicleEdit" aria-pressed="{{editMode}}">{{#if editMode}}Finish Editing{{else}}Edit Vehicle{{/if}}</button>{{/if}}
+  </header>
+  <div class="ac-vehicle-scroll" role="region" aria-label="Vehicle information" tabindex="0">
+   <section class="ac-vehicle-stats" aria-label="Vehicle statistics">
+    <article class="ac-panel"><h2>Structure</h2><p><strong>{{v.structure.value}} / {{v.structure.max}}</strong></p><meter min="0" max="{{v.structure.max}}" value="{{v.structure.value}}" aria-label="Current structure">{{v.structure.value}}</meter>{{#if canEdit}}<button type="button" data-action="adjustStructure">Damage / Repair</button>{{/if}}</article>
+    <article class="ac-panel"><h2>Fuel</h2><p><strong>{{v.fuel.value}} / {{v.fuel.max}}</strong></p><meter min="0" max="{{v.fuel.max}}" value="{{v.fuel.value}}" aria-label="Current fuel">{{v.fuel.value}}</meter>{{#if canEdit}}<button type="button" data-action="adjustFuel">Spend / Refuel</button>{{/if}}</article>
+    <article class="ac-panel"><h2>Handling</h2><p><strong>{{v.handling}}</strong></p><small>Fire Control: {{v.fireControl}}</small></article>
+    <article class="ac-panel"><h2>Speed</h2><p><strong>{{v.speedDice}} Speed Dice</strong></p><small>{{v.velocity}}</small></article>
+   </section>
+   <section class="ac-panel" aria-labelledby="ac-vehicle-details"><h2 id="ac-vehicle-details">Vehicle details</h2>
+    <div class="ac-vehicle-form">
+      <label>Size <input type="number" min="0" name="system.vehicle.size" value="{{v.size}}"></label>
+      <label>Durability <input type="number" min="0" name="system.vehicle.durability" value="{{v.durability}}"></label>
+      <label>Structure max <input type="number" min="0" name="system.vehicle.structure.max" value="{{v.structure.max}}"></label>
+      <label>Fuel max <input type="number" min="0" name="system.vehicle.fuel.max" value="{{v.fuel.max}}"></label>
+      <label>Handling <input type="number" min="0" name="system.vehicle.handling" value="{{v.handling}}"></label>
+      <label>Fire Control <input type="number" min="0" name="system.vehicle.fireControl" value="{{v.fireControl}}"></label>
+      <label>Speed Dice <input type="number" min="0" name="system.vehicle.speedDice" value="{{v.speedDice}}"></label>
+      <label>Velocity <input type="text" name="system.vehicle.velocity" value="{{v.velocity}}"></label>
+      <label>Travel <input type="text" name="system.vehicle.travel" value="{{v.travel}}"></label>
+      <label>Passengers <input type="number" min="0" name="system.vehicle.passengers" value="{{v.passengers}}"></label>
+      <label>Cargo Units <input type="number" min="0" name="system.vehicle.cargo" value="{{v.cargo}}"></label>
+      <label>Minimum crew <input type="number" min="0" name="system.vehicle.crewSkeleton" value="{{v.crewSkeleton}}"></label>
+      <label>Standard crew <input type="number" min="0" name="system.vehicle.crewStandard" value="{{v.crewStandard}}"></label>
+      <label>Full crew <input type="number" min="0" name="system.vehicle.crewFull" value="{{v.crewFull}}"></label>
+      <label class="span-two">Crew notes <textarea name="system.vehicle.crewNotes" rows="2">{{v.crewNotes}}</textarea></label>
+      <label class="span-two">Vehicle systems <textarea name="system.vehicle.systems" rows="3">{{v.systems}}</textarea></label>
+     </div>
+   </section>
+   <section class="ac-panel" aria-labelledby="ac-vehicle-crew"><div class="ac-vehicle-header"><div><h2 id="ac-vehicle-crew">Crew and stations</h2><p>{{crew.crewCount}} crew assigned (minimum {{crew.required}}, normal {{crew.standard}}, maximum {{crew.full}}) · {{crew.passengerCount}} / {{crew.passengerLimit}} passengers</p></div>{{#if canEdit}}<button type="button" data-action="assignCrew">Manage Crew</button>{{/if}}</div>
+    {{#if crew.shortCrew}}<p class="ac-warning-text" role="status">Below minimum crew.</p>{{/if}}
+    {{#unless crew.hasPilot}}<p class="ac-warning-text" role="status">No pilot assigned.</p>{{/unless}}
+    <ul class="ac-vehicle-roster">{{#each roster}}<li><span>{{name}}</span><small>{{role}}</small></li>{{else}}<li>No crew assigned yet.</li>{{/each}}</ul>
+    <button type="button" data-action="pilotCheck" {{#unless crew.hasPilot}}disabled{{/unless}}>Roll assigned Pilot Skill</button>
+   </section>
+   <section class="ac-panel" aria-labelledby="ac-vehicle-equipment"><div class="ac-vehicle-header"><h2 id="ac-vehicle-equipment">Equipment and onboard systems</h2><button type="button" data-action="openCombatConsole">Open Combat Console</button></div>
+     <ul class="ac-vehicle-roster">{{#each items}}<li><span>{{name}} <small>({{type}})</small></span><button type="button" data-item-id="{{id}}" data-action="openItem" aria-label="Open {{name}} item">Open</button></li>{{else}}<li>No onboard Item records.</li>{{/each}}</ul>
+     <p class="ac-help-line">To fit weapons or equipment, drag Items from Compendiums or the world Item directory onto the vehicle Actor. Crew attack permissions and complex Fire Control remain under GM adjudication.</p>
+   </section>
+  </div>
+</form>

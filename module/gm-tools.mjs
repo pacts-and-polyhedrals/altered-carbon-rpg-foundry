@@ -1,6 +1,7 @@
 import {rollSkill} from './rolls.mjs';
 import {checkGrade} from './chat-ui.mjs';
 import {ensureGMGuide} from './gm-guide.mjs';
+import {ACGMOperations} from './gm-operations.mjs';
 import {normalizeRollOptions, mergePreset, makeBonusDice, describeBonusDice, BONUS_DIE_SIDES} from './gm-roll-options.mjs';
 import {getBonusDiceAwards, grantBonusDice, removeBonusDiceAward, clearBonusDiceAwards} from './gm-bonus-dice.mjs';
 import {getSystemHealth, diagnoseSystem} from './system-health.mjs';
@@ -162,7 +163,7 @@ export function installGMToolsHooks(){
 export class ACGMPanel extends foundry.applications.api.HandlebarsApplicationMixin(foundry.applications.api.ApplicationV2){
   static DEFAULT_OPTIONS={
     id:'ac-gm-panel',classes:['altered-carbon','ac-gm-window'],window:{title:'Altered Carbon - GM Control'},position:{width:1180,height:880},
-    actions:{sendPreset:this._sendPreset,savePreset:this._savePreset,resetPreset:this._resetPreset,sendCustom:this._sendCustom,selectAll:this._selectAll,clearSelection:this._clearSelection,grantBonusDice:this._grantBonusDice,clearBonusDice:this._clearBonusDice,removeBonusDice:this._removeBonusDice,focusBonusDice:this._focusBonusDice,refreshAwards:this._refreshAwards,systemCheck:this._systemCheck,openGuide:this._openGuide,refreshGuide:this._refreshGuide,openAdventure:this._openAdventure}
+    actions:{sendPreset:this._sendPreset,savePreset:this._savePreset,resetPreset:this._resetPreset,sendCustom:this._sendCustom,selectAll:this._selectAll,clearSelection:this._clearSelection,grantBonusDice:this._grantBonusDice,clearBonusDice:this._clearBonusDice,removeBonusDice:this._removeBonusDice,focusBonusDice:this._focusBonusDice,refreshAwards:this._refreshAwards,systemCheck:this._systemCheck,openGuide:this._openGuide,refreshGuide:this._refreshGuide,openAdventure:this._openAdventure,openOperations:this._openOperations}
   };
   static PARTS={main:{template:'systems/altered-carbon-rpg/templates/gm-panel.hbs'}};
   async _prepareContext(options){
@@ -273,9 +274,10 @@ export class ACGMPanel extends foundry.applications.api.HandlebarsApplicationMix
   static async _refreshAwards(){this._rememberState();this.render({force:true});}
   static async _systemCheck(event,target){return this._runAction(target,async()=>{await diagnoseSystem({notify:true});this.render({force:true});});}
   static async _openAdventure(){try{game.alteredCarbon.openAdventureBook();}catch(error){ui.notifications.error(error.message);}}
+  static async _openOperations(){if(!game.user.isGM)throw new Error('GM only.');return new ACGMOperations().render({force:true});}
   static async _openGuide(){try{await ensureGMGuide({open:true});}catch(error){ui.notifications.error(error.message);}}
   static async _refreshGuide(){
-    const ok=await foundry.applications.api.DialogV2.confirm({window:{title:'Refresh GM Guide'},content:'<p>Replace the system-generated GM Guide pages with the current v1.4.3 reference?</p><p class="hint">Any notes typed directly into those generated pages will be replaced.</p>'});
+    const ok=await foundry.applications.api.DialogV2.confirm({window:{title:'Refresh GM Guide'},content:'<p>Replace the system-generated GM Guide pages with the current v2.4.0 reference?</p><p class="hint">Any notes typed directly into those generated pages will be replaced.</p>'});
     if(ok)await ensureGMGuide({refresh:true,open:true});
   }
 }

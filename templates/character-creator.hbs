@@ -3,9 +3,9 @@
     <div>
       <span class="ac-kicker">GUIDED DHF INITIALISATION</span>
       <h1>Character Creator</h1>
-      <p>Build the character in the same order the sheet is organised. Each stage explains what the choice means, where it appears, and what the system calculates for you.</p>
+      <p>Choose the source package, make every required selection, and track your Stack Point purchases. This creator records die rolls and preserves a readable ledger on the new Actor.</p>
     </div>
-    <div class="ac-wizard-counter" data-step-counter>01 / 08</div>
+    <div class="ac-wizard-counter" data-step-counter>01 / 07</div>
   </header>
 
   <div class="ac-wizard-progress"><span class="ac-wizard-progress-fill"></span></div>
@@ -29,7 +29,8 @@
               <label><span>True DHF Name <em>The character's actual persistent identity.</em></span><input name="name" value="New DHF" data-live-summary></label>
               <label><span>Public / Current Name <em>The name shown on the Actor and used by people around them. Leave blank to use the true name.</em></span><input name="publicName" value="" data-live-summary></label>
               <label><span>Pronouns <em>Pronouns for the DHF identity; sleeve presentation can be recorded separately.</em></span><input name="pronouns" value="" placeholder="they/them, she/her, he/him…"></label>
-              <label><span>DHF Age <em>Total lived age. This feeds the 2020 age-based starting resource and Baggage procedures.</em></span><input type="number" name="age" value="30" min="18" data-live-summary></label>
+              <label><span>DHF Age <em>Total lived age. This determines starting SP, IP, Ego and Baggage.</em></span><input type="number" name="age" value="30" min="18" max="99999" step="1" data-live-summary></label>
+              <label><span>Creation Mode <em>Expedited uses the Core shortcut: default Attributes/Skills, a Starting Package, age-based resources and Baggage, with improvements deferred until later.</em></span><select name="creationMode"><option value="standard">Guided — spend SP</option><option value="expedited">Expedited — defaults and package</option></select></label>
             </div>
           </article>
           <aside class="ac-explainer">
@@ -46,7 +47,7 @@
         <div class="ac-wizard-grid">
           <article class="ac-panel">
             <label class="ac-select-field"><span>Archetype</span><select name="archetype" data-live-summary>{{#each archetypes}}<option value="{{name}}" data-default-sleeve="{{defaultSleeve}}">{{name}}</option>{{/each}}</select></label>
-            <label class="ac-select-field"><span>Starting Package</span><select name="package" data-live-summary><option value="">Custom / choose later</option>{{#each packageOptions}}<option value="{{value}}" data-archetype="{{archetype}}">{{label}}</option>{{/each}}</select><small>Starting Packages belong to one Archetype. The wizard filters the list automatically.</small></label>
+            <label class="ac-select-field"><span>Starting Package</span><select name="package" data-live-summary><option value="">Select a published Starting Package…</option>{{#each packageOptions}}<option value="{{value}}" data-archetype="{{archetype}}">{{label}}</option>{{/each}}</select><small>All 30 published packages are supported. The next stages ask you to resolve broad equipment and Network choices; unresolved choices prevent creation.</small></label>
           </article>
           <aside class="ac-explainer">
             {{#each archetypes}}
@@ -71,6 +72,24 @@
               <div class="ac-choice-preview"><span>{{tag}}</span><strong>{{name}}</strong><small>{{description}}</small></div>
               {{/each}}
             </div>
+            <section class="ac-variant-selections">
+              <div data-religious-only hidden>
+                <label><span>Religious Coding: select one official special rule</span><select name="religiousBenefit"><option value="">Choose Core benefit...</option>{{#each religiousBenefits}}<option value="{{id}}">{{label}}</option>{{/each}}</select></label>
+                <label data-religious-convert hidden><span>Convert benefit (DHF age 80 or less): one free Empathy or Willpower Skill level</span><select name="religiousSkill"><option value="">Select the Skill...</option>{{#each variantSkills}}<option value="{{id}}">{{name}} ({{attribute}})</option>{{/each}}</select><small>Core printed p.80; the selected Skill starts one level higher, up to Level 5.</small></label>
+                <small>The published benefits are selectable by name. Non-deterministic follow-on effects remain visible as feature records.</small>
+              </div>
+              <div data-envoy-only hidden>
+                <label><span>Envoy conditioning benefit 1</span><select name="envoyOne"><option value="">Choose first benefit...</option>{{#each envoyBenefits}}<option value="{{id}}">{{label}}</option>{{/each}}</select></label>
+                <label><span>Envoy conditioning benefit 2</span><select name="envoyTwo"><option value="">Choose distinct second benefit...</option>{{#each envoyBenefits}}<option value="{{id}}">{{label}}</option>{{/each}}</select></label>
+                <div data-envoy-combat hidden>
+                  <label><span>Combat Conditioning: free Trait branch one</span><select name="envoyBranchOne"><option value="">Choose branch...</option>{{#each envoyBranches}}<option value="{{value}}">{{label}}</option>{{/each}}</select></label>
+                  <label><span>Combat Conditioning: free Trait branch two</span><select name="envoyBranchTwo"><option value="">Choose a different branch...</option>{{#each envoyBranches}}<option value="{{value}}">{{label}}</option>{{/each}}</select></label>
+                  <small>All listed Traits from both chosen branches will be granted for 0 SP.</small>
+                </div>
+              </div>
+              <div data-ai-only hidden><label><span>AI licence and operating restrictions</span><input name="aiLicence" maxlength="240" placeholder="Record the Core licence or GM-ratified status"/></label></div>
+              <div data-meth-only hidden><label><span>Meth social standing / backup notes (optional)</span><input name="methNotes" maxlength="240" placeholder="Current backup and social arrangement"/></label></div>
+            </section>
           </article>
           <aside class="ac-explainer">
             {{#each variants}}
@@ -100,10 +119,11 @@
         <article class="ac-panel">
           <div class="ac-creator-attributes">
             {{#each attributeHelp}}
-            <label class="ac-creator-attribute {{class}}"><span class="code">{{code}}</span><span class="copy"><strong>{{name}}</strong><small>{{description}}</small></span><input type="number" name="{{id}}" value="30" data-live-summary></label>
+            <label class="ac-creator-attribute {{class}}"><span class="code">{{code}}</span><span class="copy"><strong>{{name}}</strong><small>{{description}}</small></span><input type="number" name="{{id}}" value="30" readonly aria-label="Calculated {{name}}"></label>
+            <div class="ac-creator-investment" data-standard-only><label><span>Commit SP to {{name}} (d4 per SP)</span><input type="number" name="spDice.{{id}}" value="1" min="1" max="30" step="1" /></label><button type="button" data-action="rollAttribute" data-attribute="{{id}}">Roll Attribute</button></div>
             {{/each}}
           </div>
-          <div class="ac-callout">Standard Stack Attributes begin at 30. Higher values are available here for pre-generated or GM-authored final characters; normal play advancement uses Stack Points and the system's advancement procedures.</div>
+          <div class="ac-callout">Attributes start at the sleeve/Stack minimums and can only rise through committed SP-backed d4 rolls. Each roll is logged. Caps are enforced; excess rolled points above the initial caps are lost, not refunded.</div><div data-attribute-log class="ac-creator-ledger-list" data-standard-only></div>
         </article>
       </section>
 
@@ -113,31 +133,25 @@
           <article class="ac-panel">
             <label class="ac-select-field"><span>Wealth Override <small>Leave blank to use the Archetype baseline.</small></span><input type="number" name="wealth" value="" min="0" max="6" data-live-summary placeholder="Archetype default"></label>
             <div data-ai-only hidden>
-              <label class="ac-select-field"><span>AI Stack Points <small>Required because the Core gives AI no age-based starting SP row.</small></span><input type="number" name="manualSP" value="" min="0"></label>
-              <label class="ac-select-field"><span>AI Influence Points <small>Required for the same reason; the wizard will not invent a value.</small></span><input type="number" name="manualIP" value="" min="0"></label>
+              <label class="ac-select-field"><span>AI Stack Points <small>Required because the Core gives AI no age-based starting SP row.</small></span><input type="number" name="manualSP" value="" min="0" step="1"></label>
+              <label class="ac-select-field"><span>AI Influence Points <small>Required for the same reason; the wizard will not invent a value.</small></span><input type="number" name="manualIP" value="" min="0" step="1"></label>
             </div>
+            <div class="ac-creator-ledger" aria-live="polite"><strong>SP Ledger</strong><div class="ac-review-row"><span>Starting SP</span><strong data-summary="spStarted">—</strong></div><div class="ac-review-row"><span>Spent SP</span><strong data-summary="spSpent">—</strong></div><div class="ac-review-row"><span>Remaining SP</span><strong data-summary="spRemaining">—</strong></div><div data-ledger-lines class="ac-creator-ledger-list"></div></div>
           </article>
           <aside class="ac-explainer">
             <i class="fa-solid fa-coins"></i><h3>What the system creates</h3>
-            <ul><li><strong>Health:</strong> rolled from sleeve type and Strength Bonus.</li><li><strong>Damage Threshold:</strong> derived from Strength.</li><li><strong>Ego / SP / IP:</strong> calculated from the source procedures and variant modifiers where deterministic.</li><li><strong>Skills:</strong> all 32 are embedded at the Archetype starting levels.</li><li><strong>Baggage:</strong> age-based rolls are resolved automatically.</li><li><strong>Starting Package:</strong> package Traits and gear note are embedded.</li></ul>
+            <ul><li><strong>Health:</strong> rolled from sleeve type and Strength Bonus.</li><li><strong>Damage Threshold:</strong> derived from Strength.</li><li><strong>Ego / SP / IP:</strong> computed from age and variant with package bonuses.</li><li><strong>Skills:</strong> all 32 with purchased final levels.</li><li><strong>Baggage:</strong> logged age-event rolls and paid rerolls.</li><li><strong>Packages:</strong> Credits, Networks, official Items, free Traits and explicitly chosen entitlements.</li></ul>
           </aside>
         </div>
+        <article class="ac-panel ac-creator-package"><header class="ac-panel-title"><span>Complete Starting Package</span><small>OFFICIAL CHAPTER 2 ENTITLEMENTS</small></header><p>Resolve each equipment or Network choice. Credits and unambiguous gear are created as individual typed records. A choice absent from the canonical catalogue is retained as a typed, GM-review-marked record rather than replaced with invented statistics.</p><div data-package-choices class="ac-entitlements"></div></article>
+        <article class="ac-panel ac-creator-baggage"><header class="ac-panel-title"><span>Life Events / Baggage</span><small>SP-BACKED REROLLS</small></header><p>Roll each required age-based life event. Rerolls spend increasing amounts of SP and the final result is embedded in the character.</p><div data-baggage-events class="ac-entitlements"></div></article>
+        <article class="ac-panel" data-standard-only><header class="ac-panel-title"><span>Skill Advancement</span><small>LEGAL SP COSTS</small></header><div class="ac-skill-purchases">{{#each skillRows}}<label><span>{{name}}</span><input type="number" name="skill.{{id}}" value="{{level}}" min="{{level}}" max="5" step="1" aria-label="Final level for {{name}}"></label>{{/each}}</div></article>
+        <article class="ac-panel" data-standard-only><header class="ac-panel-title"><span>Specialisations</span><small>INCREASING SP COSTS</small></header><div class="ac-creator-purchase-row"><select name="newSpecSkill" aria-label="Skill to specialise in">{{#each skillRows}}<option value="{{id}}">{{name}}</option>{{/each}}</select><input name="newSpecName" placeholder="Specialisation (Core or GM-approved)" maxlength="120"><button type="button" data-action="addSpecialisation">Add Specialisation</button></div><div data-specialisation-log></div></article>
+        <article class="ac-panel" data-standard-only><header class="ac-panel-title"><span>Purchase Official Traits</span><small>UNLOCKS & PREREQUISITES</small></header><div class="ac-creator-purchase-row"><select name="newTrait" aria-label="Choose official Trait"><option value="">Choose official Trait…</option>{{#each traitsOptions}}<option value="{{id}}">{{tree}} / {{branch}} · T{{tier}} · {{name}}</option>{{/each}}</select><button type="button" data-action="addTrait">Purchase Trait</button></div><div data-trait-log></div></article>
       </section>
 
       <section class="ac-wizard-step" data-wizard-step="6">
-        <div class="ac-step-heading"><span>STEP 07</span><h2>Level Up &amp; Starting SP</h2><p>Spend starting Stack Points before finishing, or keep them for play. Queued purchases are applied once when you create the character. No dice are rolled during planning.</p></div>
-        <div class="ac-plan-budget"><span>Starting <strong data-starting-sp>0</strong> SP</span><span>Planned <strong data-planned-sp>0</strong> SP</span><span>Remaining <strong data-remaining-sp>0</strong> SP</span></div>
-        <div class="ac-wizard-grid">
-          <article class="ac-panel"><h3>Improve a Skill</h3><label class="ac-select-field"><span>Skill</span><select name="planSkill">{{#each creationSkills}}<option value="{{id}}">{{name}}</option>{{/each}}</select></label><p>Queue one Skill Level at a time. The starting Archetype level determines the cost.</p><button type="button" data-action="queueSkill">Queue Skill Level</button></article>
-          <article class="ac-panel"><h3>Improve an Attribute</h3><label class="ac-select-field"><span>Attribute</span><select name="planAttribute">{{#each attributeHelp}}<option value="{{id}}">{{name}}</option>{{/each}}</select></label><label class="ac-select-field"><span>SP to spend (1d4 per SP)</span><input name="planAttributeSP" type="number" min="1" step="1" value="1"></label><button type="button" data-action="queueAttribute">Queue Attribute Increase</button></article>
-        </div>
-        <article class="ac-panel"><h3>Planned Purchases</h3><ol class="ac-creation-plan" data-creation-plan></ol><p class="ac-plan-error" data-plan-error role="alert" hidden></p><button type="button" data-action="clearQueued">Clear Plan</button></article>
-        <div class="ac-callout">Costs recalculate when age, Archetype or Attributes change. Attribute gains stop at the displayed sleeve/DHF cap and excess dice are lost. Starting resource rolls are not rerolled by advancement.</div>
-        <label class="ac-check-field"><input type="checkbox" name="openAdvancementAfter" checked> Open the full Level Up wizard after creation for Traits, Specialisations and further purchases.</label>
-      </section>
-
-      <section class="ac-wizard-step" data-wizard-step="7">
-        <div class="ac-step-heading"><span>STEP 08</span><h2>Review & Instantiate</h2><p>Confirm the concept. The creator will make the Actor, starting sleeve, full Skill list, package content and deterministic starting resources in one operation.</p></div>
+        <div class="ac-step-heading"><span>STEP 07</span><h2>Review & Instantiate</h2><p>Confirm the concept. The creator will instantiate validated SP purchases, selected Traits/Specialisations, package entitlements and Baggage history in one operation.</p></div>
         <article class="ac-panel ac-review-panel">
           <div class="ac-review-row"><span>True DHF</span><strong data-summary="name">New DHF</strong></div>
           <div class="ac-review-row"><span>Public Name</span><strong data-summary="publicName">New DHF</strong></div>
@@ -149,8 +163,7 @@
           <div class="ac-review-row wide"><span>Attributes</span><strong data-summary="attributes">STR 30 · PER 30 · EMP 30 · WIL 30 · ACU 30 · INT 30</strong></div>
           <div class="ac-review-row"><span>Wealth</span><strong data-summary="wealth">Archetype default</strong></div>
         </article>
-        <p class="ac-plan-budget">Starting allocation: <strong data-planned-sp>0</strong> SP spent; <strong data-remaining-sp>0</strong> SP remaining.</p>
-        <div class="ac-callout success"><strong>Ready.</strong> Anything not chosen by the source rules remains editable on the finished sheet rather than being silently invented.</div>
+        <div class="ac-callout" data-creation-status role="status" aria-live="polite"><strong>Validation: </strong><span data-summary="ledgerErrors">Review all mandatory choices.</span></div><p class="ac-help-line">The Actor will retain the full SP transaction ledger, rolled Attribute results, selected package entitlements, chosen variant benefits and source references.</p>
       </section>
     </main>
   </div>

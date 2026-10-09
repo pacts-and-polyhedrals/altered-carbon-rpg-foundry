@@ -41,7 +41,14 @@ export async function bindBookScenes(){
  gm();const map={'SCENE-LANDING':'G00','SCENE-WARD':'G08','SCENE-BREACH':'G09','SCENE-RAINLINE':'G10','SCENE-SAFEHOUSE':'G14','SCENE-VIRTUAL':'G15','SCENE-CORE':'G19','SCENE-EPILOGUE':'G23'};
  for(const scene of game.scenes){const target=map[sid(scene)];if(!target||scene.journal)continue;const j=game.journal.find(x=>sid(x)===target);if(j)await scene.update({journal:j.id});}
 }
+function assertLegacyBookSafe(){
+ const newerModule=game.modules?.get(MOD);
+ if(newerModule?.active)throw new Error('The separate Cold Storage adventure module is active. Use its Book Only update instead; do not import the older system-bundled book.');
+ const newer=game.journal.find(j=>{const v=String(j.flags?.[MOD]?.bookVersion||'');return Number(v.split('.')[0]||0)>1||(Number(v.split('.')[0]||0)===1&&Number(v.split('.')[1]||0)>=2);});
+ if(newer)throw new Error('Cold Storage v1.2+ journals already exist. This legacy book updater cannot overwrite them.');
+}
 async function importImpl({notify=true}={}){
+ assertLegacyBookSafe();
  const [base,factions,revelations]=await Promise.all(['journals.json','factions.json','revelations.json'].map(read));
  const entries=[...base,...referenceEntries(factions,revelations)];
  const allowedCategories=new Set(['gm','primer','personal','handout','reference']);
@@ -78,7 +85,7 @@ async function importImpl({notify=true}={}){
  return result;
 }
 export async function importAdventureBook(options={}){
- gm();if(pendingImport)return pendingImport;
+ gm();assertLegacyBookSafe();if(pendingImport)return pendingImport;
  pendingImport=importImpl(options).finally(()=>{pendingImport=null;});return pendingImport;
 }
 export async function revealBookEntry(sourceId,recipients){
@@ -131,6 +138,6 @@ export class ColdStorageBookConsole extends foundry.applications.api.HandlebarsA
 export function registerBook(){
  game.settings.register(SYS,'coldStorageBookVersion',{scope:'world',config:false,type:String,default:''});
  game.settings.register(SYS,'coldStorageBookState',{scope:'world',config:false,type:Object,default:clone(DEFAULT_STATE)});
- game.settings.registerMenu(SYS,'coldStorageBook',{name:'Cold Storage Adventure Book',label:'Open GM Book Console',hint:'Complete adventure, controlled handouts and manual Heat, Renewal and Fray counters.',icon:'fa-solid fa-book-open',type:ColdStorageBookConsole,restricted:true});
+ game.settings.registerMenu(SYS,'coldStorageBook',{name:'Legacy Cold Storage Book (v1.1)',label:'Open Legacy GM Book',hint:'Fallback for an old campaign only. Prefer the separate Cold Storage v1.2+ module; cannot overwrite its journals.',icon:'fa-solid fa-book-open',type:ColdStorageBookConsole,restricted:true});
 }
-export function bookAPI(){return {importBook:importAdventureBook,openBook:()=>{gm();return new ColdStorageBookConsole().render({force:true});},revealBookEntry,changeBookCounter};}
+export function bookAPI(){return {importBook:importAdventureBook,openBook:()=>{gm();if(game.modules?.get(MOD)?.active){if(typeof game.coldStorage?.openBook==='function')return game.coldStorage.openBook();throw new Error('The separate Cold Storage module is active; open its Book Console from Module Settings.');}return new ColdStorageBookConsole().render({force:true});},revealBookEntry,changeBookCounter};}

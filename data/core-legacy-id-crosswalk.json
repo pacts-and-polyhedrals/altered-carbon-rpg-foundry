@@ -1,0 +1,767 @@
+{
+  "version": "2.4.0",
+  "source": "user-uploaded altered-carbon-ui-v1.4.3-bundle",
+  "count": 95,
+  "entries": [
+    {
+      "canonicalId": "WPN001",
+      "legacyId": "core.weapon.baton",
+      "name": "Baton",
+      "legacyName": "Baton",
+      "type": "weapon",
+      "corePage": 209
+    },
+    {
+      "canonicalId": "WPN002",
+      "legacyId": "core.weapon.blade",
+      "name": "Blade",
+      "legacyName": "Blade",
+      "type": "weapon",
+      "corePage": 210
+    },
+    {
+      "canonicalId": "WPN003",
+      "legacyId": "core.weapon.power-knuckles",
+      "name": "Power Knuckles",
+      "legacyName": "Power Knuckles",
+      "type": "weapon",
+      "corePage": 211
+    },
+    {
+      "canonicalId": "WPN004",
+      "legacyId": "core.weapon.bo-staff",
+      "name": "Bo Staff",
+      "legacyName": "Bo Staff",
+      "type": "weapon",
+      "corePage": 212
+    },
+    {
+      "canonicalId": "WPN005",
+      "legacyId": "core.weapon.sword",
+      "name": "Sword",
+      "legacyName": "Sword",
+      "type": "weapon",
+      "corePage": 212
+    },
+    {
+      "canonicalId": "WPN006",
+      "legacyId": "core.weapon.force-hammer",
+      "name": "Force Hammer",
+      "legacyName": "Force Hammer",
+      "type": "weapon",
+      "corePage": 213
+    },
+    {
+      "canonicalId": "WPN007",
+      "legacyId": "core.weapon.force-knuckles",
+      "name": "Force Knuckles",
+      "legacyName": "Force Knuckles",
+      "type": "weapon",
+      "corePage": 213
+    },
+    {
+      "canonicalId": "WPN008",
+      "legacyId": "core.weapon.bcpd-357",
+      "name": "BCPD Sidearm .357MAG",
+      "legacyName": "BCPD Sidearm .357MAG",
+      "type": "weapon",
+      "corePage": 214
+    },
+    {
+      "canonicalId": "WPN009",
+      "legacyId": "core.weapon.ctac-9mm",
+      "name": "CTAC 9mm Praetorian Sidearm",
+      "legacyName": "CTAC 9mm Praetorian Sidearm",
+      "type": "weapon",
+      "corePage": 215
+    },
+    {
+      "canonicalId": "WPN010",
+      "legacyId": "core.weapon.derringer",
+      "name": "Derringer",
+      "legacyName": "Derringer",
+      "type": "weapon",
+      "corePage": 216
+    },
+    {
+      "canonicalId": "WPN011",
+      "legacyId": "core.weapon.steyr-m9-a1",
+      "name": "Steyr M9-A1",
+      "legacyName": "Steyr M9-A1",
+      "type": "weapon",
+      "corePage": 216
+    },
+    {
+      "canonicalId": "WPN012",
+      "legacyId": "core.weapon.sunjet-v2",
+      "name": "Sunjet Version 2.0",
+      "legacyName": "Sunjet Version 2.0",
+      "type": "weapon",
+      "corePage": 217
+    },
+    {
+      "canonicalId": "WPN013",
+      "legacyId": "core.weapon.slugthrower",
+      "name": "Slugthrower",
+      "legacyName": "Slugthrowers",
+      "type": "weapon",
+      "corePage": 217
+    },
+    {
+      "canonicalId": "WPN014",
+      "legacyId": "core.weapon.tdi-vector",
+      "name": "TDI Vector",
+      "legacyName": "TDI Vector",
+      "type": "weapon",
+      "corePage": 218
+    },
+    {
+      "canonicalId": "WPN015",
+      "legacyId": "core.weapon.ctac-shocktrooper-ak",
+      "name": "CTAC Shocktrooper AK (AKS-74U)",
+      "legacyName": "CTAC Shocktrooper AK (AKS-74U)",
+      "type": "weapon",
+      "corePage": 220
+    },
+    {
+      "canonicalId": "WPN016",
+      "legacyId": "core.weapon.frag-rifle",
+      "name": "Frag Rifle",
+      "legacyName": "Frag Rifle",
+      "type": "weapon",
+      "corePage": 221
+    },
+    {
+      "canonicalId": "WPN017",
+      "legacyId": "core.weapon.utas-uts15",
+      "name": "UTAS UTS-15 Shotgun",
+      "legacyName": "UTAS UTS-15 Shotgun",
+      "type": "weapon",
+      "corePage": 222
+    },
+    {
+      "canonicalId": "WPN018",
+      "legacyId": "core.weapon.beam-rifle",
+      "name": "Beam Rifle",
+      "legacyName": "Beam Rifle",
+      "type": "weapon",
+      "corePage": 224
+    },
+    {
+      "canonicalId": "WPN019",
+      "legacyId": "core.weapon.ctac-praetorian-railgun",
+      "name": "CTAC Praetorian Railgun",
+      "legacyName": "CTAC Praetorian Railgun",
+      "type": "weapon",
+      "corePage": 225
+    },
+    {
+      "canonicalId": "WPN020",
+      "legacyId": "core.weapon.particle-blaster",
+      "name": "Particle Blaster",
+      "legacyName": "Particle Blaster",
+      "type": "weapon",
+      "corePage": 226
+    },
+    {
+      "canonicalId": "WPN021",
+      "legacyId": "core.weapon.sunjet-snipe-mkxi",
+      "name": "Sunjet Snipe MKXI",
+      "legacyName": "Sunjet Snipe MKXI",
+      "type": "weapon",
+      "corePage": 226
+    },
+    {
+      "canonicalId": "WPN022",
+      "legacyId": "core.weapon.ingram40",
+      "name": "Ingram-40 Flechette Pistol",
+      "legacyName": "Ingram-40 Flechette Pistol",
+      "type": "weapon",
+      "corePage": 227
+    },
+    {
+      "canonicalId": "WPN023",
+      "legacyId": "core.weapon.nemex",
+      "name": "Nemesis X (NEMEX)",
+      "legacyName": "Nemesis X (NEMEX)",
+      "type": "weapon",
+      "corePage": 227
+    },
+    {
+      "canonicalId": "WPN024",
+      "legacyId": "core.weapon.shard-pistol",
+      "name": "Shard Pistol",
+      "legacyName": "Shard Pistol",
+      "type": "weapon",
+      "corePage": 228
+    },
+    {
+      "canonicalId": "WPN025",
+      "legacyId": "core.weapon.termite-grenade",
+      "name": "Termite Grenades",
+      "legacyName": "Termite Grenades",
+      "type": "weapon",
+      "corePage": 229
+    },
+    {
+      "canonicalId": "WPN026",
+      "legacyId": "core.weapon.stun-grenade",
+      "name": "Stun Grenade",
+      "legacyName": "Stun Grenade",
+      "type": "weapon",
+      "corePage": 230
+    },
+    {
+      "canonicalId": "WPN027",
+      "legacyId": "core.weapon.frag-grenade",
+      "name": "Frag Grenade",
+      "legacyName": "Frag Grenade",
+      "type": "weapon",
+      "corePage": 230
+    },
+    {
+      "canonicalId": "WPN028",
+      "legacyId": "core.weapon.hallucinogen-grenade",
+      "name": "Hallucinogen Grenade",
+      "legacyName": "Hallucinogen Grenade",
+      "type": "weapon",
+      "corePage": 231
+    },
+    {
+      "canonicalId": "WPN029",
+      "legacyId": "core.weapon.grenade-dispenser",
+      "name": "Grenade Dispenser Clip",
+      "legacyName": "Grenade Dispenser Clip",
+      "type": "weapon",
+      "corePage": 232
+    },
+    {
+      "canonicalId": "WPN030",
+      "legacyId": "core.weapon.throwing-blades",
+      "name": "Throwing Blades",
+      "legacyName": "Throwing Blades",
+      "type": "weapon",
+      "corePage": 233
+    },
+    {
+      "canonicalId": "AMM001",
+      "legacyId": "core.ammo.armor-penetrating",
+      "name": "Armor Penetrating Rounds",
+      "legacyName": "Armor Penetrating Rounds",
+      "type": "ammunition",
+      "corePage": 215
+    },
+    {
+      "canonicalId": "AMM002",
+      "legacyId": "core.ammo.emp-rounds",
+      "name": "EMP Rounds",
+      "legacyName": "EMP Rounds",
+      "type": "ammunition",
+      "corePage": 215
+    },
+    {
+      "canonicalId": "AMM003",
+      "legacyId": "core.ammo.plasma-rounds",
+      "name": "Plasma Rounds",
+      "legacyName": "Plasma Rounds",
+      "type": "ammunition",
+      "corePage": 215
+    },
+    {
+      "canonicalId": "AMM004",
+      "legacyId": "core.ammo.reaper",
+      "name": "Reaper Ammunition",
+      "legacyName": "Reaper Ammunition",
+      "type": "ammunition",
+      "corePage": 215
+    },
+    {
+      "canonicalId": "AMM005",
+      "legacyId": "core.ammo.hollow-points",
+      "name": "Hollow-points",
+      "legacyName": "Hollow-points",
+      "type": "ammunition",
+      "corePage": 215
+    },
+    {
+      "canonicalId": "AMM006",
+      "legacyId": "core.ammo.shotgun-breaching",
+      "name": "Breaching Shells",
+      "legacyName": "Breaching Shells",
+      "type": "ammunition",
+      "corePage": 222
+    },
+    {
+      "canonicalId": "AMM007",
+      "legacyId": "core.ammo.shotgun-buckshot",
+      "name": "Buckshot",
+      "legacyName": "Buckshot",
+      "type": "ammunition",
+      "corePage": 223
+    },
+    {
+      "canonicalId": "AMM008",
+      "legacyId": "core.ammo.shotgun-emp",
+      "name": "EMP Shells",
+      "legacyName": "EMP Shells",
+      "type": "ammunition",
+      "corePage": 223
+    },
+    {
+      "canonicalId": "AMM009",
+      "legacyId": "core.ammo.shotgun-frag",
+      "name": "Frag Shells",
+      "legacyName": "Frag Shells",
+      "type": "ammunition",
+      "corePage": 223
+    },
+    {
+      "canonicalId": "AMM010",
+      "legacyId": "core.ammo.shotgun-plasma",
+      "name": "Plasma Shells",
+      "legacyName": "Plasma Shells",
+      "type": "ammunition",
+      "corePage": 223
+    },
+    {
+      "canonicalId": "AMM011",
+      "legacyId": "core.ammo.shotgun-solid-slug",
+      "name": "Solid Slug",
+      "legacyName": "Solid Slug",
+      "type": "ammunition",
+      "corePage": 223
+    },
+    {
+      "canonicalId": "AMM012",
+      "legacyId": "core.ammo.shotgun-stunbolt",
+      "name": "Stunbolt Slug",
+      "legacyName": "Stunbolt Slug",
+      "type": "ammunition",
+      "corePage": 223
+    },
+    {
+      "canonicalId": "AMM013",
+      "legacyId": "core.ammo.shotgun-tungsten",
+      "name": "Tungsten Shells",
+      "legacyName": "Tungsten Shells",
+      "type": "ammunition",
+      "corePage": 223
+    },
+    {
+      "canonicalId": "APP001",
+      "legacyId": "core.armour.belt",
+      "name": "Belt",
+      "legacyName": "Belt",
+      "type": "armour",
+      "corePage": 234
+    },
+    {
+      "canonicalId": "APP002",
+      "legacyId": "core.armour.clothes",
+      "name": "Clothes",
+      "legacyName": "Clothes",
+      "type": "armour",
+      "corePage": 234
+    },
+    {
+      "canonicalId": "APP003",
+      "legacyId": "core.armour.body-plate",
+      "name": "Body Plate",
+      "legacyName": "Body Plate",
+      "type": "armour",
+      "corePage": 235
+    },
+    {
+      "canonicalId": "APP004",
+      "legacyId": "core.armour.combat-suit",
+      "name": "Combat Suit",
+      "legacyName": "Combat Suit",
+      "type": "armour",
+      "corePage": 235
+    },
+    {
+      "canonicalId": "APP005",
+      "legacyId": "core.armour.ctac-praetorian",
+      "name": "CTAC Praetorian Armor",
+      "legacyName": "CTAC Praetorian Armor",
+      "type": "armour",
+      "corePage": 237
+    },
+    {
+      "canonicalId": "APP006",
+      "legacyId": "core.armour.protectorate-marine",
+      "name": "Protectorate Marine Armor",
+      "legacyName": "Protectorate Marine Armor",
+      "type": "armour",
+      "corePage": 237
+    },
+    {
+      "canonicalId": "APP007",
+      "legacyId": "core.armour.flak-coat",
+      "name": "Flak Coat",
+      "legacyName": "Flak Coat",
+      "type": "armour",
+      "corePage": 238
+    },
+    {
+      "canonicalId": "APP008",
+      "legacyId": "core.armour.police-riot",
+      "name": "Police Riot Armor",
+      "legacyName": "Police Riot Armor",
+      "type": "armour",
+      "corePage": 238
+    },
+    {
+      "canonicalId": "EQP001",
+      "legacyId": "core.equipment.battery-pack",
+      "name": "Battery Pack",
+      "legacyName": "Battery Pack",
+      "type": "equipment",
+      "corePage": 239
+    },
+    {
+      "canonicalId": "EQP002",
+      "legacyId": "core.equipment.dew-power-cell",
+      "name": "Battery Pack, D.E. Weapon Power Cell",
+      "legacyName": "Battery Pack, D.E. Weapon Power Cell",
+      "type": "equipment",
+      "corePage": 239
+    },
+    {
+      "canonicalId": "EQP003",
+      "legacyId": "core.equipment.bio-welder",
+      "name": "Bio Welder",
+      "legacyName": "Bio Welder",
+      "type": "equipment",
+      "corePage": 240
+    },
+    {
+      "canonicalId": "EQP004",
+      "legacyId": "core.equipment.chassis-upgrade",
+      "name": "Chassis Upgrade",
+      "legacyName": "Chassis Upgrade",
+      "type": "equipment",
+      "corePage": 240
+    },
+    {
+      "canonicalId": "EQP005",
+      "legacyId": "core.equipment.data-storage",
+      "name": "Data Storage",
+      "legacyName": "Data Storage",
+      "type": "equipment",
+      "corePage": 240
+    },
+    {
+      "canonicalId": "EQP006",
+      "legacyId": "core.equipment.drone",
+      "name": "Drone",
+      "legacyName": "Drone",
+      "type": "equipment",
+      "corePage": 241
+    },
+    {
+      "canonicalId": "EQP007",
+      "legacyId": "core.equipment.grav-harness",
+      "name": "Grav-Harness",
+      "legacyName": "Grav-Harness",
+      "type": "equipment",
+      "corePage": 243
+    },
+    {
+      "canonicalId": "EQP008",
+      "legacyId": "core.equipment.surveillance-bug",
+      "name": "Surveillance Bug",
+      "legacyName": "Surveillance Bug",
+      "type": "equipment",
+      "corePage": 244
+    },
+    {
+      "canonicalId": "EQP009",
+      "legacyId": "core.equipment.tool-kit",
+      "name": "Tool Kit",
+      "legacyName": "Tool Kits",
+      "type": "equipment",
+      "corePage": 245
+    },
+    {
+      "canonicalId": "EQP010",
+      "legacyId": "core.equipment.upgrade-kit",
+      "name": "Upgrade Kit",
+      "legacyName": "Upgrade Kits",
+      "type": "equipment",
+      "corePage": 245
+    },
+    {
+      "canonicalId": "SW001",
+      "legacyId": "core.equipment.deck",
+      "name": "Deck",
+      "legacyName": "Deck",
+      "type": "equipment",
+      "corePage": 246
+    },
+    {
+      "canonicalId": "SW002",
+      "legacyId": "core.equipment.deck-portable",
+      "name": "Deck, Portable",
+      "legacyName": "Deck, Portable",
+      "type": "equipment",
+      "corePage": 247
+    },
+    {
+      "canonicalId": "SW003",
+      "legacyId": "core.software.intel-media",
+      "name": "Intel/Instructional Media",
+      "legacyName": "Intel/Instructional Media",
+      "type": "software",
+      "corePage": 248
+    },
+    {
+      "canonicalId": "SW004",
+      "legacyId": "core.software.interrogation-virus",
+      "name": "Interrogation/Virus",
+      "legacyName": "Interrogation/Virus",
+      "type": "software",
+      "corePage": 248
+    },
+    {
+      "canonicalId": "SW005",
+      "legacyId": "core.software.psychosurgery",
+      "name": "Psychosurgery",
+      "legacyName": "Psychosurgery",
+      "type": "software",
+      "corePage": 249
+    },
+    {
+      "canonicalId": "DRG001",
+      "legacyId": "core.drug.merge",
+      "name": "Merge (Empathin)",
+      "legacyName": "Merge (Empathin)",
+      "type": "drug",
+      "corePage": 251
+    },
+    {
+      "canonicalId": "DRG002",
+      "legacyId": "core.drug.reaper",
+      "name": "Reaper (Bethanatine)",
+      "legacyName": "Reaper (Bethanatine)",
+      "type": "drug",
+      "corePage": 252
+    },
+    {
+      "canonicalId": "DRG003",
+      "legacyId": "core.drug.lethinol",
+      "name": "Lethinol",
+      "legacyName": "Lethinol",
+      "type": "drug",
+      "corePage": 252
+    },
+    {
+      "canonicalId": "DRG004",
+      "legacyId": "core.drug.rapid-regrowth",
+      "name": "Rapid Regrowth Bios",
+      "legacyName": "Rapid Regrowth Bios",
+      "type": "drug",
+      "corePage": 252
+    },
+    {
+      "canonicalId": "DRG005",
+      "legacyId": "core.drug.soma",
+      "name": "Soma",
+      "legacyName": "Soma",
+      "type": "drug",
+      "corePage": 253
+    },
+    {
+      "canonicalId": "DRG006",
+      "legacyId": "core.drug.stallion",
+      "name": "Stallion (Synamorphestrone)",
+      "legacyName": "Stallion (Synamorphestrone)",
+      "type": "drug",
+      "corePage": 253
+    },
+    {
+      "canonicalId": "DRG007",
+      "legacyId": "core.drug.tetrameth",
+      "name": "Tetrameth",
+      "legacyName": "Tetrameth",
+      "type": "drug",
+      "corePage": 253
+    },
+    {
+      "canonicalId": "AUG001",
+      "legacyId": "core.augment.optic",
+      "name": "Optic Augment",
+      "legacyName": "Optic Augment",
+      "type": "augmentation",
+      "corePage": 262
+    },
+    {
+      "canonicalId": "AUG002",
+      "legacyId": "core.augment.carbon-fiber-skeleton",
+      "name": "Carbon Fiber Skeletal Structure",
+      "legacyName": "Carbon Fiber Skeletal Structure",
+      "type": "augmentation",
+      "corePage": 262
+    },
+    {
+      "canonicalId": "AUG003",
+      "legacyId": "core.augment.cybernetic-limb",
+      "name": "Cybernetic Limb",
+      "legacyName": "Cybernetic Limb",
+      "type": "augmentation",
+      "corePage": 262
+    },
+    {
+      "canonicalId": "AUG004",
+      "legacyId": "core.augment.biojack",
+      "name": "Biojack",
+      "legacyName": "Biojack",
+      "type": "augmentation",
+      "corePage": 262
+    },
+    {
+      "canonicalId": "AUG005",
+      "legacyId": "core.augment.bestial-dermis",
+      "name": "Bestial Dermis",
+      "legacyName": "Bestial Dermis",
+      "type": "augmentation",
+      "corePage": 263
+    },
+    {
+      "canonicalId": "AUG006",
+      "legacyId": "core.augment.bestial-appendage",
+      "name": "Bestial Appendage",
+      "legacyName": "Bestial Appendage",
+      "type": "augmentation",
+      "corePage": 264
+    },
+    {
+      "canonicalId": "AUG007",
+      "legacyId": "core.augment.bestial-upgrade",
+      "name": "Bestial Upgrade",
+      "legacyName": "Bestial Upgrade",
+      "type": "augmentation",
+      "corePage": 264
+    },
+    {
+      "canonicalId": "AUG008",
+      "legacyId": "core.augment.concealment",
+      "name": "Concealment",
+      "legacyName": "Concealment",
+      "type": "augmentation",
+      "corePage": 264
+    },
+    {
+      "canonicalId": "AUG009",
+      "legacyId": "core.augment.data-coil",
+      "name": "Data Coil",
+      "legacyName": "Data Coil",
+      "type": "augmentation",
+      "corePage": 264
+    },
+    {
+      "canonicalId": "AUG010",
+      "legacyId": "core.augment.n-wire",
+      "name": "N-Wire",
+      "legacyName": "N-Wire",
+      "type": "augmentation",
+      "corePage": 264
+    },
+    {
+      "canonicalId": "AUG011",
+      "legacyId": "core.augment.oni-implant",
+      "name": "ONI Implant",
+      "legacyName": "ONI Implant",
+      "type": "augmentation",
+      "corePage": 264
+    },
+    {
+      "canonicalId": "AUG012",
+      "legacyId": "core.augment.polymorph",
+      "name": "Polymorph",
+      "legacyName": "Polymorph",
+      "type": "augmentation",
+      "corePage": 265
+    },
+    {
+      "canonicalId": "AUG013",
+      "legacyId": "core.augment.polymorph-lesser",
+      "name": "Polymorph, Lesser",
+      "legacyName": "Polymorph, Lesser",
+      "type": "augmentation",
+      "corePage": 265
+    },
+    {
+      "canonicalId": "AUG014",
+      "legacyId": "core.augment.polymorph-advanced",
+      "name": "Polymorph, Advanced",
+      "legacyName": "Polymorph, Advanced",
+      "type": "augmentation",
+      "corePage": 266
+    },
+    {
+      "canonicalId": "AUG015",
+      "legacyId": "core.augment.subdermal-plating",
+      "name": "Subdermal Plating",
+      "legacyName": "Subdermal Plating",
+      "type": "augmentation",
+      "corePage": 266
+    },
+    {
+      "canonicalId": "AUG016",
+      "legacyId": "core.augment.cognition-neurachem",
+      "name": "Cognition Neurachem",
+      "legacyName": "Cognition Neurachem",
+      "type": "augmentation",
+      "corePage": 267
+    },
+    {
+      "canonicalId": "AUG017",
+      "legacyId": "core.augment.combat-neurachem",
+      "name": "Combat Neurachem",
+      "legacyName": "Combat Neurachem",
+      "type": "augmentation",
+      "corePage": 267
+    },
+    {
+      "canonicalId": "AUG018",
+      "legacyId": "core.augment.congenial-neurachem",
+      "name": "Congenial Neurachem",
+      "legacyName": "Congenial Neurachem",
+      "type": "augmentation",
+      "corePage": 267
+    },
+    {
+      "canonicalId": "AUG019",
+      "legacyId": "core.augment.metabolic-enhancer",
+      "name": "Metabolic Enhancer",
+      "legacyName": "Metabolic Enhancer",
+      "type": "augmentation",
+      "corePage": 267
+    },
+    {
+      "canonicalId": "AUG020",
+      "legacyId": "core.augment.military-neurachem",
+      "name": "Military Neurachem",
+      "legacyName": "Military Neurachem",
+      "type": "augmentation",
+      "corePage": 267
+    },
+    {
+      "canonicalId": "AUG021",
+      "legacyId": "core.augment.reflex-neurachem",
+      "name": "Reflex Neurachem",
+      "legacyName": "Reflex Neurachem",
+      "type": "augmentation",
+      "corePage": 267
+    },
+    {
+      "canonicalId": "AUG022",
+      "legacyId": "core.augment.speed-neurachem",
+      "name": "Speed Neurachem",
+      "legacyName": "Speed Neurachem",
+      "type": "augmentation",
+      "corePage": 267
+    }
+  ]
+}

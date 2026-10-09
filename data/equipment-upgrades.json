@@ -1,0 +1,102 @@
+{
+  "source": "Core Rulebook 2020 pp.206–207",
+  "count": 12,
+  "upgrades": [
+    {
+      "id": "UPG001",
+      "name": "Composite Construction",
+      "techCost": 1,
+      "category": "Generic Weapon",
+      "bookPage": 206,
+      "effect": "Increase Durability by 10 or set it to 20; an additional Tech Point can make the weapon non-metal-detectable subject to ammunition."
+    },
+    {
+      "id": "UPG002",
+      "name": "Enhanced Power Cell",
+      "techCost": 1,
+      "category": "Generic Weapon",
+      "bookPage": 206,
+      "effect": "Any Powered device can increase Capacity by 5."
+    },
+    {
+      "id": "UPG003",
+      "name": "Extended Barrel",
+      "techCost": 1,
+      "category": "Generic Weapon",
+      "bookPage": 206,
+      "effect": "Firearms +1 against Adjacent targets, with Firearms -1 in Shared Zone."
+    },
+    {
+      "id": "UPG004",
+      "name": "Extended Magazine",
+      "techCost": 1,
+      "category": "Generic Weapon",
+      "bookPage": 206,
+      "effect": "Increase solid-ammunition Capacity; very large magazines can remove Defensive/Concealment."
+    },
+    {
+      "id": "UPG005",
+      "name": "Genemapped Security",
+      "techCost": 1,
+      "category": "Generic Weapon",
+      "bookPage": 206,
+      "effect": "Powered functions/Use restricted to the mapped user. Hardwired."
+    },
+    {
+      "id": "UPG006",
+      "name": "Mag-Plating",
+      "techCost": 1,
+      "category": "Generic Weapon",
+      "bookPage": 206,
+      "effect": "Linked one-handed/pistol weapon can be recalled to the user with the published procedure."
+    },
+    {
+      "id": "UPG007",
+      "name": "Magazine",
+      "techCost": 1,
+      "category": "Generic Weapon",
+      "bookPage": 206,
+      "effect": "Attachment that supplies the weapon Capacity and grants Reload; spare magazines occupy cargo space."
+    },
+    {
+      "id": "UPG008",
+      "name": "Scope",
+      "techCost": 1,
+      "category": "Generic Weapon",
+      "bookPage": 207,
+      "effect": "Aim while Deployed grants Firearms +1 against Shared Zone targets."
+    },
+    {
+      "id": "UPG009",
+      "name": "Scope, Longshot",
+      "techCost": 1,
+      "category": "Generic Weapon",
+      "bookPage": 207,
+      "effect": "Aim while Deployed grants Firearms +1 against Adjacent targets and ignores one Distant Zone for Difficulty."
+    },
+    {
+      "id": "UPG010",
+      "name": "Scope, Sniper",
+      "techCost": 1,
+      "category": "Generic Weapon",
+      "bookPage": 207,
+      "effect": "Long-range Aim/Rangefinder package; Linked optics improve bonuses and ignored Distant Zones."
+    },
+    {
+      "id": "UPG011",
+      "name": "Sight, Laser",
+      "techCost": 1,
+      "category": "Generic Weapon",
+      "bookPage": 207,
+      "effect": "Powered Gear Bonus +1 to relevant Pistol/Small Arms Firearms checks in Shared Zone."
+    },
+    {
+      "id": "UPG012",
+      "name": "Stock, Folding",
+      "techCost": 1,
+      "category": "Generic Weapon",
+      "bookPage": 207,
+      "effect": "Deployed Small Arms gain the published Firearms bonus, increase size, and require both hands."
+    }
+  ]
+}

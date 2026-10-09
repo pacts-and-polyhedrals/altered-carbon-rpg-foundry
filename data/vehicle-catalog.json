@@ -1,0 +1,102 @@
+{
+  "source": "Core Rulebook 2020 pp.257–259",
+  "count": 3,
+  "vehicles": [
+    {
+      "id": "VEH001",
+      "name": "Airbike",
+      "type": "vehicle",
+      "bookPage": 257,
+      "system": {
+        "vehicle": {
+          "size": 1,
+          "durability": 10,
+          "structure": {
+            "value": 2,
+            "max": 2
+          },
+          "velocity": "100 ft or 45 degrees",
+          "speedDice": 3,
+          "fuel": {
+            "value": 5,
+            "max": 5
+          },
+          "crewSkeleton": 1,
+          "crewStandard": 1,
+          "crewFull": 1,
+          "handling": 3,
+          "fireControl": 0,
+          "travel": "city",
+          "cargo": 2,
+          "passengers": 1,
+          "systems": "Anti-Grav; configurable Sidecar / Stripped Down upgrades."
+        },
+        "biography": "Official example anti-grav personal vehicle. Pilot — Airbike (-4)."
+      }
+    },
+    {
+      "id": "VEH002",
+      "name": "Aircar",
+      "type": "vehicle",
+      "bookPage": 258,
+      "system": {
+        "vehicle": {
+          "size": 2,
+          "durability": 20,
+          "structure": {
+            "value": 3,
+            "max": 3
+          },
+          "velocity": "100 ft or 30 degrees",
+          "speedDice": 3,
+          "fuel": {
+            "value": 10,
+            "max": 10
+          },
+          "crewSkeleton": 1,
+          "crewStandard": 1,
+          "crewFull": 1,
+          "handling": 2,
+          "fireControl": 0,
+          "travel": "region",
+          "cargo": 4,
+          "passengers": 4,
+          "systems": "Anti-Grav; Advanced Traffic Guidance / Autopilot / Reinforced Hull options."
+        },
+        "biography": "Official example personal anti-grav vehicle. Pilot — Aircar (-3)."
+      }
+    },
+    {
+      "id": "VEH003",
+      "name": "Ground Car",
+      "type": "vehicle",
+      "bookPage": 259,
+      "system": {
+        "vehicle": {
+          "size": 2,
+          "durability": 30,
+          "structure": {
+            "value": 4,
+            "max": 4
+          },
+          "velocity": "50 ft or 45 degrees",
+          "speedDice": 3,
+          "fuel": {
+            "value": 10,
+            "max": 10
+          },
+          "crewSkeleton": 1,
+          "crewStandard": 1,
+          "crewFull": 1,
+          "handling": 2,
+          "fireControl": 0,
+          "travel": "city",
+          "cargo": 5,
+          "passengers": 5,
+          "systems": "Hauler / Shuttle / Off-road / Reinforced Hull options."
+        },
+        "biography": "Official example ground vehicle. Pilot — Automobile (-2), +1 Bonus Die."
+      }
+    }
+  ]
+}
