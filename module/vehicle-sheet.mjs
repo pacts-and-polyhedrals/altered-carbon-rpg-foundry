@@ -1,16 +1,21 @@
 import {resourceAdjustment,parseCrew,crewProfile,validateCrewAssignment,CREW_ROLES} from './vehicle-operations.mjs';
 import {rollSkill} from './rolls.mjs';
+import {seatLayout,vehicleFootprint,openSeatPicker,exitVehicle,openVehicleControl} from './vehicle-boarding.mjs';
 const {api,sheets}=foundry.applications;
 const esc=value=>foundry.utils.escapeHTML(String(value??''));
 export class ACVehicleSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV2){
- static DEFAULT_OPTIONS={classes:['altered-carbon','vehicle-sheet','actor-sheet'],position:{width:1000,height:780},form:{closeOnSubmit:false,submitOnChange:true},actions:{toggleVehicleEdit:this._toggleEdit,adjustStructure:this._adjustStructure,adjustFuel:this._adjustFuel,assignCrew:this._assignCrew,pilotCheck:this._pilotCheck,openItem:this._openItem,openCombatConsole:this._openCombatConsole}};
+ static DEFAULT_OPTIONS={classes:['altered-carbon','vehicle-sheet','actor-sheet'],position:{width:1000,height:780},form:{closeOnSubmit:false,submitOnChange:true},actions:{toggleVehicleEdit:this._toggleEdit,adjustStructure:this._adjustStructure,adjustFuel:this._adjustFuel,assignCrew:this._assignCrew,pilotCheck:this._pilotCheck,openItem:this._openItem,openCombatConsole:this._openCombatConsole,seatBoard:this._seatBoard,seatExit:this._seatExit,vehicleControl:this._vehicleControl}};
  static PARTS={main:{template:'systems/altered-carbon-rpg/templates/vehicle-sheet.hbs'}};
  _editMode=false;
  get canEdit(){return Boolean(game.user?.isGM||this.actor?.isOwner);}
  async _prepareContext(opts){const ctx=await super._prepareContext(opts),actor=this.actor,v=actor.system.vehicle;
   const crew=crewProfile(v,v.crewAssignments),actors=(game.actors?.contents||[]),roster=crew.assigned.map(entry=>({...entry,name:actors.find(a=>a.id===entry.actorId)?.name||'[Actor missing]'}));
   const items=(actor.items?.contents||[]).map(i=>({id:i.id,name:i.name,type:i.type,capacity:i.system.capacity,depletion:i.system.depletion}));
-  return {...ctx,actor,v,canEdit:this.canEdit,editMode:this._editMode,crew,roster,items,hasItems:items.length>0,structurePct:v.structure.max?100*v.structure.value/v.structure.max:0,fuelPct:v.fuel.max?100*v.fuel.value/v.fuel.max:0};
+  const vt=this.vehicleToken(),occRaw=vt?.getFlag?.('altered-carbon-rpg','vehicleOccupants'),occ={};if(Array.isArray(occRaw))for(const o of occRaw)occ[o.seatId]=o;
+  const myIds=new Set((canvas?.tokens?.controlled||[]).map(t=>t.id));
+  const seats=seatLayout(actor).map(s=>{const o=occ[s.id],t=o?vt?.parent?.tokens?.get(o.tokenId):null;return {...s,occupant:o?.name||'',canExit:Boolean(t&&(game.user.isGM||t.actor?.isOwner))};});
+  const footprint=vehicleFootprint(v.size),controlLabel={driver:'Driver seat player',ai:`Vehicle AI${v.aiPilot?` (${v.aiPilot})`:''}`,both:'Driver and vehicle AI'}[v.control||'driver'];
+  return {...ctx,seats,onScene:Boolean(vt),hasSelection:myIds.size>0,footprint,controlLabel,isGM:game.user.isGM,actor,v,canEdit:this.canEdit,editMode:this._editMode,crew,roster,items,hasItems:items.length>0,structurePct:v.structure.max?100*v.structure.value/v.structure.max:0,fuelPct:v.fuel.max?100*v.fuel.value/v.fuel.max:0};
  }
  async _onRender(ctx,opts){await super._onRender(ctx,opts);const editable=this._editMode&&this.canEdit;
   this.element?.querySelectorAll('input[name],textarea[name],select[name]').forEach(el=>{el.disabled=!editable;});
@@ -41,6 +46,13 @@ export class ACVehicleSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
   const difficulty=Number(form instanceof FormData?form.get('difficulty'):form?.difficulty);if(!Number.isSafeInteger(difficulty)||Math.abs(difficulty)>30)return ui.notifications.error('Difficulty must be a whole number between -30 and 30.');
   try{await rollSkill(pilot,skill,{difficulty,contextLabel:`Pilot — ${this.actor.name}`,chat:true});}catch(error){ui.notifications.error(error.message);}
  }
+ vehicleToken(){return this.token??this.actor.getActiveTokens?.(false,true)?.[0]??canvas?.tokens?.placeables?.find(p=>p.actor?.id===this.actor.id)?.document??null;}
+ static async _seatBoard(event,target){const vt=this.vehicleToken();if(!vt)return ui.notifications.warn('Place this vehicle on the scene first.');
+  const mine=(canvas?.tokens?.controlled||[]).map(t=>t.document).filter(t=>t.actor?.type!=='vehicle');if(!mine.length)return ui.notifications.info('Select your character token on the scene, then press Get in.');
+  await openSeatPicker(vt,mine[0]);this.render({force:true});}
+ static async _seatExit(event,target){const vt=this.vehicleToken();const raw=vt?.getFlag?.('altered-carbon-rpg','vehicleOccupants')||[];const o=raw.find?.(x=>x.seatId===target.dataset.seatId);const t=o?vt.parent.tokens.get(o.tokenId):null;
+  if(!t)return;try{await exitVehicle(t);}catch(e){ui.notifications.warn(e.message);}setTimeout(()=>this.render({force:true}),250);}
+ static async _vehicleControl(){const vt=this.vehicleToken();if(!vt)return ui.notifications.warn('Place this vehicle on the scene first.');await openVehicleControl(vt);this.render({force:true});}
  static async _openItem(event,target){this.actor.items.get(target.dataset.itemId)?.sheet?.render({force:true});}
  static _openCombatConsole(){game.alteredCarbon?.openCombatConsole?.();}
 }

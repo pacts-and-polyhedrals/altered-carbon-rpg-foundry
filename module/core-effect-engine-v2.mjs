@@ -7,6 +7,7 @@ export function equipmentTags(item){
  const s=item.system||{},type=item.type;
  const fields=[item.name,s.specialisation,s.skill,s.damageType,s.specialRules,s.category].map(slug).join(' ');
  const out=new Set([type]);
+ if(item.name)out.add(`item-${slug(item.name)}`);
  if(type==='weapon'){
   out.add('weapon');
   if(/pistol|small-arms|sidearm|revolver/.test(fields))out.add('small-arms');

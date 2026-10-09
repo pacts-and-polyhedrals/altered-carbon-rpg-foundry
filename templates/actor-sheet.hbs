@@ -180,7 +180,7 @@
 
     {{#if isSkills}}
     <section class="ac-page">
-      <div class="ac-page-title"><div><span class="ac-kicker">03 // CAPABILITY MATRIX</span><h1>Skills</h1></div><p>Skill Level sets the die size. Click any Skill to inspect its complete record; Roll and Opposed are operational actions, while editing only appears in Edit Mode.</p></div>
+      <div class="ac-page-title"><div><span class="ac-kicker">03 // CAPABILITY MATRIX</span><h1>Skills</h1></div><p>Skill Level sets the die size. Roll rolls the Skill. The arrow opens its full rules; Opposed Roll and editing are inside.</p></div>
       <div class="ac-skill-groups">
         {{#each skillGroups}}
         <article class="ac-panel ac-skill-panel">
@@ -188,12 +188,12 @@
           <div class="ac-record-list compact">
             {{#each items}}
             <details class="ac-disclosure-record ac-skill-record" data-item-id="{{id}}">
-              <summary><span class="ac-data-icon"><i class="fa-solid fa-wave-square"></i></span><div><strong class="ac-record-name">{{name}}</strong><small>Level {{system.level}} · d{{skillDieSides}} · Training +{{system.trainingBonus}}</small></div><span class="ac-open-label">Open</span><i class="fa-solid fa-chevron-down ac-disclosure-chevron"></i></summary>
+              <summary><span class="ac-data-icon"><i class="fa-solid fa-wave-square"></i></span><div><strong class="ac-record-name">{{name}}</strong><small>Level {{system.level}} · d{{skillDieSides}} · Training +{{system.trainingBonus}}</small></div><button type="button" class="ac-skill-roll" data-action="rollSkill" data-item-id="{{id}}" title="Roll {{name}}"><i class="fa-solid fa-dice-d20"></i> Roll</button><button type="button" class="ac-disclosure-toggle" data-ac-toggle aria-expanded="false" aria-label="Show rules for {{name}}" title="Show / hide rules"><i class="fa-solid fa-chevron-down ac-disclosure-chevron"></i></button></summary>
               <div class="ac-record-detail">
                 {{#if system.description}}<div class="ac-record-description">{{{system.description}}}</div>{{/if}}
                 <div class="ac-record-facts four"><div><span>Primary Attribute</span><strong>{{system.attribute}}</strong></div><div><span>Level</span><strong>{{system.level}}</strong></div><div><span>Skill Die</span><strong>d{{skillDieSides}}</strong></div><div><span>Training</span><strong>+{{system.trainingBonus}}</strong></div></div>
                 {{#if system.specialisations}}<div class="ac-record-block"><span>Specialisations</span><div>{{system.specialisations}}</div></div>{{/if}}
-                {{#if system.rulesText}}<div class="ac-record-block"><span>Rules</span><div>{{{system.rulesText}}}</div></div>{{/if}}
+                {{#if rulesHtml}}<div class="ac-record-block ac-rules-block"><span>Rules</span><div>{{{rulesHtml}}}</div></div>{{/if}}
                 <div class="ac-record-actions"><button type="button" data-action="rollSkill" data-item-id="{{id}}"><i class="fa-solid fa-dice-d20"></i> Roll Skill</button><button type="button" data-action="opposedRoll" data-item-id="{{id}}"><i class="fa-solid fa-scale-balanced"></i> Opposed Roll</button></div>
                 <div class="ac-edit-only-actions"><button type="button" data-action="editItem" data-item-id="{{id}}"><i class="fa-solid fa-pen"></i> Edit Skill</button></div>
               </div>

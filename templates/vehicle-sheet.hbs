@@ -29,6 +29,13 @@
       <label class="span-two">Vehicle systems <textarea name="system.vehicle.systems" rows="3">{{v.systems}}</textarea></label>
      </div>
    </section>
+   <section class="ac-panel ac-vehicle-seats" aria-labelledby="ac-vehicle-seats">
+    <div class="ac-vehicle-header"><div><h2 id="ac-vehicle-seats">Seats</h2><p>Token footprint {{footprint.width}}×{{footprint.height}} squares (Size {{v.size}}). Driving: <b>{{controlLabel}}</b>.</p></div>
+     <div class="ac-vehicle-seat-actions">{{#if onScene}}<button type="button" data-action="seatBoard"{{#unless hasSelection}} title="Select your token on the scene first"{{/unless}}><i class="fa-solid fa-car-side"></i> Get in</button>{{#if isGM}}<button type="button" data-action="vehicleControl"><i class="fa-solid fa-users-gear"></i> Seats &amp; control</button>{{/if}}{{/if}}</div></div>
+    {{#unless onScene}}<p class="ac-help-line">Place this vehicle on a scene to let characters get in. On the scene, use the token HUD (right-click a token): <b>Get in a vehicle</b>, <b>Change seat</b>, <b>Get out</b>.</p>{{/unless}}
+    <ul class="ac-vehicle-roster">{{#each seats}}<li><span><b>{{label}}</b> <small>{{role}}</small></span><span>{{#if occupant}}{{occupant}}{{#if canExit}} <button type="button" data-action="seatExit" data-seat-id="{{id}}">Get out</button>{{/if}}{{else}}<em class="ac-muted">free</em>{{/if}}</span></li>{{/each}}</ul>
+    <p class="ac-help-line">Seated tokens shrink into their seat and move, turn and change elevation with the vehicle. The Driver's player can move the vehicle token while seated, unless the vehicle is set to AI control.</p>
+   </section>
    <section class="ac-panel" aria-labelledby="ac-vehicle-crew"><div class="ac-vehicle-header"><div><h2 id="ac-vehicle-crew">Crew and stations</h2><p>{{crew.crewCount}} crew assigned (minimum {{crew.required}}, normal {{crew.standard}}, maximum {{crew.full}}) · {{crew.passengerCount}} / {{crew.passengerLimit}} passengers</p></div>{{#if canEdit}}<button type="button" data-action="assignCrew">Manage Crew</button>{{/if}}</div>
     {{#if crew.shortCrew}}<p class="ac-warning-text" role="status">Below minimum crew.</p>{{/if}}
     {{#unless crew.hasPilot}}<p class="ac-warning-text" role="status">No pilot assigned.</p>{{/unless}}

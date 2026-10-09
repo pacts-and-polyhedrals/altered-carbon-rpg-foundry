@@ -9,6 +9,23 @@ const escapeHTML=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<
 const inventory=actor=>actor?.items?.contents||[...(actor?.items||[])];
 const clampText=(s,max=800)=>String(s||'').slice(0,max);
 const needsReview=record=>record?.needsReview===true;
+const ROLL_EVENTS=new Set(['check','attack','defense']);
+// Gear/context words in a Trait's text and the roll item tags they need.
+const CONTEXTS=[[/\bdecks?\b/i,/deck/],[/\boni\b/i,/oni/],[/polymorph/i,/polymorph/],[/directed energy/i,/directed-energy/],[/grenade|blast/i,/grenade|blast|thrown|explosive/],[/rail weapon/i,/rail/],[/battle armou?r/i,/battle-armou?r/],[/medical gear|bio ?welder/i,/medical|bio-welder/]];
+function contextMatches(ref,tags){
+  const hay=[...tags].join(' ');
+  const wanted=CONTEXTS.filter(([inText])=>inText.test(ref.guidance||''));
+  return wanted.length>0&&wanted.some(([,inTags])=>inTags.test(hay));
+}
+function rollPromptMode(){try{return game.settings.get(NS,'traitRollPrompts');}catch(_e){return 'relevant';}}
+const SUPPRESS_FLAG='suppressedTraitReviews';
+function suppressed(actor){try{return new Set(actor?.getFlag?.(NS,SUPPRESS_FLAG)||[]);}catch(_e){return new Set();}}
+export async function setTraitReviewSuppressed(actor,ids,suppress=true){
+  const set=suppressed(actor);for(const id of ids)suppress?set.add(id):set.delete(id);
+  return actor.setFlag(NS,SUPPRESS_FLAG,[...set]);
+}
+const AUTO_LABELS={'check.training':'Training bonus','check.difficulty':'Difficulty change','check.gear':'Gear bonus','check.extraBonusDice':'Bonus Dice','damage.bonus':'Damage bonus','request.modifier':'Request modifier','request.levelDelta':'Request Level change','medical.woundsPerDegree':'extra Wounds healed'};
+const autoText=keys=>keys.map(k=>AUTO_LABELS[k]||k).join(', ');
 
 export function ownedAdjudications(actor,{event='manual',skill='',itemTags=[],full=false,traitId=null}={}){
  const normalizedSkill=slug(skill),wanted=slug(traitId),tags=new Set((itemTags||[]).map(slug));
@@ -24,9 +41,13 @@ export function ownedAdjudications(actor,{event='manual',skill='',itemTags=[],fu
   unique.add(id);
   if(!needsReview(ref))continue;
   if(!full){
+    if(suppressed(actor).has(id))continue;
     const events=ref.events||[];
     if(!events.includes(event)&&!(event==='attack'&&events.includes('check'))&&!(event==='defense'&&events.includes('check')))continue;
     if(['check','attack','defense','treatment'].includes(event)&&ref.skills?.length&&normalizedSkill&&!ref.skills.includes(normalizedSkill))continue;
+    // Traits tied to no Skill (e.g. "when using Decks") only matter on a roll that uses that kind of gear.
+    if(ROLL_EVENTS.has(event)&&!ref.skills?.length&&!contextMatches(ref,tags))continue;
+    if(ROLL_EVENTS.has(event)&&ref.automaticKeys?.length&&rollPromptMode()==='unautomated')continue;
     if(event==='attack'){
       const branch=slug(ref.branch||'');
       if(branch.includes('small-arms')&&!tags.has('small-arms'))continue;
@@ -42,20 +63,21 @@ export function ownedAdjudications(actor,{event='manual',skill='',itemTags=[],fu
 }
 
 export function renderAdjudicationCard({actorName='',event='manual',entries=[],status='pending',reason='',originMessageId=null}={}){
- const label=status==='pending'?'GM DECISION NEEDED':status==='applied'?'GM RESOLVED':status==='not-applicable'?'NOT APPLICABLE':'DEFERRED';
- const listing=entries.map(entry=>`<li class="ac-trait-review-entry"><details><summary><strong>${escapeHTML(entry.name)}</strong> <span>${escapeHTML(entry.id)} / ${entry.automaticKeys?.length?'Partial auto':'GM assisted'}</span></summary><p>${escapeHTML(entry.guidance)}</p><small>${escapeHTML(entry.rulesRef)}</small><p class="ac-muted">${entry.automaticKeys?.length?`Already executable: ${escapeHTML(entry.automaticKeys.join(', '))}. Remaining source clauses need confirmation.`:entry.executableProcedure?`Source procedure available; review remaining clauses before applying extras.`:'No safe executable modifier; apply only after confirming conditions and costs.'}</p>${entry.executableProcedure?`<p class="ac-muted"><strong>Existing procedure:</strong> ${escapeHTML(entry.executableProcedure)} Do not apply it twice.</p>`:''}</details></li>`).join('');
- return `<section class="ac-chat-card ac-trait-adjudication" data-ac-gm-trait="true" aria-label="Private GM Trait adjudication">
-  <header class="ac-chat-card-header"><div><span class="ac-chat-kicker">CORE 2020 / TRAITS / ${escapeHTML(event.toUpperCase())}</span><strong>${escapeHTML(actorName)} - Trait adjudication</strong></div><span class="ac-grade-chip">${label}</span></header>
-  <p class="ac-chat-subtitle">${entries.length} source-rule item(s) for GM review. Never treat an already-automated modifier as another award.</p>
+ const label=status==='pending'?'GM CHECK':status==='applied'?'RESOLVED':status==='not-applicable'?'NOT APPLICABLE':'DEFERRED';
+ const listing=entries.map(entry=>`<li class="ac-trait-review-entry"><details><summary><strong>${escapeHTML(entry.name)}</strong>${entry.automaticKeys?.length?` <span>${escapeHTML(autoText(entry.automaticKeys))} already in the roll</span>`:''}</summary><p>${escapeHTML(entry.guidance)}</p></details></li>`).join('');
+ const lead=entries.length===1?'This Trait may also affect the roll:':`These ${entries.length} Traits may also affect the roll:`;
+ return `<section class="ac-chat-card ac-trait-adjudication" data-ac-gm-trait="true" aria-label="Private GM Trait check">
+  <header class="ac-chat-card-header"><div><span class="ac-chat-kicker">TRAITS · ${escapeHTML(event.toUpperCase())}</span><strong>${escapeHTML(actorName)}</strong></div><span class="ac-grade-chip">${label}</span></header>
+  <p class="ac-chat-subtitle">${lead} check the conditions in the text. Anything listed as already in the roll is not added again.</p>
   <ol class="ac-trait-review-list">${listing}</ol>
-  ${reason?`<p class="ac-chat-meta"><strong>GM note:</strong> ${escapeHTML(reason)}</p>`:''}
-  ${originMessageId?'<p class="ac-chat-meta">Linked to a roll or action chat message.</p>':''}
-  ${status==='pending'||status==='deferred'?'<div class="ac-chat-actions"><button type="button" class="ac-trait-adjudicate" data-ac-trait-action="review">Review and record ruling</button></div>':'<p class="ac-chat-meta">This prompt has been recorded; no character resources were changed automatically.</p>'}
+  ${reason?`<p class="ac-chat-meta"><strong>GM ruling:</strong> ${escapeHTML(reason)}</p>`:''}
+  ${status==='pending'||status==='deferred'?'<div class="ac-chat-actions"><button type="button" class="ac-trait-adjudicate" data-ac-trait-action="review">Record ruling</button></div>':''}
  </section>`;
 }
 
 function recipients(){return [...(game?.users||[])].filter(u=>u.isGM).map(u=>u.id);}
 export async function postTraitAdjudication(actor,options={}){
+ if(options.full!==true&&ROLL_EVENTS.has(options.event)){try{if(game.settings.get(NS,'traitRollPrompts')==='off')return null;}catch(_e){}}
  const event=options.event||'manual',entries=ownedAdjudications(actor,{event,skill:options.skill,itemTags:options.itemTags,full:options.full===true,traitId:options.traitId});
  if(!entries.length)return null;
  const whisper=recipients();if(!whisper.length){console.warn('Altered Carbon | Cannot post Trait review without a GM recipient.');return null;}
@@ -98,6 +120,7 @@ function rootNode(html){if(typeof HTMLElement!=='undefined'&&html instanceof HTM
  * are inserted client-side and never expose the private adjudication contents.
  */
 export function installTraitAdjudicationHooks(){
+ try{game.settings.register(NS,'traitRollPrompts',{name:'Trait checks after rolls',hint:'Private GM card listing owned Traits that may change a roll. "Relevant only" shows Traits tied to the rolled Skill or the gear used.',scope:'world',config:true,type:String,choices:{relevant:'Relevant only (rolled Skill or gear used)',unautomated:'Relevant and not already automated',off:'Off'},default:'relevant'});}catch(error){console.warn('Altered Carbon | traitRollPrompts setting',error);}
  Hooks.on('renderChatMessageHTML',(message,html)=>{
   if(!game.user?.isGM||game.system?.id!==NS)return;
   const root=rootNode(html);if(!root)return;
@@ -106,22 +129,12 @@ export function installTraitAdjudicationHooks(){
    const button=root.querySelector('.ac-trait-adjudicate');if(!button)return;
    button.addEventListener('click',async()=>{try{
     if(!game.user.isGM)return;
-    const form=await foundry.applications.api.DialogV2.input({window:{title:'Record GM Trait Ruling'},content:`<p>Confirm source requirements and costs. This records an adjudication; it does NOT apply additional bonuses automatically.</p><label>Decision</label><select name="status"><option value="applied">Resolved manually</option><option value="not-applicable">Not applicable this time</option><option value="deferred">Defer</option></select><label>Ruling / consequences</label><textarea name="reason" rows="3" maxlength="1000" placeholder="Record targets, degrees, SP/IP costs and applied consequences"></textarea>`});
+    const form=await foundry.applications.api.DialogV2.input({window:{title:'Record GM Trait Ruling'},content:`<p>Confirm source requirements and costs. This records an adjudication; it does NOT apply additional bonuses automatically.</p><label>Decision</label><select name="status"><option value="applied">Resolved manually</option><option value="not-applicable">Not applicable this time</option><option value="deferred">Defer</option></select><label>Ruling / consequences</label><textarea name="reason" rows="3" maxlength="1000" placeholder="Record targets, degrees, SP/IP costs and applied consequences"></textarea><label style="display:flex;gap:6px;align-items:center;margin-top:6px"><input type="checkbox" name="suppress"> Stop showing these Traits after this character's rolls</label>`});
     if(!form)return;await recordTraitAdjudication(message,{status:actionValue(form,'status'),reason:actionValue(form,'reason')});
+    if(form.suppress||(form instanceof FormData&&form.has('suppress'))){const meta=message.getFlag?.(NS,'traitAdjudication');const actor=meta?.actorUuid?await fromUuid(meta.actorUuid):null;if(actor){await setTraitReviewSuppressed(actor,(meta.entries||[]).map(e=>e.id));ui.notifications.info(`These Traits will no longer prompt after ${actor.name}'s rolls. Review them any time from the GM strip's Traits button.`);}}
    }catch(error){ui.notifications.error(error.message);}});
    return;
   }
-  // Always leave a GM-only review affordance on Action/Skill roll cards; it
-  // does not appear in player HTML or in the message's public data.
-  const check=message.getFlag?.(NS,'check'),equipment=message.getFlag?.(NS,'equipmentUse'),weapon=message.getFlag?.(NS,'weaponUse');
-  if(!check&&!equipment&&!weapon)return;
-  const card=root.querySelector('.ac-chat-card');if(!card||card.querySelector('.ac-trait-open-review'))return;
-  const entry=document.createElement('div');entry.className='ac-gm-trait-toolbar';
-  const button=document.createElement('button');button.type='button';button.className='ac-trait-open-review';button.textContent='GM: Review owned Trait abilities';button.setAttribute('aria-label','Review remaining Trait abilities for this action');
-  button.addEventListener('click',async()=>{try{
-    const uuid=check?.actorUuid||equipment?.actorUuid||weapon?.actorUuid;const actor=uuid?await fromUuid(uuid):null;if(!actor)return ui.notifications.warn('Actor not available for Trait review.');
-    await postTraitAdjudication(actor,{full:true,event:'manual'});
-   }catch(error){ui.notifications.error(error.message);}});
-  entry.append(button);card.append(entry);
+  // The on-demand Trait review button now lives in the GM ruling strip (status-tools.mjs).
  });
 }

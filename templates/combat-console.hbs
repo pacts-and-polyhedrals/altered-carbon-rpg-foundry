@@ -34,7 +34,7 @@
             <label class="ac-speed-die-v2 {{#if active}}active{{/if}} {{#if spent}}spent{{/if}} {{#unless visible}}secret{{/unless}}">
               {{#if canSelect}}<input type="checkbox" data-speed-for="{{../id}}" value="{{index}}" aria-label="Select Speed Die {{index}} with value {{result}}">{{/if}}
               <span class="ac-speed-die-index">#{{index}}</span>
-              <strong aria-label="{{#if visible}}Speed result {{result}}{{else}}Hidden until reveal{{/if}}">{{#if visible}}{{result}}{{else}}?</strong>
+              <strong aria-label="{{#if visible}}Speed result {{result}}{{else}}Hidden until reveal{{/if}}">{{#if visible}}{{result}}{{else}}?{{/if}}</strong>
               <small>{{#if spent}}SPENT{{else}}{{#if active}}ACTIVE{{else}}{{#if visible}}RESERVE{{else}}PRIVATE{{/if}}{{/if}}{{/if}}</small>
             </label>
             {{/each}}

@@ -1,6 +1,6 @@
 # Altered Carbon RPG — Unofficial Foundry VTT System
 
-**Current version: v2.4.3** · Foundry VTT v14
+**Current version: v2.4.7** · Foundry VTT v14
 
 Unofficial Foundry VTT implementation of the 2020 Altered Carbon RPG rules. Requires lawful
 access to the original tabletop rules. Not affiliated with or endorsed by the Altered Carbon
@@ -22,7 +22,44 @@ Older installs that still use `.../main/system.json` keep working because the `s
 version, uninstall it and reinstall from the manifest URL above. Uninstalling a system does
 not delete your worlds.
 
-## What's in v2.4.3
+## What's in v2.4.7
+
+- **Speed Dice run the Combat Tracker.** Begin Combat starts a Speed Dice Turn; Roll Initiative
+  (single, Roll All, Roll NPCs) rolls Speed Dice privately; after the GM reveals, each combatant's
+  Initiative shows the sum of their unspent Active dice and the tracker sorts lowest-first, so the
+  highlighted row is who acts. Next Turn moves to the next Active combatant (and opens a new
+  selection when Active dice run out); Next Round starts a new Speed Dice Turn.
+- **Speed Dice Console** button on the Combat Tracker and on the Speed Dice chat card, and it opens
+  for players automatically when a roll or selection phase starts (client setting).
+- The console now refreshes live when anyone rolls, locks or spends dice.
+
+## v2.4.6
+
+- **Vehicle tokens** are sized from the vehicle's Size: Size 1 → 1×2 squares (Airbike),
+  Size 2 → 2×3 (Ground Car, Aircar), Size 3 → 3×4, and so on. Art is fitted, not stretched.
+- **Getting in and out of vehicles:** right-click your token → **Get in a vehicle**, pick a seat
+  (Driver / Pilot, Gunner, Operator, Passenger). Your token shrinks into that seat and moves,
+  turns and climbs with the vehicle. **Change seat** and **Get out** are on the same menu, and
+  on the vehicle sheet's new Seats panel.
+- **Who drives:** per vehicle, the player in the Driver seat, the vehicle's AI (GM moves it), or
+  both. A seated driver's player can move the vehicle token until they leave the seat.
+- **Combat Console fix:** an unclosed tag in its template (present since v2.4.0) stopped it opening.
+
+## v2.4.5
+
+- **Trait checks after rolls:** the private GM Trait card now only appears when an owned Trait
+  is tied to the Skill being rolled or the gear being used (Deck Traits only on Deck rolls).
+  The card is shorter, says what is already in the roll, and can be silenced per character
+  ("Stop showing these Traits"). Setting: *Trait checks after rolls* (Relevant only / Relevant and
+  not already automated / Off). A **Traits** button on the GM chat strip lists them on demand.
+
+## v2.4.4
+
+- **Skills tab:** each Skill row has a Roll button, and only the arrow opens the full rules. The rules
+  text is laid out as an intro, Specialisation chips, a Difficulty table, Triggered Effects and
+  rulebook sidebars instead of one block.
+
+## Earlier in v2.4.x
 
 - **Install / Update Content** (Game Settings or the GM panel): checks for system and module
   updates, installs compendium content into the world, and has an optional tick box to remove

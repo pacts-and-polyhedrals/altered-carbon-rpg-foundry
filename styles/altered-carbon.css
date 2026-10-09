@@ -910,3 +910,47 @@
 .ac-installer-packs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 12px;margin:2px 0 6px 24px;font-size:.76rem}
 .ac-installer-packs small{color:var(--ac-muted)}
 .ac-installer .hint{font-size:.7rem;color:var(--ac-muted);margin:4px 0 0}
+
+/* ---- v2.4.4: skill rows (Roll button, chevron-only disclosure) and readable rules ---- */
+.ac-skill-record>summary{cursor:default}
+.ac-skill-record>summary .ac-skill-roll{display:inline-flex;align-items:center;gap:5px;width:auto;flex:0 0 auto;font-size:.62rem;line-height:1;letter-spacing:.1em;text-transform:uppercase;color:var(--ac-cyan);border:1px solid rgba(120,236,243,.32);border-radius:5px;padding:6px 9px;background:rgba(50,199,214,.07);cursor:pointer;min-height:0}
+.ac-skill-record>summary .ac-skill-roll:hover{background:rgba(50,199,214,.18);color:var(--ac-text);box-shadow:0 0 10px rgba(50,199,214,.25)}
+.ac-disclosure-toggle{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;padding:0;margin:0;border:1px solid transparent;border-radius:5px;background:none;cursor:pointer;min-height:0;flex:0 0 auto}
+.ac-disclosure-toggle:hover,.ac-disclosure-toggle:focus-visible{border-color:rgba(120,236,243,.32);background:rgba(50,199,214,.07)}
+.ac-disclosure-toggle .ac-disclosure-chevron{font-size:.75rem}
+.ac-skill-record>summary{grid-template-columns:auto minmax(0,1fr) auto 28px}
+
+.ac-rules-block{font-size:.76rem;line-height:1.6;color:var(--ac-text-soft)}
+.ac-rules-block .ac-rule-intro{margin:0 0 10px;font-size:.8rem;color:var(--ac-text)}
+.ac-rule-section{margin:0 0 12px}
+.ac-rule-section h4,.ac-rule-sidebar h4{margin:0 0 6px;padding:0;border:0;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ac-cyan);font-weight:600}
+.ac-rule-chips{display:flex;flex-wrap:wrap;gap:5px}
+.ac-rule-chips span{padding:3px 8px;border:1px solid rgba(120,236,243,.22);border-radius:999px;background:rgba(50,199,214,.06);font-size:.7rem;color:var(--ac-text)}
+.ac-rule-ladder{display:grid;grid-template-columns:max-content minmax(0,1fr);margin:0;border:1px solid rgba(104,204,215,.12);border-radius:7px;overflow:hidden}
+.ac-rule-ladder dt,.ac-rule-ladder dd{margin:0;padding:6px 10px;border-bottom:1px solid rgba(104,204,215,.08)}
+.ac-rule-ladder dt{font-weight:600;color:var(--ac-amber);background:rgba(255,196,103,.05);font-size:.68rem;letter-spacing:.04em;white-space:nowrap}
+.ac-rule-ladder dt:nth-last-of-type(1),.ac-rule-ladder dd:last-of-type{border-bottom:0}
+.ac-rule-effects{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.ac-rule-effects li{padding:7px 10px;border-left:2px solid var(--ac-cyan);background:rgba(50,199,214,.05);border-radius:0 6px 6px 0}
+.ac-rule-effects strong{color:var(--ac-text)}
+.ac-rule-notes p{margin:0 0 6px}.ac-rule-notes strong{color:var(--ac-text)}
+.ac-rule-sidebar{margin:10px 0 0;padding:9px 12px;border:1px solid rgba(185,162,255,.25);border-radius:7px;background:rgba(185,162,255,.05)}
+.ac-rule-sidebar h4{color:var(--ac-violet)}.ac-rule-sidebar p{margin:0}
+.ac-rule-ref{color:var(--ac-cyan);font-weight:600}
+.ac-rule-dice{font-family:var(--font-mono,monospace);font-size:.68rem;padding:0 4px;border-radius:4px;background:rgba(255,255,255,.06);color:var(--ac-amber)}
+@media(max-width:700px){.ac-rule-ladder{grid-template-columns:1fr}.ac-rule-ladder dt{border-bottom:0;padding-bottom:0;background:none}}
+
+/* ---- v2.4.6: vehicle seats ---- */
+.ac-vehicle-seat-actions{display:flex;gap:6px;flex-wrap:wrap}.ac-vehicle-seat-actions button{width:auto;flex:0 0 auto}
+.ac-vehicle-seats .ac-vehicle-roster button{width:auto;display:inline-flex;margin-left:6px;padding:2px 8px;font-size:.7rem;line-height:1.2;min-height:0}
+.ac-seat-picker{display:flex;flex-direction:column;gap:4px;margin:4px 0}
+.ac-seat-option{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center;padding:6px 8px;border:1px solid rgba(120,236,243,.2);border-radius:6px;cursor:pointer}
+.ac-seat-option.taken{opacity:.55;cursor:not-allowed}.ac-seat-option em{font-style:normal;font-size:.75rem;opacity:.8}.ac-seat-option small{opacity:.75}
+.ac-seat-list{margin:0 0 8px;padding-left:18px}.ac-seat-list label{display:inline-flex;gap:4px;align-items:center;margin-left:6px}
+.ac-vehicle-hud i{pointer-events:none}
+
+/* ---- v2.4.7: Combat Tracker ↔ Speed Dice ---- */
+.ac-tracker-speed{display:flex;align-items:center;gap:8px;padding:6px 8px;margin:4px 0;border:1px solid rgba(120,236,243,.25);border-radius:6px;background:rgba(10,24,31,.6)}
+.ac-tracker-speed button{flex:0 0 auto;width:auto;line-height:1.2;padding:3px 8px;font-size:.8rem}
+.ac-tracker-phase{font-size:.7rem;letter-spacing:.1em;color:#78ecf3;text-transform:uppercase}
+.ac-speed-open-console{margin-top:6px;width:100%}

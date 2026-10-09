@@ -1,6 +1,7 @@
 // GM status tools (v2.4.3): apply Scandals, Conditions and Injuries to one or more
 // Actors from the GM Control panel or straight from any Altered Carbon chat card.
 import {hasEquivalentUniqueRecord} from './sheet-record-utils.mjs';
+import {postTraitAdjudication} from './trait-adjudication.mjs';
 
 const NS='altered-carbon-rpg';
 const esc=value=>foundry.utils.escapeHTML(String(value??''));
@@ -124,17 +125,20 @@ export async function openStatusDialog({actorIds=[],kind='scandal'}={}){
   return applyStatus({actorIds:chosen,kind:chosenKind,entryId,influenceLoss:form.influenceLoss,deductIP:Boolean(form.deductIP),addScandalized:Boolean(form.addScandalized),note:form.note||'',publicCard:Boolean(form.publicCard)});
 }
 
+const rollFlag=message=>message?.getFlag?.(NS,'check')||message?.getFlag?.(NS,'equipmentUse')||message?.getFlag?.(NS,'weaponUse')||null;
+
 /** Adds a GM-only "Rulings" strip to every Altered Carbon chat card. */
 export function installStatusChatHooks(){
   Hooks.on('renderChatMessageHTML',(message,html)=>{
     try{
       if(!game.user.isGM)return;
       const root=html instanceof HTMLElement?html:html?.[0];if(!root)return;
-      const card=root.querySelector('.ac-chat-card');if(!card||card.classList.contains('ac-status-card')||root.querySelector('.ac-gm-ruling-strip'))return;
+      const card=root.querySelector('.ac-chat-card');if(!card||card.classList.contains('ac-status-card')||card.classList.contains('ac-trait-adjudication')||root.querySelector('.ac-gm-ruling-strip'))return;
       const strip=document.createElement('div');strip.className='ac-gm-ruling-strip';
-      strip.innerHTML=`<span>GM</span><button type="button" data-ac-ruling="scandal" title="Apply a Scandal"><i class="fa-solid fa-newspaper"></i> Scandal</button><button type="button" data-ac-ruling="condition" title="Apply a Condition"><i class="fa-solid fa-person-falling"></i> Condition</button><button type="button" data-ac-ruling="injury" title="Apply an Injury"><i class="fa-solid fa-bone"></i> Injury</button>`;
+      strip.innerHTML=`<span>GM</span><button type="button" data-ac-ruling="scandal" title="Apply a Scandal"><i class="fa-solid fa-newspaper"></i> Scandal</button><button type="button" data-ac-ruling="condition" title="Apply a Condition"><i class="fa-solid fa-person-falling"></i> Condition</button><button type="button" data-ac-ruling="injury" title="Apply an Injury"><i class="fa-solid fa-bone"></i> Injury</button>${rollFlag(message)?'<button type="button" data-ac-ruling="traits" title="List every Trait this character owns that needs a GM ruling"><i class="fa-solid fa-diagram-project"></i> Traits</button>':''}`;
       strip.addEventListener('click',event=>{
         const button=event.target.closest('[data-ac-ruling]');if(!button)return;event.preventDefault();event.stopPropagation();
+        if(button.dataset.acRuling==='traits'){const uuid=rollFlag(message)?.actorUuid;(uuid?fromUuid(uuid):Promise.resolve(null)).then(actor=>actor?postTraitAdjudication(actor,{full:true,event:'manual'}):ui.notifications.warn('Actor not available for Trait review.')).catch(error=>ui.notifications.warn(error.message));return;}
         openStatusDialog({actorIds:defaultActorIds(message),kind:button.dataset.acRuling}).catch(error=>{console.error('Altered Carbon | Status ruling failed',error);ui.notifications.warn(error.message);});
       });
       card.appendChild(strip);

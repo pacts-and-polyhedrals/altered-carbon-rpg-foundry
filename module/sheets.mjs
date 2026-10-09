@@ -1,4 +1,5 @@
 import {rollSkill} from './rolls.mjs';
+import {formatSkillRules} from './skill-rules-format.mjs';
 import {getBonusDiceAwards} from './gm-bonus-dice.mjs';
 import {openAdvancement} from './advancement-wizard.mjs';
 import {ACCoreLibrary} from './core-content.mjs';
@@ -71,7 +72,7 @@ export class ACActorSheet extends HandlebarsApplicationMixin(sheets.ActorSheetV2
    const all=dedupeSheetRecords(actor.items.contents);
    const skills=all.filter(i=>i.type==='skill').sort((a,b)=>String(a.system.attribute||'').localeCompare(String(b.system.attribute||''))||a.name.localeCompare(b.name));
    const attrMeta=[['strength','Strength','STR'],['perception','Perception','PER'],['empathy','Empathy','EMP'],['willpower','Willpower','WIL'],['acuity','Acuity','ACU'],['intelligence','Intelligence','INT']];
-   const skillGroups=attrMeta.map(([key,label,code])=>({key,label,code,bonus:actor.ac?.bonuses?.[key]??0,items:skills.filter(i=>i.system.attribute===key)}));
+   const skillGroups=attrMeta.map(([key,label,code])=>({key,label,code,bonus:actor.ac?.bonuses?.[key]??0,items:skills.filter(i=>i.system.attribute===key).map(i=>({id:i.id,name:i.name,system:i.system,skillDieSides:i.skillDieSides,rulesHtml:formatSkillRules(i.system.rulesText)}))}));
    const canEdit=Boolean(game.user.isGM||actor.isOwner);
    if(!canEdit)this._editMode=false;
    const equipment=all.filter(i=>['weapon','ammunition','armour','equipment','drug','augmentation','software','creditSet','virtualConstruct'].includes(i.type)).map(i=>({
@@ -148,7 +149,21 @@ export class ACActorSheet extends HandlebarsApplicationMixin(sheets.ActorSheetV2
  static async _openRules(){new ACRulesBrowser({actorId:this.actor.id}).render({force:true});}
  static async _openCreator(){game.alteredCarbon.openCharacterCreator();}
  static async _toggleEditMode(){if(!(game.user.isGM||this.actor.isOwner))return ui.notifications.warn('You do not have permission to edit this character.');if(this._editMode)await this.submit();this._editMode=!this._editMode;this.render({force:true});}
- async _onRender(context,options){await super._onRender(context,options);const editable=Boolean(this._editMode&&(game.user.isGM||this.actor.isOwner));const root=this.element;root?.querySelectorAll('input[name],select[name],textarea[name]').forEach(el=>{const block=el.matches('select,input[type=checkbox],input[type=radio]');if(block)el.disabled=!editable;else {el.disabled=false;el.readOnly=!editable;el.setAttribute('aria-readonly',String(!editable));}});
+ /** Skill rows: only the arrow opens/closes the rules; Roll and the rest of the row never toggle. */
+ _installSkillDisclosure(){
+   this._openSkills||=new Set();
+   for(const details of this.element?.querySelectorAll('.ac-skill-record')||[]){
+     const summary=details.querySelector(':scope>summary'),toggle=summary?.querySelector('[data-ac-toggle]');if(!summary||!toggle)continue;
+     const sync=()=>toggle.setAttribute('aria-expanded',String(details.open));
+     if(this._openSkills.has(details.dataset.itemId))details.open=true;sync();
+     summary.addEventListener('click',event=>{
+       if(event.target.closest('[data-ac-toggle]')){event.preventDefault();details.open=!details.open;if(details.open)this._openSkills.add(details.dataset.itemId);else this._openSkills.delete(details.dataset.itemId);sync();return;}
+       if(!event.target.closest('button,a,input,select'))event.preventDefault();
+       else if(event.target.closest('.ac-skill-roll'))event.preventDefault();
+     });
+   }
+ }
+ async _onRender(context,options){await super._onRender(context,options);this._installSkillDisclosure();const editable=Boolean(this._editMode&&(game.user.isGM||this.actor.isOwner));const root=this.element;root?.querySelectorAll('input[name],select[name],textarea[name]').forEach(el=>{const block=el.matches('select,input[type=checkbox],input[type=radio]');if(block)el.disabled=!editable;else {el.disabled=false;el.readOnly=!editable;el.setAttribute('aria-readonly',String(!editable));}});
   root?.querySelector('.ac-tabs')?.addEventListener('keydown',this._onKeyTabs.bind(this));}
  static async _setTab(event,target){this._tab=target.dataset.tab||'identity';this.render({force:true});}
  async _onKeyTabs(event){

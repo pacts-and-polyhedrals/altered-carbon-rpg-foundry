@@ -54,7 +54,8 @@ export function refreshSheetSpeedIndicators(){
 /** Cross-client Combat/Combatant updates also refresh the tactical UI and sheet counters. */
 export function installCombatConsoleHooks(){for(const hook of ['updateCombatant','updateCombat','createCombatant','deleteCombatant'])Hooks.on(hook,()=>{
  refreshSheetSpeedIndicators();
- const app=Object.values(ui.windows||{}).find(w=>w?.id==='altered-carbon-combat-console');if(app?.rendered)app.render({force:true});
+ // v13+/v14: ApplicationV2 windows live in foundry.applications.instances, not ui.windows.
+ const app=foundry.applications.instances?.get?.('altered-carbon-combat-console')??Object.values(ui.windows||{}).find(w=>w?.id==='altered-carbon-combat-console');if(app?.rendered)app.render({force:true});
 });}
 
 
