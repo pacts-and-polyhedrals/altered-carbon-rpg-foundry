@@ -872,3 +872,41 @@
   .ac-gm-custom-grid,.ac-bonus-grid,.ac-preset-controls{grid-template-columns:minmax(0,1fr)}
   .ac-gm-custom-grid label.wide{grid-column:auto}
 }
+
+/* ---- v2.4.3: GM Command Deck, Content Installer, rulings ---- */
+.ac-gm-deck{flex:0 0 auto;margin:0 0 8px;padding:8px 12px;border:1px solid var(--ac-line);border-radius:var(--ac-radius);background:var(--ac-panel)}
+.ac-gm-deck>header{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:6px}
+.ac-gm-deck>header h2{margin:0;font-size:.95rem}.ac-gm-deck>header .hint{margin:0;font-size:.68rem;color:var(--ac-muted)}
+.ac-gm-deck-groups{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.ac-gm-deck-groups section{display:flex;flex-direction:column;gap:4px;min-width:0}
+.ac-gm-deck-groups h3{margin:0 0 2px;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ac-cyan);border:0}
+.ac-gm-deck-groups button{justify-content:flex-start;text-align:left;font-size:.72rem;line-height:1.2;padding:4px 8px;min-height:26px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ac-gm-deck-groups button i{width:16px;text-align:center;color:var(--ac-cyan)}
+@media(max-width:1000px){.ac-gm-deck-groups{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){.ac-gm-deck-groups{grid-template-columns:repeat(2,minmax(0,1fr))}.ac-gm-deck>header{display:block}}
+
+.ac-gm-ruling-strip{display:flex;flex-wrap:wrap;align-items:center;gap:4px;margin-top:6px;padding-top:6px;border-top:1px dashed var(--ac-line)}
+.ac-gm-ruling-strip>span{font-size:.6rem;letter-spacing:.14em;color:var(--ac-muted);margin-right:2px}
+.ac-gm-ruling-strip button{flex:0 0 auto;width:auto;line-height:1;font-size:.68rem;padding:3px 7px;min-height:0}
+.ac-status-card ul{margin:4px 0 0;padding-left:18px}
+.ac-status-dialog{display:flex;flex-direction:column;gap:8px}
+.ac-status-dialog label>span{display:block;font-size:.75rem;color:var(--ac-muted,#888);margin-bottom:2px}
+.ac-status-actors{display:grid;grid-template-columns:1fr 1fr;gap:2px 10px;max-height:180px;overflow:auto}
+.ac-status-actor{display:flex;align-items:center;gap:4px;font-size:.8rem}
+.ac-status-scandal{display:grid;grid-template-columns:1fr;gap:4px;padding:6px 8px;border:1px solid rgba(255,255,255,.12);border-radius:6px}
+
+.ac-installer{display:flex;flex-direction:column;gap:10px;padding:4px}
+.ac-installer-head h1{margin:2px 0 0;font-size:1.25rem}
+.ac-installer .ac-panel{padding:10px 12px;border:1px solid var(--ac-line);border-radius:var(--ac-radius);background:var(--ac-panel)}
+.ac-installer .ac-panel h2{margin:0 0 6px;font-size:.95rem}
+.ac-installer-table{width:100%;border-collapse:collapse;font-size:.78rem;margin:4px 0}
+.ac-installer-table th,.ac-installer-table td{padding:4px 6px;border-bottom:1px solid var(--ac-line);text-align:left}
+.ac-installer-good{color:var(--ac-green)}.ac-installer-bad{color:var(--ac-amber)}
+.ac-installer-row{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 4px}.ac-installer-row button{flex:0 0 auto;width:auto}
+.ac-installer-row .ac-quiet{opacity:.7}
+.ac-installer-check{display:flex;gap:8px;align-items:flex-start;margin:6px 0;font-size:.8rem;line-height:1.4}
+.ac-installer-check input{margin-top:3px;flex:0 0 auto}
+.ac-installer-danger b{color:var(--ac-red)}.ac-installer-sub{margin-left:24px;opacity:.9}
+.ac-installer-packs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 12px;margin:2px 0 6px 24px;font-size:.76rem}
+.ac-installer-packs small{color:var(--ac-muted)}
+.ac-installer .hint{font-size:.7rem;color:var(--ac-muted);margin:4px 0 0}

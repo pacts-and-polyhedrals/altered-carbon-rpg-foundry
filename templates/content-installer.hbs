@@ -1,0 +1,39 @@
+<section class="ac-shell ac-installer">
+  <header class="ac-installer-head">
+    <span class="ac-kicker">CONTENT INSTALLER / BAY CITY ARCHIVE</span>
+    <h1>Install / Update Content</h1>
+  </header>
+
+  <section class="ac-panel ac-installer-versions">
+    <header><span class="ac-kicker">PACKAGES</span><h2>Versions</h2></header>
+    <table class="ac-installer-table">
+      <thead><tr><th>Package</th><th>Installed</th><th>Latest</th><th></th></tr></thead>
+      <tbody>
+        <tr><td>Altered Carbon RPG (system)</td><td>{{version}}</td><td>{{#if latest}}{{latest}}{{else}}{{#if checked}}unavailable{{else}}checking…{{/if}}{{/if}}</td>
+          <td>{{#if outdated}}<b class="ac-installer-bad">Update available</b>{{else}}{{#if upToDate}}<b class="ac-installer-good">Up to date</b>{{/if}}{{/if}}</td></tr>
+        {{#each modules}}
+        <tr><td>{{title}} <small>({{id}}){{#unless active}} · inactive{{/unless}}</small></td><td>{{version}}</td><td>{{#if latest}}{{latest}}{{else}}—{{/if}}</td><td>{{#if outdated}}<b class="ac-installer-bad">Update available</b>{{/if}}</td></tr>
+        {{/each}}
+      </tbody>
+    </table>
+    {{#unless modules.length}}<p class="hint">No related Altered Carbon modules are installed.</p>{{/unless}}
+    <div class="ac-installer-row">
+      <button type="button" data-action="checkUpdates"><i class="fa-solid fa-arrows-rotate"></i> Check again</button>
+      <button type="button" data-action="copyManifest"><i class="fa-solid fa-link"></i> Copy manifest URL</button>
+      <button type="button" data-action="returnToSetup"{{#unless anyOutdated}} class="ac-quiet"{{/unless}}><i class="fa-solid fa-right-from-bracket"></i> Return to Setup to update packages</button>
+    </div>
+    <p class="hint">Foundry only installs, updates or uninstalls systems and modules from the Setup screen{{#if isForge}} or the Forge Bazaar{{/if}}. A world cannot replace its own code while it is running, so package updates are finished there. Everything below happens inside this world.</p>
+  </section>
+
+  <section class="ac-panel ac-installer-content">
+    <header><span class="ac-kicker">WORLD CONTENT</span><h2>Compendium content</h2></header>
+    <label class="ac-installer-check"><input type="checkbox" name="installContent" checked> <span><b>Install / update content</b> — import every entry from the compendiums below into world folders. Entries already installed are kept.</span></label>
+    <div class="ac-installer-packs">
+      {{#each packs}}<label><input type="checkbox" name="pack" value="{{id}}" checked> {{label}} <small>{{count}} · {{type}}</small></label>{{/each}}
+    </div>
+    <label class="ac-installer-check ac-installer-danger"><input type="checkbox" name="removePrevious"> <span><b>Remove previous versions first</b> — delete the {{previousCount}} world document(s) from earlier installs (Core Library, Networks, compendium imports, GM Guide) and install clean copies. You confirm the list before anything is deleted. Player characters are never removed.</span></label>
+    <label class="ac-installer-check ac-installer-sub"><input type="checkbox" name="removeAdventure"> <span>Also remove Adventure Book journals ({{adventureCount}}) — only if you want a fresh import; your notes in them are lost.</span></label>
+    <label class="ac-installer-check"><input type="checkbox" name="applyEmblems" checked> <span><b>Apply noir emblems</b> to world Actors and Items that still use Foundry's default icons.</span></label>
+    <div class="ac-installer-row"><button type="button" class="ac-primary-action" data-action="install"><i class="fa-solid fa-download"></i> Install Content</button></div>
+  </section>
+</section>

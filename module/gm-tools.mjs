@@ -163,7 +163,7 @@ export function installGMToolsHooks(){
 export class ACGMPanel extends foundry.applications.api.HandlebarsApplicationMixin(foundry.applications.api.ApplicationV2){
   static DEFAULT_OPTIONS={
     id:'ac-gm-panel',classes:['altered-carbon','ac-gm-window'],window:{title:'Altered Carbon - GM Control'},position:{width:1180,height:880},
-    actions:{sendPreset:this._sendPreset,savePreset:this._savePreset,resetPreset:this._resetPreset,sendCustom:this._sendCustom,selectAll:this._selectAll,clearSelection:this._clearSelection,grantBonusDice:this._grantBonusDice,clearBonusDice:this._clearBonusDice,removeBonusDice:this._removeBonusDice,focusBonusDice:this._focusBonusDice,refreshAwards:this._refreshAwards,systemCheck:this._systemCheck,openGuide:this._openGuide,refreshGuide:this._refreshGuide,openAdventure:this._openAdventure,openOperations:this._openOperations}
+    actions:{sendPreset:this._sendPreset,savePreset:this._savePreset,resetPreset:this._resetPreset,sendCustom:this._sendCustom,selectAll:this._selectAll,clearSelection:this._clearSelection,grantBonusDice:this._grantBonusDice,clearBonusDice:this._clearBonusDice,removeBonusDice:this._removeBonusDice,focusBonusDice:this._focusBonusDice,refreshAwards:this._refreshAwards,systemCheck:this._systemCheck,openGuide:this._openGuide,refreshGuide:this._refreshGuide,openAdventure:this._openAdventure,openOperations:this._openOperations,openTool:this._openTool}
   };
   static PARTS={main:{template:'systems/altered-carbon-rpg/templates/gm-panel.hbs'}};
   async _prepareContext(options){
@@ -275,6 +275,37 @@ export class ACGMPanel extends foundry.applications.api.HandlebarsApplicationMix
   static async _systemCheck(event,target){return this._runAction(target,async()=>{await diagnoseSystem({notify:true});this.render({force:true});});}
   static async _openAdventure(){try{game.alteredCarbon.openAdventureBook();}catch(error){ui.notifications.error(error.message);}}
   static async _openOperations(){if(!game.user.isGM)throw new Error('GM only.');return new ACGMOperations().render({force:true});}
+  /** Command Deck: every GM tool from one place. Actor-aware tools use the first ticked
+   *  character, otherwise the first controlled token. */
+  _contextActor(){
+    const id=this._selectedActorIds()[0];
+    return game.actors.get(id)||canvas?.tokens?.controlled?.[0]?.actor||null;
+  }
+  static async _openTool(event,target){
+    const api=game.alteredCarbon,tool=target.dataset.tool,actor=this._contextActor();
+    const needsActor=(label)=>{if(actor)return false;ui.notifications.info(`${label}: tick a character in the Recipient Matrix (or select a token) to open it for that Actor.`);return false;};
+    try{
+      switch(tool){
+        case 'installer':return api.openContentInstaller();
+        case 'coreLibrary':return api.openCoreLibrary(actor);
+        case 'rules':return api.openRules(actor);
+        case 'clinical':needsActor('Clinical Console');return api.openClinical(actor);
+        case 'workbench':needsActor('Upgrade Workbench');return api.openUpgradeWorkbench(actor);
+        case 'advancement':if(!actor)return ui.notifications.warn('Advancement: tick one character first.');return api.openAdvancement(actor);
+        case 'creator':return api.openCharacterCreator();
+        case 'combat':return api.openCombatConsole();
+        case 'zones':return api.openZones();
+        case 'calendar':return api.openCalendar();
+        case 'operations':return api.openGMOperations();
+        case 'adventure':return api.openAdventureBook();
+        case 'guide':return api.openGMGuide();
+        case 'migration':return api.openMigration();
+        case 'status':return api.openStatusDialog({actorIds:this._selectedActorIds(),kind:target.dataset.kind||'scandal'});
+        case 'emblems':return api.applyEmblems();
+        default:throw new Error(`Unknown GM tool: ${tool}`);
+      }
+    }catch(error){console.error('Altered Carbon | GM tool',error);ui.notifications.error(error.message);}
+  }
   static async _openGuide(){try{await ensureGMGuide({open:true});}catch(error){ui.notifications.error(error.message);}}
   static async _refreshGuide(){
     const ok=await foundry.applications.api.DialogV2.confirm({window:{title:'Refresh GM Guide'},content:'<p>Replace the system-generated GM Guide pages with the current v2.4.0 reference?</p><p class="hint">Any notes typed directly into those generated pages will be replaced.</p>'});

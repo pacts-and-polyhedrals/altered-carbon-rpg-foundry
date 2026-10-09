@@ -1,6 +1,6 @@
 <section class="ac-shell ac-gm-console">
   <header class="ac-gm-hero">
-    <div><span class="ac-kicker">GM OPERATIONS / LIVE TABLE / v2.4.0</span><h1>Control Surface</h1><p>Assign Bonus Dice, tune preset TRs, and send checks to one or more characters.</p></div>
+    <div><span class="ac-kicker">GM OPERATIONS / LIVE TABLE / v2.4.3</span><h1>Control Surface</h1><p>Assign Bonus Dice, tune preset TRs, and send checks to one or more characters.</p></div>
     <div class="ac-gm-hero-actions">
       <button type="button" data-action="focusBonusDice"><i class="fa-solid fa-dice"></i> Bonus Dice</button>
       <button type="button" data-action="openAdventure"><i class="fa-solid fa-book-atlas"></i> Adventure Book</button>
@@ -10,6 +10,42 @@
       <button type="button" data-action="refreshGuide"><i class="fa-solid fa-arrows-rotate"></i> Refresh Guide</button>
     </div>
   </header>
+  <nav class="ac-panel ac-gm-deck" aria-label="GM tools">
+    <header><div><span class="ac-kicker">COMMAND DECK / EVERY GM TOOL</span><h2>Tools</h2></div><p class="hint">Actor tools open for the first ticked character (or the selected token).</p></header>
+    <div class="ac-gm-deck-groups">
+      <section><h3>Table</h3>
+        <button type="button" data-action="openTool" data-tool="combat"><i class="fa-solid fa-crosshairs"></i> Combat Console</button>
+        <button type="button" data-action="openTool" data-tool="zones"><i class="fa-solid fa-border-all"></i> Zone Assistant</button>
+        <button type="button" data-action="openTool" data-tool="calendar"><i class="fa-solid fa-clock"></i> Future Calendar</button>
+        <button type="button" data-action="focusBonusDice"><i class="fa-solid fa-dice"></i> Bonus Dice</button>
+      </section>
+      <section><h3>Rulings</h3>
+        <button type="button" data-action="openTool" data-tool="status" data-kind="scandal"><i class="fa-solid fa-newspaper"></i> Apply Scandal</button>
+        <button type="button" data-action="openTool" data-tool="status" data-kind="condition"><i class="fa-solid fa-person-falling"></i> Apply Condition</button>
+        <button type="button" data-action="openTool" data-tool="status" data-kind="injury"><i class="fa-solid fa-bone"></i> Apply Injury</button>
+        <button type="button" data-action="openTool" data-tool="rules"><i class="fa-solid fa-book"></i> Rules Reference</button>
+      </section>
+      <section><h3>Characters</h3>
+        <button type="button" data-action="openTool" data-tool="clinical"><i class="fa-solid fa-heart-pulse"></i> Clinical Console</button>
+        <button type="button" data-action="openTool" data-tool="workbench"><i class="fa-solid fa-screwdriver-wrench"></i> Upgrade Workbench</button>
+        <button type="button" data-action="openTool" data-tool="advancement"><i class="fa-solid fa-arrow-trend-up"></i> Advancement</button>
+        <button type="button" data-action="openTool" data-tool="creator"><i class="fa-solid fa-user-plus"></i> Character Creator</button>
+      </section>
+      <section><h3>Campaign</h3>
+        <button type="button" data-action="openTool" data-tool="operations"><i class="fa-solid fa-diagram-project"></i> GM Operations</button>
+        <button type="button" data-action="openTool" data-tool="adventure"><i class="fa-solid fa-book-atlas"></i> Adventure Book</button>
+        <button type="button" data-action="openTool" data-tool="coreLibrary"><i class="fa-solid fa-boxes-stacked"></i> Core Equipment Library</button>
+        <button type="button" data-action="openTool" data-tool="guide"><i class="fa-solid fa-book-open"></i> GM Guide</button>
+      </section>
+      <section><h3>Maintenance</h3>
+        <button type="button" data-action="openTool" data-tool="installer"><i class="fa-solid fa-download"></i> Install / Update Content</button>
+        <button type="button" data-action="openTool" data-tool="emblems"><i class="fa-solid fa-image"></i> Apply Emblems</button>
+        <button type="button" data-action="openTool" data-tool="migration"><i class="fa-solid fa-database"></i> World Migration</button>
+        <button type="button" data-action="systemCheck"><i class="fa-solid fa-stethoscope"></i> System Check</button>
+        <button type="button" data-action="refreshGuide"><i class="fa-solid fa-arrows-rotate"></i> Refresh Guide</button>
+      </section>
+    </div>
+  </nav>
   {{#unless health.ok}}<aside class="ac-install-warning" role="alert"><strong>Installation mismatch</strong><p>{{health.summary}}</p><p>{{health.remedy}}</p></aside>{{/unless}}
   <div class="ac-gm-layout">
     <aside class="ac-gm-recipient-rail ac-panel">
