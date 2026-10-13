@@ -1,0 +1,125 @@
+ALTERED CARBON RPG - SYSTEM AUDIT AND CORRECTIONS
+Release: 2.5.0 | Foundry target: v14 | Audit date: 13 October 2026 (UTC)
+
+RESULT
+The supplied 2.4.9 system has been corrected and repackaged as 2.5.0. The reported standard-ammunition attack failure is reproduced by the previous code and covered by a regression test. Attacks now finish with an explicit Hit state, a natural-1 Ace label, defender choices, and a Damage button when an applicable Hit remains. Current resources and named condition controls work while the sheet is locked. A twelve-page player-facing sheet guide is included in the native Player and GM Guides compendium and is automatically created as a player-readable world journal.
+
+This release is not a certification that every printed rule or optional effect is fully automated. The existing system contains 240 indexed Traits, with executable numeric components for 170 and GM-review clauses for 127; 70 have no executable numeric component. The review index remains in place. Story-dependent rules need adjudication, and several special weapon/ammunition effects remain explicitly GM-assisted. No live Foundry/Forge multiplayer world was available for testing. These boundaries are described below, rather than treated as completed automation.
+
+SOURCES AND METHOD
+Primary: the user's uploaded 2020 Core Rulebook, pdfcoffee.com_altered-carbon-rpg-oef2020pdf-pdf-free.pdf.
+Secondary: the user's uploaded Quick Start, pdfcoffee.com_altered-carbon-rpg-qsg-1r5-pdf-free.pdf. Core takes precedence when they differ. Quick Start-only legacy entries are not promoted into the canonical Core catalogue.
+Earlier Altered Carbon and Altered Carbon 2 work: retrieved prior requirements, source hierarchy, packaging decisions and previous coverage assessments through conversation context search. The tool supplied relevant excerpts/context, rather than complete verbatim exports of both chats.
+Baseline: altered-carbon-rpg-v2.4.9(3).zip and cold-storage-v1.9.0(4).zip, read from the provided workspace copies.
+Technical reference: official Foundry v14 ActorSheetV2 and DocumentSheetV2 APIs, particularly _processSubmitData and expanded form data:
+https://foundryvtt.com/api/v14/classes/foundry.applications.sheets.ActorSheetV2.html
+https://foundryvtt.com/api/v14/classes/foundry.applications.api.DocumentSheetV2.html
+
+The detailed book comparisons focused on check outcomes, Aces, Luck, defensive Saves, action timing, Accuracy, Wounds, Protection, Deadly, conditions, rest and adversaries. Broader areas were inspected through the code, catalogue integrity and existing source-coverage records. Catalogue counts and valid rule elements do not prove word-for-word correctness of every equipment or Trait clause.
+
+CORRECTED FINDINGS
+01. Standard ammunition stopped an attack after its Skill Check.
+    The expression ammunition?.system.consumable !== false was true when ammunition was null. The next line dereferenced ammunition.system and threw, so the attack card never appeared. The decrement now requires an actual ammunition item. Depletion still applies to standard/built-in ammunition.
+02. Check cards did not communicate the weapon's final attack state.
+    A separate attack card now identifies the target and shows Potential Hit / Defense Pending, Hit, or No Hit. A plain Firearms Check remains a Check; Attack on a weapon runs the full procedure.
+03. Skill-specific Ace combat benefits were omitted.
+    Firearms and Directed Energy add PB Wounds once per resolved attack. Brawl and Melee Combat grant an immediate extra d6 in combat. Natural 1 is called an Ace; Damage is not universally doubled. References: Core pp.89,101-104.
+04. Defensive maneuvers were not offered on weapon cards.
+    The target owner or GM can respond with a Save to cancel positive Degrees, Dodge, appropriate Parry, or decline. Failed Saves add Degrees of Difference. Reserve Speed Dice are available for defense. A coordinating GM verifies the response document before updating the original attack. Parry is restricted to melee; a Shared-Zone firearm shot does not qualify. References: pp.90,100-102.
+05. Accuracy lacked its defense penalty.
+    Declared repeated Hits apply the printed Accuracy X Difficulty to the Save when repeated. The whole Hit formula, including its flat per-hit bonus, repeats. Accuracy without X can repeat without an X-based penalty. References: pp.198-200.
+06. Damage formulas were silently truncated.
+    The parser now validates the entire expression and preserves parentheses, including Throwing Blade's SB-1. Multi-profile text and Special entries require an explicit source formula, rather than quietly taking the first die.
+07. Natural Ace/Luck and Catastrophe handling had inconsistencies.
+    An Ace remains a natural result of 1 under Luck arithmetic. A failing maximum Skill die plus maximum Luck die is catastrophic even if a Bonus Die would pass. A successful pair of maximum dice is not catastrophic. References: pp.89,93-94.
+08. Attacks did not spend selected Speed Dice or track additional attack Difficulty.
+    Weapon attacks select and spend Active dice and count subsequent attacks in the same Turn. They refuse unavailable Active dice before rolling. Extra Ace dice remain usable in the public pool and private-roll record. General checks and separate Move/Support costs still require explicit recording. References: pp.123-127.
+09. Damage could be rolled or applied repeatedly from the same card.
+    A card records its generated Damage message. Damage queued/applied to a target is tracked, and routine replay after Resolution is rejected. A queued card cannot also be manually applied. Buttons are locked during a local click. This is not a cross-client transaction guarantee; simultaneous GM/owner races need live multiplayer QA.
+10. Damage could fall back to a different target when the original disappeared.
+    A missing original target now causes a clear error instead of substituting another selected token.
+11. Dodge/Parry Protection was disconnected from Wound Resolution.
+    The defensive amount is carried to the queue and included with aggregate Protection. Common Protection is applied once; mixed AP/damage profiles remain GM-confirmed. References: pp.100,132-133.
+12. Injury and Dying follow-up were hard to find.
+    Damage that loses HP or triggers relevant Ace follow-up offers an Injury card. The Combat panel provides Injury Save, Dying HP loss for the Round, and end-Turn Dying Save. The latter uses remaining HP minus Injury count; an ordinary failed Dying save kills the sleeve and preserves its stack. Stable suspends Dying. Severe Organic Damage/Real Death remain separate GM decisions. References: pp.133-139.
+13. Health reaching zero did not consistently update sleeve state.
+    Direct HP loss now marks the sleeve dead when it reaches zero. Dead-sleeve realspace Checks and Checks from a destroyed stack are blocked until a legitimate restored/Virtual context exists.
+14. Mitigation always defaulted to its first SP cost.
+    Session usage is recorded, so repeated mitigation costs 1,2,4,8... SP. The queue workflow resolves three available dice, discards mitigated Wounds, loses HP1, and records an Injury when necessary. A GM-only session-reset button is provided. Borrowing missing dice from a future Turn remains an explicit GM record. Reference: p.136.
+15. Core Stun was represented as an invented generic Stunned Condition.
+    The special-resolution control now makes the target resolve a GM-confirmed number of available Speed Dice according to the source effect. The generic Stunned condition is not added. Stun eligibility requires a relevant Brawl/weapon/ammunition capability; a default Baton requires its Stun Setting. References: pp.101,136-137,209.
+16. The sheet lock disabled current resources.
+    Current HP, Wounds, EP, SP, IP, Deferral and Debt remain editable for an owner/GM. Core Attributes, base maxima and descriptors require Edit Sheet. HP/EP current values cannot exceed their available maxima; Wounds can exceed threshold. Permanent Ego loss reduces the displayed available maximum.
+17. Physical Attribute edits did not persist in the active sleeve.
+    Unlocked Strength/Perception edits now update the active Sleeve record. Base Health maximum edits do the same and persist any necessary current-HP clamp. The form sends only the allowed/changed fields, avoiding incidental writes of derived Attribute values.
+18. The Condition Monitor showed only a count.
+    It now names each condition, shows effect/duration in a disclosure, and offers Clear. Items and equivalent token ActiveEffects are removed together. Non-owners cannot clear them. Managed drug effects point to Clinical; clearing Virtual exits the session. Clearing a condition does not automatically pay its published recovery/action cost.
+19. Inactive/aliased conditions were inconsistent.
+    Inactive conditions are ignored. The managed Under the Influence alias is normalized. Active token status keys participate in conditional checks. Dazzled plus Panic each reduce one Level, rather than the second reduction subtracting the accumulated penalty again. Dazzled's reduction is scoped to applicable Perception/Acuity checks.
+20. Bone Injury could never completely remove action capability.
+    Losing the whole natural pool to Bone Injury now Incapacitates. Zero-die combatants do not hold up simultaneous reveal. PB modifiers contribute to the natural Speed pool. References: pp.123,134,141.
+21. Reload could clear Exhausted while DP still exceeded Capacity.
+    Removing DP now checks the effective Capacity. Loadout includes Reload / Resupply; its printed action/material cost must be resolved first. Negative DP adjustments are rejected.
+22. Stored gear caused carried Encumbrance.
+    Stored equipment no longer contributes to carried Cargo/Heavy/partial units.
+23. A Long Rest tested against the Attribute Bonus.
+    The Clinical rest dialog now uses current HP as the Long Rest TR. Reference: p.138.
+24. Influence recovery could waste incomplete 15-SP blocks.
+    It now charges complete 15-SP blocks. Scandal deductions are clamped to the valid non-negative resource range. Active Debt/Deferral Items also affect effective Wealth once.
+25. Minions used normal cumulative Wounds.
+    The queue now compares one-Round Wounds against HP plus Minion modifier. Multiple sources in the Round combine. Non-defeating damage does not carry into another Round; the GM selects death or Incapacitation when the threshold is met. References: pp.285-286.
+26. Consummate Warrior upgraded both physical Skill groups.
+    The GM chooses Strength OR Perception. Juggernaut's increased Perception now contributes to Speed rather than being cancelled by the baseline offset. Signature Weapon produces a usable source-backed melee/ranged Weapon record. Juggernaut/Mastermind's existing +20 Attribute and +10 resource bonuses were validated. Reference: p.286.
+27. The sheet's Character Creator shortcut was redundant.
+    Removed from PC/NPC/AI/Threat sheets. The existing Actors-directory creator remains.
+28. Beginner-facing operating instructions were incomplete.
+    Added an automatically available public twelve-page sheet journal, a Sheet Guide button, native compendium pages, worked examples and GM operating notes. Advanced manual damage/death controls are separated into GM-only disclosures on Damage cards.
+
+PLAYER JOURNAL CONTENTS
+00 Your first five minutes
+01 Header, resources and the lock
+02 Overview panels: Integrity & Reserves, Condition Monitor, Fast Skill Checks, Equipped Systems, DHF Profile & Resource Controls, Attributes
+03 Skills and the Check dialog
+04 Combat and Speed Dice
+05 Attacks, defenses and Aces
+06 Wounds, Injuries and Dying
+07 Loadout and Resource Catalog
+08 Networks and contacts
+09 Current Sleeve and Sleeve Archive
+10 Traits, Baggage, Specialisations, Evidence and Memories
+11 Worked examples and help
+
+The world journal has Observer ownership for players. Only generated pages are refreshed, preserving unflagged campaign notes. The GM's existing guide remains private. No adventure solution or concealed identity is included in the player guide.
+
+RULE COVERAGE AND LIMITS
+Checks / Attribute Bonuses / Levels / Degrees / core Luck: executable foundations and direct regression coverage.
+Combat / defenses / ordinary Accuracy Hits / damage: executable workflow with the corrections above.
+Armor / Body Slots / Cargo / range / Depletion: executable foundations. Mixed damage/AP, unusual cover and perspective remain GM adjudicated.
+Conditions and Injury/Dying: supported numeric effects plus explicit controls. Duration, circumstance-dependent penalties and recovery prerequisites still need the GM. HUD effects with unrecognized/third-party status keys do not acquire guessed Core mechanics.
+Equipment: 95 canonical records: 30 weapons, 13 ammunition, 8 armor, 12 equipment/hardware (including two decks), 3 software, 7 drugs, 22 augmentations. The older '10 devices + 5 deck/software' grouping totals the same 95. Counts/IDs/source links are validated; not every upgrade/model clause is automatically executed.
+Traits: 240 indexed; 170 contain executable numeric components; 127 have incomplete/contextual clauses flagged for GM review; 70 have no numeric component. These categories overlap. A numeric mapping is not full execution of a Trait. data/trait-coverage-v2.5.json contains the per-Trait audit index.
+Creation / advancement / Baggage / economy / Requests / Contacts / Networks: existing source-backed procedures retained, inspected for integration, with current-resource controls and the specific fixes described here. Their entire narrative and campaign content was not re-certified against every book clause.
+Drugs / medical / Ego / resleeving / Virtual / vehicles: existing workflows retained. Long Rest, Ego display, failed instruction validation ordering, and Virtual damage/stat substitutions were corrected. Viral delivery, exact weapon/construct effects, treatment circumstances, and complex narrative transfers remain GM-assisted. Vehicle Structure/Fuel adjustment buttons already work while its base fields are locked.
+NPCs: baseline templates, Minions and the named Nemesis corrections are supported. Escape Artist, Psy-Op, Well Connected and exceptional equipment still use GM rulings. Existing customized NPC Actors are not silently rebuilt when installing the new source templates.
+Complex combat: Blast/Suppression distribution, weapon settings/Charged Hits, model-specific counters, ammunition EMP/poison side effects, Defensive counter-attacks, skill-specific non-Hit Triggered Effects, and extra effects using surplus Degrees still require source-guided GM resolution. Initial Hit repetitions are declared before defense; unallocated surplus is not silently spent.
+Multiplayer: defense replies use owner checks and GM synchronization; private Speed Dice are retained. Live permissions, multiple simultaneous clients, races, dice visualization modules and Forge hosting still require a real-world run.
+
+COLD STORAGE REFERENCE CHECK
+The provided module is v1.9.0, requiring system >=2.4.0. Its bridge accepts v2.5.0 and calls the same creator, roll, Trait, Baggage and adversary helper paths. Source content includes eight pregens, eight loadout plans, 46 previous sleeves, 20 contact records, 160 relationship links and 74 journal source entries. These adventure records and their identities were not rewritten by this system correction. The module ZIP was supplied as a reference; no new Cold Storage package is needed for these system fixes. This does not constitute a live import test of every campaign document or the separate ONI interface.
+
+VALIDATION
+75 targeted automated regression scenarios passed, 0 failures. Tests use dependency-free Node fixtures for Foundry document/UI boundaries and do not replace the licensed server runtime.
+All 17 Handlebars templates compile. All nine PC sheet sections were rendered and inspected with DOM checks for editable current resources, protected base fields, named Clear controls and removal of Creator.
+Overview, Combat and Loadout were visually inspected in headless Chromium with local fixtures. This is a static interface check, not a live Foundry session.
+All shipped JavaScript modules pass syntax checks; static relative imports and manifest paths resolve. All JSON parses. Native LevelDB compendiums are checked for structural integrity and journal-page links. The revised player guide is present both in the source JSON and native guide pack.
+Regression cases include the exact standard-ammunition natural-1 failure, Accuracy, failed Saves, reserve-die Dodge, Catastrophe precedence, compound Damage formulas, Deadly 0, Wound aggregation, replay/retarget rejection, resources/locks, condition cleanup, Dazzled+Panic, Incapacitation, Minions, Nemesis features, Dying, SP mitigation, guide ownership and note preservation.
+
+INSTALL AND FIRST SESSION
+1. Stop the world/server and replace the entire altered-carbon-rpg system folder with the contents of the ZIP (system.json is at the ZIP root). Existing world data is separate from the installed system files.
+2. Restart Foundry and fully reload every player and GM client. Confirm loaded version 2.5.0.
+3. Open the world as GM. The public Player Character Sheet Guide is created/refreshed automatically. It is also in Player and GM Guides. Open it through Sheet Guide on any character sheet.
+4. Keep the supplied Cold Storage module enabled. Use the existing imported characters; this system update does not require reimporting or recreating PCs.
+5. Run one basic attack with standard ammunition, one natural-1 test, a declined defense, a reserve-die Dodge and aggregate Wound Resolution in your actual v14 world. Check that owner players can change current EP/HP/IP and clear an agreed condition while base totals remain locked.
+6. At the start of a new session, the GM resets the SP mitigation escalation using the Combat-panel New Session control.
+
+Packaging retains a versioned GitHub-release download path in system.json. This local delivery does not create that remote release. The manifest becomes a usable remote install/update source after the matching release files are published by the repository owner.

@@ -45,24 +45,29 @@ export function adversaryGearDocuments(entry,canonicalItems=[]){
 }
 
 /** Complete published skill baselines + numeric modifiers on a ready-to-roll Threat Actor. */
-export function adversaryDocuments(entry,skills=[],{minion=false,nemesisAbility='',includeGear=false,canonicalItems=[]}={}){
+export function adversaryDocuments(entry,skills=[],{minion=false,nemesisAbility='',nemesisAttribute='strength',signatureWeapon='ranged',includeGear=false,canonicalItems=[]}={}){
   if(!entry||!safe(entry.id)||!safe(entry.name))throw new Error('An official adversary entry is required.');
   if(!Array.isArray(skills)||skills.length!==32)throw new Error('The complete 32-Skill Core catalogue is required.');
   if(nemesisAbility&&!NEMESIS_OPTIONS.includes(nemesisAbility))throw new Error('Unknown Nemesis feature.');
   if(entry.nonCombatant&&nemesisAbility&&!['Mastermind','Psy-Op'].includes(nemesisAbility))throw new Error('This Core non-combatant may only have Mastermind or Psy-Op.');
   if(minion&&!Number(entry.minionBonus||0))throw new Error('The published opponent has no Minion option.');
   const attr={...entry.attributes}, skillData=[];
+  if(nemesisAbility==='Juggernaut')for(const key of ['strength','perception'])attr[key]+=20;
+  if(nemesisAbility==='Mastermind')for(const key of ['empathy','willpower','acuity','intelligence'])attr[key]+=20;
+  if(nemesisAbility==='Consummate Warrior'&&!['strength','perception'].includes(nemesisAttribute))throw new Error('Consummate Warrior upgrades Strength OR Perception Skills.');
   for(const field of REQUIRED_ATTRIBUTES){requireInt(attr[field],0,150,field);if(!LEVEL_FROM_DIE[Number(entry.attributeSkillDice?.[field])])throw new Error(`Unknown Skill die for ${field}.`);}
   for(const s of skills){const level=LEVEL_FROM_DIE[Number(entry.attributeSkillDice?.[s.attribute])];if(!level)throw new Error(`Unknown Skill attribute ${s.attribute}.`);
     skillData.push({name:s.name,type:'skill',system:{attribute:s.attribute,level,trainingBonus:Number(entry.skillBonuses?.[s.name]||0),catalogId:`${entry.id}:${s.id}`,rulesRef:s.rulesRef||'2020 Core Chapter 3'}});
   }
-  if(nemesisAbility==='Juggernaut'){attr.strength+=20;attr.perception+=20;}
-  if(nemesisAbility==='Mastermind')for(const field of ['empathy','willpower','acuity','intelligence'])attr[field]+=20;
-  if(nemesisAbility==='Consummate Warrior')for(const s of skillData)if(['strength','perception'].includes(s.system.attribute))s.system.level=5;
+  if(nemesisAbility==='Consummate Warrior')for(const s of skillData)if(s.system.attribute===nemesisAttribute)s.system.level=5;
   const gear=includeGear?adversaryGearDocuments(entry,canonicalItems):[];
+  if(nemesisAbility==='Signature Weapon'){
+    if(!['melee','ranged'].includes(signatureWeapon))throw new Error('Choose a printed Signature Weapon profile.');
+    gear.push({name:`Signature Weapon (${signatureWeapon})`,type:'weapon',system:{catalogId:`nemesis.signature-${signatureWeapon}`,skill:signatureWeapon==='melee'?'Melee Combat':'Firearms',damage:signatureWeapon==='melee'?'1d8+SB':'1d10+PB',damageType:signatureWeapon==='melee'?'Slashing':'Piercing',accuracy:1,armorPiercing:true,capacity:0,depletionMode:'none',equipState:'equipped',rulesRef:'2020 Core p.286',triggeredEffects:'Hit (+): printed Signature Weapon damage. Armor Piercing. Accuracy 1.'}});
+  }
   const wornDefense=gear.filter(i=>i.type==='armour').reduce((n,i)=>n+Number(i.system.defense||0),0);
   const bonusHealth=nemesisAbility==='Juggernaut'?10:0,bonusEgo=nemesisAbility==='Mastermind'?10:0;
-  const speedOffset=Number(entry.speedDice)-Math.floor(Number(attr.perception)/10);
+  const speedOffset=Number(entry.speedDice)-Math.floor(Number(entry.attributes.perception)/10);
   const actor={name:entry.name,type:'threat',system:{attributes:attr,identity:{publicName:entry.name,archetype:entry.category},resources:{health:{value:entry.health+bonusHealth,max:entry.health+bonusHealth},ego:{value:entry.ego+bonusEgo,max:entry.ego+bonusEgo},wounds:{value:0,max:attr.strength}},defense:Math.max(0,Number(entry.defense||0)-wornDefense),speedModifier:speedOffset,minionBonus:minion?Number(entry.minionBonus):0,nemesis:Boolean(nemesisAbility),tactics:safe(entry.gmNotes),morale:5},flags:{'altered-carbon-rpg':{adversarySourceId:entry.id,printedSpeedDice:Number(entry.speedDice),selectedMinion:Boolean(minion),nemesisAbility,reference:entry.source,nonCombatant:Boolean(entry.nonCombatant),equipmentSuggestions:entry.equipment||[],includedCanonicalGear:gear.map(i=>i.name),equipmentRequiresGMReview:entry.equipment||[],triggeredEffectReference:entry.triggeredEffects||[],armorRuleNote:entry.armorNote||'',specialRuleReference:entry.specialRules||[]}}};
   return {actor,items:[...skillData,...gear]};
 }

@@ -335,6 +335,7 @@ export async function awardVirtualInstruction(actor,{mode='sp',skills=[],attribu
  if(required===2&&selected[0].system.attribute!==selected[1].system.attribute)throw new Error('Two-skill training must improve Skills of the same Attribute.');
  if(['skill','two-skills'].includes(plan.mode)&&selected.some(s=>Number(s.system.level)>=plan.cap))throw new Error(`Virtual Instruction Skill cap is Level ${plan.cap}.`);
  if(plan.mode==='half-skill'&&vouchers.includes(selected[0].id))throw new Error('A half-price Skill voucher already exists for this Skill.');
+ if(['attribute-bonus','session-bonus'].includes(plan.mode)){const attr=String(attribute).toLowerCase();if(!['perception','acuity','intelligence'].includes(attr))throw new Error('Choose Perception, Acuity or Intelligence before granting an instruction reward.');if(actor.system.virtualTrainingBonusPool>0&&actor.system.virtualTrainingBonusAttribute!==attr)throw new Error('Spend the existing instruction bonus pool before changing its Attribute.');}
  const grant=plan.formula==='0'?0:limited((await new Roll(plan.formula).evaluate()).total);
  // Commit only after every legal prerequisite has been checked.
  for(const skill of (['skill','two-skills'].includes(plan.mode)?selected:[]))await skill.update({'system.level':Number(skill.system.level)+1});

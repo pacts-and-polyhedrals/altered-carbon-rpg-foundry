@@ -1,4 +1,4 @@
-// Vehicle boarding (v2.4.6)
+// Vehicle boarding (v2.5.1)
 // - Vehicle tokens get a footprint from their Size (Size 1 → 1×2, Size 2 → 2×3, ...).
 // - Characters choose a seat (Driver/Pilot, Gunner, Operator, Passenger) to enter a vehicle.
 //   Their token shrinks into that seat and is carried, with rotation, whenever the vehicle moves.
@@ -6,6 +6,7 @@
 //   seated), the vehicle's AI / the GM, or both — set per vehicle.
 // All scene writes are done by one active GM; players send requests over the system socket.
 import {seatLayout,seatPositions,vehicleFootprint,exitPositions} from './vehicle-seat-math.mjs';
+import {pickVehicleTransform,planVehicleMove} from './vehicle-movement.mjs';
 
 const NS='altered-carbon-rpg',SOCKET=`system.${NS}`,SEAT='vehicleSeat',OCC='vehicleOccupants',GRANT='vehicleDriverGrant';
 const esc=v=>foundry.utils.escapeHTML(String(v??''));
@@ -32,6 +33,19 @@ async function request(type,data){
 export function boardVehicle(vehicleToken,occupantToken,seatId){return request('board',{sceneId:vehicleToken.parent.id,vehicleTokenId:vehicleToken.id,tokenId:occupantToken.id,seatId});}
 export function exitVehicle(occupantToken){return request('exit',{sceneId:occupantToken.parent.id,tokenId:occupantToken.id});}
 export function setVehicleControl(vehicleToken,{control,aiPilot}={}){return request('control',{sceneId:vehicleToken.parent.id,vehicleTokenId:vehicleToken.id,control,aiPilot});}
+
+// Queue moves per vehicle: two rapid drags cannot place a later batch behind an earlier one.
+const movementQueue=new Map();
+function serialVehicleMove(key,job){
+  const pending=(movementQueue.get(key)||Promise.resolve()).catch(()=>{}).then(job);
+  movementQueue.set(key,pending);
+  void pending.finally(()=>{if(movementQueue.get(key)===pending)movementQueue.delete(key);}).catch(()=>{});
+  return pending;
+}
+
+export function moveVehicle(vehicleToken,transform,{animate=true}={}){
+  return request('move',{sceneId:vehicleToken.parent.id,vehicleTokenId:vehicleToken.id,transform:pickVehicleTransform(transform),animate});
+}
 
 function requireUserCanMove(user,token){
   if(user?.isGM)return;
@@ -129,6 +143,26 @@ const HANDLERS={
     }
     return true;
   },
+  async move({sceneId,vehicleTokenId,transform,userId,animate=true}){
+    const user=game.users.get(userId);
+    if(!user)throw new Error('Unknown user requested vehicle movement.');
+    // The socket sender is not trusted to update arbitrary token properties.
+    const validated=pickVehicleTransform(transform);
+    return serialVehicleMove(`${sceneId}:${vehicleTokenId}`,async()=>{
+      const scene=game.scenes.get(sceneId),vt=scene?.tokens.get(vehicleTokenId);
+      if(!vt||!isVehicleToken(vt))throw new Error('Vehicle token not found on this scene.');
+      const passengers=occupantsOf(vt);
+      if(!user.isGM){
+        requireUserCanMove(user,vt);
+        if(!['driver','both'].includes(controlMode(vt)))throw new Error('This vehicle is currently controlled by its AI.');
+        const pilot=passengers.pilot,driver=pilot&&scene.tokens.get(pilot.tokenId);
+        if(!driver?.actor?.testUserPermission?.(user,'OWNER'))throw new Error('Only the seated driver or the GM can move an occupied vehicle.');
+      }
+      const changes=planVehicleMove(vt,validated,passengers,scene.grid.size);
+      await scene.updateEmbeddedDocuments('Token',changes,{acVehicleCarry:true,animate:animate!==false});
+      return true;
+    });
+  },
   async control({sceneId,vehicleTokenId,control,aiPilot,userId}){
     const scene=game.scenes.get(sceneId),vt=scene?.tokens.get(vehicleTokenId),user=game.users.get(userId);
     if(!vt)throw new Error('Vehicle token not found.');if(!user?.isGM)throw new Error('Only the GM sets who controls a vehicle.');
@@ -146,6 +180,48 @@ function myTokens(){
   const char=game.user.character;const t=char?canvas?.tokens?.placeables?.find(p=>p.actor?.id===char.id)?.document:null;
   return t?[t]:[];
 }
+/** Available characters for a right-click on a VEHICLE token, even if selecting
+ * the vehicle cleared the player's previously selected character token. */
+export function boardingCandidates(vehicleToken,user=game.user){
+  const scene=vehicleToken?.parent;
+  if(!scene)return [];
+  const all=Array.from(scene.tokens?.contents||scene.tokens||[]);
+  const grid=scene.grid?.size||100;
+  return all.filter(t=>{
+    if(!t?.actor||isVehicleToken(t)||t.id===vehicleToken.id)return false;
+    if(!user?.isGM&&!t.actor.testUserPermission?.(user,'OWNER'))return false;
+    const seated=seatOf(t);
+    if(seated&&seated.vehicleTokenId!==vehicleToken.id)return false;
+    return user.isGM||seated?.vehicleTokenId===vehicleToken.id||rectGap(t,vehicleToken,grid)<=1.01;
+  }).sort((a,b)=>{
+    const da=rectGap(a,vehicleToken,grid),db=rectGap(b,vehicleToken,grid);
+    return da-db||String(a.name).localeCompare(String(b.name));
+  });
+}
+
+/** Vehicle-HUD entry point: choose any eligible PC/NPC, then its exact seat.
+ * A group can board one at a time without selecting/reselecting tokens on canvas. */
+export async function openVehicleBoardDialog(vehicleToken){
+  if(!isVehicleToken(vehicleToken))return ui.notifications.warn('Right-click a vehicle token to board.');
+  const candidates=boardingCandidates(vehicleToken);
+  if(!candidates.length){
+    return ui.notifications.warn(game.user.isGM?'There are no character tokens on this scene.':'Move your character next to the vehicle, then right-click the vehicle and select Board.');
+  }
+  if(candidates.length===1)return openSeatPicker(vehicleToken,candidates[0]);
+  const selectedIds=new Set(myTokens().map(t=>t.id));
+  const first=candidates.find(t=>selectedIds.has(t.id))||candidates[0];
+  const rows=candidates.map(t=>{
+    const inside=seatOf(t)?.vehicleTokenId===vehicleToken.id;
+    const dist=rectGap(t,vehicleToken,vehicleToken.parent.grid.size);
+    return `<label class="ac-seat-option"><input type="radio" name="tokenId" value="${esc(t.id)}" ${t.id===first.id?'checked':''}><span><b>${esc(t.name)}</b></span><em>${inside?'aboard':dist<=1.01?'next to vehicle':`${dist.toFixed(1)} squares`}</em></label>`;
+  });
+  const form=await foundry.applications.api.DialogV2.input({window:{title:`${vehicleToken.name}: Who is boarding?`},content:`<p>Choose a character. You will then select their seat.</p><div class="ac-seat-picker ac-seat-picker-scroll">${rows.join('')}</div>`,ok:{label:'Choose Seat',icon:'fa-solid fa-chair'}});
+  const id=String(form?.tokenId||'');
+  const selected=candidates.find(t=>t.id===id);
+  if(selected)return openSeatPicker(vehicleToken,selected);
+  return null;
+}
+
 export async function openSeatPicker(vehicleToken,occupantToken){
   const seats=seatLayout(vehicleToken.actor),occ=occupantsOf(vehicleToken),mine=seatOf(occupantToken);
   const firstFree=(seats.find(s=>occ[s.id]?.tokenId===occupantToken.id)||seats.find(s=>!occ[s.id]))?.id;
@@ -167,7 +243,7 @@ export async function openBoardDialog(occupantToken){
 
 /* ------------------------------------------------------------------ hooks */
 function hudButton(icon,title,onClick){
-  const b=document.createElement('button');b.type='button';b.className='control-icon ac-vehicle-hud';b.title=title;b.setAttribute('aria-label',title);b.innerHTML=`<i class="${icon}"></i>`;
+  const b=document.createElement('button');b.type='button';b.className='control-icon ac-vehicle-hud';b.title=title;b.dataset.tooltip=title;b.setAttribute('aria-label',title);b.innerHTML=`<i class="${icon}" inert></i>`;
   b.addEventListener('click',event=>{event.preventDefault();event.stopPropagation();Promise.resolve(onClick()).catch(error=>ui.notifications.warn(error.message));});return b;
 }
 export function installVehicleBoarding(){
@@ -180,12 +256,28 @@ export function installVehicleBoarding(){
     }
   });
 
-  // Occupants are carried with their vehicle: position, rotation and elevation.
+  // Intercept user/GM vehicle drags BEFORE the original Token write. A single
+  // GM-authoritative Scene update then commits the vehicle and ALL riders together.
+  // preUpdateToken is synchronous and only runs on the initiating client (Foundry v14).
+  Hooks.on('preUpdateToken',(doc,changes,options)=>{
+    if(options?.acVehicleCarry||!isVehicleToken(doc))return;
+    if(!['x','y','rotation','elevation','width','height'].some(k=>Object.hasOwn(changes,k)))return;
+    if(!Object.keys(occupantsOf(doc)).length)return; // empty vehicles move natively
+    try{
+      const transform=pickVehicleTransform(changes);
+      // Never call a new document update reentrantly from a preUpdate hook.
+      void Promise.resolve().then(()=>moveVehicle(doc,transform,{animate:options?.animate!==false})).catch(error=>ui.notifications.error(`Vehicle movement failed: ${error.message}`));
+    }catch(error){ui.notifications.warn(`Vehicle movement rejected: ${error.message}`);}
+    return false; // don't make the vehicle move one server message ahead of its passengers
+  });
+  // Another system module might bypass the originating-client hook. Reconcile
+  // such exceptional updates on the GM as a compatibility fallback, not the
+  // normal vehicle-movement mechanism.
   Hooks.on('updateToken',(doc,changes,options)=>{
     if(!isLeader()||options?.acVehicleCarry||!isVehicleToken(doc))return;
-    if(!['x','y','rotation','elevation','width','height'].some(k=>k in changes))return;
+    if(!['x','y','rotation','elevation','width','height'].some(k=>Object.hasOwn(changes,k)))return;
     const occ=occupantsOf(doc);if(!Object.keys(occ).length)return;
-    placeOccupants(doc,occ).catch(error=>console.warn('Altered Carbon | carry occupants',error));
+    placeOccupants(doc,occ).catch(error=>console.warn('Altered Carbon | third-party vehicle sync',error));
   });
   // A seated token cannot wander off on its own.
   Hooks.on('preUpdateToken',(doc,changes,options)=>{
@@ -211,23 +303,98 @@ export function installVehicleBoarding(){
       return;}
     const seat=seatOf(doc);if(seat){const vt=scene.tokens.get(seat.vehicleTokenId);if(vt){const occ=occupantsOf(vt);delete occ[seat.seatId];saveOccupants(vt,occ).then(()=>syncCrew(vt,occ)).then(()=>applyDriverControl(vt,occ));}}
   });
-  // Token HUD buttons.
-  Hooks.on('renderTokenHUD',(hud,html)=>{
-    try{
-      const root=html instanceof HTMLElement?html:html?.[0];const doc=hud.document??hud.object?.document;if(!root||!doc)return;
-      const col=root.querySelector('.col.right')||root.querySelector('.right');if(!col)return;
-      if(isVehicleToken(doc)){
-        const mine=myTokens().filter(t=>t.parent?.id===doc.parent?.id);
-        if(mine.length)col.append(hudButton('fa-solid fa-car-side','Get in this vehicle (selected token)',()=>openSeatPicker(doc,mine[0])));
-        if(game.user.isGM)col.append(hudButton('fa-solid fa-users','Who is inside / control',()=>openVehicleControl(doc)));
-      }else if(seatOf(doc)){
-        col.append(hudButton('fa-solid fa-person-walking-arrow-right','Get out of the vehicle',()=>exitVehicle(doc)));
-        const vt=doc.parent.tokens.get(seatOf(doc).vehicleTokenId);if(vt)col.append(hudButton('fa-solid fa-arrows-rotate','Change seat',()=>openSeatPicker(vt,doc)));
-      }else if((canvas?.tokens?.placeables||[]).some(p=>isVehicleToken(p.document))&&doc.actor?.type!=='vehicle'){
-        col.append(hudButton('fa-solid fa-car-side','Get in a vehicle',()=>openBoardDialog(doc)));
-      }
-    }catch(error){console.warn('Altered Carbon | vehicle HUD',error);}
+  // The stock HUD belongs to the token owner. For a player who doesn't own
+  // the vehicle, provide a safe, boarding-only control on vehicle right-click.
+  installUnownedVehicleBoarding();
+  // Native v14 Token HUD (right click). V14 uses a real HTMLElement, not jQuery.
+  // Register both hooks for compatibility with HUD implementations, and dedupe.
+  Hooks.on('renderTokenHUD',renderVehicleHUD);
+  Hooks.on('renderApplicationV2',(app,html)=>{
+    const hudType=foundry.applications?.hud?.TokenHUD;
+    if(hudType?app instanceof hudType:app?.constructor?.name==='TokenHUD')renderVehicleHUD(app,html);
   });
+
+}
+
+// The stock Foundry HUD does not open on tokens a player does not own.
+// We must not grant ownership of every parked car just to make it boardable.
+// Instead show a very small boarding-only icon on right-click, leaving every
+// other vehicle control and all Actor permissions unchanged.
+let unownedBoardPopup=null;
+function dismissUnownedBoardPopup(){
+  const popup=unownedBoardPopup;
+  if(!popup)return;
+  unownedBoardPopup=null;
+  popup.cleanup();
+}
+function showUnownedVehicleBoardButton(vehicleToken,event){
+  if(typeof document==='undefined'||!document.body)return;
+  dismissUnownedBoardPopup();
+  const nativeEvent=event?.nativeEvent??event?.data?.originalEvent??event;
+  const rect=canvas?.app?.view?.getBoundingClientRect?.();
+  const rawX=nativeEvent?.clientX??(rect?rect.left+(event?.global?.x??0):100);
+  const rawY=nativeEvent?.clientY??(rect?rect.top+(event?.global?.y??0):100);
+  const win=globalThis.window;
+  const x=Math.max(8,Math.min(Number(rawX)||100,(win?.innerWidth||1440)-175));
+  const y=Math.max(8,Math.min((Number(rawY)||100)-20,(win?.innerHeight||900)-65));
+  const host=document.createElement('div');
+  host.className='ac-vehicle-boarding-popover';
+  host.style.left=`${x}px`;host.style.top=`${y}px`;
+  host.setAttribute('role','toolbar');
+  host.setAttribute('aria-label',`Board ${vehicleToken.name}`);
+  const button=hudButton('fa-solid fa-car-side',`Board ${vehicleToken.name} / choose seat`,()=>{
+    dismissUnownedBoardPopup();return openVehicleBoardDialog(vehicleToken);
+  });
+  button.classList.add('ac-vehicle-boarding-action');
+  const label=document.createElement('span');label.textContent='Board / Choose Seat';button.append(label);
+  host.append(button);document.body.append(host);
+  const closeOutside=ev=>{if(!host.contains(ev.target))dismissUnownedBoardPopup();};
+  const closeEsc=ev=>{if(ev.key==='Escape')dismissUnownedBoardPopup();};
+  document.addEventListener('pointerdown',closeOutside,true);
+  document.addEventListener('keydown',closeEsc,true);
+  unownedBoardPopup={cleanup:()=>{document.removeEventListener('pointerdown',closeOutside,true);document.removeEventListener('keydown',closeEsc,true);host.remove();}};
+}
+function installUnownedVehicleBoarding(){
+  const klass=globalThis.Token??foundry.canvas?.placeables?.Token;
+  const proto=klass?.prototype;
+  const key=Symbol.for('altered-carbon-rpg.vehicle-board-unowned');
+  if(!proto||proto[key])return;
+  const original=proto._onClickRight;
+  if(typeof original!=='function'){
+    console.warn('Altered Carbon | Could not attach unowned-vehicle context action; use the character token HUD instead.');
+    return;
+  }
+  Object.defineProperty(proto,key,{value:true,configurable:false});
+  proto._onClickRight=function(...args){
+    const result=original.apply(this,args);
+    if(!game.user?.isGM&&!this.isOwner&&isVehicleToken(this.document)){
+      showUnownedVehicleBoardButton(this.document,args[0]);
+    }else dismissUnownedBoardPopup();
+    return result;
+  };
+}
+
+function renderVehicleHUD(hud,html){
+  try{
+    const root=html?.querySelector?html:html?.[0]||hud?.element;
+    const doc=hud.document??hud.object?.document;
+    if(!root||!doc||root.querySelector('.ac-vehicle-hud'))return;
+    const col=root.querySelector('.col.right')||root.querySelector('.col.left')||root.querySelector('.right');
+    if(!col)return;
+    if(isVehicleToken(doc)){
+      // Always render this action. A non-GM player may have lost character
+      // selection when they right-clicked the vehicle.
+      col.append(hudButton('fa-solid fa-car-side','Board vehicle / choose seat',()=>openVehicleBoardDialog(doc)));
+      if(game.user.isGM)col.append(hudButton('fa-solid fa-users','Who is inside / control',()=>openVehicleControl(doc)));
+    }else if(seatOf(doc)){
+      if(!(game.user.isGM||doc.actor?.isOwner))return;
+      col.append(hudButton('fa-solid fa-person-walking-arrow-right','Get out of the vehicle',()=>exitVehicle(doc)));
+      const vt=doc.parent?.tokens?.get(seatOf(doc).vehicleTokenId);
+      if(vt)col.append(hudButton('fa-solid fa-arrows-rotate','Change seat',()=>openSeatPicker(vt,doc)));
+    }else if((canvas?.tokens?.placeables||[]).some(p=>isVehicleToken(p.document))&&doc.actor?.type!=='vehicle'){
+      if(game.user.isGM||doc.actor?.isOwner)col.append(hudButton('fa-solid fa-car-side','Get in a vehicle',()=>openBoardDialog(doc)));
+    }
+  }catch(error){console.warn('Altered Carbon | vehicle HUD',error);}
 }
 
 /** GM: list occupants, eject anyone, set control mode. */

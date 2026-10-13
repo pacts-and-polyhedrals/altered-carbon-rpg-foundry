@@ -955,3 +955,32 @@
 .ac-tracker-phase{font-size:.7rem;letter-spacing:.1em;color:#78ecf3;text-transform:uppercase}
 .ac-speed-open-console{margin-top:6px;width:100%}
 .ac-speed-board-superseded{opacity:.6}.ac-speed-board-superseded .ac-chat-card-header{margin:0}
+
+/* v2.5 operational values remain editable while base totals are locked. */
+.altered-carbon .ac-vital strong {display:flex;align-items:center;justify-content:center;gap:4px;flex-wrap:wrap;}
+.altered-carbon .ac-vital input[data-ac-resource] {width:54px;min-width:0;height:28px;text-align:center;color:var(--ac-cyan);border:1px solid rgba(104,204,215,.35);background:rgba(2,11,15,.6);border-radius:4px;}
+.altered-carbon .ac-vital input[data-ac-resource]:focus {outline:2px solid var(--ac-cyan);outline-offset:2px;}
+.altered-carbon .ac-live-condition {border:1px solid rgba(224,151,68,.4);border-radius:6px;padding:8px;margin:6px 0;}
+.altered-carbon .ac-live-condition summary {display:flex;align-items:center;justify-content:space-between;gap:6px;cursor:pointer;}
+.altered-carbon .ac-live-condition summary button {width:auto;flex:0 0 auto;}
+.altered-carbon .ac-live-condition>div {margin-top:6px;font-size:.8rem;}
+.ac-attack-verdict {font-size:1rem;padding:8px;border-left:3px solid #32c7d6;background:rgba(50,199,214,.09);}
+
+/* Vehicle boarding v2.5.1: scroll through many nearby PC/NPC candidates. */
+.ac-seat-picker-scroll{max-height:360px;overflow:auto;overscroll-behavior:contain}
+.ac-vehicle-hud{cursor:pointer}
+
+/* Players do not own parked vehicle Actors: safe context action without ownership. */
+.ac-vehicle-boarding-popover{
+  position:fixed;z-index:150;min-width:156px;max-width:230px;padding:5px;
+  background:rgba(8,21,34,.95);border:1px solid #67d5d7;border-radius:8px;
+  box-shadow:0 5px 20px rgba(0,0,0,.65);color:#effafb;
+}
+.ac-vehicle-boarding-popover .ac-vehicle-boarding-action{
+  background:transparent;color:inherit;border:0;display:flex;width:100%;
+  align-items:center;gap:9px;padding:8px;cursor:pointer;font:inherit;text-align:left;
+}
+.ac-vehicle-boarding-popover .ac-vehicle-boarding-action:hover,
+.ac-vehicle-boarding-popover .ac-vehicle-boarding-action:focus-visible{
+  background:rgba(104,214,217,.23);outline:1px solid #67d5d7;
+}

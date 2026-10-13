@@ -9,14 +9,14 @@ const state=combat=>combat?.getFlag?.(NS,'state')||{};
 const combatants=combat=>Array.from(combat?.combatants||[]);
 const id=()=>foundry.utils.randomID();
 export function legalActiveIndexes(results,indexes=[],spent=[]){return [...new Set(indexes.map(Number))].filter(i=>Number.isInteger(i)&&i>=0&&i<results.length&&!spent.includes(i));}
-export function countForCombatant(c){return Math.max(1,Math.min(5,Math.trunc(Number(c.actor?.ac?.speedDice)||speedDiceFromPerception(c.actor?.system?.attributes?.perception||10,c.actor?.system?.speedModifier||0))));}
+export function countForCombatant(c){if(c.actor?.ac?.incapacitated)return 0;return Math.max(1,Math.min(5,Math.trunc(Number(c.actor?.ac?.speedDice??speedDiceFromPerception(c.actor?.system?.attributes?.perception||10,c.actor?.system?.speedModifier||0)))));}
 export function publicSpeedSummary(combat){const st=state(combat);const entries=combatants(combat).map(c=>{const s=speedState(c);return {id:c.id,name:c.name,total:Number(s.total||0),rolled:Boolean(s.rolled),submitted:Boolean(s.submitted),spentIndexes:s.spentIndexes||[],revealedActiveIndexes:st.commitmentsRevealed?s.revealedActiveIndexes||[]:[],results:st.commitmentsRevealed?s.results||[]:[]};});return {...revealReadiness(entries),turn:st.turn,round:st.round,phase:st.phase,revealed:Boolean(st.commitmentsRevealed),entries};}
 function actualRollValues(message){const roll=message?.rolls?.[0];if(!roll)return null;const dice=roll.dice||[];if(dice.some(d=>Number(d.faces)!==6))return null;return dice.flatMap(d=>(d.results||[]).filter(r=>r.active!==false).map(r=>Number(r.result)));}
 function authorizedAuthor(combatant,userId){const user=game.users.get(userId);return Boolean(user&&(user.isGM||combatant.actor?.testUserPermission?.(user,'OWNER')));}
 function latestPrivateMessage(combatant,type,st=state(combatant.parent)){
  const messages=Array.from(game.messages||[]);for(let i=messages.length-1;i>=0;i--){const m=messages[i],x=m.getFlag(NS,type);if(!x||x.combatId!==combatant.parent.id||x.combatantId!==combatant.id||x.intentKey!==st.intentKey)continue;if(type==='speedCommitment'&&(x.selectionKey!==st.selectionKey||x.revision!==Number(speedState(combatant).commitRevision||0)))continue;const authorId=m.author?.id||m.user?.id;if(!authorizedAuthor(combatant,authorId))continue;return {message:m,data:x,authorId};}return null;
 }
-export function privateRollFor(combatant){const record=latestPrivateMessage(combatant,'speedRoll');if(!record)return null;const count=Number(speedState(combatant).total);try{return {...record,results:normalizeSpeedResults(actualRollValues(record.message),count)};}catch{return null;}}
+export function privateRollFor(combatant){const record=latestPrivateMessage(combatant,'speedRoll');if(!record)return null;const count=Number(speedState(combatant).total);try{const original=normalizeSpeedResults(actualRollValues(record.message),Number(record.data.count));const st=state(combatant.parent);const extra=Array.from(game.messages||[]).filter(m=>{const x=m.getFlag(NS,'speedExtra');return x?.combatId===combatant.parent.id&&x.combatantId===combatant.id&&x.intentKey===st.intentKey&&authorizedAuthor(combatant,m.author?.id||m.user?.id);}).flatMap(m=>actualRollValues(m)||[]);return {...record,results:normalizeSpeedResults([...original,...extra],count)};}catch{return null;}}
 export function privateCommitmentFor(combatant){const record=latestPrivateMessage(combatant,'speedCommitment');if(!record)return null;const roll=privateRollFor(combatant);if(!roll||record.data.rollMessageId!==roll.message.id)return null;try{return {...record,indexes:checkCommitment(roll.results,record.data.activeIndexes,speedState(combatant).spentIndexes||[])};}catch{return null;}}
 function requireGM(){if(!game.user?.isGM)throw new Error('Only the GM can control this phase.');}
 function requireOwner(combatant){if(!game.user?.isGM&&!combatant?.actor?.isOwner)throw new Error('You do not own this combatant.');}
@@ -31,7 +31,7 @@ export async function repostSpeedBoard(combat,note='Updated below'){
 export async function beginIntent(combat){
  requireGM();if(!combat||!combatants(combat).length)throw new Error('Add combatants to the encounter first.');
  const prev=state(combat),intentKey=id();await combat.setFlag(NS,'state',{phase:'intent',turn:Number(prev.turn||0)+1,round:1,intentKey,selectionKey:id(),activeCombatantId:null,commitmentsRevealed:false,boardMessageId:null});
- await combat.updateEmbeddedDocuments('Combatant',combatants(combat).map(c=>({_id:c.id,flags:{[NS]:{speed:{total:countForCombatant(c),rolled:false,results:[],revealedActiveIndexes:[],spentIndexes:[],submitted:false,commitRevision:0}}}})));
+ await combat.updateEmbeddedDocuments('Combatant',combatants(combat).map(c=>({_id:c.id,flags:{[NS]:{speed:{total:countForCombatant(c),rolled:countForCombatant(c)===0,results:[],revealedActiveIndexes:[],spentIndexes:[],submitted:countForCombatant(c)===0,commitRevision:0}}}})));
  await newBoard(combat);return intentKey;
 }
 export async function rollPrivateSpeed(combatant){
@@ -56,13 +56,13 @@ export async function submitSpeedCommitment(combatant,indexes){
 /** The coordinating GM verifies private chat documents rather than trusting socket payloads. */
 export async function syncPrivateProgress(combat){
  requireGM();const st=state(combat);if(!SELECTION_PHASES.includes(st.phase)||st.commitmentsRevealed)return;
- const updates=[];for(const c of combatants(combat)){const s=speedState(c),rolled=Boolean(privateRollFor(c)),submitted=speedProgress(s.total,s.spentIndexes).remaining===0||Boolean(privateCommitmentFor(c));if(Boolean(s.rolled)!==rolled||Boolean(s.submitted)!==submitted)updates.push({_id:c.id,flags:{[NS]:{speed:{...s,rolled,submitted}}}});}
+ const updates=[];for(const c of combatants(combat)){const s=speedState(c),rolled=Number(s.total)===0||Boolean(privateRollFor(c)),submitted=speedProgress(s.total,s.spentIndexes).remaining===0||Boolean(privateCommitmentFor(c));if(Boolean(s.rolled)!==rolled||Boolean(s.submitted)!==submitted)updates.push({_id:c.id,flags:{[NS]:{speed:{...s,rolled,submitted}}}});}
  if(updates.length)await combat.updateEmbeddedDocuments('Combatant',updates);await refreshSpeedBoard(combat);
 }
 export async function revealCommitments(combat){
  requireGM();const st=state(combat);if(!SELECTION_PHASES.includes(st.phase)||st.commitmentsRevealed)throw new Error('No unrevealed Active Dice selection is in progress.');
  // Fail closed: only commit if all signed-in owners' private chat submissions are valid.
- const validated=combatants(combat).map(c=>({c,roll:privateRollFor(c),choice:speedProgress(speedState(c).total,speedState(c).spentIndexes).remaining===0?{indexes:[]}:privateCommitmentFor(c)}));
+ const validated=combatants(combat).map(c=>({c,roll:Number(speedState(c).total)===0?{results:[]}:privateRollFor(c),choice:speedProgress(speedState(c).total,speedState(c).spentIndexes).remaining===0?{indexes:[]}:privateCommitmentFor(c)}));
  if(!validated.length||validated.some(x=>!x.roll||!x.choice))throw new Error('Cannot reveal until every combatant rolls privately and locks a valid Active Dice selection.');
  await combat.updateEmbeddedDocuments('Combatant',validated.map(({c,roll,choice})=>{const s=speedState(c);return {_id:c.id,flags:{[NS]:{speed:{...s,results:roll.results,revealedActiveIndexes:choice.indexes,rolled:true,submitted:true}}}};}));
  await combat.setFlag(NS,'state',{...st,commitmentsRevealed:true});
@@ -80,6 +80,18 @@ export async function resolveActiveDice(combat,combatant,indexes){
  const spent=[...new Set([...(s.spentIndexes||[]),...pool])].sort((a,b)=>a-b);
  await combatant.setFlag(NS,'speed',{...s,spentIndexes:spent,revealedActiveIndexes:(s.revealedActiveIndexes||[]).filter(i=>!spent.includes(i))});await refreshSpeedBoard(combat);return speedProgress(s.total,spent,s.revealedActiveIndexes);
 }
+/** Brawl/Melee Combat Ace grants a new d6 immediately, including beyond the natural pool. */
+export async function grantBonusSpeedDie(actor,{source='Skill Ace'}={}){
+ const combat=game.combat,c=combatants(combat).find(c=>c.actor?.uuid===actor?.uuid);
+ if(!c){await ChatMessage.implementation.create({speaker:ChatMessage.getSpeaker({actor}),content:`<p>${foundry.utils.escapeHTML(source)} Ace: roll one extra Speed Die immediately when using combat timing (Core pp.101–102).</p>`});return null;}
+ requireOwner(c);const st=state(combat),s=speedState(c);
+ if(!st.commitmentsRevealed||!['check','resolution'].includes(st.phase))throw new Error('Bonus Speed Dice require a revealed combat Round.');
+ if(Number(s.total)>=12)throw new Error('Speed Dice pool limit reached; GM must record further special dice.');
+ const roll=await new Roll('1d6').evaluate(),value=Number(roll.total),index=Number(s.total);
+ await ChatMessage.implementation.create({speaker:ChatMessage.getSpeaker({actor}),content:`<p>${foundry.utils.escapeHTML(actor.name)}: ${foundry.utils.escapeHTML(source)} Ace grants one immediate Active Speed Die (${value}).</p>`,rolls:[roll],flags:{[NS]:{speedExtra:{combatId:combat.id,combatantId:c.id,intentKey:st.intentKey}}}});
+ await c.setFlag(NS,'speed',{...s,total:index+1,results:[...(s.results||[]),value],revealedActiveIndexes:[...(s.revealedActiveIndexes||[]),index]});
+ await refreshSpeedBoard(combat);return {index,value};
+}
 export async function startSelectionRound(combat){
  requireGM();const st=state(combat);if(!st.commitmentsRevealed||!['check','resolution'].includes(st.phase))throw new Error('Finish the current reveal first.');
  if(chooseNext(combat))throw new Error('Active dice remain; resolve them before a new selection.');
@@ -89,7 +101,7 @@ export async function startSelectionRound(combat){
  await newBoard(combat);return state(combat).round;
 }
 export async function nextResolution(combat){requireGM();const st=state(combat);if(!st.commitmentsRevealed)throw new Error('Waiting for Speed Dice reveal.');const c=chooseNext(combat);if(c){await combat.setFlag(NS,'state',{...st,phase:'check',activeCombatantId:c.id});return c;}const remaining=combatants(combat).some(c=>speedProgress(speedState(c).total,speedState(c).spentIndexes).remaining>0);if(remaining){await startSelectionRound(combat);return null;}await combat.setFlag(NS,'state',{...st,phase:'complete',activeCombatantId:null});return null;}
-export function installSocket(){game.socket.on(`system.${NS}`,async payload=>{if(!game.user?.isGM||!payload||payload.type!=='speedProgress')return;
+export function installSocket(){Hooks.on('updateCombatant',combatant=>{if(!game.user?.isGM)return;const leader=game.users.filter(u=>u.active&&u.isGM)[0];if(leader&&leader.id!==game.user.id)return;refreshSpeedBoard(combatant.parent).catch(e=>console.warn('Altered Carbon | Speed board refresh',e));});game.socket.on(`system.${NS}`,async payload=>{if(!game.user?.isGM||!payload||payload.type!=='speedProgress')return;
   // Only one GM writes cross-client progress to prevent update races.
   const leader=game.users.filter(u=>u.active&&u.isGM)[0];if(leader&&leader.id!==game.user.id)return;
   const combat=game.combats.get(payload.combatId);if(combat&&state(combat).intentKey===payload.intentKey)try{await syncPrivateProgress(combat);}catch(e){console.error('Altered Carbon | Speed Dice sync failed',e);}

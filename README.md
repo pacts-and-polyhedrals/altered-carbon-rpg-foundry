@@ -1,6 +1,6 @@
 # Altered Carbon RPG — Unofficial Foundry VTT System
 
-**Current version: v2.4.9** · Foundry VTT v14
+**Current version: v2.5.1** · Foundry VTT v14
 
 Unofficial Foundry VTT implementation of the 2020 Altered Carbon RPG rules. Requires lawful
 access to the original tabletop rules. Not affiliated with or endorsed by the Altered Carbon
@@ -22,7 +22,46 @@ Older installs that still use `.../main/system.json` keep working because the `s
 version, uninstall it and reinstall from the manifest URL above. Uninstalling a system does
 not delete your worlds.
 
-## What's in v2.4.9
+## v2.5.1 — Vehicle convoy synchronization and token-HUD boarding
+
+- **Vehicle and occupants now move as one scene update**, not one after another.
+  The vehicle's incoming destination and all PC/NPC seat positions are projected
+  before the update is committed; rotation, elevation and resizing follow too.
+- **Right-click the vehicle token** → car icon **Board vehicle / choose seat**.
+  With several available PC/NPC tokens, choose who is getting in; then choose
+  Driver/Pilot, Gunner, Operator or a free Passenger seat. Repeat to board others.
+  The vehicle icon no longer vanishes when right-clicking clears token selection.
+  Non-owners get a boarding-only right-click popover; no vehicle editing rights are granted.
+  Each character token also keeps Get in / Change seat / Get out controls.
+- A seated **Driver** can move the vehicle through the active GM's synchronized
+  movement request; the AI-control setting and existing owner permissions apply.
+  Other riders cannot independently drag their own tokens away from the car.
+- Existing vehicle, passenger, crew and seat flags are preserved. **No world
+  migration** or Cold Storage reimport is required.
+- See `docs/VEHICLE-BOARDING-v2.5.1.md` for instructions, limits and test checklist.
+
+## What's in v2.5.0
+
+- Standard-ammunition attacks no longer stop after the Check. Attack cards show Hit state,
+  natural-1 Ace, target responses and Damage controls. Ordinary weapon attacks spend selected
+  Active Speed Dice; reserve dice are available for defensive Saves.
+- Firearms/Directed Energy Ace damage, Brawl/Melee Ace Speed Dice, Accuracy Save penalties,
+  complete repeated Damage formulas, Catastrophe precedence and compound formulas are corrected.
+- Current HP, Wounds, EP, SP and IP are editable while the sheet is locked. Base totals,
+  Attributes and descriptors require Edit Sheet; active Sleeve base edits now persist.
+- Named conditions have Clear controls. Creator is removed from existing actor sheets.
+- A twelve-page public Player Character Sheet Guide is created automatically and included in
+  the Player and GM Guides pack. Open it with Sheet Guide.
+- Injury/Dying controls, SP mitigation, reload/exhaustion, rest, Minions and named NPC template
+  corrections are included. See docs/AUDIT-v2.5.0.txt for source pages and remaining GM rulings.
+- 75 targeted Node regression scenarios pass. These are fixture tests; live Foundry/Forge
+  multiplayer certification remains pending. The full printed rules are not claimed automated.
+
+Run the bundled regression scenarios: `node --test tests/*.test.mjs`.
+Cold Storage 1.9.0 remains the supplied companion module; this system update does not require
+PC reimport. No remote GitHub release is created by this ZIP.
+
+## v2.4.9
 
 - **Speed Dice reveal is reposted** as a new chat card at the bottom of chat, so no one scrolls
   up in a long fight. The old waiting card collapses to a one-line "Revealed below".

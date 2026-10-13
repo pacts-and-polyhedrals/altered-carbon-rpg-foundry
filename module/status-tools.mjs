@@ -52,7 +52,7 @@ export async function applyStatus({actorIds=[],kind='scandal',entryId,influenceL
         await actor.createEmbeddedDocuments('Item',[itemData('condition',scandalized)]);parts.push('Scandalized');
       }
       const loss=Math.max(0,Number(influenceLoss)||0);
-      if(deductIP&&loss&&parts.length){const before=actorInfluence(actor);await actor.update({'system.resources.influence.value':before-loss});parts.push(`IP ${before} → ${before-loss}`);}
+      if(deductIP&&loss&&parts.length){const before=actorInfluence(actor);await actor.update({'system.resources.influence.value':Math.max(0,before-loss)});parts.push(`IP ${before} → ${before-loss}`);}
     }
     if(parts.length)lines.push(`<li><strong>${esc(actor.name)}</strong>: ${esc(parts.join(' · '))}</li>`);
   }

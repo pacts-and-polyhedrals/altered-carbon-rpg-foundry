@@ -7,6 +7,10 @@ import {checkGrade} from './chat-ui.mjs';
 import {ammoCompatibility,ammunitionProfile,advancedAttack,targetSleeveType} from './combat-equipment.mjs';
 import {queueIncomingDamage} from './combat-workflow.mjs';
 import {repeatTriggeredDamageFormula,damageDieCount} from './damage-formulas.mjs';
+import {attackDegrees,combatAceBenefit,damageFormula,mayRepeatHit,skillKey} from './attack-rules.mjs';
+import {conditionKeys} from './condition-state.mjs';
+import {defenseAvailable,respondToAttack,renderAttackCard,refreshAttack,commitAttackAction,speedOptions} from './attack-defense.mjs';
+import {grantBonusSpeedDie} from './combat.mjs';
 
 const FLAG='altered-carbon-rpg';
 const esc=value=>foundry.utils.escapeHTML(String(value??''));
@@ -30,9 +34,7 @@ function substituteDamage(raw,actor){
 }
 
 function cleanDamageFormula(raw,actor){
-  const replaced=substituteDamage(raw,actor).replace(/\[[^\]]*\]/g,' ').replace(/\b(?:EP|HP|Wounds?|Damage)\b/gi,' ').trim();
-  const match=replaced.match(/(?:\d*d\d+|\d+)(?:\s*[+\-]\s*(?:\d*d\d+|\d+))*/i);
-  return match?.[0]?.replace(/\s+/g,'')||null;
+  return damageFormula(raw,actor);
 }
 
 async function chooseDamageRepeats(max=1){
@@ -44,7 +46,7 @@ async function chooseDamageRepeats(max=1){
 function permissionToChange(actor){return Boolean(game.user.isGM||actor?.isOwner);}
 
 async function resolveTargetActor(preferredUuid=null){
-  if(preferredUuid){const actor=await fromUuid(preferredUuid);if(actor)return actor;}
+  if(preferredUuid){const actor=await fromUuid(preferredUuid);if(!actor)throw new Error('The original target is no longer available. Resolve the intended target with the GM.');return actor;}
   const targeted=firstTargetActor();if(targeted)return targeted;
   if(!game.user.isGM)return null;
   const actors=game.actors.filter(a=>['character','npc','threat','ai'].includes(a.type));if(!actors.length)return null;if(actors.length===1)return actors[0];
@@ -90,6 +92,12 @@ export async function useWeapon(actor,weapon,rollOptions={}){
   if(weapon.system.exhausted)throw new Error(`${weapon.name} is Exhausted until Depletion Points are removed.`);
   if(actor.getFlag?.(FLAG,'stance')==='full-defense')throw new Error('A character in Full Defense cannot make normal attacks this turn. End the stance first.');
   const skill=findWeaponSkill(actor,weapon);if(!skill)throw new Error(`No matching Skill item found for ${weapon.system.skill||weapon.name}.`);
+  const speed=speedOptions(actor,{activeOnly:true});
+  if(speed.combatant&&(!speed.revealed||!['check','resolution'].includes(speed.phase)||!speed.dice.length))throw new Error('No unspent Active Speed Die is available for this attack.');
+  const target=rollOptions.targetActorUuid?await fromUuid(rollOptions.targetActorUuid):firstTargetActor();
+  if(rollOptions.targetActorUuid&&!target)throw new Error('The original attack target is no longer available.');
+  if(target&&conditionKeys(target).has('hidden'))throw new Error('Reveal Hidden targets with Detection before attacking them.');
+  if(actor.getFlag?.(FLAG,'grappledWith')&&equipmentTags(weapon).includes('two-handed'))throw new Error('Two-handed weapons cannot be used while Grappled.');
   const ammunition=rollOptions.ammunitionUuid?await fromUuid(rollOptions.ammunitionUuid):null;
   if(rollOptions.ammunitionUuid&&!ammunition)throw new Error('Selected ammunition is no longer available.');
   if(ammunition){
@@ -104,31 +112,36 @@ export async function useWeapon(actor,weapon,rollOptions={}){
   const result=await rollSkill(actor,skill,options);if(result?.blocked)return result;
   // Reaper's HP poison triggers on any Move/Attack action, even a missed attack.
   await recordReaperAction(actor,'attack');
-  if(ammunition?.system.consumable!==false){
+  if(ammunition&&ammunition.system.consumable!==false){
     // Never decrement when the attack was blocked; never allow depleted ammo to fire.
     if(Number(ammunition.system.quantity||0)<1)throw new Error('Ammunition ran out before the attack was committed.');
     await ammunition.update({'system.quantity':Number(ammunition.system.quantity)-1});
   }
   const modeId=normalizedId(weapon.system.firingMode||'semi-automatic'),mode=firingModeProfile(modeId);
-  const availableSuccessDegrees=Math.min(5,Math.max(0,Number(result.successDegrees||0)+Number(mode.extraDegrees||0)));
-  const skillTags=equipmentTags(weapon),skillSlug=normalizedId(weapon.system.skill||'firearms');
+  const incapacitated=target&&(conditionKeys(target).has('incapacitated')||target.ac?.incapacitated);
+  const availableSuccessDegrees=incapacitated&&rollOptions.range==='shared'?Math.max(1,attackDegrees(result,mode)):attackDegrees(result,mode);
+  const skillTags=options.itemTag||equipmentTags(weapon),skillSlug=normalizedId(weapon.system.skill||'firearms');
   const context={skill:skillSlug,itemTag:skillTags,range:rollOptions.range||'shared',activity:rollOptions.activity||'',targetCount:rollOptions.targetCount||1};
   const efficiency=Math.max(0,derivedEffectValue(evaluateEffects(actor,context),'weapon.efficiency',0));
   const burst=['3-round-burst','fully-automatic'].includes(modeId);
   let depletion=null;try{depletion=await weapon.useDepletion({skillSides:result.sides,formula:burst?mode.depletion:null,efficiency});}
   catch(error){ui.notifications.warn(`Weapon used, but Depletion needs manual resolution: ${error.message}`);}
-  const target=rollOptions.targetActorUuid?await fromUuid(rollOptions.targetActorUuid):firstTargetActor();
   const ammo=ammunitionProfile(ammunition,{targetType:rollOptions.targetType||targetSleeveType(target),zone:rollOptions.range||'shared',successDegrees:availableSuccessDegrees});
   const depText=depletionSummary(depletion),ammoName=ammunition?.name||'';
   const damageText=ammo.damageOverride||weapon.system.damage||'Special';
   const damageType=ammo.damageType||weapon.system.damageType||'';
   const armorPiercing=Boolean(weapon.system.armorPiercing||ammo.armorPiercing);
-  const canDamage=availableSuccessDegrees>0&&special.allowDamage!==false&&rollOptions.allowDamage!==false&&damageText.toLowerCase()!=='none';
+  const canDamage=special.allowDamage!==false&&rollOptions.allowDamage!==false&&damageText.toLowerCase()!=='none';
   const modeText=mode.extraDegrees?` · Firing mode +${mode.extraDegrees}${mode.damageBonus?`, Damage +${mode.damageBonus}`:''}`:'';
-  const grade=checkGrade(result),notes=[...(rollOptions.attackNotes||[]),...ammo.notes,...ammo.review];
-  const notesHTML=notes.length?`<p class="ac-request-context">${notes.map(x=>esc(x)).join(' · ')}</p>`:'';
-  const content=`<section class="ac-chat-card ac-weapon-use ${grade.className}"><header class="ac-chat-card-header"><div><span class="ac-chat-kicker">WEAPON RESOLUTION · ${esc(action.toUpperCase())}</span><strong>${esc(actor.name)} — ${esc(weapon.name)}</strong></div><span class="ac-grade-chip">${esc(grade.label)}</span></header><p class="ac-chat-subtitle">${esc(rollOptions.range||'Unspecified Zone')}${modeText?` · ${esc(modeText.replace(/^ · /,''))}`:''} · ${esc(depText)}</p><div class="ac-request-meta"><span>Triggered +: ${availableSuccessDegrees}</span><span>Damage: ${esc(damageText)}</span>${damageType?`<span>${esc(damageType)}</span>`:''}${armorPiercing?'<span>Armor Piercing</span>':''}${ammoName?`<span>Ammo: ${esc(ammoName)}</span>`:''}${Number(weapon.system.deadly||0)>0?`<span>Deadly ${Number(weapon.system.deadly)}</span>`:''}</div>${notesHTML}${canDamage?'<div class="ac-chat-actions"><button type="button" data-ac-action="roll-damage">Roll Damage</button></div>':''}${availableSuccessDegrees>0&&action==='disarm'?'<div class="ac-chat-actions"><button type="button" data-ac-action="resolve-disarm">GM: Resolve Disarm</button></div>':''}${availableSuccessDegrees>0&&action==='stun'?'<div class="ac-chat-actions"><button type="button" data-ac-action="resolve-stun">GM: Resolve Stun</button></div>':''}</section>`;
-  const message=await ChatMessage.implementation.create({speaker:ChatMessage.getSpeaker({actor}),content,flags:{[FLAG]:{weaponUse:{actorUuid:actor.uuid,itemUuid:weapon.uuid,targetActorUuid:target?.uuid||null,checkResult:result,availableSuccessDegrees,damageBonus:Number(mode.damageBonus||0)+Number(ammo.damageBonus||0),ammunitionUuid:ammunition?.uuid||null,damageOverride:ammo.damageOverride,damageTypeOverride:damageType,armorPiercingOverride:armorPiercing,damageFormulaExtra:ammo.damageFormulaExtra,firingMode:modeId,attackAction:action,attackActivity:rollOptions.activity||'',range:rollOptions.range||'shared',attackTargetCount:rollOptions.targetCount||1,attackTags:skillTags,attackNotes:notes,canDamage,depletion:depletion?{depletion:depletion.depletion,capacity:depletion.capacity,added:depletion.added,rollResult:depletion.rollResult??null,tr:depletion.tr??null,passed:depletion.passed??null,exhausted:depletion.exhausted}:null}}}});
+  const ace=combatAceBenefit(result,weapon.system.skill,actor.ac?.bonuses?.perception||0);
+  const notes=[...(rollOptions.attackNotes||[]),...ammo.notes,...ammo.review,...(ace.note?[ace.note]:[])];
+  if(mode.extraDegrees)notes.push(`Firing mode grants +${mode.extraDegrees} even alongside failure Degrees (Core p.201).`);
+  const plannedRepeats=availableSuccessDegrees&&canDamage?(await chooseDamageRepeats(mayRepeatHit(weapon)?availableSuccessDegrees:1))||1:1;
+  const currentSpeed=speedOptions(actor,{activeOnly:true});
+  await commitAttackAction(actor,rollOptions.speedIndexes||currentSpeed.dice.slice(0,1).map(d=>d.index));
+  if(ace.speedDice)await grantBonusSpeedDie(actor,{source:weapon.name});
+  const data={actorUuid:actor.uuid,actorName:actor.name,itemUuid:weapon.uuid||null,weaponName:weapon.name,weaponProfile:weapon.uuid?null:{name:weapon.name,type:'weapon',system:weapon.system},targetActorUuid:target?.uuid||null,targetName:target?.name||'',checkResult:result,availableSuccessDegrees,originalSuccessDegrees:availableSuccessDegrees,plannedRepeats,accuracy:Number(weapon.system.accuracy||0),attackSkill:weapon.system.skill,aceWounds:ace.wounds,maximizeDamage:Boolean(incapacitated),needsDefense:defenseAvailable(target,actor),defense:null,damageText,damageBonus:Number(mode.damageBonus||0)+Number(ammo.damageBonus||0),ammunitionUuid:ammunition?.uuid||null,damageOverride:ammo.damageOverride,damageTypeOverride:damageType,armorPiercingOverride:armorPiercing,damageFormulaExtra:ammo.damageFormulaExtra,firingMode:modeId,attackAction:action,attackActivity:rollOptions.activity||'',range:rollOptions.range||'shared',grappleRange:Boolean(rollOptions.grappleRange),attackTargetCount:rollOptions.targetCount||1,attackTags:skillTags,attackNotes:notes,canDamage,depletionText:depText,depletion:depletion?{depletion:depletion.depletion,capacity:depletion.capacity,added:depletion.added,rollResult:depletion.rollResult??null,tr:depletion.tr??null,passed:depletion.passed??null,exhausted:depletion.exhausted}:null};
+  const message=await ChatMessage.implementation.create({speaker:ChatMessage.getSpeaker({actor}),content:renderAttackCard(actor.name,weapon.name,data),flags:{[FLAG]:{weaponUse:data}}});
   return {result,depletion,message};
 }
 
@@ -141,42 +154,50 @@ export async function useDrug(actor,item){
   return new ACClinicalConsole({actorId:actor.id,drugId:item.id}).render({force:true});
 }
 
-async function rollWeaponDamage(message,data){
-  const actor=await fromUuid(data.actorUuid),weapon=await fromUuid(data.itemUuid);
+export async function rollWeaponDamage(message,data=message.getFlag(FLAG,'weaponUse')){
+  const actor=await fromUuid(data.actorUuid),weapon=data.itemUuid?await fromUuid(data.itemUuid):data.weaponProfile;
   if(!actor||!weapon)return ui.notifications.warn('Weapon or Actor is no longer available.');
   if(!permissionToChange(actor))return ui.notifications.warn('You do not have permission to roll damage for this Actor.');
   if(!data.canDamage)return ui.notifications.warn('This special action does not inflict automatic weapon damage.');
-  let formula=cleanDamageFormula(data.damageOverride||weapon.system.damage,actor);
-  if(!formula){const form=await foundry.applications.api.DialogV2.input({window:{title:`${weapon.name} Damage`},content:'<div class="form-group"><label>Damage formula (GM-approved)</label><input name="formula" value="1d6"></div>'});if(!form)return;formula=String(formValue(form,'formula')||'1d6');}
-  const maxRepeats=Number(weapon.system.accuracy||0)>0?Math.max(1,Number(data.availableSuccessDegrees||data.checkResult?.successDegrees||1)):1;
-  const repeats=await chooseDamageRepeats(maxRepeats);if(!repeats)return;
+  if(data.needsDefense&&!data.defense)return ui.notifications.warn('The target owner or GM must resolve or decline defense first.');
+  if(!Number(data.availableSuccessDegrees))return ui.notifications.warn('No positive Degrees remain: this attack cannot resolve a Hit.');
+  if(data.damageMessageId)return ui.notifications.warn('Damage has already been rolled for this attack.');
+  let formula=cleanDamageFormula(data.damageOverride||data.damageText||weapon.system.damage,actor);
+  if(!formula){const form=await foundry.applications.api.DialogV2.input({window:{title:`${weapon.name} Damage`},content:`<p>This weapon has several profiles or a Special damage entry. Select its exact source formula; the system will not silently use only the first die.</p><div class="form-group"><label>Damage formula (GM-approved)</label><input name="formula" placeholder="Enter the exact profile"></div>`});if(!form)return;formula=cleanDamageFormula(formValue(form,'formula'),actor);if(!formula)throw new Error('Enter a complete valid damage formula.');}
+  const repeats=mayRepeatHit(weapon)?Math.max(1,Math.min(Number(data.plannedRepeats||1),Number(data.availableSuccessDegrees))):1;
   const effectContext={skill:normalizedId(weapon.system.skill),itemTag:data.attackTags||equipmentTags(weapon),range:data.range||'shared',
     activity:data.attackActivity||'',targetCount:Number(data.attackTargetCount||1),damageType:normalizedId(data.damageTypeOverride||weapon.system.damageType||'')};
   const traitDamage=Math.trunc(derivedEffectValue(evaluateEffects(actor,effectContext),'damage.bonus',0));
   const perHitFormula=traitDamage?`${formula}${traitDamage>0?'+':''}${traitDamage}`:formula;
   const baseFormula=repeatTriggeredDamageFormula(perHitFormula,repeats),coreDiceCount=damageDieCount(baseFormula);
   formula=baseFormula;
-  if(Number(data.damageBonus||0))formula=`(${formula})+${Number(data.damageBonus)}`;
+  if(Number(data.damageBonus||0)+Number(data.aceWounds||0))formula=`(${formula})+${Number(data.damageBonus||0)+Number(data.aceWounds||0)}`;
   const extra=cleanDamageFormula(data.damageFormulaExtra||'',actor);if(extra)formula=`(${formula})+(${extra})`;
-  let roll;try{roll=await new Roll(formula).evaluate();}catch(error){return ui.notifications.error(`Invalid damage formula: ${error.message}`);}
-  const amount=Math.max(0,Number(roll.total||0)),ego=/\bEP\b/i.test(String(weapon.system.damage||''))||String(weapon.system.damageType||'').toLowerCase()==='ego';
-  const deadlyDice=Math.max(0,Math.min(coreDiceCount,Number(weapon.system.deadly||0)));
+  let roll;try{roll=await new Roll(formula).evaluate({maximize:Boolean(data.maximizeDamage)});}catch(error){return ui.notifications.error(`Invalid damage formula: ${error.message}`);}
+  const amount=Math.max(0,Number(roll.total||0)),ego=conditionKeys(actor).has('virtual')||Boolean(actor.system.virtualSession?.active)||/\bEP\b/i.test(String(weapon.system.damage||''))||String(weapon.system.damageType||'').toLowerCase()==='ego';
+  const allDeadly=/\bDeadly\b(?!\s*(?:\d|[+]))/i.test(String(weapon.system.specialRules||''))&&!Number(weapon.system.deadly||0);
+  const deadlyDice=allDeadly?coreDiceCount:Math.max(0,Math.min(coreDiceCount,Number(weapon.system.deadly||0)));
   // Deadly 0 MUST NOT select every die via .slice(-0).
   const rolls=roll.dice.flatMap(d=>d.results.filter(r=>r.active!==false).map(r=>Number(r.result||0)));
-  const deadlyHP=ego?0:(deadlyDice?rolls.slice(0,coreDiceCount).slice(-deadlyDice).reduce((sum,n)=>sum+n,0):0);
+  const deadlyHP=ego?0:allDeadly?amount:(deadlyDice?rolls.slice(0,coreDiceCount).slice(-deadlyDice).reduce((sum,n)=>sum+n,0):0);
   const targetUuid=data.targetActorUuid||firstTargetActor()?.uuid||null;
   let location=null,locRoll=null;if(data.attackAction==='headshot'){locRoll=await new Roll('1d12').evaluate();location=Number(locRoll.total);}
-  const stateButtons=ego?'':` <button type="button" data-ac-action="apply-direct-hp">Manual HP</button> <button type="button" data-ac-action="sleeve-dead">Sleeve Dead</button> <button type="button" data-ac-action="stack-damaged">Damage Stack</button> <button type="button" data-ac-action="real-death">Real Death</button> <button type="button" data-ac-action="begin-resleeving">Begin Resleeving</button>`;
-  const content=`<section class="ac-chat-card ac-damage-card"><header class="ac-chat-card-header"><div><span class="ac-chat-kicker">DAMAGE OUTPUT</span><strong>${esc(weapon.name)}</strong></div><span class="ac-grade-chip">${amount} ${ego?'EP':'WND'}</span></header><p class="ac-chat-subtitle"><strong>${amount}</strong> ${ego?'Ego Points':'Wounds'} · ${esc(formula)}${repeats>1?` · ${repeats} resolutions`:''}</p>${deadlyHP?`<p class="ac-request-context">Deadly: ${deadlyHP} potential direct HP after applying Protection to non-Deadly Wounds first.</p>`:''}${location?`<p class="ac-request-context">Optional Hit Location d12: ${location} ${location===1?'(Head/Neck)':''}. GM determines effects.</p>`:''}<div class="ac-chat-actions">${ego?'<button type="button" data-ac-action="apply-ego">Apply Ego</button>':'<button type="button" data-ac-action="queue-wounds">Queue Resolution Wounds</button> <button type="button" data-ac-action="apply-wounds">Manual Apply Wounds</button>'}${stateButtons}</div></section>`;
-  await ChatMessage.implementation.create({speaker:ChatMessage.getSpeaker({actor}),content,rolls:[roll,...(locRoll?[locRoll]:[])],flags:{[FLAG]:{damage:{sourceActorUuid:actor.uuid,itemUuid:weapon.uuid,targetActorUuid:targetUuid,amount,formula,ego,deadly:Number(weapon.system.deadly||0),deadlyHP,armorPiercing:Boolean(data.armorPiercingOverride),damageType:data.damageTypeOverride||weapon.system.damageType||'',location,sourceMessageId:message.id}}}});
+  const stateButtons=ego?'':` <button type="button" data-ac-action="apply-wounds">Manual Wounds</button> <button type="button" data-ac-action="apply-direct-hp">Manual HP</button> <button type="button" data-ac-action="sleeve-dead">Sleeve Dead</button> <button type="button" data-ac-action="stack-damaged">Damage Stack</button> <button type="button" data-ac-action="real-death">Real Death</button> <button type="button" data-ac-action="begin-resleeving">Begin Resleeving</button>`;
+  const content=`<section class="ac-chat-card ac-damage-card"><header class="ac-chat-card-header"><div><span class="ac-chat-kicker">DAMAGE OUTPUT</span><strong>${esc(weapon.name)}</strong></div><span class="ac-grade-chip">${amount} ${ego?'EP':'WND'}</span></header><p class="ac-chat-subtitle"><strong>${amount}</strong> ${ego?'Ego Points':'Wounds'} · ${esc(formula)}${repeats>1?` · ${repeats} resolutions`:''}</p>${deadlyHP?`<p class="ac-request-context">Deadly: ${deadlyHP} potential direct HP after applying Protection to non-Deadly Wounds first.</p>`:''}${location?`<p class="ac-request-context">Optional Hit Location d12: ${location} ${location===1?'(Head/Neck)':''}. GM determines effects.</p>`:''}<div class="ac-chat-actions">${ego?'<button type="button" data-ac-action="apply-ego">Apply Ego</button>':'<button type="button" data-ac-action="queue-wounds">Queue Resolution Wounds</button>'}</div>${stateButtons?`<details data-ac-gm-tools><summary>GM adjustments and sleeve / stack controls</summary><div class="ac-chat-actions">${stateButtons}</div></details>`:''}</section>`;
+  const damageMessage=await ChatMessage.implementation.create({speaker:ChatMessage.getSpeaker({actor}),content,rolls:[roll,...(locRoll?[locRoll]:[])],flags:{[FLAG]:{damage:{sourceActorUuid:actor.uuid,itemUuid:weapon.uuid||null,targetActorUuid:targetUuid,amount,formula,ego,deadly:Number(weapon.system.deadly||0),deadlyHP,defenseProtection:Number(data.defense?.protection||0),ace:Boolean(data.checkResult?.ace),armorPiercing:Boolean(data.armorPiercingOverride),damageType:data.damageTypeOverride||weapon.system.damageType||'',location,sourceMessageId:message.id}}}});
+  await refreshAttack(message,{...data,damageMessageId:damageMessage.id});
+  return damageMessage;
 }
 
-async function applyDamageAction(message,action){
+export async function applyDamageAction(message,action){
+  if(['apply-wounds','apply-direct-hp','sleeve-dead','stack-damaged','real-death','begin-resleeving'].includes(action)&&!game.user.isGM)throw new Error('The GM resolves manual damage, sleeve and stack adjustments.');
   const data=message.getFlag(FLAG,'damage')||{};const target=await resolveTargetActor(data.targetActorUuid);if(!target)return ui.notifications.warn('Target an Actor first, or have the GM choose one.');if(!permissionToChange(target))return ui.notifications.warn('Only the GM or an owner of the target Actor can change its damage/state.');
-  if(action==='queue-wounds'){if(data.ego)return ui.notifications.warn('Ego Damage is not queued as Wounds.');const r=await queueIncomingDamage(target,{id:message.id,wounds:data.amount,deadlyHP:data.deadlyHP,deadly:data.deadly,damageType:data.damageType,armorPiercing:data.armorPiercing,source:data.itemUuid});return ui.notifications.info(r.duplicate?'This damage is already queued.':`${data.amount} Wounds queued for ${target.name}. Open the Combat tab to resolve the turn once.`);}
-  if(action==='apply-wounds'){const values=await woundsPrompt(data.amount||0);if(!values)return;const result=await target.applyTurnWounds(values.wounds,{protection:values.protection});return ui.notifications.info(`${target.name}: ${result.appliedWounds} Wounds applied, ${result.healthLoss} HP lost.`);}
-  if(action==='apply-ego'){const amount=await numericPrompt('Apply Ego Damage','Ego Points lost',data.amount||0);if(amount==null)return;const result=await target.applyEgoDamage(amount);return ui.notifications.info(`${target.name}: Ego ${result.value}.`);}
-  if(action==='apply-direct-hp'){const amount=await numericPrompt('Apply Direct Health Loss','Health Points lost',0,{extra:'<p class="hint">Use this only for Deadly/direct-HP portions that bypass Damage Threshold.</p>'});if(amount==null)return;const value=await target.loseHealth(amount);return ui.notifications.info(`${target.name}: Health ${value}.`);}
+  if(['queue-wounds','apply-wounds','apply-ego','apply-direct-hp'].includes(action)&&target.getFlag(FLAG,`damageApplied-${message.id}`))return ui.notifications.warn('This damage card was already applied to this target.');
+  if(action!=='queue-wounds'&&['apply-wounds','apply-ego','apply-direct-hp'].includes(action)&&target.getFlag(FLAG,'damageQueue')?.entries?.some(e=>e.id===message.id))return ui.notifications.warn('This damage is queued. Resolve it from the Combat panel.');
+  if(action==='queue-wounds'){if(data.ego)return ui.notifications.warn('Ego Damage is not queued as Wounds.');const r=await queueIncomingDamage(target,{id:message.id,wounds:data.amount,deadlyHP:data.deadlyHP,deadly:data.deadly,damageType:data.damageType,armorPiercing:data.armorPiercing,source:data.itemUuid,defenseProtection:data.defenseProtection,ace:data.ace});return ui.notifications.info(r.duplicate?'This damage is already queued.':`${data.amount} Wounds queued for ${target.name}. Open the Combat tab to resolve the turn once.`);}
+  if(action==='apply-wounds'){const values=await woundsPrompt(data.amount||0);if(!values)return;const result=await target.applyTurnWounds(values.wounds,{protection:values.protection});await target.setFlag(FLAG,`damageApplied-${message.id}`,{manual:true});return ui.notifications.info(`${target.name}: ${result.appliedWounds} Wounds applied, ${result.healthLoss} HP lost.`);}
+  if(action==='apply-ego'){const amount=await numericPrompt('Apply Ego Damage','Ego Points lost',data.amount||0);if(amount==null)return;const result=await target.applyEgoDamage(amount);await target.setFlag(FLAG,`damageApplied-${message.id}`,{ego:true});return ui.notifications.info(`${target.name}: Ego ${result.value}.`);}
+  if(action==='apply-direct-hp'){const amount=await numericPrompt('Apply Direct Health Loss','Health Points lost',0,{extra:'<p class="hint">Use this only for direct-HP portions that bypass Damage Threshold. Use the queue for combined Wounds and Deadly.</p>'});if(amount==null)return;const value=await target.loseHealth(amount);await target.setFlag(FLAG,`damageApplied-${message.id}`,{directHP:true});return ui.notifications.info(`${target.name}: Health ${value}.`);}
   if(action==='sleeve-dead'){await target.setSleeveState('dead');return ui.notifications.warn(`${target.name}: sleeve marked dead.`);}
   if(action==='stack-damaged'){await target.setStackState('damaged');return ui.notifications.warn(`${target.name}: cortical stack marked damaged.`);}
   if(action==='real-death'){const ok=await foundry.applications.api.DialogV2.confirm({window:{title:'Confirm Real Death'},content:`<p>Mark <strong>${esc(target.name)}</strong> as Real Death? This destroys the stack and marks the active sleeve destroyed.</p>`});if(ok){await target.markRealDeath();ui.notifications.error(`${target.name}: REAL DEATH.`);}return;}
@@ -186,6 +207,7 @@ async function applyDamageAction(message,action){
 async function resolveSpecialAttack(message,action){
  if(!game.user.isGM)throw new Error('Only the GM may finalize a Stun or Disarm outcome.');
  const source=message.getFlag(FLAG,'weaponUse')||{};
+ if(source.needsDefense&&!source.defense)throw new Error('Resolve or decline defense before the special effect.');
  if(!Number(source.availableSuccessDegrees||0))throw new Error('No successful attack result to resolve.');
  const target=await resolveTargetActor(source.targetActorUuid);if(!target)throw new Error('Choose a target Actor first.');
  if(target.getFlag(FLAG,`specialAttack-${message.id}-${action}`))throw new Error('This special attack has already been resolved against this target.');
@@ -203,20 +225,25 @@ async function resolveSpecialAttack(message,action){
    ui.notifications.info(`${target.name} is Disarmed of ${item.name}.`);
  }else if(action==='resolve-stun'){
    if(source.attackAction!=='stun')throw new Error('The original attack was not a Stun.');
-   const ok=await foundry.applications.api.DialogV2.confirm({window:{title:'GM: Confirm Stun'},content:`<p>Confirm that ${esc(target.name)} failed the applicable defence and the Stun Triggered Effect was paid. Apply the Stunned status?</p>`});if(!ok)return;
-   await target.applyCondition('stunned','Stunned','Apply duration/removal conditions from the official Stun effect.');
+   const speed=speedOptions(target);if(!speed.combatant||!speed.dice.length)throw new Error('Core Stun forces Speed Dice to resolve. Use the Combat Tracker and the weapon’s source effect; no invented Stunned Condition is added.');
+   const form=await foundry.applications.api.DialogV2.input({window:{title:'GM: Resolve Stun Speed Dice'},content:`<p>Confirm the weapon/Skill Stun Triggered Effect and its cost. Resolve the target’s required Speed Dice. Core Stun has no general Stunned Condition.</p><label>Required dice (from the source effect)</label><input type="number" name="count" min="1" max="${speed.dice.length}" value="${Math.min(2,speed.dice.length)}">`});if(!form)return;
+   const count=Number(formValue(form,'count'));if(!Number.isInteger(count)||count<1||count>speed.dice.length)throw new Error('Choose a legal number of remaining Speed Dice.');
+   const {resolveActiveDice}=await import('./combat.mjs');await resolveActiveDice(game.combat,speed.combatant,speed.dice.slice(0,count).map(d=>d.index));
    await target.setFlag(FLAG,`specialAttack-${message.id}-${action}`,true);
-   ui.notifications.info(`${target.name} is Stunned. Confirm duration using the rule entry.`);
+   ui.notifications.info(`${target.name}: ${count} Speed Dice resolved by Stun.`);
  }
 }
 
+const actionLocks=new Set();
 async function handleChatAction(message,event){
   const button=event.currentTarget,action=button?.dataset?.acAction;if(!action)return;
-  try{if(action==='roll-damage')return rollWeaponDamage(message,message.getFlag(FLAG,'weaponUse')||{});if(action==='resolve-disarm'||action==='resolve-stun')return resolveSpecialAttack(message,action);return applyDamageAction(message,action);}catch(error){console.error(error);ui.notifications.error(error.message||'Altered Carbon chat action failed.');}
+  const lock=message.id;if(actionLocks.has(lock))return;actionLocks.add(lock);button.disabled=true;
+  try{if(action.startsWith('defend-'))return await respondToAttack(message,action.slice(7));if(action==='decline-defense')return await respondToAttack(message,'decline');if(action==='roll-damage')return await rollWeaponDamage(message,message.getFlag(FLAG,'weaponUse')||{});if(action==='resolve-disarm'||action==='resolve-stun')return await resolveSpecialAttack(message,action);return await applyDamageAction(message,action);}catch(error){console.error(error);ui.notifications.error(error.message||'Altered Carbon chat action failed.');}finally{actionLocks.delete(lock);button.disabled=false;}
 }
 
 function attachListeners(message,html){
   const root=html instanceof HTMLElement?html:html?.[0];if(!root?.querySelectorAll)return;
+  for(const panel of root.querySelectorAll('[data-ac-gm-tools]'))panel.hidden=!game.user.isGM;
   for(const button of root.querySelectorAll('[data-ac-action]'))button.addEventListener('click',event=>handleChatAction(message,event));
 }
 

@@ -77,8 +77,8 @@ export function applyLuck({skillResult, bonusResults=[], luckResult=null, luckSi
     else if (mode==='tough') { skill += luck; bonus = bonus.map(v=>v+luck); }
     else if (mode==='dumb' && luck!==1 && luck!==Number(luckSides)) { spCost=Math.abs(originalSkill-luck); skill=luck; bonus=[]; }
   }
-  const best = Math.min(skill, ...(bonus.length?bonus:[Infinity]));
   const ace = originalSkill===1;
+  const best = ace?1:Math.min(skill, ...(bonus.length?bonus:[Infinity]));
   const stroke = Number(luckResult)===1 && ace;
   return {skillResult:skill, bonusResults:bonus, bestResult:best, ace, stroke, spCost,mode};
 }
@@ -89,9 +89,9 @@ export function resolveCheck(input={}) {
   const tr=targetResult(input);
   const luck=applyLuck(input);
   const dg=degrees(luck.bestResult,tr,{ace:luck.ace});
-  const naturalSkill=degrees(Number(input.skillResult),tr,{ace:Number(input.skillResult)===1});
+  const naturalSkill=degrees(luck.skillResult,tr,{ace:luck.ace});
   const isCatastrophe=catastrophe({success:naturalSkill.success, originalSkillResult:input.skillResult, skillSides:input.skillSides, luckResult:input.luckResult, luckSides:input.luckSides});
-  return {...dg, targetResult:tr, ...luck, catastrophe:isCatastrophe};
+  return {...(isCatastrophe?{success:false,successDegrees:0,failureDegrees:Math.max(1,naturalSkill.failureDegrees)}:dg), targetResult:tr, ...luck, catastrophe:isCatastrophe};
 }
 export function compareOpposed(a,b,{attributeA=0,attributeB=0}={}) {
   if (a.success!==b.success) return a.success ? 1 : -1;

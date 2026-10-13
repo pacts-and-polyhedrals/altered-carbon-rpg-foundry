@@ -44,7 +44,7 @@ export class ACCombatConsole extends foundry.applications.api.HandlebarsApplicat
 /** Live, read-only used/total counters update without rerendering a sheet that someone is editing. */
 export function refreshSheetSpeedIndicators(){
  if(typeof document==='undefined')return;
- const roster=new Map(allCombatants(game.combat).filter(c=>c.actor).map(c=>[c.actor.id,speedProgress(c.getFlag(NS,'speed')?.total||c.actor.ac?.speedDice||1,c.getFlag(NS,'speed')?.spentIndexes||[])]));
+ const roster=new Map(allCombatants(game.combat).filter(c=>c.actor).map(c=>[c.actor.id,speedProgress(c.getFlag(NS,'speed')?.total??c.actor.ac?.speedDice??1,c.getFlag(NS,'speed')?.spentIndexes||[])]));
  document.querySelectorAll('[data-ac-speed-progress]').forEach(el=>{
   const progress=roster.get(el.dataset.acSpeedProgress);if(!progress)return;
   el.textContent=progress.label+(el.dataset.acSpeedSuffix??'');

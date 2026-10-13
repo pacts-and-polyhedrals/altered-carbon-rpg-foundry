@@ -60,7 +60,7 @@ export class ACClinicalConsole extends api.HandlebarsApplicationMixin(api.Applic
    if(!attempt.success){if(treatmentCatastrophe){await actor.applyInjury('flesh','Flesh Wound','HP1 per day','Failed Rapid Regrowth administration; dangerous tissue growth.');}
     ui.notifications.warn('Medicine TR8 failed. Rapid Regrowth not administered; no dose consumed.');return;}
   }
-  const r=await rollSkill(actor,skill,{chat:true,contextLabel:'Medical Rest'});if(r.blocked)throw new Error(r.reason);
+  const r=await rollSkill(actor,skill,{chat:true,baseTR:get(form,'rest')==='long'?Number(actor.system.resources.health.value):null,contextLabel:'Medical Rest'});if(r.blocked)throw new Error(r.reason);
   const result=await Procedures.performMedicalRest(actor,{rest:get(form,'rest'),success:r.success,successDegrees:r.successDegrees,catastrophe:treatmentCatastrophe,item:bios,choice:get(form,'choice')});
   if(result.blocked)ui.notifications.warn(result.reason);else ui.notifications.info('Rest and medical treatment recorded.');
  });}

@@ -1,5 +1,6 @@
 import {serializedCoreTraitRules,hasCoreTraitRules} from './core-trait-effects.mjs';
 import {augmentationRules} from './core-augmentation-effects.mjs';
+import {conditionKeys} from './condition-state.mjs';
 /** AC 1.4 rules-element engine. Only explicitly authored rules are executable.
  * Narrative source text is NEVER parsed into guessed mechanics.
  * Each rule: {key,mode,value,when?,label?}. Supported modes: add, set, max.
@@ -51,10 +52,12 @@ export function collectEffects(actor,context={}){
     if(type==='armour'&&s.equipState!=='worn')continue;
     if(['weapon','equipment','software'].includes(type)&&s.equipState!=='equipped')continue;
     if(type==='scandal'&&!s.active)continue;
+    if(type==='condition'&&s.active===false)continue;
     const sourceRules=s.rulesOverride?s.ruleElements:(type==='trait'&&hasCoreTraitRules(s.catalogId)?serializedCoreTraitRules(s.catalogId):type==='augmentation'?(String(s.catalogId||'').startsWith('AUG')?JSON.stringify(augmentationRules(item)):s.ruleElements):s.ruleElements);
     try{for(const rule of parseEffects(sourceRules)){
       if(type==='augmentation'&&activeBestialUpgrade&&['AUG005','AUG006'].includes(s.catalogId)&&rule.key==='attribute.empathy')continue;
-      const ruleContext={...context,hasTrait:ownedTraitIds,actorType:actor.type,sleeveType:activeSleeve?.system.sleeveType,installation:s.installation||'',virtual:context.virtual??false};
+      const activeConditions=conditionKeys(actor);
+      const ruleContext={...context,status:context.status??[...activeConditions],hasTrait:ownedTraitIds,actorType:actor.type,sleeveType:activeSleeve?.system.sleeveType,installation:s.installation||'',virtual:context.virtual??(Boolean(actor.system?.virtualSession?.active)||activeConditions.has('virtual'))};
       if(matchesEffect(rule.when,ruleContext))effects.push({...rule,source:item.name,sourceId:item.id});}}
     catch(e){errors.push(`${item.name}: ${e.message}`);}
   }

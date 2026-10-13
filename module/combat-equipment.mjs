@@ -66,7 +66,7 @@ export function armourProfile(items=[],{damageType='',armorPiercing=false,cover=
 export function inventoryLoad(items=[],strengthBonus=0){
  const layers=validateWornSlots(items);let cargo=0,heavy=0,partial=0;const issues=[...layers.issues];
  for(const item of items){if(!['weapon','ammunition','armour','equipment','software','drug','augmentation'].includes(item.type))continue;
-   const s=item.system||{};const quantity=s.quantity===undefined?1:Math.max(0,Math.trunc(number(s.quantity)));
+   const s=item.system||{};if(s.equipState==='stored')continue;const quantity=s.quantity===undefined?1:Math.max(0,Math.trunc(number(s.quantity)));
    let units=number(s.cargoUnits)*quantity;
    // One normal Cargo Unit per occupied slot is exempt; Heavy always counts.
    if(['worn','equipped'].includes(s.equipState)&&itemSlots(item).slots.length)units=Math.max(0,units-itemSlots(item).slots.length);
@@ -141,8 +141,10 @@ export function ammunitionProfile(ammo,{targetType='unknown',zone='shared',succe
 }
 export function advancedAttack(action='normal',{weapon=null,ammo=null,zone='shared',engaged=false}={}){
  const s=weapon?.system||{},skill=normalize(s.skill),melee=['melee combat','brawl','martial arts'].includes(skill),notes=[];
- const stunAvailable=melee||normalize(s.triggeredEffects).includes('stun')||normalize(s.specialRules).includes('stun')||['AMM012'].includes(ammo?.system?.catalogId);
+ const installed=parseInstalledUpgrades(s.installedUpgrades).map(u=>normalize(u.name));
+ const stunAvailable=skill==='brawl'||(s.catalogId==='WPN001'?installed.includes('stun setting'):normalize(s.triggeredEffects).includes('stun'))||['AMM012'].includes(ammo?.system?.catalogId);
  if(action==='stun'&&!stunAvailable)return {allowed:false,reason:'Ranged Stun requires a stun setting or Stun ammunition.'};
+ if(action==='disarm'&&zone!=='shared')return {allowed:false,reason:'Disarm requires a target in close Shared-Zone range.'};
  if(action==='grapple'&&(!engaged||zone!=='shared'))return {allowed:false,reason:'Grapple requires Engaged opponents in the Shared Zone.'};
  if(['normal','stun','disarm','suppression','blast','headshot','grapple','parry','dodge'].indexOf(action)<0)return {allowed:false,reason:'Unknown special attack.'};
  if(action==='stun'){notes.push('Stun: melee attack +2 TR; no standard damaging Triggered Effect. Resolve Stun status using source procedure.');return {allowed:true,bonus:melee?2:0,allowDamage:false,notes};}

@@ -1,0 +1,69 @@
+ALTERED CARBON RPG SYSTEM 2.5.1 -- VEHICLE SYNC / BOARDING HOTFIX
+Date: 2026-10-13
+Baseline: user-recovered altered-carbon-rpg-v2.5.0.zip
+Target runtime: Foundry VTT v14
+
+SUMMARY
+- Vehicle + all seated PC/NPC token transforms now form a single native Scene
+  embedded-document update, replacing the old post-update follow algorithm.
+- Right-click vehicle token, then select Board / Choose Seat. Choose a PC/NPC
+  if multiple eligible characters are present, then a free Driver / Pilot,
+  Gunner, Operator / Systems, or Passenger seat.
+- Player who does not own the vehicle gets a limited floating Board / Choose
+  Seat icon on right-click; the vehicle Actor's permissions are NOT widened.
+- Character token retains Get in, Change seat, Get out. Seated driver controls
+  occupied vehicle using the existing GM socket and control mode policy.
+- Multiple riders travel together on change of x/y, rotation, elevation,
+  and vehicle footprint. Requests serialize per vehicle.
+- Existing occupancy flags, previous original token footprints, driver
+  permissions, Cold Storage bridge, other actor data, and compendium packs
+  are preserved. No migration or world-actor reimport.
+- Player world journal gets a vehicle-boarding explanation on automatic
+  guide refresh. Baseline LevelDB compendium files are preserved unchanged;
+  the updated world journal is generated from data/player-sheet-guide.json.
+
+FILES MODIFIED
+system.json
+altered-carbon-rpg.mjs
+module/vehicle-boarding.mjs
+module/vehicle-movement.mjs (new)
+module/vehicle-sheet.mjs
+module/system-health.mjs
+module/gm-guide.mjs
+module/player-guide.mjs
+templates/vehicle-sheet.hbs
+styles/altered-carbon.css
+data/player-sheet-guide.json
+README.md
+tests/integration-audit.test.mjs (v2.5.1 version assertion)
+tests/runtime-fixture.mjs (v2.5.1 fixture)
+tests/vehicle-convoy.test.mjs (new)
+docs/VEHICLE-BOARDING-v2.5.1.md (new)
+
+VALIDATION
+90 Node regression scenarios passed; 0 failed.
+Core v2.5.0 combat / damage / resource / conditions regression tests retained.
+Vehicle tests include 3 and 4 passengers, simulated right-click HUD as owner
+and nonowner, seat selection, projected destination, rotation, elevation,
+resizing, stale flag handling, per-vehicle movement serialization, player
+GM-socket requests, and AI-only drive protection.
+Every .mjs file syntax-checked and JSON file parsed.
+Pack/manifest asset paths and archive integrity checked.
+
+LIMITATIONS
+Live Foundry v14/Forge, movement animations, waypoint paths, simultaneous
+connected clients, and third-party movement modules have not been exercised
+in a licensed running Foundry server. The tests simulate the API boundaries.
+As a fallback, a third-party module which ignores originating-client token
+pre-update hooks may still trigger an after-update rider reconciliation.
+Player boarding and occupied-vehicle movement need an active GM online.
+A normal remote installation/update requires publishing this exact release
+asset and manifest to the GitHub release referenced by system.json. This
+archive has not been uploaded to GitHub.
+
+INSTALLATION
+Back up the world. Stop Foundry/The Forge. Replace the entire
+altered-carbon-rpg system folder with the contents of the install ZIP;
+its system.json sits at the ZIP root. Start Foundry, confirm the displayed
+version is 2.5.1, and force-reload every GM and player client. Preserve your
+existing world and Cold Storage module; no reimport is necessary.

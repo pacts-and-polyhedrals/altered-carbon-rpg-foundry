@@ -1,0 +1,1691 @@
+{
+  "version": "2.5.0",
+  "rulebook": "2020 Core primary; Quick Start secondary",
+  "traits": 240,
+  "numericComponents": 170,
+  "gmReview": 127,
+  "noNumericComponent": 70,
+  "allMappingsParse": true,
+  "rows": [
+    {
+      "id": "trait-001",
+      "name": "Donor",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-002",
+      "name": "Benefactor",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-003",
+      "name": "Influence Peddler",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-004",
+      "name": "Rarefied Taste",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-005",
+      "name": "Meth",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-006",
+      "name": "Worker",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-007",
+      "name": "Middle Manager",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-008",
+      "name": "Executive",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-009",
+      "name": "Chief Executive",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-010",
+      "name": "Captain of Industry",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-011",
+      "name": "Newswire",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-012",
+      "name": "Media Researcher",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-013",
+      "name": "Press Pass",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-014",
+      "name": "Anchor",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-015",
+      "name": "Media Blackout",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-016",
+      "name": "Volunteer",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-017",
+      "name": "Donor",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-018",
+      "name": "Community Organizer",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-019",
+      "name": "Major Donor",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-020",
+      "name": "Benefactor",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-021",
+      "name": "Below the Line",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-022",
+      "name": "Booking Agent",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-023",
+      "name": "Celebrity",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-024",
+      "name": "Superstar",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-025",
+      "name": "Celebrity Mogul",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-026",
+      "name": "Commission",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-027",
+      "name": "Outside Consultant",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-028",
+      "name": "Ladder Climber",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-029",
+      "name": "Freelancer",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-030",
+      "name": "Board Member",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-031",
+      "name": "Basic Training",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-032",
+      "name": "Counter",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-033",
+      "name": "Advanced Weapon Training",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-034",
+      "name": "Damage",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-035",
+      "name": "Mastery",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-036",
+      "name": "Basic Training",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-037",
+      "name": "Sweeping Defense",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-038",
+      "name": "Mighty Strike",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-039",
+      "name": "Sweep Attack",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-040",
+      "name": "Mastery",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-041",
+      "name": "Basic Training",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-042",
+      "name": "Point Blank Shot",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-043",
+      "name": "Focus Fire",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-044",
+      "name": "Trigger Discipline",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-045",
+      "name": "Mastery",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-046",
+      "name": "Basic Training",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-047",
+      "name": "Aim",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-048",
+      "name": "Trigger Discipline",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-049",
+      "name": "Damage",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-050",
+      "name": "Mastery",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-051",
+      "name": "Rail Weapons Training",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-052",
+      "name": "Energy Weaponry",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-053",
+      "name": "Trigger Discipline",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-054",
+      "name": "Sustained Charge",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-055",
+      "name": "Mastery",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-056",
+      "name": "Martial Arts Training",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-057",
+      "name": "Advanced Martial Arts",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-058",
+      "name": "Way of the Open Hand",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-059",
+      "name": "Martial Arts Weapons",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-060",
+      "name": "Grand Master",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-061",
+      "name": "Basic Training",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-062",
+      "name": "Grenades",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-063",
+      "name": "Blades",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-064",
+      "name": "Rapid Throwing",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-065",
+      "name": "Mastery",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-066",
+      "name": "Battle Armor Training",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-067",
+      "name": "Requisition (Battle Armor)",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-068",
+      "name": "Armor Specialist",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-069",
+      "name": "Guard Flank",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-070",
+      "name": "Armor Mastery",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-071",
+      "name": "Pickpocketing",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-072",
+      "name": "Security Protocol",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-073",
+      "name": "Hotwiring",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-074",
+      "name": "Abduction",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-075",
+      "name": "Thief",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-076",
+      "name": "Minor Contraband",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-077",
+      "name": "Arms and Armor",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-078",
+      "name": "Exotic Goods",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-079",
+      "name": "Gray Market Supplier",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-080",
+      "name": "Black Market Supplier",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-081",
+      "name": "Strong-Arm",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-082",
+      "name": "Hired Muscle",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-083",
+      "name": "Arson",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-084",
+      "name": "Interrogator",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-085",
+      "name": "Hitman",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-086",
+      "name": "Goon Squad",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-087",
+      "name": "Fixer",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-088",
+      "name": "Professional",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-089",
+      "name": "Boss",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-090",
+      "name": "Crime Lord",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-091",
+      "name": "Concealment",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-092",
+      "name": "Saferoom",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-093",
+      "name": "Shadow",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-094",
+      "name": "Master of Disguise",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-095",
+      "name": "Safehouse",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-096",
+      "name": "Forgery, Physical",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-097",
+      "name": "Laundering",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-098",
+      "name": "Racketeering",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-099",
+      "name": "Forgery, Digital",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-100",
+      "name": "Dark Net",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-101",
+      "name": "Class C",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-102",
+      "name": "Class B",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-103",
+      "name": "Class A",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-104",
+      "name": "Military Clearance",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-105",
+      "name": "Protectorate Clearance",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-106",
+      "name": "Basic Law",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-107",
+      "name": "Criminal Defense",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-108",
+      "name": "Jurisdiction",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-109",
+      "name": "Investigator",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-110",
+      "name": "Special Agent",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-111",
+      "name": "Good Standing",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-112",
+      "name": "Friend of the Law",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-113",
+      "name": "Ranking Officer, Police",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-114",
+      "name": "Protectorate Contact",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-115",
+      "name": "Meth Contact",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-116",
+      "name": "Citizen",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-117",
+      "name": "Politician",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-118",
+      "name": "Ambassador",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-119",
+      "name": "Transnational",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-120",
+      "name": "Major Politician",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-121",
+      "name": "Private",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-122",
+      "name": "Ranking Officer, Mercenary",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-123",
+      "name": "Training Range",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-124",
+      "name": "Special Forces",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-125",
+      "name": "General",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-126",
+      "name": "Streetwise",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-127",
+      "name": "Underground",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-128",
+      "name": "Sidestreets",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-129",
+      "name": "Urban Network",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-130",
+      "name": "Rat King",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-131",
+      "name": "Biome Naturalization",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-132",
+      "name": "Navigation",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-133",
+      "name": "Survival Acumen",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-134",
+      "name": "Tracking",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-135",
+      "name": "Survivor",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-136",
+      "name": "Basic Survival Skills",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-137",
+      "name": "Identify",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-138",
+      "name": "Shelter",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-139",
+      "name": "Advanced Survival Skills",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-140",
+      "name": "Bushmaster",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-141",
+      "name": "Basic First Aid",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-142",
+      "name": "Stabilize Injury",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-143",
+      "name": "Poisons",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-144",
+      "name": "Advanced First Aid",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-145",
+      "name": "Field Medic",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-146",
+      "name": "Basic Programming",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-147",
+      "name": "Data Engineer",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-148",
+      "name": "Dipping",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-149",
+      "name": "Digital Spectre",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-150",
+      "name": "Tech Maven",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-151",
+      "name": "Medical Technician",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-152",
+      "name": "Organic Surgery",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-153",
+      "name": "Psychosurgery",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-154",
+      "name": "Advanced Medicine",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-155",
+      "name": "Surgeon",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-156",
+      "name": "Bionics",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-157",
+      "name": "Skeleton/Muscle Augments",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-158",
+      "name": "Organic Augments",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-159",
+      "name": "Splice Augments",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-160",
+      "name": "BioEngineer",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-161",
+      "name": "Repair",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-162",
+      "name": "Fabrication",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-163",
+      "name": "Reverse Engineer",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-164",
+      "name": "Rig",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-165",
+      "name": "Master Fabricator",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-166",
+      "name": "Observation",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-167",
+      "name": "Research",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-168",
+      "name": "Forensics",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-169",
+      "name": "Field Expertise",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-170",
+      "name": "Pioneer Researcher",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-171",
+      "name": "Explosives",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-172",
+      "name": "Demolitions",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-173",
+      "name": "Mines",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-174",
+      "name": "Combat Engineering",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-175",
+      "name": "Material Support",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-176",
+      "name": "Morph",
+      "numericComponent": true,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-177",
+      "name": "Modification",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-178",
+      "name": "Freak",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-179",
+      "name": "Disassociation",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-180",
+      "name": "Apotheosis",
+      "numericComponent": false,
+      "gmReview": true,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-181",
+      "name": "Acumen Lv.1",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-182",
+      "name": "Acumen Lv.2",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-183",
+      "name": "Acumen Lv.3",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-184",
+      "name": "Acumen Lv.4",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-185",
+      "name": "Acumen Lv.5",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-186",
+      "name": "Humanity Lv.1",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-187",
+      "name": "Humanity Lv.2",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-188",
+      "name": "Humanity Lv.3",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-189",
+      "name": "Humanity Lv.4",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-190",
+      "name": "Humanity Lv.5",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-191",
+      "name": "Acumen Lv.1",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-192",
+      "name": "Acumen Lv.2",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-193",
+      "name": "Acumen Lv.3",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-194",
+      "name": "Acumen Lv.4",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-195",
+      "name": "Acumen Lv.5",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-196",
+      "name": "Power Lv.1",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-197",
+      "name": "Power Lv.2",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-198",
+      "name": "Power Lv.3",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-199",
+      "name": "Power Lv.4",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-200",
+      "name": "Power Lv.5",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-201",
+      "name": "Awareness Lv.1",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-202",
+      "name": "Awareness Lv.2",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-203",
+      "name": "Awareness Lv.3",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-204",
+      "name": "Awareness Lv.4",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-205",
+      "name": "Awareness Lv.5",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-206",
+      "name": "Humanity Lv.1",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-207",
+      "name": "Humanity Lv.2",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-208",
+      "name": "Humanity Lv.3",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-209",
+      "name": "Humanity Lv.4",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-210",
+      "name": "Humanity Lv.5",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-211",
+      "name": "Education Lv.1",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-212",
+      "name": "Education Lv.2",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-213",
+      "name": "Education Lv.3",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-214",
+      "name": "Education Lv.4",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-215",
+      "name": "Education Lv.5",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-216",
+      "name": "Acumen Lv.1",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-217",
+      "name": "Acumen Lv.2",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-218",
+      "name": "Acumen Lv.3",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-219",
+      "name": "Acumen Lv.4",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-220",
+      "name": "Acumen Lv.5",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-221",
+      "name": "Control Lv.1",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-222",
+      "name": "Control Lv.2",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-223",
+      "name": "Control Lv.3",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-224",
+      "name": "Control Lv.4",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-225",
+      "name": "Control Lv.5",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-226",
+      "name": "Education Lv.1",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-227",
+      "name": "Education Lv.2",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-228",
+      "name": "Education Lv.3",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-229",
+      "name": "Education Lv.4",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-230",
+      "name": "Education Lv.5",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-231",
+      "name": "Control Lv.1",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-232",
+      "name": "Control Lv.2",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-233",
+      "name": "Control Lv.3",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-234",
+      "name": "Control Lv.4",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-235",
+      "name": "Control Lv.5",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-236",
+      "name": "Ego Lv.1",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-237",
+      "name": "Ego Lv.2",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-238",
+      "name": "Ego Lv.3",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-239",
+      "name": "Ego Lv.4",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    },
+    {
+      "id": "trait-240",
+      "name": "Ego Lv.5",
+      "numericComponent": true,
+      "gmReview": false,
+      "sourcePage": null
+    }
+  ]
+}

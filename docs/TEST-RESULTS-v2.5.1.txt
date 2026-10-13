@@ -1,0 +1,552 @@
+TAP version 13
+# Subtest: Core p.89: a natural 1 always succeeds, including impossible TR
+ok 1 - Core p.89: a natural 1 always succeeds, including impossible TR
+  ---
+  duration_ms: 2.253855
+  type: 'test'
+  ...
+# Subtest: Core p.89: a Bonus Die 1 never creates an Ace
+ok 2 - Core p.89: a Bonus Die 1 never creates an Ace
+  ---
+  duration_ms: 0.184263
+  type: 'test'
+  ...
+# Subtest: Equality is one Degree; positive and negative Degrees are capped at five
+ok 3 - Equality is one Degree; positive and negative Degrees are capped at five
+  ---
+  duration_ms: 0.900322
+  type: 'test'
+  ...
+# Subtest: Natural Ace stays a 1 under Pressing / Tough Luck
+ok 4 - Natural Ace stays a 1 under Pressing / Tough Luck
+  ---
+  duration_ms: 0.267746
+  type: 'test'
+  ...
+# Subtest: Stroke of Luck needs two natural 1s
+ok 5 - Stroke of Luck needs two natural 1s
+  ---
+  duration_ms: 0.144644
+  type: 'test'
+  ...
+# Subtest: Catastrophe overrides a successful Bonus Die
+ok 6 - Catastrophe overrides a successful Bonus Die
+  ---
+  duration_ms: 0.119166
+  type: 'test'
+  ...
+# Subtest: Luck arithmetic is considered when the two maximum dice fail
+ok 7 - Luck arithmetic is considered when the two maximum dice fail
+  ---
+  duration_ms: 0.101801
+  type: 'test'
+  ...
+# Subtest: Two maximum dice that still pass are not catastrophic
+ok 8 - Two maximum dice that still pass are not catastrophic
+  ---
+  duration_ms: 0.078255
+  type: 'test'
+  ...
+# Subtest: Training and Gear take their highest non-stacking values
+ok 9 - Training and Gear take their highest non-stacking values
+  ---
+  duration_ms: 0.3308
+  type: 'test'
+  ...
+# Subtest: Core p.104: Firearms/DEW Ace adds PB, melee/Brawl Ace grants a Speed Die
+ok 10 - Core p.104: Firearms/DEW Ace adds PB, melee/Brawl Ace grants a Speed Die
+  ---
+  duration_ms: 0.749449
+  type: 'test'
+  ...
+# Subtest: Core p.201: automatic fire grants positive Degrees even on a normal failure
+ok 11 - Core p.201: automatic fire grants positive Degrees even on a normal failure
+  ---
+  duration_ms: 0.181468
+  type: 'test'
+  ...
+# Subtest: Core p.100: defense cancels Degrees; failed Save adds Difference
+ok 12 - Core p.100: defense cancels Degrees; failed Save adds Difference
+  ---
+  duration_ms: 0.118215
+  type: 'test'
+  ...
+# Subtest: Core p.198: Accuracy X is a Save penalty, not a Hit repetition cost
+ok 13 - Core p.198: Accuracy X is a Save penalty, not a Hit repetition cost
+  ---
+  duration_ms: 0.137334
+  type: 'test'
+  ...
+# Subtest: Accuracy repeats the complete Hit including flat bonuses
+ok 14 - Accuracy repeats the complete Hit including flat bonuses
+  ---
+  duration_ms: 0.732614
+  type: 'test'
+  ...
+# Subtest: Throwing Blade keeps its parenthesized SB-1 bonus
+ok 15 - Throwing Blade keeps its parenthesized SB-1 bonus
+  ---
+  duration_ms: 0.624425
+  type: 'test'
+  ...
+# Subtest: Ambiguous/partial damage profiles never silently use the first die
+ok 16 - Ambiguous/partial damage profiles never silently use the first die
+  ---
+  duration_ms: 0.31103
+  type: 'test'
+  ...
+# Subtest: Virtual substitutes WB and AB in damage formulas
+ok 17 - Virtual substitutes WB and AB in damage formulas
+  ---
+  duration_ms: 0.130162
+  type: 'test'
+  ...
+# Subtest: Core p.132: aggregate Protection is applied once with minimum one Wound
+ok 18 - Core p.132: aggregate Protection is applied once with minimum one Wound
+  ---
+  duration_ms: 0.199275
+  type: 'test'
+  ...
+# Subtest: Wound overflow consumes only newly exceeded HP
+ok 19 - Wound overflow consumes only newly exceeded HP
+  ---
+  duration_ms: 0.089412
+  type: 'test'
+  ...
+# Subtest: Armor Piercing bypasses Armor, preserving explicit non-Armor Protection
+ok 20 - Armor Piercing bypasses Armor, preserving explicit non-Armor Protection
+  ---
+  duration_ms: 0.759264
+  type: 'test'
+  ...
+# Subtest: Stored equipment does not cause carried Encumbrance
+ok 21 - Stored equipment does not cause carried Encumbrance
+  ---
+  duration_ms: 0.225383
+  type: 'test'
+  ...
+# Subtest: Invalid armor layering and Body Slots are identified
+ok 22 - Invalid armor layering and Body Slots are identified
+  ---
+  duration_ms: 1.376697
+  type: 'test'
+  ...
+# Subtest: Range gates: Shared melee, Distant pistols, Distant Throw
+ok 23 - Range gates: Shared melee, Distant pistols, Distant Throw
+  ---
+  duration_ms: 0.294966
+  type: 'test'
+  ...
+# Subtest: Current resources are unlocked, maxima/descriptors require the lock
+ok 24 - Current resources are unlocked, maxima/descriptors require the lock
+  ---
+  duration_ms: 0.137043
+  type: 'test'
+  ...
+# Subtest: Resource updates reject invalid values, preserve base maxima and allow Wound overflow
+ok 25 - Resource updates reject invalid values, preserve base maxima and allow Wound overflow
+  ---
+  duration_ms: 0.676451
+  type: 'test'
+  ...
+# Subtest: Conditions show names, deduplicate token effects, normalize managed alias
+ok 26 - Conditions show names, deduplicate token effects, normalize managed alias
+  ---
+  duration_ms: 0.248157
+  type: 'test'
+  ...
+# Subtest: All 32 Skills have the official Attribute and five die-size mappings
+ok 27 - All 32 Skills have the official Attribute and five die-size mappings
+  ---
+  duration_ms: 12.206984
+  type: 'test'
+  ...
+# Subtest: 95 canonical gear entries and 95 legacy links resolve uniquely
+ok 28 - 95 canonical gear entries and 95 legacy links resolve uniquely
+  ---
+  duration_ms: 7.09543
+  type: 'test'
+  ...
+# Subtest: Core catalogue counts and official source pages are preserved
+ok 29 - Core catalogue counts and official source pages are preserved
+  ---
+  duration_ms: 2.036604
+  type: 'test'
+  ...
+# Subtest: All 240 Traits remain source indexed, with explicit incomplete-automation records
+ok 30 - All 240 Traits remain source indexed, with explicit incomplete-automation records
+  ---
+  duration_ms: 4.198057
+  type: 'test'
+  ...
+# Subtest: Minion damage below a one-Round threshold does not persist
+ok 31 - Minion damage below a one-Round threshold does not persist
+  ---
+  duration_ms: 3.285001
+  type: 'test'
+  ...
+# Subtest: Minion damage from multiple attacks combines for the Round threshold
+ok 32 - Minion damage from multiple attacks combines for the Round threshold
+  ---
+  duration_ms: 0.736019
+  type: 'test'
+  ...
+# Subtest: Juggernaut and Mastermind apply the published Attribute and resource bonuses
+ok 33 - Juggernaut and Mastermind apply the published Attribute and resource bonuses
+  ---
+  duration_ms: 8.704551
+  type: 'test'
+  ...
+# Subtest: Consummate Warrior upgrades only the chosen Attribute group
+ok 34 - Consummate Warrior upgrades only the chosen Attribute group
+  ---
+  duration_ms: 1.34478
+  type: 'test'
+  ...
+# Subtest: Signature Weapon becomes a usable source-backed Weapon record
+ok 35 - Signature Weapon becomes a usable source-backed Weapon record
+  ---
+  duration_ms: 1.939631
+  type: 'test'
+  ...
+# Subtest: Health maximum edit persists on the sleeve and does not grant free healing later
+ok 36 - Health maximum edit persists on the sleeve and does not grant free healing later
+  ---
+  duration_ms: 1.569973
+  type: 'test'
+  ...
+# Subtest: Cold Storage bridge accepts the new version and references existing compatible helpers
+ok 37 - Cold Storage bridge accepts the new version and references existing compatible helpers
+  ---
+  duration_ms: 1.22956
+  type: 'test'
+  ...
+# Subtest: Public sheet guide has twelve complete sections without adventure solutions
+ok 38 - Public sheet guide has twelve complete sections without adventure solutions
+  ---
+  duration_ms: 1.225393
+  type: 'test'
+  ...
+# Subtest: Player guide creates with Observer ownership and preserves user notes on refresh
+ok 39 - Player guide creates with Observer ownership and preserves user notes on refresh
+  ---
+  duration_ms: 3.272212
+  type: 'test'
+  ...
+# Subtest: Updated GM guide builds source-linked combat and player-help pages
+ok 40 - Updated GM guide builds source-linked combat and player-help pages
+  ---
+  duration_ms: 4.680186
+  type: 'test'
+  ...
+# Subtest: Projected vehicle transform rejects invalid/out of scope socket values
+ok 41 - Projected vehicle transform rejects invalid/out of scope socket values
+  ---
+  duration_ms: 2.771311
+  type: 'test'
+  ...
+# Subtest: One batch plans the vehicle plus three riders at the destination, not the former position
+ok 42 - One batch plans the vehicle plus three riders at the destination, not the former position
+  ---
+  duration_ms: 0.879382
+  type: 'test'
+  ...
+# Subtest: Turning and climbing a vehicle rotates and elevates every carried token in the same plan
+ok 43 - Turning and climbing a vehicle rotates and elevates every carried token in the same plan
+  ---
+  duration_ms: 0.364619
+  type: 'test'
+  ...
+# Subtest: Skip stale, duplicate and deleted seat records rather than pulling strangers
+ok 44 - Skip stale, duplicate and deleted seat records rather than pulling strangers
+  ---
+  duration_ms: 0.420502
+  type: 'test'
+  ...
+# Subtest: Vehicle-HUD candidate selection works after the previous token selection is cleared
+ok 45 - Vehicle-HUD candidate selection works after the previous token selection is cleared
+  ---
+  duration_ms: 8.395614
+  type: 'test'
+  ...
+# Subtest: One GM movement request commits ONE native Scene operation including every rider
+ok 46 - One GM movement request commits ONE native Scene operation including every rider
+  ---
+  duration_ms: 0.907202
+  type: 'test'
+  ...
+# Subtest: Player driving goes over GM socket; player need not own fellow occupants
+ok 47 - Player driving goes over GM socket; player need not own fellow occupants
+  ---
+  duration_ms: 0.768207
+  type: 'test'
+  ...
+# Altered Carbon | vehicle request refused Error: This vehicle is currently controlled by its AI.
+#     at file:///mnt/data/altered-carbon-v2.5.1-work/module/vehicle-boarding.mjs:157:63
+# Subtest: An occupied vehicle native drag is cancelled before writing; GM performs a single follow-up batch
+ok 48 - An occupied vehicle native drag is cancelled before writing; GM performs a single follow-up batch
+  ---
+  duration_ms: 6.727485
+  type: 'test'
+  ...
+# Subtest: No passengers: native move is not intercepted
+ok 49 - No passengers: native move is not intercepted
+  ---
+  duration_ms: 0.586948
+  type: 'test'
+  ...
+# Subtest: Vehicle-HUD Boarding button appears without any controlled character
+ok 50 - Vehicle-HUD Boarding button appears without any controlled character
+  ---
+  duration_ms: 0.567239
+  type: 'test'
+  ...
+# Subtest: Rapid consecutive movement requests are serialized, with the final destination correct
+ok 51 - Rapid consecutive movement requests are serialized, with the final destination correct
+  ---
+  duration_ms: 0.564285
+  type: 'test'
+  ...
+# Subtest: Vehicle-right-click dialog offers PC/NPC selection followed by free driver/gunner/passenger seat
+ok 52 - Vehicle-right-click dialog offers PC/NPC selection followed by free driver/gunner/passenger seat
+  ---
+  duration_ms: 2.578555
+  type: 'test'
+  ...
+# Subtest: A non-owning player right-clicks a parked car and receives a boarding-only icon without Actor ownership
+ok 53 - A non-owning player right-clicks a parked car and receives a boarding-only icon without Actor ownership
+  ---
+  duration_ms: 0.589833
+  type: 'test'
+  ...
+# Subtest: Passenger tokens are repositioned when a vehicle changes its footprint
+ok 54 - Passenger tokens are repositioned when a vehicle changes its footprint
+  ---
+  duration_ms: 0.293374
+  type: 'test'
+  ...
+# Subtest: AI-controlled occupied car rejects a player movement packet
+ok 55 - AI-controlled occupied car rejects a player movement packet
+  ---
+  duration_ms: 0.646016
+  type: 'test'
+  ...
+# Subtest: Standard ammunition reproducer: natural 1 produces an Ace attack card with Damage
+ok 56 - Standard ammunition reproducer: natural 1 produces an Ace attack card with Damage
+  ---
+  duration_ms: 24.400828
+  type: 'test'
+  ...
+# Subtest: Targeted attack waits for target owner/GM response before Damage
+ok 57 - Targeted attack waits for target owner/GM response before Damage
+  ---
+  duration_ms: 3.878389
+  type: 'test'
+  ...
+# Subtest: Accuracy defense cancels Degrees and recomputes Hit
+ok 58 - Accuracy defense cancels Degrees and recomputes Hit
+  ---
+  duration_ms: 2.037736
+  type: 'test'
+  ...
+# Subtest: A failed defender Save grants Difference but stays capped at five
+ok 59 - A failed defender Save grants Difference but stays capped at five
+  ---
+  duration_ms: 1.545497
+  type: 'test'
+  ...
+# Subtest: Dodge spends a reserve die and adds the ranged Protection formula
+ok 60 - Dodge spends a reserve die and adds the ranged Protection formula
+  ---
+  duration_ms: 2.733294
+  type: 'test'
+  ...
+# Subtest: Normal attack spends selected Active dice; no pool means no Check
+ok 61 - Normal attack spends selected Active dice; no pool means no Check
+  ---
+  duration_ms: 1.18982
+  type: 'test'
+  ...
+# Subtest: Special ammo decrements only after a legal Check; standard ammo has no separate item
+ok 62 - Special ammo decrements only after a legal Check; standard ammo has no separate item
+  ---
+  duration_ms: 1.470896
+  type: 'test'
+  ...
+# Subtest: Wrong-owner ammunition is rejected before rolling
+ok 63 - Wrong-owner ammunition is rejected before rolling
+  ---
+  duration_ms: 0.355887
+  type: 'test'
+  ...
+# Subtest: No automatic Damage can resolve after all Degrees are cancelled
+ok 64 - No automatic Damage can resolve after all Degrees are cancelled
+  ---
+  duration_ms: 1.616031
+  type: 'test'
+  ...
+# Subtest: Damage button repeat is rejected
+ok 65 - Damage button repeat is rejected
+  ---
+  duration_ms: 1.710371
+  type: 'test'
+  ...
+# Subtest: Aggregate queue applies one Protection and cannot replay a resolved damage card
+ok 66 - Aggregate queue applies one Protection and cannot replay a resolved damage card
+  ---
+  duration_ms: 1.149702
+  type: 'test'
+  ...
+# Subtest: Deadly HP also counts as Wounds; Protection reduces ordinary Wounds first
+ok 67 - Deadly HP also counts as Wounds; Protection reduces ordinary Wounds first
+  ---
+  duration_ms: 0.964838
+  type: 'test'
+  ...
+# Subtest: Defensive Protection participates in aggregate Resolution
+ok 68 - Defensive Protection participates in aggregate Resolution
+  ---
+  duration_ms: 0.304101
+  type: 'test'
+  ...
+# Subtest: Queued damage cannot also be manually applied
+ok 69 - Queued damage cannot also be manually applied
+  ---
+  duration_ms: 0.704913
+  type: 'test'
+  ...
+# Subtest: Health reaching zero updates sleeve death
+ok 70 - Health reaching zero updates sleeve death
+  ---
+  duration_ms: 0.221908
+  type: 'test'
+  ...
+# Subtest: Reload retains Exhausted while DP remains at/above effective Capacity
+ok 71 - Reload retains Exhausted while DP remains at/above effective Capacity
+  ---
+  duration_ms: 0.396387
+  type: 'test'
+  ...
+# Subtest: Named condition Clear removes Item and token ActiveEffect together
+ok 72 - Named condition Clear removes Item and token ActiveEffect together
+  ---
+  duration_ms: 0.475293
+  type: 'test'
+  ...
+# Subtest: Condition Clear rejects a non-owner
+ok 73 - Condition Clear rejects a non-owner
+  ---
+  duration_ms: 0.2843
+  type: 'test'
+  ...
+# Subtest: Inactive conditions do not modify rolls
+ok 74 - Inactive conditions do not modify rolls
+  ---
+  duration_ms: 0.387693
+  type: 'test'
+  ...
+# Subtest: Dazzled and Panic each reduce one Skill Level, without compounding the second reduction
+ok 75 - Dazzled and Panic each reduce one Skill Level, without compounding the second reduction
+  ---
+  duration_ms: 0.319693
+  type: 'test'
+  ...
+# Subtest: Full Defense blocks other Skill Checks but permits a Save
+ok 76 - Full Defense blocks other Skill Checks but permits a Save
+  ---
+  duration_ms: 0.366212
+  type: 'test'
+  ...
+# Subtest: Repeated bone injuries causing loss of the whole natural pool Incapacitate
+ok 77 - Repeated bone injuries causing loss of the whole natural pool Incapacitate
+  ---
+  duration_ms: 0.339713
+  type: 'test'
+  ...
+# Subtest: Incapacitated combatants do not block simultaneous reveal
+ok 78 - Incapacitated combatants do not block simultaneous reveal
+  ---
+  duration_ms: 1.137323
+  type: 'test'
+  ...
+# Subtest: Injury Save failure records an appropriate Injury
+ok 79 - Injury Save failure records an appropriate Injury
+  ---
+  duration_ms: 0.942344
+  type: 'test'
+  ...
+# Subtest: Failing Dying save kills only the sleeve and is not repeatable for the same Turn
+ok 80 - Failing Dying save kills only the sleeve and is not repeatable for the same Turn
+  ---
+  duration_ms: 0.64922
+  type: 'test'
+  ...
+# Subtest: Dying HP drain applies once per Round and Stable suspends it
+ok 81 - Dying HP drain applies once per Round and Stable suspends it
+  ---
+  duration_ms: 0.443607
+  type: 'test'
+  ...
+# Subtest: SP mitigation cost doubles on consecutive calls in the same session
+ok 82 - SP mitigation cost doubles on consecutive calls in the same session
+  ---
+  duration_ms: 0.424688
+  type: 'test'
+  ...
+# Subtest: Influence recovery charges only complete 15-SP blocks
+ok 83 - Influence recovery charges only complete 15-SP blocks
+  ---
+  duration_ms: 0.305902
+  type: 'test'
+  ...
+# Subtest: Locked form submission updates current Ego without changing its maximum or attributes
+ok 84 - Locked form submission updates current Ego without changing its maximum or attributes
+  ---
+  duration_ms: 0.711983
+  type: 'test'
+  ...
+# Subtest: Unlocked Strength edit persists on the active Sleeve
+ok 85 - Unlocked Strength edit persists on the active Sleeve
+  ---
+  duration_ms: 0.381845
+  type: 'test'
+  ...
+# Subtest: Private rolls remain valid after an Ace grants an extra Speed Die
+ok 86 - Private rolls remain valid after an Ace grants an extra Speed Die
+  ---
+  duration_ms: 0.893663
+  type: 'test'
+  ...
+# Subtest: A missing original damage target never falls back to another selected Actor
+ok 87 - A missing original damage target never falls back to another selected Actor
+  ---
+  duration_ms: 0.24321
+  type: 'test'
+  ...
+# Subtest: Deferral and Debt Items reduce effective Wealth once
+ok 88 - Deferral and Debt Items reduce effective Wealth once
+  ---
+  duration_ms: 0.210131
+  type: 'test'
+  ...
+# Subtest: Real Death and dead-sleeve Checks are blocked outside legitimate Virtual context
+ok 89 - Real Death and dead-sleeve Checks are blocked outside legitimate Virtual context
+  ---
+  duration_ms: 0.298963
+  type: 'test'
+  ...
+# Subtest: Parry is not offered against a Shared-Zone firearm shot
+ok 90 - Parry is not offered against a Shared-Zone firearm shot
+  ---
+  duration_ms: 1.623913
+  type: 'test'
+  ...
+1..90
+# tests 90
+# suites 0
+# pass 90
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 242.011005

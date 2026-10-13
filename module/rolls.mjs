@@ -5,13 +5,17 @@ import {renderCheckCard} from './chat-ui.mjs';
 import {postTraitAdjudication} from './trait-adjudication.mjs';
 import {matchingBonusDiceAwards,awardedDiceForRoll,consumeBonusDiceAwards} from './gm-bonus-dice.mjs';
 import {resolveBonusDice} from './gm-roll-options.mjs';
+import {conditionKeys as activeConditionKeys} from './condition-state.mjs';
 
 function dieResult(roll){return roll.dice?.[0]?.results?.[0]?.result ?? roll.total;}
 function normalizedId(name=''){return String(name).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');}
-function conditionKeys(actor){const c=new Set(actor.items.filter(i=>i.type==='condition').map(i=>i.system.key||i.system.catalogId||normalizedId(i.name)));if(actor.items.some(i=>i.type==='trait'&&i.system.catalogId==='trait-024'))c.add('out-of-place');return c;}
+function conditionKeys(actor){const c=activeConditionKeys(actor);if(actor.items.some(i=>i.type==='trait'&&i.system.catalogId==='trait-024'))c.add('out-of-place');return c;}
 function injuryCount(actor,key){return actor.items.filter(i=>i.type==='injury'&&i.system.active&&(i.system.key||i.system.catalogId)===key).reduce((n,i)=>n+Number(i.system.count||1),0);}
 
 function situationalRules(actor,skill,options={}){
+  if(actor.system?.stackState==='destroyed')return {blocked:true,reason:'This cortical stack is destroyed. Restore/play a surviving backup as directed by the GM.'};
+  if(actor.system?.sleeveState==='dead'&&!actor.system?.virtualSession?.active&&!conditionKeys(actor).has('virtual'))return {blocked:true,reason:'This sleeve is dead. Resleeve or enter an appropriate DHF/Virtual context before making Checks.'};
+  if(actor.getFlag?.('altered-carbon-rpg','stance')==='full-defense'&&!options.isSave)return {blocked:true,reason:'Full Defense forgoes all other Skill Checks (Core p.136).'};
   const c=conditionKeys(actor); let difficulty=Number(options.difficulty||0); let drugGearBonus=0; const baseLevel=Number(skill.system.level||1); let level=baseLevel; let levelPenalty=0; let attribute=skill.system.attribute;
   const skillId=normalizedId(skill.name); const notes=[];
   const innateTraining=Number(skill.system.trainingBonus||0);if(innateTraining<0){difficulty+=Math.abs(innateTraining);notes.push(`Published Skill penalty ${innateTraining}`);}
@@ -19,13 +23,13 @@ function situationalRules(actor,skill,options={}){
   const chem=drugRollModifiers(actor.items.contents||[...actor.items],{attribute,skill:skill.name,suggestion:options.suggestion===true,sensorStealth:options.sensorStealth===true});
   difficulty+=chem.difficulty;drugGearBonus+=chem.gearBonus;level=Math.max(1,Math.min(5,level+chem.levelDelta));notes.push(...chem.notes);
   if(c.has('pinned')&&(options.itemTag||[]).includes('weapon')&&!options.weaponHandsFree)return {blocked:true,reason:'Pinned: cannot use a weapon requiring the hands until freed.'};
-  if(c.has('incapacitated'))return {blocked:true,reason:'Incapacitated characters cannot make Skill Checks.'};
+  if(c.has('incapacitated')||actor.ac?.incapacitated)return {blocked:true,reason:'Incapacitated characters cannot make Skill Checks.'};
   if(c.has('virtual')||actor.system.virtualSession?.active){
     if(attribute==='strength')attribute='willpower'; else if(attribute==='perception')attribute='acuity';
     if(['strength','perception'].includes(skill.system.attribute)){const isAI=actor.type==='ai'||actor.system.identity.variant==='ai';difficulty+=isAI?0:(actor.system.identity.variant==='envoy'?1:3);if(!isAI)notes.push('Virtual projection');}
   }
-  if(c.has('dazzled')&&options.sightOnly)return {blocked:true,reason:'Dazzled: this check relies exclusively on sight and automatically fails.'};
-  if(c.has('dazzled')&&options.sightReliant){levelPenalty+=1;level=Math.max(1,level-levelPenalty);notes.push('Dazzled: Skill Level reduced');}
+  if(c.has('dazzled')&&options.sightOnly&&['perception','acuity'].includes(attribute))return {blocked:true,reason:'Dazzled: this check relies exclusively on sight and automatically fails.'};
+  if(c.has('dazzled')&&options.sightReliant&&['perception','acuity'].includes(attribute)){levelPenalty+=1;level=Math.max(1,level-1);notes.push('Dazzled: Skill Level reduced');}
   if(c.has('prone')||c.has('pinned')){difficulty+=1;notes.push(c.has('pinned')?'Pinned (also Prone)':'Prone');}
   const mal=actor.items.find(i=>i.type==='condition'&&(i.system.key||i.system.catalogId)==='malnourished');if(mal){const d=Number(mal.system.severity||mal.system.difficulty||2)||2;difficulty+=Math.max(2,d);notes.push(`Malnourished -${Math.max(2,d)}`);}
   if(Number(actor.system.medicalAftereffectHours||0)>0){difficulty+=2;notes.push('Rapid Regrowth Painkiller: next-day -2');}
@@ -35,7 +39,7 @@ function situationalRules(actor,skill,options={}){
     if(['intelligence','acuity'].includes(attribute))return {blocked:true,reason:'Enraged characters cannot make Intelligence or Acuity checks.'};
     if(attribute!=='strength'){difficulty+=2;notes.push('Enraged');}
   }
-  if(c.has('panic')&&!activeDrugIds.has('DRG003')&&['strength','perception','acuity','intelligence'].includes(attribute)){levelPenalty+=1;level=Math.max(1,level-levelPenalty);notes.push('Panic: Skill Level reduced');}
+  if(c.has('panic')&&!activeDrugIds.has('DRG003')&&['strength','perception','acuity','intelligence'].includes(attribute)){levelPenalty+=1;level=Math.max(1,level-1);notes.push('Panic: Skill Level reduced');}
   if(c.has('drenched')&&['composure','discipline','endurance','survival'].includes(skillId)){difficulty+=2;notes.push('Drenched');}
   if(c.has('out-of-place')&&['stealth','diplomacy','expression'].includes(skillId)){difficulty+=1;notes.push('Out of Place');}
   const enc=actor.ac?.cargo?.level||0;if(enc&&attribute==='strength'){difficulty+=enc;notes.push(`Encumbered ${enc}`);}
@@ -73,7 +77,7 @@ async function executeSkillRoll(actor, skill, options={}){
   const effectResult=evaluateEffects(actor,effectContext);
   sit.level=Math.max(1,Math.min(5,derivedEffectValue(effectResult,'skill.level',sit.level)));
   sit.difficulty=derivedEffectValue(effectResult,'check.difficulty',sit.difficulty);
-  if(effectContext.skill==='brawl'&&effectContext.itemTag.includes('unarmed')){const penalty=Math.max(0,derivedEffectValue(effectResult,'check.unarmedPenalty',2));sit.difficulty+=penalty;sit.notes.push(`Unarmed Attack: ${penalty} Difficulty`);}
+  if(effectContext.skill==='brawl'&&effectContext.itemTag.includes('unarmed')&&options.unarmedAgainstArmed===true){const penalty=Math.max(0,derivedEffectValue(effectResult,'check.unarmedPenalty',2));sit.difficulty+=penalty;sit.notes.push(`Unarmed vs armed/Battle Armor: ${penalty} Difficulty`);}
   const extraDiceCount=Math.max(0,Math.min(10,Math.trunc(Number(effectResult.values['check.extraBonusDice']||0))));
   const sides=skillDie(sit.level), attr=sit.attribute;
   const virtualTrainingBonus=options.virtualTrainingBonus===true;

@@ -30,6 +30,9 @@ import * as ClinicalRules from './module/drug-medical-virtual.mjs';
 import * as ClinicalWorkflow from './module/clinical-workflow.mjs';
 import {ACClinicalConsole} from './module/clinical-console.mjs';
 import {installChatUIHooks} from './module/chat-ui.mjs';
+import {installAttackDefenseHooks} from './module/attack-defense.mjs';
+import {installDamageSaveHooks} from './module/damage-saves.mjs';
+import {ensurePlayerGuide} from './module/player-guide.mjs';
 import * as TraitAdjudications from './module/trait-adjudication.mjs';
 import {ACGMPanel,installGMToolsHooks,installGMSceneControlsHook,registerGMToolsSettings} from './module/gm-tools.mjs';
 import {ensureGMGuide} from './module/gm-guide.mjs';
@@ -41,10 +44,10 @@ import {ACContentInstaller,installCompendiumContent} from './module/content-inst
 import {applyStatus,clearStatus,openStatusDialog,installStatusChatHooks} from './module/status-tools.mjs';
 import {installMapZones,zoneAt} from './module/map-zones.mjs';
 import {defineSpeedCombat,installCombatIntegration,syncTrackerWithSpeed} from './module/combat-integration.mjs';
-import {installVehicleBoarding,boardVehicle,exitVehicle,openSeatPicker,openBoardDialog,openVehicleControl,seatLayout,vehicleFootprint} from './module/vehicle-boarding.mjs';
+import {installVehicleBoarding,boardVehicle,exitVehicle,openSeatPicker,openBoardDialog,openVehicleBoardDialog,openVehicleControl,moveVehicle,seatLayout,vehicleFootprint} from './module/vehicle-boarding.mjs';
 
 Hooks.once('init',()=>{
-  console.log('Altered Carbon RPG | Initializing v2.4.9');
+  console.log('Altered Carbon RPG | Initializing v2.5.1');
   CONFIG.Actor.documentClass=AlteredCarbonActor;CONFIG.Item.documentClass=AlteredCarbonItem;
   // Speed Dice drive Foundry's Combat Tracker (initiative order, Roll Initiative, Next Turn/Round).
   CONFIG.Combat.documentClass=defineSpeedCombat(CONFIG.Combat.documentClass);CONFIG.Combat.initiative={formula:'1d6',decimals:0};
@@ -69,11 +72,13 @@ Hooks.once('init',()=>{
   game.settings.registerMenu(game.system.id,'coreLibrary',{name:'2020 Core Equipment Library',label:'Core Equipment Library',hint:'Detailed reconciled 2020 Core gear, software, drugs, augmentations and vehicle records; installs missing Items without overwriting saved world gear.',icon:'fa-solid fa-boxes-stacked',type:ACCoreLibrary,restricted:false});
   game.settings.registerMenu(game.system.id,'contentInstaller',{name:'Altered Carbon — Install / Update Content',label:'Install / Update Content',hint:'Check for system and module updates, install compendium content into this world, and optionally remove previous versions first.',icon:'fa-solid fa-download',type:ACContentInstaller,restricted:true});
   game.settings.registerMenu(game.system.id,'gmControl',{name:'Altered Carbon GM Control',label:'Open GM Control',hint:'GM-only roll requests, Cold Storage presets, and the system GM Guide.',icon:'fa-solid fa-satellite-dish',type:ACGMPanel,restricted:true});
-  game.alteredCarbon={diagnoseSystem,getSystemHealth,BonusDice:{grant:grantBonusDice,get:getBonusDiceAwards,remove:removeBonusDiceAward,clear:clearBonusDiceAwards},Book:bookAPI(),openAdvancement,CoreContent:{loadCoreCatalog,addCoreItemById,installCoreLibraryToWorld},SpeedDice,FutureCalendar,ClinicalRules,ClinicalWorkflow,Rules,Effects,TraitAdjudications,Combat,CombatEquipment,CombatWorkflow,Opposed,ChatActions,GMContent,GMWorkflows,Migrations,VehicleOperations,version:'2.4.9',applyEmblems,emblemFor,applyStatus,clearStatus,openStatusDialog,installCompendiumContent,Vehicles:{board:boardVehicle,exit:exitVehicle,openSeatPicker,openBoardDialog,openVehicleControl,seatLayout,footprint:vehicleFootprint},openContentInstaller:()=>new ACContentInstaller().render({force:true}),openCalendar:()=>new ACFutureCalendar().render({force:true}),openClinical:actor=>new ACClinicalConsole({actorId:actor?.id}).render({force:true}),openZones:()=>new ACZoneAssistant().render({force:true}),openUpgradeWorkbench:actor=>new ACUpgradeWorkbench({actorId:actor?.id}).render({force:true}),openCombatConsole:()=>new ACCombatConsole().render({force:true}),syncCombatTracker:combat=>syncTrackerWithSpeed(combat??game.combat),openCharacterCreator:()=>new ACCharacterCreator().render({force:true}),openRules:actor=>new ACRulesBrowser({actorId:actor?.id}).render({force:true}),openCoreLibrary:actor=>new ACCoreLibrary({actorId:actor?.id}).render({force:true}),openAdventureBook:()=>bookAPI().openBook(),importAdventureBook:options=>bookAPI().importBook(options),openMigration:()=>new ACMigrationApp().render({force:true}),openGMOperations:()=>new ACGMOperations().render({force:true}),openGMControl:()=>new ACGMPanel().render({force:true}),openGMGuide:()=>ensureGMGuide({open:true})};
+  game.alteredCarbon={diagnoseSystem,getSystemHealth,BonusDice:{grant:grantBonusDice,get:getBonusDiceAwards,remove:removeBonusDiceAward,clear:clearBonusDiceAwards},Book:bookAPI(),openAdvancement,CoreContent:{loadCoreCatalog,addCoreItemById,installCoreLibraryToWorld},SpeedDice,FutureCalendar,ClinicalRules,ClinicalWorkflow,Rules,Effects,TraitAdjudications,Combat,CombatEquipment,CombatWorkflow,Opposed,ChatActions,GMContent,GMWorkflows,Migrations,VehicleOperations,version:'2.5.1',applyEmblems,emblemFor,applyStatus,clearStatus,openStatusDialog,installCompendiumContent,Vehicles:{board:boardVehicle,exit:exitVehicle,openSeatPicker,openBoardDialog,openVehicleBoardDialog,openVehicleControl,move:moveVehicle,seatLayout,footprint:vehicleFootprint},openContentInstaller:()=>new ACContentInstaller().render({force:true}),openCalendar:()=>new ACFutureCalendar().render({force:true}),openClinical:actor=>new ACClinicalConsole({actorId:actor?.id}).render({force:true}),openZones:()=>new ACZoneAssistant().render({force:true}),openUpgradeWorkbench:actor=>new ACUpgradeWorkbench({actorId:actor?.id}).render({force:true}),openCombatConsole:()=>new ACCombatConsole().render({force:true}),syncCombatTracker:combat=>syncTrackerWithSpeed(combat??game.combat),openCharacterCreator:()=>new ACCharacterCreator().render({force:true}),openRules:actor=>new ACRulesBrowser({actorId:actor?.id}).render({force:true}),openCoreLibrary:actor=>new ACCoreLibrary({actorId:actor?.id}).render({force:true}),openAdventureBook:()=>bookAPI().openBook(),importAdventureBook:options=>bookAPI().importBook(options),openMigration:()=>new ACMigrationApp().render({force:true}),openGMOperations:()=>new ACGMOperations().render({force:true}),openGMControl:()=>new ACGMPanel().render({force:true}),openGMGuide:()=>ensureGMGuide({open:true}),openPlayerGuide:()=>ensurePlayerGuide({open:true})};
   installCharacterDirectoryHooks();
   Opposed.installOpposedHooks();
   ChatActions.installChatActionHooks();
   installChatUIHooks();
+  installAttackDefenseHooks();
+  installDamageSaveHooks();
   TraitAdjudications.installTraitAdjudicationHooks();
   installCombatConsoleHooks();
   installCombatIntegration();
@@ -83,5 +88,5 @@ Hooks.once('init',()=>{
   installEmblemHooks();
   installStatusChatHooks();
 });
-Hooks.once('ready',async()=>{Combat.installSocket();try{installVehicleBoarding();}catch(error){console.error('Altered Carbon | Vehicle boarding unavailable',error);}startWorldClockTicker();installGMToolsHooks();if(game.user.isGM){try{const health=await diagnoseSystem();if(!health.ok)ui.notifications.error(health.summary,{permanent:true});}catch(error){console.warn('Altered Carbon | System health check skipped',error);}try{await ensureGMGuide();}catch(error){console.error('Altered Carbon RPG | Unable to create GM Guide',error);}
-  try{if(Number(game.settings.get(game.system.id,'schemaVersion')||0)<Migrations.SCHEMA_VERSION)ui.notifications.warn('Altered Carbon v2.4.9: Back up your world, then review World Data Migration in Settings. No changes are applied automatically.');}catch(error){console.warn('Altered Carbon | Migration warning unavailable',error);}}console.log('Altered Carbon RPG | Ready');});
+Hooks.once('ready',async()=>{Combat.installSocket();try{installVehicleBoarding();}catch(error){console.error('Altered Carbon | Vehicle boarding unavailable',error);}startWorldClockTicker();installGMToolsHooks();if(game.user.isGM){try{const health=await diagnoseSystem();if(!health.ok)ui.notifications.error(health.summary,{permanent:true});}catch(error){console.warn('Altered Carbon | System health check skipped',error);}try{await ensureGMGuide();await ensurePlayerGuide();}catch(error){console.error('Altered Carbon RPG | Unable to create GM Guide',error);}
+  try{if(Number(game.settings.get(game.system.id,'schemaVersion')||0)<Migrations.SCHEMA_VERSION)ui.notifications.warn('Altered Carbon v2.5.1: Back up your world, then review World Data Migration in Settings. No changes are applied automatically.');}catch(error){console.warn('Altered Carbon | Migration warning unavailable',error);}}console.log('Altered Carbon RPG | Ready');});

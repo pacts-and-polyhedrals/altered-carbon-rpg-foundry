@@ -1,6 +1,6 @@
 import {resourceAdjustment,parseCrew,crewProfile,validateCrewAssignment,CREW_ROLES} from './vehicle-operations.mjs';
 import {rollSkill} from './rolls.mjs';
-import {seatLayout,vehicleFootprint,openSeatPicker,exitVehicle,openVehicleControl} from './vehicle-boarding.mjs';
+import {seatLayout,vehicleFootprint,openVehicleBoardDialog,exitVehicle,openVehicleControl} from './vehicle-boarding.mjs';
 const {api,sheets}=foundry.applications;
 const esc=value=>foundry.utils.escapeHTML(String(value??''));
 export class ACVehicleSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV2){
@@ -47,9 +47,7 @@ export class ACVehicleSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
   try{await rollSkill(pilot,skill,{difficulty,contextLabel:`Pilot — ${this.actor.name}`,chat:true});}catch(error){ui.notifications.error(error.message);}
  }
  vehicleToken(){return this.token??this.actor.getActiveTokens?.(false,true)?.[0]??canvas?.tokens?.placeables?.find(p=>p.actor?.id===this.actor.id)?.document??null;}
- static async _seatBoard(event,target){const vt=this.vehicleToken();if(!vt)return ui.notifications.warn('Place this vehicle on the scene first.');
-  const mine=(canvas?.tokens?.controlled||[]).map(t=>t.document).filter(t=>t.actor?.type!=='vehicle');if(!mine.length)return ui.notifications.info('Select your character token on the scene, then press Get in.');
-  await openSeatPicker(vt,mine[0]);this.render({force:true});}
+ static async _seatBoard(){const vt=this.vehicleToken();if(!vt)return ui.notifications.warn('Place this vehicle on the scene first.');await openVehicleBoardDialog(vt);this.render({force:true});}
  static async _seatExit(event,target){const vt=this.vehicleToken();const raw=vt?.getFlag?.('altered-carbon-rpg','vehicleOccupants')||[];const o=raw.find?.(x=>x.seatId===target.dataset.seatId);const t=o?vt.parent.tokens.get(o.tokenId):null;
   if(!t)return;try{await exitVehicle(t);}catch(e){ui.notifications.warn(e.message);}setTimeout(()=>this.render({force:true}),250);}
  static async _vehicleControl(){const vt=this.vehicleToken();if(!vt)return ui.notifications.warn('Place this vehicle on the scene first.');await openVehicleControl(vt);this.render({force:true});}
