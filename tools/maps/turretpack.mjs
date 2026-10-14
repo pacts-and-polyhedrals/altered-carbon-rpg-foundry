@@ -1,0 +1,11 @@
+import { ClassicLevel } from 'classic-level'; import fs from 'fs'; import path from 'path';
+const {TURRET_WEAPON}=await import(process.argv[3]);
+const dir=process.argv[2];const db=new ClassicLevel(dir,{valueEncoding:'json'});
+const RID='ea2d584cabd16846',IID='a7c0e7a1b2d3f4e5';
+const actor=await db.get(`!actors!${RID}`);
+const item={_id:IID,...structuredClone(TURRET_WEAPON),effects:[],folder:null,sort:0,ownership:{default:0},flags:{},_stats:actor._stats};
+actor.items=[IID];
+await db.batch([{type:'put',key:`!actors!${RID}`,value:actor},{type:'put',key:`!actors.items!${RID}.${IID}`,value:item}]);
+await db.compactRange('\x00','\xff');await db.close();
+for(const f of fs.readdirSync(dir))if(f==='LOCK'||f.startsWith('LOG'))fs.rmSync(path.join(dir,f));
+console.log(actor.name,'fitted',item.name);

@@ -6,15 +6,22 @@ import json, os, sys, random, hashlib
 INK, BONE, BONE2, SKIN = '#0a0d10', '#ece4cf', '#b9ae95', '#c9b49a'
 CY, RED, AMB, GOLD, TEAL, VIO, PINK, BLUE, GREEN = '#32c7d6', '#ff3b5c', '#ffb020', '#e8c66a', '#3fe0c5', '#b48cff', '#ff4fd8', '#7fb2ff', '#8be6b0'
 S = 512; C = S / 2
+import re
+def upright(frag):
+    def fix(m):
+        tag = m.group(0); x = float(re.search(r' x="([-\d.]+)"', tag).group(1)); y = float(re.search(r' y="([-\d.]+)"', tag).group(1))
+        return tag.replace('<text ', f'<text transform="rotate(180 {x:.1f} {y - 7:.1f})" ', 1)
+    return re.sub(r'<text [^>]*>', fix, frag)
 def f(v): return f'{v:.1f}'
 
-def person(build='medium', outfit='jacket', head='short', item='none', acc=CY, coat=BONE, hair='#2a2622', ring=True, holo=False, extra=''):
+def person(build='medium', outfit='jacket', head='short', item='none', acc=CY, coat=BONE, hair='#2a2622', ring=True, holo=False, extra='', synth=False, serial='', mask=False, hold='', ringc=None):
     sw = {'slim': 132, 'medium': 150, 'heavy': 178}[build]      # shoulder half-width
     sd = {'slim': 62, 'medium': 70, 'heavy': 84}[build]         # shoulder half-depth
     g = []
     if ring:
-        g.append(f'<circle cx="{C}" cy="{C}" r="232" fill="none" stroke="{acc}" stroke-width="10" opacity=".9" filter="url(#glow)"/>')
-        g.append(f'<circle cx="{C}" cy="{C}" r="214" fill="{acc}" opacity=".07"/>')
+        rc = ringc or acc
+        g.append(f'<circle cx="{C}" cy="{C}" r="232" fill="none" stroke="{rc}" stroke-width="10" opacity=".95" filter="url(#glow)"/>')
+        g.append(f'<circle cx="{C}" cy="{C}" r="214" fill="{rc}" opacity=".08"/>')
     body = []
     # coat tails / cape behind (below = behind, facing up)
     if outfit in ('trench', 'robe'):
@@ -46,6 +53,9 @@ def person(build='medium', outfit='jacket', head='short', item='none', acc=CY, c
         body.append(f'<path d="M{f(C-sw*.8)},{f(C-10)} Q{C},{f(C-sd-26)} {f(C+sw*.8)},{f(C-10)}" fill="none" stroke="{INK}" stroke-width="6" opacity=".55"/>')
     # accent stripe on the shoulders
     body.append(f'<path d="M{f(C-sw*.92)},{f(C+6)} Q{C},{f(C-sd*.6)} {f(C+sw*.92)},{f(C+6)}" fill="none" stroke="{acc}" stroke-width="6" opacity=".8"/>')
+    if synth:   # synthetic sleeve: panel seams across the shoulders, optional serial stencil
+        for sx in (-1, 1): body.append(f'<path d="M{f(C+sx*sw*.35)},{f(C-sd+10)} L{f(C+sx*sw*.5)},{f(C+sd-10)}" stroke="{INK}" stroke-width="4" opacity=".55"/><circle cx="{f(C+sx*sw*.72)}" cy="{f(C-6)}" r="7" fill="{acc}" opacity=".9"/>')
+        if serial: body.append(f'<text x="{f(C+sw*.52)}" y="{f(C+sd*.55)}" text-anchor="middle" font-family="Courier New,monospace" font-weight="700" font-size="22" fill="{INK}" opacity=".75">{serial}</text>')
     # items held forward
     if item == 'pistol': body.append(f'<rect x="{f(C+20)}" y="{f(C-158)}" width="20" height="58" rx="5" fill="#2a2e33" stroke="{INK}" stroke-width="3"/>')
     if item == 'rifle': body.append(f'<rect x="{f(C-10)}" y="{f(C-210)}" width="22" height="150" rx="6" fill="#2a2e33" stroke="{INK}" stroke-width="3"/><rect x="{f(C-6)}" y="{f(C-150)}" width="14" height="22" fill="{acc}" opacity=".8"/>')
@@ -69,6 +79,12 @@ def person(build='medium', outfit='jacket', head='short', item='none', acc=CY, c
         if head == 'short': body.append(f'<path d="M{f(hx-hr+10)},{f(hy-18)} Q{hx},{f(hy-hr-8)} {f(hx+hr-10)},{f(hy-18)}" stroke="#0f0d0b" stroke-width="5" fill="none" opacity=".6"/>')
         # nose / face direction mark
         body.append(f'<path d="M{f(hx-10)},{f(hy-hr+2)} L{hx},{f(hy-hr-12)} L{f(hx+10)},{f(hy-hr+2)}" fill="{SKIN}"/>')
+    if mask: body.append(f'<rect x="{f(hx-30)}" y="{f(hy-hr-16)}" width="60" height="30" rx="12" fill="#3a3f46" stroke="{INK}" stroke-width="4"/><circle cx="{f(hx-16)}" cy="{f(hy-hr-1)}" r="7" fill="{acc}"/><circle cx="{f(hx+16)}" cy="{f(hy-hr-1)}" r="7" fill="{acc}"/>')
+    if hold == 'orange': body.append(f'<circle cx="{f(C+sw-10)}" cy="{f(C-50)}" r="20" fill="#ff9a3c" stroke="{INK}" stroke-width="3"/>')
+    if hold == 'cuff': body.append(f'<rect x="{f(C-sw+2)}" y="{f(C-44)}" width="34" height="18" rx="6" fill="#dfe8ee" stroke="{INK}" stroke-width="3"/>')
+    if hold == 'scalpel': body.append(f'<path d="M{f(C+30)},{f(C-104)} L{f(C+36)},{f(C-160)} L{f(C+42)},{f(C-104)} Z" fill="#dfe8ee" stroke="{INK}" stroke-width="2"/>')
+    if hold == 'mic': body.append(f'<rect x="{f(C+24)}" y="{f(C-150)}" width="14" height="44" rx="6" fill="#2a2e33"/><circle cx="{f(C+31)}" cy="{f(C-154)}" r="13" fill="{acc}"/>')
+    if hold == 'tablet': body.append(f'<rect x="{f(C-36)}" y="{f(C-150)}" width="72" height="44" rx="6" fill="#121a22" stroke="{acc}" stroke-width="4"/>')
     if extra: body.append(extra)
     inner = ''.join(body)
     shadow = inner
@@ -78,7 +94,7 @@ def person(build='medium', outfit='jacket', head='short', item='none', acc=CY, c
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{S}" height="{S}" viewBox="0 0 {S} {S}">
 <defs><filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
 <filter id="blur"><feGaussianBlur stdDeviation="7"/></filter><clipPath id="disc"><circle cx="{C}" cy="{C}" r="226"/></clipPath></defs>
-{''.join(g[:1])}<g clip-path="url(#disc)">{''.join(g[1:])}<g transform="translate(9 12)" opacity="{0 if holo else .5}" filter="url(#blur)">{shadow}</g><g{op}>{inner}</g>{holo_fx}</g></svg>'''
+{''.join(g[:1])}<g clip-path="url(#disc)">{''.join(g[1:])}<g transform="translate(9 12)" opacity="{0 if holo else .5}" filter="url(#blur)"><g transform="rotate(180 {C} {C})">{shadow}</g></g><g{op} transform="rotate(180 {C} {C})">{upright(inner)}</g>{holo_fx}</g></svg>'''
 
 # --------------------------------------------------------------------------- named adversaries (official pack)
 NAMED = {
@@ -91,6 +107,30 @@ NAMED = {
  'Bay City Police Officer': dict(build='medium', outfit='armor', head='cap', item='pistol', acc=BLUE, coat='#b7c2cf'),
  'Freak': dict(build='heavy', outfit='jacket', head='mohawk', item='blade', acc=GREEN, coat=BONE2),
 }
+# Cold Storage: pregens, benefactors and its own adversaries (matched by Actor name).
+NAMED.update({
+ 'Nia Calder': dict(build='medium', outfit='trench', head='bun', item='none', hold='tablet', acc=CY, coat='#cfc6ad', hair='#3b2a20'),
+ 'Tomas “Latch” Araya': dict(build='heavy', outfit='jacket', head='bald', item='bag', acc=AMB, coat=BONE2, synth=True),
+ 'Sabine Kade': dict(build='slim', outfit='jacket', head='long', item='none', acc=GOLD, coat='#d9d3c4', hair='#d8c9a3'),
+ 'Imani Voss': dict(build='medium', outfit='armor', head='short', item='pistol', acc=RED, coat='#b9b0a0', hair='#1b1b22'),
+ 'Cass Ren': dict(build='medium', outfit='hoodie', head='short', item='blade', acc=PINK, coat=BONE2, synth=True, serial='EV-77', hair='#121214'),
+ 'Dr Edda Sorn': dict(build='slim', outfit='labcoat', head='bun', item='none', hold='scalpel', acc=TEAL, coat=BONE, hair='#9a948a'),
+ 'Anik Rao': dict(build='medium', outfit='suit', head='short', item='none', hold='tablet', acc=VIO, coat='#cfc6ad', synth=True, hair='#1b1b22'),
+ 'Solenne Pryce': dict(build='heavy', outfit='jacket', head='long', item='none', hold='mic', acc=GREEN, coat=BONE2, mask=True, hair='#5a3a22'),
+ 'Dr Adria Sen': dict(build='slim', outfit='labcoat', head='bun', item='none', acc=GREEN, coat=BONE, hair='#2a2622', ring=True),
+ 'Magistrate Severin Holt': dict(build='medium', outfit='robe', head='short', item='none', hold='cuff', acc=VIO, coat='#2f2b3a', hair='#b9b2a6'),
+ 'Director Oren Thale': dict(build='medium', outfit='suit', head='bald', item='none', hold='orange', acc=BLUE, coat='#7f9ccf'),
+ 'Palimpsest Recovery Dipper': dict(build='slim', outfit='hoodie', head='hood', item='none', hold='tablet', acc=VIO, coat=BONE2),
+ 'Palimpsest Retrieval Hitman': dict(build='slim', outfit='trench', head='fedora', item='pistol', acc=VIO, coat='#cfc6ad'),
+ 'Compromised Protectorate Officer': dict(build='medium', outfit='armor', head='cap', item='pistol', acc=AMB, coat='#b7c2cf'),
+ 'Praetorian Black-Recovery Operative': dict(build='heavy', outfit='armor', head='helmet', item='rifle', acc=RED, coat='#5c635c'),
+})
+# The ring (token base) takes the colour of the character's picture: red case-file badges for the official
+# adversaries, Cold Storage's red opponent badges and gold benefactor badges, each pregen's portrait accent.
+RING = {'Corporate Stooge': '#ff3b3b', 'Thug': '#ff3b3b', 'Hitman': '#ff3b3b', 'CTAC Special Forces Praetorian': '#ff3b3b', 'Generational Meth': '#ff3b3b', 'Dipper': '#ff3b3b', 'Bay City Police Officer': '#ff3b3b', 'Freak': '#ff3b3b', 'Palimpsest Recovery Dipper': '#ff3b55', 'Palimpsest Retrieval Hitman': '#ff3b55', 'Compromised Protectorate Officer': '#ff3b55', 'Praetorian Black-Recovery Operative': '#ff3b55', 'Dr Adria Sen': '#c9a24a', 'Magistrate Severin Holt': '#c9a24a', 'Director Oren Thale': '#c9a24a'}
+PREGEN_ACCENT = {'Nia Calder': '#78ecf3', 'Tomas “Latch” Araya': '#ffc467', 'Sabine Kade': '#e9cc8c', 'Imani Voss': '#ff5a6e', 'Cass Ren': '#ff7fb0', 'Dr Edda Sorn': '#5ef0c4', 'Anik Rao': '#b9a2ff', 'Solenne Pryce': '#ff8a3d'}
+for _n, _c in RING.items(): NAMED[_n]['ringc'] = _c
+for _n, _c in PREGEN_ACCENT.items(): NAMED[_n]['ringc'] = _c; NAMED[_n]['acc'] = _c
 # --------------------------------------------------------------------------- generic looks for PCs and NPCs
 LOOKS = []
 _r = random.Random(2384)
@@ -112,5 +152,6 @@ if __name__ == '__main__':
     for i, spec in enumerate(LOOKS):
         fn = f'look-{i+1:02d}.svg'; open(f'{out}/{fn}', 'w').write(person(**spec)); index['generic'].append(fn)
     open(f'{out}/ai-hologram.svg', 'w').write(person(**AI_LOOK)); index['ai'] = 'ai-hologram.svg'
+    index['lookAccents'] = [l['acc'] for l in LOOKS]
     json.dump(index, open(f'{out}/people.json', 'w'), indent=1)
     print(len(index['named']) + len(index['generic']) + 1, 'tokens')

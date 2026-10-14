@@ -33,6 +33,19 @@
     <h2 id="ac-vehicle-abilities">Unique abilities</h2>
     {{#if hasAbilities}}<ul class="ac-ability-list">{{#each abilities}}<li><i class="{{icon}}" aria-hidden="true"></i><div><b>{{label}}</b>{{#if seats}} <small>({{seats}})</small>{{/if}}<p>{{text}}</p></div></li>{{/each}}</ul>{{else}}<p class="ac-muted">None.</p>{{/if}}
    </section>
+   {{#if armed.show}}
+   <section class="ac-panel ac-vehicle-weapons" aria-labelledby="ac-vehicle-weapons">
+    <div class="ac-vehicle-header"><div><h2 id="ac-vehicle-weapons">Weapons</h2>
+     <p>Fire Control <b>{{armed.fireControl}}</b>{{#if armed.gunnerSeat}} (Gear Bonus on gunner attacks{{#if armed.reduced}}, reduced from {{armed.baseFireControl}} by Structure damage{{/if}}){{/if}}. Gunner: {{#if armed.manned}}<b>{{armed.gunners}}</b>{{else}}<em class="ac-warning-text">nobody is manning the gun</em>{{/if}}</p></div></div>
+    {{#if armed.hasWeapons}}
+    <ul class="ac-vehicle-roster">{{#each armed.weapons}}<li><span><b>{{name}}</b> <small>{{damage}} {{damageType}}{{#if ap}} · Armor Piercing{{/if}} · DP {{depletion}}/{{capacity}}{{#if exhausted}} · <em class="ac-warning-text">Exhausted</em>{{/if}}</small></span>
+     <span><button type="button" data-action="fireWeapon" data-item-id="{{id}}" {{#unless ../armed.manned}}disabled title="Put someone in the Gunner seat first"{{/unless}}><i class="fa-solid fa-crosshairs"></i> Fire</button>{{#if ../canEdit}} <button type="button" data-action="reloadWeapon" data-item-id="{{id}}"><i class="fa-solid fa-rotate"></i> Reload</button>{{/if}}</span></li>{{/each}}</ul>
+    {{else if armed.needsTurret}}
+    <p>The roof turret is fitted the first time the gunner fires. {{#if canEdit}}<button type="button" data-action="fitTurret"><i class="fa-solid fa-wrench"></i> Fit the roof turret now</button>{{/if}}</p>
+    {{/if}}
+    <p class="ac-help-line">Target first (T while hovering a token), then press Fire here or right-click the vehicle or the gunner and choose <b>Fire</b>. The attack is the gunner's own weapon Skill Check through the Tactical Attack dialog, with Fire Control added as a Gear Bonus.</p>
+   </section>
+   {{/if}}
    <section class="ac-panel ac-vehicle-seats" aria-labelledby="ac-vehicle-seats">
     <div class="ac-vehicle-header"><div><h2 id="ac-vehicle-seats">Seats</h2><p>Token footprint {{footprint.width}}×{{footprint.height}} squares (Size {{v.size}}). Driving: <b>{{controlLabel}}</b>.</p></div>
      <div class="ac-vehicle-seat-actions">{{#if onScene}}<button type="button" data-action="seatBoard"><i class="fa-solid fa-car-side"></i> Get in</button>{{#if isGM}}<button type="button" data-action="vehicleControl"><i class="fa-solid fa-users-gear"></i> Seats &amp; control</button>{{/if}}{{/if}}</div></div>

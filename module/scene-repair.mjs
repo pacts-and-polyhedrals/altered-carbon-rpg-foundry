@@ -11,7 +11,7 @@ async function mapIndex(){
   if(index)return index;index=new Map();
   for(const file of DATA_FILES){
     try{const r=await fetch(`systems/${NS}/data/${file}`);if(!r.ok)continue;const d=await r.json();
-      for(const m of d.maps||[])index.set(m.id,{src:`systems/${NS}/assets/maps/${m.file}`,links:m.links||[],kind:file.includes('street')?'streetAtlas':'bayCityMap'});}catch(error){console.warn('Altered Carbon | map index',file,error);}
+      for(const m of d.maps||[])index.set(m.id,{src:`systems/${NS}/assets/maps/${m.file}`,links:m.links||[],gridSize:Number(m.gridSize)||100,kind:file.includes('street')?'streetAtlas':'bayCityMap'});}catch(error){console.warn('Altered Carbon | map index',file,error);}
   }
   return index;
 }
@@ -59,9 +59,24 @@ export async function syncSceneLinks(scene){
   return true;
 }
 
+/**
+ * Road maps use a 71 px grid (v2.6.2) so vehicles, bikes and people are to scale against the streets.
+ * Scenes imported earlier still carry the old 100 px default; those (and only those) are moved to the
+ * bundled grid size. A grid the GM has set to anything else is left alone.
+ */
+export const OLD_GRID=100;
+export async function syncSceneGrid(scene){
+  const f=scene?.flags?.[NS]||{};const id=f.streetAtlas?.id;if(!id)return false;
+  const entry=(await mapIndex()).get(id);if(!entry?.gridSize)return false;
+  const size=Number(scene.grid?.size);
+  if(size===entry.gridSize||size!==OLD_GRID)return false;
+  await scene.update({'grid.size':entry.gridSize});
+  return true;
+}
+
 export async function repairAllSceneBackgrounds({notify=true}={}){
   if(!game.user?.isGM)return 0;let fixed=0;
-  for(const scene of game.scenes){try{if(await repairSceneBackground(scene))fixed++;await syncSceneLinks(scene);}catch(error){console.warn('Altered Carbon | could not repair',scene.name,error);}}
+  for(const scene of game.scenes){try{if(await repairSceneBackground(scene))fixed++;await syncSceneLinks(scene);await syncSceneGrid(scene);}catch(error){console.warn('Altered Carbon | could not repair',scene.name,error);}}
   if(fixed&&notify)ui.notifications.info(`Altered Carbon: restored the map image on ${fixed} Bay City scene(s).`);
   return fixed;
 }

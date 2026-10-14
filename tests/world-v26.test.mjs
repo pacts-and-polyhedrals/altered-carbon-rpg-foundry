@@ -98,3 +98,24 @@ test('top-down character tokens: named adversaries, AI holograms, and a stable l
   assert.ok(PEOPLE_TOKENS.generic.length>=30);
   for(const src of [...Object.values(PEOPLE_TOKENS.named),...PEOPLE_TOKENS.generic,PEOPLE_TOKENS.ai])assert.ok(existsSync(join(root,src.replace('systems/altered-carbon-rpg/',''))),src);
 });
+
+test('named top-down tokens for the Cold Storage pregens, benefactors and adversaries', async ()=>{
+  const {namedPersonToken}=await import('../module/emblems.mjs');
+  for(const n of ['Nia Calder','Tomas "Latch" Araya','Sabine Kade','Imani Voss','Cass Ren','Dr Edda Sorn','Anik Rao','Solenne Pryce',
+    'Dr Adria Sen','Magistrate Severin Holt','Director Oren Thale',
+    'Palimpsest Recovery Dipper','Palimpsest Retrieval Hitman','Compromised Protectorate Officer','Praetorian Black-Recovery Operative']){
+    const src=namedPersonToken(n);assert.ok(src,`${n} has a token`);assert.ok(existsSync(join(root,src.replace('systems/altered-carbon-rpg/',''))),src);
+  }
+  assert.equal(namedPersonToken('Tomas “Latch” Araya'),namedPersonToken('tomas latch araya'),'quotes and case do not matter');
+  assert.equal(namedPersonToken('Somebody Else'),null);
+});
+
+test('overview: Cold Storage pins sit on their own buildings, two on one block are spread apart', async ()=>{
+  const T=await import('../module/map-transit.mjs?pins='+Date.now());
+  globalThis.game={modules:{get:()=>({active:true})}};T.setColdStorageLinks(cs);
+  const ov=J('bay-city-street-overview.json').maps[0];const spots=T.overviewColdStorage(ov);
+  for(const s of spots){const p=T.pinOf(s),b=s.block;assert.ok(p.x>=b[0]&&p.x+p.w<=b[0]+b[2]&&p.y>=b[1]&&p.y+p.h<=b[1]+b[3],`${s.label} pin inside its block`);}
+  const ward=spots.filter(s=>/WARD|BREACH/.test(s.label));assert.equal(ward.length,2);
+  const [a,b]=ward.map(T.pinOf);assert.ok(Math.abs(a.x-b.x)>=a.w,'pins do not overlap');
+  const [la,lb]=ward.map(s=>s.labelBox);assert.ok(la.y+la.h<=lb.y||lb.y+lb.h<=la.y,'labels stacked');
+});

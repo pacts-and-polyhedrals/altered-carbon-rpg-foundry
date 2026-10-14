@@ -1,0 +1,768 @@
+TAP version 13
+# Subtest: Core p.89: a natural 1 always succeeds, including impossible TR
+ok 1 - Core p.89: a natural 1 always succeeds, including impossible TR
+  ---
+  duration_ms: 2.766144
+  type: 'test'
+  ...
+# Subtest: Core p.89: a Bonus Die 1 never creates an Ace
+ok 2 - Core p.89: a Bonus Die 1 never creates an Ace
+  ---
+  duration_ms: 0.25089
+  type: 'test'
+  ...
+# Subtest: Equality is one Degree; positive and negative Degrees are capped at five
+ok 3 - Equality is one Degree; positive and negative Degrees are capped at five
+  ---
+  duration_ms: 1.183523
+  type: 'test'
+  ...
+# Subtest: Natural Ace stays a 1 under Pressing / Tough Luck
+ok 4 - Natural Ace stays a 1 under Pressing / Tough Luck
+  ---
+  duration_ms: 0.209624
+  type: 'test'
+  ...
+# Subtest: Stroke of Luck needs two natural 1s
+ok 5 - Stroke of Luck needs two natural 1s
+  ---
+  duration_ms: 0.158689
+  type: 'test'
+  ...
+# Subtest: Catastrophe overrides a successful Bonus Die
+ok 6 - Catastrophe overrides a successful Bonus Die
+  ---
+  duration_ms: 0.125772
+  type: 'test'
+  ...
+# Subtest: Luck arithmetic is considered when the two maximum dice fail
+ok 7 - Luck arithmetic is considered when the two maximum dice fail
+  ---
+  duration_ms: 0.10688
+  type: 'test'
+  ...
+# Subtest: Two maximum dice that still pass are not catastrophic
+ok 8 - Two maximum dice that still pass are not catastrophic
+  ---
+  duration_ms: 0.137853
+  type: 'test'
+  ...
+# Subtest: Training and Gear take their highest non-stacking values
+ok 9 - Training and Gear take their highest non-stacking values
+  ---
+  duration_ms: 0.337197
+  type: 'test'
+  ...
+# Subtest: Core p.104: Firearms/DEW Ace adds PB, melee/Brawl Ace grants a Speed Die
+ok 10 - Core p.104: Firearms/DEW Ace adds PB, melee/Brawl Ace grants a Speed Die
+  ---
+  duration_ms: 0.535255
+  type: 'test'
+  ...
+# Subtest: Core p.201: automatic fire grants positive Degrees even on a normal failure
+ok 11 - Core p.201: automatic fire grants positive Degrees even on a normal failure
+  ---
+  duration_ms: 0.233963
+  type: 'test'
+  ...
+# Subtest: Core p.100: defense cancels Degrees; failed Save adds Difference
+ok 12 - Core p.100: defense cancels Degrees; failed Save adds Difference
+  ---
+  duration_ms: 0.14584
+  type: 'test'
+  ...
+# Subtest: Core p.198: Accuracy X is a Save penalty, not a Hit repetition cost
+ok 13 - Core p.198: Accuracy X is a Save penalty, not a Hit repetition cost
+  ---
+  duration_ms: 0.164362
+  type: 'test'
+  ...
+# Subtest: Accuracy repeats the complete Hit including flat bonuses
+ok 14 - Accuracy repeats the complete Hit including flat bonuses
+  ---
+  duration_ms: 0.655763
+  type: 'test'
+  ...
+# Subtest: Throwing Blade keeps its parenthesized SB-1 bonus
+ok 15 - Throwing Blade keeps its parenthesized SB-1 bonus
+  ---
+  duration_ms: 0.420419
+  type: 'test'
+  ...
+# Subtest: Ambiguous/partial damage profiles never silently use the first die
+ok 16 - Ambiguous/partial damage profiles never silently use the first die
+  ---
+  duration_ms: 0.333913
+  type: 'test'
+  ...
+# Subtest: Virtual substitutes WB and AB in damage formulas
+ok 17 - Virtual substitutes WB and AB in damage formulas
+  ---
+  duration_ms: 0.118412
+  type: 'test'
+  ...
+# Subtest: Core p.132: aggregate Protection is applied once with minimum one Wound
+ok 18 - Core p.132: aggregate Protection is applied once with minimum one Wound
+  ---
+  duration_ms: 0.174021
+  type: 'test'
+  ...
+# Subtest: Wound overflow consumes only newly exceeded HP
+ok 19 - Wound overflow consumes only newly exceeded HP
+  ---
+  duration_ms: 0.07617
+  type: 'test'
+  ...
+# Subtest: Armor Piercing bypasses Armor, preserving explicit non-Armor Protection
+ok 20 - Armor Piercing bypasses Armor, preserving explicit non-Armor Protection
+  ---
+  duration_ms: 0.892413
+  type: 'test'
+  ...
+# Subtest: Stored equipment does not cause carried Encumbrance
+ok 21 - Stored equipment does not cause carried Encumbrance
+  ---
+  duration_ms: 0.217909
+  type: 'test'
+  ...
+# Subtest: Invalid armor layering and Body Slots are identified
+ok 22 - Invalid armor layering and Body Slots are identified
+  ---
+  duration_ms: 0.163038
+  type: 'test'
+  ...
+# Subtest: Range gates: Shared melee, Distant pistols, Distant Throw
+ok 23 - Range gates: Shared melee, Distant pistols, Distant Throw
+  ---
+  duration_ms: 0.229117
+  type: 'test'
+  ...
+# Subtest: Current resources are unlocked, maxima/descriptors require the lock
+ok 24 - Current resources are unlocked, maxima/descriptors require the lock
+  ---
+  duration_ms: 0.1441
+  type: 'test'
+  ...
+# Subtest: Resource updates reject invalid values, preserve base maxima and allow Wound overflow
+ok 25 - Resource updates reject invalid values, preserve base maxima and allow Wound overflow
+  ---
+  duration_ms: 0.445734
+  type: 'test'
+  ...
+# Subtest: Conditions show names, deduplicate token effects, normalize managed alias
+ok 26 - Conditions show names, deduplicate token effects, normalize managed alias
+  ---
+  duration_ms: 0.271652
+  type: 'test'
+  ...
+# Subtest: All 32 Skills have the official Attribute and five die-size mappings
+ok 27 - All 32 Skills have the official Attribute and five die-size mappings
+  ---
+  duration_ms: 18.124251
+  type: 'test'
+  ...
+# Subtest: 95 canonical gear entries and 95 legacy links resolve uniquely
+ok 28 - 95 canonical gear entries and 95 legacy links resolve uniquely
+  ---
+  duration_ms: 9.844703
+  type: 'test'
+  ...
+# Subtest: Core catalogue counts and official source pages are preserved
+ok 29 - Core catalogue counts and official source pages are preserved
+  ---
+  duration_ms: 3.320003
+  type: 'test'
+  ...
+# Subtest: All 240 Traits remain source indexed, with explicit incomplete-automation records
+ok 30 - All 240 Traits remain source indexed, with explicit incomplete-automation records
+  ---
+  duration_ms: 2.251237
+  type: 'test'
+  ...
+# Subtest: Minion damage below a one-Round threshold does not persist
+ok 31 - Minion damage below a one-Round threshold does not persist
+  ---
+  duration_ms: 3.386156
+  type: 'test'
+  ...
+# Subtest: Minion damage from multiple attacks combines for the Round threshold
+ok 32 - Minion damage from multiple attacks combines for the Round threshold
+  ---
+  duration_ms: 0.838503
+  type: 'test'
+  ...
+# Subtest: Juggernaut and Mastermind apply the published Attribute and resource bonuses
+ok 33 - Juggernaut and Mastermind apply the published Attribute and resource bonuses
+  ---
+  duration_ms: 7.057294
+  type: 'test'
+  ...
+# Subtest: Consummate Warrior upgrades only the chosen Attribute group
+ok 34 - Consummate Warrior upgrades only the chosen Attribute group
+  ---
+  duration_ms: 2.011447
+  type: 'test'
+  ...
+# Subtest: Signature Weapon becomes a usable source-backed Weapon record
+ok 35 - Signature Weapon becomes a usable source-backed Weapon record
+  ---
+  duration_ms: 3.273136
+  type: 'test'
+  ...
+# Subtest: Health maximum edit persists on the sleeve and does not grant free healing later
+ok 36 - Health maximum edit persists on the sleeve and does not grant free healing later
+  ---
+  duration_ms: 1.881653
+  type: 'test'
+  ...
+# Subtest: Cold Storage bridge accepts the new version and references existing compatible helpers
+ok 37 - Cold Storage bridge accepts the new version and references existing compatible helpers
+  ---
+  duration_ms: 0.690043
+  type: 'test'
+  ...
+# Subtest: Public sheet guide has twelve complete sections without adventure solutions
+ok 38 - Public sheet guide has twelve complete sections without adventure solutions
+  ---
+  duration_ms: 1.633122
+  type: 'test'
+  ...
+# Subtest: Player guide creates with Observer ownership and preserves user notes on refresh
+ok 39 - Player guide creates with Observer ownership and preserves user notes on refresh
+  ---
+  duration_ms: 3.050434
+  type: 'test'
+  ...
+# Subtest: Updated GM guide builds source-linked combat and player-help pages
+ok 40 - Updated GM guide builds source-linked combat and player-help pages
+  ---
+  duration_ms: 6.930106
+  type: 'test'
+  ...
+# Subtest: every exit leads to a map whose matching edge leads straight back
+ok 41 - every exit leads to a map whose matching edge leads straight back
+  ---
+  duration_ms: 2.7539
+  type: 'test'
+  ...
+# Subtest: the atlas is one connected network of 14 maps
+ok 42 - the atlas is one connected network of 14 maps
+  ---
+  duration_ms: 0.325105
+  type: 'test'
+  ...
+# Subtest: zones: each finds itself, adjacency is symmetric, every zone is reachable, images exist
+ok 43 - zones: each finds itself, adjacency is symmetric, every zone is reachable, images exist
+  ---
+  duration_ms: 4.074216
+  type: 'test'
+  ...
+# Subtest: a token leaving by an exit lands on a road of the next map, inside the map
+ok 44 - a token leaving by an exit lands on a road of the next map, inside the map
+  ---
+  duration_ms: 4.564273
+  type: 'test'
+  ...
+# Subtest: transit moves a vehicle with its riders, remaps seats and combat, and deletes originals quietly
+ok 45 - transit moves a vehicle with its riders, remaps seats and combat, and deletes originals quietly
+  ---
+  duration_ms: 3.828046
+  type: 'test'
+  ...
+# Subtest: v14 scenes with an empty level image are repaired; v13 scenes use background; set images are kept
+ok 46 - v14 scenes with an empty level image are repaired; v13 scenes use background; set images are kept
+  ---
+  duration_ms: 3.524472
+  type: 'test'
+  ...
+# Subtest: every exit tag on the original and place maps leads to a real map and back again
+ok 47 - every exit tag on the original and place maps leads to a real map and back again
+  ---
+  duration_ms: 1.222405
+  type: 'test'
+  ...
+# Subtest: contacts get portraits: named Cold Storage faces, category looks for everyone else
+ok 48 - contacts get portraits: named Cold Storage faces, category looks for everyone else
+  ---
+  duration_ms: 1.46882
+  type: 'test'
+  ...
+# Subtest: repair refreshes the links on Bay City scenes imported before they existed
+ok 49 - repair refreshes the links on Bay City scenes imported before they existed
+  ---
+  duration_ms: 0.650143
+  type: 'test'
+  ...
+# Subtest: v14: transit puts the vehicle and riders on the new map's Level; taxi passengers pick any destination
+ok 50 - v14: transit puts the vehicle and riders on the new map's Level; taxi passengers pick any destination
+  ---
+  duration_ms: 8.823775
+  type: 'test'
+  ...
+# Subtest: Cold Storage: every building stands on the Street Atlas, every exit tag leads somewhere, and the taxi list knows them
+ok 51 - Cold Storage: every building stands on the Street Atlas, every exit tag leads somewhere, and the taxi list knows them
+  ---
+  duration_ms: 4.537448
+  type: 'test'
+  ...
+# Subtest: Cold Storage end to end: the taxi parks outside the Rainline, a passenger walks in and lands inside
+ok 52 - Cold Storage end to end: the taxi parks outside the Rainline, a passenger walks in and lands inside
+  ---
+  duration_ms: 7.686717
+  type: 'test'
+  ...
+# Subtest: master overview: each Cold Storage building is pinned at its true spot and opens the travel list on it
+ok 53 - master overview: each Cold Storage building is pinned at its true spot and opens the travel list on it
+  ---
+  duration_ms: 4.654634
+  type: 'test'
+  ...
+# Subtest: street vehicle roster: bikes from BMX to hyperbike, cars from golf cart to supercharged roadster
+ok 54 - street vehicle roster: bikes from BMX to hyperbike, cars from golf cart to supercharged roadster
+  ---
+  duration_ms: 0.930956
+  type: 'test'
+  ...
+# Subtest: every street vehicle has valid stats, seats that fit its token, and both pictures
+ok 55 - every street vehicle has valid stats, seats that fit its token, and both pictures
+  ---
+  duration_ms: 3.142594
+  type: 'test'
+  ...
+# Subtest: street vehicles compendium is registered in the GM Library
+ok 56 - street vehicles compendium is registered in the GM Library
+  ---
+  duration_ms: 1.349292
+  type: 'test'
+  ...
+# Subtest: the Bay City overview links every district to its street map
+ok 57 - the Bay City overview links every district to its street map
+  ---
+  duration_ms: 4.491812
+  type: 'test'
+  ...
+# Subtest: seats follow the downward-facing art: the driver sits at the front, which is the bottom edge at rotation 0
+ok 58 - seats follow the downward-facing art: the driver sits at the front, which is the bottom edge at rotation 0
+  ---
+  duration_ms: 1.517692
+  type: 'test'
+  ...
+# Subtest: Rhino: roof turret, Gunner seat, Fire Control drops with Structure
+ok 59 - Rhino: roof turret, Gunner seat, Fire Control drops with Structure
+  ---
+  duration_ms: 2.183004
+  type: 'test'
+  ...
+# Subtest: only a manned Gunner seat can fire, and only by its player or the GM
+ok 60 - only a manned Gunner seat can fire, and only by its player or the GM
+  ---
+  duration_ms: 1.360963
+  type: 'test'
+  ...
+# Subtest: the Rhino in the compendium carries the turret, and the sheet and HUD offer Fire
+ok 61 - the Rhino in the compendium carries the turret, and the sheet and HUD offer Fire
+  ---
+  duration_ms: 0.792628
+  type: 'test'
+  ...
+# Subtest: road maps use the 71 px grid; buildings and the overview keep 100
+ok 62 - road maps use the 71 px grid; buildings and the overview keep 100
+  ---
+  duration_ms: 7.161155
+  type: 'test'
+  ...
+# Subtest: every vehicle has top-down token art (core vehicles included) and police cars have a lights variant
+ok 63 - every vehicle has top-down token art (core vehicles included) and police cars have a lights variant
+  ---
+  duration_ms: 0.963286
+  type: 'test'
+  ...
+# Subtest: every unique ability is defined, seat-limited abilities name real seats, and old world copies fall back by name
+ok 64 - every unique ability is defined, seat-limited abilities name real seats, and old world copies fall back by name
+  ---
+  duration_ms: 2.714229
+  type: 'test'
+  ...
+# Subtest: driver modifiers: autopilot, lights and siren, off the road
+ok 65 - driver modifiers: autopilot, lights and siren, off the road
+  ---
+  duration_ms: 1.403185
+  type: 'test'
+  ...
+# Subtest: riders: enclosed, exposed, privacy glass, load bay, silent motor
+ok 66 - riders: enclosed, exposed, privacy glass, load bay, silent motor
+  ---
+  duration_ms: 0.389404
+  type: 'test'
+  ...
+# Subtest: a roll picks up the vehicle: off-road pickup on a block, attack on a limousine passenger
+ok 67 - a roll picks up the vehicle: off-road pickup on a block, attack on a limousine passenger
+  ---
+  duration_ms: 0.682771
+  type: 'test'
+  ...
+# Subtest: prisoner cage: the rider cannot get out; someone in front or beside, or the GM, lets them out
+ok 68 - prisoner cage: the rider cannot get out; someone in front or beside, or the GM, lets them out
+  ---
+  duration_ms: 4.376442
+  type: 'test'
+  ...
+# Subtest: police lights and siren switch art, light and sound; folding scooter goes into a character's hands and back
+ok 69 - police lights and siren switch art, light and sound; folding scooter goes into a character's hands and back
+  ---
+  duration_ms: 4.214879
+  type: 'test'
+  ...
+# Subtest: autopilot vehicles get the destination list even when a human is driving
+ok 70 - autopilot vehicles get the destination list even when a human is driving
+  ---
+  duration_ms: 0.57962
+  type: 'test'
+  ...
+# Subtest: Projected vehicle transform rejects invalid/out of scope socket values
+ok 71 - Projected vehicle transform rejects invalid/out of scope socket values
+  ---
+  duration_ms: 2.211696
+  type: 'test'
+  ...
+# Subtest: One batch plans the vehicle plus three riders at the destination, not the former position
+ok 72 - One batch plans the vehicle plus three riders at the destination, not the former position
+  ---
+  duration_ms: 0.922673
+  type: 'test'
+  ...
+# Subtest: Turning and climbing a vehicle rotates and elevates every carried token in the same plan
+ok 73 - Turning and climbing a vehicle rotates and elevates every carried token in the same plan
+  ---
+  duration_ms: 0.475554
+  type: 'test'
+  ...
+# Subtest: Skip stale, duplicate and deleted seat records rather than pulling strangers
+ok 74 - Skip stale, duplicate and deleted seat records rather than pulling strangers
+  ---
+  duration_ms: 0.489446
+  type: 'test'
+  ...
+# Subtest: Vehicle-HUD candidate selection works after the previous token selection is cleared
+ok 75 - Vehicle-HUD candidate selection works after the previous token selection is cleared
+  ---
+  duration_ms: 7.682352
+  type: 'test'
+  ...
+# Subtest: One GM movement request commits ONE native Scene operation including every rider
+ok 76 - One GM movement request commits ONE native Scene operation including every rider
+  ---
+  duration_ms: 1.839769
+  type: 'test'
+  ...
+# Subtest: Player driving goes over GM socket; player need not own fellow occupants
+ok 77 - Player driving goes over GM socket; player need not own fellow occupants
+  ---
+  duration_ms: 0.868507
+  type: 'test'
+  ...
+# Altered Carbon | vehicle request refused Error: This vehicle is currently controlled by its AI.
+#     at file:///tmp/claude-0/-home-claude/b3b49c7d-d7e8-5636-bb79-2c601dd5444f/scratchpad/b25/module/vehicle-boarding.mjs:185:63
+# Subtest: An occupied vehicle native drag is cancelled before writing; GM performs a single follow-up batch
+ok 78 - An occupied vehicle native drag is cancelled before writing; GM performs a single follow-up batch
+  ---
+  duration_ms: 5.974722
+  type: 'test'
+  ...
+# Subtest: No passengers: native move is not intercepted
+ok 79 - No passengers: native move is not intercepted
+  ---
+  duration_ms: 0.672165
+  type: 'test'
+  ...
+# Subtest: Vehicle-HUD Boarding button appears without any controlled character
+ok 80 - Vehicle-HUD Boarding button appears without any controlled character
+  ---
+  duration_ms: 1.001326
+  type: 'test'
+  ...
+# Subtest: Rapid consecutive movement requests are serialized, with the final destination correct
+ok 81 - Rapid consecutive movement requests are serialized, with the final destination correct
+  ---
+  duration_ms: 0.69807
+  type: 'test'
+  ...
+# Subtest: Vehicle-right-click dialog offers PC/NPC selection followed by free driver/gunner/passenger seat
+ok 82 - Vehicle-right-click dialog offers PC/NPC selection followed by free driver/gunner/passenger seat
+  ---
+  duration_ms: 2.180103
+  type: 'test'
+  ...
+# Subtest: A non-owning player right-clicks a parked car and receives a boarding-only icon without Actor ownership
+ok 83 - A non-owning player right-clicks a parked car and receives a boarding-only icon without Actor ownership
+  ---
+  duration_ms: 0.699781
+  type: 'test'
+  ...
+# Subtest: Passenger tokens are repositioned when a vehicle changes its footprint
+ok 84 - Passenger tokens are repositioned when a vehicle changes its footprint
+  ---
+  duration_ms: 0.238018
+  type: 'test'
+  ...
+# Subtest: AI-controlled occupied car rejects a player movement packet
+ok 85 - AI-controlled occupied car rejects a player movement packet
+  ---
+  duration_ms: 0.826723
+  type: 'test'
+  ...
+# Subtest: Standard ammunition reproducer: natural 1 produces an Ace attack card with Damage
+ok 86 - Standard ammunition reproducer: natural 1 produces an Ace attack card with Damage
+  ---
+  duration_ms: 52.772013
+  type: 'test'
+  ...
+# Subtest: Targeted attack waits for target owner/GM response before Damage
+ok 87 - Targeted attack waits for target owner/GM response before Damage
+  ---
+  duration_ms: 3.502799
+  type: 'test'
+  ...
+# Subtest: Accuracy defense cancels Degrees and recomputes Hit
+ok 88 - Accuracy defense cancels Degrees and recomputes Hit
+  ---
+  duration_ms: 4.552731
+  type: 'test'
+  ...
+# Subtest: A failed defender Save grants Difference but stays capped at five
+ok 89 - A failed defender Save grants Difference but stays capped at five
+  ---
+  duration_ms: 2.222047
+  type: 'test'
+  ...
+# Subtest: Dodge spends a reserve die and adds the ranged Protection formula
+ok 90 - Dodge spends a reserve die and adds the ranged Protection formula
+  ---
+  duration_ms: 4.568658
+  type: 'test'
+  ...
+# Subtest: Normal attack spends selected Active dice; no pool means no Check
+ok 91 - Normal attack spends selected Active dice; no pool means no Check
+  ---
+  duration_ms: 1.756091
+  type: 'test'
+  ...
+# Subtest: Special ammo decrements only after a legal Check; standard ammo has no separate item
+ok 92 - Special ammo decrements only after a legal Check; standard ammo has no separate item
+  ---
+  duration_ms: 2.009374
+  type: 'test'
+  ...
+# Subtest: Wrong-owner ammunition is rejected before rolling
+ok 93 - Wrong-owner ammunition is rejected before rolling
+  ---
+  duration_ms: 0.564644
+  type: 'test'
+  ...
+# Subtest: No automatic Damage can resolve after all Degrees are cancelled
+ok 94 - No automatic Damage can resolve after all Degrees are cancelled
+  ---
+  duration_ms: 2.190614
+  type: 'test'
+  ...
+# Subtest: Damage button repeat is rejected
+ok 95 - Damage button repeat is rejected
+  ---
+  duration_ms: 1.837751
+  type: 'test'
+  ...
+# Subtest: Aggregate queue applies one Protection and cannot replay a resolved damage card
+ok 96 - Aggregate queue applies one Protection and cannot replay a resolved damage card
+  ---
+  duration_ms: 1.567284
+  type: 'test'
+  ...
+# Subtest: Deadly HP also counts as Wounds; Protection reduces ordinary Wounds first
+ok 97 - Deadly HP also counts as Wounds; Protection reduces ordinary Wounds first
+  ---
+  duration_ms: 1.08422
+  type: 'test'
+  ...
+# Subtest: Defensive Protection participates in aggregate Resolution
+ok 98 - Defensive Protection participates in aggregate Resolution
+  ---
+  duration_ms: 0.484344
+  type: 'test'
+  ...
+# Subtest: Queued damage cannot also be manually applied
+ok 99 - Queued damage cannot also be manually applied
+  ---
+  duration_ms: 0.768807
+  type: 'test'
+  ...
+# Subtest: Health reaching zero updates sleeve death
+ok 100 - Health reaching zero updates sleeve death
+  ---
+  duration_ms: 0.302138
+  type: 'test'
+  ...
+# Subtest: Reload retains Exhausted while DP remains at/above effective Capacity
+ok 101 - Reload retains Exhausted while DP remains at/above effective Capacity
+  ---
+  duration_ms: 0.448233
+  type: 'test'
+  ...
+# Subtest: Named condition Clear removes Item and token ActiveEffect together
+ok 102 - Named condition Clear removes Item and token ActiveEffect together
+  ---
+  duration_ms: 0.592815
+  type: 'test'
+  ...
+# Subtest: Condition Clear rejects a non-owner
+ok 103 - Condition Clear rejects a non-owner
+  ---
+  duration_ms: 0.358624
+  type: 'test'
+  ...
+# Subtest: Inactive conditions do not modify rolls
+ok 104 - Inactive conditions do not modify rolls
+  ---
+  duration_ms: 0.364041
+  type: 'test'
+  ...
+# Subtest: Dazzled and Panic each reduce one Skill Level, without compounding the second reduction
+ok 105 - Dazzled and Panic each reduce one Skill Level, without compounding the second reduction
+  ---
+  duration_ms: 0.435479
+  type: 'test'
+  ...
+# Subtest: Full Defense blocks other Skill Checks but permits a Save
+ok 106 - Full Defense blocks other Skill Checks but permits a Save
+  ---
+  duration_ms: 0.507594
+  type: 'test'
+  ...
+# Subtest: Repeated bone injuries causing loss of the whole natural pool Incapacitate
+ok 107 - Repeated bone injuries causing loss of the whole natural pool Incapacitate
+  ---
+  duration_ms: 0.55052
+  type: 'test'
+  ...
+# Subtest: Incapacitated combatants do not block simultaneous reveal
+ok 108 - Incapacitated combatants do not block simultaneous reveal
+  ---
+  duration_ms: 1.612748
+  type: 'test'
+  ...
+# Subtest: Injury Save failure records an appropriate Injury
+ok 109 - Injury Save failure records an appropriate Injury
+  ---
+  duration_ms: 1.298912
+  type: 'test'
+  ...
+# Subtest: Failing Dying save kills only the sleeve and is not repeatable for the same Turn
+ok 110 - Failing Dying save kills only the sleeve and is not repeatable for the same Turn
+  ---
+  duration_ms: 1.952996
+  type: 'test'
+  ...
+# Subtest: Dying HP drain applies once per Round and Stable suspends it
+ok 111 - Dying HP drain applies once per Round and Stable suspends it
+  ---
+  duration_ms: 0.582676
+  type: 'test'
+  ...
+# Subtest: SP mitigation cost doubles on consecutive calls in the same session
+ok 112 - SP mitigation cost doubles on consecutive calls in the same session
+  ---
+  duration_ms: 0.498766
+  type: 'test'
+  ...
+# Subtest: Influence recovery charges only complete 15-SP blocks
+ok 113 - Influence recovery charges only complete 15-SP blocks
+  ---
+  duration_ms: 0.439697
+  type: 'test'
+  ...
+# Subtest: Locked form submission updates current Ego without changing its maximum or attributes
+ok 114 - Locked form submission updates current Ego without changing its maximum or attributes
+  ---
+  duration_ms: 0.903211
+  type: 'test'
+  ...
+# Subtest: Unlocked Strength edit persists on the active Sleeve
+ok 115 - Unlocked Strength edit persists on the active Sleeve
+  ---
+  duration_ms: 0.554651
+  type: 'test'
+  ...
+# Subtest: Private rolls remain valid after an Ace grants an extra Speed Die
+ok 116 - Private rolls remain valid after an Ace grants an extra Speed Die
+  ---
+  duration_ms: 1.011428
+  type: 'test'
+  ...
+# Subtest: A missing original damage target never falls back to another selected Actor
+ok 117 - A missing original damage target never falls back to another selected Actor
+  ---
+  duration_ms: 0.306461
+  type: 'test'
+  ...
+# Subtest: Deferral and Debt Items reduce effective Wealth once
+ok 118 - Deferral and Debt Items reduce effective Wealth once
+  ---
+  duration_ms: 0.23616
+  type: 'test'
+  ...
+# Subtest: Real Death and dead-sleeve Checks are blocked outside legitimate Virtual context
+ok 119 - Real Death and dead-sleeve Checks are blocked outside legitimate Virtual context
+  ---
+  duration_ms: 0.414229
+  type: 'test'
+  ...
+# Subtest: Parry is not offered against a Shared-Zone firearm shot
+ok 120 - Parry is not offered against a Shared-Zone firearm shot
+  ---
+  duration_ms: 1.232792
+  type: 'test'
+  ...
+# Subtest: one name everywhere: every entrance block is named exactly after the map it opens into
+ok 121 - one name everywhere: every entrance block is named exactly after the map it opens into
+  ---
+  duration_ms: 1.209377
+  type: 'test'
+  ...
+# Subtest: every named place in Bay City has a map (Cold Storage places through the module)
+ok 122 - every named place in Bay City has a map (Cold Storage places through the module)
+  ---
+  duration_ms: 2.096922
+  type: 'test'
+  ...
+# Subtest: party at an exit: the GM option list and the whole party moving; a taxi parks outside and its riders walk in
+ok 123 - party at an exit: the GM option list and the whole party moving; a taxi parks outside and its riders walk in
+  ---
+  duration_ms: 23.946017
+  type: 'test'
+  ...
+# Subtest: top-down character tokens: named adversaries, AI holograms, and a stable look for everyone else
+ok 124 - top-down character tokens: named adversaries, AI holograms, and a stable look for everyone else
+  ---
+  duration_ms: 3.51068
+  type: 'test'
+  ...
+# Subtest: named top-down tokens for the Cold Storage pregens, benefactors and adversaries
+ok 125 - named top-down tokens for the Cold Storage pregens, benefactors and adversaries
+  ---
+  duration_ms: 0.42579
+  type: 'test'
+  ...
+# Subtest: overview: Cold Storage pins sit on their own buildings, two on one block are spread apart
+ok 126 - overview: Cold Storage pins sit on their own buildings, two on one block are spread apart
+  ---
+  duration_ms: 2.539117
+  type: 'test'
+  ...
+1..126
+# tests 126
+# suites 0
+# pass 126
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1112.17633

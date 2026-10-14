@@ -1,6 +1,6 @@
 // Pure seat / footprint geometry for vehicle boarding (no Foundry globals, unit-testable).
 
-/** Size 1 → 1×2 squares, Size 2 → 2×3, Size 3 → 3×4 … (front of the vehicle is the top edge). */
+/** Size 1 → 1×2 squares, Size 2 → 2×3, Size 3 → 3×4 … (token art faces down: the front of the vehicle is the bottom edge, as Foundry turns a token's bottom edge to lead). */
 export function vehicleFootprint(size){
   const s=Math.max(1,Math.min(10,Math.round(Number(size)||1)));
   return {width:s,height:s+1};
@@ -26,7 +26,8 @@ function rotate(x,y,deg){const r=deg*Math.PI/180,c=Math.cos(r),s=Math.sin(r);ret
 
 /**
  * Top-left canvas coordinates for a half-square occupant token in each seat, following the
- * vehicle's rotation. Seats fill rows from the front: Driver front-left.
+ * vehicle's rotation. Seats fill rows from the front: Driver front-left. The art faces down (Foundry's
+ * rotation 0 is south), so the layout is turned 180° before applying the token's own rotation.
  */
 export function seatPositions(vt,seats,gridSize){
   const W=vt.width*gridSize,H=vt.height*gridSize,half=gridSize*0.5;
@@ -35,7 +36,7 @@ export function seatPositions(vt,seats,gridSize){
   seats.forEach((seat,i)=>{
     const col=i%cols,row=Math.floor(i/cols);
     const lx=-W/2+(col+0.5)*(W/cols),ly=-H/2+(row+0.5)*(H/rows);
-    const p=rotate(lx,ly,Number(vt.rotation||0));
+    const p=rotate(lx,ly,Number(vt.rotation||0)+180);
     out[seat.id]={x:cx+p.x-half/2,y:cy+p.y-half/2};
   });
   return out;

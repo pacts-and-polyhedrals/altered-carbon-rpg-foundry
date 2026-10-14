@@ -2,7 +2,7 @@
   "id": "altered-carbon-rpg",
   "title": "Altered Carbon RPG — Unofficial",
   "description": "Unofficial Foundry VTT v14 implementation of the 2020 Altered Carbon RPG rules. Requires lawful access to the original tabletop rules. Not affiliated with or endorsed by the Altered Carbon rights holders or Foundry Gaming LLC.",
-  "version": "2.6.0",
+  "version": "2.6.2",
   "compatibility": {
     "minimum": "14"
   },
@@ -240,7 +240,7 @@
   "secondaryTokenAttribute": "resources.ego",
   "url": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry",
   "manifest": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/latest/download/system.json",
-  "download": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v2.6.0/altered-carbon-rpg-v2.6.0.zip",
+  "download": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v2.6.2/altered-carbon-rpg-v2.6.2.zip",
   "packs": [
     {
       "name": "core-skills",

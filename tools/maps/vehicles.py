@@ -7,7 +7,7 @@ Handling 2) and use the book's vehicle upgrades to justify each step (Improved E
 Stripped Frame -1 Structure/-10 Durability/+1 Speed Die/+1 Handling, Reinforced Hull +10 Durability, ...).
 """
 import json, math, os, sys, re
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); sys.path.insert(1, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'tools'))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'tools'))
 import emblems as EM
 
 INK, BONE, BONE2, GLASS = '#0a0d10', '#ece4cf', '#b9ae95', '#121a22'
@@ -129,6 +129,18 @@ ABILITIES = {
 def slug(s): return re.sub(r'[^a-z0-9]+', '-', s.lower()).strip('-')
 def f(v): return f'{v:.1f}'
 
+
+def keep_text_upright(frag):
+    """Text on a flipped token is turned back the right way round (rotated 180 about its own middle)."""
+    def fix(m):
+        tag = m.group(0)
+        x = float(re.search(r' x="([-\d.]+)"', tag).group(1)); y = float(re.search(r' y="([-\d.]+)"', tag).group(1))
+        fs = re.search(r'font-size="([-\d.]+)"', tag); dy = float(fs.group(1)) * .35 if fs else 6
+        rot = f'rotate(180 {x:.1f} {y - dy:.1f})'
+        if ' transform="' in tag: return tag.replace(' transform="', f' transform="{rot} ', 1)
+        return tag.replace('<text ', f'<text transform="{rot}" ', 1)
+    return re.sub(r'<text [^>]*>', fix, frag)
+
 # ------------------------------------------------------------------ geometry helpers (token px)
 def chaikin(pts, n=3, closed=True):
     for _ in range(n):
@@ -198,8 +210,8 @@ class Draw:
 <defs><filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
 <filter id="blur"><feGaussianBlur stdDeviation="5"/></filter>
 <linearGradient id="beam" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#f4fbff" stop-opacity=".55"/><stop offset="1" stop-color="#f4fbff" stop-opacity="0"/></linearGradient></defs>
-<g transform="translate(7 9)" opacity=".5" filter="url(#blur)">{shadow}</g>
-{''.join(self.under)}{''.join(self.body)}{''.join(self.over)}{self.halo() if lit else ''}</svg>'''
+<g transform="translate(7 9)" opacity=".5" filter="url(#blur)"><g transform="rotate(180 {f(self.W/2)} {f(self.H/2)})">{shadow}</g></g>
+<g transform="rotate(180 {f(self.W/2)} {f(self.H/2)})">{keep_text_upright(''.join(self.under) + ''.join(self.body) + ''.join(self.over))}{self.halo() if lit else ''}</g></svg>'''
 
 # ------------------------------------------------------------------ bikes (1 x 2 squares: 256 x 512 px)
 def wheel(d, y, r, half, kind='tyre'):
@@ -233,6 +245,17 @@ def bike(spec, acc):
         d.line(cx, top + 36, cx, top + 96, BONE, 12, '', 'body'); d.line(cx - 64, top + 50, cx + 64, top + 50, BONE, 12, '', 'body')
         d.rect(cx - 30, top + 240, 60, 10, acc, 4, '', 'over'); d.lights(top + 22, 0, 0.12)
         d.tails(bot - 8, 0, .1)
+        return d
+    if t == 'airbike':
+        for yy in (top + 70, bot - 70):
+            d.raw(f'<ellipse cx="{f(cx)}" cy="{f(yy)}" rx="62" ry="46" fill="{acc}" opacity=".35" filter="url(#blur)"/>', 'under')
+            d.raw(f'<ellipse cx="{f(cx)}" cy="{f(yy)}" rx="46" ry="34" fill="#1a1f26" stroke="{acc}" stroke-width="6"/>', 'body')
+        body = d.sym([(0, 10), (.15, 34), (.4, 56), (.6, 50), (.85, 30), (1, 14)], top + 30, bot - 30)
+        d.poly(body, BONE)
+        d.poly(d.sym([(0, 6), (.3, 26), (.7, 22), (1, 6)], top + 110, top + 230), GLASS)
+        d.line(cx - 58, top + 130, cx + 58, top + 130, BONE2, 9, '', 'body')
+        d.poly(d.sym([(0, 18), (.4, 26), (1, 20)], top + 250, top + 360), INK)
+        d.lights(top + 22, 0, 0.1); d.tails(bot - 24, 0, .12)
         return d
     if t == 'hyper':
         wheel(d, top + 70, 70, 30, 'hubless'); wheel(d, bot - 70, 70, 30, 'hubless')
@@ -317,7 +340,7 @@ def car(spec, acc, token):
              'roadster': (.2, .82), 'buggy': (.2, .8)}.get(t, (.18, .82))
     ww, wl = (W * .13, L * (.13 if h <= 3 else .1))
     if t == 'buggy': ww = W * .17
-    for a in axles:
+    for a in (() if t == 'aircar' else axles):
         for sx in (-1, 1):
             x = cx + sx * (hw - ww * .35) - ww / 2
             d.rect(x, y(a) - wl / 2, ww, wl, '#1a1f26', 10, f'stroke="{INK}" stroke-width="3"', 'under')
@@ -341,14 +364,19 @@ def car(spec, acc, token):
         glass([(0, .7), (1, .5)], .78, .92)
         d.line(cx - hw * .95, y(.5), cx - hw * .95, y(.7), acc, 6, 'filter="url(#glow)"'); d.line(cx + hw * .95, y(.5), cx + hw * .95, y(.7), acc, 6, 'filter="url(#glow)"')
         d.lights(y(.03), hw * .6, .1); d.tails(y(.985), hw * .55, .12)
-    elif t in ('cab', 'hatch', 'police', 'muscle', 'coupe'):
-        prof = {'cab': [(0, .8), (.05, .93), (.5, .97), (.95, .93), (1, .82)],
+    elif t in ('cab', 'hatch', 'police', 'muscle', 'coupe', 'sedan', 'aircar'):
+        if t == 'aircar':
+            for a_ in (.16, .84):
+                for sx in (-1, 1):
+                    d.raw(f'<ellipse cx="{f(cx + sx * hw * .8)}" cy="{f(y(a_))}" rx="{f(W * .14)}" ry="{f(L * .07)}" fill="{acc}" opacity=".45" filter="url(#blur)"/>', 'under')
+                    d.raw(f'<ellipse cx="{f(cx + sx * hw * .8)}" cy="{f(y(a_))}" rx="{f(W * .09)}" ry="{f(L * .045)}" fill="#1a1f26" stroke="{acc}" stroke-width="5"/>', 'under')
+        prof = {'sedan': [(0, .8), (.05, .93), (.5, .97), (.95, .93), (1, .82)], 'aircar': [(0, .55), (.1, .9), (.5, .97), (.9, .92), (1, .62)], 'cab': [(0, .8), (.05, .93), (.5, .97), (.95, .93), (1, .82)],
                 'hatch': [(0, .82), (.05, .94), (.5, .98), (.96, .95), (1, .88)],
                 'police': [(0, .8), (.05, .93), (.5, .98), (.95, .94), (1, .84)],
                 'muscle': [(0, .82), (.04, .95), (.3, .97), (.55, .9), (.85, .98), (1, .88)],
                 'coupe': [(0, .5), (.08, .86), (.3, .96), (.55, .88), (.8, .99), (1, .72)]}[t]
         body(prof)
-        cab = {'cab': (.3, .72), 'hatch': (.28, .86), 'police': (.32, .74), 'muscle': (.42, .76), 'coupe': (.36, .74)}[t]
+        cab = {'sedan': (.3, .72), 'aircar': (.3, .74), 'cab': (.3, .72), 'hatch': (.28, .86), 'police': (.32, .74), 'muscle': (.42, .76), 'coupe': (.36, .74)}[t]
         a, b = cab
         glass([(0, .6), (1, .8)], a, a + .12)                         # windscreen
         d.rect(cx - hw * .76, y(a + .12), hw * 1.52, L * (b - a - .22), BONE2 if t != 'police' else '#2a3038', 22)  # roof
@@ -446,6 +474,12 @@ def car(spec, acc, token):
         d.body[1:1] = stripe   # over the paint, under the cabin, cockpit and glass
     return d
 
+CORE = [
+ V('VEH001', 'Airbike', 'bike', CY, (1, 2), 1, 10, 2, '100 ft or 45 degrees', 3, 5, 3, 'city', 2, 1, 'Anti-Grav Vehicle', '', '', dict(type='airbike')),
+ V('VEH002', 'Aircar', 'car', VIO, (2, 3), 2, 20, 3, '100 ft or 30 degrees', 3, 10, 2, 'region', 4, 4, 'Anti-Grav Vehicle', '', '', dict(type='aircar')),
+ V('VEH003', 'Ground Car', 'car', BLUE, (2, 3), 2, 30, 4, '50 ft or 45 degrees', 3, 10, 2, 'city', 5, 5, 'Automobile', '', '', dict(type='sedan')),
+]
+
 def draw(v):
     return bike(v['art'], v['accent']) if v['kind'] == 'bike' else car(v['art'], v['accent'], v['token'])
 
@@ -457,7 +491,9 @@ def emblem(v, n):
     glyph = f'<g transform="rotate(90) scale({s:.4f}) translate({-d.W/2:.1f} {-d.H/2:.1f})">{inner}</g>'
     EM.glyph_for = lambda e: glyph
     EM.scale_for = lambda e: 1.0
+    EM.ACCENT['vehicle'] = v['accent']     # badge in the vehicle's own colour, like its token
     svg = EM.build(dict(name=v['name'], type='vehicle', pack='street-vehicles'), n)
+    EM.ACCENT['vehicle'] = '#32c7d6'
     defs = '<filter id="blur"><feGaussianBlur stdDeviation="5"/></filter><linearGradient id="beam" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#f4fbff" stop-opacity=".55"/><stop offset="1" stop-color="#f4fbff" stop-opacity="0"/></linearGradient>'
     svg = svg.replace('<defs>', '<defs>' + defs, 1).replace(f'VEH-{n:03d}', f'SV-{n:02d} · CHASE')
     return svg.replace(' filter="url(#soft)"', '')
@@ -477,6 +513,8 @@ def main(out):
                          tokenImg=f'systems/altered-carbon-rpg/assets/tokens/vehicles/{sl}.webp',
                          abilities=ABILITIES.get(v['id'], []), lightsImg=(f'systems/altered-carbon-rpg/assets/tokens/vehicles/{sl}-lights.webp' if dv.beacons else None),
                          system=v['system']))
+    for v in CORE:   # top-down tokens for the Core Rulebook vehicles
+        open(f"{out}/tokens/{slug(v['name'])}.svg", 'w').write(draw(v).svg())
     json.dump(dict(source='Bay City Street Vehicles (system supplement, built on Core Rulebook vehicle rules pp.257-259)',
                    count=len(data), vehicles=data), open(f'{out}/street-vehicles.json', 'w'), indent=1)
     print(len(data), 'vehicles')

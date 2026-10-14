@@ -33,7 +33,7 @@ export const ABILITIES=Object.freeze({
   silent:{label:'Silent motor',icon:'fa-solid fa-volume-xmark',text:'Perception checks made while targeting this vehicle or its rider take +2 Difficulty.'},
   foldable:{label:'Folds to carry',icon:'fa-solid fa-suitcase',text:'When nobody is on it, a character beside it can fold it up and carry it (token HUD), then unfold it next to them later.'},
   openSides:{label:'Open sides',icon:'fa-solid fa-door-open',text:'Anyone within 2 squares can jump on.'},
-  turret:{label:'Roof turret',icon:'fa-solid fa-crosshairs',text:'Has a Gunner seat that fires with the vehicle\'s Fire Control.'}
+  turret:{label:'Roof turret',icon:'fa-solid fa-crosshairs',text:'Roof Turret Railgun on a Gunner seat. While someone mans it, Fire from the Weapons panel or by right-clicking the vehicle or the gunner. Fire Control is a Gear Bonus.'}
 });
 
 /* ------------------------------------------------------------------ pure helpers */

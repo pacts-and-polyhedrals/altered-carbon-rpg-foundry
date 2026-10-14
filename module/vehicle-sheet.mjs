@@ -2,10 +2,11 @@ import {resourceAdjustment,parseCrew,crewProfile,validateCrewAssignment,CREW_ROL
 import {rollSkill} from './rolls.mjs';
 import {seatLayout,vehicleFootprint,openVehicleBoardDialog,exitVehicle,openVehicleControl} from './vehicle-boarding.mjs';
 import {abilitiesOf,ABILITIES,hasAbility} from './vehicle-abilities.mjs';
+import {vehicleWeapons,hasMountedWeapons,mannedGunners,rosterGunners,effectiveFireControl,gunnerSeatIds,fireMountedWeapon} from './vehicle-weapons.mjs';
 const {api,sheets}=foundry.applications;
 const esc=value=>foundry.utils.escapeHTML(String(value??''));
 export class ACVehicleSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV2){
- static DEFAULT_OPTIONS={classes:['altered-carbon','vehicle-sheet','actor-sheet'],position:{width:1000,height:780},form:{closeOnSubmit:false,submitOnChange:true},actions:{toggleVehicleEdit:this._toggleEdit,adjustStructure:this._adjustStructure,adjustFuel:this._adjustFuel,assignCrew:this._assignCrew,pilotCheck:this._pilotCheck,openItem:this._openItem,openCombatConsole:this._openCombatConsole,seatBoard:this._seatBoard,seatExit:this._seatExit,vehicleControl:this._vehicleControl}};
+ static DEFAULT_OPTIONS={classes:['altered-carbon','vehicle-sheet','actor-sheet'],position:{width:1000,height:780},form:{closeOnSubmit:false,submitOnChange:true},actions:{toggleVehicleEdit:this._toggleEdit,adjustStructure:this._adjustStructure,adjustFuel:this._adjustFuel,assignCrew:this._assignCrew,pilotCheck:this._pilotCheck,openItem:this._openItem,openCombatConsole:this._openCombatConsole,seatBoard:this._seatBoard,seatExit:this._seatExit,vehicleControl:this._vehicleControl,fireWeapon:this._fireWeapon,fitTurret:this._fitTurret,reloadWeapon:this._reloadWeapon}};
  static PARTS={main:{template:'systems/altered-carbon-rpg/templates/vehicle-sheet.hbs'}};
  _editMode=false;
  get canEdit(){return Boolean(game.user?.isGM||this.actor?.isOwner);}
@@ -18,7 +19,10 @@ export class ACVehicleSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
   const seats=seatLayout(actor).map(s=>{const o=occ[s.id],t=o?vt?.parent?.tokens?.get(o.tokenId):null;return {...s,tag:seatTag(s.id),occupant:o?.name||'',canExit:Boolean(t&&(game.user.isGM||t.actor?.isOwner))};});
   const abilities=abilitiesOf(actor).filter(a=>ABILITIES[a?.key]).map(a=>({...ABILITIES[a.key],key:a.key,seats:Array.isArray(a.seats)?a.seats.map(id=>seatLayout(actor).find(x=>x.id===id)?.label||id).join(', '):''}));
   const pt=actor.prototypeToken,custom=pt&&!(Number(pt.width)===1&&Number(pt.height)===1),footprint=custom?{width:Number(pt.width),height:Number(pt.height)}:vehicleFootprint(v.size),controlLabel={driver:'Driver seat player',ai:`Vehicle AI${v.aiPilot?` (${v.aiPilot})`:''}`,both:'Driver and vehicle AI'}[v.control||'driver'];
-  return {...ctx,seats,abilities,hasAbilities:abilities.length>0,onScene:Boolean(vt),hasSelection:myIds.size>0,footprint,controlLabel,isGM:game.user.isGM,actor,v,canEdit:this.canEdit,editMode:this._editMode,crew,roster,items,hasItems:items.length>0,structurePct:v.structure.max?100*v.structure.value/v.structure.max:0,fuelPct:v.fuel.max?100*v.fuel.value/v.fuel.max:0};
+  const gunners=vt?mannedGunners(vt).map(t=>t.name):rosterGunners(actor).map(a=>a.name);
+  const weapons=vehicleWeapons(actor).map(w=>({id:w.id,name:w.name,img:w.img,damage:w.system.damage,damageType:w.system.damageType,depletion:Number(w.system.depletion||0),capacity:Number(w.system.capacity||0),exhausted:Boolean(w.system.exhausted),ap:Boolean(w.system.armorPiercing)}));
+  const armed={show:hasMountedWeapons(actor),weapons,hasWeapons:weapons.length>0,needsTurret:!weapons.length&&hasAbility(actor,'turret'),gunnerSeat:gunnerSeatIds(actor).length>0,gunners:gunners.join(', '),manned:gunners.length>0,fireControl:effectiveFireControl(v),baseFireControl:Number(v.fireControl||0),reduced:effectiveFireControl(v)<Number(v.fireControl||0)};
+  return {...ctx,armed,seats,abilities,hasAbilities:abilities.length>0,onScene:Boolean(vt),hasSelection:myIds.size>0,footprint,controlLabel,isGM:game.user.isGM,actor,v,canEdit:this.canEdit,editMode:this._editMode,crew,roster,items,hasItems:items.length>0,structurePct:v.structure.max?100*v.structure.value/v.structure.max:0,fuelPct:v.fuel.max?100*v.fuel.value/v.fuel.max:0};
  }
  async _onRender(ctx,opts){await super._onRender(ctx,opts);const editable=this._editMode&&this.canEdit;
   this.element?.querySelectorAll('input[name],textarea[name],select[name]').forEach(el=>{el.disabled=!editable;});
@@ -55,5 +59,8 @@ export class ACVehicleSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
   if(!t)return;try{await exitVehicle(t);}catch(e){ui.notifications.warn(e.message);}setTimeout(()=>this.render({force:true}),250);}
  static async _vehicleControl(){const vt=this.vehicleToken();if(!vt)return ui.notifications.warn('Place this vehicle on the scene first.');await openVehicleControl(vt);this.render({force:true});}
  static async _openItem(event,target){this.actor.items.get(target.dataset.itemId)?.sheet?.render({force:true});}
+ static async _fireWeapon(event,target){try{await fireMountedWeapon(this.vehicleToken(),this.actor,{weaponId:target.dataset.itemId||null});}catch(e){ui.notifications.warn(e.message);}}
+ static async _fitTurret(){if(!this.canEdit)return ui.notifications.warn('Only the GM or the vehicle\'s owner can fit weapons.');const {TURRET_WEAPON}=await import('./vehicle-weapons.mjs');if(!vehicleWeapons(this.actor).length)await this.actor.createEmbeddedDocuments('Item',[foundry.utils.deepClone(TURRET_WEAPON)]);this.render({force:true});}
+ static async _reloadWeapon(event,target){const w=this.actor.items.get(target.dataset.itemId);if(!w)return;if(!this.canEdit)return ui.notifications.warn('Only the GM or the vehicle\'s owner can reload it.');await w.removeDepletion(Number(w.system.depletion||0));ui.notifications.info(`${w.name} reloaded.`);this.render({force:true});}
  static _openCombatConsole(){game.alteredCarbon?.openCombatConsole?.();}
 }

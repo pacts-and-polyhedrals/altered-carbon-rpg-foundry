@@ -36,20 +36,32 @@ export function overviewColdStorage(overview){
     const district=(overview.links||[]).find(l=>l.kind==='district'&&l.to===mapId);if(!district)continue;
     const [ox,oy,tw]=district.rect,k=tw/4200,sc=r=>[Math.round(ox+r[0]*k),Math.round(oy+r[1]*k),Math.round(r[2]*k),Math.round(r[3]*k)];
     for(const d of doors){
-      const r=sc(d.rect),cx=r[0]+r[2]/2,cy=r[1]+r[3]/2,spot=[Math.round(cx-60),Math.round(cy-60),120,120];
-      out.push({key:`ov:${d.key}`,rect:spot,district:district.rect,label:d.toName.toUpperCase(),
+      // The pin marks the building itself (its block), not the entrance strip on the road.
+      const b=d.block?sc(d.block):sc(d.rect),spot=[b[0]+6,b[1]+6,Math.max(40,b[2]-12),Math.max(40,b[3]-12)];
+      out.push({key:`ov:${d.key}`,rect:spot,block:b,district:district.rect,label:d.toName.toUpperCase(),
         link:{kind:'district',to:mapId,toName:`${d.toName} (${district.toName})`,rect:spot,land:[d.rect[0]+d.rect[2]/2,d.rect[1]+d.rect[3]/2]}});
     }
   }
+  // Two buildings on one block (the Ward and the Breach): spread their pins and stack their labels.
+  const byBlock=new Map();for(const o of out){const k=o.block?.join(',');if(!k)continue;if(!byBlock.has(k))byBlock.set(k,[]);byBlock.get(k).push(o);}
+  for(const group of byBlock.values())group.forEach((o,i)=>{o.slot=i;o.slots=group.length;});
   placeOverviewLabels(out);
   return out;
 }
+/** The pin: a disc in the middle of the building block (lower half, leaving room for the label). */
+export function pinOf(s){const b=s.block||s.rect,r=28,n=s.slots||1,i=s.slot||0;return {x:Math.round(b[0]+b[2]*(i+1)/(n+1)-r),y:Math.round(b[1]+b[3]*0.62-r),w:2*r,h:2*r};}
 /** Label boxes beside each pin: above, below, right or left, inside its district, never on another label. */
 export const OVERVIEW_LABEL={fontSize:22,height:46,charWidth:14,pad:34};
 export function placeOverviewLabels(spots){
   const {height:h,charWidth,pad}=OVERVIEW_LABEL,placed=[],hit=(a,b)=>a.x<b.x+b.w&&b.x<a.x+a.w&&a.y<b.y+b.h&&b.y<a.y+a.h;
-  const pins=spots.map(s=>({x:s.rect[0]+s.rect[2]/2-30,y:s.rect[1]+s.rect[3]/2-30,w:60,h:60}));
+  const pins=spots.map(s=>pinOf(s));
   for(const s of spots){
+    if(s.block){   // inside the building's own block: label centred above the pin
+      const p=pinOf(s),w=Math.min(s.label.length*charWidth+pad,s.block[2]-16),n=s.slots||1,i=s.slot||0;
+      // one label row per building on the block, highest first; each label sits over its own pin
+      const cx=Math.min(Math.max(p.x+p.w/2,s.block[0]+8+w/2),s.block[0]+s.block[2]-8-w/2);
+      s.labelBox={x:Math.round(cx-w/2),y:Math.round(p.y-10-(n-i)*(h+6)),w:Math.round(w),h};placed.push(s.labelBox);continue;
+    }
     const w=s.label.length*charWidth+pad,cx=s.rect[0]+s.rect[2]/2,cy=s.rect[1]+s.rect[3]/2,[dx,dy,dw,dh]=s.district;
     const fit=b=>({...b,x:Math.round(Math.min(Math.max(b.x,dx+8),dx+dw-b.w-8)),y:Math.round(Math.min(Math.max(b.y,dy+8),dy+dh-b.h-8))});
     const tries=[{x:cx-w/2,y:cy-36-h},{x:cx-w/2,y:cy+36},{x:cx+36,y:cy-h/2},{x:cx-36-w,y:cy-h/2},{x:cx-w/2,y:cy-36-2*h-6},{x:cx-w/2,y:cy+36+h+6}].map(b=>fit({...b,w,h}));
@@ -336,23 +348,27 @@ export async function syncColdStorageDrawings(){
   const active=coldStorageActive();
   for(const scene of game.scenes){
     const want=[];
-    if(active&&atlasOf(scene)?.id===OVERVIEW_ID)for(const o of overviewColdStorage(atlasOf(scene)))want.push({key:o.key,rect:o.rect,box:o.labelBox,label:o.label,overview:true});
+    if(active&&atlasOf(scene)?.id===OVERVIEW_ID)for(const o of overviewColdStorage(atlasOf(scene)))want.push({key:o.key,rect:o.rect,box:o.labelBox,pin:pinOf(o),label:o.label,overview:true});
     else if(active&&atlasOf(scene))for(const d of coldStorage.streetDoors?.[atlasOf(scene).id]||[])want.push({key:d.key,rect:d.rect,block:d.block,label:d.label});
     const cid=csSourceId(scene);if(active&&cid)for(const l of coldStorage.scenes?.[cid]?.labels||[])want.push({key:`cs:${cid}:${l.key}`,rect:l.rect,label:l.label});
-    const have=scene.drawings?.filter?.(d=>d.getFlag?.(NS,'csDoor'))||[];
-    const drop=have.filter(d=>{const k=String(d.getFlag(NS,'csDoor'));return !want.some(w=>w.key===k||(w.overview&&`${w.key}:pin`===k));}).map(d=>d.id);
+    for(const w of want)w.sig=JSON.stringify([w.rect,w.block||null,w.box||null,w.pin||null,w.label]);
+    const all=scene.drawings?.filter?.(d=>d.getFlag?.(NS,'csDoor'))||[];
+    // Keep a drawing only if it is still wanted at exactly the same place with the same text.
+    const keep=d=>{const k=String(d.getFlag(NS,'csDoor')),sig=d.getFlag(NS,'csDoorSig');return want.some(w=>(w.key===k||(w.overview&&`${w.key}:pin`===k))&&w.sig===sig);};
+    const drop=all.filter(d=>!keep(d)).map(d=>d.id);
+    const have=all.filter(keep);
     if(drop.length){await scene.deleteEmbeddedDocuments('Drawing',drop);changed+=drop.length;}
     const add=want.filter(w=>!have.some(d=>d.getFlag(NS,'csDoor')===w.key)).map(w=>{
       // On the overview the label goes beside its pin (placed so labels never collide); on street maps inside the block.
       const fs=w.overview?OVERVIEW_LABEL.fontSize:20,width=w.overview?w.box.w:Math.max(220,w.label.length*15+40),height=w.overview?w.box.h:52;
       const {x,y}=w.overview?w.box:labelPosition(w,width,height);
       const data={x,y,shape:{type:'r',width,height},strokeWidth:3,strokeColor:'#ff4fd8',strokeAlpha:1,fillType:1,fillColor:'#0a0d10',fillAlpha:0.9,
-        text:w.label,fontFamily:'Courier New',fontSize:fs,textColor:'#ff4fd8',textAlpha:1,locked:true,flags:{[NS]:{csDoor:w.key}}};
+        text:w.label,fontFamily:'Courier New',fontSize:fs,textColor:'#ff4fd8',textAlpha:1,locked:true,flags:{[NS]:{csDoor:w.key,csDoorSig:w.sig}}};
       const level=targetLevelId(scene);if(level)data.level=level;return data;});
     // Overview: a glowing pin on each building's exact spot, under its label.
     for(const w of want.filter(v=>v.overview&&!have.some(d=>d.getFlag(NS,'csDoor')===`${v.key}:pin`))){
-      const r=26,pin={x:Math.round(w.rect[0]+w.rect[2]/2-r),y:Math.round(w.rect[1]+w.rect[3]/2-r),shape:{type:'e',width:r*2,height:r*2},strokeWidth:5,strokeColor:'#ff4fd8',strokeAlpha:1,
-        fillType:1,fillColor:'#ff4fd8',fillAlpha:0.55,locked:true,flags:{[NS]:{csDoor:`${w.key}:pin`}}};
+      const pin={x:w.pin.x,y:w.pin.y,shape:{type:'e',width:w.pin.w,height:w.pin.h},strokeWidth:5,strokeColor:'#ff4fd8',strokeAlpha:1,
+        fillType:1,fillColor:'#ff4fd8',fillAlpha:0.55,locked:true,flags:{[NS]:{csDoor:`${w.key}:pin`,csDoorSig:w.sig}}};
       const level=targetLevelId(scene);if(level)pin.level=level;add.push(pin);
     }
     if(add.length){await scene.createEmbeddedDocuments('Drawing',add);changed+=add.length;}

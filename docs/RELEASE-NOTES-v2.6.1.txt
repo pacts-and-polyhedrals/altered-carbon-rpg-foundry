@@ -1,0 +1,6 @@
+Altered Carbon RPG v2.6.1
+
+- **Overview pins:** the pink Cold Storage pins now sit in the middle of each building's own block, with its name above. They used to sit on the road strip in front of the entrance. The whole block counts as the travel spot. Where two buildings share a block (the Resurrection Ward and the Breach), their pins are spread apart and the labels stacked.
+- **Stale pins:** pins and entrance labels already in a world are redrawn whenever their position or text changes. Worlds that had the v2.5.8 pins get them moved automatically on the next GM load.
+- **Named top-down tokens** for the Cold Storage pregens (Nia Calder, Tomas "Latch" Araya, Sabine Kade, Imani Voss, Cass Ren, Dr Edda Sorn, Anik Rao, Solenne Pryce), the three benefactors (Dr Adria Sen, Magistrate Severin Holt, Director Oren Thale) and the Cold Storage adversaries (Recovery Dipper, Retrieval Hitman, Compromised Protectorate Officer, Black-Recovery Praetorian), alongside the eight official adversaries. Names match regardless of quotes or capitals. These replace the module's own token art for those characters when they are created, or when you run **Apply Emblems**. Tokens you set yourself are never touched.
+

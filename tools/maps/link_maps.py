@@ -210,7 +210,7 @@ def main(isvg, ssvg, ijson, sjson, psvg=None, pjson=None):
         open(os.path.join(ssvg, slug + '.svg'), 'w').write(svg)
         adj = sa.adjacency(zones)
         sdata.append(dict(id=t['id'], code=t['code'], name=t['name'], district=t['district'], col=t['col'], row=t['row'], file='streets/' + slug + '.webp',
-                          width=sa.W * 100, height=sa.H * 100, gridSize=100,
+                          width=sa.W * 100, height=sa.H * 100, gridSize=71,  # road maps: 71 px grid, vehicles to scale
                           zones=[dict(id=z['id'], name=z['name'], kind=z['kind'], rect=[cs.px(v) for v in z['rect']], adjacent=sorted(adj[z['id']])) for z in zones],
                           links=[dict(edge=l['edge'], slot=l['slot'], kind='edge', rect=[cs.px(v) for v in l['rect']], to=l['to'], toName=l['toName'], toEdge=l['toEdge']) for l in elinks]
                                 +[dict(edge=None, kind='door', at=l.get('at', l['key']), rect=[cs.px(v) for v in l['rect']], to=l['to'], toName=l['toName'], land=[cs.px(v) for v in l['land']]) for l in doors]))
