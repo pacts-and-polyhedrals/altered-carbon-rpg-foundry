@@ -91,7 +91,7 @@ test('pages are found by the place stored on them; scenes by their Bay City map 
 
 test('shipped in the system: compendiums, folder, installer and API', ()=>{
   const sys=JSON.parse(readFileSync(join(root,'system.json'),'utf8'));
-  for(const name of ['oneshot-butterfly-journal','oneshot-butterfly-actors']){
+  for(const name of ['oneshot-butterfly-journal','oneshot-butterfly-pregens','oneshot-butterfly-npcs']){
     const p=sys.packs.find(x=>x.name===name);assert.ok(p,name);
     const files=readdirSync(join(root,p.path));assert.ok(files.some(f=>f.endsWith('.ldb')),`${name} has data`);
     assert.ok(!files.includes('LOCK'),`${name} has no lock file`);
@@ -103,4 +103,16 @@ test('shipped in the system: compendiums, folder, installer and API', ()=>{
   assert.match(readFileSync(join(root,'templates/content-installer.hbs'),'utf8'),/data-action="setUpOneShot"/);
   assert.match(readFileSync(join(root,'altered-carbon-rpg.mjs'),'utf8'),/OneShot:\{setUp:setUpOneShot/);
   assert.ok(existsSync(join(root,'assets/oneshot/butterfly-cut/web.webp')));
+});
+
+test('pregens and NPCs are separate compendiums; older combined imports are re-pointed, not duplicated', async ()=>{
+  const {splitSource}=await import('../module/oneshot.mjs');
+  const sys=JSON.parse(readFileSync(join(root,'system.json'),'utf8'));
+  assert.ok(!sys.packs.some(p=>p.name==='oneshot-butterfly-actors'),'combined pack removed');
+  assert.match(sys.packs.find(p=>p.name==='oneshot-butterfly-pregens').label,/Pregens/);
+  assert.match(sys.packs.find(p=>p.name==='oneshot-butterfly-npcs').label,/NPCs/);
+  assert.equal(splitSource('Compendium.altered-carbon-rpg.oneshot-butterfly-actors.Actor.abc123',true),'Compendium.altered-carbon-rpg.oneshot-butterfly-pregens.Actor.abc123');
+  assert.equal(splitSource('Compendium.altered-carbon-rpg.oneshot-butterfly-actors.Actor.abc123',false),'Compendium.altered-carbon-rpg.oneshot-butterfly-npcs.Actor.abc123');
+  assert.equal(splitSource('Compendium.altered-carbon-rpg.official-adversaries.Actor.x',false),null);
+  assert.equal(ONESHOTS['butterfly-cut'].pregens,'altered-carbon-rpg.oneshot-butterfly-pregens');
 });

@@ -1,7 +1,7 @@
 // Build the Butterfly Cut actor compendium (pregens + NPCs) with the system's own rules helpers.
-// Usage: node bfactors.mjs SYSTEM_DIR PACK_DIR
+// Usage: node bfactors.mjs SYSTEM_DIR PACKS_DIR  -> PACKS_DIR/oneshot-butterfly-pregens and PACKS_DIR/oneshot-butterfly-npcs
 import {ClassicLevel} from 'classic-level';import fs from 'fs';import path from 'path';import crypto from 'crypto';
-const [B,PACK]=process.argv.slice(2);
+const [B,PACKS]=process.argv.slice(2);
 const J=f=>JSON.parse(fs.readFileSync(path.join(B,'data',f),'utf8'));
 const rules=await import(path.join(B,'module/rules-engine.mjs'));
 const build=await import(path.join(B,'module/creator-build.mjs'));
@@ -32,7 +32,7 @@ const CREDENTIAL={PG05:['Confidential Informant Card','A BCPD confidential-infor
  PG08:['BCPD Tip-Line Press Pass','A press pass for the BCPD tip-line partnership. Opens doors with cops, closes them with crews.']};
 const docs=[],folders=[];
 const folder=(name,sort)=>{const f={_id:id('folder:'+name),name,type:'Actor',folder:null,sorting:'a',sort,color:'#ff7fb0',flags:{},_stats:stats,description:''};folders.push(f);return f._id;};
-const fPC=folder('The Butterfly Cut — Pregens',100000),fNPC=folder('The Butterfly Cut — NPCs',200000);
+const fPC=null,fNPC=null; // pregens and NPCs are separate compendiums, so no folders inside them
 function actorDoc(base,items){const a={...base,items:[],effects:[],sort:base.sort||0,_stats:stats};const out=[];
  for(const [n,it] of items.entries()){const iid=id(base._id+':item:'+n+':'+it.name);a.items.push(iid);out.push({_id:iid,...it,effects:it.effects||[],folder:null,sort:n*100,ownership:{default:0},flags:it.flags||{},_stats:stats,img:it.img||undefined});}
  return {actor:a,items:out};}
@@ -97,11 +97,15 @@ data.npcs.forEach((p,n)=>{
 });
 
 /* ------------------------------------------------------------------ write */
-fs.rmSync(PACK,{recursive:true,force:true});
-const db=new ClassicLevel(PACK,{valueEncoding:'json'});const batch=db.batch();
-for(const f of folders)batch.put(`!folders!${f._id}`,f);
-for(const {actor,items} of docs){batch.put(`!actors!${actor._id}`,actor);for(const it of items){const clean=JSON.parse(JSON.stringify(it));batch.put(`!actors.items!${actor._id}.${it._id}`,clean);}}
-await batch.write();await db.compactRange('\x00','\xff');await db.close();
-for(const f of fs.readdirSync(PACK))if(f==='LOCK'||f.startsWith('LOG'))fs.rmSync(path.join(PACK,f));
+async function writePack(name,list){
+ const PACK=path.join(PACKS,name);fs.rmSync(PACK,{recursive:true,force:true});
+ const db=new ClassicLevel(PACK,{valueEncoding:'json'});const batch=db.batch();
+ for(const {actor,items} of list){actor.flags[SYS].compendiumSource=name;batch.put(`!actors!${actor._id}`,actor);for(const it of items){const clean=JSON.parse(JSON.stringify(it));batch.put(`!actors.items!${actor._id}.${it._id}`,clean);}}
+ await batch.write();await db.compactRange('\x00','\xff');await db.close();
+ for(const f of fs.readdirSync(PACK))if(f==='LOCK'||f.startsWith('LOG'))fs.rmSync(path.join(PACK,f));
+ console.log(name,list.length,'actors');
+}
+await writePack('oneshot-butterfly-pregens',docs.filter(d=>d.actor.flags?.[SYS]?.pregenId));
+await writePack('oneshot-butterfly-npcs',docs.filter(d=>!d.actor.flags?.[SYS]?.pregenId));
 console.log(docs.length,'actors,',docs.reduce((n,d)=>n+d.items.length,0),'items');
 for(const {actor} of docs.slice(0,8))console.log(actor.name,'EP',actor.system.resources.ego.max,'IP',actor.system.resources.influence.max,'SP',actor.system.resources.stackPoints.max,'HP',actor.system.resources.health.max);

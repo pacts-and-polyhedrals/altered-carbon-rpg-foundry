@@ -22,6 +22,28 @@ Older installs that still use `.../main/system.json` keep working because the `s
 version, uninstall it and reinstall from the manifest URL above. Uninstalling a system does
 not delete your worlds.
 
+## v2.7.4 — Bay City Commoners
+
+A new core compendium, **Bay City Commoners**, sits in the GM Library next to the official adversaries. It holds 21 ordinary people for the streets of Bay City:
+
+Street Vendor, Grounder, Dock Worker, Office Clerk, Bartender, Cab Driver, Street Kid, Clinic Orderly, Security Guard, Shopkeeper, Neo-C Priest, Newsfeed Journalist, Courier, Mechanic, Aerium Party Guest, Bouncer, Pickpocket, Street User, Pleasure-House Host, Quellist Activist and Back-Alley Stack Tech.
+
+- **Ready to roll.** Each is a Threat built by the system's own Chapter 7 adversary builder: ordinary Attributes (25–50), all 32 Skills with professional bonuses (a Cab Driver's Pilot, a Bartender's Read Person, a Stack Tech's Medicine), Health, Ego and Speed Dice, and Core gear where it fits.
+- **Behaviour.** GM notes say how each one behaves. Fifteen are non-combatants who avoid fights and call for help. Dock Workers, Security Guards, Bouncers, Grounders, Street Kids, Vendors, Pickpockets and Activists have a **minion** option for running crowds.
+- **Tokens.** Each has its own top-down token in the same style as the vehicles and the named NPCs. Any world NPC you give one of these names, such as "Bartender", picks up the matching token.
+
+## v2.7.3 — Pregens and NPCs kept apart
+
+- The Butterfly Cut's characters are now **two compendiums**: *One-Shot: The Butterfly Cut — Pregens (Player Characters)* with the eight pregens, and *One-Shot: The Butterfly Cut — NPCs* with the eighteen NPCs and threats. They import into two separate world folders.
+- **Upgrading.** Worlds set up with v2.7.0–2.7.2 are sorted when you press **Set up The Butterfly Cut** again. Existing copies are moved into the right folder and re-pointed at the new compendium, not imported a second time.
+- Every link to a pregen or NPC in the GM book points at its new compendium.
+
+## v2.7.2 — Vision on for every PC
+
+- Every player character and AI character Actor has **token vision** switched on. New ones get it when they are created, along with a linked, friendly token unless the creator chose otherwise. Existing ones, including Cold Storage pregens and their tokens already on scenes, are switched on automatically when the GM loads the world. A PC token dragged from an older Actor gets vision as it is placed.
+- NPCs and threats are not changed.
+- The Bay City maps keep global light, so nothing goes dark. Vision matters when you turn on Token Vision or fog for a scene. `game.alteredCarbon.enablePCVision()` runs the fix again by hand.
+
 ## v2.7.1 — Live case-file journals
 
 The system's own journals now look and work like the Cold Storage book: a dark teal case-file window, a monospace kicker line, read-aloud boxes, typed evidence handouts, and live text throughout.

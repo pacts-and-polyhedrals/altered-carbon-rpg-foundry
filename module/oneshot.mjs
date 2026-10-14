@@ -5,7 +5,7 @@
 // are pinned automatically once the one-shot has been set up.
 const NS='altered-carbon-rpg';
 export const ONESHOTS=Object.freeze({
-  'butterfly-cut':{title:'The Butterfly Cut',journal:`${NS}.oneshot-butterfly-journal`,actors:`${NS}.oneshot-butterfly-actors`,data:'oneshot-butterfly-cut.json'}
+  'butterfly-cut':{title:'The Butterfly Cut',journal:`${NS}.oneshot-butterfly-journal`,pregens:`${NS}.oneshot-butterfly-pregens`,npcs:`${NS}.oneshot-butterfly-npcs`,data:'oneshot-butterfly-cut.json'}
 });
 const PIN_ART=thread=>`systems/${NS}/assets/oneshot/butterfly-cut/pin-${thread}.svg`;
 
@@ -89,10 +89,27 @@ export async function removePins({notify=true}={}){
   return removed;
 }
 /** Import the GM book (and, optionally, the characters) into world folders. */
+/** Pure: where a world copy imported from the v2.7.0–2.7.2 combined actor compendium now belongs. */
+export function splitSource(src,isPregen){
+  const m=/^Compendium\.altered-carbon-rpg\.oneshot-butterfly-actors\.Actor\.(\w+)$/.exec(String(src||''));
+  return m?`Compendium.${NS}.oneshot-butterfly-${isPregen?'pregens':'npcs'}.Actor.${m[1]}`:null;
+}
+/** Older worlds: re-point the combined pack's imports at the split packs and move them into separate folders. */
+export async function splitOldActors(){
+  const o=ONESHOTS['butterfly-cut'],folders={};
+  const folderFor=async key=>{if(folders[key])return folders[key];const label=game.packs.get(o[key])?.metadata?.label||key;const name=`Altered Carbon — ${label}`;
+    folders[key]=game.folders.find(f=>f.type==='Actor'&&f.name===name&&!f.folder)||await Folder.implementation.create({name,type:'Actor',color:'#32c7d6',sorting:'a'});return folders[key];};
+  const ups=[];
+  for(const a of game.actors){const pc=Boolean(a.getFlag(NS,'pregenId'));const src=splitSource(a.getFlag(NS,'installSource'),pc);if(!src)continue;
+    ups.push({_id:a.id,folder:(await folderFor(pc?'pregens':'npcs')).id,[`flags.${NS}.installSource`]:src});}
+  if(ups.length)await Actor.updateDocuments(ups);
+  return ups.length;
+}
 export async function importOneShot({actors=true}={}){
   const {installCompendiumContent}=await import('./content-installer.mjs');
   const o=ONESHOTS['butterfly-cut'];
-  return installCompendiumContent({packIds:[o.journal,...(actors?[o.actors]:[])]});
+  if(actors)await splitOldActors();
+  return installCompendiumContent({packIds:[o.journal,...(actors?[o.pregens,o.npcs]:[])]});
 }
 /** One click: GM book, characters, and pins on every Bay City map in the world. */
 export async function setUpOneShot(){

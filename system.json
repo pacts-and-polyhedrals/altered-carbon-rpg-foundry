@@ -2,7 +2,7 @@
   "id": "altered-carbon-rpg",
   "title": "Altered Carbon RPG — Unofficial",
   "description": "Unofficial Foundry VTT v14 implementation of the 2020 Altered Carbon RPG rules. Requires lawful access to the original tabletop rules. Not affiliated with or endorsed by the Altered Carbon rights holders or Foundry Gaming LLC.",
-  "version": "2.7.1",
+  "version": "2.7.4",
   "compatibility": {
     "minimum": "14"
   },
@@ -240,7 +240,7 @@
   "secondaryTokenAttribute": "resources.ego",
   "url": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry",
   "manifest": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/latest/download/system.json",
-  "download": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v2.7.1/altered-carbon-rpg-v2.7.1.zip",
+  "download": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v2.7.4/altered-carbon-rpg-v2.7.4.zip",
   "packs": [
     {
       "name": "core-skills",
@@ -353,17 +353,31 @@
       "system": "altered-carbon-rpg"
     },
     {
-      "name": "oneshot-butterfly-actors",
-      "label": "One-Shot: The Butterfly Cut — Characters",
-      "type": "Actor",
-      "path": "packs/oneshot-butterfly-actors",
-      "system": "altered-carbon-rpg"
-    },
-    {
       "name": "oneshot-butterfly-journal",
       "label": "One-Shot: The Butterfly Cut — GM Book",
       "type": "JournalEntry",
       "path": "packs/oneshot-butterfly-journal"
+    },
+    {
+      "name": "oneshot-butterfly-pregens",
+      "label": "One-Shot: The Butterfly Cut — Pregens (Player Characters)",
+      "type": "Actor",
+      "path": "packs/oneshot-butterfly-pregens",
+      "system": "altered-carbon-rpg"
+    },
+    {
+      "name": "oneshot-butterfly-npcs",
+      "label": "One-Shot: The Butterfly Cut — NPCs",
+      "type": "Actor",
+      "path": "packs/oneshot-butterfly-npcs",
+      "system": "altered-carbon-rpg"
+    },
+    {
+      "name": "core-commoners",
+      "label": "Bay City Commoners",
+      "type": "Actor",
+      "path": "packs/core-commoners",
+      "system": "altered-carbon-rpg"
     }
   ],
   "packFolders": [
@@ -390,6 +404,7 @@
         "official-vehicles",
         "street-vehicles",
         "official-adversaries",
+        "core-commoners",
         "system-guides",
         "bay-city-directory",
         "bay-city-maps",
@@ -403,7 +418,8 @@
       "color": "#ff7fb0",
       "packs": [
         "oneshot-butterfly-journal",
-        "oneshot-butterfly-actors"
+        "oneshot-butterfly-pregens",
+        "oneshot-butterfly-npcs"
       ]
     }
   ]

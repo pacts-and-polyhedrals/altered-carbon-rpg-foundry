@@ -162,6 +162,13 @@ BUTTERFLY = {
 }
 for _n, _spec in BUTTERFLY.items(): _spec.setdefault('ringc', _spec['acc'])
 NAMED.update(BUTTERFLY)
+# Bay City commoners (core set), named by their compendium Actor names.
+_cc = []
+for _p in (('..', 'b25', 'data'), ('..', '..', 'data')):
+    _f = os.path.join(os.path.dirname(os.path.abspath(__file__)), *_p, 'commoner-catalog.json')
+    if os.path.exists(_f): _cc = json.load(open(_f))['records']; break
+for _r in _cc:
+    NAMED[_r['name']] = dict(_r['look'], acc=_r['ring'], ringc=_r['ring'], coat=_r['look'].get('coat', BONE2))
 # --------------------------------------------------------------------------- generic looks for PCs and NPCs
 LOOKS = []
 _r = random.Random(2384)

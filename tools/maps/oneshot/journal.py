@@ -6,7 +6,7 @@ from bookfmt import *
 B, OUT, SVG = sys.argv[1:4]
 D = json.load(open(f'{B}/data/oneshot-butterfly-cut.json'))
 MAPS = {m['id']: m for f in ['bay-city-street-atlas.json', 'bay-city-maps.json', 'bay-city-places.json'] for m in json.load(open(f'{B}/data/{f}'))['maps']}
-PACK, APACK, TAG = 'oneshot-butterfly-journal', 'oneshot-butterfly-actors', 'butterfly-cut'
+PACK, PCPACK, NPCPACK, TAG = 'oneshot-butterfly-journal', 'oneshot-butterfly-pregens', 'oneshot-butterfly-npcs', 'butterfly-cut'
 P = {p['id']: p for p in D['places']}; T = {t['id']: t for t in D['threads']}; N = {n['id']: n for n in D['npcs']}
 NAME = lambda i: P[i]['name'] if i in P else i
 IMG = f'systems/{SYS}/assets/oneshot/butterfly-cut'
@@ -29,9 +29,9 @@ def aid_pc(i): return hashlib.sha1(('butterfly:pc:' + i).encode()).hexdigest()[:
 def aid_npc(i): return hashlib.sha1(('butterfly:npc:' + i).encode()).hexdigest()[:16]
 def actor_link(n):
     for g in D['pregens']:
-        if g['name'] == n: return link(actor_uuid(APACK, aid_pc(g['id'])), n)
+        if g['name'] == n: return link(actor_uuid(PCPACK, aid_pc(g['id'])), n)
     for x in D['npcs']:
-        if x['name'] == n: return link(actor_uuid(APACK, aid_npc(x['id'])), n)
+        if x['name'] == n: return link(actor_uuid(NPCPACK, aid_npc(x['id'])), n)
     return esc(n)
 
 START, WEB, THREADS, NPCS, PCS, HANDOUTS = 'start', 'web', 'threads', 'npcs', 'pregens', 'handouts'
@@ -96,7 +96,7 @@ intro = (f'<img class="ac-board" src="{IMG}/web.webp" alt="The case web"><p><str
          '<h2>Begin</h2><p>Move to ' + pref('opening', 'Opening scene: 16th Street, 21:00') + '.</p>')
 run = mark_checks(D['howToRun'].replace('<h3>', '<h2>').replace('</h3>', '</h2>'), 'B01') + (
     '<h2>Setting up in Foundry</h2><ol><li>In <strong>Install / Update Content</strong>, press <strong>Set up The Butterfly Cut</strong>: the GM book and characters are imported, links are pointed at the world copies, and every Bay City map gets GM-only case pins.</li>'
-    '<li>Assign the pregens to players (each has a ' + pref('pc:PG01', 'handout') + ' you can show with one click).</li>'
+    '<li>The pregens are in <em>The Butterfly Cut — Pregens</em> and the NPCs in <em>The Butterfly Cut — NPCs</em>, as separate compendiums and separate world folders. Assign the pregens to players (each has a ' + pref('pc:PG01', 'handout') + ' you can show with one click).</li>'
     '<li>Open @ACMap[BCS-LICKTOWN]{Licktown} and activate it (shift-click the chip).</li>'
     '<li>Run the night from ' + pref('clock', 'the Night Console') + '.</li></ol>'
     '<h2>Live text in this book</h2><ul><li><strong>Skill chips</strong> open GM Control with the check filled in.</li><li><strong>Map chips</strong> open that map (imported if needed); shift-click activates it for everyone.</li><li><strong>Show chips</strong> show a handout to every player.</li><li>Names of people, places and threads are links.</li></ul>')
