@@ -22,6 +22,19 @@ Older installs that still use `.../main/system.json` keep working because the `s
 version, uninstall it and reinstall from the manifest URL above. Uninstalling a system does
 not delete your worlds.
 
+## v2.7.1 — Live case-file journals
+
+The system's own journals now look and work like the Cold Storage book: a dark teal case-file window, a monospace kicker line, read-aloud boxes, typed evidence handouts, and live text throughout.
+
+- **Everything links.** Every person, place, thread, handout and NPC in *The Butterfly Cut* GM book is a link: 1,169 links in 134 pages, all checked at build time. Every page about a map has an **Open map** chip (210 of them). The chip imports the map if needed; shift-click activates it for everyone.
+- **Skill chips.** Each Check is a chip, 52 in total. For the GM, clicking a Skill opens GM Control with the Skill, Difficulty and a player-safe prompt filled in. Players see a plain chip.
+- **Show to players.** Evidence handouts and pregen handouts have a **Show to players** chip.
+- **Night Console.** A live page that tracks the hour from 21:00 to 05:00. **Advance one hour** whispers you that hour's event, or a near miss if the players prevented it. Mark events prevented as play goes and tick the pressure points; the console shows the score and the matching ending.
+- **The Bay City Travel Directory** uses the same format. Every "leads to" is a link to that map's page, with an Open map chip (355 links, 436 chips).
+- **World copies link to world copies.** After any install or one-shot set-up, compendium links in these journals are pointed at the imported world documents.
+- **Upgrading from v2.7.0.** Press **Set up The Butterfly Cut** again. Old copies of the book are replaced, and their case pins are replaced too. For the Directory, run Install Content with **Remove previous versions first**.
+- The GM Guide and Player Guide open in the same teal window.
+
 ## v2.7.0 — One-shot: The Butterfly Cut
 
 A complete **sandbox one-shot** inside the system, 4–5 hours, for 4–6 players. It is set in Bay City in 2384, in the same weeks as *Cold Storage*, and starts in Licktown. Neither needs the other.

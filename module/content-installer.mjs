@@ -153,6 +153,7 @@ export class ACContentInstaller extends HandlebarsApplicationMixin(ApplicationV2
         }
       }
       const report=doInstall?await installCompendiumContent({packIds}):[];
+      if(doInstall){try{const {relinkImported}=await import('./book-journals.mjs');await relinkImported();}catch(error){console.warn('Altered Carbon | relink',error);}}
       const emblems=doEmblems?await applyEmblems():0;
       try{const {repairAllSceneBackgrounds}=await import('./scene-repair.mjs');await repairAllSceneBackgrounds({notify:false});}catch(error){console.warn('Altered Carbon | scene repair after install',error);}
       const rows=report.map(r=>`<li>${esc(r.label)}: ${r.created} installed${r.present?`, ${r.present} already present`:''}</li>`).join('');

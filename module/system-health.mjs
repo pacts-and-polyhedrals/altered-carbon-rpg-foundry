@@ -1,7 +1,7 @@
 /** Checks the loaded server manifest and the public Document.TYPES registry.
  * Never patch the client registry to disguise an unregistered server-side type.
  */
-export const BUILD_VERSION = '2.7.0';
+export const BUILD_VERSION = '2.7.1';
 const NS = 'altered-carbon-rpg';
 export const REQUIRED_CORE_ITEM_TYPES = Object.freeze(['weapon', 'ammunition', 'armour', 'equipment', 'software', 'drug', 'augmentation']);
 

@@ -154,7 +154,7 @@ export function retarget(data,scene){
   return data;
 }
 
-async function findOrImportScene(id){
+export async function findOrImportScene(id){
   let scene=game.scenes.find(s=>mapOf(s)?.id===id);if(scene)return scene;
   if(coldStorage?.scenes?.[id]||coldStorage?.streetDoors&&String(id).startsWith('SCENE-')){
     scene=game.scenes.find(s=>csSourceId(s)===id);

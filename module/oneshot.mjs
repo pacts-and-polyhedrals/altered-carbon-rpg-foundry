@@ -97,7 +97,12 @@ export async function importOneShot({actors=true}={}){
 /** One click: GM book, characters, and pins on every Bay City map in the world. */
 export async function setUpOneShot(){
   if(!game.user.isGM)throw new Error('Only a GM can set up a one-shot.');
+  // Copies of the GM book from an older release (different page ids) are replaced, with their pins.
+  const pack=game.packs.get(ONESHOTS['butterfly-cut'].journal);const current=new Set((pack?.index?.contents??[...(pack?.index??[])]).map(i=>i._id));
+  const stale=game.journal.filter(e=>e.getFlag(NS,'compendiumSource')==='butterfly-cut'&&!current.has(String(e.getFlag(NS,'installSource')||'').split('.').pop()));
+  if(stale.length&&current.size){await removePins({notify:false});await JournalEntry.implementation.deleteDocuments(stale.map(e=>e.id));}
   const report=await importOneShot({actors:true});
+  try{const {relinkImported}=await import('./book-journals.mjs');await relinkImported();}catch(error){console.warn('Altered Carbon | relink',error);}
   const pins=await placePins(game.scenes.contents,{notify:false});
   const start=game.journal.find(e=>e.getFlag(NS,'compendiumSource')==='butterfly-cut'&&e.name.includes('00 Start Here'));
   ui.notifications.info(`The Butterfly Cut is ready: ${report.reduce((n,r)=>n+r.created,0)} documents imported, ${pins} case pins placed.`);
