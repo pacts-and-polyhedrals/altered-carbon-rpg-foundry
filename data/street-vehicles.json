@@ -1,0 +1,926 @@
+{
+ "source": "Bay City Street Vehicles (system supplement, built on Core Rulebook vehicle rules pp.257-259)",
+ "count": 23,
+ "vehicles": [
+  {
+   "id": "SV01",
+   "name": "Sprocket BMX",
+   "kind": "bike",
+   "slug": "sprocket-bmx",
+   "token": {
+    "width": 1,
+    "height": 2
+   },
+   "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/sprocket-bmx.svg",
+   "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/sprocket-bmx.webp",
+   "system": {
+    "vehicle": {
+     "size": 0,
+     "durability": 3,
+     "structure": {
+      "value": 1,
+      "max": 1
+     },
+     "velocity": "20 ft or 90 degrees",
+     "speedDice": 1,
+     "fuel": {
+      "value": 0,
+      "max": 0
+     },
+     "crewSkeleton": 1,
+     "crewStandard": 1,
+     "crewFull": 1,
+     "handling": 4,
+     "fireControl": 0,
+     "travel": "district",
+     "cargo": 0,
+     "passengers": 0,
+     "systems": "Human-powered: no Fuel. Goes where cars cannot: stairs, rails, alleys, through crowds.",
+     "control": "driver",
+     "aiPilot": ""
+    },
+    "biography": "A chromed street BMX with fat pegs and a gyro bar. Slow on the flat, unstoppable in the alleys. <p><strong>Pilot:</strong> Bicycle specialization. All checks in the vehicle take {Pilot -1 per Size} unless Fully Crewed.</p>"
+   }
+  },
+  {
+   "id": "SV02",
+   "name": "Kick-Glide E-Scooter",
+   "kind": "bike",
+   "slug": "kick-glide-e-scooter",
+   "token": {
+    "width": 1,
+    "height": 2
+   },
+   "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/kick-glide-e-scooter.svg",
+   "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/kick-glide-e-scooter.webp",
+   "system": {
+    "vehicle": {
+     "size": 0,
+     "durability": 3,
+     "structure": {
+      "value": 1,
+      "max": 1
+     },
+     "velocity": "25 ft or 90 degrees",
+     "speedDice": 1,
+     "fuel": {
+      "value": 2,
+      "max": 2
+     },
+     "crewSkeleton": 1,
+     "crewStandard": 1,
+     "crewFull": 1,
+     "handling": 4,
+     "fireControl": 0,
+     "travel": "district",
+     "cargo": 0,
+     "passengers": 0,
+     "systems": "Folds to carry. Silent motor. Stands up to nothing.",
+     "control": "driver",
+     "aiPilot": ""
+    },
+    "biography": "Rental-fleet standing scooter, unlocked with a stolen code more often than a paid one. <p><strong>Pilot:</strong> Scooter specialization. All checks in the vehicle take {Pilot -1 per Size} unless Fully Crewed.</p>"
+   }
+  },
+  {
+   "id": "SV03",
+   "name": "Courier E-Bike",
+   "kind": "bike",
+   "slug": "courier-e-bike",
+   "token": {
+    "width": 1,
+    "height": 2
+   },
+   "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/courier-e-bike.svg",
+   "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/courier-e-bike.webp",
+   "system": {
+    "vehicle": {
+     "size": 0,
+     "durability": 5,
+     "structure": {
+      "value": 1,
+      "max": 1
+     },
+     "velocity": "30 ft or 60 degrees",
+     "speedDice": 2,
+     "fuel": {
+      "value": 3,
+      "max": 3
+     },
+     "crewSkeleton": 1,
+     "crewStandard": 1,
+     "crewFull": 1,
+     "handling": 3,
+     "fireControl": 0,
+     "travel": "district",
+     "cargo": 3,
+     "passengers": 0,
+     "systems": "Pedal-assist motor; rear cargo rack and insulated box.",
+     "control": "driver",
+     "aiPilot": ""
+    },
+    "biography": "The workhorse of Bay City's food and package couriers. Every rider knows every shortcut. <p><strong>Pilot:</strong> Bicycle specialization. All checks in the vehicle take {Pilot -1 per Size} unless Fully Crewed.</p>"
+   }
+  },
+  {
+   "id": "SV04",
+   "name": "Vespina Mag-Scoot",
+   "kind": "bike",
+   "slug": "vespina-mag-scoot",
+   "token": {
+    "width": 1,
+    "height": 2
+   },
+   "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/vespina-mag-scoot.svg",
+   "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/vespina-mag-scoot.webp",
+   "system": {
+    "vehicle": {
+     "size": 1,
+     "durability": 8,
+     "structure": {
+      "value": 2,
+      "max": 2
+     },
+     "velocity": "40 ft or 60 degrees",
+     "speedDice": 2,
+     "fuel": {
+      "value": 4,
+      "max": 4
+     },
+     "crewSkeleton": 1,
+     "crewStandard": 1,
+     "crewFull": 1,
+     "handling": 3,
+     "fireControl": 0,
+     "travel": "city",
+     "cargo": 1,
+     "passengers": 1,
+     "systems": "Step-through mag-drive moped; pillion seat; top box.",
+     "control": "driver",
+     "aiPilot": ""
+    },
+    "biography": "Pastel retro shell over a mag-drive motor. Looks harmless, which is the point. <p><strong>Pilot:</strong> Motorcycle specialization. All checks in the vehicle take {Pilot -1 per Size} unless Fully Crewed.</p>"
+   }
+  },
+  {
+   "id": "SV05",
+   "name": "Hillcrawler Scrambler",
+   "kind": "bike",
+   "slug": "hillcrawler-scrambler",
+   "token": {
+    "width": 1,
+    "height": 2
+   },
+   "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/hillcrawler-scrambler.svg",
+   "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/hillcrawler-scrambler.webp",
+   "system": {
+    "vehicle": {
+     "size": 1,
+     "durability": 10,
+     "structure": {
+      "value": 2,
+      "max": 2
+     },
+     "velocity": "50 ft or 60 degrees",
+     "speedDice": 3,
+     "fuel": {
+      "value": 4,
+      "max": 4
+     },
+     "crewSkeleton": 1,
+     "crewStandard": 1,
+     "crewFull": 1,
+     "handling": 4,
+     "fireControl": 0,
+     "travel": "city",
+     "cargo": 1,
+     "passengers": 0,
+     "systems": "Off-road: rubble, parks, stairs and dry storm drains are open road.",
+     "control": "driver",
+     "aiPilot": ""
+    },
+    "biography": "Long-travel dirt bike with knobbly tyres. The Twin Peaks switchbacks are its home turf. <p><strong>Pilot:</strong> Motorcycle specialization. All checks in the vehicle take {Pilot -1 per Size} unless Fully Crewed.</p>"
+   }
+  },
+  {
+   "id": "SV06",
+   "name": "Kestrel Street Bike",
+   "kind": "bike",
+   "slug": "kestrel-street-bike",
+   "token": {
+    "width": 1,
+    "height": 2
+   },
+   "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/kestrel-street-bike.svg",
+   "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/kestrel-street-bike.webp",
+   "system": {
+    "vehicle": {
+     "size": 1,
+     "durability": 10,
+     "structure": {
+      "value": 2,
+      "max": 2
+     },
+     "velocity": "60 ft or 45 degrees",
+     "speedDice": 3,
+     "fuel": {
+      "value": 5,
+      "max": 5
+     },
+     "crewSkeleton": 1,
+     "crewStandard": 1,
+     "crewFull": 1,
+     "handling": 3,
+     "fireControl": 0,
+     "travel": "city",
+     "cargo": 1,
+     "passengers": 1,
+     "systems": "Naked street bike; pillion seat.",
+     "control": "driver",
+     "aiPilot": ""
+    },
+    "biography": "The everyday city motorcycle: light, quick, forgiving, and parked outside every bar in Licktown. <p><strong>Pilot:</strong> Motorcycle specialization. All checks in the vehicle take {Pilot -1 per Size} unless Fully Crewed.</p>"
+   }
+  },
+  {
+   "id": "SV07",
+   "name": "Iron Saint Cruiser",
+   "kind": "bike",
+   "slug": "iron-saint-cruiser",
+   "token": {
+    "width": 1,
+    "height": 2
+   },
+   "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/iron-saint-cruiser.svg",
+   "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/iron-saint-cruiser.webp",
+   "system": {
+    "vehicle": {
+     "size": 1,
+     "durability": 15,
+     "structure": {
+      "value": 3,
+      "max": 3
+     },
+     "velocity": "60 ft or 30 degrees",
+     "speedDice": 3,
+     "fuel": {
+      "value": 6,
+      "max": 6
+     },
+     "crewSkeleton": 1,
+     "crewStandard": 1,
+     "crewFull": 1,
+     "handling": 2,
+     "fireControl": 0,
+     "travel": "region",
+     "cargo": 2,
+     "passengers": 1,
+     "systems": "Reinforced Frame (+1 Structure); saddlebags; pillion seat.",
+     "control": "driver",
+     "aiPilot": ""
+    },
+    "biography": "A long, low, heavy cruiser that would rather go through a roadblock than around it. <p><strong>Pilot:</strong> Motorcycle specialization. All checks in the vehicle take {Pilot -1 per Size} unless Fully Crewed.</p>"
+   }
+  },
+  {
+   "id": "SV08",
+   "name": "BCPD Pursuit Bike",
+   "kind": "bike",
+   "slug": "bcpd-pursuit-bike",
+   "token": {
+    "width": 1,
+    "height": 2
+   },
+   "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/bcpd-pursuit-bike.svg",
+   "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/bcpd-pursuit-bike.webp",
+   "system": {
+    "vehicle": {
+     "size": 1,
+     "durability": 15,
+     "structure": {
+      "value": 3,
+      "max": 3
+     },
+     "velocity": "70 ft or 45 degrees",
+     "speedDice": 4,
+     "fuel": {
+      "value": 5,
+      "max": 5
+     },
+     "crewSkeleton": 1,
+     "crewStandard": 1,
+     "crewFull": 1,
+     "handling": 3,
+     "fireControl": 0,
+     "travel": "city",
+     "cargo": 1,
+     "passengers": 0,
+     "systems": "Improved Engine (+1 Speed Die); Reinforced Frame (+1 Structure); light bar, siren, BCPD comms and plate scanner.",
+     "control": "driver",
+     "aiPilot": ""
+    },
+    "biography": "Bay City Police Department pursuit motorcycle. Where one appears, an Interceptor is rarely far behind. <p><strong>Pilot:</strong> Motorcycle specialization. All checks in the vehicle take {Pilot -1 per Size} unless Fully Crewed.</p>"
+   }
+  },
+  {
+   "id": "SV09",
+   "name": "Corvo Diavolo Superbike",
+   "kind": "bike",
+   "slug": "corvo-diavolo-superbike",
+   "token": {
+    "width": 1,
+    "height": 2
+   },
+   "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/corvo-diavolo-superbike.svg",
+   "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/corvo-diavolo-superbike.webp",
+   "system": {
+    "vehicle": {
+     "size": 1,
+     "durability": 10,
+     "structure": {
+      "value": 2,
+      "max": 2
+     },
+     "velocity": "80 ft or 45 degrees",
+     "speedDice": 4,
+     "fuel": {
+      "value": 5,
+      "max": 5
+     },
+     "crewSkeleton": 1,
+     "crewStandard": 1,
+     "crewFull": 1,
+     "handling": 4,
+     "fireControl": 0,
+     "travel": "city",
+     "cargo": 0,
+     "passengers": 1,
+     "systems": "Improved Engine (+1 Speed Die); race-tuned chassis (+1 Handling); twin headlights; pillion perch.",
+     "control": "driver",
+     "aiPilot": ""
+    },
+    "biography": "Italian-pattern superbike with a blood-red fairing and a howl you hear three blocks away. <p><strong>Pilot:</strong> Motorcycle specialization. All checks in the vehicle take {Pilot -1 per Size} unless Fully Crewed.</p>"
+   }
+  },
+  {
+   "id": "SV10",
+   "name": "Lumen Hubless Hyperbike",
+   "kind": "bike",
+   "slug": "lumen-hubless-hyperbike",
+   "token": {
+    "width": 1,
+    "height": 2
+   },
+   "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/lumen-hubless-hyperbike.svg",
+   "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/lumen-hubless-hyperbike.webp",
+   "system": {
+    "vehicle": {
+     "size": 1,
+     "durability": 5,
+     "structure": {
+      "value": 1,
+      "max": 1
+     },
+     "velocity": "100 ft or 30 degrees",
+     "speedDice": 5,
+     "fuel": {
+      "value": 4,
+      "max": 4
+     },
+     "crewSkeleton": 1,
+     "crewStandard": 1,
+     "crewFull": 1,
+     "handling": 3,
+     "fireControl": 0,
+     "travel": "city",
+     "cargo": 0,
+     "passengers": 0,
+     "systems": "Improved Engine (+1 Speed Die); Stripped Frame (+1 Speed Die, -1 Structure, -5 Durability); twitchy hubless steering keeps Handling at 3; glowing hubless rims.",
+     "control": "driver",
+     "aiPilot": ""
+    },
+    "biography": "A single blade of carbon and light between two hubless neon rings. The fastest thing on Bay City's streets that is not flying, and the most fragile. <p><strong>Pilot:</strong> Motorcycle specialization. All checks in the vehicle take {Pilot -1 per Size} unless Fully Crewed.</p>"
+   }
+  },
+  {
+   "id": "SV11",
+   "name": "Fairway Runabout",
+   "kind": "car",
+   "slug": "fairway-runabout",
+   "token": {
+    "width": 1.5,
+    "height": 2
+   },
+   "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/fairway-runabout.svg",
+   "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/fairway-runabout.webp",
+   "system": {
+    "vehicle": {
+     "size": 1,
+     "durability": 10,
+     "structure": {
+      "value": 2,
+      "max": 2
+     },
+     "velocity": "20 ft or 60 degrees",
+     "speedDice": 1,
+     "fuel": {
+      "value": 4,
+      "max": 4
+     },
+     "crewSkeleton": 1,
+     "crewStandard": 1,
+     "crewFull": 1,
+     "handling": 2,
+     "fireControl": 0,
+     "travel": "district",
+     "cargo": 2,
+     "passengers": 3,
+     "systems": "Electric golf cart: canopy roof, rear-facing bench, open sides (anyone can jump on or off).",
+     "control": "driver",
+     "aiPilot": ""
+    },
+    "biography": "Resort and campus runabout. In a chase it is a joke, until you need to get four people across the Presidio lawns. <p><strong>Pilot:</strong> Automobile specialization. All checks in the vehicle take {Pilot -1 per Size} unless Fully Crewed.</p>"
+   }
+  },
+  {
+   "id": "SV12",
+   "name": "Bubble Pod City Car",
+   "kind": "car",
+   "slug": "bubble-pod-city-car",
+   "token": {
+    "width": 1.5,
+    "height": 2
+   },
+   "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/bubble-pod-city-car.svg",
+   "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/bubble-pod-city-car.webp",
+   "system": {
+    "vehicle": {
+     "size": 1,
+     "durability": 15,
+     "structure": {
+      "value": 2,
+      "max": 2
+     },
+     "velocity": "40 ft or 60 degrees",
+     "speedDice": 2,
+     "fuel": {
+      "value": 6,
+      "max": 6
+     },
+     "crewSkeleton": 1,
+     "crewStandard": 1,
+     "crewFull": 1,
+     "handling": 3,
+     "fireControl": 0,
+     "travel": "city",
+     "cargo": 1,
+     "passengers": 1,
+     "systems": "Two-seat microcar; fits gaps and alleys most cars cannot.",
+     "control": "driver",
+     "aiPilot": ""
+    },
+    "biography": "Egg-shaped two-seat city pod. Turns on a coin and parks sideways. <p><strong>Pilot:</strong> Automobile specialization. All checks in the vehicle take {Pilot -1 per Size} unless Fully Crewed.</p>"
+   }
+  },
+  {
+   "id": "SV13",
+   "name": "Bay City Autocab",
+   "kind": "car",
+   "slug": "bay-city-autocab",
+   "token": {
+    "width": 2,
+    "height": 3
+   },
+   "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/bay-city-autocab.svg",
+   "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/bay-city-autocab.webp",
+   "system": {
+    "vehicle": {
+     "size": 2,
+     "durability": 25,
+     "structure": {
+      "value": 3,
+      "max": 3
+     },
+     "velocity": "50 ft or 45 degrees",
+     "speedDice": 2,
+     "fuel": {
+      "value": 10,
+      "max": 10
+     },
+     "crewSkeleton": 1,
+     "crewStandard": 1,
+     "crewFull": 1,
+     "handling": 2,
+     "fireControl": 0,
+     "travel": "city",
+     "cargo": 3,
+     "passengers": 4,
+     "systems": "Autopilot (Pilot +3 gear bonus); AI-driven by default; partition screen; fare meter.",
+     "control": "ai",
+     "aiPilot": "AUTOCAB DISPATCH"
+    },
+    "biography": "The yellow self-driving cab of Bay City. The AI will obey traffic law unless someone pulls its override. <p><strong>Pilot:</strong> Automobile specialization. All checks in the vehicle take {Pilot -1 per Size} unless Fully Crewed.</p>"
+   }
+  },
+  {
+   "id": "SV14",
+   "name": "Kitsu Rally Hatch",
+   "kind": "car",
+   "slug": "kitsu-rally-hatch",
+   "token": {
+    "width": 2,
+    "height": 3
+   },
+   "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/kitsu-rally-hatch.svg",
+   "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/kitsu-rally-hatch.webp",
+   "system": {
+    "vehicle": {
+     "size": 2,
+     "durability": 25,
+     "structure": {
+      "value": 3,
+      "max": 3
+     },
+     "velocity": "60 ft or 45 degrees",
+     "speedDice": 4,
+     "fuel": {
+      "value": 8,
+      "max": 8
+     },
+     "crewSkeleton": 1,
+     "crewStandard": 1,
+     "crewFull": 1,
+     "handling": 3,
+     "fireControl": 0,
+     "travel": "city",
+     "cargo": 3,
+     "passengers": 3,
+     "systems": "Improved Engine (+1 Speed Die); rally suspension (+1 Handling); roof rack.",
+     "control": "driver",
+     "aiPilot": ""
+    },
+    "biography": "A boxy hot hatch with a turbo, a roof light pod and a reputation in the Mission street races. <p><strong>Pilot:</strong> Automobile specialization. All checks in the vehicle take {Pilot -1 per Size} unless Fully Crewed.</p>"
+   }
+  },
+  {
+   "id": "SV15",
+   "name": "Haulback Pickup",
+   "kind": "car",
+   "slug": "haulback-pickup",
+   "token": {
+    "width": 2,
+    "height": 4
+   },
+   "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/haulback-pickup.svg",
+   "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/haulback-pickup.webp",
+   "system": {
+    "vehicle": {
+     "size": 2,
+     "durability": 35,
+     "structure": {
+      "value": 4,
+      "max": 4
+     },
+     "velocity": "50 ft or 45 degrees",
+     "speedDice": 3,
+     "fuel": {
+      "value": 12,
+      "max": 12
+     },
+     "crewSkeleton": 1,
+     "crewStandard": 1,
+     "crewFull": 1,
+     "handling": 2,
+     "fireControl": 0,
+     "travel": "region",
+     "cargo": 8,
+     "passengers": 4,
+     "systems": "Off-road; Hauler; two seats in the cab, two riders in the open bed (exposed to fire).",
+     "control": "driver",
+     "aiPilot": ""
+    },
+    "biography": "A tall, scarred work truck from the Dogpatch yards. The bed has carried scrap, crates and the occasional body. <p><strong>Pilot:</strong> Automobile specialization. All checks in the vehicle take {Pilot -1 per Size} unless Fully Crewed.</p>"
+   }
+  },
+  {
+   "id": "SV16",
+   "name": "Courier Panel Van",
+   "kind": "car",
+   "slug": "courier-panel-van",
+   "token": {
+    "width": 2,
+    "height": 4
+   },
+   "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/courier-panel-van.svg",
+   "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/courier-panel-van.webp",
+   "system": {
+    "vehicle": {
+     "size": 3,
+     "durability": 35,
+     "structure": {
+      "value": 4,
+      "max": 4
+     },
+     "velocity": "40 ft or 30 degrees",
+     "speedDice": 2,
+     "fuel": {
+      "value": 12,
+      "max": 12
+     },
+     "crewSkeleton": 1,
+     "crewStandard": 1,
+     "crewFull": 1,
+     "handling": 1,
+     "fireControl": 0,
+     "travel": "region",
+     "cargo": 14,
+     "passengers": 2,
+     "systems": "Hauler; windowless load bay with rear doors (riders in the back cannot see out).",
+     "control": "driver",
+     "aiPilot": ""
+    },
+    "biography": "Unmarked panel van. Every crew in Bay City owns one; nobody remembers seeing it. <p><strong>Pilot:</strong> Automobile specialization. All checks in the vehicle take {Pilot -1 per Size} unless Fully Crewed.</p>"
+   }
+  },
+  {
+   "id": "SV17",
+   "name": "Revenant V-12 Muscle Car",
+   "kind": "car",
+   "slug": "revenant-v-12-muscle-car",
+   "token": {
+    "width": 2,
+    "height": 3
+   },
+   "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/revenant-v-12-muscle-car.svg",
+   "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/revenant-v-12-muscle-car.webp",
+   "system": {
+    "vehicle": {
+     "size": 2,
+     "durability": 35,
+     "structure": {
+      "value": 4,
+      "max": 4
+     },
+     "velocity": "70 ft or 30 degrees",
+     "speedDice": 4,
+     "fuel": {
+      "value": 10,
+      "max": 10
+     },
+     "crewSkeleton": 1,
+     "crewStandard": 1,
+     "crewFull": 1,
+     "handling": 2,
+     "fireControl": 0,
+     "travel": "city",
+     "cargo": 3,
+     "passengers": 3,
+     "systems": "Improved Engine (+1 Speed Die); heavy steel body (+5 Durability); hood blower.",
+     "control": "driver",
+     "aiPilot": ""
+    },
+    "biography": "A restored pre-Settlement muscle car: all straight-line power and very little interest in corners. <p><strong>Pilot:</strong> Automobile specialization. All checks in the vehicle take {Pilot -1 per Size} unless Fully Crewed.</p>"
+   }
+  },
+  {
+   "id": "SV18",
+   "name": "BCPD Interceptor",
+   "kind": "car",
+   "slug": "bcpd-interceptor",
+   "token": {
+    "width": 2,
+    "height": 3
+   },
+   "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/bcpd-interceptor.svg",
+   "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/bcpd-interceptor.webp",
+   "system": {
+    "vehicle": {
+     "size": 2,
+     "durability": 40,
+     "structure": {
+      "value": 5,
+      "max": 5
+     },
+     "velocity": "70 ft or 45 degrees",
+     "speedDice": 4,
+     "fuel": {
+      "value": 10,
+      "max": 10
+     },
+     "crewSkeleton": 1,
+     "crewStandard": 1,
+     "crewFull": 1,
+     "handling": 3,
+     "fireControl": 0,
+     "travel": "city",
+     "cargo": 3,
+     "passengers": 3,
+     "systems": "Improved Engine (+1 Speed Die); Reinforced Hull (+10 Durability); Reinforced Frame (+1 Structure); pursuit suspension (+1 Handling); light bar, siren, rear prisoner cage.",
+     "control": "driver",
+     "aiPilot": ""
+    },
+    "biography": "Bay City Police Department pursuit car. Black and bone with blue strobes; the rear seats lock from outside. <p><strong>Pilot:</strong> Automobile specialization. All checks in the vehicle take {Pilot -1 per Size} unless Fully Crewed.</p>"
+   }
+  },
+  {
+   "id": "SV19",
+   "name": "Kitsune GT Coupe",
+   "kind": "car",
+   "slug": "kitsune-gt-coupe",
+   "token": {
+    "width": 2,
+    "height": 3
+   },
+   "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/kitsune-gt-coupe.svg",
+   "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/kitsune-gt-coupe.webp",
+   "system": {
+    "vehicle": {
+     "size": 2,
+     "durability": 25,
+     "structure": {
+      "value": 3,
+      "max": 3
+     },
+     "velocity": "80 ft or 45 degrees",
+     "speedDice": 4,
+     "fuel": {
+      "value": 8,
+      "max": 8
+     },
+     "crewSkeleton": 1,
+     "crewStandard": 1,
+     "crewFull": 1,
+     "handling": 4,
+     "fireControl": 0,
+     "travel": "region",
+     "cargo": 2,
+     "passengers": 1,
+     "systems": "Improved Engine (+1 Speed Die); active aero and torque vectoring (+2 Handling).",
+     "control": "driver",
+     "aiPilot": ""
+    },
+    "biography": "A low, smooth grand tourer for people who want to arrive at the Spire quickly and be seen doing it. <p><strong>Pilot:</strong> Automobile specialization. All checks in the vehicle take {Pilot -1 per Size} unless Fully Crewed.</p>"
+   }
+  },
+  {
+   "id": "SV20",
+   "name": "Cerberus Supercharged Roadster",
+   "kind": "car",
+   "slug": "cerberus-supercharged-roadster",
+   "token": {
+    "width": 2,
+    "height": 3
+   },
+   "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/cerberus-supercharged-roadster.svg",
+   "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/cerberus-supercharged-roadster.webp",
+   "system": {
+    "vehicle": {
+     "size": 2,
+     "durability": 20,
+     "structure": {
+      "value": 3,
+      "max": 3
+     },
+     "velocity": "90 ft or 30 degrees",
+     "speedDice": 5,
+     "fuel": {
+      "value": 8,
+      "max": 8
+     },
+     "crewSkeleton": 1,
+     "crewStandard": 1,
+     "crewFull": 1,
+     "handling": 3,
+     "fireControl": 0,
+     "travel": "city",
+     "cargo": 1,
+     "passengers": 1,
+     "systems": "Improved Engine x2 (supercharger, +2 Speed Dice); fibreglass body (-10 Durability, -1 Structure, +1 Handling); open top (occupants exposed to fire); no driver aids; side-exit exhausts.",
+     "control": "driver",
+     "aiPilot": ""
+    },
+    "biography": "A hand-built British-pattern roadster: an enormous supercharged engine under a very long bonnet, two seats, no roof and no driver aids. It is the fastest car in the city and it wants to kill whoever is driving it. <p><strong>Pilot:</strong> Automobile specialization. All checks in the vehicle take {Pilot -1 per Size} unless Fully Crewed.</p>"
+   }
+  },
+  {
+   "id": "SV21",
+   "name": "Dune Skiff Buggy",
+   "kind": "car",
+   "slug": "dune-skiff-buggy",
+   "token": {
+    "width": 1.5,
+    "height": 2.5
+   },
+   "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/dune-skiff-buggy.svg",
+   "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/dune-skiff-buggy.webp",
+   "system": {
+    "vehicle": {
+     "size": 1,
+     "durability": 15,
+     "structure": {
+      "value": 2,
+      "max": 2
+     },
+     "velocity": "60 ft or 60 degrees",
+     "speedDice": 3,
+     "fuel": {
+      "value": 6,
+      "max": 6
+     },
+     "crewSkeleton": 1,
+     "crewStandard": 1,
+     "crewFull": 1,
+     "handling": 4,
+     "fireControl": 0,
+     "travel": "city",
+     "cargo": 1,
+     "passengers": 1,
+     "systems": "Off-road; open roll cage (occupants exposed to fire); jumps kerbs, parks and rubble.",
+     "control": "driver",
+     "aiPilot": ""
+    },
+    "biography": "A tube-frame dune buggy. It treats a kerb as a ramp and a park as a shortcut. <p><strong>Pilot:</strong> Automobile specialization. All checks in the vehicle take {Pilot -1 per Size} unless Fully Crewed.</p>"
+   }
+  },
+  {
+   "id": "SV22",
+   "name": "Meth Stretch Limousine",
+   "kind": "car",
+   "slug": "meth-stretch-limousine",
+   "token": {
+    "width": 2,
+    "height": 5
+   },
+   "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/meth-stretch-limousine.svg",
+   "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/meth-stretch-limousine.webp",
+   "system": {
+    "vehicle": {
+     "size": 3,
+     "durability": 50,
+     "structure": {
+      "value": 5,
+      "max": 5
+     },
+     "velocity": "40 ft or 30 degrees",
+     "speedDice": 2,
+     "fuel": {
+      "value": 14,
+      "max": 14
+     },
+     "crewSkeleton": 1,
+     "crewStandard": 1,
+     "crewFull": 1,
+     "handling": 1,
+     "fireControl": 0,
+     "travel": "region",
+     "cargo": 6,
+     "passengers": 6,
+     "systems": "Reinforced Hull x2 (+20 Durability); Reinforced Frame (+1 Structure); Autopilot (Pilot +3 gear bonus); privacy glass; bar.",
+     "control": "both",
+     "aiPilot": "CHAUFFEUR"
+    },
+    "biography": "Armoured stretch limousine of the kind that carries Meths between the Spire and the Bay. The chauffeur may be human or AI. <p><strong>Pilot:</strong> Automobile specialization. All checks in the vehicle take {Pilot -1 per Size} unless Fully Crewed.</p>"
+   }
+  },
+  {
+   "id": "SV23",
+   "name": "CTAC Rhino Armoured Car",
+   "kind": "car",
+   "slug": "ctac-rhino-armoured-car",
+   "token": {
+    "width": 3,
+    "height": 4
+   },
+   "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/ctac-rhino-armoured-car.svg",
+   "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/ctac-rhino-armoured-car.webp",
+   "system": {
+    "vehicle": {
+     "size": 3,
+     "durability": 60,
+     "structure": {
+      "value": 7,
+      "max": 7
+     },
+     "velocity": "40 ft or 30 degrees",
+     "speedDice": 2,
+     "fuel": {
+      "value": 16,
+      "max": 16
+     },
+     "crewSkeleton": 1,
+     "crewStandard": 2,
+     "crewFull": 2,
+     "handling": 1,
+     "fireControl": 2,
+     "travel": "region",
+     "cargo": 8,
+     "passengers": 6,
+     "systems": "Reinforced Hull x3 (+30 Durability); Reinforced Frame x3 (+3 Structure); Guided Weaponry (+1 Fire Control); roof turret (Gunner seat).",
+     "control": "driver",
+     "aiPilot": ""
+    },
+    "biography": "Colonial Tactical Assault Corps six-wheeled armoured car. When this joins a chase, the chase is usually over. <p><strong>Pilot:</strong> Military vehicle specialization. All checks in the vehicle take {Pilot -1 per Size} unless Fully Crewed.</p>"
+   }
+  }
+ ]
+}

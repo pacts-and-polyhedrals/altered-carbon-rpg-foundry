@@ -114,6 +114,29 @@ export const EMBLEM_INDEX=Object.freeze({
 "vehicle|Airbike": "systems/altered-carbon-rpg/assets/emblems/vehicles/airbike.svg",
 "vehicle|Aircar": "systems/altered-carbon-rpg/assets/emblems/vehicles/aircar.svg",
 "vehicle|Ground Car": "systems/altered-carbon-rpg/assets/emblems/vehicles/ground-car.svg",
+"vehicle|Sprocket BMX": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/sprocket-bmx.svg",
+"vehicle|Kick-Glide E-Scooter": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/kick-glide-e-scooter.svg",
+"vehicle|Courier E-Bike": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/courier-e-bike.svg",
+"vehicle|Vespina Mag-Scoot": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/vespina-mag-scoot.svg",
+"vehicle|Hillcrawler Scrambler": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/hillcrawler-scrambler.svg",
+"vehicle|Kestrel Street Bike": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/kestrel-street-bike.svg",
+"vehicle|Iron Saint Cruiser": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/iron-saint-cruiser.svg",
+"vehicle|BCPD Pursuit Bike": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/bcpd-pursuit-bike.svg",
+"vehicle|Corvo Diavolo Superbike": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/corvo-diavolo-superbike.svg",
+"vehicle|Lumen Hubless Hyperbike": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/lumen-hubless-hyperbike.svg",
+"vehicle|Fairway Runabout": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/fairway-runabout.svg",
+"vehicle|Bubble Pod City Car": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/bubble-pod-city-car.svg",
+"vehicle|Bay City Autocab": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/bay-city-autocab.svg",
+"vehicle|Kitsu Rally Hatch": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/kitsu-rally-hatch.svg",
+"vehicle|Haulback Pickup": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/haulback-pickup.svg",
+"vehicle|Courier Panel Van": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/courier-panel-van.svg",
+"vehicle|Revenant V-12 Muscle Car": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/revenant-v-12-muscle-car.svg",
+"vehicle|BCPD Interceptor": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/bcpd-interceptor.svg",
+"vehicle|Kitsune GT Coupe": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/kitsune-gt-coupe.svg",
+"vehicle|Cerberus Supercharged Roadster": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/cerberus-supercharged-roadster.svg",
+"vehicle|Dune Skiff Buggy": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/dune-skiff-buggy.svg",
+"vehicle|Meth Stretch Limousine": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/meth-stretch-limousine.svg",
+"vehicle|CTAC Rhino Armoured Car": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/ctac-rhino-armoured-car.svg",
 "equipment|Composite Construction": "systems/altered-carbon-rpg/assets/emblems/upgrades/composite-construction.svg",
 "equipment|Enhanced Power Cell": "systems/altered-carbon-rpg/assets/emblems/upgrades/enhanced-power-cell.svg",
 "equipment|Extended Barrel": "systems/altered-carbon-rpg/assets/emblems/upgrades/extended-barrel.svg",
@@ -128,6 +151,33 @@ export const EMBLEM_INDEX=Object.freeze({
 "equipment|Stock, Folding": "systems/altered-carbon-rpg/assets/emblems/upgrades/stock-folding.svg"
 });
 import {contactPortrait,namedPortrait} from './contact-portraits.mjs';
+// Top-down token art for the Bay City Street Vehicles (front of the vehicle = top edge).
+export const VEHICLE_TOKEN_ART=Object.freeze({
+"Sprocket BMX": "systems/altered-carbon-rpg/assets/tokens/vehicles/sprocket-bmx.webp",
+"Kick-Glide E-Scooter": "systems/altered-carbon-rpg/assets/tokens/vehicles/kick-glide-e-scooter.webp",
+"Courier E-Bike": "systems/altered-carbon-rpg/assets/tokens/vehicles/courier-e-bike.webp",
+"Vespina Mag-Scoot": "systems/altered-carbon-rpg/assets/tokens/vehicles/vespina-mag-scoot.webp",
+"Hillcrawler Scrambler": "systems/altered-carbon-rpg/assets/tokens/vehicles/hillcrawler-scrambler.webp",
+"Kestrel Street Bike": "systems/altered-carbon-rpg/assets/tokens/vehicles/kestrel-street-bike.webp",
+"Iron Saint Cruiser": "systems/altered-carbon-rpg/assets/tokens/vehicles/iron-saint-cruiser.webp",
+"BCPD Pursuit Bike": "systems/altered-carbon-rpg/assets/tokens/vehicles/bcpd-pursuit-bike.webp",
+"Corvo Diavolo Superbike": "systems/altered-carbon-rpg/assets/tokens/vehicles/corvo-diavolo-superbike.webp",
+"Lumen Hubless Hyperbike": "systems/altered-carbon-rpg/assets/tokens/vehicles/lumen-hubless-hyperbike.webp",
+"Fairway Runabout": "systems/altered-carbon-rpg/assets/tokens/vehicles/fairway-runabout.webp",
+"Bubble Pod City Car": "systems/altered-carbon-rpg/assets/tokens/vehicles/bubble-pod-city-car.webp",
+"Bay City Autocab": "systems/altered-carbon-rpg/assets/tokens/vehicles/bay-city-autocab.webp",
+"Kitsu Rally Hatch": "systems/altered-carbon-rpg/assets/tokens/vehicles/kitsu-rally-hatch.webp",
+"Haulback Pickup": "systems/altered-carbon-rpg/assets/tokens/vehicles/haulback-pickup.webp",
+"Courier Panel Van": "systems/altered-carbon-rpg/assets/tokens/vehicles/courier-panel-van.webp",
+"Revenant V-12 Muscle Car": "systems/altered-carbon-rpg/assets/tokens/vehicles/revenant-v-12-muscle-car.webp",
+"BCPD Interceptor": "systems/altered-carbon-rpg/assets/tokens/vehicles/bcpd-interceptor.webp",
+"Kitsune GT Coupe": "systems/altered-carbon-rpg/assets/tokens/vehicles/kitsune-gt-coupe.webp",
+"Cerberus Supercharged Roadster": "systems/altered-carbon-rpg/assets/tokens/vehicles/cerberus-supercharged-roadster.webp",
+"Dune Skiff Buggy": "systems/altered-carbon-rpg/assets/tokens/vehicles/dune-skiff-buggy.webp",
+"Meth Stretch Limousine": "systems/altered-carbon-rpg/assets/tokens/vehicles/meth-stretch-limousine.webp",
+"CTAC Rhino Armoured Car": "systems/altered-carbon-rpg/assets/tokens/vehicles/ctac-rhino-armoured-car.webp"
+});
+
 const SYS='altered-carbon-rpg';
 const STOCK=['icons/weapons/swords/sword-guard-steel.webp'];
 export function isStockImage(img){img=String(img||'');return !img||img.startsWith('icons/svg/')||STOCK.includes(img);}
@@ -141,7 +191,7 @@ function emblemUpdate(doc,data={}){
   if(!src)return null;
   const update={};
   if(isStockImage(data.img??doc.img))update.img=src;
-  if(doc.documentName==='Actor'){const tok=foundry.utils.getProperty(data,'prototypeToken.texture.src')??doc.prototypeToken?.texture?.src;if(isStockImage(tok))update['prototypeToken.texture.src']=src;}
+  if(doc.documentName==='Actor'){const tok=foundry.utils.getProperty(data,'prototypeToken.texture.src')??doc.prototypeToken?.texture?.src;if(isStockImage(tok))update['prototypeToken.texture.src']=(type==='vehicle'&&VEHICLE_TOKEN_ART[String(name||'').trim()])||src;}
   return Object.keys(update).length?update:null;
 }
 export function installEmblemHooks(){

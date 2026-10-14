@@ -1,0 +1,9 @@
+Altered Carbon RPG v2.5.4
+
+New in this release:
+- New compendium "Bay City Street Vehicles (Chase)" with 23 ground vehicles: 10 bikes (BMX to hubless hyperbike) and 13 cars (golf cart to supercharged roadster, plus police, cab, van, pickup, limousine and CTAC armoured car).
+- Each vehicle has stats, seats, a top-down token sized to its footprint (front = top edge) and a noir emblem.
+- Apply Emblems gives existing world copies of these vehicles their emblem and token art, but only where the image is still a stock image.
+- The vehicle sheet shows the token's real footprint.
+- New Street Atlas scene "Bay City Overview · All Districts": an 8400x5400 WebP of all 14 street maps on one sheet, one zone per district, and Go to … into each district.
+- The scene repair keeps the overview's image and links in step.

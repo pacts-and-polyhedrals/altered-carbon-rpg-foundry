@@ -1,0 +1,450 @@
+{
+ "maps": [
+  {
+   "id": "BCS-OVERVIEW",
+   "code": "BCS00",
+   "name": "Bay City Overview \u00b7 All Districts",
+   "district": "BAY CITY",
+   "col": null,
+   "row": null,
+   "file": "streets/bcs00-bay-city-overview.webp",
+   "width": 8400,
+   "height": 5400,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "bcs-gg-north",
+     "name": "Golden Gate \u00b7 North Span",
+     "rect": [
+      0,
+      0,
+      2100,
+      1350
+     ],
+     "adjacent": [
+      "bcs-gg-south"
+     ]
+    },
+    {
+     "id": "bcs-gg-south",
+     "name": "Golden Gate \u00b7 South Span",
+     "rect": [
+      0,
+      1350,
+      2100,
+      1350
+     ],
+     "adjacent": [
+      "bcs-gg-north",
+      "bcs-marina",
+      "bcs-panhandle"
+     ]
+    },
+    {
+     "id": "bcs-marina",
+     "name": "Marina Seawall",
+     "rect": [
+      2100,
+      1350,
+      2100,
+      1350
+     ],
+     "adjacent": [
+      "bcs-fell",
+      "bcs-gg-south",
+      "bcs-wharf"
+     ]
+    },
+    {
+     "id": "bcs-alcatraz",
+     "name": "Psychasec Alcatraz",
+     "rect": [
+      4200,
+      0,
+      2100,
+      1350
+     ],
+     "adjacent": [
+      "bcs-wharf"
+     ]
+    },
+    {
+     "id": "bcs-wharf",
+     "name": "Wharf & Causeway",
+     "rect": [
+      4200,
+      1350,
+      2100,
+      1350
+     ],
+     "adjacent": [
+      "bcs-alcatraz",
+      "bcs-civic",
+      "bcs-marina",
+      "bcs-old-dt-n"
+     ]
+    },
+    {
+     "id": "bcs-old-dt-n",
+     "name": "Old Downtown \u00b7 North",
+     "rect": [
+      6300,
+      1350,
+      2100,
+      1350
+     ],
+     "adjacent": [
+      "bcs-old-dt-s",
+      "bcs-wharf"
+     ]
+    },
+    {
+     "id": "bcs-panhandle",
+     "name": "Panhandle West",
+     "rect": [
+      0,
+      2700,
+      2100,
+      1350
+     ],
+     "adjacent": [
+      "bcs-fell",
+      "bcs-gg-south",
+      "bcs-twin-peaks"
+     ]
+    },
+    {
+     "id": "bcs-fell",
+     "name": "Fell Street \u00b7 BCPD",
+     "rect": [
+      2100,
+      2700,
+      2100,
+      1350
+     ],
+     "adjacent": [
+      "bcs-civic",
+      "bcs-marina",
+      "bcs-mission",
+      "bcs-panhandle"
+     ]
+    },
+    {
+     "id": "bcs-civic",
+     "name": "Civic Center",
+     "rect": [
+      4200,
+      2700,
+      2100,
+      1350
+     ],
+     "adjacent": [
+      "bcs-fell",
+      "bcs-licktown",
+      "bcs-old-dt-s",
+      "bcs-wharf"
+     ]
+    },
+    {
+     "id": "bcs-old-dt-s",
+     "name": "Old Downtown \u00b7 South",
+     "rect": [
+      6300,
+      2700,
+      2100,
+      1350
+     ],
+     "adjacent": [
+      "bcs-civic",
+      "bcs-dogpatch",
+      "bcs-old-dt-n"
+     ]
+    },
+    {
+     "id": "bcs-twin-peaks",
+     "name": "Twin Peaks Switchbacks",
+     "rect": [
+      0,
+      4050,
+      2100,
+      1350
+     ],
+     "adjacent": [
+      "bcs-mission",
+      "bcs-panhandle"
+     ]
+    },
+    {
+     "id": "bcs-mission",
+     "name": "Mission Street \u00b7 AI Hotels",
+     "rect": [
+      2100,
+      4050,
+      2100,
+      1350
+     ],
+     "adjacent": [
+      "bcs-fell",
+      "bcs-licktown",
+      "bcs-twin-peaks"
+     ]
+    },
+    {
+     "id": "bcs-licktown",
+     "name": "Licktown",
+     "rect": [
+      4200,
+      4050,
+      2100,
+      1350
+     ],
+     "adjacent": [
+      "bcs-civic",
+      "bcs-dogpatch",
+      "bcs-mission"
+     ]
+    },
+    {
+     "id": "bcs-dogpatch",
+     "name": "Dogpatch Docks",
+     "rect": [
+      6300,
+      4050,
+      2100,
+      1350
+     ],
+     "adjacent": [
+      "bcs-licktown",
+      "bcs-old-dt-s"
+     ]
+    }
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "district",
+     "rect": [
+      0,
+      0,
+      2100,
+      1350
+     ],
+     "to": "BCS-GG-NORTH",
+     "toName": "Golden Gate \u00b7 North Span",
+     "land": [
+      2100,
+      1500
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "district",
+     "rect": [
+      0,
+      1350,
+      2100,
+      1350
+     ],
+     "to": "BCS-GG-SOUTH",
+     "toName": "Golden Gate \u00b7 South Span",
+     "land": [
+      2100,
+      800
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "district",
+     "rect": [
+      2100,
+      1350,
+      2100,
+      1350
+     ],
+     "to": "BCS-MARINA",
+     "toName": "Marina Seawall",
+     "land": [
+      3100,
+      800
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "district",
+     "rect": [
+      4200,
+      0,
+      2100,
+      1350
+     ],
+     "to": "BCS-ALCATRAZ",
+     "toName": "Psychasec Alcatraz",
+     "land": [
+      2100,
+      1550
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "district",
+     "rect": [
+      4200,
+      1350,
+      2100,
+      1350
+     ],
+     "to": "BCS-WHARF",
+     "toName": "Wharf & Causeway",
+     "land": [
+      2100,
+      800
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "district",
+     "rect": [
+      6300,
+      1350,
+      2100,
+      1350
+     ],
+     "to": "BCS-OLD-DT-N",
+     "toName": "Old Downtown \u00b7 North",
+     "land": [
+      3100,
+      800
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "district",
+     "rect": [
+      0,
+      2700,
+      2100,
+      1350
+     ],
+     "to": "BCS-PANHANDLE",
+     "toName": "Panhandle West",
+     "land": [
+      3100,
+      800
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "district",
+     "rect": [
+      2100,
+      2700,
+      2100,
+      1350
+     ],
+     "to": "BCS-FELL",
+     "toName": "Fell Street \u00b7 BCPD",
+     "land": [
+      3100,
+      800
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "district",
+     "rect": [
+      4200,
+      2700,
+      2100,
+      1350
+     ],
+     "to": "BCS-CIVIC",
+     "toName": "Civic Center",
+     "land": [
+      3100,
+      800
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "district",
+     "rect": [
+      6300,
+      2700,
+      2100,
+      1350
+     ],
+     "to": "BCS-OLD-DT-S",
+     "toName": "Old Downtown \u00b7 South",
+     "land": [
+      3100,
+      800
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "district",
+     "rect": [
+      0,
+      4050,
+      2100,
+      1350
+     ],
+     "to": "BCS-TWIN-PEAKS",
+     "toName": "Twin Peaks Switchbacks",
+     "land": [
+      3100,
+      1900
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "district",
+     "rect": [
+      2100,
+      4050,
+      2100,
+      1350
+     ],
+     "to": "BCS-MISSION",
+     "toName": "Mission Street \u00b7 AI Hotels",
+     "land": [
+      3100,
+      800
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "district",
+     "rect": [
+      4200,
+      4050,
+      2100,
+      1350
+     ],
+     "to": "BCS-LICKTOWN",
+     "toName": "Licktown",
+     "land": [
+      3100,
+      800
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "district",
+     "rect": [
+      6300,
+      4050,
+      2100,
+      1350
+     ],
+     "to": "BCS-DOGPATCH",
+     "toName": "Dogpatch Docks",
+     "land": [
+      3100,
+      800
+     ]
+    }
+   ]
+  }
+ ]
+}

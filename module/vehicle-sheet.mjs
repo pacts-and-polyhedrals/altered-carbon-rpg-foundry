@@ -14,7 +14,7 @@ export class ACVehicleSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
   const vt=this.vehicleToken(),occRaw=vt?.getFlag?.('altered-carbon-rpg','vehicleOccupants'),occ={};if(Array.isArray(occRaw))for(const o of occRaw)occ[o.seatId]=o;
   const myIds=new Set((canvas?.tokens?.controlled||[]).map(t=>t.id));
   const seats=seatLayout(actor).map(s=>{const o=occ[s.id],t=o?vt?.parent?.tokens?.get(o.tokenId):null;return {...s,occupant:o?.name||'',canExit:Boolean(t&&(game.user.isGM||t.actor?.isOwner))};});
-  const footprint=vehicleFootprint(v.size),controlLabel={driver:'Driver seat player',ai:`Vehicle AI${v.aiPilot?` (${v.aiPilot})`:''}`,both:'Driver and vehicle AI'}[v.control||'driver'];
+  const pt=actor.prototypeToken,custom=pt&&!(Number(pt.width)===1&&Number(pt.height)===1),footprint=custom?{width:Number(pt.width),height:Number(pt.height)}:vehicleFootprint(v.size),controlLabel={driver:'Driver seat player',ai:`Vehicle AI${v.aiPilot?` (${v.aiPilot})`:''}`,both:'Driver and vehicle AI'}[v.control||'driver'];
   return {...ctx,seats,onScene:Boolean(vt),hasSelection:myIds.size>0,footprint,controlLabel,isGM:game.user.isGM,actor,v,canEdit:this.canEdit,editMode:this._editMode,crew,roster,items,hasItems:items.length>0,structurePct:v.structure.max?100*v.structure.value/v.structure.max:0,fuelPct:v.fuel.max?100*v.fuel.value/v.fuel.max:0};
  }
  async _onRender(ctx,opts){await super._onRender(ctx,opts);const editable=this._editMode&&this.canEdit;
