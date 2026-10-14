@@ -294,8 +294,9 @@ export function installVehicleBoarding(){
     if((w??1)===1&&(h??1)===1){const f=vehicleFootprint(foundry.utils.getProperty(data,'system.vehicle.size')??1);doc.updateSource({'prototypeToken.width':f.width,'prototypeToken.height':f.height,'prototypeToken.texture.fit':'contain','prototypeToken.lockRotation':false});}
   });
   // Clean up when a vehicle or occupant token is deleted.
-  Hooks.on('deleteToken',(doc)=>{
-    if(!isLeader())return;const scene=doc.parent;
+  Hooks.on('deleteToken',(doc,options)=>{
+    // A map-to-map transit recreates the vehicle and riders on the next scene: leave seats and driver grants alone.
+    if(!isLeader()||options?.acTransit)return;const scene=doc.parent;
     if(isVehicleToken(doc)){const occ=occupantsOf(doc);const g=scene.grid.size;let i=0;const updates=[];
       for(const o of Object.values(occ)){const t=scene.tokens.get(o.tokenId);if(!t)continue;updates.push({_id:t.id,x:doc.x+(i%2)*g,y:doc.y+Math.floor(i/2)*g,width:o.original?.width||1,height:o.original?.height||1,rotation:0,[`flags.${NS}.${SEAT}`]:null});i++;}
       if(updates.length)scene.updateEmbeddedDocuments('Token',updates,{acVehicleCarry:true});

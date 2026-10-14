@@ -1,0 +1,6727 @@
+{
+ "atlas": "Bay City Street Atlas",
+ "cols": 4,
+ "rows": 4,
+ "maps": [
+  {
+   "id": "BCS-GG-NORTH",
+   "code": "BCS01",
+   "name": "Golden Gate \u00b7 North Span",
+   "district": "BRIDGE STACKS",
+   "col": 0,
+   "row": -1,
+   "file": "streets/bcs01-golden-gate-north-span.webp",
+   "width": 4200,
+   "height": 2700,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "golden-gate-bridge-north",
+     "name": "Golden Gate Bridge North",
+     "kind": "road",
+     "rect": [
+      1800,
+      300,
+      600,
+      800.0
+     ],
+     "adjacent": [
+      "east-stacks",
+      "golden-gate-bridge-mid",
+      "west-stacks"
+     ]
+    },
+    {
+     "id": "golden-gate-bridge-mid",
+     "name": "Golden Gate Bridge Mid",
+     "kind": "road",
+     "rect": [
+      1800,
+      1100.0,
+      600,
+      800.0
+     ],
+     "adjacent": [
+      "central-block",
+      "central-block-2",
+      "golden-gate-bridge-north",
+      "golden-gate-bridge-south"
+     ]
+    },
+    {
+     "id": "golden-gate-bridge-south",
+     "name": "Golden Gate Bridge South",
+     "kind": "road",
+     "rect": [
+      1800,
+      1900.0,
+      600,
+      800.0
+     ],
+     "adjacent": [
+      "golden-gate-bridge-mid",
+      "south-block",
+      "south-block-2"
+     ]
+    },
+    {
+     "id": "west-stacks",
+     "name": "West Stacks",
+     "kind": "land",
+     "rect": [
+      1300,
+      300,
+      500,
+      800.0
+     ],
+     "adjacent": [
+      "central-block",
+      "golden-gate-bridge-north"
+     ]
+    },
+    {
+     "id": "east-stacks",
+     "name": "East Stacks",
+     "kind": "land",
+     "rect": [
+      2400,
+      300,
+      500,
+      800.0
+     ],
+     "adjacent": [
+      "central-block-2",
+      "golden-gate-bridge-north"
+     ]
+    },
+    {
+     "id": "central-block",
+     "name": "Central Block",
+     "kind": "land",
+     "rect": [
+      1300,
+      1100.0,
+      500,
+      800.0
+     ],
+     "adjacent": [
+      "golden-gate-bridge-mid",
+      "south-block",
+      "west-stacks"
+     ]
+    },
+    {
+     "id": "central-block-2",
+     "name": "Central Block 2",
+     "kind": "land",
+     "rect": [
+      2400,
+      1100.0,
+      500,
+      800.0
+     ],
+     "adjacent": [
+      "east-stacks",
+      "golden-gate-bridge-mid",
+      "south-block-2"
+     ]
+    },
+    {
+     "id": "south-block",
+     "name": "South Block",
+     "kind": "land",
+     "rect": [
+      1300,
+      1900.0,
+      500,
+      800.0
+     ],
+     "adjacent": [
+      "central-block",
+      "golden-gate-bridge-south"
+     ]
+    },
+    {
+     "id": "south-block-2",
+     "name": "South Block 2",
+     "kind": "land",
+     "rect": [
+      2400,
+      1900.0,
+      500,
+      800.0
+     ],
+     "adjacent": [
+      "central-block-2",
+      "golden-gate-bridge-south"
+     ]
+    }
+   ],
+   "links": [
+    {
+     "edge": "S",
+     "slot": "B",
+     "kind": "edge",
+     "rect": [
+      1800,
+      2500,
+      600,
+      200
+     ],
+     "to": "BCS-GG-SOUTH",
+     "toName": "Golden Gate \u00b7 South Span",
+     "toEdge": "N"
+    }
+   ]
+  },
+  {
+   "id": "BCS-GG-SOUTH",
+   "code": "BCS02",
+   "name": "Golden Gate \u00b7 South Span",
+   "district": "PRESIDIO",
+   "col": 0,
+   "row": 0,
+   "file": "streets/bcs02-golden-gate-south-span.webp",
+   "width": 4200,
+   "height": 2700,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "embarcadero-presidio",
+     "name": "Embarcadero & Presidio",
+     "kind": "junction",
+     "rect": [
+      800,
+      600,
+      400,
+      400
+     ],
+     "adjacent": [
+      "embarcadero-west",
+      "north-west-block",
+      "north-west-block-2",
+      "presidio-north"
+     ]
+    },
+    {
+     "id": "embarcadero-golden-gate-bridge",
+     "name": "Embarcadero & Golden Gate Bridge",
+     "kind": "junction",
+     "rect": [
+      1800,
+      600,
+      600,
+      400
+     ],
+     "adjacent": [
+      "embarcadero-centre",
+      "embarcadero-west",
+      "fort-point",
+      "golden-gate-bridge"
+     ]
+    },
+    {
+     "id": "embarcadero-west",
+     "name": "Embarcadero West",
+     "kind": "road",
+     "rect": [
+      1200,
+      600,
+      600,
+      400
+     ],
+     "adjacent": [
+      "embarcadero-golden-gate-bridge",
+      "embarcadero-presidio",
+      "fort-point",
+      "north-west-block-3"
+     ]
+    },
+    {
+     "id": "embarcadero-centre",
+     "name": "Embarcadero Centre",
+     "kind": "road",
+     "rect": [
+      2400,
+      600,
+      900.0,
+      400
+     ],
+     "adjacent": [
+      "embarcadero-east",
+      "embarcadero-golden-gate-bridge",
+      "north-east-block",
+      "toll-authority"
+     ]
+    },
+    {
+     "id": "embarcadero-east",
+     "name": "Embarcadero East",
+     "kind": "road",
+     "rect": [
+      3300.0,
+      600,
+      900.0,
+      400
+     ],
+     "adjacent": [
+      "bridge-depot",
+      "embarcadero-centre",
+      "north-east-block-2"
+     ]
+    },
+    {
+     "id": "presidio-north",
+     "name": "Presidio North",
+     "kind": "road",
+     "rect": [
+      800,
+      1000,
+      400,
+      850.0
+     ],
+     "adjacent": [
+      "embarcadero-presidio",
+      "fort-point",
+      "presidio-south",
+      "west-block"
+     ]
+    },
+    {
+     "id": "presidio-south",
+     "name": "Presidio South",
+     "kind": "road",
+     "rect": [
+      800,
+      1850.0,
+      400,
+      850.0
+     ],
+     "adjacent": [
+      "presidio-checkpoint",
+      "presidio-north",
+      "south-west-block"
+     ]
+    },
+    {
+     "id": "golden-gate-bridge",
+     "name": "Golden Gate Bridge",
+     "kind": "road",
+     "rect": [
+      1800,
+      0,
+      600,
+      600
+     ],
+     "adjacent": [
+      "embarcadero-golden-gate-bridge",
+      "north-east-block",
+      "north-west-block-3"
+     ]
+    },
+    {
+     "id": "north-west-block",
+     "name": "North-West Block",
+     "kind": "land",
+     "rect": [
+      300,
+      300,
+      900,
+      300
+     ],
+     "adjacent": [
+      "embarcadero-presidio",
+      "north-west-block-2",
+      "north-west-block-3"
+     ]
+    },
+    {
+     "id": "north-west-block-3",
+     "name": "North-West Block 3",
+     "kind": "land",
+     "rect": [
+      1200,
+      300,
+      600,
+      300
+     ],
+     "adjacent": [
+      "embarcadero-west",
+      "golden-gate-bridge",
+      "north-west-block"
+     ]
+    },
+    {
+     "id": "north-east-block",
+     "name": "North-East Block",
+     "kind": "land",
+     "rect": [
+      2400,
+      300,
+      900.0,
+      300
+     ],
+     "adjacent": [
+      "embarcadero-centre",
+      "golden-gate-bridge",
+      "north-east-block-2"
+     ]
+    },
+    {
+     "id": "north-east-block-2",
+     "name": "North-East Block 2",
+     "kind": "land",
+     "rect": [
+      3300.0,
+      300,
+      900.0,
+      300
+     ],
+     "adjacent": [
+      "embarcadero-east",
+      "north-east-block"
+     ]
+    },
+    {
+     "id": "north-west-block-2",
+     "name": "North-West Block 2",
+     "kind": "land",
+     "rect": [
+      300,
+      600,
+      500,
+      400
+     ],
+     "adjacent": [
+      "embarcadero-presidio",
+      "north-west-block",
+      "west-block"
+     ]
+    },
+    {
+     "id": "west-block",
+     "name": "West Block",
+     "kind": "land",
+     "rect": [
+      300,
+      1000,
+      500,
+      850.0
+     ],
+     "adjacent": [
+      "north-west-block-2",
+      "presidio-north",
+      "south-west-block"
+     ]
+    },
+    {
+     "id": "fort-point",
+     "name": "Fort Point",
+     "kind": "land",
+     "rect": [
+      1200,
+      1000,
+      1200,
+      850.0
+     ],
+     "adjacent": [
+      "embarcadero-golden-gate-bridge",
+      "embarcadero-west",
+      "presidio-checkpoint",
+      "presidio-north",
+      "toll-authority"
+     ]
+    },
+    {
+     "id": "toll-authority",
+     "name": "Toll Authority",
+     "kind": "land",
+     "rect": [
+      2400,
+      1000,
+      900.0,
+      850.0
+     ],
+     "adjacent": [
+      "bridge-depot",
+      "embarcadero-centre",
+      "fort-point",
+      "south-east-block"
+     ]
+    },
+    {
+     "id": "bridge-depot",
+     "name": "Bridge Depot",
+     "kind": "land",
+     "rect": [
+      3300.0,
+      1000,
+      900.0,
+      850.0
+     ],
+     "adjacent": [
+      "embarcadero-east",
+      "south-east-block-2",
+      "toll-authority"
+     ]
+    },
+    {
+     "id": "south-west-block",
+     "name": "South-West Block",
+     "kind": "land",
+     "rect": [
+      300,
+      1850.0,
+      500,
+      850.0
+     ],
+     "adjacent": [
+      "presidio-south",
+      "west-block"
+     ]
+    },
+    {
+     "id": "presidio-checkpoint",
+     "name": "Presidio Checkpoint",
+     "kind": "land",
+     "rect": [
+      1200,
+      1850.0,
+      1200,
+      850.0
+     ],
+     "adjacent": [
+      "fort-point",
+      "presidio-south",
+      "south-east-block"
+     ]
+    },
+    {
+     "id": "south-east-block",
+     "name": "South-East Block",
+     "kind": "land",
+     "rect": [
+      2400,
+      1850.0,
+      900.0,
+      850.0
+     ],
+     "adjacent": [
+      "presidio-checkpoint",
+      "south-east-block-2",
+      "toll-authority"
+     ]
+    },
+    {
+     "id": "south-east-block-2",
+     "name": "South-East Block 2",
+     "kind": "land",
+     "rect": [
+      3300.0,
+      1850.0,
+      900.0,
+      850.0
+     ],
+     "adjacent": [
+      "bridge-depot",
+      "south-east-block"
+     ]
+    }
+   ],
+   "links": [
+    {
+     "edge": "N",
+     "slot": "B",
+     "kind": "edge",
+     "rect": [
+      1800,
+      0,
+      600,
+      200
+     ],
+     "to": "BCS-GG-NORTH",
+     "toName": "Golden Gate \u00b7 North Span",
+     "toEdge": "S"
+    },
+    {
+     "edge": "E",
+     "slot": "U",
+     "kind": "edge",
+     "rect": [
+      4000,
+      600,
+      200,
+      400
+     ],
+     "to": "BCS-MARINA",
+     "toName": "Marina Seawall",
+     "toEdge": "W"
+    },
+    {
+     "edge": "S",
+     "slot": "L",
+     "kind": "edge",
+     "rect": [
+      800,
+      2500,
+      400,
+      200
+     ],
+     "to": "BCS-PANHANDLE",
+     "toName": "Panhandle West",
+     "toEdge": "N"
+    }
+   ]
+  },
+  {
+   "id": "BCS-MARINA",
+   "code": "BCS03",
+   "name": "Marina Seawall",
+   "district": "MARINA",
+   "col": 1,
+   "row": 0,
+   "file": "streets/bcs03-marina-seawall.webp",
+   "width": 4200,
+   "height": 2700,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "embarcadero-valencia",
+     "name": "Embarcadero & Valencia",
+     "kind": "junction",
+     "rect": [
+      2900,
+      600,
+      400,
+      400
+     ],
+     "adjacent": [
+      "embarcadero-4",
+      "embarcadero-5",
+      "north-east-block",
+      "valencia-north"
+     ]
+    },
+    {
+     "id": "embarcadero-1",
+     "name": "Embarcadero 1",
+     "kind": "road",
+     "rect": [
+      0,
+      600,
+      725.0,
+      400
+     ],
+     "adjacent": [
+      "embarcadero-2",
+      "north-west-block",
+      "yacht-stacks"
+     ]
+    },
+    {
+     "id": "embarcadero-2",
+     "name": "Embarcadero 2",
+     "kind": "road",
+     "rect": [
+      725.0,
+      600,
+      725.0,
+      400
+     ],
+     "adjacent": [
+      "embarcadero-1",
+      "embarcadero-3",
+      "north-west-block-2",
+      "palace-ruins"
+     ]
+    },
+    {
+     "id": "embarcadero-3",
+     "name": "Embarcadero 3",
+     "kind": "road",
+     "rect": [
+      1450.0,
+      600,
+      725.0,
+      400
+     ],
+     "adjacent": [
+      "central-block",
+      "embarcadero-2",
+      "embarcadero-4",
+      "north-block"
+     ]
+    },
+    {
+     "id": "embarcadero-4",
+     "name": "Embarcadero 4",
+     "kind": "road",
+     "rect": [
+      2175.0,
+      600,
+      725.0,
+      400
+     ],
+     "adjacent": [
+      "central-block-2",
+      "embarcadero-3",
+      "embarcadero-valencia",
+      "north-east-block"
+     ]
+    },
+    {
+     "id": "embarcadero-5",
+     "name": "Embarcadero 5",
+     "kind": "road",
+     "rect": [
+      3300,
+      600,
+      900,
+      400
+     ],
+     "adjacent": [
+      "embarcadero-valencia",
+      "marina-habs",
+      "north-east-block-2"
+     ]
+    },
+    {
+     "id": "valencia-north",
+     "name": "Valencia North",
+     "kind": "road",
+     "rect": [
+      2900,
+      1000,
+      400,
+      850.0
+     ],
+     "adjacent": [
+      "central-block-2",
+      "embarcadero-valencia",
+      "marina-habs",
+      "valencia-south"
+     ]
+    },
+    {
+     "id": "valencia-south",
+     "name": "Valencia South",
+     "kind": "road",
+     "rect": [
+      2900,
+      1850.0,
+      400,
+      850.0
+     ],
+     "adjacent": [
+      "seawall-pumps",
+      "south-block-2",
+      "valencia-north"
+     ]
+    },
+    {
+     "id": "north-west-block",
+     "name": "North-West Block",
+     "kind": "land",
+     "rect": [
+      0,
+      300,
+      725.0,
+      300
+     ],
+     "adjacent": [
+      "embarcadero-1",
+      "north-west-block-2"
+     ]
+    },
+    {
+     "id": "north-west-block-2",
+     "name": "North-West Block 2",
+     "kind": "land",
+     "rect": [
+      725.0,
+      300,
+      725.0,
+      300
+     ],
+     "adjacent": [
+      "embarcadero-2",
+      "north-block",
+      "north-west-block"
+     ]
+    },
+    {
+     "id": "north-block",
+     "name": "North Block",
+     "kind": "land",
+     "rect": [
+      1450.0,
+      300,
+      725.0,
+      300
+     ],
+     "adjacent": [
+      "embarcadero-3",
+      "north-east-block",
+      "north-west-block-2"
+     ]
+    },
+    {
+     "id": "north-east-block",
+     "name": "North-East Block",
+     "kind": "land",
+     "rect": [
+      2175.0,
+      300,
+      1125.0,
+      300
+     ],
+     "adjacent": [
+      "embarcadero-4",
+      "embarcadero-valencia",
+      "north-block",
+      "north-east-block-2"
+     ]
+    },
+    {
+     "id": "north-east-block-2",
+     "name": "North-East Block 2",
+     "kind": "land",
+     "rect": [
+      3300,
+      300,
+      900,
+      300
+     ],
+     "adjacent": [
+      "embarcadero-5",
+      "north-east-block"
+     ]
+    },
+    {
+     "id": "yacht-stacks",
+     "name": "Yacht Stacks",
+     "kind": "land",
+     "rect": [
+      0,
+      1000,
+      725.0,
+      850.0
+     ],
+     "adjacent": [
+      "embarcadero-1",
+      "palace-ruins",
+      "south-west-block"
+     ]
+    },
+    {
+     "id": "palace-ruins",
+     "name": "Palace Ruins",
+     "kind": "land",
+     "rect": [
+      725.0,
+      1000,
+      725.0,
+      850.0
+     ],
+     "adjacent": [
+      "central-block",
+      "embarcadero-2",
+      "south-west-block-2",
+      "yacht-stacks"
+     ]
+    },
+    {
+     "id": "central-block",
+     "name": "Central Block",
+     "kind": "land",
+     "rect": [
+      1450.0,
+      1000,
+      725.0,
+      850.0
+     ],
+     "adjacent": [
+      "central-block-2",
+      "embarcadero-3",
+      "palace-ruins",
+      "south-block"
+     ]
+    },
+    {
+     "id": "central-block-2",
+     "name": "Central Block 2",
+     "kind": "land",
+     "rect": [
+      2175.0,
+      1000,
+      725.0,
+      850.0
+     ],
+     "adjacent": [
+      "central-block",
+      "embarcadero-4",
+      "south-block-2",
+      "valencia-north"
+     ]
+    },
+    {
+     "id": "marina-habs",
+     "name": "Marina Habs",
+     "kind": "land",
+     "rect": [
+      3300,
+      1000,
+      900,
+      850.0
+     ],
+     "adjacent": [
+      "embarcadero-5",
+      "seawall-pumps",
+      "valencia-north"
+     ]
+    },
+    {
+     "id": "south-west-block",
+     "name": "South-West Block",
+     "kind": "land",
+     "rect": [
+      0,
+      1850.0,
+      725.0,
+      850.0
+     ],
+     "adjacent": [
+      "south-west-block-2",
+      "yacht-stacks"
+     ]
+    },
+    {
+     "id": "south-west-block-2",
+     "name": "South-West Block 2",
+     "kind": "land",
+     "rect": [
+      725.0,
+      1850.0,
+      725.0,
+      850.0
+     ],
+     "adjacent": [
+      "palace-ruins",
+      "south-block",
+      "south-west-block"
+     ]
+    },
+    {
+     "id": "south-block",
+     "name": "South Block",
+     "kind": "land",
+     "rect": [
+      1450.0,
+      1850.0,
+      725.0,
+      850.0
+     ],
+     "adjacent": [
+      "central-block",
+      "south-block-2",
+      "south-west-block-2"
+     ]
+    },
+    {
+     "id": "south-block-2",
+     "name": "South Block 2",
+     "kind": "land",
+     "rect": [
+      2175.0,
+      1850.0,
+      725.0,
+      850.0
+     ],
+     "adjacent": [
+      "central-block-2",
+      "south-block",
+      "valencia-south"
+     ]
+    },
+    {
+     "id": "seawall-pumps",
+     "name": "Seawall Pumps",
+     "kind": "land",
+     "rect": [
+      3300,
+      1850.0,
+      900,
+      850.0
+     ],
+     "adjacent": [
+      "marina-habs",
+      "valencia-south"
+     ]
+    }
+   ],
+   "links": [
+    {
+     "edge": "E",
+     "slot": "U",
+     "kind": "edge",
+     "rect": [
+      4000,
+      600,
+      200,
+      400
+     ],
+     "to": "BCS-WHARF",
+     "toName": "Wharf & Causeway",
+     "toEdge": "W"
+    },
+    {
+     "edge": "S",
+     "slot": "R",
+     "kind": "edge",
+     "rect": [
+      2900,
+      2500,
+      400,
+      200
+     ],
+     "to": "BCS-FELL",
+     "toName": "Fell Street \u00b7 BCPD",
+     "toEdge": "N"
+    },
+    {
+     "edge": "W",
+     "slot": "U",
+     "kind": "edge",
+     "rect": [
+      0,
+      600,
+      200,
+      400
+     ],
+     "to": "BCS-GG-SOUTH",
+     "toName": "Golden Gate \u00b7 South Span",
+     "toEdge": "E"
+    }
+   ]
+  },
+  {
+   "id": "BCS-ALCATRAZ",
+   "code": "BCS04",
+   "name": "Psychasec Alcatraz",
+   "district": "THE ROCK",
+   "col": 2,
+   "row": -1,
+   "file": "streets/bcs04-psychasec-alcatraz.webp",
+   "width": 4200,
+   "height": 2700,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "cellhouse-loop-n-alcatraz-causeway",
+     "name": "Cellhouse Loop N & Alcatraz Causeway",
+     "kind": "junction",
+     "rect": [
+      1800,
+      600,
+      600,
+      300
+     ],
+     "adjacent": [
+      "alcatraz-causeway-north",
+      "cellhouse-loop-n-east",
+      "cellhouse-loop-n-west",
+      "north-block"
+     ]
+    },
+    {
+     "id": "cellhouse-loop-s-alcatraz-causeway",
+     "name": "Cellhouse Loop S & Alcatraz Causeway",
+     "kind": "junction",
+     "rect": [
+      1800,
+      1400,
+      600,
+      300
+     ],
+     "adjacent": [
+      "alcatraz-causeway-north",
+      "alcatraz-causeway-south",
+      "cellhouse-loop-s-east",
+      "cellhouse-loop-s-west"
+     ]
+    },
+    {
+     "id": "alcatraz-causeway-north",
+     "name": "Alcatraz Causeway North",
+     "kind": "road",
+     "rect": [
+      1800,
+      900,
+      600,
+      500
+     ],
+     "adjacent": [
+      "cellhouse-loop-n-alcatraz-causeway",
+      "cellhouse-loop-s-alcatraz-causeway",
+      "powerhouse",
+      "sally-port"
+     ]
+    },
+    {
+     "id": "alcatraz-causeway-south",
+     "name": "Alcatraz Causeway South",
+     "kind": "road",
+     "rect": [
+      1800,
+      1700,
+      600,
+      1000
+     ],
+     "adjacent": [
+      "cellhouse-loop-s-alcatraz-causeway",
+      "lighthouse",
+      "psychasec-cellhouse"
+     ]
+    },
+    {
+     "id": "cellhouse-loop-n-west",
+     "name": "Cellhouse Loop N West",
+     "kind": "road",
+     "rect": [
+      1100,
+      600,
+      700,
+      300
+     ],
+     "adjacent": [
+      "cellhouse-loop-n-alcatraz-causeway",
+      "north-west-block",
+      "sally-port",
+      "west-block",
+      "west-ramp"
+     ]
+    },
+    {
+     "id": "cellhouse-loop-n-east",
+     "name": "Cellhouse Loop N East",
+     "kind": "road",
+     "rect": [
+      2400,
+      600,
+      700,
+      300
+     ],
+     "adjacent": [
+      "cellhouse-loop-n-alcatraz-causeway",
+      "east-block",
+      "east-ramp",
+      "north-block",
+      "north-east-block",
+      "powerhouse"
+     ]
+    },
+    {
+     "id": "cellhouse-loop-s-west",
+     "name": "Cellhouse Loop S West",
+     "kind": "road",
+     "rect": [
+      1100,
+      1400,
+      700,
+      300
+     ],
+     "adjacent": [
+      "cellhouse-loop-s-alcatraz-causeway",
+      "psychasec-cellhouse",
+      "sally-port",
+      "west-block-2",
+      "west-ramp"
+     ]
+    },
+    {
+     "id": "cellhouse-loop-s-east",
+     "name": "Cellhouse Loop S East",
+     "kind": "road",
+     "rect": [
+      2400,
+      1400,
+      700,
+      300
+     ],
+     "adjacent": [
+      "cellhouse-loop-s-alcatraz-causeway",
+      "east-block-2",
+      "east-ramp",
+      "lighthouse",
+      "powerhouse"
+     ]
+    },
+    {
+     "id": "west-ramp",
+     "name": "West Ramp",
+     "kind": "road",
+     "rect": [
+      1100,
+      900,
+      300,
+      500
+     ],
+     "adjacent": [
+      "cellhouse-loop-n-west",
+      "cellhouse-loop-s-west",
+      "sally-port",
+      "west-block"
+     ]
+    },
+    {
+     "id": "east-ramp",
+     "name": "East Ramp",
+     "kind": "road",
+     "rect": [
+      2800,
+      900,
+      300,
+      500
+     ],
+     "adjacent": [
+      "cellhouse-loop-n-east",
+      "cellhouse-loop-s-east",
+      "east-block",
+      "powerhouse"
+     ]
+    },
+    {
+     "id": "north-west-block",
+     "name": "North-West Block",
+     "kind": "land",
+     "rect": [
+      900,
+      400,
+      900,
+      200
+     ],
+     "adjacent": [
+      "cellhouse-loop-n-west",
+      "north-block",
+      "west-block"
+     ]
+    },
+    {
+     "id": "north-block",
+     "name": "North Block",
+     "kind": "land",
+     "rect": [
+      1800,
+      400,
+      1000,
+      200
+     ],
+     "adjacent": [
+      "cellhouse-loop-n-alcatraz-causeway",
+      "cellhouse-loop-n-east",
+      "north-east-block",
+      "north-west-block"
+     ]
+    },
+    {
+     "id": "north-east-block",
+     "name": "North-East Block",
+     "kind": "land",
+     "rect": [
+      2800,
+      400,
+      500,
+      200
+     ],
+     "adjacent": [
+      "cellhouse-loop-n-east",
+      "east-block",
+      "north-block"
+     ]
+    },
+    {
+     "id": "west-block",
+     "name": "West Block",
+     "kind": "land",
+     "rect": [
+      900,
+      600,
+      200,
+      800
+     ],
+     "adjacent": [
+      "cellhouse-loop-n-west",
+      "north-west-block",
+      "west-block-2",
+      "west-ramp"
+     ]
+    },
+    {
+     "id": "east-block",
+     "name": "East Block",
+     "kind": "land",
+     "rect": [
+      3100,
+      600,
+      200,
+      800
+     ],
+     "adjacent": [
+      "cellhouse-loop-n-east",
+      "east-block-2",
+      "east-ramp",
+      "north-east-block"
+     ]
+    },
+    {
+     "id": "sally-port",
+     "name": "Sally Port",
+     "kind": "land",
+     "rect": [
+      1400,
+      900,
+      400,
+      500
+     ],
+     "adjacent": [
+      "alcatraz-causeway-north",
+      "cellhouse-loop-n-west",
+      "cellhouse-loop-s-west",
+      "west-ramp"
+     ]
+    },
+    {
+     "id": "powerhouse",
+     "name": "Powerhouse",
+     "kind": "land",
+     "rect": [
+      2400,
+      900,
+      400,
+      500
+     ],
+     "adjacent": [
+      "alcatraz-causeway-north",
+      "cellhouse-loop-n-east",
+      "cellhouse-loop-s-east",
+      "east-ramp"
+     ]
+    },
+    {
+     "id": "west-block-2",
+     "name": "West Block 2",
+     "kind": "land",
+     "rect": [
+      900,
+      1400,
+      200,
+      600
+     ],
+     "adjacent": [
+      "cellhouse-loop-s-west",
+      "psychasec-cellhouse",
+      "west-block"
+     ]
+    },
+    {
+     "id": "east-block-2",
+     "name": "East Block 2",
+     "kind": "land",
+     "rect": [
+      3100,
+      1400,
+      200,
+      600
+     ],
+     "adjacent": [
+      "cellhouse-loop-s-east",
+      "east-block",
+      "lighthouse"
+     ]
+    },
+    {
+     "id": "psychasec-cellhouse",
+     "name": "Psychasec Cellhouse",
+     "kind": "land",
+     "rect": [
+      1100,
+      1700,
+      700,
+      300
+     ],
+     "adjacent": [
+      "alcatraz-causeway-south",
+      "cellhouse-loop-s-west",
+      "west-block-2"
+     ]
+    },
+    {
+     "id": "lighthouse",
+     "name": "Lighthouse",
+     "kind": "land",
+     "rect": [
+      2400,
+      1700,
+      700,
+      300
+     ],
+     "adjacent": [
+      "alcatraz-causeway-south",
+      "cellhouse-loop-s-east",
+      "east-block-2"
+     ]
+    }
+   ],
+   "links": [
+    {
+     "edge": "S",
+     "slot": "C",
+     "kind": "edge",
+     "rect": [
+      1800,
+      2500,
+      600,
+      200
+     ],
+     "to": "BCS-WHARF",
+     "toName": "Wharf & Causeway",
+     "toEdge": "N"
+    }
+   ]
+  },
+  {
+   "id": "BCS-WHARF",
+   "code": "BCS05",
+   "name": "Wharf & Causeway",
+   "district": "FISHERMAN'S WHARF",
+   "col": 2,
+   "row": 0,
+   "file": "streets/bcs05-wharf-causeway.webp",
+   "width": 4200,
+   "height": 2700,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "embarcadero-van-ness",
+     "name": "Embarcadero & Van Ness",
+     "kind": "junction",
+     "rect": [
+      800,
+      600,
+      400,
+      400
+     ],
+     "adjacent": [
+      "embarcadero-1",
+      "embarcadero-2",
+      "north-west-block",
+      "van-ness-north"
+     ]
+    },
+    {
+     "id": "embarcadero-alcatraz-causeway",
+     "name": "Embarcadero & Alcatraz Causeway",
+     "kind": "junction",
+     "rect": [
+      1800,
+      600,
+      600,
+      400
+     ],
+     "adjacent": [
+      "alcatraz-causeway",
+      "embarcadero-2",
+      "embarcadero-3",
+      "ferry-terminal"
+     ]
+    },
+    {
+     "id": "embarcadero-powell",
+     "name": "Embarcadero & Powell",
+     "kind": "junction",
+     "rect": [
+      2900,
+      600,
+      400,
+      400
+     ],
+     "adjacent": [
+      "embarcadero-3",
+      "embarcadero-4",
+      "north-east-block",
+      "powell-north"
+     ]
+    },
+    {
+     "id": "embarcadero-1",
+     "name": "Embarcadero 1",
+     "kind": "road",
+     "rect": [
+      0,
+      600,
+      800,
+      400
+     ],
+     "adjacent": [
+      "cable-yard",
+      "embarcadero-van-ness",
+      "north-west-block"
+     ]
+    },
+    {
+     "id": "embarcadero-2",
+     "name": "Embarcadero 2",
+     "kind": "road",
+     "rect": [
+      1200,
+      600,
+      600,
+      400
+     ],
+     "adjacent": [
+      "embarcadero-alcatraz-causeway",
+      "embarcadero-van-ness",
+      "ferry-terminal",
+      "north-west-block-2"
+     ]
+    },
+    {
+     "id": "embarcadero-3",
+     "name": "Embarcadero 3",
+     "kind": "road",
+     "rect": [
+      2400,
+      600,
+      500,
+      400
+     ],
+     "adjacent": [
+      "central-block",
+      "embarcadero-alcatraz-causeway",
+      "embarcadero-powell",
+      "north-east-block"
+     ]
+    },
+    {
+     "id": "embarcadero-4",
+     "name": "Embarcadero 4",
+     "kind": "road",
+     "rect": [
+      3300,
+      600,
+      900,
+      400
+     ],
+     "adjacent": [
+      "causeway-gate",
+      "embarcadero-powell",
+      "north-east-block-2"
+     ]
+    },
+    {
+     "id": "van-ness-north",
+     "name": "Van Ness North",
+     "kind": "road",
+     "rect": [
+      800,
+      1000,
+      400,
+      850.0
+     ],
+     "adjacent": [
+      "cable-yard",
+      "embarcadero-van-ness",
+      "ferry-terminal",
+      "van-ness-south"
+     ]
+    },
+    {
+     "id": "van-ness-south",
+     "name": "Van Ness South",
+     "kind": "road",
+     "rect": [
+      800,
+      1850.0,
+      400,
+      850.0
+     ],
+     "adjacent": [
+      "pier-market",
+      "south-west-block",
+      "van-ness-north"
+     ]
+    },
+    {
+     "id": "powell-north",
+     "name": "Powell North",
+     "kind": "road",
+     "rect": [
+      2900,
+      1000,
+      400,
+      850.0
+     ],
+     "adjacent": [
+      "causeway-gate",
+      "central-block",
+      "embarcadero-powell",
+      "powell-south"
+     ]
+    },
+    {
+     "id": "powell-south",
+     "name": "Powell South",
+     "kind": "road",
+     "rect": [
+      2900,
+      1850.0,
+      400,
+      850.0
+     ],
+     "adjacent": [
+      "cannery-habs",
+      "powell-north",
+      "south-block"
+     ]
+    },
+    {
+     "id": "alcatraz-causeway",
+     "name": "Alcatraz Causeway",
+     "kind": "road",
+     "rect": [
+      1800,
+      0,
+      600,
+      600
+     ],
+     "adjacent": [
+      "embarcadero-alcatraz-causeway",
+      "north-east-block",
+      "north-west-block-2"
+     ]
+    },
+    {
+     "id": "north-west-block",
+     "name": "North-West Block",
+     "kind": "land",
+     "rect": [
+      0,
+      300,
+      1200,
+      300
+     ],
+     "adjacent": [
+      "embarcadero-1",
+      "embarcadero-van-ness",
+      "north-west-block-2"
+     ]
+    },
+    {
+     "id": "north-west-block-2",
+     "name": "North-West Block 2",
+     "kind": "land",
+     "rect": [
+      1200,
+      300,
+      600,
+      300
+     ],
+     "adjacent": [
+      "alcatraz-causeway",
+      "embarcadero-2",
+      "north-west-block"
+     ]
+    },
+    {
+     "id": "north-east-block",
+     "name": "North-East Block",
+     "kind": "land",
+     "rect": [
+      2400,
+      300,
+      900,
+      300
+     ],
+     "adjacent": [
+      "alcatraz-causeway",
+      "embarcadero-3",
+      "embarcadero-powell",
+      "north-east-block-2"
+     ]
+    },
+    {
+     "id": "north-east-block-2",
+     "name": "North-East Block 2",
+     "kind": "land",
+     "rect": [
+      3300,
+      300,
+      900,
+      300
+     ],
+     "adjacent": [
+      "embarcadero-4",
+      "north-east-block"
+     ]
+    },
+    {
+     "id": "cable-yard",
+     "name": "Cable Yard",
+     "kind": "land",
+     "rect": [
+      0,
+      1000,
+      800,
+      850.0
+     ],
+     "adjacent": [
+      "embarcadero-1",
+      "south-west-block",
+      "van-ness-north"
+     ]
+    },
+    {
+     "id": "ferry-terminal",
+     "name": "Ferry Terminal",
+     "kind": "land",
+     "rect": [
+      1200,
+      1000,
+      1200,
+      850.0
+     ],
+     "adjacent": [
+      "central-block",
+      "embarcadero-2",
+      "embarcadero-alcatraz-causeway",
+      "pier-market",
+      "van-ness-north"
+     ]
+    },
+    {
+     "id": "central-block",
+     "name": "Central Block",
+     "kind": "land",
+     "rect": [
+      2400,
+      1000,
+      500,
+      850.0
+     ],
+     "adjacent": [
+      "embarcadero-3",
+      "ferry-terminal",
+      "powell-north",
+      "south-block"
+     ]
+    },
+    {
+     "id": "causeway-gate",
+     "name": "Causeway Gate",
+     "kind": "land",
+     "rect": [
+      3300,
+      1000,
+      900,
+      850.0
+     ],
+     "adjacent": [
+      "cannery-habs",
+      "embarcadero-4",
+      "powell-north"
+     ]
+    },
+    {
+     "id": "south-west-block",
+     "name": "South-West Block",
+     "kind": "land",
+     "rect": [
+      0,
+      1850.0,
+      800,
+      850.0
+     ],
+     "adjacent": [
+      "cable-yard",
+      "van-ness-south"
+     ]
+    },
+    {
+     "id": "pier-market",
+     "name": "Pier Market",
+     "kind": "land",
+     "rect": [
+      1200,
+      1850.0,
+      1200,
+      850.0
+     ],
+     "adjacent": [
+      "ferry-terminal",
+      "south-block",
+      "van-ness-south"
+     ]
+    },
+    {
+     "id": "south-block",
+     "name": "South Block",
+     "kind": "land",
+     "rect": [
+      2400,
+      1850.0,
+      500,
+      850.0
+     ],
+     "adjacent": [
+      "central-block",
+      "pier-market",
+      "powell-south"
+     ]
+    },
+    {
+     "id": "cannery-habs",
+     "name": "Cannery Habs",
+     "kind": "land",
+     "rect": [
+      3300,
+      1850.0,
+      900,
+      850.0
+     ],
+     "adjacent": [
+      "causeway-gate",
+      "powell-south"
+     ]
+    }
+   ],
+   "links": [
+    {
+     "edge": "N",
+     "slot": "C",
+     "kind": "edge",
+     "rect": [
+      1800,
+      0,
+      600,
+      200
+     ],
+     "to": "BCS-ALCATRAZ",
+     "toName": "Psychasec Alcatraz",
+     "toEdge": "S"
+    },
+    {
+     "edge": "E",
+     "slot": "U",
+     "kind": "edge",
+     "rect": [
+      4000,
+      600,
+      200,
+      400
+     ],
+     "to": "BCS-OLD-DT-N",
+     "toName": "Old Downtown \u00b7 North",
+     "toEdge": "W"
+    },
+    {
+     "edge": "S",
+     "slot": "L",
+     "kind": "edge",
+     "rect": [
+      800,
+      2500,
+      400,
+      200
+     ],
+     "to": "BCS-CIVIC",
+     "toName": "Civic Center",
+     "toEdge": "N"
+    },
+    {
+     "edge": "S",
+     "slot": "R",
+     "kind": "edge",
+     "rect": [
+      2900,
+      2500,
+      400,
+      200
+     ],
+     "to": "BCS-CIVIC",
+     "toName": "Civic Center",
+     "toEdge": "N"
+    },
+    {
+     "edge": "W",
+     "slot": "U",
+     "kind": "edge",
+     "rect": [
+      0,
+      600,
+      200,
+      400
+     ],
+     "to": "BCS-MARINA",
+     "toName": "Marina Seawall",
+     "toEdge": "E"
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "rect": [
+      1400.0,
+      800,
+      200,
+      200
+     ],
+     "to": "BAY-DOCKS",
+     "toName": "Bay Docks",
+     "land": [
+      2440.0,
+      270.0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "BCS-OLD-DT-N",
+   "code": "BCS06",
+   "name": "Old Downtown \u00b7 North",
+   "district": "OLD DOWNTOWN",
+   "col": 3,
+   "row": 0,
+   "file": "streets/bcs06-old-downtown-north.webp",
+   "width": 4200,
+   "height": 2700,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "embarcadero-third",
+     "name": "Embarcadero & Third",
+     "kind": "junction",
+     "rect": [
+      800,
+      600,
+      400,
+      400
+     ],
+     "adjacent": [
+      "embarcadero-centre",
+      "embarcadero-west",
+      "north-west-block",
+      "third-north"
+     ]
+    },
+    {
+     "id": "embarcadero-battery",
+     "name": "Embarcadero & Battery",
+     "kind": "junction",
+     "rect": [
+      2900,
+      600,
+      400,
+      400
+     ],
+     "adjacent": [
+      "battery-north",
+      "embarcadero-east",
+      "north-block",
+      "north-east-block"
+     ]
+    },
+    {
+     "id": "embarcadero-west",
+     "name": "Embarcadero West",
+     "kind": "road",
+     "rect": [
+      0,
+      600,
+      800,
+      400
+     ],
+     "adjacent": [
+      "embarcadero-third",
+      "grounder-camp",
+      "north-west-block"
+     ]
+    },
+    {
+     "id": "embarcadero-centre",
+     "name": "Embarcadero Centre",
+     "kind": "road",
+     "rect": [
+      1200,
+      600,
+      850.0,
+      400
+     ],
+     "adjacent": [
+      "embarcadero-east",
+      "embarcadero-third",
+      "north-block-2",
+      "pyramid-tower"
+     ]
+    },
+    {
+     "id": "embarcadero-east",
+     "name": "Embarcadero East",
+     "kind": "road",
+     "rect": [
+      2050.0,
+      600,
+      850.0,
+      400
+     ],
+     "adjacent": [
+      "embarcadero-battery",
+      "embarcadero-centre",
+      "north-block",
+      "old-banks"
+     ]
+    },
+    {
+     "id": "third-north",
+     "name": "Third North",
+     "kind": "road",
+     "rect": [
+      800,
+      1000,
+      400,
+      850.0
+     ],
+     "adjacent": [
+      "embarcadero-third",
+      "grounder-camp",
+      "pyramid-tower",
+      "third-south"
+     ]
+    },
+    {
+     "id": "third-south",
+     "name": "Third South",
+     "kind": "road",
+     "rect": [
+      800,
+      1850.0,
+      400,
+      850.0
+     ],
+     "adjacent": [
+      "dead-towers",
+      "south-west-block",
+      "third-north"
+     ]
+    },
+    {
+     "id": "battery-north",
+     "name": "Battery North",
+     "kind": "road",
+     "rect": [
+      2900,
+      1000,
+      400,
+      850.0
+     ],
+     "adjacent": [
+      "battery-south",
+      "east-block",
+      "embarcadero-battery",
+      "old-banks"
+     ]
+    },
+    {
+     "id": "battery-south",
+     "name": "Battery South",
+     "kind": "road",
+     "rect": [
+      2900,
+      1850.0,
+      400,
+      850.0
+     ],
+     "adjacent": [
+      "battery-north",
+      "ferry-building",
+      "south-east-block"
+     ]
+    },
+    {
+     "id": "north-west-block",
+     "name": "North-West Block",
+     "kind": "land",
+     "rect": [
+      0,
+      300,
+      1200,
+      300
+     ],
+     "adjacent": [
+      "embarcadero-third",
+      "embarcadero-west",
+      "north-block-2"
+     ]
+    },
+    {
+     "id": "north-block-2",
+     "name": "North Block 2",
+     "kind": "land",
+     "rect": [
+      1200,
+      300,
+      850.0,
+      300
+     ],
+     "adjacent": [
+      "embarcadero-centre",
+      "north-block",
+      "north-west-block"
+     ]
+    },
+    {
+     "id": "north-block",
+     "name": "North Block",
+     "kind": "land",
+     "rect": [
+      2050.0,
+      300,
+      1250.0,
+      300
+     ],
+     "adjacent": [
+      "embarcadero-battery",
+      "embarcadero-east",
+      "north-block-2",
+      "north-east-block"
+     ]
+    },
+    {
+     "id": "north-east-block",
+     "name": "North-East Block",
+     "kind": "land",
+     "rect": [
+      3300,
+      300,
+      600,
+      700
+     ],
+     "adjacent": [
+      "east-block",
+      "embarcadero-battery",
+      "north-block"
+     ]
+    },
+    {
+     "id": "grounder-camp",
+     "name": "Grounder Camp",
+     "kind": "land",
+     "rect": [
+      0,
+      1000,
+      800,
+      850.0
+     ],
+     "adjacent": [
+      "embarcadero-west",
+      "south-west-block",
+      "third-north"
+     ]
+    },
+    {
+     "id": "pyramid-tower",
+     "name": "Pyramid Tower",
+     "kind": "land",
+     "rect": [
+      1200,
+      1000,
+      850.0,
+      850.0
+     ],
+     "adjacent": [
+      "dead-towers",
+      "embarcadero-centre",
+      "old-banks",
+      "third-north"
+     ]
+    },
+    {
+     "id": "old-banks",
+     "name": "Old Banks",
+     "kind": "land",
+     "rect": [
+      2050.0,
+      1000,
+      850.0,
+      850.0
+     ],
+     "adjacent": [
+      "battery-north",
+      "embarcadero-east",
+      "ferry-building",
+      "pyramid-tower"
+     ]
+    },
+    {
+     "id": "east-block",
+     "name": "East Block",
+     "kind": "land",
+     "rect": [
+      3300,
+      1000,
+      600,
+      850.0
+     ],
+     "adjacent": [
+      "battery-north",
+      "north-east-block",
+      "south-east-block"
+     ]
+    },
+    {
+     "id": "south-west-block",
+     "name": "South-West Block",
+     "kind": "land",
+     "rect": [
+      0,
+      1850.0,
+      800,
+      850.0
+     ],
+     "adjacent": [
+      "grounder-camp",
+      "third-south"
+     ]
+    },
+    {
+     "id": "dead-towers",
+     "name": "Dead Towers",
+     "kind": "land",
+     "rect": [
+      1200,
+      1850.0,
+      850.0,
+      850.0
+     ],
+     "adjacent": [
+      "ferry-building",
+      "pyramid-tower",
+      "third-south"
+     ]
+    },
+    {
+     "id": "ferry-building",
+     "name": "Ferry Building",
+     "kind": "land",
+     "rect": [
+      2050.0,
+      1850.0,
+      850.0,
+      850.0
+     ],
+     "adjacent": [
+      "battery-south",
+      "dead-towers",
+      "old-banks"
+     ]
+    },
+    {
+     "id": "south-east-block",
+     "name": "South-East Block",
+     "kind": "land",
+     "rect": [
+      3300,
+      1850.0,
+      600,
+      850.0
+     ],
+     "adjacent": [
+      "battery-south",
+      "east-block"
+     ]
+    }
+   ],
+   "links": [
+    {
+     "edge": "S",
+     "slot": "L",
+     "kind": "edge",
+     "rect": [
+      800,
+      2500,
+      400,
+      200
+     ],
+     "to": "BCS-OLD-DT-S",
+     "toName": "Old Downtown \u00b7 South",
+     "toEdge": "N"
+    },
+    {
+     "edge": "S",
+     "slot": "R",
+     "kind": "edge",
+     "rect": [
+      2900,
+      2500,
+      400,
+      200
+     ],
+     "to": "BCS-OLD-DT-S",
+     "toName": "Old Downtown \u00b7 South",
+     "toEdge": "N"
+    },
+    {
+     "edge": "W",
+     "slot": "U",
+     "kind": "edge",
+     "rect": [
+      0,
+      600,
+      200,
+      400
+     ],
+     "to": "BCS-WHARF",
+     "toName": "Wharf & Causeway",
+     "toEdge": "E"
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "rect": [
+      1525.0,
+      800,
+      200,
+      200
+     ],
+     "to": "BAY-SPIRE",
+     "toName": "Meth Spire Penthouse",
+     "land": [
+      320.0,
+      1340.0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "BCS-PANHANDLE",
+   "code": "BCS07",
+   "name": "Panhandle West",
+   "district": "HAIGHT",
+   "col": 0,
+   "row": 1,
+   "file": "streets/bcs07-panhandle-west.webp",
+   "width": 4200,
+   "height": 2700,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "fell-presidio",
+     "name": "Fell & Presidio",
+     "kind": "junction",
+     "rect": [
+      800,
+      600,
+      400,
+      400
+     ],
+     "adjacent": [
+      "fell-west",
+      "north-west-block-2",
+      "presidio-north",
+      "presidio-south"
+     ]
+    },
+    {
+     "id": "oak-presidio",
+     "name": "Oak & Presidio",
+     "kind": "junction",
+     "rect": [
+      800,
+      1700,
+      400,
+      400
+     ],
+     "adjacent": [
+      "oak-west",
+      "presidio-south",
+      "south-west-block",
+      "south-west-block-2"
+     ]
+    },
+    {
+     "id": "fell-stanyan",
+     "name": "Fell & Stanyan",
+     "kind": "junction",
+     "rect": [
+      2900,
+      600,
+      400,
+      400
+     ],
+     "adjacent": [
+      "fell-centre",
+      "fell-east",
+      "golden-gate-park",
+      "stanyan-north"
+     ]
+    },
+    {
+     "id": "oak-stanyan",
+     "name": "Oak & Stanyan",
+     "kind": "junction",
+     "rect": [
+      2900,
+      1700,
+      400,
+      400
+     ],
+     "adjacent": [
+      "oak-centre",
+      "oak-east",
+      "stanyan-north",
+      "stanyan-south"
+     ]
+    },
+    {
+     "id": "fell-west",
+     "name": "Fell West",
+     "kind": "road",
+     "rect": [
+      1200,
+      600,
+      850.0,
+      400
+     ],
+     "adjacent": [
+      "fell-centre",
+      "fell-presidio",
+      "north-block",
+      "panhandle-green"
+     ]
+    },
+    {
+     "id": "fell-centre",
+     "name": "Fell Centre",
+     "kind": "road",
+     "rect": [
+      2050.0,
+      600,
+      850.0,
+      400
+     ],
+     "adjacent": [
+      "fell-stanyan",
+      "fell-west",
+      "golden-gate-park",
+      "ocean-wall"
+     ]
+    },
+    {
+     "id": "fell-east",
+     "name": "Fell East",
+     "kind": "road",
+     "rect": [
+      3300,
+      600,
+      900,
+      400
+     ],
+     "adjacent": [
+      "fell-stanyan",
+      "haight-squats",
+      "kezar-habs"
+     ]
+    },
+    {
+     "id": "oak-west",
+     "name": "Oak West",
+     "kind": "road",
+     "rect": [
+      1200,
+      1700,
+      850.0,
+      400
+     ],
+     "adjacent": [
+      "oak-centre",
+      "oak-presidio",
+      "panhandle-green",
+      "south-block"
+     ]
+    },
+    {
+     "id": "oak-centre",
+     "name": "Oak Centre",
+     "kind": "road",
+     "rect": [
+      2050.0,
+      1700,
+      850.0,
+      400
+     ],
+     "adjacent": [
+      "oak-stanyan",
+      "oak-west",
+      "ocean-wall",
+      "south-block-2"
+     ]
+    },
+    {
+     "id": "oak-east",
+     "name": "Oak East",
+     "kind": "road",
+     "rect": [
+      3300,
+      1700,
+      900,
+      400
+     ],
+     "adjacent": [
+      "haight-squats",
+      "oak-stanyan",
+      "south-east-block"
+     ]
+    },
+    {
+     "id": "presidio-north",
+     "name": "Presidio North",
+     "kind": "road",
+     "rect": [
+      800,
+      0,
+      400,
+      600
+     ],
+     "adjacent": [
+      "fell-presidio",
+      "north-block",
+      "north-west-block"
+     ]
+    },
+    {
+     "id": "presidio-south",
+     "name": "Presidio South",
+     "kind": "road",
+     "rect": [
+      800,
+      1000,
+      400,
+      700
+     ],
+     "adjacent": [
+      "fell-presidio",
+      "oak-presidio",
+      "panhandle-green",
+      "west-block"
+     ]
+    },
+    {
+     "id": "stanyan-north",
+     "name": "Stanyan North",
+     "kind": "road",
+     "rect": [
+      2900,
+      1000,
+      400,
+      700
+     ],
+     "adjacent": [
+      "fell-stanyan",
+      "haight-squats",
+      "oak-stanyan",
+      "ocean-wall"
+     ]
+    },
+    {
+     "id": "stanyan-south",
+     "name": "Stanyan South",
+     "kind": "road",
+     "rect": [
+      2900,
+      2100,
+      400,
+      600
+     ],
+     "adjacent": [
+      "oak-stanyan",
+      "south-block-2",
+      "south-east-block"
+     ]
+    },
+    {
+     "id": "north-west-block",
+     "name": "North-West Block",
+     "kind": "land",
+     "rect": [
+      300,
+      0,
+      500,
+      600
+     ],
+     "adjacent": [
+      "north-west-block-2",
+      "presidio-north"
+     ]
+    },
+    {
+     "id": "north-block",
+     "name": "North Block",
+     "kind": "land",
+     "rect": [
+      1200,
+      0,
+      850.0,
+      600
+     ],
+     "adjacent": [
+      "fell-west",
+      "golden-gate-park",
+      "presidio-north"
+     ]
+    },
+    {
+     "id": "golden-gate-park",
+     "name": "Golden Gate Park",
+     "kind": "land",
+     "rect": [
+      2050.0,
+      0,
+      1250.0,
+      600
+     ],
+     "adjacent": [
+      "fell-centre",
+      "fell-stanyan",
+      "kezar-habs",
+      "north-block"
+     ]
+    },
+    {
+     "id": "kezar-habs",
+     "name": "Kezar Habs",
+     "kind": "land",
+     "rect": [
+      3300,
+      0,
+      900,
+      600
+     ],
+     "adjacent": [
+      "fell-east",
+      "golden-gate-park"
+     ]
+    },
+    {
+     "id": "north-west-block-2",
+     "name": "North-West Block 2",
+     "kind": "land",
+     "rect": [
+      300,
+      600,
+      500,
+      400
+     ],
+     "adjacent": [
+      "fell-presidio",
+      "north-west-block",
+      "west-block"
+     ]
+    },
+    {
+     "id": "west-block",
+     "name": "West Block",
+     "kind": "land",
+     "rect": [
+      300,
+      1000,
+      500,
+      700
+     ],
+     "adjacent": [
+      "north-west-block-2",
+      "presidio-south",
+      "south-west-block-2"
+     ]
+    },
+    {
+     "id": "panhandle-green",
+     "name": "Panhandle Green",
+     "kind": "land",
+     "rect": [
+      1200,
+      1000,
+      850.0,
+      700
+     ],
+     "adjacent": [
+      "fell-west",
+      "oak-west",
+      "ocean-wall",
+      "presidio-south"
+     ]
+    },
+    {
+     "id": "ocean-wall",
+     "name": "Ocean Wall",
+     "kind": "land",
+     "rect": [
+      2050.0,
+      1000,
+      850.0,
+      700
+     ],
+     "adjacent": [
+      "fell-centre",
+      "oak-centre",
+      "panhandle-green",
+      "stanyan-north"
+     ]
+    },
+    {
+     "id": "haight-squats",
+     "name": "Haight Squats",
+     "kind": "land",
+     "rect": [
+      3300,
+      1000,
+      900,
+      700
+     ],
+     "adjacent": [
+      "fell-east",
+      "oak-east",
+      "stanyan-north"
+     ]
+    },
+    {
+     "id": "south-west-block-2",
+     "name": "South-West Block 2",
+     "kind": "land",
+     "rect": [
+      300,
+      1700,
+      500,
+      400
+     ],
+     "adjacent": [
+      "oak-presidio",
+      "south-west-block",
+      "west-block"
+     ]
+    },
+    {
+     "id": "south-west-block",
+     "name": "South-West Block",
+     "kind": "land",
+     "rect": [
+      300,
+      2100,
+      900,
+      600
+     ],
+     "adjacent": [
+      "oak-presidio",
+      "south-block",
+      "south-west-block-2"
+     ]
+    },
+    {
+     "id": "south-block",
+     "name": "South Block",
+     "kind": "land",
+     "rect": [
+      1200,
+      2100,
+      850.0,
+      600
+     ],
+     "adjacent": [
+      "oak-west",
+      "south-block-2",
+      "south-west-block"
+     ]
+    },
+    {
+     "id": "south-block-2",
+     "name": "South Block 2",
+     "kind": "land",
+     "rect": [
+      2050.0,
+      2100,
+      850.0,
+      600
+     ],
+     "adjacent": [
+      "oak-centre",
+      "south-block",
+      "stanyan-south"
+     ]
+    },
+    {
+     "id": "south-east-block",
+     "name": "South-East Block",
+     "kind": "land",
+     "rect": [
+      3300,
+      2100,
+      900,
+      600
+     ],
+     "adjacent": [
+      "oak-east",
+      "stanyan-south"
+     ]
+    }
+   ],
+   "links": [
+    {
+     "edge": "N",
+     "slot": "L",
+     "kind": "edge",
+     "rect": [
+      800,
+      0,
+      400,
+      200
+     ],
+     "to": "BCS-GG-SOUTH",
+     "toName": "Golden Gate \u00b7 South Span",
+     "toEdge": "S"
+    },
+    {
+     "edge": "E",
+     "slot": "U",
+     "kind": "edge",
+     "rect": [
+      4000,
+      600,
+      200,
+      400
+     ],
+     "to": "BCS-FELL",
+     "toName": "Fell Street \u00b7 BCPD",
+     "toEdge": "W"
+    },
+    {
+     "edge": "E",
+     "slot": "D",
+     "kind": "edge",
+     "rect": [
+      4000,
+      1700,
+      200,
+      400
+     ],
+     "to": "BCS-FELL",
+     "toName": "Fell Street \u00b7 BCPD",
+     "toEdge": "W"
+    },
+    {
+     "edge": "S",
+     "slot": "R",
+     "kind": "edge",
+     "rect": [
+      2900,
+      2500,
+      400,
+      200
+     ],
+     "to": "BCS-TWIN-PEAKS",
+     "toName": "Twin Peaks Switchbacks",
+     "toEdge": "N"
+    }
+   ]
+  },
+  {
+   "id": "BCS-FELL",
+   "code": "BCS08",
+   "name": "Fell Street \u00b7 BCPD",
+   "district": "HAYES VALLEY",
+   "col": 1,
+   "row": 1,
+   "file": "streets/bcs08-fell-street-bcpd.webp",
+   "width": 4200,
+   "height": 2700,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "fell-mission",
+     "name": "Fell & Mission",
+     "kind": "junction",
+     "rect": [
+      800,
+      600,
+      400,
+      400
+     ],
+     "adjacent": [
+      "bcpd-fell-st-precinct",
+      "fell-1",
+      "fell-2",
+      "mission-north"
+     ]
+    },
+    {
+     "id": "oak-mission",
+     "name": "Oak & Mission",
+     "kind": "junction",
+     "rect": [
+      800,
+      1700,
+      400,
+      400
+     ],
+     "adjacent": [
+      "mission-north",
+      "mission-south",
+      "oak-1",
+      "oak-2"
+     ]
+    },
+    {
+     "id": "fell-valencia",
+     "name": "Fell & Valencia",
+     "kind": "junction",
+     "rect": [
+      2900,
+      600,
+      400,
+      400
+     ],
+     "adjacent": [
+      "fell-3",
+      "fell-4",
+      "valencia-mid",
+      "valencia-north"
+     ]
+    },
+    {
+     "id": "oak-valencia",
+     "name": "Oak & Valencia",
+     "kind": "junction",
+     "rect": [
+      2900,
+      1700,
+      400,
+      400
+     ],
+     "adjacent": [
+      "oak-3",
+      "oak-4",
+      "valencia-mid",
+      "valencia-south"
+     ]
+    },
+    {
+     "id": "fell-1",
+     "name": "Fell 1",
+     "kind": "road",
+     "rect": [
+      0,
+      600,
+      800,
+      400
+     ],
+     "adjacent": [
+      "bcpd-fell-st-precinct",
+      "fell-mission",
+      "patrol-garage"
+     ]
+    },
+    {
+     "id": "fell-2",
+     "name": "Fell 2",
+     "kind": "road",
+     "rect": [
+      1200,
+      600,
+      850.0,
+      400
+     ],
+     "adjacent": [
+      "fell-3",
+      "fell-mission",
+      "impound-lot",
+      "north-block"
+     ]
+    },
+    {
+     "id": "fell-3",
+     "name": "Fell 3",
+     "kind": "road",
+     "rect": [
+      2050.0,
+      600,
+      850.0,
+      400
+     ],
+     "adjacent": [
+      "alamo-terraces",
+      "fell-2",
+      "fell-valencia",
+      "north-block-2"
+     ]
+    },
+    {
+     "id": "fell-4",
+     "name": "Fell 4",
+     "kind": "road",
+     "rect": [
+      3300,
+      600,
+      900,
+      400
+     ],
+     "adjacent": [
+      "courthouse-annex",
+      "fell-valencia",
+      "hayes-market"
+     ]
+    },
+    {
+     "id": "oak-1",
+     "name": "Oak 1",
+     "kind": "road",
+     "rect": [
+      0,
+      1700,
+      800,
+      400
+     ],
+     "adjacent": [
+      "oak-mission",
+      "patrol-garage",
+      "south-west-block"
+     ]
+    },
+    {
+     "id": "oak-2",
+     "name": "Oak 2",
+     "kind": "road",
+     "rect": [
+      1200,
+      1700,
+      850.0,
+      400
+     ],
+     "adjacent": [
+      "impound-lot",
+      "oak-3",
+      "oak-mission",
+      "south-block"
+     ]
+    },
+    {
+     "id": "oak-3",
+     "name": "Oak 3",
+     "kind": "road",
+     "rect": [
+      2050.0,
+      1700,
+      850.0,
+      400
+     ],
+     "adjacent": [
+      "alamo-terraces",
+      "oak-2",
+      "oak-valencia",
+      "south-block-2"
+     ]
+    },
+    {
+     "id": "oak-4",
+     "name": "Oak 4",
+     "kind": "road",
+     "rect": [
+      3300,
+      1700,
+      900,
+      400
+     ],
+     "adjacent": [
+      "hayes-market",
+      "oak-valencia",
+      "south-east-block"
+     ]
+    },
+    {
+     "id": "mission-north",
+     "name": "Mission North",
+     "kind": "road",
+     "rect": [
+      800,
+      1000,
+      400,
+      700
+     ],
+     "adjacent": [
+      "fell-mission",
+      "impound-lot",
+      "oak-mission",
+      "patrol-garage"
+     ]
+    },
+    {
+     "id": "mission-south",
+     "name": "Mission South",
+     "kind": "road",
+     "rect": [
+      800,
+      2100,
+      400,
+      600
+     ],
+     "adjacent": [
+      "oak-mission",
+      "south-block",
+      "south-west-block"
+     ]
+    },
+    {
+     "id": "valencia-north",
+     "name": "Valencia North",
+     "kind": "road",
+     "rect": [
+      2900,
+      0,
+      400,
+      600
+     ],
+     "adjacent": [
+      "courthouse-annex",
+      "fell-valencia",
+      "north-block-2"
+     ]
+    },
+    {
+     "id": "valencia-mid",
+     "name": "Valencia Mid",
+     "kind": "road",
+     "rect": [
+      2900,
+      1000,
+      400,
+      700
+     ],
+     "adjacent": [
+      "alamo-terraces",
+      "fell-valencia",
+      "hayes-market",
+      "oak-valencia"
+     ]
+    },
+    {
+     "id": "valencia-south",
+     "name": "Valencia South",
+     "kind": "road",
+     "rect": [
+      2900,
+      2100,
+      400,
+      600
+     ],
+     "adjacent": [
+      "oak-valencia",
+      "south-block-2",
+      "south-east-block"
+     ]
+    },
+    {
+     "id": "bcpd-fell-st-precinct",
+     "name": "BCPD Fell St Precinct",
+     "kind": "land",
+     "rect": [
+      0,
+      0,
+      1200,
+      600
+     ],
+     "adjacent": [
+      "fell-1",
+      "fell-mission",
+      "north-block"
+     ]
+    },
+    {
+     "id": "north-block",
+     "name": "North Block",
+     "kind": "land",
+     "rect": [
+      1200,
+      0,
+      850.0,
+      600
+     ],
+     "adjacent": [
+      "bcpd-fell-st-precinct",
+      "fell-2",
+      "north-block-2"
+     ]
+    },
+    {
+     "id": "north-block-2",
+     "name": "North Block 2",
+     "kind": "land",
+     "rect": [
+      2050.0,
+      0,
+      850.0,
+      600
+     ],
+     "adjacent": [
+      "fell-3",
+      "north-block",
+      "valencia-north"
+     ]
+    },
+    {
+     "id": "courthouse-annex",
+     "name": "Courthouse Annex",
+     "kind": "land",
+     "rect": [
+      3300,
+      0,
+      900,
+      600
+     ],
+     "adjacent": [
+      "fell-4",
+      "valencia-north"
+     ]
+    },
+    {
+     "id": "patrol-garage",
+     "name": "Patrol Garage",
+     "kind": "land",
+     "rect": [
+      0,
+      1000,
+      800,
+      700
+     ],
+     "adjacent": [
+      "fell-1",
+      "mission-north",
+      "oak-1"
+     ]
+    },
+    {
+     "id": "impound-lot",
+     "name": "Impound Lot",
+     "kind": "land",
+     "rect": [
+      1200,
+      1000,
+      850.0,
+      700
+     ],
+     "adjacent": [
+      "alamo-terraces",
+      "fell-2",
+      "mission-north",
+      "oak-2"
+     ]
+    },
+    {
+     "id": "alamo-terraces",
+     "name": "Alamo Terraces",
+     "kind": "land",
+     "rect": [
+      2050.0,
+      1000,
+      850.0,
+      700
+     ],
+     "adjacent": [
+      "fell-3",
+      "impound-lot",
+      "oak-3",
+      "valencia-mid"
+     ]
+    },
+    {
+     "id": "hayes-market",
+     "name": "Hayes Market",
+     "kind": "land",
+     "rect": [
+      3300,
+      1000,
+      900,
+      700
+     ],
+     "adjacent": [
+      "fell-4",
+      "oak-4",
+      "valencia-mid"
+     ]
+    },
+    {
+     "id": "south-west-block",
+     "name": "South-West Block",
+     "kind": "land",
+     "rect": [
+      0,
+      2100,
+      800,
+      600
+     ],
+     "adjacent": [
+      "mission-south",
+      "oak-1"
+     ]
+    },
+    {
+     "id": "south-block",
+     "name": "South Block",
+     "kind": "land",
+     "rect": [
+      1200,
+      2100,
+      850.0,
+      600
+     ],
+     "adjacent": [
+      "mission-south",
+      "oak-2",
+      "south-block-2"
+     ]
+    },
+    {
+     "id": "south-block-2",
+     "name": "South Block 2",
+     "kind": "land",
+     "rect": [
+      2050.0,
+      2100,
+      850.0,
+      600
+     ],
+     "adjacent": [
+      "oak-3",
+      "south-block",
+      "valencia-south"
+     ]
+    },
+    {
+     "id": "south-east-block",
+     "name": "South-East Block",
+     "kind": "land",
+     "rect": [
+      3300,
+      2100,
+      900,
+      600
+     ],
+     "adjacent": [
+      "oak-4",
+      "valencia-south"
+     ]
+    }
+   ],
+   "links": [
+    {
+     "edge": "N",
+     "slot": "R",
+     "kind": "edge",
+     "rect": [
+      2900,
+      0,
+      400,
+      200
+     ],
+     "to": "BCS-MARINA",
+     "toName": "Marina Seawall",
+     "toEdge": "S"
+    },
+    {
+     "edge": "E",
+     "slot": "U",
+     "kind": "edge",
+     "rect": [
+      4000,
+      600,
+      200,
+      400
+     ],
+     "to": "BCS-CIVIC",
+     "toName": "Civic Center",
+     "toEdge": "W"
+    },
+    {
+     "edge": "E",
+     "slot": "D",
+     "kind": "edge",
+     "rect": [
+      4000,
+      1700,
+      200,
+      400
+     ],
+     "to": "BCS-CIVIC",
+     "toName": "Civic Center",
+     "toEdge": "W"
+    },
+    {
+     "edge": "S",
+     "slot": "L",
+     "kind": "edge",
+     "rect": [
+      800,
+      2500,
+      400,
+      200
+     ],
+     "to": "BCS-MISSION",
+     "toName": "Mission Street \u00b7 AI Hotels",
+     "toEdge": "N"
+    },
+    {
+     "edge": "S",
+     "slot": "R",
+     "kind": "edge",
+     "rect": [
+      2900,
+      2500,
+      400,
+      200
+     ],
+     "to": "BCS-MISSION",
+     "toName": "Mission Street \u00b7 AI Hotels",
+     "toEdge": "N"
+    },
+    {
+     "edge": "W",
+     "slot": "U",
+     "kind": "edge",
+     "rect": [
+      0,
+      600,
+      200,
+      400
+     ],
+     "to": "BCS-PANHANDLE",
+     "toName": "Panhandle West",
+     "toEdge": "E"
+    },
+    {
+     "edge": "W",
+     "slot": "D",
+     "kind": "edge",
+     "rect": [
+      0,
+      1700,
+      200,
+      400
+     ],
+     "to": "BCS-PANHANDLE",
+     "toName": "Panhandle West",
+     "toEdge": "E"
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "rect": [
+      300.0,
+      600,
+      200,
+      200
+     ],
+     "to": "BAY-PRECINCT",
+     "toName": "Bcpd Precinct House",
+     "land": [
+      320.0,
+      450.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "rect": [
+      300.0,
+      800,
+      200,
+      200
+     ],
+     "to": "BAY-PRECINCT",
+     "toName": "Bcpd Precinct House",
+     "land": [
+      1620.0,
+      1240.0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "BCS-CIVIC",
+   "code": "BCS09",
+   "name": "Civic Center",
+   "district": "CIVIC CENTER",
+   "col": 2,
+   "row": 1,
+   "file": "streets/bcs09-civic-center.webp",
+   "width": 4200,
+   "height": 2700,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "fell-van-ness",
+     "name": "Fell & Van Ness",
+     "kind": "junction",
+     "rect": [
+      800,
+      600,
+      400,
+      400
+     ],
+     "adjacent": [
+      "fell-1",
+      "fell-2",
+      "van-ness-mid",
+      "van-ness-north"
+     ]
+    },
+    {
+     "id": "oak-van-ness",
+     "name": "Oak & Van Ness",
+     "kind": "junction",
+     "rect": [
+      800,
+      1700,
+      400,
+      400
+     ],
+     "adjacent": [
+      "oak-1",
+      "oak-2",
+      "van-ness-mid",
+      "van-ness-south"
+     ]
+    },
+    {
+     "id": "fell-powell",
+     "name": "Fell & Powell",
+     "kind": "junction",
+     "rect": [
+      2900,
+      600,
+      400,
+      400
+     ],
+     "adjacent": [
+      "fell-3",
+      "fell-4",
+      "powell-mid",
+      "powell-north"
+     ]
+    },
+    {
+     "id": "oak-powell",
+     "name": "Oak & Powell",
+     "kind": "junction",
+     "rect": [
+      2900,
+      1700,
+      400,
+      400
+     ],
+     "adjacent": [
+      "oak-3",
+      "oak-4",
+      "powell-mid",
+      "powell-south"
+     ]
+    },
+    {
+     "id": "fell-1",
+     "name": "Fell 1",
+     "kind": "road",
+     "rect": [
+      0,
+      600,
+      800,
+      400
+     ],
+     "adjacent": [
+      "fell-van-ness",
+      "north-west-block",
+      "opera-house"
+     ]
+    },
+    {
+     "id": "fell-2",
+     "name": "Fell 2",
+     "kind": "road",
+     "rect": [
+      1200,
+      600,
+      850.0,
+      400
+     ],
+     "adjacent": [
+      "fell-3",
+      "fell-van-ness",
+      "maglev-depot",
+      "un-plaza"
+     ]
+    },
+    {
+     "id": "fell-3",
+     "name": "Fell 3",
+     "kind": "road",
+     "rect": [
+      2050.0,
+      600,
+      850.0,
+      400
+     ],
+     "adjacent": [
+      "fell-2",
+      "fell-powell",
+      "protectorate-office",
+      "slums"
+     ]
+    },
+    {
+     "id": "fell-4",
+     "name": "Fell 4",
+     "kind": "road",
+     "rect": [
+      3300,
+      600,
+      900,
+      400
+     ],
+     "adjacent": [
+      "city-hall-ruins",
+      "fell-powell",
+      "transit-hub"
+     ]
+    },
+    {
+     "id": "oak-1",
+     "name": "Oak 1",
+     "kind": "road",
+     "rect": [
+      0,
+      1700,
+      800,
+      400
+     ],
+     "adjacent": [
+      "oak-van-ness",
+      "opera-house",
+      "south-west-block"
+     ]
+    },
+    {
+     "id": "oak-2",
+     "name": "Oak 2",
+     "kind": "road",
+     "rect": [
+      1200,
+      1700,
+      850.0,
+      400
+     ],
+     "adjacent": [
+      "market-arcade",
+      "oak-3",
+      "oak-van-ness",
+      "un-plaza"
+     ]
+    },
+    {
+     "id": "oak-3",
+     "name": "Oak 3",
+     "kind": "road",
+     "rect": [
+      2050.0,
+      1700,
+      850.0,
+      400
+     ],
+     "adjacent": [
+      "oak-2",
+      "oak-powell",
+      "protectorate-office",
+      "south-block"
+     ]
+    },
+    {
+     "id": "oak-4",
+     "name": "Oak 4",
+     "kind": "road",
+     "rect": [
+      3300,
+      1700,
+      900,
+      400
+     ],
+     "adjacent": [
+      "archive-tower",
+      "city-hall-ruins",
+      "oak-powell"
+     ]
+    },
+    {
+     "id": "van-ness-north",
+     "name": "Van Ness North",
+     "kind": "road",
+     "rect": [
+      800,
+      0,
+      400,
+      600
+     ],
+     "adjacent": [
+      "fell-van-ness",
+      "maglev-depot",
+      "north-west-block"
+     ]
+    },
+    {
+     "id": "van-ness-mid",
+     "name": "Van Ness Mid",
+     "kind": "road",
+     "rect": [
+      800,
+      1000,
+      400,
+      700
+     ],
+     "adjacent": [
+      "fell-van-ness",
+      "oak-van-ness",
+      "opera-house",
+      "un-plaza"
+     ]
+    },
+    {
+     "id": "van-ness-south",
+     "name": "Van Ness South",
+     "kind": "road",
+     "rect": [
+      800,
+      2100,
+      400,
+      600
+     ],
+     "adjacent": [
+      "market-arcade",
+      "oak-van-ness",
+      "south-west-block"
+     ]
+    },
+    {
+     "id": "powell-north",
+     "name": "Powell North",
+     "kind": "road",
+     "rect": [
+      2900,
+      0,
+      400,
+      600
+     ],
+     "adjacent": [
+      "fell-powell",
+      "slums",
+      "transit-hub"
+     ]
+    },
+    {
+     "id": "powell-mid",
+     "name": "Powell Mid",
+     "kind": "road",
+     "rect": [
+      2900,
+      1000,
+      400,
+      700
+     ],
+     "adjacent": [
+      "city-hall-ruins",
+      "fell-powell",
+      "oak-powell",
+      "protectorate-office"
+     ]
+    },
+    {
+     "id": "powell-south",
+     "name": "Powell South",
+     "kind": "road",
+     "rect": [
+      2900,
+      2100,
+      400,
+      600
+     ],
+     "adjacent": [
+      "archive-tower",
+      "oak-powell",
+      "south-block"
+     ]
+    },
+    {
+     "id": "north-west-block",
+     "name": "North-West Block",
+     "kind": "land",
+     "rect": [
+      0,
+      0,
+      800,
+      600
+     ],
+     "adjacent": [
+      "fell-1",
+      "van-ness-north"
+     ]
+    },
+    {
+     "id": "maglev-depot",
+     "name": "Maglev Depot",
+     "kind": "land",
+     "rect": [
+      1200,
+      0,
+      850.0,
+      600
+     ],
+     "adjacent": [
+      "fell-2",
+      "slums",
+      "van-ness-north"
+     ]
+    },
+    {
+     "id": "slums",
+     "name": "Slums",
+     "kind": "land",
+     "rect": [
+      2050.0,
+      0,
+      850.0,
+      600
+     ],
+     "adjacent": [
+      "fell-3",
+      "maglev-depot",
+      "powell-north"
+     ]
+    },
+    {
+     "id": "transit-hub",
+     "name": "Transit Hub",
+     "kind": "land",
+     "rect": [
+      3300,
+      0,
+      900,
+      600
+     ],
+     "adjacent": [
+      "fell-4",
+      "powell-north"
+     ]
+    },
+    {
+     "id": "opera-house",
+     "name": "Opera House",
+     "kind": "land",
+     "rect": [
+      0,
+      1000,
+      800,
+      700
+     ],
+     "adjacent": [
+      "fell-1",
+      "oak-1",
+      "van-ness-mid"
+     ]
+    },
+    {
+     "id": "un-plaza",
+     "name": "UN Plaza",
+     "kind": "land",
+     "rect": [
+      1200,
+      1000,
+      850.0,
+      700
+     ],
+     "adjacent": [
+      "fell-2",
+      "oak-2",
+      "protectorate-office",
+      "van-ness-mid"
+     ]
+    },
+    {
+     "id": "protectorate-office",
+     "name": "Protectorate Office",
+     "kind": "land",
+     "rect": [
+      2050.0,
+      1000,
+      850.0,
+      700
+     ],
+     "adjacent": [
+      "fell-3",
+      "oak-3",
+      "powell-mid",
+      "un-plaza"
+     ]
+    },
+    {
+     "id": "city-hall-ruins",
+     "name": "City Hall Ruins",
+     "kind": "land",
+     "rect": [
+      3300,
+      1000,
+      900,
+      700
+     ],
+     "adjacent": [
+      "fell-4",
+      "oak-4",
+      "powell-mid"
+     ]
+    },
+    {
+     "id": "south-west-block",
+     "name": "South-West Block",
+     "kind": "land",
+     "rect": [
+      0,
+      2100,
+      800,
+      600
+     ],
+     "adjacent": [
+      "oak-1",
+      "van-ness-south"
+     ]
+    },
+    {
+     "id": "market-arcade",
+     "name": "Market Arcade",
+     "kind": "land",
+     "rect": [
+      1200,
+      2100,
+      850.0,
+      600
+     ],
+     "adjacent": [
+      "oak-2",
+      "south-block",
+      "van-ness-south"
+     ]
+    },
+    {
+     "id": "south-block",
+     "name": "South Block",
+     "kind": "land",
+     "rect": [
+      2050.0,
+      2100,
+      850.0,
+      600
+     ],
+     "adjacent": [
+      "market-arcade",
+      "oak-3",
+      "powell-south"
+     ]
+    },
+    {
+     "id": "archive-tower",
+     "name": "Archive Tower",
+     "kind": "land",
+     "rect": [
+      3300,
+      2100,
+      900,
+      600
+     ],
+     "adjacent": [
+      "oak-4",
+      "powell-south"
+     ]
+    }
+   ],
+   "links": [
+    {
+     "edge": "N",
+     "slot": "L",
+     "kind": "edge",
+     "rect": [
+      800,
+      0,
+      400,
+      200
+     ],
+     "to": "BCS-WHARF",
+     "toName": "Wharf & Causeway",
+     "toEdge": "S"
+    },
+    {
+     "edge": "N",
+     "slot": "R",
+     "kind": "edge",
+     "rect": [
+      2900,
+      0,
+      400,
+      200
+     ],
+     "to": "BCS-WHARF",
+     "toName": "Wharf & Causeway",
+     "toEdge": "S"
+    },
+    {
+     "edge": "E",
+     "slot": "U",
+     "kind": "edge",
+     "rect": [
+      4000,
+      600,
+      200,
+      400
+     ],
+     "to": "BCS-OLD-DT-S",
+     "toName": "Old Downtown \u00b7 South",
+     "toEdge": "W"
+    },
+    {
+     "edge": "E",
+     "slot": "D",
+     "kind": "edge",
+     "rect": [
+      4000,
+      1700,
+      200,
+      400
+     ],
+     "to": "BCS-OLD-DT-S",
+     "toName": "Old Downtown \u00b7 South",
+     "toEdge": "W"
+    },
+    {
+     "edge": "S",
+     "slot": "L",
+     "kind": "edge",
+     "rect": [
+      800,
+      2500,
+      400,
+      200
+     ],
+     "to": "BCS-LICKTOWN",
+     "toName": "Licktown",
+     "toEdge": "N"
+    },
+    {
+     "edge": "S",
+     "slot": "R",
+     "kind": "edge",
+     "rect": [
+      2900,
+      2500,
+      400,
+      200
+     ],
+     "to": "BCS-LICKTOWN",
+     "toName": "Licktown",
+     "toEdge": "N"
+    },
+    {
+     "edge": "W",
+     "slot": "U",
+     "kind": "edge",
+     "rect": [
+      0,
+      600,
+      200,
+      400
+     ],
+     "to": "BCS-FELL",
+     "toName": "Fell Street \u00b7 BCPD",
+     "toEdge": "E"
+    },
+    {
+     "edge": "W",
+     "slot": "D",
+     "kind": "edge",
+     "rect": [
+      0,
+      1700,
+      200,
+      400
+     ],
+     "to": "BCS-FELL",
+     "toName": "Fell Street \u00b7 BCPD",
+     "toEdge": "E"
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "rect": [
+      3650.0,
+      600,
+      200,
+      200
+     ],
+     "to": "BAY-SKYPORT",
+     "toName": "Skyport Landing Deck",
+     "land": [
+      320.0,
+      1330.0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "BCS-OLD-DT-S",
+   "code": "BCS10",
+   "name": "Old Downtown \u00b7 South",
+   "district": "OLD DOWNTOWN",
+   "col": 3,
+   "row": 1,
+   "file": "streets/bcs10-old-downtown-south.webp",
+   "width": 4200,
+   "height": 2700,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "fell-third",
+     "name": "Fell & Third",
+     "kind": "junction",
+     "rect": [
+      800,
+      600,
+      400,
+      400
+     ],
+     "adjacent": [
+      "fell-centre",
+      "fell-west",
+      "third-mid",
+      "third-north"
+     ]
+    },
+    {
+     "id": "oak-third",
+     "name": "Oak & Third",
+     "kind": "junction",
+     "rect": [
+      800,
+      1700,
+      400,
+      400
+     ],
+     "adjacent": [
+      "oak-centre",
+      "oak-west",
+      "third-mid",
+      "third-south"
+     ]
+    },
+    {
+     "id": "fell-battery",
+     "name": "Fell & Battery",
+     "kind": "junction",
+     "rect": [
+      2900,
+      600,
+      400,
+      400
+     ],
+     "adjacent": [
+      "battery-north",
+      "battery-south",
+      "fell-east",
+      "north-east-block-2"
+     ]
+    },
+    {
+     "id": "oak-battery",
+     "name": "Oak & Battery",
+     "kind": "junction",
+     "rect": [
+      2900,
+      1700,
+      400,
+      400
+     ],
+     "adjacent": [
+      "battery-south",
+      "maglev-station",
+      "oak-east",
+      "south-east-block-2"
+     ]
+    },
+    {
+     "id": "fell-west",
+     "name": "Fell West",
+     "kind": "road",
+     "rect": [
+      0,
+      600,
+      800,
+      400
+     ],
+     "adjacent": [
+      "fell-third",
+      "north-west-block",
+      "salesforce-hulk"
+     ]
+    },
+    {
+     "id": "fell-centre",
+     "name": "Fell Centre",
+     "kind": "road",
+     "rect": [
+      1200,
+      600,
+      850.0,
+      400
+     ],
+     "adjacent": [
+      "fell-east",
+      "fell-third",
+      "old-downtown-arcade",
+      "rincon-habs"
+     ]
+    },
+    {
+     "id": "fell-east",
+     "name": "Fell East",
+     "kind": "road",
+     "rect": [
+      2050.0,
+      600,
+      850.0,
+      400
+     ],
+     "adjacent": [
+      "bay-bridge-ramp",
+      "fell-battery",
+      "fell-centre",
+      "stack-brokers"
+     ]
+    },
+    {
+     "id": "oak-west",
+     "name": "Oak West",
+     "kind": "road",
+     "rect": [
+      0,
+      1700,
+      800,
+      400
+     ],
+     "adjacent": [
+      "oak-third",
+      "salesforce-hulk",
+      "south-west-block"
+     ]
+    },
+    {
+     "id": "oak-centre",
+     "name": "Oak Centre",
+     "kind": "road",
+     "rect": [
+      1200,
+      1700,
+      850.0,
+      400
+     ],
+     "adjacent": [
+      "oak-east",
+      "oak-third",
+      "old-downtown-arcade",
+      "south-block"
+     ]
+    },
+    {
+     "id": "oak-east",
+     "name": "Oak East",
+     "kind": "road",
+     "rect": [
+      2050.0,
+      1700,
+      850.0,
+      400
+     ],
+     "adjacent": [
+      "bay-bridge-ramp",
+      "maglev-station",
+      "oak-battery",
+      "oak-centre"
+     ]
+    },
+    {
+     "id": "third-north",
+     "name": "Third North",
+     "kind": "road",
+     "rect": [
+      800,
+      0,
+      400,
+      600
+     ],
+     "adjacent": [
+      "fell-third",
+      "north-west-block",
+      "rincon-habs"
+     ]
+    },
+    {
+     "id": "third-mid",
+     "name": "Third Mid",
+     "kind": "road",
+     "rect": [
+      800,
+      1000,
+      400,
+      700
+     ],
+     "adjacent": [
+      "fell-third",
+      "oak-third",
+      "old-downtown-arcade",
+      "salesforce-hulk"
+     ]
+    },
+    {
+     "id": "third-south",
+     "name": "Third South",
+     "kind": "road",
+     "rect": [
+      800,
+      2100,
+      400,
+      600
+     ],
+     "adjacent": [
+      "oak-third",
+      "south-block",
+      "south-west-block"
+     ]
+    },
+    {
+     "id": "battery-north",
+     "name": "Battery North",
+     "kind": "road",
+     "rect": [
+      2900,
+      0,
+      400,
+      600
+     ],
+     "adjacent": [
+      "fell-battery",
+      "north-east-block",
+      "stack-brokers"
+     ]
+    },
+    {
+     "id": "battery-south",
+     "name": "Battery South",
+     "kind": "road",
+     "rect": [
+      2900,
+      1000,
+      400,
+      700
+     ],
+     "adjacent": [
+      "bay-bridge-ramp",
+      "east-block",
+      "fell-battery",
+      "oak-battery"
+     ]
+    },
+    {
+     "id": "north-west-block",
+     "name": "North-West Block",
+     "kind": "land",
+     "rect": [
+      0,
+      0,
+      800,
+      600
+     ],
+     "adjacent": [
+      "fell-west",
+      "third-north"
+     ]
+    },
+    {
+     "id": "rincon-habs",
+     "name": "Rincon Habs",
+     "kind": "land",
+     "rect": [
+      1200,
+      0,
+      850.0,
+      600
+     ],
+     "adjacent": [
+      "fell-centre",
+      "stack-brokers",
+      "third-north"
+     ]
+    },
+    {
+     "id": "stack-brokers",
+     "name": "Stack Brokers",
+     "kind": "land",
+     "rect": [
+      2050.0,
+      0,
+      850.0,
+      600
+     ],
+     "adjacent": [
+      "battery-north",
+      "fell-east",
+      "rincon-habs"
+     ]
+    },
+    {
+     "id": "north-east-block",
+     "name": "North-East Block",
+     "kind": "land",
+     "rect": [
+      3300,
+      0,
+      600,
+      600
+     ],
+     "adjacent": [
+      "battery-north",
+      "north-east-block-2"
+     ]
+    },
+    {
+     "id": "north-east-block-2",
+     "name": "North-East Block 2",
+     "kind": "land",
+     "rect": [
+      3300,
+      600,
+      600,
+      400
+     ],
+     "adjacent": [
+      "east-block",
+      "fell-battery",
+      "north-east-block"
+     ]
+    },
+    {
+     "id": "salesforce-hulk",
+     "name": "Salesforce Hulk",
+     "kind": "land",
+     "rect": [
+      0,
+      1000,
+      800,
+      700
+     ],
+     "adjacent": [
+      "fell-west",
+      "oak-west",
+      "third-mid"
+     ]
+    },
+    {
+     "id": "old-downtown-arcade",
+     "name": "Old Downtown Arcade",
+     "kind": "land",
+     "rect": [
+      1200,
+      1000,
+      850.0,
+      700
+     ],
+     "adjacent": [
+      "bay-bridge-ramp",
+      "fell-centre",
+      "oak-centre",
+      "third-mid"
+     ]
+    },
+    {
+     "id": "bay-bridge-ramp",
+     "name": "Bay Bridge Ramp",
+     "kind": "land",
+     "rect": [
+      2050.0,
+      1000,
+      850.0,
+      700
+     ],
+     "adjacent": [
+      "battery-south",
+      "fell-east",
+      "oak-east",
+      "old-downtown-arcade"
+     ]
+    },
+    {
+     "id": "east-block",
+     "name": "East Block",
+     "kind": "land",
+     "rect": [
+      3300,
+      1000,
+      600,
+      700
+     ],
+     "adjacent": [
+      "battery-south",
+      "north-east-block-2",
+      "south-east-block-2"
+     ]
+    },
+    {
+     "id": "south-east-block-2",
+     "name": "South-East Block 2",
+     "kind": "land",
+     "rect": [
+      3300,
+      1700,
+      600,
+      400
+     ],
+     "adjacent": [
+      "east-block",
+      "oak-battery",
+      "south-east-block"
+     ]
+    },
+    {
+     "id": "south-west-block",
+     "name": "South-West Block",
+     "kind": "land",
+     "rect": [
+      0,
+      2100,
+      800,
+      600
+     ],
+     "adjacent": [
+      "oak-west",
+      "third-south"
+     ]
+    },
+    {
+     "id": "south-block",
+     "name": "South Block",
+     "kind": "land",
+     "rect": [
+      1200,
+      2100,
+      850.0,
+      600
+     ],
+     "adjacent": [
+      "maglev-station",
+      "oak-centre",
+      "third-south"
+     ]
+    },
+    {
+     "id": "maglev-station",
+     "name": "Maglev Station",
+     "kind": "land",
+     "rect": [
+      2050.0,
+      2100,
+      1250.0,
+      600
+     ],
+     "adjacent": [
+      "oak-battery",
+      "oak-east",
+      "south-block",
+      "south-east-block"
+     ]
+    },
+    {
+     "id": "south-east-block",
+     "name": "South-East Block",
+     "kind": "land",
+     "rect": [
+      3300,
+      2100,
+      600,
+      600
+     ],
+     "adjacent": [
+      "maglev-station",
+      "south-east-block-2"
+     ]
+    }
+   ],
+   "links": [
+    {
+     "edge": "N",
+     "slot": "L",
+     "kind": "edge",
+     "rect": [
+      800,
+      0,
+      400,
+      200
+     ],
+     "to": "BCS-OLD-DT-N",
+     "toName": "Old Downtown \u00b7 North",
+     "toEdge": "S"
+    },
+    {
+     "edge": "N",
+     "slot": "R",
+     "kind": "edge",
+     "rect": [
+      2900,
+      0,
+      400,
+      200
+     ],
+     "to": "BCS-OLD-DT-N",
+     "toName": "Old Downtown \u00b7 North",
+     "toEdge": "S"
+    },
+    {
+     "edge": "S",
+     "slot": "L",
+     "kind": "edge",
+     "rect": [
+      800,
+      2500,
+      400,
+      200
+     ],
+     "to": "BCS-DOGPATCH",
+     "toName": "Dogpatch Docks",
+     "toEdge": "N"
+    },
+    {
+     "edge": "W",
+     "slot": "U",
+     "kind": "edge",
+     "rect": [
+      0,
+      600,
+      200,
+      400
+     ],
+     "to": "BCS-CIVIC",
+     "toName": "Civic Center",
+     "toEdge": "E"
+    },
+    {
+     "edge": "W",
+     "slot": "D",
+     "kind": "edge",
+     "rect": [
+      0,
+      1700,
+      200,
+      400
+     ],
+     "to": "BCS-CIVIC",
+     "toName": "Civic Center",
+     "toEdge": "E"
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "rect": [
+      1525.0,
+      800,
+      200,
+      200
+     ],
+     "to": "BAY-STRIP",
+     "toName": "The Neon Strip",
+     "land": [
+      320.0,
+      650.0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "BCS-TWIN-PEAKS",
+   "code": "BCS11",
+   "name": "Twin Peaks Switchbacks",
+   "district": "TWIN PEAKS",
+   "col": 0,
+   "row": 2,
+   "file": "streets/bcs11-twin-peaks-switchbacks.webp",
+   "width": 4200,
+   "height": 2700,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "cesar-chavez-stanyan",
+     "name": "Cesar Chavez & Stanyan",
+     "kind": "junction",
+     "rect": [
+      2900,
+      1700,
+      400,
+      400
+     ],
+     "adjacent": [
+      "cesar-chavez-st",
+      "south-block-3",
+      "south-east-block-2",
+      "stanyan-south"
+     ]
+    },
+    {
+     "id": "cesar-chavez-st",
+     "name": "Cesar Chavez St",
+     "kind": "road",
+     "rect": [
+      3300,
+      1700,
+      900,
+      400
+     ],
+     "adjacent": [
+      "cesar-chavez-stanyan",
+      "peak-overlook",
+      "south-east-block"
+     ]
+    },
+    {
+     "id": "stanyan-north",
+     "name": "Stanyan North",
+     "kind": "road",
+     "rect": [
+      2900,
+      0,
+      400,
+      850.0
+     ],
+     "adjacent": [
+      "reservoir",
+      "stanyan-south",
+      "sutro-mast"
+     ]
+    },
+    {
+     "id": "stanyan-south",
+     "name": "Stanyan South",
+     "kind": "road",
+     "rect": [
+      2900,
+      850.0,
+      400,
+      850.0
+     ],
+     "adjacent": [
+      "cesar-chavez-stanyan",
+      "hill-habs",
+      "peak-overlook",
+      "stanyan-north"
+     ]
+    },
+    {
+     "id": "north-west-block",
+     "name": "North-West Block",
+     "kind": "land",
+     "rect": [
+      300,
+      0,
+      866.7,
+      850.0
+     ],
+     "adjacent": [
+      "north-block",
+      "west-block"
+     ]
+    },
+    {
+     "id": "north-block",
+     "name": "North Block",
+     "kind": "land",
+     "rect": [
+      1166.7,
+      0,
+      866.6,
+      850.0
+     ],
+     "adjacent": [
+      "central-block",
+      "north-west-block",
+      "reservoir"
+     ]
+    },
+    {
+     "id": "reservoir",
+     "name": "Reservoir",
+     "kind": "land",
+     "rect": [
+      2033.3,
+      0,
+      866.7,
+      850.0
+     ],
+     "adjacent": [
+      "hill-habs",
+      "north-block",
+      "stanyan-north"
+     ]
+    },
+    {
+     "id": "sutro-mast",
+     "name": "Sutro Mast",
+     "kind": "land",
+     "rect": [
+      3300,
+      0,
+      900,
+      850.0
+     ],
+     "adjacent": [
+      "peak-overlook",
+      "stanyan-north"
+     ]
+    },
+    {
+     "id": "west-block",
+     "name": "West Block",
+     "kind": "land",
+     "rect": [
+      300,
+      850.0,
+      866.7,
+      850.0
+     ],
+     "adjacent": [
+      "central-block",
+      "north-west-block",
+      "south-west-block-2"
+     ]
+    },
+    {
+     "id": "central-block",
+     "name": "Central Block",
+     "kind": "land",
+     "rect": [
+      1166.7,
+      850.0,
+      866.6,
+      850.0
+     ],
+     "adjacent": [
+      "hill-habs",
+      "north-block",
+      "south-block-4",
+      "west-block"
+     ]
+    },
+    {
+     "id": "hill-habs",
+     "name": "Hill Habs",
+     "kind": "land",
+     "rect": [
+      2033.3,
+      850.0,
+      866.7,
+      850.0
+     ],
+     "adjacent": [
+      "central-block",
+      "reservoir",
+      "south-block-3",
+      "stanyan-south"
+     ]
+    },
+    {
+     "id": "peak-overlook",
+     "name": "Peak Overlook",
+     "kind": "land",
+     "rect": [
+      3300,
+      850.0,
+      900,
+      850.0
+     ],
+     "adjacent": [
+      "cesar-chavez-st",
+      "stanyan-south",
+      "sutro-mast"
+     ]
+    },
+    {
+     "id": "south-west-block-2",
+     "name": "South-West Block 2",
+     "kind": "land",
+     "rect": [
+      300,
+      1700,
+      866.7,
+      400
+     ],
+     "adjacent": [
+      "south-block-4",
+      "south-west-block",
+      "west-block"
+     ]
+    },
+    {
+     "id": "south-block-4",
+     "name": "South Block 4",
+     "kind": "land",
+     "rect": [
+      1166.7,
+      1700,
+      866.6,
+      400
+     ],
+     "adjacent": [
+      "central-block",
+      "south-block-2",
+      "south-block-3",
+      "south-west-block-2"
+     ]
+    },
+    {
+     "id": "south-block-3",
+     "name": "South Block 3",
+     "kind": "land",
+     "rect": [
+      2033.3,
+      1700,
+      866.7,
+      400
+     ],
+     "adjacent": [
+      "cesar-chavez-stanyan",
+      "hill-habs",
+      "south-block",
+      "south-block-4"
+     ]
+    },
+    {
+     "id": "south-west-block",
+     "name": "South-West Block",
+     "kind": "land",
+     "rect": [
+      300,
+      2100,
+      866.7,
+      600
+     ],
+     "adjacent": [
+      "south-block-2",
+      "south-west-block-2"
+     ]
+    },
+    {
+     "id": "south-block-2",
+     "name": "South Block 2",
+     "kind": "land",
+     "rect": [
+      1166.7,
+      2100,
+      866.6,
+      600
+     ],
+     "adjacent": [
+      "south-block",
+      "south-block-4",
+      "south-west-block"
+     ]
+    },
+    {
+     "id": "south-block",
+     "name": "South Block",
+     "kind": "land",
+     "rect": [
+      2033.3,
+      2100,
+      866.7,
+      600
+     ],
+     "adjacent": [
+      "south-block-2",
+      "south-block-3",
+      "south-east-block-2"
+     ]
+    },
+    {
+     "id": "south-east-block-2",
+     "name": "South-East Block 2",
+     "kind": "land",
+     "rect": [
+      2900,
+      2100,
+      400,
+      600
+     ],
+     "adjacent": [
+      "cesar-chavez-stanyan",
+      "south-block",
+      "south-east-block"
+     ]
+    },
+    {
+     "id": "south-east-block",
+     "name": "South-East Block",
+     "kind": "land",
+     "rect": [
+      3300,
+      2100,
+      900,
+      600
+     ],
+     "adjacent": [
+      "cesar-chavez-st",
+      "south-east-block-2"
+     ]
+    }
+   ],
+   "links": [
+    {
+     "edge": "N",
+     "slot": "R",
+     "kind": "edge",
+     "rect": [
+      2900,
+      0,
+      400,
+      200
+     ],
+     "to": "BCS-PANHANDLE",
+     "toName": "Panhandle West",
+     "toEdge": "S"
+    },
+    {
+     "edge": "E",
+     "slot": "D",
+     "kind": "edge",
+     "rect": [
+      4000,
+      1700,
+      200,
+      400
+     ],
+     "to": "BCS-MISSION",
+     "toName": "Mission Street \u00b7 AI Hotels",
+     "toEdge": "W"
+    }
+   ]
+  },
+  {
+   "id": "BCS-MISSION",
+   "code": "BCS12",
+   "name": "Mission Street \u00b7 AI Hotels",
+   "district": "MISSION",
+   "col": 1,
+   "row": 2,
+   "file": "streets/bcs12-mission-street-ai-hotels.webp",
+   "width": 4200,
+   "height": 2700,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "16th-mission",
+     "name": "16th & Mission",
+     "kind": "junction",
+     "rect": [
+      800,
+      600,
+      400,
+      400
+     ],
+     "adjacent": [
+      "16th-west",
+      "mission-north",
+      "mission-south",
+      "north-west-block-2"
+     ]
+    },
+    {
+     "id": "cesar-chavez-mission",
+     "name": "Cesar Chavez & Mission",
+     "kind": "junction",
+     "rect": [
+      800,
+      1700,
+      400,
+      400
+     ],
+     "adjacent": [
+      "cesar-chavez-1",
+      "cesar-chavez-2",
+      "mission-south",
+      "the-neon-strip"
+     ]
+    },
+    {
+     "id": "16th-valencia",
+     "name": "16th & Valencia",
+     "kind": "junction",
+     "rect": [
+      2900,
+      600,
+      400,
+      400
+     ],
+     "adjacent": [
+      "16th-centre",
+      "16th-east",
+      "valencia-north",
+      "valencia-south"
+     ]
+    },
+    {
+     "id": "cesar-chavez-valencia",
+     "name": "Cesar Chavez & Valencia",
+     "kind": "junction",
+     "rect": [
+      2900,
+      1700,
+      400,
+      400
+     ],
+     "adjacent": [
+      "ai-hotel-row",
+      "cesar-chavez-3",
+      "cesar-chavez-4",
+      "valencia-south"
+     ]
+    },
+    {
+     "id": "16th-west",
+     "name": "16th West",
+     "kind": "road",
+     "rect": [
+      1200,
+      600,
+      850.0,
+      400
+     ],
+     "adjacent": [
+      "16th-centre",
+      "16th-mission",
+      "dolores-chapel",
+      "north-block"
+     ]
+    },
+    {
+     "id": "16th-centre",
+     "name": "16th Centre",
+     "kind": "road",
+     "rect": [
+      2050.0,
+      600,
+      850.0,
+      400
+     ],
+     "adjacent": [
+      "16th-valencia",
+      "16th-west",
+      "clinic-row",
+      "north-block-2"
+     ]
+    },
+    {
+     "id": "16th-east",
+     "name": "16th East",
+     "kind": "road",
+     "rect": [
+      3300,
+      600,
+      900,
+      400
+     ],
+     "adjacent": [
+      "16th-valencia",
+      "night-market",
+      "taqueria-block"
+     ]
+    },
+    {
+     "id": "cesar-chavez-1",
+     "name": "Cesar Chavez 1",
+     "kind": "road",
+     "rect": [
+      0,
+      1700,
+      800,
+      400
+     ],
+     "adjacent": [
+      "cesar-chavez-mission",
+      "mural-alley",
+      "the-neon-strip"
+     ]
+    },
+    {
+     "id": "cesar-chavez-2",
+     "name": "Cesar Chavez 2",
+     "kind": "road",
+     "rect": [
+      1200,
+      1700,
+      850.0,
+      400
+     ],
+     "adjacent": [
+      "cesar-chavez-3",
+      "cesar-chavez-mission",
+      "dolores-chapel",
+      "south-block"
+     ]
+    },
+    {
+     "id": "cesar-chavez-3",
+     "name": "Cesar Chavez 3",
+     "kind": "road",
+     "rect": [
+      2050.0,
+      1700,
+      850.0,
+      400
+     ],
+     "adjacent": [
+      "ai-hotel-row",
+      "cesar-chavez-2",
+      "cesar-chavez-valencia",
+      "clinic-row"
+     ]
+    },
+    {
+     "id": "cesar-chavez-4",
+     "name": "Cesar Chavez 4",
+     "kind": "road",
+     "rect": [
+      3300,
+      1700,
+      900,
+      400
+     ],
+     "adjacent": [
+      "cesar-chavez-valencia",
+      "south-east-block",
+      "taqueria-block"
+     ]
+    },
+    {
+     "id": "mission-north",
+     "name": "Mission North",
+     "kind": "road",
+     "rect": [
+      800,
+      0,
+      400,
+      600
+     ],
+     "adjacent": [
+      "16th-mission",
+      "north-block",
+      "north-west-block"
+     ]
+    },
+    {
+     "id": "mission-south",
+     "name": "Mission South",
+     "kind": "road",
+     "rect": [
+      800,
+      1000,
+      400,
+      700
+     ],
+     "adjacent": [
+      "16th-mission",
+      "cesar-chavez-mission",
+      "dolores-chapel",
+      "mural-alley"
+     ]
+    },
+    {
+     "id": "valencia-north",
+     "name": "Valencia North",
+     "kind": "road",
+     "rect": [
+      2900,
+      0,
+      400,
+      600
+     ],
+     "adjacent": [
+      "16th-valencia",
+      "night-market",
+      "north-block-2"
+     ]
+    },
+    {
+     "id": "valencia-south",
+     "name": "Valencia South",
+     "kind": "road",
+     "rect": [
+      2900,
+      1000,
+      400,
+      700
+     ],
+     "adjacent": [
+      "16th-valencia",
+      "cesar-chavez-valencia",
+      "clinic-row",
+      "taqueria-block"
+     ]
+    },
+    {
+     "id": "north-west-block",
+     "name": "North-West Block",
+     "kind": "land",
+     "rect": [
+      0,
+      0,
+      800,
+      600
+     ],
+     "adjacent": [
+      "mission-north",
+      "north-west-block-2"
+     ]
+    },
+    {
+     "id": "north-block",
+     "name": "North Block",
+     "kind": "land",
+     "rect": [
+      1200,
+      0,
+      850.0,
+      600
+     ],
+     "adjacent": [
+      "16th-west",
+      "mission-north",
+      "north-block-2"
+     ]
+    },
+    {
+     "id": "north-block-2",
+     "name": "North Block 2",
+     "kind": "land",
+     "rect": [
+      2050.0,
+      0,
+      850.0,
+      600
+     ],
+     "adjacent": [
+      "16th-centre",
+      "north-block",
+      "valencia-north"
+     ]
+    },
+    {
+     "id": "night-market",
+     "name": "Night Market",
+     "kind": "land",
+     "rect": [
+      3300,
+      0,
+      900,
+      600
+     ],
+     "adjacent": [
+      "16th-east",
+      "valencia-north"
+     ]
+    },
+    {
+     "id": "north-west-block-2",
+     "name": "North-West Block 2",
+     "kind": "land",
+     "rect": [
+      0,
+      600,
+      800,
+      400
+     ],
+     "adjacent": [
+      "16th-mission",
+      "mural-alley",
+      "north-west-block"
+     ]
+    },
+    {
+     "id": "mural-alley",
+     "name": "Mural Alley",
+     "kind": "land",
+     "rect": [
+      0,
+      1000,
+      800,
+      700
+     ],
+     "adjacent": [
+      "cesar-chavez-1",
+      "mission-south",
+      "north-west-block-2"
+     ]
+    },
+    {
+     "id": "dolores-chapel",
+     "name": "Dolores Chapel",
+     "kind": "land",
+     "rect": [
+      1200,
+      1000,
+      850.0,
+      700
+     ],
+     "adjacent": [
+      "16th-west",
+      "cesar-chavez-2",
+      "clinic-row",
+      "mission-south"
+     ]
+    },
+    {
+     "id": "clinic-row",
+     "name": "Clinic Row",
+     "kind": "land",
+     "rect": [
+      2050.0,
+      1000,
+      850.0,
+      700
+     ],
+     "adjacent": [
+      "16th-centre",
+      "cesar-chavez-3",
+      "dolores-chapel",
+      "valencia-south"
+     ]
+    },
+    {
+     "id": "taqueria-block",
+     "name": "Taqueria Block",
+     "kind": "land",
+     "rect": [
+      3300,
+      1000,
+      900,
+      700
+     ],
+     "adjacent": [
+      "16th-east",
+      "cesar-chavez-4",
+      "valencia-south"
+     ]
+    },
+    {
+     "id": "the-neon-strip",
+     "name": "The Neon Strip",
+     "kind": "land",
+     "rect": [
+      0,
+      2100,
+      1200,
+      600
+     ],
+     "adjacent": [
+      "cesar-chavez-1",
+      "cesar-chavez-mission",
+      "south-block"
+     ]
+    },
+    {
+     "id": "south-block",
+     "name": "South Block",
+     "kind": "land",
+     "rect": [
+      1200,
+      2100,
+      850.0,
+      600
+     ],
+     "adjacent": [
+      "ai-hotel-row",
+      "cesar-chavez-2",
+      "the-neon-strip"
+     ]
+    },
+    {
+     "id": "ai-hotel-row",
+     "name": "AI Hotel Row",
+     "kind": "land",
+     "rect": [
+      2050.0,
+      2100,
+      1250.0,
+      600
+     ],
+     "adjacent": [
+      "cesar-chavez-3",
+      "cesar-chavez-valencia",
+      "south-block",
+      "south-east-block"
+     ]
+    },
+    {
+     "id": "south-east-block",
+     "name": "South-East Block",
+     "kind": "land",
+     "rect": [
+      3300,
+      2100,
+      900,
+      600
+     ],
+     "adjacent": [
+      "ai-hotel-row",
+      "cesar-chavez-4"
+     ]
+    }
+   ],
+   "links": [
+    {
+     "edge": "N",
+     "slot": "L",
+     "kind": "edge",
+     "rect": [
+      800,
+      0,
+      400,
+      200
+     ],
+     "to": "BCS-FELL",
+     "toName": "Fell Street \u00b7 BCPD",
+     "toEdge": "S"
+    },
+    {
+     "edge": "N",
+     "slot": "R",
+     "kind": "edge",
+     "rect": [
+      2900,
+      0,
+      400,
+      200
+     ],
+     "to": "BCS-FELL",
+     "toName": "Fell Street \u00b7 BCPD",
+     "toEdge": "S"
+    },
+    {
+     "edge": "E",
+     "slot": "U",
+     "kind": "edge",
+     "rect": [
+      4000,
+      600,
+      200,
+      400
+     ],
+     "to": "BCS-LICKTOWN",
+     "toName": "Licktown",
+     "toEdge": "W"
+    },
+    {
+     "edge": "E",
+     "slot": "D",
+     "kind": "edge",
+     "rect": [
+      4000,
+      1700,
+      200,
+      400
+     ],
+     "to": "BCS-LICKTOWN",
+     "toName": "Licktown",
+     "toEdge": "W"
+    },
+    {
+     "edge": "W",
+     "slot": "D",
+     "kind": "edge",
+     "rect": [
+      0,
+      1700,
+      200,
+      400
+     ],
+     "to": "BCS-TWIN-PEAKS",
+     "toName": "Twin Peaks Switchbacks",
+     "toEdge": "E"
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "rect": [
+      300.0,
+      1700,
+      200,
+      200
+     ],
+     "to": "BAY-ALLEY",
+     "toName": "Rain Alley",
+     "land": [
+      2440.0,
+      900.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "rect": [
+      2375.0,
+      1900,
+      200,
+      200
+     ],
+     "to": "BAY-ALLEY",
+     "toName": "Rain Alley",
+     "land": [
+      1250.0,
+      320.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "rect": [
+      2375.0,
+      800,
+      200,
+      200
+     ],
+     "to": "BAY-CLINIC",
+     "toName": "Resleeving Clinic",
+     "land": [
+      320.0,
+      450.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "rect": [
+      3650.0,
+      800,
+      200,
+      200
+     ],
+     "to": "BAY-CLINIC",
+     "toName": "Resleeving Clinic",
+     "land": [
+      2440.0,
+      930.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "rect": [
+      3650.0,
+      600,
+      200,
+      200
+     ],
+     "to": "BAY-CLUB",
+     "toName": "Neon Nightclub",
+     "land": [
+      320.0,
+      900.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "rect": [
+      300.0,
+      1900,
+      200,
+      200
+     ],
+     "to": "BAY-CLUB",
+     "toName": "Neon Nightclub",
+     "land": [
+      2440.0,
+      1280.0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "BCS-LICKTOWN",
+   "code": "BCS13",
+   "name": "Licktown",
+   "district": "LICKTOWN \u00b7 POTRERO",
+   "col": 2,
+   "row": 2,
+   "file": "streets/bcs13-licktown.webp",
+   "width": 4200,
+   "height": 2700,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "16th-van-ness",
+     "name": "16th & Van Ness",
+     "kind": "junction",
+     "rect": [
+      800,
+      600,
+      400,
+      400
+     ],
+     "adjacent": [
+      "16th-1",
+      "16th-2",
+      "van-ness-north",
+      "van-ness-south"
+     ]
+    },
+    {
+     "id": "cesar-chavez-van-ness",
+     "name": "Cesar Chavez & Van Ness",
+     "kind": "junction",
+     "rect": [
+      800,
+      1700,
+      400,
+      400
+     ],
+     "adjacent": [
+      "cesar-chavez-centre",
+      "cesar-chavez-west",
+      "container-habs",
+      "van-ness-south"
+     ]
+    },
+    {
+     "id": "16th-powell",
+     "name": "16th & Powell",
+     "kind": "junction",
+     "rect": [
+      2900,
+      600,
+      400,
+      400
+     ],
+     "adjacent": [
+      "16th-3",
+      "16th-4",
+      "powell-north",
+      "powell-south"
+     ]
+    },
+    {
+     "id": "cesar-chavez-powell",
+     "name": "Cesar Chavez & Powell",
+     "kind": "junction",
+     "rect": [
+      2900,
+      1700,
+      400,
+      400
+     ],
+     "adjacent": [
+      "cesar-chavez-east",
+      "licktown-market",
+      "powell-south",
+      "south-east-block-2"
+     ]
+    },
+    {
+     "id": "16th-1",
+     "name": "16th 1",
+     "kind": "road",
+     "rect": [
+      0,
+      600,
+      800,
+      400
+     ],
+     "adjacent": [
+      "16th-van-ness",
+      "north-west-block",
+      "potrero-hill"
+     ]
+    },
+    {
+     "id": "16th-2",
+     "name": "16th 2",
+     "kind": "road",
+     "rect": [
+      1200,
+      600,
+      850.0,
+      400
+     ],
+     "adjacent": [
+      "16th-3",
+      "16th-van-ness",
+      "chop-shops",
+      "north-block"
+     ]
+    },
+    {
+     "id": "16th-3",
+     "name": "16th 3",
+     "kind": "road",
+     "rect": [
+      2050.0,
+      600,
+      850.0,
+      400
+     ],
+     "adjacent": [
+      "16th-2",
+      "16th-powell",
+      "north-block-2",
+      "stack-dealers"
+     ]
+    },
+    {
+     "id": "16th-4",
+     "name": "16th 4",
+     "kind": "road",
+     "rect": [
+      3300,
+      600,
+      900,
+      400
+     ],
+     "adjacent": [
+      "16th-powell",
+      "fightdrome",
+      "scrapyard"
+     ]
+    },
+    {
+     "id": "cesar-chavez-west",
+     "name": "Cesar Chavez West",
+     "kind": "road",
+     "rect": [
+      0,
+      1700,
+      800,
+      400
+     ],
+     "adjacent": [
+      "cesar-chavez-van-ness",
+      "container-habs",
+      "potrero-hill"
+     ]
+    },
+    {
+     "id": "cesar-chavez-centre",
+     "name": "Cesar Chavez Centre",
+     "kind": "road",
+     "rect": [
+      1200,
+      1700,
+      850.0,
+      400
+     ],
+     "adjacent": [
+      "cesar-chavez-east",
+      "cesar-chavez-van-ness",
+      "chop-shops",
+      "south-block"
+     ]
+    },
+    {
+     "id": "cesar-chavez-east",
+     "name": "Cesar Chavez East",
+     "kind": "road",
+     "rect": [
+      2050.0,
+      1700,
+      850.0,
+      400
+     ],
+     "adjacent": [
+      "cesar-chavez-centre",
+      "cesar-chavez-powell",
+      "licktown-market",
+      "stack-dealers"
+     ]
+    },
+    {
+     "id": "van-ness-north",
+     "name": "Van Ness North",
+     "kind": "road",
+     "rect": [
+      800,
+      0,
+      400,
+      600
+     ],
+     "adjacent": [
+      "16th-van-ness",
+      "north-block",
+      "north-west-block"
+     ]
+    },
+    {
+     "id": "van-ness-south",
+     "name": "Van Ness South",
+     "kind": "road",
+     "rect": [
+      800,
+      1000,
+      400,
+      700
+     ],
+     "adjacent": [
+      "16th-van-ness",
+      "cesar-chavez-van-ness",
+      "chop-shops",
+      "potrero-hill"
+     ]
+    },
+    {
+     "id": "powell-north",
+     "name": "Powell North",
+     "kind": "road",
+     "rect": [
+      2900,
+      0,
+      400,
+      600
+     ],
+     "adjacent": [
+      "16th-powell",
+      "north-block-2",
+      "scrapyard"
+     ]
+    },
+    {
+     "id": "powell-south",
+     "name": "Powell South",
+     "kind": "road",
+     "rect": [
+      2900,
+      1000,
+      400,
+      700
+     ],
+     "adjacent": [
+      "16th-powell",
+      "cesar-chavez-powell",
+      "fightdrome",
+      "stack-dealers"
+     ]
+    },
+    {
+     "id": "north-west-block",
+     "name": "North-West Block",
+     "kind": "land",
+     "rect": [
+      0,
+      0,
+      800,
+      600
+     ],
+     "adjacent": [
+      "16th-1",
+      "van-ness-north"
+     ]
+    },
+    {
+     "id": "north-block",
+     "name": "North Block",
+     "kind": "land",
+     "rect": [
+      1200,
+      0,
+      850.0,
+      600
+     ],
+     "adjacent": [
+      "16th-2",
+      "north-block-2",
+      "van-ness-north"
+     ]
+    },
+    {
+     "id": "north-block-2",
+     "name": "North Block 2",
+     "kind": "land",
+     "rect": [
+      2050.0,
+      0,
+      850.0,
+      600
+     ],
+     "adjacent": [
+      "16th-3",
+      "north-block",
+      "powell-north"
+     ]
+    },
+    {
+     "id": "scrapyard",
+     "name": "Scrapyard",
+     "kind": "land",
+     "rect": [
+      3300,
+      0,
+      900,
+      600
+     ],
+     "adjacent": [
+      "16th-4",
+      "powell-north"
+     ]
+    },
+    {
+     "id": "potrero-hill",
+     "name": "Potrero Hill",
+     "kind": "land",
+     "rect": [
+      0,
+      1000,
+      800,
+      700
+     ],
+     "adjacent": [
+      "16th-1",
+      "cesar-chavez-west",
+      "van-ness-south"
+     ]
+    },
+    {
+     "id": "chop-shops",
+     "name": "Chop Shops",
+     "kind": "land",
+     "rect": [
+      1200,
+      1000,
+      850.0,
+      700
+     ],
+     "adjacent": [
+      "16th-2",
+      "cesar-chavez-centre",
+      "stack-dealers",
+      "van-ness-south"
+     ]
+    },
+    {
+     "id": "stack-dealers",
+     "name": "Stack Dealers",
+     "kind": "land",
+     "rect": [
+      2050.0,
+      1000,
+      850.0,
+      700
+     ],
+     "adjacent": [
+      "16th-3",
+      "cesar-chavez-east",
+      "chop-shops",
+      "powell-south"
+     ]
+    },
+    {
+     "id": "fightdrome",
+     "name": "Fightdrome",
+     "kind": "land",
+     "rect": [
+      3300,
+      1000,
+      900,
+      700
+     ],
+     "adjacent": [
+      "16th-4",
+      "powell-south",
+      "south-east-block-2"
+     ]
+    },
+    {
+     "id": "south-east-block-2",
+     "name": "South-East Block 2",
+     "kind": "land",
+     "rect": [
+      3300,
+      1700,
+      900,
+      400
+     ],
+     "adjacent": [
+      "cesar-chavez-powell",
+      "fightdrome",
+      "south-east-block"
+     ]
+    },
+    {
+     "id": "container-habs",
+     "name": "Container Habs",
+     "kind": "land",
+     "rect": [
+      0,
+      2100,
+      1200,
+      600
+     ],
+     "adjacent": [
+      "cesar-chavez-van-ness",
+      "cesar-chavez-west",
+      "south-block"
+     ]
+    },
+    {
+     "id": "south-block",
+     "name": "South Block",
+     "kind": "land",
+     "rect": [
+      1200,
+      2100,
+      850.0,
+      600
+     ],
+     "adjacent": [
+      "cesar-chavez-centre",
+      "container-habs",
+      "licktown-market"
+     ]
+    },
+    {
+     "id": "licktown-market",
+     "name": "Licktown Market",
+     "kind": "land",
+     "rect": [
+      2050.0,
+      2100,
+      1250.0,
+      600
+     ],
+     "adjacent": [
+      "cesar-chavez-east",
+      "cesar-chavez-powell",
+      "south-block",
+      "south-east-block"
+     ]
+    },
+    {
+     "id": "south-east-block",
+     "name": "South-East Block",
+     "kind": "land",
+     "rect": [
+      3300,
+      2100,
+      900,
+      600
+     ],
+     "adjacent": [
+      "licktown-market",
+      "south-east-block-2"
+     ]
+    }
+   ],
+   "links": [
+    {
+     "edge": "N",
+     "slot": "L",
+     "kind": "edge",
+     "rect": [
+      800,
+      0,
+      400,
+      200
+     ],
+     "to": "BCS-CIVIC",
+     "toName": "Civic Center",
+     "toEdge": "S"
+    },
+    {
+     "edge": "N",
+     "slot": "R",
+     "kind": "edge",
+     "rect": [
+      2900,
+      0,
+      400,
+      200
+     ],
+     "to": "BCS-CIVIC",
+     "toName": "Civic Center",
+     "toEdge": "S"
+    },
+    {
+     "edge": "E",
+     "slot": "U",
+     "kind": "edge",
+     "rect": [
+      4000,
+      600,
+      200,
+      400
+     ],
+     "to": "BCS-DOGPATCH",
+     "toName": "Dogpatch Docks",
+     "toEdge": "W"
+    },
+    {
+     "edge": "W",
+     "slot": "U",
+     "kind": "edge",
+     "rect": [
+      0,
+      600,
+      200,
+      400
+     ],
+     "to": "BCS-MISSION",
+     "toName": "Mission Street \u00b7 AI Hotels",
+     "toEdge": "E"
+    },
+    {
+     "edge": "W",
+     "slot": "D",
+     "kind": "edge",
+     "rect": [
+      0,
+      1700,
+      200,
+      400
+     ],
+     "to": "BCS-MISSION",
+     "toName": "Mission Street \u00b7 AI Hotels",
+     "toEdge": "E"
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "rect": [
+      3650.0,
+      800,
+      200,
+      200
+     ],
+     "to": "BAY-PIT",
+     "toName": "The Fight Pit",
+     "land": [
+      320.0,
+      650.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "rect": [
+      2375.0,
+      1900,
+      200,
+      200
+     ],
+     "to": "BAY-MARKET",
+     "toName": "Lower Bay Market",
+     "land": [
+      320.0,
+      1430.0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "BCS-DOGPATCH",
+   "code": "BCS14",
+   "name": "Dogpatch Docks",
+   "district": "DOGPATCH",
+   "col": 3,
+   "row": 2,
+   "file": "streets/bcs14-dogpatch-docks.webp",
+   "width": 4200,
+   "height": 2700,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "16th-third",
+     "name": "16th & Third",
+     "kind": "junction",
+     "rect": [
+      800,
+      600,
+      400,
+      400
+     ],
+     "adjacent": [
+      "16th-centre",
+      "16th-west",
+      "crane-yard",
+      "third-st"
+     ]
+    },
+    {
+     "id": "16th-dock-road",
+     "name": "16th & Dock Road",
+     "kind": "junction",
+     "rect": [
+      2900,
+      600,
+      400,
+      400
+     ],
+     "adjacent": [
+      "16th-east",
+      "dock-road-north",
+      "dry-dock",
+      "north-east-block-2"
+     ]
+    },
+    {
+     "id": "16th-west",
+     "name": "16th West",
+     "kind": "road",
+     "rect": [
+      0,
+      600,
+      800,
+      400
+     ],
+     "adjacent": [
+      "16th-third",
+      "crane-yard",
+      "north-west-block"
+     ]
+    },
+    {
+     "id": "16th-centre",
+     "name": "16th Centre",
+     "kind": "road",
+     "rect": [
+      1200,
+      600,
+      850.0,
+      400
+     ],
+     "adjacent": [
+      "16th-east",
+      "16th-third",
+      "container-piers",
+      "north-block"
+     ]
+    },
+    {
+     "id": "16th-east",
+     "name": "16th East",
+     "kind": "road",
+     "rect": [
+      2050.0,
+      600,
+      850.0,
+      400
+     ],
+     "adjacent": [
+      "16th-centre",
+      "16th-dock-road",
+      "dry-dock",
+      "power-station"
+     ]
+    },
+    {
+     "id": "third-st",
+     "name": "Third St",
+     "kind": "road",
+     "rect": [
+      800,
+      0,
+      400,
+      600
+     ],
+     "adjacent": [
+      "16th-third",
+      "north-block",
+      "north-west-block"
+     ]
+    },
+    {
+     "id": "dock-road-north",
+     "name": "Dock Road North",
+     "kind": "road",
+     "rect": [
+      2900,
+      1000,
+      400,
+      700.0
+     ],
+     "adjacent": [
+      "16th-dock-road",
+      "dock-road-south",
+      "east-block",
+      "power-station"
+     ]
+    },
+    {
+     "id": "dock-road-south",
+     "name": "Dock Road South",
+     "kind": "road",
+     "rect": [
+      2900,
+      1700.0,
+      400,
+      700.0
+     ],
+     "adjacent": [
+      "dock-road-north",
+      "south-block-2",
+      "south-block-3",
+      "south-east-block"
+     ]
+    },
+    {
+     "id": "north-west-block",
+     "name": "North-West Block",
+     "kind": "land",
+     "rect": [
+      0,
+      0,
+      800,
+      600
+     ],
+     "adjacent": [
+      "16th-west",
+      "third-st"
+     ]
+    },
+    {
+     "id": "north-block",
+     "name": "North Block",
+     "kind": "land",
+     "rect": [
+      1200,
+      0,
+      850.0,
+      600
+     ],
+     "adjacent": [
+      "16th-centre",
+      "dry-dock",
+      "third-st"
+     ]
+    },
+    {
+     "id": "dry-dock",
+     "name": "Dry Dock",
+     "kind": "land",
+     "rect": [
+      2050.0,
+      0,
+      1250.0,
+      600
+     ],
+     "adjacent": [
+      "16th-dock-road",
+      "16th-east",
+      "north-block",
+      "north-east-block"
+     ]
+    },
+    {
+     "id": "north-east-block",
+     "name": "North-East Block",
+     "kind": "land",
+     "rect": [
+      3300,
+      0,
+      600,
+      600
+     ],
+     "adjacent": [
+      "dry-dock",
+      "north-east-block-2"
+     ]
+    },
+    {
+     "id": "north-east-block-2",
+     "name": "North-East Block 2",
+     "kind": "land",
+     "rect": [
+      3300,
+      600,
+      600,
+      400
+     ],
+     "adjacent": [
+      "16th-dock-road",
+      "east-block",
+      "north-east-block"
+     ]
+    },
+    {
+     "id": "crane-yard",
+     "name": "Crane Yard",
+     "kind": "land",
+     "rect": [
+      0,
+      1000,
+      1200,
+      700.0
+     ],
+     "adjacent": [
+      "16th-third",
+      "16th-west",
+      "bay-dam-access",
+      "container-piers"
+     ]
+    },
+    {
+     "id": "container-piers",
+     "name": "Container Piers",
+     "kind": "land",
+     "rect": [
+      1200,
+      1000,
+      850.0,
+      700.0
+     ],
+     "adjacent": [
+      "16th-centre",
+      "crane-yard",
+      "power-station",
+      "south-block"
+     ]
+    },
+    {
+     "id": "power-station",
+     "name": "Power Station",
+     "kind": "land",
+     "rect": [
+      2050.0,
+      1000,
+      850.0,
+      700.0
+     ],
+     "adjacent": [
+      "16th-east",
+      "container-piers",
+      "dock-road-north",
+      "south-block-2"
+     ]
+    },
+    {
+     "id": "east-block",
+     "name": "East Block",
+     "kind": "land",
+     "rect": [
+      3300,
+      1000,
+      600,
+      700.0
+     ],
+     "adjacent": [
+      "dock-road-north",
+      "north-east-block-2",
+      "south-east-block"
+     ]
+    },
+    {
+     "id": "bay-dam-access",
+     "name": "Bay Dam Access",
+     "kind": "land",
+     "rect": [
+      0,
+      1700.0,
+      1200,
+      700.0
+     ],
+     "adjacent": [
+      "crane-yard",
+      "south-block",
+      "south-west-block"
+     ]
+    },
+    {
+     "id": "south-block",
+     "name": "South Block",
+     "kind": "land",
+     "rect": [
+      1200,
+      1700.0,
+      850.0,
+      700.0
+     ],
+     "adjacent": [
+      "bay-dam-access",
+      "container-piers",
+      "south-block-2",
+      "south-block-4"
+     ]
+    },
+    {
+     "id": "south-block-2",
+     "name": "South Block 2",
+     "kind": "land",
+     "rect": [
+      2050.0,
+      1700.0,
+      850.0,
+      700.0
+     ],
+     "adjacent": [
+      "dock-road-south",
+      "power-station",
+      "south-block",
+      "south-block-3"
+     ]
+    },
+    {
+     "id": "south-east-block",
+     "name": "South-East Block",
+     "kind": "land",
+     "rect": [
+      3300,
+      1700.0,
+      600,
+      700.0
+     ],
+     "adjacent": [
+      "dock-road-south",
+      "east-block",
+      "south-east-block-2"
+     ]
+    },
+    {
+     "id": "south-west-block",
+     "name": "South-West Block",
+     "kind": "land",
+     "rect": [
+      0,
+      2400,
+      1200,
+      300
+     ],
+     "adjacent": [
+      "bay-dam-access",
+      "south-block-4"
+     ]
+    },
+    {
+     "id": "south-block-4",
+     "name": "South Block 4",
+     "kind": "land",
+     "rect": [
+      1200,
+      2400,
+      850.0,
+      300
+     ],
+     "adjacent": [
+      "south-block",
+      "south-block-3",
+      "south-west-block"
+     ]
+    },
+    {
+     "id": "south-block-3",
+     "name": "South Block 3",
+     "kind": "land",
+     "rect": [
+      2050.0,
+      2400,
+      1250.0,
+      300
+     ],
+     "adjacent": [
+      "dock-road-south",
+      "south-block-2",
+      "south-block-4",
+      "south-east-block-2"
+     ]
+    },
+    {
+     "id": "south-east-block-2",
+     "name": "South-East Block 2",
+     "kind": "land",
+     "rect": [
+      3300,
+      2400,
+      600,
+      300
+     ],
+     "adjacent": [
+      "south-block-3",
+      "south-east-block"
+     ]
+    }
+   ],
+   "links": [
+    {
+     "edge": "N",
+     "slot": "L",
+     "kind": "edge",
+     "rect": [
+      800,
+      0,
+      400,
+      200
+     ],
+     "to": "BCS-OLD-DT-S",
+     "toName": "Old Downtown \u00b7 South",
+     "toEdge": "S"
+    },
+    {
+     "edge": "W",
+     "slot": "U",
+     "kind": "edge",
+     "rect": [
+      0,
+      600,
+      200,
+      400
+     ],
+     "to": "BCS-LICKTOWN",
+     "toName": "Licktown",
+     "toEdge": "E"
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "rect": [
+      2375.0,
+      600,
+      200,
+      200
+     ],
+     "to": "BAY-STRIP",
+     "toName": "The Neon Strip",
+     "land": [
+      2440.0,
+      650.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "rect": [
+      1525.0,
+      800,
+      200,
+      200
+     ],
+     "to": "BAY-DOCKS",
+     "toName": "Bay Docks",
+     "land": [
+      1620.0,
+      1450.0
+     ]
+    }
+   ]
+  }
+ ]
+}

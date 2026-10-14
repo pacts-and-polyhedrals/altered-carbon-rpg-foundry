@@ -112,9 +112,59 @@
     }
    ],
    "exits": [
-    "DOWNTOWN",
-    "WATERFRONT",
-    "THE ALLEY"
+    "OLD DOWNTOWN \u00b7 SOUTH",
+    "DOGPATCH DOCKS",
+    "RAIN ALLEY"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "rect": [
+      0,
+      550.0,
+      200,
+      200
+     ],
+     "to": "BCS-OLD-DT-S",
+     "toName": "Old Downtown \u00b7 South",
+     "land": [
+      1625.0,
+      900.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "rect": [
+      2560.0,
+      550.0,
+      200,
+      200
+     ],
+     "to": "BCS-DOGPATCH",
+     "toName": "Dogpatch Docks",
+     "land": [
+      2475.0,
+      700.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "rect": [
+      1050.0,
+      1500.0,
+      200,
+      200
+     ],
+     "to": "BAY-ALLEY",
+     "toName": "Rain Alley",
+     "land": [
+      320.0,
+      900.0
+     ]
+    }
    ]
   },
   {
@@ -213,9 +263,59 @@
     }
    ],
    "exits": [
-    "THE STRIP",
-    "DELIVERY ROAD",
-    "ROOFTOPS"
+    "THE NEON STRIP",
+    "MISSION STREET \u00b7 AI HOTELS",
+    "MISSION STREET \u00b7 AI HOTELS"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "rect": [
+      0,
+      800.0,
+      200,
+      200
+     ],
+     "to": "BAY-STRIP",
+     "toName": "The Neon Strip",
+     "land": [
+      1150.0,
+      1380.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "rect": [
+      2560.0,
+      800.0,
+      200,
+      200
+     ],
+     "to": "BCS-MISSION",
+     "toName": "Mission Street \u00b7 Ai Hotels",
+     "land": [
+      400.0,
+      1800.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "rect": [
+      1150.0,
+      0,
+      200,
+      200
+     ],
+     "to": "BCS-MISSION",
+     "toName": "Mission Street \u00b7 Ai Hotels",
+     "land": [
+      2475.0,
+      2000.0
+     ]
+    }
    ]
   },
   {
@@ -328,8 +428,42 @@
     }
    ],
    "exits": [
-    "STREET",
-    "GARAGE RAMP"
+    "FELL STREET \u00b7 BCPD",
+    "FELL STREET \u00b7 BCPD"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "rect": [
+      0,
+      350.0,
+      200,
+      200
+     ],
+     "to": "BCS-FELL",
+     "toName": "Fell Street \u00b7 Bcpd",
+     "land": [
+      400.0,
+      700.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "rect": [
+      1740.0,
+      1140.0,
+      200,
+      200
+     ],
+     "to": "BCS-FELL",
+     "toName": "Fell Street \u00b7 Bcpd",
+     "land": [
+      400.0,
+      900.0
+     ]
+    }
    ]
   },
   {
@@ -444,8 +578,42 @@
     }
    ],
    "exits": [
-    "STREET",
-    "FIRE STAIR"
+    "MISSION STREET \u00b7 AI HOTELS",
+    "MISSION STREET \u00b7 AI HOTELS"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "rect": [
+      0,
+      350.0,
+      200,
+      200
+     ],
+     "to": "BCS-MISSION",
+     "toName": "Mission Street \u00b7 Ai Hotels",
+     "land": [
+      2475.0,
+      900.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "rect": [
+      2560.0,
+      830.0,
+      200,
+      200
+     ],
+     "to": "BCS-MISSION",
+     "toName": "Mission Street \u00b7 Ai Hotels",
+     "land": [
+      3750.0,
+      900.0
+     ]
+    }
    ]
   },
   {
@@ -546,8 +714,42 @@
     }
    ],
    "exits": [
-    "STREET LEVEL",
-    "SKY BRIDGE"
+    "OLD DOWNTOWN \u00b7 NORTH",
+    "SKYPORT LANDING DECK"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "rect": [
+      0,
+      1240.0,
+      200,
+      200
+     ],
+     "to": "BCS-OLD-DT-N",
+     "toName": "Old Downtown \u00b7 North",
+     "land": [
+      1625.0,
+      900.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "rect": [
+      2560.0,
+      450.0,
+      200,
+      200
+     ],
+     "to": "BAY-SKYPORT",
+     "toName": "Skyport Landing Deck",
+     "land": [
+      2440.0,
+      350.0
+     ]
+    }
    ]
   },
   {
@@ -666,8 +868,42 @@
     }
    ],
    "exits": [
-    "STAIRS UP",
-    "SERVICE TUNNEL"
+    "LICKTOWN",
+    "LOWER BAY MARKET"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "rect": [
+      0,
+      550.0,
+      200,
+      200
+     ],
+     "to": "BCS-LICKTOWN",
+     "toName": "Licktown",
+     "land": [
+      3750.0,
+      900.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "rect": [
+      2560.0,
+      1230.0,
+      200,
+      200
+     ],
+     "to": "BAY-MARKET",
+     "toName": "Lower Bay Market",
+     "land": [
+      2440.0,
+      1120.0
+     ]
+    }
    ]
   },
   {
@@ -772,8 +1008,42 @@
     }
    ],
    "exits": [
-    "CITY",
-    "BOAT SLIPS"
+    "DOGPATCH DOCKS",
+    "WHARF & CAUSEWAY"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "rect": [
+      1740.0,
+      1350.0,
+      200,
+      200
+     ],
+     "to": "BCS-DOGPATCH",
+     "toName": "Dogpatch Docks",
+     "land": [
+      1625.0,
+      900.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "rect": [
+      2560.0,
+      170.0,
+      200,
+      200
+     ],
+     "to": "BCS-WHARF",
+     "toName": "Wharf & Causeway",
+     "land": [
+      1500.0,
+      900.0
+     ]
+    }
    ]
   },
   {
@@ -876,8 +1146,42 @@
     }
    ],
    "exits": [
-    "FLIGHT LANE",
-    "CONCOURSE"
+    "METH SPIRE PENTHOUSE",
+    "CIVIC CENTER"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "rect": [
+      2560.0,
+      250.0,
+      200,
+      200
+     ],
+     "to": "BAY-SPIRE",
+     "toName": "Meth Spire Penthouse",
+     "land": [
+      2440.0,
+      550.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "rect": [
+      0,
+      1230.0,
+      200,
+      200
+     ],
+     "to": "BCS-CIVIC",
+     "toName": "Civic Center",
+     "land": [
+      3750.0,
+      700.0
+     ]
+    }
    ]
   },
   {
@@ -992,8 +1296,42 @@
     }
    ],
    "exits": [
-    "STREET",
-    "STORM DRAINS"
+    "LICKTOWN",
+    "THE FIGHT PIT"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "rect": [
+      2560.0,
+      1020.0,
+      200,
+      200
+     ],
+     "to": "BAY-PIT",
+     "toName": "The Fight Pit",
+     "land": [
+      2440.0,
+      1330.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "rect": [
+      0,
+      1330.0,
+      200,
+      200
+     ],
+     "to": "BCS-LICKTOWN",
+     "toName": "Licktown",
+     "land": [
+      2475.0,
+      2000.0
+     ]
+    }
    ]
   },
   {
@@ -1110,8 +1448,42 @@
     }
    ],
    "exits": [
-    "STREET",
-    "ALLEY DOOR"
+    "MISSION STREET \u00b7 AI HOTELS",
+    "MISSION STREET \u00b7 AI HOTELS"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "rect": [
+      0,
+      800.0,
+      200,
+      200
+     ],
+     "to": "BCS-MISSION",
+     "toName": "Mission Street \u00b7 Ai Hotels",
+     "land": [
+      3750.0,
+      700.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "rect": [
+      2560.0,
+      1180.0,
+      200,
+      200
+     ],
+     "to": "BCS-MISSION",
+     "toName": "Mission Street \u00b7 Ai Hotels",
+     "land": [
+      400.0,
+      2000.0
+     ]
+    }
    ]
   }
  ]

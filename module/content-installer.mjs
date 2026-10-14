@@ -150,6 +150,7 @@ export class ACContentInstaller extends HandlebarsApplicationMixin(ApplicationV2
       }
       const report=doInstall?await installCompendiumContent({packIds}):[];
       const emblems=doEmblems?await applyEmblems():0;
+      try{const {repairAllSceneBackgrounds}=await import('./scene-repair.mjs');await repairAllSceneBackgrounds({notify:false});}catch(error){console.warn('Altered Carbon | scene repair after install',error);}
       const rows=report.map(r=>`<li>${esc(r.label)}: ${r.created} installed${r.present?`, ${r.present} already present`:''}</li>`).join('');
       await ChatMessage.implementation.create({speaker:{alias:'Content Installer'},whisper:game.users.filter(u=>u.isGM).map(u=>u.id),content:`<section class="ac-chat-card ac-status-card"><header class="ac-chat-card-header"><div><span class="ac-chat-kicker">CONTENT INSTALLER · v${esc(game.system.version)}</span><strong>World content updated</strong></div></header>${doRemove?`<p>Removed ${removed} previous document(s).</p>`:''}${rows?`<ul>${rows}</ul>`:''}${doEmblems?`<p>Emblems applied to ${Number(emblems)||0} document(s).</p>`:''}</section>`});
       ui.notifications.info('Altered Carbon content is up to date in this world.');

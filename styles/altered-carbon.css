@@ -984,3 +984,6 @@
 .ac-vehicle-boarding-popover .ac-vehicle-boarding-action:focus-visible{
   background:rgba(104,214,217,.23);outline:1px solid #67d5d7;
 }
+
+/* ---- v2.5.3: contact portraits ---- */
+.ac-contact-portrait{width:44px;height:44px;border-radius:8px;border:1px solid rgba(120,236,243,.25);object-fit:cover;flex:0 0 auto}

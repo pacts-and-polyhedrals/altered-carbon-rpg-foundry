@@ -127,12 +127,17 @@ export const EMBLEM_INDEX=Object.freeze({
 "equipment|Sight, Laser": "systems/altered-carbon-rpg/assets/emblems/upgrades/sight-laser.svg",
 "equipment|Stock, Folding": "systems/altered-carbon-rpg/assets/emblems/upgrades/stock-folding.svg"
 });
+import {contactPortrait,namedPortrait} from './contact-portraits.mjs';
 const SYS='altered-carbon-rpg';
 const STOCK=['icons/weapons/swords/sword-guard-steel.webp'];
 export function isStockImage(img){img=String(img||'');return !img||img.startsWith('icons/svg/')||STOCK.includes(img);}
 export function emblemFor(type,name){return EMBLEM_INDEX[String(type)+'|'+String(name||'').trim()]||null;}
 function emblemUpdate(doc,data={}){
-  const type=data.type??doc.type,name=data.name??doc.name,src=emblemFor(type,name);
+  const type=data.type??doc.type,name=data.name??doc.name;
+  let src=emblemFor(type,name);
+  // Contacts get a dossier portrait; NPC actors named after a Cold Storage contact get theirs.
+  if(!src&&type==='contact')src=contactPortrait(name,foundry.utils.getProperty(data,'system.categories')??doc.system?.categories);
+  if(!src&&doc.documentName==='Actor'&&['npc','character','ai','threat'].includes(type))src=namedPortrait(name);
   if(!src)return null;
   const update={};
   if(isStockImage(data.img??doc.img))update.img=src;

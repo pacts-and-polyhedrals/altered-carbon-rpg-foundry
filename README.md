@@ -1,6 +1,6 @@
 # Altered Carbon RPG — Unofficial Foundry VTT System
 
-**Current version: v2.5.1** · Foundry VTT v14
+**Current version: v2.5.3** · Foundry VTT v14
 
 Unofficial Foundry VTT implementation of the 2020 Altered Carbon RPG rules. Requires lawful
 access to the original tabletop rules. Not affiliated with or endorsed by the Altered Carbon
@@ -21,6 +21,41 @@ Older installs that still use `.../main/system.json` keep working because the `s
 `main` is kept in sync with the latest release. If an install ever looks stuck on an old
 version, uninstall it and reinstall from the manifest URL above. Uninstalling a system does
 not delete your worlds.
+
+## v2.5.3 — Every Bay City exit linked; contact portraits
+
+- **The 10 original Bay City maps are linked.** All 21 exit tags now lead to real places, and each
+  link works both ways (19 two-way links). Some pair two original maps: Neon Strip ↔ Rain Alley,
+  Meth Spire ↔ Skyport, Fight Pit ↔ Lower Bay Market. The rest lead to **building entrances**
+  drawn on Street Atlas blocks: BCPD ↔ Fell Street (front door and garage ramp), Neon Strip ↔ Old
+  Downtown South and Dogpatch, Rain Alley, Resleeving Clinic and Nightclub ↔ Mission Street, Fight
+  Pit and Lower Bay Market ↔ Licktown, Meth Spire ↔ Old Downtown North, Bay Docks ↔ Dogpatch and
+  the Wharf, Skyport ↔ Civic Center.
+- Exits are relabelled with their destination (e.g. "EXIT · FELL STREET · BCPD"); street entrances
+  read "ENTER · name". Right-click a token at one → **Go to …** (same mechanics as the street exits).
+  Bay City scenes already in a world receive the links automatically when a GM loads it.
+- **Contact portraits:** noir dossier portraits in the emblem style. The 20 named Cold Storage
+  contacts each have their own (also used for NPC actors with those names); generated Contacts
+  get one of 12 looks for their category (informant, supplier, mercenary). Portraits show on the
+  sheet's Contacts list. **Apply Emblems** adds them to existing Contacts.
+
+## v2.5.2 — Bay City Street Atlas (linked car-chase maps)
+
+- **14 linked street maps** in the system's flat noir map style, laid out on real San Francisco
+  geography: Golden Gate North and South Span, Psychasec Alcatraz (with causeway), Wharf &
+  Causeway, Marina Seawall, Old Downtown North and South, Panhandle West, Fell Street · BCPD,
+  Civic Center, Twin Peaks Switchbacks, Mission Street · AI Hotels, Licktown and Dogpatch Docks.
+- **Every exit links up.** Roads cross map edges only at fixed positions, so a road leaving one map
+  meets the same road on the next. Outer edges are closed: bay and ocean, the city wall, the
+  Marin blockade. Each map is 42×27 squares, fully zoned (road segments, junctions such as
+  "Fell & Mission", and blocks), gridless with Altered Carbon zone units.
+- **Drive to the next map:** at an exit, right-click a token or vehicle → **Drive to …**. Vehicles
+  bring their seated riders, combat entries follow, and the owning players are taken along. A
+  connecting map not yet in the world is imported automatically.
+- **Blank map fix for Foundry v14:** scenes now carry their image on the v14 Level as well as the
+  v13 background. Bay City scenes already imported without an image are repaired automatically.
+- Compendium: **Bay City Street Atlas (Linked)** (also installed by Install / Update Content).
+  Generator: `tools/maps/street_atlas.py`. See `docs/STREET-ATLAS-v2.5.2.md`.
 
 ## v2.5.1 — Vehicle convoy synchronization and token-HUD boarding
 

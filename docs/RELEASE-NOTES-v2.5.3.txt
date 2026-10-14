@@ -1,0 +1,12 @@
+Altered Carbon RPG (unofficial) v2.5.3
+
+New
+- All 21 exit tags on the 10 original Bay City maps are linked (19 two-way links) to other original
+  maps or to building entrances drawn on Street Atlas blocks. Exits are relabelled with their
+  destination. Right-click -> Go to ... (shared with Street Atlas transit; explicit landing spots).
+- Existing Bay City scenes in a world get their links refreshed when a GM loads the world.
+- Contact portraits: 20 named Cold Storage portraits + 48 category portraits (12 each for informant,
+  supplier, mercenary, general). New Contacts get one automatically; NPC actors named after a Cold
+  Storage contact get theirs; Apply Emblems fills in existing ones; the sheet shows them.
+
+Tests: 99 pass (96 previous + 3 new). Fixture tests; live Foundry/Forge checks still pending.

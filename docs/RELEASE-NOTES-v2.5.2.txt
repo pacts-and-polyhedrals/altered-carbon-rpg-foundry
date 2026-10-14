@@ -1,0 +1,21 @@
+Altered Carbon RPG (unofficial) v2.5.2 — Bay City Street Atlas
+
+New
+- Bay City Street Atlas (Linked) compendium: 14 linked car-chase street maps (42x27 squares,
+  fully zoned, gridless with zone units) on real San Francisco geography. Every exit matches the
+  neighbouring map; outer edges are water, the city wall or the Marin blockade.
+- Map-to-map transit: right-click a token or vehicle at an exit -> Drive to ... Vehicles keep
+  their riders in the same seats; combat entries follow; owning players are taken to the new scene;
+  missing connecting maps import automatically.
+- Foundry v14 blank-scene fix: Scene packs carry the image on the v14 Level (levels/initialLevel)
+  and on the v13 background. Previously imported Bay City scenes without an image are repaired when
+  a GM loads the world; Install / Update Content also runs the repair.
+
+Changed
+- The vehicle token delete hook ignores map transits (riders are not ejected, driver control is
+  not revoked while a vehicle crosses maps).
+- The interior Bay City Maps pack was rebuilt in the dual v13/v14 format (same 10 maps).
+- GM-guide version test follows GUIDE_VERSION instead of a fixed string.
+
+Tests: node --test tests/*.test.mjs -> 96 pass (90 existing + 6 Street Atlas). Fixture tests only;
+live Foundry v14 / Forge play-testing of the token HUD buttons and scene switching is still pending.
