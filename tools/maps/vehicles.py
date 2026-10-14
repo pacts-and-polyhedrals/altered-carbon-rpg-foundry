@@ -69,11 +69,11 @@ ROSTER = [
  V('SV14', 'Kitsu Rally Hatch', 'car', BLUE, (2, 3), 2, 25, 3, '60 ft or 45 degrees', 4, 8, 3, 'city', 3, 3, 'Automobile',
    'Improved Engine (+1 Speed Die); rally suspension (+1 Handling); roof rack.',
    'A boxy hot hatch with a turbo, a roof light pod and a reputation in the Mission street races.', dict(type='hatch')),
- V('SV15', 'Haulback Pickup', 'car', AMB, (2, 4), 2, 35, 4, '50 ft or 45 degrees', 3, 12, 2, 'region', 8, 4, 'Automobile',
+ V('SV15', 'Haulback Pickup', 'car', AMB, (2, 4), 2, 35, 4, '50 ft or 45 degrees', 3, 12, 2, 'region', 8, 3, 'Automobile',
    'Off-road; Hauler; two seats in the cab, two riders in the open bed (exposed to fire).',
    'A tall, scarred work truck from the Dogpatch yards. The bed has carried scrap, crates and the occasional body.', dict(type='pickup')),
- V('SV16', 'Courier Panel Van', 'car', CY, (2, 4), 3, 35, 4, '40 ft or 30 degrees', 2, 12, 1, 'region', 14, 2, 'Automobile',
-   'Hauler; windowless load bay with rear doors (riders in the back cannot see out).',
+ V('SV16', 'Courier Panel Van', 'car', CY, (2, 4), 3, 35, 4, '40 ft or 30 degrees', 2, 12, 1, 'region', 14, 4, 'Automobile',
+   'Hauler; one front passenger seat; windowless load bay with rear doors for three more (riders in the back cannot see out).',
    'Unmarked panel van. Every crew in Bay City owns one; nobody remembers seeing it.', dict(type='van')),
  V('SV17', 'Revenant V-12 Muscle Car', 'car', RED, (2, 3), 2, 35, 4, '70 ft or 30 degrees', 4, 10, 2, 'city', 3, 3, 'Automobile',
    'Improved Engine (+1 Speed Die); heavy steel body (+5 Durability); hood blower.',
@@ -100,6 +100,32 @@ ROSTER = [
    fc=2, crew=(1, 2, 2)),
 ]
 
+
+# Unique abilities (mechanics live in module/vehicle-abilities.mjs). "seats" limits an ability to those seats.
+ALL = None
+ABILITIES = {
+ 'SV01': [dict(key='nimble'), dict(key='exposed')],
+ 'SV02': [dict(key='nimble'), dict(key='silent'), dict(key='foldable'), dict(key='exposed')],
+ 'SV03': [dict(key='exposed')], 'SV04': [dict(key='exposed')],
+ 'SV05': [dict(key='offroad'), dict(key='exposed')],
+ 'SV06': [dict(key='exposed')], 'SV07': [dict(key='exposed')],
+ 'SV08': [dict(key='policeKit'), dict(key='exposed')],
+ 'SV09': [dict(key='exposed')], 'SV10': [dict(key='exposed')],
+ 'SV11': [dict(key='openSides'), dict(key='exposed')],
+ 'SV12': [dict(key='nimble')],
+ 'SV13': [dict(key='autopilot')],
+ 'SV14': [],
+ 'SV15': [dict(key='offroad'), dict(key='exposed', seats=['passenger-2', 'passenger-3'])],
+ 'SV16': [dict(key='windowless', seats=['passenger-2', 'passenger-3', 'passenger-4'])],
+ 'SV17': [],
+ 'SV18': [dict(key='policeKit'), dict(key='cage', seats=['passenger-2', 'passenger-3'])],
+ 'SV19': [],
+ 'SV20': [dict(key='exposed')],
+ 'SV21': [dict(key='offroad'), dict(key='exposed')],
+ 'SV22': [dict(key='autopilot'), dict(key='privacy')],
+ 'SV23': [dict(key='turret')],
+}
+
 def slug(s): return re.sub(r'[^a-z0-9]+', '-', s.lower()).strip('-')
 def f(v): return f'{v:.1f}'
 
@@ -121,6 +147,7 @@ class Draw:
         self.W, self.H, self.acc = w * PX, h * PX, acc
         self.cx = self.W / 2
         self.under, self.body, self.over = [], [], []
+        self.beacons = []
 
     def sym(self, profile, top, bottom, n=3):
         """profile: [(t, half-width px)] front→rear; returns a smoothed symmetric outline."""
@@ -143,6 +170,13 @@ class Draw:
 
     def raw(self, s, layer='over'): getattr(self, layer).append(s)
 
+    def halo(self):
+        g = ''
+        for x, y, c, r in self.beacons:
+            g += f'<circle cx="{f(x)}" cy="{f(y)}" r="{f(r)}" fill="{c}" opacity=".55" filter="url(#flare)"/>'
+            g += f'<circle cx="{f(x)}" cy="{f(y)}" r="{f(r*.14)}" fill="#ffffff" opacity=".9" filter="url(#glow)"/>'
+        return '<defs><filter id="flare" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="22"/></filter></defs>' + g
+
     def lights(self, y, half, w=0.16, color='#f4fbff', cone=True):
         """Headlights at the front edge, with a soft beam above."""
         lw = self.W * w if w < 1 else w
@@ -157,7 +191,7 @@ class Draw:
         for sx in (-1, 1):
             self.rect(self.cx + sx * half - lw / 2, y - 6, lw, 8, RED, 3, 'filter="url(#glow)"', 'over')
 
-    def svg(self):
+    def svg(self, lit=False):
         acc = self.acc
         shadow = ''.join(self.body).replace(BONE, '#000').replace(BONE2, '#000').replace(GLASS, '#000').replace(INK, '#000')
         return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{f(self.W)}" height="{f(self.H)}" viewBox="0 0 {f(self.W)} {f(self.H)}">
@@ -165,7 +199,7 @@ class Draw:
 <filter id="blur"><feGaussianBlur stdDeviation="5"/></filter>
 <linearGradient id="beam" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#f4fbff" stop-opacity=".55"/><stop offset="1" stop-color="#f4fbff" stop-opacity="0"/></linearGradient></defs>
 <g transform="translate(7 9)" opacity=".5" filter="url(#blur)">{shadow}</g>
-{''.join(self.under)}{''.join(self.body)}{''.join(self.over)}</svg>'''
+{''.join(self.under)}{''.join(self.body)}{''.join(self.over)}{self.halo() if lit else ''}</svg>'''
 
 # ------------------------------------------------------------------ bikes (1 x 2 squares: 256 x 512 px)
 def wheel(d, y, r, half, kind='tyre'):
@@ -242,6 +276,7 @@ def bike(spec, acc):
     elif t == 'police':
         d.rect(cx - 62, bot - 190, 26, 88, BONE2, 8); d.rect(cx + 36, bot - 190, 26, 88, BONE2, 8)  # panniers
         d.rect(cx - 46, bot - 92, 40, 12, BLUE, 4, 'filter="url(#glow)"', 'over'); d.rect(cx + 6, bot - 92, 40, 12, RED, 4, 'filter="url(#glow)"', 'over')
+        d.beacons += [(cx - 26, bot - 86, BLUE, 70), (cx + 26, bot - 86, RED, 70), (cx, top + 60, BLUE, 50)]
         d.poly(d.sym([(0, 20), (.5, 44), (1, 40)], top + 50, top + 120), GLASS)
         d.raw(f'<text x="{f(cx)}" y="{f(top + 330)}" text-anchor="middle" font-family="Courier New,monospace" font-weight="700" font-size="22" fill="{INK}" transform="rotate(-90 {f(cx)} {f(top + 330)})">BCPD</text>')
         d.lights(top + 50, 0, 0.12); d.tails(bot - 52, 0, .1)
@@ -332,6 +367,7 @@ def car(spec, acc, token):
         if t == 'police':
             d.rect(cx - hw * .7, y(a + .2), hw * .68, L * .045, BLUE, 6, 'filter="url(#glow)"', 'over')
             d.rect(cx + hw * .02, y(a + .2), hw * .68, L * .045, RED, 6, 'filter="url(#glow)"', 'over')
+            d.beacons += [(cx - hw * .36, y(a + .2) + L * .022, BLUE, hw * .55), (cx + hw * .36, y(a + .2) + L * .022, RED, hw * .55)]
             d.raw(f'<text x="{f(cx)}" y="{f(y(.2))}" text-anchor="middle" font-family="Courier New,monospace" font-weight="700" font-size="{f(L*.05)}" letter-spacing="4" fill="{INK}">BCPD</text>')
             d.rect(cx - hw * .85, y(.0) - 4, hw * 1.7, 12, '#2a3038', 4, '', 'over')  # push bar
         if t == 'muscle':
@@ -433,10 +469,13 @@ def main(out):
         sl = slug(v['name'])
         open(f'{out}/tokens/{sl}.svg', 'w').write(draw(v).svg())
         open(f'{out}/emblems/{sl}.svg', 'w').write(emblem(v, i))
+        dv = draw(v)
+        if dv.beacons: open(f'{out}/tokens/{sl}-lights.svg', 'w').write(dv.svg(lit=True))
         w, h = v['token']
         data.append(dict(id=v['id'], name=v['name'], kind=v['kind'], slug=sl, token=dict(width=w, height=h),
                          img=f'systems/altered-carbon-rpg/assets/emblems/vehicles/street/{sl}.svg',
                          tokenImg=f'systems/altered-carbon-rpg/assets/tokens/vehicles/{sl}.webp',
+                         abilities=ABILITIES.get(v['id'], []), lightsImg=(f'systems/altered-carbon-rpg/assets/tokens/vehicles/{sl}-lights.webp' if dv.beacons else None),
                          system=v['system']))
     json.dump(dict(source='Bay City Street Vehicles (system supplement, built on Core Rulebook vehicle rules pp.257-259)',
                    count=len(data), vehicles=data), open(f'{out}/street-vehicles.json', 'w'), indent=1)

@@ -1,0 +1,23 @@
+Altered Carbon RPG v2.5.6
+
+Each vehicle's unique abilities are listed on its sheet under **Unique abilities**, and each seat shows whether it is *cage*, *load bay* or *exposed*. The abilities work in play:
+
+| Ability | Vehicles | What happens |
+|---|---|---|
+| Autopilot / self-driving | Bay City Autocab, Meth Stretch Limousine | Driver gets +3 gear on Pilot checks. Anyone aboard can open the **destination list** (token HUD) and the vehicle takes everyone to the chosen junction, entrance or interior. This also works for any vehicle set to AI or Driver and AI. |
+| Police kit | BCPD Interceptor, BCPD Pursuit Bike | **Lights and siren** button: lit token art, an animated siren light on the map, and a siren sound everyone hears. While they are on, the driver gets +1 Bonus Die on Pilot checks. **Plate scanner**: target a vehicle and scan it; the result (registered owner) is whispered to you and the GM. |
+| Prisoner cage | BCPD Interceptor (rear seats) | A caged rider cannot get out or change seats. **Let someone out of the cage** works for the GM, or for a player whose character is in the front or standing beside the car. |
+| Off-road | Hillcrawler Scrambler, Haulback Pickup, Dune Skiff Buggy | No off-road penalty, and the driver gets +1 Bonus Die on Pilot checks while the vehicle is on a block, park or rubble zone. |
+| Goes where cars can't / Tiny | Sprocket BMX, Kick-Glide E-Scooter, Bubble Pod | No off-road penalty. |
+| Anti-Grav | Airbike, Aircar | No off-road penalty (flies over the grid). |
+| *(everyone else off the road)* | | Driver's Pilot checks take +2 Difficulty while the vehicle is on a non-road zone of a Street Atlas map. |
+| Exposed seats | All bikes, golf cart, roadster, buggy, pickup bed | Riders can be attacked directly. Riders in **enclosed** seats can only be shot through the body: +2 Difficulty to attacks against them. Targeting a rider tells you which applies. |
+| Privacy glass | Meth Stretch Limousine | Attacks against occupants take a further +2 Difficulty. |
+| Windowless load bay | Courier Panel Van (rear 3 seats) | Riders in the back take +3 Difficulty on Perception checks and cannot attack out. |
+| Silent motor | Kick-Glide E-Scooter | Perception checks made while targeting it or its rider take +2 Difficulty. |
+| Folds to carry | Kick-Glide E-Scooter | **Fold up and carry** (empty scooter, with the carrier selected) takes it off the map into the character's hands; **Unfold** puts it back beside them. |
+| Open sides | Fairway Runabout | Board from 2 squares away. |
+| Roof turret | CTAC Rhino | Gunner seat that uses Fire Control. |
+
+All modifiers appear in the roll card notes. Vehicles already in your world pick up their abilities by name, so they don't need reimporting. Other changes: the Haulback Pickup now has 3 passenger seats (one in the cab, two in the bed) and the Courier Panel Van has 4 (one in front, three in the load bay).
+

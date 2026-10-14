@@ -1,0 +1,7 @@
+Altered Carbon RPG v2.5.5
+
+- **Fix:** a vehicle and everyone in it now appears on the new map after **Go to …**. Foundry v14 puts every token on a scene Level, and the copies were still tagged with the old map's Level, so they were created but never shown. Transit now puts them on the new map's Level and drops stale region and movement data.
+- **Taxi: choose a destination.** Anyone riding in a vehicle its AI drives (the Bay City Autocab, or any vehicle set to *AI* or *Driver and AI*) gets a taxi button on the token HUD. It opens a dropdown of every Bay City destination, grouped by district: each street map's main junction, every building entrance (for example *Mission Street → Outside Clinic Row (Resleeving Clinic)*), and the inside of each original map. The vehicle and all its passengers go there together. The GM can send any vehicle or token anywhere the same way.
+- On the **Bay City Overview** the same dropdown replaces the old click-on-a-district jump, with the district under the token selected as the default.
+- Ordinary vehicles still cross at exits and entrances with the one-click **Go to …** button, so chases stay on the streets.
+

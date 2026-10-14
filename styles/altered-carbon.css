@@ -987,3 +987,10 @@
 
 /* ---- v2.5.3: contact portraits ---- */
 .ac-contact-portrait{width:44px;height:44px;border-radius:8px;border:1px solid rgba(120,236,243,.25);object-fit:cover;flex:0 0 auto}
+
+/* v2.5.6 vehicle abilities */
+.ac-vehicle-abilities .ac-ability-list{list-style:none;margin:0;padding:0;display:grid;gap:.45rem}
+.ac-vehicle-abilities .ac-ability-list li{display:grid;grid-template-columns:1.6rem 1fr;gap:.5rem;align-items:start}
+.ac-vehicle-abilities .ac-ability-list i{color:var(--ac-cyan,#32c7d6);font-size:1.1rem;margin-top:.15rem}
+.ac-vehicle-abilities .ac-ability-list p{margin:.1rem 0 0;font-size:.86em;opacity:.85}
+.ac-seat-tag{color:var(--ac-amber,#ffb020);font-style:normal}

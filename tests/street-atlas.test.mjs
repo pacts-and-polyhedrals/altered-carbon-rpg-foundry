@@ -168,3 +168,50 @@ test('repair refreshes the links on Bay City scenes imported before they existed
   assert.deepEqual(scene.flags[NS].bayCityMap.links.map(l=>l.to),['BCS-FELL','BCS-FELL']);
   assert.equal(await syncSceneLinks(scene),false,'already current');
 });
+
+test('v14: transit puts the vehicle and riders on the new map\'s Level; taxi passengers pick any destination', async ()=>{
+  let seq=0;const emitted=[];
+  const mkDoc=(d,parent)=>{const t={...structuredClone(d),id:d._id||('n'+(++seq)),parent};t.getFlag=(ns,k)=>t.flags?.[ns]?.[k];
+    t.toObject=()=>{const o={};for(const [k,v] of Object.entries(t))if(typeof v!=='function'&&!['parent','actor'].includes(k))o[k]=structuredClone(v);o._id=t.id;delete o.id;return o;};
+    t.update=async u=>{for(const [k,v] of Object.entries(u))foundry.utils.setProperty(t,k,v);return t;};return t;};
+  const mkScene=(id,m,kind,level)=>{const s={id,name:m.name,width:m.width,height:m.height,grid:{size:100},flags:{[NS]:{[kind]:{id:m.id,links:m.links}}},tokens:[],deleted:[],
+      levels:{contents:[{id:level}]},initialLevel:{id:level}};
+    s.getFlag=(ns,k)=>s.flags[ns]?.[k];s.tokens.get=i=>s.tokens.find(t=>t.id===i);
+    s.createEmbeddedDocuments=async(type,list)=>list.map(d=>{const t=mkDoc(d,s);t.actor=d.actorId==='cab'?cabActor:playerActor;s.tokens.push(t);return t;});
+    s.deleteEmbeddedDocuments=async(type,ids,opts)=>{s.deleted.push({ids,opts});for(const i of ids)s.tokens.splice(s.tokens.findIndex(t=>t.id===i),1);};
+    s.view=async()=>{};return s;};
+  const player={id:'pl',isGM:false,active:true},gm={id:'gm',isGM:true,active:true};
+  const cabActor={type:'vehicle',system:{vehicle:{control:'ai'}},testUserPermission:u=>u.isGM};
+  const playerActor={type:'character',testUserPermission:u=>u.isGM||u.id==='pl'};
+  const fell=byId['BCS-FELL'],licktown=byId['BCS-LICKTOWN'];
+  const src=mkScene('s1',fell,'streetAtlas','lvlA'),dst=mkScene('s2',licktown,'streetAtlas','lvlB');
+  const cab=mkDoc({_id:'cab',actorId:'cab',name:'Bay City Autocab',x:1500,y:1200,width:2,height:3,level:'lvlA',_regions:['r1'],flags:{[NS]:{vehicleOccupants:[{seatId:'passenger-1',tokenId:'kov',name:'Kovacs'}]}}},src);cab.actor=cabActor;
+  const kov=mkDoc({_id:'kov',actorId:'pc',name:'Kovacs',x:1525,y:1325,width:.5,height:.5,level:'lvlA',flags:{[NS]:{vehicleSeat:{vehicleTokenId:'cab',seatId:'passenger-1'}}}},src);kov.actor=playerActor;
+  src.tokens.push(cab,kov);
+  globalThis.fetch=async url=>({ok:true,json:async()=>JSON.parse(readFileSync(join(root,'data',url.split('/').pop()),'utf8'))});
+  globalThis.game={user:gm,users:Object.assign([gm,player],{activeGM:gm,get:i=>[gm,player].find(u=>u.id===i),filter:f=>[gm,player].filter(f)}),scenes:Object.assign([src,dst],{get:i=>[src,dst].find(s=>s.id===i)}),combats:[],
+    socket:{emit:(e,p)=>emitted.push(p),on(){}},packs:{get:()=>null}};
+  globalThis.ChatMessage={implementation:{create:async()=>null}};globalThis.ui={notifications:{info(){},warn(){}}};
+  const T=await import('../module/map-transit.mjs?levels='+Date.now());
+  const list=await T.transitDestinations();
+  const atlasCount=JSON.parse(readFileSync(join(root,'data/bay-city-street-atlas.json'),'utf8')).maps.length;
+  assert.equal(list.filter(d=>d.key.endsWith(':centre')).length,atlasCount,'every street map is a destination');
+  assert.ok(list.some(d=>d.label.includes('outside')),'building entrances are destinations');
+  assert.ok(list.some(d=>d.key.endsWith(':inside')),'original maps are destinations');
+  assert.equal(new Set(list.map(d=>d.key)).size,list.length,'unique keys');
+  assert.ok(T.canChooseDestination(kov,player),'a passenger in an AI taxi chooses where it goes');
+  cabActor.system.vehicle.control='driver';assert.equal(T.canChooseDestination(kov,player),false,'not in an ordinary car');cabActor.system.vehicle.control='ai';
+  const dest=list.find(d=>d.mapId==='BCS-LICKTOWN'&&d.label.includes('Fightdrome'));assert.ok(dest);
+  // the player's request is handled by the GM client
+  game.user=gm;
+  const handler=T;await handler.crossToNextMap(kov,{destination:dest.key}).catch(e=>{throw e;});
+  // crossToNextMap ran as the GM (leader); repeat as the player's request would be validated the same way
+  const nCab=dst.tokens.find(t=>t.name==='Bay City Autocab'),nKov=dst.tokens.find(t=>t.name==='Kovacs');
+  assert.ok(nCab&&nKov,'taxi and passenger are on the new map');
+  assert.equal(nCab.level,'lvlB','vehicle is on the new map\'s Level');assert.equal(nKov.level,'lvlB','rider is on the new map\'s Level');
+  assert.equal(nCab._regions,undefined,'stale region membership dropped');
+  assert.equal(Math.round(nCab.x+nCab.width*100/2),dest.land[0]);assert.equal(Math.round(nCab.y+nCab.height*100/2),dest.land[1],'arrives at the chosen spot');
+  assert.equal(nKov.flags[NS].vehicleSeat.vehicleTokenId,nCab.id);
+  assert.equal(src.tokens.length,0);
+  await assert.rejects(T.crossToNextMap(nKov,{destination:'BCS-NOWHERE:centre'}),/Unknown destination/);
+});

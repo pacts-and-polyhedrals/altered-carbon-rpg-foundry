@@ -11,7 +11,7 @@ for(const v of data.vehicles){
     img:v.img,
     prototypeToken:{name:v.name,displayName:20,actorLink:false,width:v.token.width,height:v.token.height,lockRotation:false,rotation:0,
       texture:{src:v.tokenImg,fit:'contain',scaleX:1,scaleY:1},disposition:0,bar1:{attribute:null},bar2:{attribute:null},sight:{enabled:false}},
-    flags:{[NS]:{catalogId:v.id,compendiumSource:'street-vehicles',vehicleClass:v.kind}},
+    flags:{[NS]:{catalogId:v.id,compendiumSource:'street-vehicles',vehicleClass:v.kind,vehicleAbilities:v.abilities||[]}},
     _stats:{coreVersion:'14.359',systemId:NS,systemVersion:version,createdTime:Date.now(),modifiedTime:Date.now(),lastModifiedBy:null}};
   batch.put(`!actors!${_id}`,actor);
 }

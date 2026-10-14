@@ -7,6 +7,7 @@
 // All scene writes are done by one active GM; players send requests over the system socket.
 import {seatLayout,seatPositions,vehicleFootprint,exitPositions} from './vehicle-seat-math.mjs';
 import {pickVehicleTransform,planVehicleMove} from './vehicle-movement.mjs';
+import {hasAbility,isCagedSeat} from './vehicle-abilities.mjs';
 
 const NS='altered-carbon-rpg',SOCKET=`system.${NS}`,SEAT='vehicleSeat',OCC='vehicleOccupants',GRANT='vehicleDriverGrant';
 const esc=v=>foundry.utils.escapeHTML(String(v??''));
@@ -32,6 +33,7 @@ async function request(type,data){
 }
 export function boardVehicle(vehicleToken,occupantToken,seatId){return request('board',{sceneId:vehicleToken.parent.id,vehicleTokenId:vehicleToken.id,tokenId:occupantToken.id,seatId});}
 export function exitVehicle(occupantToken){return request('exit',{sceneId:occupantToken.parent.id,tokenId:occupantToken.id});}
+export function releaseFromCage(vehicleToken,prisonerToken){return request('release',{sceneId:vehicleToken.parent.id,vehicleTokenId:vehicleToken.id,tokenId:prisonerToken.id});}
 export function setVehicleControl(vehicleToken,{control,aiPilot}={}){return request('control',{sceneId:vehicleToken.parent.id,vehicleTokenId:vehicleToken.id,control,aiPilot});}
 
 // Queue moves per vehicle: two rapid drags cannot place a later batch behind an earlier one.
@@ -99,6 +101,20 @@ async function placeOccupants(vt,occupants,{animate=true}={}){
     const p=pos[seat.id];updates.push({_id:t.id,x:Math.round(p.x),y:Math.round(p.y),width:0.5,height:0.5,rotation:vt.rotation||0,elevation:vt.elevation||0,sort:(vt.sort||0)+1});}
   if(updates.length)await scene.updateEmbeddedDocuments('Token',updates,{acVehicleCarry:true,animate});
 }
+async function performExit(scene,ot,{quiet=false}={}){
+    const seat=seatOf(ot);if(!seat)throw new Error(`${ot.name} is not in a vehicle.`);    const vt=scene.tokens.get(seat.vehicleTokenId),occupants=occupantsOf(vt);
+    const record=occupants[seat.seatId]||{},original=record.original||{width:1,height:1};
+    delete occupants[seat.seatId];
+    const g=scene.grid.size;let spot={x:ot.x,y:ot.y};
+    if(vt){for(let i=0;i<24;i++){const p=exitPositions(vt,i,g);if(!scene.tokens.some(t=>t.id!==ot.id&&!seatOf(t)&&Math.abs(t.x-p.x)<g/2&&Math.abs(t.y-p.y)<g/2)){spot=p;break;}}}
+    await ot.update({x:Math.round(spot.x),y:Math.round(spot.y),width:original.width,height:original.height,rotation:0,[`flags.${NS}.${SEAT}`]:null},{acVehicleCarry:true});
+    if(vt){
+      await saveOccupants(vt,occupants);
+      await syncCrew(vt,occupants);await applyDriverControl(vt,occupants);
+      if(!quiet)await announce(vt,`<strong>${esc(ot.name)}</strong> gets out.`);
+    }
+    return true;
+  }
 const HANDLERS={
   async board({sceneId,vehicleTokenId,tokenId,seatId,userId}){
     const scene=game.scenes.get(sceneId),vt=scene?.tokens.get(vehicleTokenId),ot=scene?.tokens.get(tokenId),user=game.users.get(userId);
@@ -109,7 +125,9 @@ const HANDLERS={
     const seats=seatLayout(vt.actor),seat=seats.find(s=>s.id===seatId);if(!seat)throw new Error('That seat does not exist in this vehicle.');
     const occupants=occupantsOf(vt);
     if(occupants[seatId]&&occupants[seatId].tokenId!==ot.id)throw new Error(`${seat.label} is taken by ${occupants[seatId].name}.`);
-    if(!user?.isGM&&!seatOf(ot)&&rectGap(ot,vt,scene.grid.size)>1.01)throw new Error(`${ot.name} must be next to ${vt.name} to get in.`);
+    const reach=hasAbility(vt.actor,'openSides')?2.01:1.01;   // Open sides: jump on from 2 squares
+    if(!user?.isGM&&!seatOf(ot)&&rectGap(ot,vt,scene.grid.size)>reach)throw new Error(`${ot.name} must be ${reach>2?'within 2 squares of':'next to'} ${vt.name} to get in.`);
+    const was=seatOf(ot);if(was&&!user?.isGM){const from=scene.tokens.get(was.vehicleTokenId);if(from&&isCagedSeat(from.actor,was.seatId))throw new Error(`${ot.name} is locked in the cage of ${from.name}. Someone outside or the GM has to let them out.`);}
     // Changing seats in the same vehicle, or hopping from another vehicle.
     const current=seatOf(ot);
     let original={width:ot.width,height:ot.height};
@@ -130,17 +148,27 @@ const HANDLERS={
     const scene=game.scenes.get(sceneId),ot=scene?.tokens.get(tokenId),user=game.users.get(userId);
     if(!ot)throw new Error('Token not found.');requireUserCanMove(user,ot);
     const seat=seatOf(ot);if(!seat)throw new Error(`${ot.name} is not in a vehicle.`);
-    const vt=scene.tokens.get(seat.vehicleTokenId),occupants=occupantsOf(vt);
-    const record=occupants[seat.seatId]||{},original=record.original||{width:1,height:1};
-    delete occupants[seat.seatId];
-    const g=scene.grid.size;let spot={x:ot.x,y:ot.y};
-    if(vt){for(let i=0;i<24;i++){const p=exitPositions(vt,i,g);if(!scene.tokens.some(t=>t.id!==ot.id&&!seatOf(t)&&Math.abs(t.x-p.x)<g/2&&Math.abs(t.y-p.y)<g/2)){spot=p;break;}}}
-    await ot.update({x:Math.round(spot.x),y:Math.round(spot.y),width:original.width,height:original.height,rotation:0,[`flags.${NS}.${SEAT}`]:null},{acVehicleCarry:true});
-    if(vt){
-      await saveOccupants(vt,occupants);
-      await syncCrew(vt,occupants);await applyDriverControl(vt,occupants);
-      if(!quiet)await announce(vt,`<strong>${esc(ot.name)}</strong> gets out.`);
+    const cageOf=scene.tokens.get(seat.vehicleTokenId);
+    if(!user?.isGM&&cageOf&&isCagedSeat(cageOf.actor,seat.seatId))throw new Error(`The cage in ${cageOf.name} is locked from outside. Someone in the front, someone beside the vehicle, or the GM has to let ${ot.name} out.`);
+    return performExit(scene,ot,{quiet});
+  },
+  /** Let a caged rider out: the GM, or a character the user controls who is in a non-caged seat of this vehicle or right beside it. */
+  async release({sceneId,vehicleTokenId,tokenId,userId}){
+    const scene=game.scenes.get(sceneId),vt=scene?.tokens.get(vehicleTokenId),ot=scene?.tokens.get(tokenId),user=game.users.get(userId);
+    if(!vt||!ot)throw new Error('Vehicle or rider not found.');
+    const seat=seatOf(ot);if(!seat||seat.vehicleTokenId!==vt.id)throw new Error(`${ot.name} is not in ${vt.name}.`);
+    if(!user?.isGM){
+      const g=scene.grid.size;
+      const helper=scene.tokens.find(t=>t.id!==ot.id&&t.actor?.type!=='vehicle'&&t.actor?.testUserPermission?.(user,'OWNER')&&(()=>{const s=seatOf(t);
+        if(s)return s.vehicleTokenId===vt.id&&!isCagedSeat(vt.actor,s.seatId);
+        return rectGap(t,vt,g)<=1.01;})());
+      if(!helper)throw new Error(`To let ${ot.name} out, one of your characters must be in the front of ${vt.name} or standing beside it.`);
+      await performExit(scene,ot,{quiet:true});
+      await announce(vt,`<strong>${esc(helper.name)}</strong> opens the cage and lets <strong>${esc(ot.name)}</strong> out.`);
+      return true;
     }
+    await performExit(scene,ot,{quiet:true});
+    await announce(vt,`The cage opens: <strong>${esc(ot.name)}</strong> is let out.`);
     return true;
   },
   async move({sceneId,vehicleTokenId,transform,userId,animate=true}){
@@ -375,6 +403,14 @@ function installUnownedVehicleBoarding(){
   };
 }
 
+async function openReleaseDialog(vt,caged){
+  let pick=caged[0];
+  if(caged.length>1){
+    const form=await foundry.applications.api.DialogV2.input({window:{title:`${vt.name}: open the cage`},content:`<label><span>Let out</span><select name="tokenId">${caged.map(o=>`<option value="${esc(o.tokenId)}">${esc(o.name)}</option>`).join('')}</select></label>`,ok:{label:'Open the cage',icon:'fa-solid fa-unlock'}});
+    if(!form?.tokenId)return;pick=caged.find(o=>o.tokenId===form.tokenId);
+  }
+  const ot=vt.parent.tokens.get(pick.tokenId);if(ot)await releaseFromCage(vt,ot);
+}
 function renderVehicleHUD(hud,html){
   try{
     const root=html?.querySelector?html:html?.[0]||hud?.element;
@@ -387,6 +423,9 @@ function renderVehicleHUD(hud,html){
       // selection when they right-clicked the vehicle.
       col.append(hudButton('fa-solid fa-car-side','Board vehicle / choose seat',()=>openVehicleBoardDialog(doc)));
       if(game.user.isGM)col.append(hudButton('fa-solid fa-users','Who is inside / control',()=>openVehicleControl(doc)));
+      // Prisoner cage: anyone in the front, anyone standing beside it, or the GM can let a caged rider out.
+      const caged=Object.values(occupantsOf(doc)).filter(o=>isCagedSeat(doc.actor,o.seatId)&&doc.parent.tokens.get(o.tokenId));
+      if(caged.length)col.append(hudButton('fa-solid fa-unlock','Let someone out of the cage',()=>openReleaseDialog(doc,caged)));
     }else if(seatOf(doc)){
       if(!(game.user.isGM||doc.actor?.isOwner))return;
       col.append(hudButton('fa-solid fa-person-walking-arrow-right','Get out of the vehicle',()=>exitVehicle(doc)));
@@ -409,3 +448,4 @@ export async function openVehicleControl(vt){
   for(const s of seats)if(form[`eject-${s.id}`]&&occ[s.id]){const t=vt.parent.tokens.get(occ[s.id].tokenId);if(t)await exitVehicle(t);}
   if(form.control!==v.control||String(form.aiPilot||'')!==String(v.aiPilot||''))await setVehicleControl(vt,{control:form.control,aiPilot:String(form.aiPilot||'')});
 }
+export const _handlers=HANDLERS; // for tests

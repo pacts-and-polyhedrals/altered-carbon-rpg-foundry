@@ -1,6 +1,7 @@
 import {resourceAdjustment,parseCrew,crewProfile,validateCrewAssignment,CREW_ROLES} from './vehicle-operations.mjs';
 import {rollSkill} from './rolls.mjs';
 import {seatLayout,vehicleFootprint,openVehicleBoardDialog,exitVehicle,openVehicleControl} from './vehicle-boarding.mjs';
+import {abilitiesOf,ABILITIES,hasAbility} from './vehicle-abilities.mjs';
 const {api,sheets}=foundry.applications;
 const esc=value=>foundry.utils.escapeHTML(String(value??''));
 export class ACVehicleSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV2){
@@ -13,9 +14,11 @@ export class ACVehicleSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
   const items=(actor.items?.contents||[]).map(i=>({id:i.id,name:i.name,type:i.type,capacity:i.system.capacity,depletion:i.system.depletion}));
   const vt=this.vehicleToken(),occRaw=vt?.getFlag?.('altered-carbon-rpg','vehicleOccupants'),occ={};if(Array.isArray(occRaw))for(const o of occRaw)occ[o.seatId]=o;
   const myIds=new Set((canvas?.tokens?.controlled||[]).map(t=>t.id));
-  const seats=seatLayout(actor).map(s=>{const o=occ[s.id],t=o?vt?.parent?.tokens?.get(o.tokenId):null;return {...s,occupant:o?.name||'',canExit:Boolean(t&&(game.user.isGM||t.actor?.isOwner))};});
+  const seatTag=id=>[hasAbility(actor,'cage',id)&&abilitiesOf(actor).some(a=>a.key==='cage')?'cage':'',hasAbility(actor,'windowless',id)&&abilitiesOf(actor).some(a=>a.key==='windowless')?'load bay':'',(hasAbility(actor,'exposed',id)&&abilitiesOf(actor).some(a=>a.key==='exposed'))||hasAbility(actor,'openSides')?'exposed':''].filter(Boolean).join(' · ');
+  const seats=seatLayout(actor).map(s=>{const o=occ[s.id],t=o?vt?.parent?.tokens?.get(o.tokenId):null;return {...s,tag:seatTag(s.id),occupant:o?.name||'',canExit:Boolean(t&&(game.user.isGM||t.actor?.isOwner))};});
+  const abilities=abilitiesOf(actor).filter(a=>ABILITIES[a?.key]).map(a=>({...ABILITIES[a.key],key:a.key,seats:Array.isArray(a.seats)?a.seats.map(id=>seatLayout(actor).find(x=>x.id===id)?.label||id).join(', '):''}));
   const pt=actor.prototypeToken,custom=pt&&!(Number(pt.width)===1&&Number(pt.height)===1),footprint=custom?{width:Number(pt.width),height:Number(pt.height)}:vehicleFootprint(v.size),controlLabel={driver:'Driver seat player',ai:`Vehicle AI${v.aiPilot?` (${v.aiPilot})`:''}`,both:'Driver and vehicle AI'}[v.control||'driver'];
-  return {...ctx,seats,onScene:Boolean(vt),hasSelection:myIds.size>0,footprint,controlLabel,isGM:game.user.isGM,actor,v,canEdit:this.canEdit,editMode:this._editMode,crew,roster,items,hasItems:items.length>0,structurePct:v.structure.max?100*v.structure.value/v.structure.max:0,fuelPct:v.fuel.max?100*v.fuel.value/v.fuel.max:0};
+  return {...ctx,seats,abilities,hasAbilities:abilities.length>0,onScene:Boolean(vt),hasSelection:myIds.size>0,footprint,controlLabel,isGM:game.user.isGM,actor,v,canEdit:this.canEdit,editMode:this._editMode,crew,roster,items,hasItems:items.length>0,structurePct:v.structure.max?100*v.structure.value/v.structure.max:0,fuelPct:v.fuel.max?100*v.fuel.value/v.fuel.max:0};
  }
  async _onRender(ctx,opts){await super._onRender(ctx,opts);const editable=this._editMode&&this.canEdit;
   this.element?.querySelectorAll('input[name],textarea[name],select[name]').forEach(el=>{el.disabled=!editable;});

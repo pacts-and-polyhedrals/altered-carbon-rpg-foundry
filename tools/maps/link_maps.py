@@ -133,7 +133,7 @@ def main(isvg, ssvg, ijson, sjson):
                           width=sa.W * 100, height=sa.H * 100, gridSize=100,
                           zones=[dict(id=z['id'], name=z['name'], kind=z['kind'], rect=[cs.px(v) for v in z['rect']], adjacent=sorted(adj[z['id']])) for z in zones],
                           links=[dict(edge=l['edge'], slot=l['slot'], kind='edge', rect=[cs.px(v) for v in l['rect']], to=l['to'], toName=l['toName'], toEdge=l['toEdge']) for l in elinks]
-                                +[dict(edge=None, kind='door', rect=[cs.px(v) for v in l['rect']], to=l['to'], toName=l['toName'], land=[cs.px(v) for v in l['land']]) for l in doors]))
+                                +[dict(edge=None, kind='door', at=l['key'], rect=[cs.px(v) for v in l['rect']], to=l['to'], toName=l['toName'], land=[cs.px(v) for v in l['land']]) for l in doors]))
     json.dump(dict(atlas='Bay City Street Atlas', cols=4, rows=4, maps=sdata), open(sjson, 'w'), indent=1)
     print(len(PAIRS), 'two-way links;', sum(len(v) for v in links.values()), 'link ends')
 

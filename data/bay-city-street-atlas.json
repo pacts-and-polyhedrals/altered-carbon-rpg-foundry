@@ -1879,7 +1879,8 @@
      "land": [
       2440.0,
       270.0
-     ]
+     ],
+     "at": "Ferry Terminal"
     }
    ]
   },
@@ -2296,7 +2297,8 @@
      "land": [
       320.0,
       1340.0
-     ]
+     ],
+     "at": "Pyramid Tower"
     }
    ]
   },
@@ -3429,7 +3431,8 @@
      "land": [
       320.0,
       450.0
-     ]
+     ],
+     "at": "BCPD Fell St Precinct"
     },
     {
      "edge": null,
@@ -3445,7 +3448,8 @@
      "land": [
       1620.0,
       1240.0
-     ]
+     ],
+     "at": "Patrol Garage"
     }
    ]
   },
@@ -4077,7 +4081,8 @@
      "land": [
       320.0,
       1330.0
-     ]
+     ],
+     "at": "Transit Hub"
     }
    ]
   },
@@ -4652,7 +4657,8 @@
      "land": [
       320.0,
       650.0
-     ]
+     ],
+     "at": "Old Downtown Arcade"
     }
    ]
   },
@@ -5578,7 +5584,8 @@
      "land": [
       2440.0,
       900.0
-     ]
+     ],
+     "at": "Mural Alley"
     },
     {
      "edge": null,
@@ -5594,7 +5601,8 @@
      "land": [
       1250.0,
       320.0
-     ]
+     ],
+     "at": "AI Hotel Row"
     },
     {
      "edge": null,
@@ -5610,7 +5618,8 @@
      "land": [
       320.0,
       450.0
-     ]
+     ],
+     "at": "Clinic Row"
     },
     {
      "edge": null,
@@ -5626,7 +5635,8 @@
      "land": [
       2440.0,
       930.0
-     ]
+     ],
+     "at": "Taqueria Block"
     },
     {
      "edge": null,
@@ -5642,7 +5652,8 @@
      "land": [
       320.0,
       900.0
-     ]
+     ],
+     "at": "Night Market"
     },
     {
      "edge": null,
@@ -5658,7 +5669,8 @@
      "land": [
       2440.0,
       1280.0
-     ]
+     ],
+     "at": "The Neon Strip"
     }
    ]
   },
@@ -6218,7 +6230,8 @@
      "land": [
       320.0,
       650.0
-     ]
+     ],
+     "at": "Fightdrome"
     },
     {
      "edge": null,
@@ -6234,7 +6247,8 @@
      "land": [
       320.0,
       1430.0
-     ]
+     ],
+     "at": "Licktown Market"
     }
    ]
   },
@@ -6703,7 +6717,8 @@
      "land": [
       2440.0,
       650.0
-     ]
+     ],
+     "at": "Dry Dock"
     },
     {
      "edge": null,
@@ -6719,7 +6734,8 @@
      "land": [
       1620.0,
       1450.0
-     ]
+     ],
+     "at": "Container Piers"
     }
    ]
   }

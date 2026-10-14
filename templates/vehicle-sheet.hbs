@@ -29,11 +29,15 @@
       <label class="span-two">Vehicle systems <textarea name="system.vehicle.systems" rows="3">{{v.systems}}</textarea></label>
      </div>
    </section>
+   <section class="ac-panel ac-vehicle-abilities" aria-labelledby="ac-vehicle-abilities">
+    <h2 id="ac-vehicle-abilities">Unique abilities</h2>
+    {{#if hasAbilities}}<ul class="ac-ability-list">{{#each abilities}}<li><i class="{{icon}}" aria-hidden="true"></i><div><b>{{label}}</b>{{#if seats}} <small>({{seats}})</small>{{/if}}<p>{{text}}</p></div></li>{{/each}}</ul>{{else}}<p class="ac-muted">None.</p>{{/if}}
+   </section>
    <section class="ac-panel ac-vehicle-seats" aria-labelledby="ac-vehicle-seats">
     <div class="ac-vehicle-header"><div><h2 id="ac-vehicle-seats">Seats</h2><p>Token footprint {{footprint.width}}×{{footprint.height}} squares (Size {{v.size}}). Driving: <b>{{controlLabel}}</b>.</p></div>
      <div class="ac-vehicle-seat-actions">{{#if onScene}}<button type="button" data-action="seatBoard"><i class="fa-solid fa-car-side"></i> Get in</button>{{#if isGM}}<button type="button" data-action="vehicleControl"><i class="fa-solid fa-users-gear"></i> Seats &amp; control</button>{{/if}}{{/if}}</div></div>
     {{#unless onScene}}<p class="ac-help-line">Place this vehicle on a scene to let characters get in. On the scene, right-click the vehicle token and select <b>Board vehicle / choose seat</b>. Or right-click a character for <b>Get in a vehicle</b>, <b>Change seat</b> and <b>Get out</b>.</p>{{/unless}}
-    <ul class="ac-vehicle-roster">{{#each seats}}<li><span><b>{{label}}</b> <small>{{role}}</small></span><span>{{#if occupant}}{{occupant}}{{#if canExit}} <button type="button" data-action="seatExit" data-seat-id="{{id}}">Get out</button>{{/if}}{{else}}<em class="ac-muted">free</em>{{/if}}</span></li>{{/each}}</ul>
+    <ul class="ac-vehicle-roster">{{#each seats}}<li><span><b>{{label}}</b> <small>{{role}}{{#if tag}} · <em class="ac-seat-tag">{{tag}}</em>{{/if}}</small></span><span>{{#if occupant}}{{occupant}}{{#if canExit}} <button type="button" data-action="seatExit" data-seat-id="{{id}}">Get out</button>{{/if}}{{else}}<em class="ac-muted">free</em>{{/if}}</span></li>{{/each}}</ul>
     <p class="ac-help-line">Seated PC and NPC tokens move, turn and change elevation together with the vehicle in a single scene update. The Driver's player can move the vehicle token while seated, unless the vehicle is set to AI control.</p>
    </section>
    <section class="ac-panel" aria-labelledby="ac-vehicle-crew"><div class="ac-vehicle-header"><div><h2 id="ac-vehicle-crew">Crew and stations</h2><p>{{crew.crewCount}} crew assigned (minimum {{crew.required}}, normal {{crew.standard}}, maximum {{crew.full}}) · {{crew.passengerCount}} / {{crew.passengerLimit}} passengers</p></div>{{#if canEdit}}<button type="button" data-action="assignCrew">Manage Crew</button>{{/if}}</div>

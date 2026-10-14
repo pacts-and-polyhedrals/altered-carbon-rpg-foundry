@@ -6,6 +6,7 @@ import {postTraitAdjudication} from './trait-adjudication.mjs';
 import {matchingBonusDiceAwards,awardedDiceForRoll,consumeBonusDiceAwards} from './gm-bonus-dice.mjs';
 import {resolveBonusDice} from './gm-roll-options.mjs';
 import {conditionKeys as activeConditionKeys} from './condition-state.mjs';
+import {vehicleRollModifiers} from './vehicle-abilities.mjs';
 
 function dieResult(roll){return roll.dice?.[0]?.results?.[0]?.result ?? roll.total;}
 function normalizedId(name=''){return String(name).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');}
@@ -78,6 +79,10 @@ async function executeSkillRoll(actor, skill, options={}){
   sit.level=Math.max(1,Math.min(5,derivedEffectValue(effectResult,'skill.level',sit.level)));
   sit.difficulty=derivedEffectValue(effectResult,'check.difficulty',sit.difficulty);
   if(effectContext.skill==='brawl'&&effectContext.itemTag.includes('unarmed')&&options.unarmedAgainstArmed===true){const penalty=Math.max(0,derivedEffectValue(effectResult,'check.unarmedPenalty',2));sit.difficulty+=penalty;sit.notes.push(`Unarmed vs armed/Battle Armor: ${penalty} Difficulty`);}
+  // Vehicle abilities: driver's Pilot modifiers, load-bay riders, and attacks on riders (vehicle-abilities.mjs).
+  const veh=vehicleRollModifiers(actor,skill,options,normalizedId(sit.attribute));
+  if(veh.blocked){ui?.notifications?.warn?.(veh.reason);return {blocked:true,reason:veh.reason};}
+  sit.difficulty+=veh.difficulty;sit.notes.push(...veh.notes);
   const extraDiceCount=Math.max(0,Math.min(10,Math.trunc(Number(effectResult.values['check.extraBonusDice']||0))));
   const sides=skillDie(sit.level), attr=sit.attribute;
   const virtualTrainingBonus=options.virtualTrainingBonus===true;
@@ -88,7 +93,7 @@ async function executeSkillRoll(actor, skill, options={}){
   const gmAwardDice=awardedDiceForRoll(gmAwards,sides);
   const skillRoll=await new Roll(`1d${sides}`).evaluate(), original=dieResult(skillRoll);
   const nonStackingBonus=Number(effectResult.values['check.nonStackingBonusDice']||0)>0;
-  const ordinaryBonusDice=[...resolveBonusDice(options.bonusDice||[],sides),...(effectResult.values['check.bonusDie']||[]),...Array(extraDiceCount).fill(sides),...(virtualTrainingBonus?[sides]:[]),...gmAwardDice];
+  const ordinaryBonusDice=[...resolveBonusDice(options.bonusDice||[],sides),...(effectResult.values['check.bonusDie']||[]),...Array(extraDiceCount).fill(sides),...(virtualTrainingBonus?[sides]:[]),...gmAwardDice,...Array(veh.bonusDice).fill(sides)];
   const allBonusDice=ordinaryBonusDice.length?ordinaryBonusDice:nonStackingBonus?[sides]:[];
   const bonusDice=[];for(const d of allBonusDice){const ds=Number(d);if(!ds)continue;const r=await new Roll(`1d${ds}`).evaluate();bonusDice.push({sides:ds,result:dieResult(r),roll:r});}
   let luck=null;if(options.luckSides){const ds=Number(options.luckSides),r=await new Roll(`1d${ds}`).evaluate();luck={sides:ds,result:dieResult(r),roll:r};}
@@ -97,7 +102,7 @@ async function executeSkillRoll(actor, skill, options={}){
     const cost=Math.abs(original-luck.result);const legal=luck.result!==1&&luck.result!==luck.sides&&cost<=Number(actor.system.resources.stackPoints.value||0);
     if(legal){const use=await foundry.applications.api.DialogV2.confirm({window:{title:'Dumb Luck'},content:`<p>Replace the Skill result <strong>${original}</strong> with Luck <strong>${luck.result}</strong> for <strong>${cost} SP</strong>?</p>`});if(use&&cost)await actor.spendStackPoints(cost);else mode='none';}else mode='none';
   }
-  const input={skillResult:original,skillSides:sides,bonusResults:bonusDice.map(x=>x.result),luckResult:luck?.result??null,luckSides:luck?.sides??null,luckMode:mode,attribute:actor.system.attributes[attr],baseTR:options.baseTR??null,difficulty:sit.difficulty,bonus:Number(options.bonus||0)+(options.isEgoSave===true&&options.isSave===true?Number(effectResult.values['check.egoSave']||0):0),training:derivedEffectValue(effectResult,'check.training',Math.max(0,Number(skill.system.trainingBonus||0))),trainingBonuses:options.trainingBonuses||[],gearBonus:derivedEffectValue(effectResult,'check.gear',Number(options.gearBonus||0)),gearBonuses:[...(options.gearBonuses||[]),Number(sit.drugGearBonus||0)].filter(x=>Number(x)>0),stackableBonuses:options.stackableBonuses||[]};
+  const input={skillResult:original,skillSides:sides,bonusResults:bonusDice.map(x=>x.result),luckResult:luck?.result??null,luckSides:luck?.sides??null,luckMode:mode,attribute:actor.system.attributes[attr],baseTR:options.baseTR??null,difficulty:sit.difficulty,bonus:Number(options.bonus||0)+(options.isEgoSave===true&&options.isSave===true?Number(effectResult.values['check.egoSave']||0):0),training:derivedEffectValue(effectResult,'check.training',Math.max(0,Number(skill.system.trainingBonus||0))),trainingBonuses:options.trainingBonuses||[],gearBonus:derivedEffectValue(effectResult,'check.gear',Number(options.gearBonus||0)),gearBonuses:[...(options.gearBonuses||[]),...veh.gearBonuses,Number(sit.drugGearBonus||0)].filter(x=>Number(x)>0),stackableBonuses:options.stackableBonuses||[]};
   const out=resolveCheck(input);
   if(virtualTrainingBonus){await actor.update({'system.virtualTrainingBonusPool':Number(actor.system.virtualTrainingBonusPool)-1});sit.notes.push('Virtual Instruction: 1 pool point spent for a Bonus Die');}
   const result={actorUuid:actor.uuid,skillUuid:skill.uuid,sides,attribute:attr,original,bonusDice:bonusDice.map(({sides,result})=>({sides,result})),luck:luck&&{sides:luck.sides,result:luck.result},luckMode:mode,best:out.bestResult,ace:out.ace,stroke:out.stroke,catastrophe:out.catastrophe,spCost:out.spCost,success:out.success,successDegrees:out.successDegrees,failureDegrees:out.failureDegrees,tr:out.targetResult,notes:[...sit.notes,...effectResult.applied.map(e=>`${e.source}: ${e.key} ${e.mode} ${e.value}`)],effectErrors:effectResult.errors,

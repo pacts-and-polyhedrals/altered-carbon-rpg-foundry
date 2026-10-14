@@ -13,6 +13,15 @@
    },
    "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/sprocket-bmx.svg",
    "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/sprocket-bmx.webp",
+   "abilities": [
+    {
+     "key": "nimble"
+    },
+    {
+     "key": "exposed"
+    }
+   ],
+   "lightsImg": null,
    "system": {
     "vehicle": {
      "size": 0,
@@ -53,6 +62,21 @@
    },
    "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/kick-glide-e-scooter.svg",
    "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/kick-glide-e-scooter.webp",
+   "abilities": [
+    {
+     "key": "nimble"
+    },
+    {
+     "key": "silent"
+    },
+    {
+     "key": "foldable"
+    },
+    {
+     "key": "exposed"
+    }
+   ],
+   "lightsImg": null,
    "system": {
     "vehicle": {
      "size": 0,
@@ -93,6 +117,12 @@
    },
    "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/courier-e-bike.svg",
    "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/courier-e-bike.webp",
+   "abilities": [
+    {
+     "key": "exposed"
+    }
+   ],
+   "lightsImg": null,
    "system": {
     "vehicle": {
      "size": 0,
@@ -133,6 +163,12 @@
    },
    "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/vespina-mag-scoot.svg",
    "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/vespina-mag-scoot.webp",
+   "abilities": [
+    {
+     "key": "exposed"
+    }
+   ],
+   "lightsImg": null,
    "system": {
     "vehicle": {
      "size": 1,
@@ -173,6 +209,15 @@
    },
    "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/hillcrawler-scrambler.svg",
    "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/hillcrawler-scrambler.webp",
+   "abilities": [
+    {
+     "key": "offroad"
+    },
+    {
+     "key": "exposed"
+    }
+   ],
+   "lightsImg": null,
    "system": {
     "vehicle": {
      "size": 1,
@@ -213,6 +258,12 @@
    },
    "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/kestrel-street-bike.svg",
    "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/kestrel-street-bike.webp",
+   "abilities": [
+    {
+     "key": "exposed"
+    }
+   ],
+   "lightsImg": null,
    "system": {
     "vehicle": {
      "size": 1,
@@ -253,6 +304,12 @@
    },
    "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/iron-saint-cruiser.svg",
    "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/iron-saint-cruiser.webp",
+   "abilities": [
+    {
+     "key": "exposed"
+    }
+   ],
+   "lightsImg": null,
    "system": {
     "vehicle": {
      "size": 1,
@@ -293,6 +350,15 @@
    },
    "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/bcpd-pursuit-bike.svg",
    "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/bcpd-pursuit-bike.webp",
+   "abilities": [
+    {
+     "key": "policeKit"
+    },
+    {
+     "key": "exposed"
+    }
+   ],
+   "lightsImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/bcpd-pursuit-bike-lights.webp",
    "system": {
     "vehicle": {
      "size": 1,
@@ -333,6 +399,12 @@
    },
    "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/corvo-diavolo-superbike.svg",
    "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/corvo-diavolo-superbike.webp",
+   "abilities": [
+    {
+     "key": "exposed"
+    }
+   ],
+   "lightsImg": null,
    "system": {
     "vehicle": {
      "size": 1,
@@ -373,6 +445,12 @@
    },
    "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/lumen-hubless-hyperbike.svg",
    "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/lumen-hubless-hyperbike.webp",
+   "abilities": [
+    {
+     "key": "exposed"
+    }
+   ],
+   "lightsImg": null,
    "system": {
     "vehicle": {
      "size": 1,
@@ -413,6 +491,15 @@
    },
    "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/fairway-runabout.svg",
    "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/fairway-runabout.webp",
+   "abilities": [
+    {
+     "key": "openSides"
+    },
+    {
+     "key": "exposed"
+    }
+   ],
+   "lightsImg": null,
    "system": {
     "vehicle": {
      "size": 1,
@@ -453,6 +540,12 @@
    },
    "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/bubble-pod-city-car.svg",
    "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/bubble-pod-city-car.webp",
+   "abilities": [
+    {
+     "key": "nimble"
+    }
+   ],
+   "lightsImg": null,
    "system": {
     "vehicle": {
      "size": 1,
@@ -493,6 +586,12 @@
    },
    "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/bay-city-autocab.svg",
    "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/bay-city-autocab.webp",
+   "abilities": [
+    {
+     "key": "autopilot"
+    }
+   ],
+   "lightsImg": null,
    "system": {
     "vehicle": {
      "size": 2,
@@ -533,6 +632,8 @@
    },
    "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/kitsu-rally-hatch.svg",
    "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/kitsu-rally-hatch.webp",
+   "abilities": [],
+   "lightsImg": null,
    "system": {
     "vehicle": {
      "size": 2,
@@ -573,6 +674,19 @@
    },
    "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/haulback-pickup.svg",
    "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/haulback-pickup.webp",
+   "abilities": [
+    {
+     "key": "offroad"
+    },
+    {
+     "key": "exposed",
+     "seats": [
+      "passenger-2",
+      "passenger-3"
+     ]
+    }
+   ],
+   "lightsImg": null,
    "system": {
     "vehicle": {
      "size": 2,
@@ -594,7 +708,7 @@
      "fireControl": 0,
      "travel": "region",
      "cargo": 8,
-     "passengers": 4,
+     "passengers": 3,
      "systems": "Off-road; Hauler; two seats in the cab, two riders in the open bed (exposed to fire).",
      "control": "driver",
      "aiPilot": ""
@@ -613,6 +727,17 @@
    },
    "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/courier-panel-van.svg",
    "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/courier-panel-van.webp",
+   "abilities": [
+    {
+     "key": "windowless",
+     "seats": [
+      "passenger-2",
+      "passenger-3",
+      "passenger-4"
+     ]
+    }
+   ],
+   "lightsImg": null,
    "system": {
     "vehicle": {
      "size": 3,
@@ -634,8 +759,8 @@
      "fireControl": 0,
      "travel": "region",
      "cargo": 14,
-     "passengers": 2,
-     "systems": "Hauler; windowless load bay with rear doors (riders in the back cannot see out).",
+     "passengers": 4,
+     "systems": "Hauler; one front passenger seat; windowless load bay with rear doors for three more (riders in the back cannot see out).",
      "control": "driver",
      "aiPilot": ""
     },
@@ -653,6 +778,8 @@
    },
    "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/revenant-v-12-muscle-car.svg",
    "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/revenant-v-12-muscle-car.webp",
+   "abilities": [],
+   "lightsImg": null,
    "system": {
     "vehicle": {
      "size": 2,
@@ -693,6 +820,19 @@
    },
    "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/bcpd-interceptor.svg",
    "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/bcpd-interceptor.webp",
+   "abilities": [
+    {
+     "key": "policeKit"
+    },
+    {
+     "key": "cage",
+     "seats": [
+      "passenger-2",
+      "passenger-3"
+     ]
+    }
+   ],
+   "lightsImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/bcpd-interceptor-lights.webp",
    "system": {
     "vehicle": {
      "size": 2,
@@ -733,6 +873,8 @@
    },
    "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/kitsune-gt-coupe.svg",
    "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/kitsune-gt-coupe.webp",
+   "abilities": [],
+   "lightsImg": null,
    "system": {
     "vehicle": {
      "size": 2,
@@ -773,6 +915,12 @@
    },
    "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/cerberus-supercharged-roadster.svg",
    "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/cerberus-supercharged-roadster.webp",
+   "abilities": [
+    {
+     "key": "exposed"
+    }
+   ],
+   "lightsImg": null,
    "system": {
     "vehicle": {
      "size": 2,
@@ -813,6 +961,15 @@
    },
    "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/dune-skiff-buggy.svg",
    "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/dune-skiff-buggy.webp",
+   "abilities": [
+    {
+     "key": "offroad"
+    },
+    {
+     "key": "exposed"
+    }
+   ],
+   "lightsImg": null,
    "system": {
     "vehicle": {
      "size": 1,
@@ -853,6 +1010,15 @@
    },
    "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/meth-stretch-limousine.svg",
    "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/meth-stretch-limousine.webp",
+   "abilities": [
+    {
+     "key": "autopilot"
+    },
+    {
+     "key": "privacy"
+    }
+   ],
+   "lightsImg": null,
    "system": {
     "vehicle": {
      "size": 3,
@@ -893,6 +1059,12 @@
    },
    "img": "systems/altered-carbon-rpg/assets/emblems/vehicles/street/ctac-rhino-armoured-car.svg",
    "tokenImg": "systems/altered-carbon-rpg/assets/tokens/vehicles/ctac-rhino-armoured-car.webp",
+   "abilities": [
+    {
+     "key": "turret"
+    }
+   ],
+   "lightsImg": null,
    "system": {
     "vehicle": {
      "size": 3,

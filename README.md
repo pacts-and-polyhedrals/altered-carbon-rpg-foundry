@@ -22,6 +22,36 @@ Older installs that still use `.../main/system.json` keep working because the `s
 version, uninstall it and reinstall from the manifest URL above. Uninstalling a system does
 not delete your worlds.
 
+## v2.5.6 — Vehicle abilities with real mechanics
+
+Each vehicle's unique abilities are listed on its sheet under **Unique abilities**, and each seat shows whether it is *cage*, *load bay* or *exposed*. The abilities work in play:
+
+| Ability | Vehicles | What happens |
+|---|---|---|
+| Autopilot / self-driving | Bay City Autocab, Meth Stretch Limousine | Driver gets +3 gear on Pilot checks. Anyone aboard can open the **destination list** (token HUD) and the vehicle takes everyone to the chosen junction, entrance or interior. This also works for any vehicle set to AI or Driver and AI. |
+| Police kit | BCPD Interceptor, BCPD Pursuit Bike | **Lights and siren** button: lit token art, an animated siren light on the map, and a siren sound everyone hears. While they are on, the driver gets +1 Bonus Die on Pilot checks. **Plate scanner**: target a vehicle and scan it; the result (registered owner) is whispered to you and the GM. |
+| Prisoner cage | BCPD Interceptor (rear seats) | A caged rider cannot get out or change seats. **Let someone out of the cage** works for the GM, or for a player whose character is in the front or standing beside the car. |
+| Off-road | Hillcrawler Scrambler, Haulback Pickup, Dune Skiff Buggy | No off-road penalty, and the driver gets +1 Bonus Die on Pilot checks while the vehicle is on a block, park or rubble zone. |
+| Goes where cars can't / Tiny | Sprocket BMX, Kick-Glide E-Scooter, Bubble Pod | No off-road penalty. |
+| Anti-Grav | Airbike, Aircar | No off-road penalty (flies over the grid). |
+| *(everyone else off the road)* | | Driver's Pilot checks take +2 Difficulty while the vehicle is on a non-road zone of a Street Atlas map. |
+| Exposed seats | All bikes, golf cart, roadster, buggy, pickup bed | Riders can be attacked directly. Riders in **enclosed** seats can only be shot through the body: +2 Difficulty to attacks against them. Targeting a rider tells you which applies. |
+| Privacy glass | Meth Stretch Limousine | Attacks against occupants take a further +2 Difficulty. |
+| Windowless load bay | Courier Panel Van (rear 3 seats) | Riders in the back take +3 Difficulty on Perception checks and cannot attack out. |
+| Silent motor | Kick-Glide E-Scooter | Perception checks made while targeting it or its rider take +2 Difficulty. |
+| Folds to carry | Kick-Glide E-Scooter | **Fold up and carry** (empty scooter, with the carrier selected) takes it off the map into the character's hands; **Unfold** puts it back beside them. |
+| Open sides | Fairway Runabout | Board from 2 squares away. |
+| Roof turret | CTAC Rhino | Gunner seat that uses Fire Control. |
+
+All modifiers appear in the roll card notes. Vehicles already in your world pick up their abilities by name, so they don't need reimporting. Other changes: the Haulback Pickup now has 3 passenger seats (one in the cab, two in the bed) and the Courier Panel Van has 4 (one in front, three in the load bay).
+
+## v2.5.5 — Taxi destinations; vehicles arrive on the new map
+
+- **Fix:** a vehicle and everyone in it now appears on the new map after **Go to …**. Foundry v14 puts every token on a scene Level, and the copies were still tagged with the old map's Level, so they were created but never shown. Transit now puts them on the new map's Level and drops stale region and movement data.
+- **Taxi: choose a destination.** Anyone riding in a vehicle its AI drives (the Bay City Autocab, or any vehicle set to *AI* or *Driver and AI*) gets a taxi button on the token HUD. It opens a dropdown of every Bay City destination, grouped by district: each street map's main junction, every building entrance (for example *Mission Street → Outside Clinic Row (Resleeving Clinic)*), and the inside of each original map. The vehicle and all its passengers go there together. The GM can send any vehicle or token anywhere the same way.
+- On the **Bay City Overview** the same dropdown replaces the old click-on-a-district jump, with the district under the token selected as the default.
+- Ordinary vehicles still cross at exits and entrances with the one-click **Go to …** button, so chases stay on the streets.
+
 ## v2.5.4 — Street vehicles for chases; Bay City overview map
 
 **Bay City Street Vehicles (Chase)** is a new compendium in the GM Library with 23 ground vehicles, from a BMX and an e-scooter up to a hubless hyperbike, and from a golf cart up to a supercharged roadster, plus police, cab, van, limousine and CTAC armour for the other side of the chase. Each vehicle has:
@@ -48,8 +78,8 @@ The roster includes these vehicles:
 | Bubble Pod City Car | Car | 1 | 1.5×2 | 2 | 3 | 15 | 2 | 40 ft or 60 degrees | 2 |
 | Bay City Autocab | Car | 2 | 2×3 | 2 | 2 | 25 | 3 | 50 ft or 45 degrees | 5 |
 | Kitsu Rally Hatch | Car | 2 | 2×3 | 4 | 3 | 25 | 3 | 60 ft or 45 degrees | 4 |
-| Haulback Pickup | Car | 2 | 2×4 | 3 | 2 | 35 | 4 | 50 ft or 45 degrees | 5 |
-| Courier Panel Van | Car | 3 | 2×4 | 2 | 1 | 35 | 4 | 40 ft or 30 degrees | 3 |
+| Haulback Pickup | Car | 2 | 2×4 | 3 | 2 | 35 | 4 | 50 ft or 45 degrees | 4 |
+| Courier Panel Van | Car | 3 | 2×4 | 2 | 1 | 35 | 4 | 40 ft or 30 degrees | 5 |
 | Revenant V-12 Muscle Car | Car | 2 | 2×3 | 4 | 2 | 35 | 4 | 70 ft or 30 degrees | 4 |
 | BCPD Interceptor | Car | 2 | 2×3 | 4 | 3 | 40 | 5 | 70 ft or 45 degrees | 4 |
 | Kitsune GT Coupe | Car | 2 | 2×3 | 4 | 4 | 25 | 3 | 80 ft or 45 degrees | 2 |
