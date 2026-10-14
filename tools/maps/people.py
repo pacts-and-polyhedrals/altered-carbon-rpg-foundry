@@ -131,6 +131,37 @@ RING = {'Corporate Stooge': '#ff3b3b', 'Thug': '#ff3b3b', 'Hitman': '#ff3b3b', '
 PREGEN_ACCENT = {'Nia Calder': '#78ecf3', 'Tomas “Latch” Araya': '#ffc467', 'Sabine Kade': '#e9cc8c', 'Imani Voss': '#ff5a6e', 'Cass Ren': '#ff7fb0', 'Dr Edda Sorn': '#5ef0c4', 'Anik Rao': '#b9a2ff', 'Solenne Pryce': '#ff8a3d'}
 for _n, _c in RING.items(): NAMED[_n]['ringc'] = _c
 for _n, _c in PREGEN_ACCENT.items(): NAMED[_n]['ringc'] = _c; NAMED[_n]['acc'] = _c
+# The Butterfly Cut (system one-shot): pregens and NPCs, ring = their own accent colour.
+BUTTERFLY = {
+ 'Marisol Okafor-Reyes': dict(build='heavy', outfit='jacket', head='short', item='pistol', acc='#ff7a45', coat='#b7c2cf', hair='#151010', hold='cuff'),
+ 'Teo Vashti': dict(build='medium', outfit='trench', head='short', item='none', hold='tablet', acc='#6fa8ff', coat='#cfc6ad', hair='#2a1a10'),
+ 'Hollis Fenn': dict(build='slim', outfit='labcoat', head='short', item='none', hold='tablet', acc='#5ef0c4', coat=BONE, hair='#9a9a9a', synth=True, serial='TOX-3'),
+ 'Ines “Rook” Calloway': dict(build='slim', outfit='hoodie', head='mohawk', item='none', hold='tablet', acc='#b9a2ff', coat=BONE2, hair='#b9a2ff'),
+ 'Danny “Two-Coats” Mbeki': dict(build='medium', outfit='trench', head='short', item='bag', acc='#ffc467', coat='#cfc6ad', hair='#0f0c0a'),
+ 'Kesh Arlo': dict(build='heavy', outfit='jacket', head='bald', item='blade', acc='#ff5a6e', coat=BONE2),
+ 'Juniper Vance': dict(build='slim', outfit='suit', head='long', item='none', acc='#e9cc8c', coat='#3a332c', hair='#d8c08a'),
+ 'Sunny Achterberg': dict(build='slim', outfit='jacket', head='bun', item='none', hold='mic', acc='#ff7fb0', coat='#d9d3c4', hair='#ff7fb0'),
+ 'Ambrose “Saint” Kell': dict(build='slim', outfit='robe', head='bald', item='none', hold='scalpel', acc='#ff3b3b', coat='#cfc6ad'),
+ 'Lula “Gearbox” Tran': dict(build='heavy', outfit='jacket', head='bun', item='bag', acc='#ffc467', coat=BONE2, hair='#1b1b22'),
+ 'Eddo Paz': dict(build='medium', outfit='jacket', head='cap', item='none', acc='#ffb020', coat='#d9d3c4'),
+ 'Maren Kosk': dict(build='medium', outfit='armor', head='short', item='none', hold='tablet', acc='#5ef0c4', coat='#b9b0a0', hair='#5a3a22'),
+ 'Dr Ilse Varga': dict(build='slim', outfit='labcoat', head='bun', item='none', hold='tablet', acc='#ff3b3b', coat=BONE, hair='#9a948a'),
+ 'Corin Slade': dict(build='slim', outfit='trench', head='fedora', item='pistol', acc='#ff3b3b', coat='#cfc6ad'),
+ 'Captain Aurelio Brandt': dict(build='heavy', outfit='suit', head='short', item='none', acc='#6fa8ff', coat='#7f9ccf', hair='#b9b2a6'),
+ 'Dez Halloran': dict(build='heavy', outfit='armor', head='cap', item='none', acc='#6fa8ff', coat='#b7c2cf'),
+ 'Dr Pell Okonjo': dict(build='medium', outfit='labcoat', head='short', item='none', hold='scalpel', acc='#e9cc8c', coat=BONE, hair='#1b1b22'),
+ 'Vesna Rhee': dict(build='slim', outfit='suit', head='long', item='bag', acc='#ff3b3b', coat='#2f2b3a', hair='#d8d0c0'),
+ 'Caspian Vance': dict(build='slim', outfit='suit', head='short', item='none', acc='#e9cc8c', coat='#efe6cf', hair='#d8c08a'),
+ 'Lady Oriel Vance': dict(build='medium', outfit='robe', head='long', item='cane', acc='#e8c66a', coat='#efe6cf', hair='#d8c9a3'),
+ 'Father Tomas Ileana': dict(build='heavy', outfit='robe', head='short', item='none', acc='#ff7fb0', coat='#2f2b3a', hair='#2a2622'),
+ 'Gaspar Dunne': dict(build='slim', outfit='suit', head='short', item='bag', acc='#b9a2ff', coat='#d9d3c4', hair='#5a3a22'),
+ 'Ruth Okoye': dict(build='medium', outfit='jacket', head='bun', item='none', hold='tablet', acc='#b9a2ff', coat='#d9d3c4', hair='#1b1b22'),
+ 'Jax Sutter': dict(build='heavy', outfit='hoodie', head='short', item='pistol', acc='#ff3b3b', coat=BONE2, hair='#c9a46a'),
+ 'Benny Strand': dict(build='medium', outfit='jacket', head='cap', item='bag', acc='#ffc467', coat='#cfc6ad'),
+ 'Moth': dict(build='slim', outfit='hoodie', head='hood', item='none', acc='#ffd23f', coat='#ffd23f'),
+}
+for _n, _spec in BUTTERFLY.items(): _spec.setdefault('ringc', _spec['acc'])
+NAMED.update(BUTTERFLY)
 # --------------------------------------------------------------------------- generic looks for PCs and NPCs
 LOOKS = []
 _r = random.Random(2384)

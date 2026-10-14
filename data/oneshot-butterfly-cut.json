@@ -1,0 +1,3449 @@
+{
+ "meta": {
+  "id": "butterfly-cut",
+  "title": "The Butterfly Cut",
+  "year": 2384,
+  "start": "BCS-LICKTOWN",
+  "tagline": "One storm. One dropped container. One new drug. A whole city falling like dominoes.",
+  "length": "4–5 hours",
+  "players": "4–6 (eight pregens to choose from)",
+  "timeline_note": "Set in the same weeks as Cold Storage: The Faces We Left Behind. Neither adventure needs the other."
+ },
+ "pitch": "Bay City, 2384. Nine nights ago a storm came off the Pacific. Since then something new has been moving through\nLicktown: a cut of Merge the street calls <strong>Flutter</strong>. People who take it don't die. They go <em>glassed</em> —\neyes open, breathing, nobody home. BCPD has twelve of them on the books and orders from upstairs to call it an accident.\nYou are the people who don't think it was.",
+ "premise": "<p><strong>The truth, in one breath.</strong> A storm surge broke the Marina's <em>Seawall Pumps</em>. To save the\n<em>Bay Dam</em>, the city diverted power from the <em>Dogpatch Power Station</em>. The brownout froze a gantry at the <em>Crane Yard</em>\nfor four seconds, long enough to drop container <strong>KX-4471</strong>: a sealed Psychasec medical consignment bound for the\n<em>Psychasec Cellhouse</em> on Alcatraz. Inside were 400 vials of <strong>Halcyon-7</strong>, an unlicensed sedative that loosens the grip\nbetween a cortical stack and its sleeve. Psychasec uses it to keep resleeved convicts docile. It has never been declared to the Protectorate.</p>\n<p>The night foreman skimmed forty vials and reported the rest water-damaged. A Licktown fence sold them to a cook, who cut them into Merge.\nMerge makes you feel what everyone around you feels; Halcyon-7 makes you let go of yourself. Together they make <strong>Flutter</strong>:\na high like dissolving into a crowd. Too much, and the stack lets go of the sleeve entirely. The body lives. The person is trapped,\nawake, inside their own stack. That is being <strong>glassed</strong>.</p>\n<p>A glassed victim can be saved: pull the stack and resleeve it. But an empty, healthy sleeve with no owner is worth a fortune, and some\npeople in this city have already worked that out. Psychasec wants its compound back before anyone asks why it exists. Pressure from the\nProtectorate has reached the BCPD captain. A Meth matriarch wants her son back and someone to blame. Every one of the eight pregens is,\nwithout knowing it, one of the dominoes.</p>",
+ "howToRun": "<h3>Running a sandbox one-shot</h3>\n<ul>\n<li><strong>Start in Licktown</strong> (the street map). Read the opening, hand out the pregens' <em>Personal Domino</em> cards, and let the players choose where to go first. Every pregen points at two or three places.</li>\n<li><strong>Every place has a page.</strong> Each page says what is happening there, the mission or role it plays, the clues that point onward (with the place they lead to), who is there, and what happens if nobody comes. The case pins on the maps open these pages.</li>\n<li><strong>The night moves without them.</strong> The session starts at 21:00 and runs to dawn. After each major scene, advance the clock an hour and fire the event for that hour unless the players have already prevented it. That is the butterfly effect: the places they skip still change.</li>\n<li><strong>Clues are redundant.</strong> Every thread can be found from at least three places. A failed Check changes the cost or the danger, never whether the clue exists.</li>\n<li><strong>Splitting up is fine.</strong> Stragglers and side trips are opportunities. Use the travel system freely; the clock is your pacing tool.</li>\n<li><strong>Endings are earned, not chosen.</strong> At dawn, count what the players achieved against the five <em>Pressure Points</em> and read the matching outcomes.</li>\n</ul>\n<h3>Pacing for 4–5 hours</h3>\n<p>Opening and first lead: 30 min. Three to five places, each 20–30 min, with the clock advancing: 2½–3 hours. One climax (the Opera House, the Clinic vault, the Causeway, or the Spire): 45 min. Dawn and endings: 15 min. Places the players never visit happen off-screen through the clock and through the news on Sunny's feed.</p>\n<h3>Glassed victims (rules)</h3>\n<p>A glassed sleeve is <strong>Incapacitated</strong> and cannot act. The stack inside is conscious. A <strong>Medicine</strong> Check (Difficulty 2) confirms it; extracting the stack safely needs a clinic or a Tissue Welder and Medicine (Difficulty 3). A dipper can reach the trapped mind with <strong>Digital Networking</strong> (Difficulty 2) for one short, harrowing conversation. Every glassed victim the players free counts toward the <em>Lives</em> pressure point.</p>\n<h3>Flutter (rules)</h3>\n<p>Treat a dose as <strong>Merge (DRG001)</strong> with an extra effect: after the high, make an <strong>Endurance</strong> Save (Difficulty 2, +1 per extra dose that night). On failure, gain the Dazed condition; on a Catastrophe, the user is glassed. Lethinol given within ten minutes prevents glassing.</p>",
+ "threads": [
+  {
+   "id": "cook",
+   "name": "The Cook",
+   "colour": "#ff7a45",
+   "pregen": "PG01",
+   "question": "Who is making Flutter, and where is the second batch?",
+   "summary": "From the street to the lab: the dealers, the fence, the cook \"Saint\" Ambrose Kell and his last forty vials, cut into a second batch for a party where the rich will never see it coming.",
+   "spine": [
+    "BCS-LICKTOWN",
+    "BAY-MARKET",
+    "BCP-CHOP-SHOPS",
+    "BCP-CONTAINER-HABS",
+    "BCP-MAGLEV-DEPOT",
+    "BCP-OPERA-HOUSE"
+   ]
+  },
+  {
+   "id": "badge",
+   "name": "The Glassed Officer",
+   "colour": "#6fa8ff",
+   "pregen": "PG02",
+   "question": "What happened to Officer Dez Halloran, and who is burying it?",
+   "summary": "A patrol officer found glassed in Rain Alley. A captain closing the file. A stack moved to \"storage pending payment\". Someone above BCPD wants this quiet.",
+   "spine": [
+    "BAY-ALLEY",
+    "BAY-PRECINCT",
+    "BCP-COURTHOUSE-ANNEX",
+    "BCP-PROTECTORATE-OFFICE",
+    "BAY-CLINIC"
+   ]
+  },
+  {
+   "id": "compound",
+   "name": "Halcyon-7",
+   "colour": "#5ef0c4",
+   "pregen": "PG03",
+   "question": "What is the compound in Flutter, and who made it?",
+   "summary": "A toxicology signature nobody should recognise. A sedative that unhooks a mind from its body, tested on prisoners. The road leads to Psychasec Alcatraz.",
+   "spine": [
+    "BAY-PRECINCT",
+    "BCP-CRANE-YARD",
+    "BCP-SALLY-PORT",
+    "BCP-POWERHOUSE",
+    "BCP-PSYCHASEC-CELLHOUSE"
+   ]
+  },
+  {
+   "id": "paper",
+   "name": "The Paper Trail",
+   "colour": "#b9a2ff",
+   "pregen": "PG04",
+   "question": "Where did container KX-4471 come from, and who erased it?",
+   "summary": "Crane logs, toll scans, a cargo manifest that changed overnight and a tower full of records that can still prove it. The data leads to Psychasec and to a clerk who was paid to forget.",
+   "spine": [
+    "BCP-CRANE-YARD",
+    "BCP-TOLL-AUTHORITY",
+    "BCP-PROTECTORATE-OFFICE",
+    "BCP-ARCHIVE-TOWER",
+    "BCP-OLD-BANKS"
+   ]
+  },
+  {
+   "id": "street",
+   "name": "The Street Trade",
+   "colour": "#ffc467",
+   "pregen": "PG05",
+   "question": "Who is selling Flutter, and who wants a war over it?",
+   "summary": "The Fight Pit book, the Lower Bay Market stalls and a rival crew that sells \"clean\" Merge and wants Saint Ambrose dead. Money, debts and a turf war about to start.",
+   "spine": [
+    "BAY-PIT",
+    "BAY-MARKET",
+    "BCP-STACK-DEALERS",
+    "BCP-SCRAPYARD",
+    "BAY-STRIP"
+   ]
+  },
+  {
+   "id": "cover",
+   "name": "Deep Cover",
+   "colour": "#ff5a6e",
+   "pregen": "PG06",
+   "question": "Can Kesh Arlo stay alive inside the crew long enough to bring it down?",
+   "summary": "Four months inside Saint Ambrose's crew. A handler who has stopped answering. A crew that has started asking who talks to cops. And the crates Kesh carried himself.",
+   "spine": [
+    "BCP-CONTAINER-HABS",
+    "BCP-SCRAPYARD",
+    "BCP-POTRERO-HILL",
+    "BAY-DOCKS",
+    "BCP-IMPOUND-LOT"
+   ]
+  },
+  {
+   "id": "heir",
+   "name": "The Glassed Heir",
+   "colour": "#e9cc8c",
+   "pregen": "PG07",
+   "question": "Can Caspian Vance be brought back, and what will his family do to whoever did it?",
+   "summary": "A Meth heir glassed in a VIP booth. A mother in the Spire who wants vengeance and silence. A clinic that has already priced his empty sleeve. Money that can open any door, and close it behind you.",
+   "spine": [
+    "BAY-CLUB",
+    "BAY-SPIRE",
+    "BAY-CLINIC",
+    "BCP-STACK-BROKERS",
+    "BAY-SKYPORT"
+   ]
+  },
+  {
+   "id": "signal",
+   "name": "The Signal",
+   "colour": "#ff7fb0",
+   "pregen": "PG08",
+   "question": "Who is telling the city the story, and what will it believe at dawn?",
+   "summary": "A pirate feed that warned Licktown about bad Merge and made it famous instead. Shelters full of glassed grounders. A mast that can reach every screen in Bay City. The truth needs a broadcast.",
+   "spine": [
+    "BCP-DOLORES-CHAPEL",
+    "BCP-SLUMS",
+    "BCP-GROUNDER-CAMP",
+    "BCP-HAIGHT-SQUATS",
+    "BCP-SUTRO-MAST"
+   ]
+  }
+ ],
+ "backstory": [
+  {
+   "day": -9,
+   "place": "BCP-SEAWALL-PUMPS",
+   "text": "Storm surge. Two Seawall Pumps fail; Marina Seawall floods to the Valencia blocks."
+  },
+  {
+   "day": -9,
+   "place": "BCP-BAY-DAM-ACCESS",
+   "text": "Bay Dam control orders emergency sluice power to stop the surge reaching Dogpatch."
+  },
+  {
+   "day": -9,
+   "place": "BCP-POWER-STATION",
+   "text": "Shift engineer Maren Kosk diverts the Dogpatch grid to the dam. Dogpatch browns out for 41 minutes."
+  },
+  {
+   "day": -8,
+   "place": "BCP-CRANE-YARD",
+   "text": "A gantry's power-fail routine glitches for four seconds and drops container KX-4471. It splits on the quay."
+  },
+  {
+   "day": -8,
+   "place": "BCP-CRANE-YARD",
+   "text": "Night foreman Eddo Paz pockets forty vials of Halcyon-7 and logs the container \"water-damaged, returned to sender\"."
+  },
+  {
+   "day": -8,
+   "place": "BCP-TOLL-AUTHORITY",
+   "text": "The re-sealed container crosses the Alcatraz Causeway 120 kg lighter than its manifest. A toll analyst flags it."
+  },
+  {
+   "day": -7,
+   "place": "BCP-CHOP-SHOPS",
+   "text": "Eddo sells the vials to the Licktown fence Lula \"Gearbox\" Tran, who has no idea what they are."
+  },
+  {
+   "day": -7,
+   "place": "BCP-CONTAINER-HABS",
+   "text": "Gearbox sells them to the cook \"Saint\" Ambrose Kell. Kesh Arlo, undercover in the crew, carries the crate."
+  },
+  {
+   "day": -6,
+   "place": "BCP-CONTAINER-HABS",
+   "text": "Ambrose cuts 12 vials into Merge. The first batch of Flutter: 600 doses."
+  },
+  {
+   "day": -6,
+   "place": "BAY-PIT",
+   "text": "Flutter is sold at the Fight Pit and the Lower Bay Market. The street name comes from how it feels: like your edges fluttering away."
+  },
+  {
+   "day": -5,
+   "place": "BCP-SUTRO-MAST",
+   "text": "Sunny Achterberg's feed warns Licktown about \"glass Merge\". The warning makes it famous. Demand doubles overnight."
+  },
+  {
+   "day": -5,
+   "place": "BAY-CLINIC",
+   "text": "Six glassed users reach the Resleeving Clinic. Director Pell Okonjo pulls their stacks \"pending payment\" and keeps the sleeves."
+  },
+  {
+   "day": -4,
+   "place": "BAY-CLUB",
+   "text": "Caspian Vance is glassed in a VIP booth at the Neon Nightclub on a pill his sister Juniper bought him."
+  },
+  {
+   "day": -4,
+   "place": "BCP-PSYCHASEC-CELLHOUSE",
+   "text": "Dr Ilse Varga counts the vials. Forty missing. Psychasec sends its retrieval specialist Corin Slade into the city."
+  },
+  {
+   "day": -3,
+   "place": "BAY-ALLEY",
+   "text": "Officer Dez Halloran is found glassed in Rain Alley with a Psychasec data chip in his glove. The chip disappears at the precinct."
+  },
+  {
+   "day": -3,
+   "place": "BCP-PROTECTORATE-OFFICE",
+   "text": "A Protectorate clerk, Gaspar Dunne, amends KX-4471's manifest to \"agricultural sedatives\". Psychasec pays through the Old Banks."
+  },
+  {
+   "day": -2,
+   "place": "BAY-PRECINCT",
+   "text": "Captain Aurelio Brandt is told by the Protectorate to reclassify the cases as accidental overdoses. Halloran's stack is sent to the clinic."
+  },
+  {
+   "day": -2,
+   "place": "BCP-STACK-BROKERS",
+   "text": "Vesna Rhee buys the first two glassed sleeves from the clinic. Word spreads: empty sleeves are worth more than the people in them."
+  },
+  {
+   "day": -1,
+   "place": "BCP-SLUMS",
+   "text": "Snatchers start lifting glassed grounders from the Slums and the Haight Squats to sell."
+  },
+  {
+   "day": -1,
+   "place": "BCP-STACK-DEALERS",
+   "text": "The Sutter crew, who sell \"clean\" Merge, lose half their customers to Flutter and decide Ambrose has to go."
+  },
+  {
+   "day": 0,
+   "place": "BCS-LICKTOWN",
+   "text": "21:00. A runner called Moth goes glassed in the middle of 16th Street in the rain. The pregens are the first ones there."
+  }
+ ],
+ "clock": [
+  {
+   "hour": "21:00",
+   "title": "Moth on 16th Street",
+   "place": "BCS-LICKTOWN",
+   "event": "The session opens. Moth, sixteen, glassed in the rain outside the Lower Bay Market. A crowd, a dealer slipping away, a BCPD cruiser that does not stop.",
+   "prevent": ""
+  },
+  {
+   "hour": "22:00",
+   "title": "Psychasec reaches the fence",
+   "place": "BCP-CHOP-SHOPS",
+   "event": "Corin Slade's team raids the Chop Shops for the vials. Gearbox Tran is taken (or killed if she fights). Her ledger burns.",
+   "prevent": "Players reach the Chop Shops first, or warn Gearbox."
+  },
+  {
+   "hour": "23:00",
+   "title": "The Scrapyard hit",
+   "place": "BCP-SCRAPYARD",
+   "event": "The Sutter crew ambush Ambrose's runners at the Scrapyard. Two dead. Ambrose decides there is a rat; Kesh Arlo's cover starts to crack.",
+   "prevent": "Broker a truce at Stack Dealers, tip BCPD patrols, or arrest Jax Sutter."
+  },
+  {
+   "hour": "00:00",
+   "title": "Case closed",
+   "place": "BAY-PRECINCT",
+   "event": "Captain Brandt signs the cases off as accidental. The task force is stood down by memo. Halloran's stack is listed as \"transferred to private storage\".",
+   "prevent": "Get the Psychasec chip or the original manifest to the Courthouse Annex before midnight."
+  },
+  {
+   "hour": "01:00",
+   "title": "The second batch moves",
+   "place": "BCP-MAGLEV-DEPOT",
+   "event": "Ambrose cuts his last 28 vials into 1,400 doses of Flutter and sends them by courier on the late maglev to the Opera House gala caterers.",
+   "prevent": "Raid the Container Habs lab, or intercept the courier at the Maglev Station or Maglev Depot."
+  },
+  {
+   "hour": "02:00",
+   "title": "Sleeves for sale",
+   "place": "BCP-STACK-BROKERS",
+   "event": "The clinic sells Caspian Vance's sleeve. Lady Oriel Vance hires a hitman for whoever sold the pill: the trail points at Danny \"Two-Coats\" Mbeki.",
+   "prevent": "Secure the clinic's Stack Vault, or reach Vesna Rhee first."
+  },
+  {
+   "hour": "03:00",
+   "title": "Glass at the gala",
+   "place": "BCP-OPERA-HOUSE",
+   "event": "The Opera House gala. Flutter in the champagne mist. Twenty-three glassed, including a Protectorate under-secretary. Civic Center is locked down.",
+   "prevent": "Stop the second batch before 03:00, or get inside and evacuate the Foyer Bar."
+  },
+  {
+   "hour": "04:00",
+   "title": "Psychasec cleans up",
+   "place": "BCP-CAUSEWAY-GATE",
+   "event": "Psychasec ships the remaining Halcyon-7 off the Rock through the Causeway Gate to an aircar at the Skyport. Dr Varga leaves Bay City with it.",
+   "prevent": "Hold the Causeway Gate, reach the Skyport first, or expose Halcyon-7 publicly before 04:00."
+  },
+  {
+   "hour": "05:00",
+   "title": "Dawn and the story",
+   "place": "BCP-SUTRO-MAST",
+   "event": "Whatever is on Sunny's feed at dawn becomes the truth Bay City believes. If no one broadcasts, the official story wins: \"bad Merge, accidental deaths, case closed\".",
+   "prevent": ""
+  }
+ ],
+ "pressure": [
+  {
+   "id": "lives",
+   "name": "Lives",
+   "good": "Most glassed victims freed: stacks pulled and resleeved, the clinic's vault opened, the second batch stopped.",
+   "bad": "The glassed stay glassed. Their sleeves are sold by the end of the week."
+  },
+  {
+   "id": "cook",
+   "name": "The Cook",
+   "good": "Saint Ambrose Kell arrested (or dead) and the second batch destroyed.",
+   "bad": "Ambrose disappears to another city with a recipe that sells itself."
+  },
+  {
+   "id": "source",
+   "name": "The Source",
+   "good": "Halcyon-7 proven and traced to Psychasec: the vials, the manifest, Dr Varga's testimony or the Cellhouse records.",
+   "bad": "Psychasec's trial continues, renamed. The next storm drops something else."
+  },
+  {
+   "id": "badge",
+   "name": "The Badge",
+   "good": "The cover-up exposed: the amended manifest, Brandt's orders, Gaspar Dunne's bribe. Halloran's case reopened.",
+   "bad": "BCPD closes ranks. The task force members are reassigned, or worse."
+  },
+  {
+   "id": "story",
+   "name": "The Story",
+   "good": "Sunny's feed (or another broadcast) tells the truth at dawn, with proof.",
+   "bad": "The city hears \"bad Merge, accidental deaths\". Flutter becomes a legend, and demand rises."
+  }
+ ],
+ "endings": [
+  {
+   "score": "5",
+   "name": "The Butterfly Stops",
+   "text": "The city learns what Psychasec did, the glassed come home, and a Protectorate inquiry opens. The pregens are heroes for about a week, which in Bay City is a long time."
+  },
+  {
+   "score": "3–4",
+   "name": "Partial Light",
+   "text": "Some of the chain is broken. Read the good and bad lines for each pressure point: the ones left standing are next season's problems."
+  },
+  {
+   "score": "1–2",
+   "name": "The Official Story",
+   "text": "The cook or the company is gone, but the machine that made Flutter possible is untouched. One of the pregens is quietly offered a promotion to forget."
+  },
+  {
+   "score": "0",
+   "name": "Glass City",
+   "text": "The second batch spreads. The task force is stood down. In a month, Flutter is sold in Aerium bars as \"Halo\". Somewhere a new storm is building."
+  }
+ ],
+ "npcs": [
+  {
+   "id": "NPC-AMBROSE",
+   "name": "Ambrose “Saint” Kell",
+   "role": "The cook",
+   "place": "BCP-CONTAINER-HABS",
+   "thread": "cook",
+   "kind": "threat",
+   "base": "ADV-THUG",
+   "look": "Gaunt, sleeve-shopped twice, chemical-burned fingers, rosary of empty vial caps.",
+   "wants": "To sell the second batch once at the price of a lifetime, then disappear.",
+   "secret": "He knows Flutter glasses people. He thinks it is mercy.",
+   "tactic": "Never fights fair; lab rigged with a solvent fire; uses runners as shields."
+  },
+  {
+   "id": "NPC-GEARBOX",
+   "name": "Lula “Gearbox” Tran",
+   "role": "Licktown fence",
+   "place": "BCP-CHOP-SHOPS",
+   "thread": "cook",
+   "kind": "npc",
+   "look": "Grease to the elbows, mag-lifter rig, a laugh like a dropped wrench.",
+   "wants": "Out of this before Psychasec finds her.",
+   "secret": "Her ledger names Eddo Paz as the seller and Ambrose as the buyer. She is Two-Coats's cousin.",
+   "tactic": "Talks to anyone who protects her family."
+  },
+  {
+   "id": "NPC-EDDO",
+   "name": "Eddo Paz",
+   "role": "Crane Yard night foreman",
+   "place": "BCP-CRANE-YARD",
+   "thread": "paper",
+   "kind": "npc",
+   "look": "Hi-vis vest over a silk shirt he can't afford.",
+   "wants": "Not to be the first domino.",
+   "secret": "Kept one vial as insurance, taped under the Gatehouse desk.",
+   "tactic": "Lies badly, then begs."
+  },
+  {
+   "id": "NPC-KOSK",
+   "name": "Maren Kosk",
+   "role": "Power Station shift engineer",
+   "place": "BCP-POWER-STATION",
+   "thread": "compound",
+   "kind": "npc",
+   "look": "Ear protectors round her neck, the stare of someone not sleeping.",
+   "wants": "To know whether her switch-throw killed anyone.",
+   "secret": "The dam order came with a Psychasec priority code: Alcatraz must keep power. Dogpatch did not.",
+   "tactic": "Helps if treated as a witness, not a suspect."
+  },
+  {
+   "id": "NPC-VARGA",
+   "name": "Dr Ilse Varga",
+   "role": "Psychasec project lead, Halcyon-7",
+   "place": "BCP-PSYCHASEC-CELLHOUSE",
+   "thread": "compound",
+   "kind": "npc",
+   "look": "Immaculate grey sleeve, gloves always on.",
+   "wants": "To finish the trial and leave the city with her results.",
+   "secret": "Halcyon-7 was designed to make prisoners consent to anything. Her signed trial protocol is in Booking.",
+   "tactic": "Negotiates, lawyers up, offers jobs."
+  },
+  {
+   "id": "NPC-SLADE",
+   "name": "Corin Slade",
+   "role": "Psychasec retrieval specialist",
+   "place": "BCP-CHOP-SHOPS",
+   "thread": "compound",
+   "kind": "threat",
+   "base": "ADV-HITMAN",
+   "look": "Forgettable face, expensive boots, voice like a hotel lobby.",
+   "wants": "All forty vials back, no witnesses.",
+   "secret": "Slade is under orders to bring back one glassed victim alive for study.",
+   "tactic": "Arrives one step behind the players and tries to make it one step ahead."
+  },
+  {
+   "id": "NPC-BRANDT",
+   "name": "Captain Aurelio Brandt",
+   "role": "BCPD precinct captain",
+   "place": "BAY-PRECINCT",
+   "thread": "badge",
+   "kind": "npc",
+   "look": "Old-school organic sleeve, coffee-stained medal ribbon.",
+   "wants": "To keep his precinct funded and his officers alive.",
+   "secret": "He received the order from a Protectorate under-secretary who will be at the Opera House gala. He kept a copy.",
+   "tactic": "Stonewalls, then breaks if shown that Halloran was murdered."
+  },
+  {
+   "id": "NPC-HALLORAN",
+   "name": "Dez Halloran",
+   "role": "Glassed patrol officer",
+   "place": "BAY-CLINIC",
+   "thread": "badge",
+   "kind": "npc",
+   "look": "Big, kind face, empty eyes.",
+   "wants": "(trapped) Out.",
+   "secret": "He was investigating the vials before he was glassed. He was dosed deliberately by Corin Slade.",
+   "tactic": "If reached in his stack he gives one name: \"Slade\"."
+  },
+  {
+   "id": "NPC-OKONJO",
+   "name": "Dr Pell Okonjo",
+   "role": "Resleeving Clinic director",
+   "place": "BAY-CLINIC",
+   "thread": "heir",
+   "kind": "npc",
+   "look": "Warm voice, cold hands, beautiful clinic.",
+   "wants": "The clinic out of debt.",
+   "secret": "Twelve glassed stacks in the Stack Vault marked \"pending payment\". Three sleeves already sold.",
+   "tactic": "Shields herself with paperwork and patient privacy."
+  },
+  {
+   "id": "NPC-RHEE",
+   "name": "Vesna Rhee",
+   "role": "Sleeve broker",
+   "place": "BCP-STACK-BROKERS",
+   "thread": "heir",
+   "kind": "npc",
+   "look": "Silver nails, a rotating smile, three phones.",
+   "wants": "The best price for the cleanest sleeves.",
+   "secret": "Her buyer for Caspian's sleeve is Lady Oriel Vance herself, who wants her son's body back without a scandal.",
+   "tactic": "Sells information as readily as sleeves."
+  },
+  {
+   "id": "NPC-CASPIAN",
+   "name": "Caspian Vance",
+   "role": "The glassed heir",
+   "place": "BAY-CLINIC",
+   "thread": "heir",
+   "kind": "npc",
+   "look": "Beautiful, bored even now.",
+   "wants": "(trapped) To tell Juniper it is not her fault.",
+   "secret": "He went looking for Flutter on purpose after hearing Sunny's feed.",
+   "tactic": "—"
+  },
+  {
+   "id": "NPC-ORIEL",
+   "name": "Lady Oriel Vance",
+   "role": "Meth matriarch",
+   "place": "BAY-SPIRE",
+   "thread": "heir",
+   "kind": "npc",
+   "look": "Three hundred years in a twenty-five-year-old sleeve, every movement priced.",
+   "wants": "Her son, her name clean, and someone to pay.",
+   "secret": "She will trade the Protectorate under-secretary's secrets for Caspian's stack.",
+   "tactic": "Hires people. Never threatens; arranges."
+  },
+  {
+   "id": "NPC-ILEANA",
+   "name": "Father Tomas Ileana",
+   "role": "Dolores Chapel priest",
+   "place": "BCP-DOLORES-CHAPEL",
+   "thread": "signal",
+   "kind": "npc",
+   "look": "Neo-C collar, boxer's nose.",
+   "wants": "Somewhere safe for the glassed grounders in his crypt.",
+   "secret": "He has hidden nine glassed grounders from the snatchers. One is awake inside and keeps tapping on the stack monitor.",
+   "tactic": "Trusts the press, not the police."
+  },
+  {
+   "id": "NPC-DUNNE",
+   "name": "Gaspar Dunne",
+   "role": "Protectorate records clerk",
+   "place": "BCP-PROTECTORATE-OFFICE",
+   "thread": "paper",
+   "kind": "npc",
+   "look": "Tidy, frightened, wearing a new watch.",
+   "wants": "To not be the one who goes down.",
+   "secret": "The bribe went through the Old Banks: account 7-HAL.",
+   "tactic": "Flips the moment he is offered immunity."
+  },
+  {
+   "id": "NPC-OKOYE",
+   "name": "Ruth Okoye",
+   "role": "Toll Authority analyst",
+   "place": "BCP-TOLL-AUTHORITY",
+   "thread": "paper",
+   "kind": "npc",
+   "look": "Reading glasses on a chain, three monitors.",
+   "wants": "Someone to read her report.",
+   "secret": "She has the scale data: KX-4471 crossed 120 kg light.",
+   "tactic": "Helpful, scared, by the book."
+  },
+  {
+   "id": "NPC-SUTTER",
+   "name": "Jax Sutter",
+   "role": "Rival dealer, \"clean Merge\"",
+   "place": "BCP-STACK-DEALERS",
+   "thread": "street",
+   "kind": "threat",
+   "base": "ADV-THUG",
+   "look": "Tracksuit, gold teeth, sleeve too young for his eyes.",
+   "wants": "Ambrose dead and his customers back.",
+   "secret": "Sunny's feed has been taking his money to call his product safe.",
+   "tactic": "Ambushes; respects anyone who can hurt him."
+  },
+  {
+   "id": "NPC-BENNY",
+   "name": "Benny Strand",
+   "role": "Fight Pit bookmaker",
+   "place": "BAY-PIT",
+   "thread": "street",
+   "kind": "npc",
+   "look": "Visor, ledger tattoos, sweats when he lies.",
+   "wants": "The book balanced.",
+   "secret": "Flutter money is laundered through fight bets. The account is the same 7-HAL prefix as the bribe.",
+   "tactic": "Talks for a bet in his favour."
+  },
+  {
+   "id": "NPC-MOTH",
+   "name": "Moth",
+   "role": "Runner, the first victim on screen",
+   "place": "BCS-LICKTOWN",
+   "thread": "cook",
+   "kind": "npc",
+   "look": "Sixteen, yellow raincoat, glassed.",
+   "wants": "(trapped) Their mum.",
+   "secret": "Moth ran Flutter for Ambrose and knows the lab door code.",
+   "tactic": "If reached in their stack: the code, 4471."
+  }
+ ],
+ "pregens": [
+  {
+   "id": "PG01",
+   "name": "Marisol Okafor-Reyes",
+   "rank": "Detective Sergeant",
+   "archetype": "Official",
+   "package": "Police Officer",
+   "thread": "cook",
+   "accent": "#ff7a45",
+   "role": "Licktown beat sergeant, BCPD Narcotics Task Force lead",
+   "age": 41,
+   "attrs": {
+    "strength": 38,
+    "perception": 42,
+    "empathy": 36,
+    "willpower": 44,
+    "acuity": 40,
+    "intelligence": 34
+   },
+   "sleeve": {
+    "type": "natal",
+    "concept": "Original organic sleeve, Licktown-born, scar through one eyebrow",
+    "health": 12
+   },
+   "skills": {
+    "Firearms": 3,
+    "Intimidation": 3,
+    "Investigation": 3,
+    "Read Person": 2,
+    "Pilot": 2
+   },
+   "look": {
+    "build": "broad",
+    "outfit": "#2a3140",
+    "coat": "#4a3324",
+    "hair": "#151010",
+    "item": "badge"
+   },
+   "hook": "You know every corner of Licktown and most of the people who sell on them. Moth went glassed on your street.",
+   "domino": "Two years ago you let \"Saint\" Ambrose Kell walk from a cook charge in exchange for a name. If you had not, there would be no Flutter.",
+   "goal": "Find the cook. Stop the second batch before it leaves Licktown.",
+   "leads": [
+    "BAY-MARKET",
+    "BCP-CHOP-SHOPS",
+    "BCP-CONTAINER-HABS"
+   ],
+   "baggage": [
+    "baggage-23",
+    "baggage-15",
+    "baggage-29"
+   ]
+  },
+  {
+   "id": "PG02",
+   "name": "Teo Vashti",
+   "rank": "Detective",
+   "archetype": "Official",
+   "package": "Investigator",
+   "thread": "badge",
+   "accent": "#6fa8ff",
+   "role": "BCPD Homicide detective, attached to the task force",
+   "age": 36,
+   "attrs": {
+    "strength": 34,
+    "perception": 44,
+    "empathy": 38,
+    "willpower": 40,
+    "acuity": 44,
+    "intelligence": 38
+   },
+   "sleeve": {
+    "type": "organic",
+    "concept": "Mid-range organic sleeve, pressed suit, nicotine-stained fingers",
+    "health": 11
+   },
+   "skills": {
+    "Investigation": 3,
+    "Search": 3,
+    "Read Person": 3,
+    "Bureaucracy": 2,
+    "Firearms": 2
+   },
+   "look": {
+    "build": "lean",
+    "outfit": "#20283a",
+    "coat": "#2f3a52",
+    "hair": "#2a1a10",
+    "item": "badge"
+   },
+   "hook": "Dez Halloran was your first partner. He is lying glassed in a clinic and your captain has called it an accident.",
+   "domino": "Last year you took a Psychasec \"consulting fee\" to sign off a death in custody on Alcatraz. It is in your bank records. It is how they know you can be bought.",
+   "goal": "Prove Halloran was attacked, and who ordered the cover-up.",
+   "leads": [
+    "BAY-ALLEY",
+    "BAY-PRECINCT",
+    "BAY-CLINIC"
+   ],
+   "baggage": [
+    "baggage-29",
+    "baggage-23",
+    "baggage-11"
+   ]
+  },
+  {
+   "id": "PG03",
+   "name": "Hollis Fenn",
+   "rank": "Dr",
+   "archetype": "Technician",
+   "package": "Scientist",
+   "thread": "compound",
+   "accent": "#5ef0c4",
+   "role": "BCPD forensic toxicologist",
+   "age": 52,
+   "attrs": {
+    "strength": 36,
+    "perception": 40,
+    "empathy": 34,
+    "willpower": 38,
+    "acuity": 46,
+    "intelligence": 46
+   },
+   "sleeve": {
+    "type": "synthetic-mid",
+    "concept": "Older synthetic sleeve with lab-grade optical sensors, slightly too still",
+    "health": 10
+   },
+   "skills": {
+    "Science": 4,
+    "Medicine": 3,
+    "Data Analysis": 3,
+    "Search": 2,
+    "Composure": 2
+   },
+   "look": {
+    "build": "slim",
+    "outfit": "#e8e8e2",
+    "coat": "#d8dcd4",
+    "hair": "#9a9a9a",
+    "item": "scanner",
+    "synth": true
+   },
+   "hook": "Moth's blood has a signature in it you have seen once before: in a sealed trial you worked on at Psychasec Alcatraz, twenty years ago.",
+   "domino": "You helped develop Halcyon-3, the version that only made prisoners sleepy. You signed the NDA. Halcyon-7 is your work, grown up.",
+   "goal": "Identify the compound, prove where it came from, and find a way to unglass the victims.",
+   "leads": [
+    "BAY-PRECINCT",
+    "BCP-CRANE-YARD",
+    "BCP-PSYCHASEC-CELLHOUSE"
+   ],
+   "baggage": [
+    "baggage-12",
+    "baggage-18",
+    "baggage-29"
+   ]
+  },
+  {
+   "id": "PG04",
+   "name": "Ines “Rook” Calloway",
+   "rank": "",
+   "archetype": "Technician",
+   "package": "Dipper",
+   "thread": "paper",
+   "accent": "#b9a2ff",
+   "role": "BCPD Cyber Crimes contractor, on parole",
+   "age": 29,
+   "attrs": {
+    "strength": 30,
+    "perception": 38,
+    "empathy": 34,
+    "willpower": 36,
+    "acuity": 48,
+    "intelligence": 44
+   },
+   "sleeve": {
+    "type": "organic",
+    "concept": "Wiry organic sleeve with an illegal neural jack behind the ear",
+    "health": 10
+   },
+   "skills": {
+    "Digital Networking": 4,
+    "Data Engineering": 3,
+    "Data Analysis": 3,
+    "Stealth": 2,
+    "Bureaucracy": 1
+   },
+   "look": {
+    "build": "slim",
+    "outfit": "#2a2236",
+    "coat": "#3b2f52",
+    "hair": "#b9a2ff",
+    "item": "deck"
+   },
+   "hook": "BCPD owns your parole and your deck. Tonight they need you to find a container that officially never existed.",
+   "domino": "Years ago you wrote the power-fail routine for the Crane Yard gantries as a freelance job. It has a four-second bug. You never patched it.",
+   "goal": "Trace container KX-4471 and prove the manifest was changed, and by whom.",
+   "leads": [
+    "BCP-CRANE-YARD",
+    "BCP-TOLL-AUTHORITY",
+    "BCP-PROTECTORATE-OFFICE"
+   ],
+   "baggage": [
+    "baggage-11",
+    "baggage-12",
+    "baggage-21"
+   ]
+  },
+  {
+   "id": "PG05",
+   "name": "Danny “Two-Coats” Mbeki",
+   "rank": "",
+   "archetype": "Criminal",
+   "package": "Fixer",
+   "thread": "street",
+   "accent": "#ffc467",
+   "role": "BCPD confidential informant, Licktown fixer",
+   "age": 33,
+   "attrs": {
+    "strength": 36,
+    "perception": 40,
+    "empathy": 44,
+    "willpower": 34,
+    "acuity": 40,
+    "intelligence": 36
+   },
+   "sleeve": {
+    "type": "organic",
+    "concept": "Handsome secondhand organic sleeve, always wearing two coats",
+    "health": 11
+   },
+   "skills": {
+    "Diplomacy": 3,
+    "Read Person": 3,
+    "Stealth": 2,
+    "Digital Networking": 2,
+    "Expression": 3
+   },
+   "look": {
+    "build": "average",
+    "outfit": "#3a2f22",
+    "coat": "#6b4a22",
+    "hair": "#0f0c0a",
+    "item": "device"
+   },
+   "hook": "You know everyone who sells, everyone who buys and everyone who owes. BCPD pays you to tell them who. Tonight it is personal: your cousin Gearbox fenced the vials.",
+   "domino": "You sold a few Flutter pills at the Neon Nightclub before you knew what it was. One of them went to Juniper Vance.",
+   "goal": "Keep Gearbox alive, stop a turf war, and make sure nobody finds out about the club.",
+   "leads": [
+    "BAY-PIT",
+    "BCP-CHOP-SHOPS",
+    "BCP-STACK-DEALERS"
+   ],
+   "baggage": [
+    "baggage-07",
+    "baggage-18",
+    "baggage-08"
+   ]
+  },
+  {
+   "id": "PG06",
+   "name": "Kesh Arlo",
+   "rank": "Officer (undercover)",
+   "archetype": "Soldier",
+   "package": "Infiltrator",
+   "thread": "cover",
+   "accent": "#ff5a6e",
+   "role": "BCPD undercover officer, four months inside Saint Ambrose's crew",
+   "age": 31,
+   "attrs": {
+    "strength": 44,
+    "perception": 42,
+    "empathy": 32,
+    "willpower": 40,
+    "acuity": 36,
+    "intelligence": 32
+   },
+   "sleeve": {
+    "type": "organic",
+    "concept": "Hard organic combat sleeve, crew tattoos over CTAC scars",
+    "health": 13
+   },
+   "skills": {
+    "Brawl": 3,
+    "Stealth": 3,
+    "Firearms": 3,
+    "Athletics": 2,
+    "Composure": 3
+   },
+   "look": {
+    "build": "broad",
+    "outfit": "#2b1d1d",
+    "coat": "#3a2020",
+    "hair": "#1a1210",
+    "item": "blade"
+   },
+   "hook": "You are inside. Ambrose trusts you more than anyone in the crew. Tonight the crew is asking who talks to cops.",
+   "domino": "You carried the crate of vials from the Chop Shops to the lab yourself. Your handler, Captain Brandt, told you not to log it.",
+   "goal": "Stay alive inside, get proof of the lab and the second batch, and find out why Brandt went silent.",
+   "leads": [
+    "BCP-CONTAINER-HABS",
+    "BCP-SCRAPYARD",
+    "BAY-PRECINCT"
+   ],
+   "baggage": [
+    "baggage-24",
+    "baggage-08",
+    "baggage-29"
+   ]
+  },
+  {
+   "id": "PG07",
+   "name": "Juniper Vance",
+   "rank": "",
+   "archetype": "Socialite",
+   "package": "Heir/Heiress",
+   "thread": "heir",
+   "accent": "#e9cc8c",
+   "role": "Meth heir, BCPD task force \"civic donor\"",
+   "age": 27,
+   "attrs": {
+    "strength": 32,
+    "perception": 38,
+    "empathy": 46,
+    "willpower": 38,
+    "acuity": 40,
+    "intelligence": 38
+   },
+   "sleeve": {
+    "type": "organic",
+    "concept": "Flawless designer organic sleeve, mourning clothes cut like armour",
+    "health": 10
+   },
+   "skills": {
+    "Diplomacy": 3,
+    "Expression": 3,
+    "Cultures": 3,
+    "Read Person": 2,
+    "Composure": 2
+   },
+   "look": {
+    "build": "slim",
+    "outfit": "#e9cc8c",
+    "coat": "#1b1712",
+    "hair": "#d8c08a",
+    "item": "device",
+    "acc": "#e9cc8c"
+   },
+   "hook": "Your brother Caspian is glassed. Your mother wants it buried. You bought the task force its overtime budget so it would not be.",
+   "domino": "You bought the pill that glassed Caspian, from a fixer at the Neon Nightclub. You told no one.",
+   "goal": "Bring Caspian back, find out who sold the pill, and decide what your family does about it.",
+   "leads": [
+    "BAY-CLUB",
+    "BAY-CLINIC",
+    "BAY-SPIRE"
+   ],
+   "baggage": [
+    "baggage-30",
+    "baggage-20",
+    "baggage-29"
+   ]
+  },
+  {
+   "id": "PG08",
+   "name": "Sunny Achterberg",
+   "rank": "",
+   "archetype": "Civilian",
+   "package": "Entertainer",
+   "thread": "signal",
+   "accent": "#ff7fb0",
+   "role": "Licktown pirate broadcaster, BCPD tip-line partner",
+   "age": 24,
+   "attrs": {
+    "strength": 32,
+    "perception": 40,
+    "empathy": 46,
+    "willpower": 36,
+    "acuity": 40,
+    "intelligence": 36
+   },
+   "sleeve": {
+    "type": "organic",
+    "concept": "Small bright organic sleeve, holo-earrings, rain-proof camera rig",
+    "health": 10
+   },
+   "skills": {
+    "Expression": 4,
+    "Diplomacy": 3,
+    "Digital Networking": 2,
+    "Detection": 2,
+    "Stealth": 2
+   },
+   "look": {
+    "build": "slim",
+    "outfit": "#ff7fb0",
+    "coat": "#2a1a26",
+    "hair": "#ff7fb0",
+    "item": "camera"
+   },
+   "hook": "Your feed reaches every screen in Licktown. BCPD pays you to run their tip line. You were the first to call it \"glass Merge\".",
+   "domino": "Your warning made Flutter famous; demand doubled overnight. And Jax Sutter has been paying you to call his product safe.",
+   "goal": "Get the true story, with proof, onto every screen in Bay City by dawn.",
+   "leads": [
+    "BCP-DOLORES-CHAPEL",
+    "BCP-SLUMS",
+    "BCP-SUTRO-MAST"
+   ],
+   "baggage": [
+    "baggage-23",
+    "baggage-19",
+    "baggage-29"
+   ]
+  }
+ ],
+ "handouts": [
+  {
+   "id": "H01",
+   "name": "Moth's tox screen",
+   "text": "Merge (empathin), 70%. Unknown binder, 30%: a stack-interface sedative. Dr Fenn recognises the signature: Psychasec trial compound, Halcyon series.",
+   "place": "BAY-PRECINCT"
+  },
+  {
+   "id": "H02",
+   "name": "Crane Yard incident log",
+   "text": "Gantry G3, 23:52 night of the storm: power-fail, load released, container KX-4471 split. Logged by E. Paz: \"water-damaged, returned to sender\".",
+   "place": "BCP-CRANE-YARD"
+  },
+  {
+   "id": "H03",
+   "name": "Toll scale record",
+   "text": "Alcatraz Causeway, KX-4471 inbound: declared 2,140 kg, weighed 2,020 kg. Flag raised by R. Okoye. Flag cleared by \"PROT-OFFICE/GD\".",
+   "place": "BCP-TOLL-AUTHORITY"
+  },
+  {
+   "id": "H04",
+   "name": "Amended manifest",
+   "text": "KX-4471. Original: \"Halcyon-7, restricted, Psychasec clinical consignment\". Amended three days later to \"agricultural sedatives\". Amending officer: G. Dunne.",
+   "place": "BCP-PROTECTORATE-OFFICE"
+  },
+  {
+   "id": "H05",
+   "name": "Gearbox's ledger page",
+   "text": "\"40 x med vials (blue cap) from E.P., Crane Yd. Sold whole to S.A., 7 nights back. Kesh carried.\" (If the 22:00 raid happens, only the burnt corner survives.)",
+   "place": "BCP-CHOP-SHOPS"
+  },
+  {
+   "id": "H06",
+   "name": "Account 7-HAL",
+   "text": "Old Banks transfer slip: 7-HAL to G. Dunne, 40,000. 7-HAL also funds Fight Pit book account 7-HAL/BS.",
+   "place": "BCP-OLD-BANKS"
+  },
+  {
+   "id": "H07",
+   "name": "The Psychasec chip",
+   "text": "Found in Halloran's glove, logged into evidence, then missing. Contents: a vial inventory, \"37 of 40 unrecovered\", and a name: C. Slade.",
+   "place": "BAY-PRECINCT"
+  },
+  {
+   "id": "H08",
+   "name": "Gala catering order",
+   "text": "Maglev courier manifest, 01:00 service: \"Opera House gala, Foyer Bar, scent mist cartridges x 40\". The cartridges are the second batch.",
+   "place": "BCP-MAGLEV-DEPOT"
+  },
+  {
+   "id": "H09",
+   "name": "\"Pending payment\"",
+   "text": "Resleeving Clinic Stack Vault register: twelve stacks, including D. Halloran and C. Vance, status \"pending payment\". Sleeves: three \"transferred to S.B.\"",
+   "place": "BAY-CLINIC"
+  },
+  {
+   "id": "H10",
+   "name": "Halcyon-7 trial protocol",
+   "text": "Psychasec Alcatraz, signed I. Varga: \"objective: durable compliance in resleeved subjects; side effect: stack-sleeve decoupling ('glassing') at high dose. Not for declaration.\"",
+   "place": "BCP-PSYCHASEC-CELLHOUSE"
+  }
+ ],
+ "crossover": [
+  {
+   "name": "The Rainline",
+   "text": "The Rainline's noodle stalls are where Moth bought dinner every night. Cold Storage investigators passing through hear the yellow-raincoat kid went glassed."
+  },
+  {
+   "name": "Blue Lotus, Black Water",
+   "text": "The Blue Lotus Combine is offering Vesna Rhee double for any glassed sleeve. They want clean bodies for identity laundering. If both adventures share a world, Rhee's buyer list includes a Lotus account."
+  },
+  {
+   "name": "The Resurrection Ward",
+   "text": "Two of the clinic's \"pending payment\" stacks were moved to the Resurrection Ward for long-term storage. Freeing them may draw attention from the Continuity Foundation."
+  },
+  {
+   "name": "Relay Seventeen",
+   "text": "Sunny can borrow Relay Seventeen's needlecast uplink if the Sutro Mast is lost: one broadcast, city-wide, at the cost of owing Sable Needle a favour."
+  },
+  {
+   "name": "Anansi House",
+   "text": "Anansi House's information brokers already know about account 7-HAL. They will trade it for something from Cold Storage's case."
+  }
+ ],
+ "places": [
+  {
+   "id": "BCS-LICKTOWN",
+   "role": "Opening",
+   "thread": "cook",
+   "zone": "16th 2",
+   "scene": "Rain on 16th Street. A kid in a yellow raincoat, Moth, standing perfectly still in the middle of the road, eyes open, breathing, gone. A crowd, a vendor screaming for help, a dealer in a green hood easing away towards the Lower Bay Market. A BCPD cruiser slows, sees who it is, and drives on.",
+   "mission": "Secure Moth and the scene. Choose where to start pulling the thread.",
+   "clues": [
+    {
+     "to": "BAY-MARKET",
+     "text": "The dealer in the green hood runs into the Lower Bay Market."
+    },
+    {
+     "to": "BAY-PRECINCT",
+     "text": "Moth needs a tox screen; Dr Fenn's lab is at the precinct."
+    },
+    {
+     "to": "BCP-CONTAINER-HABS",
+     "text": "Moth's pocket: a Container Habs laundry token and a vial cap, blue."
+    },
+    {
+     "to": "BAY-PIT",
+     "text": "The crowd says Moth ran bets and \"the other stuff\" at the Fight Pit."
+    },
+    {
+     "to": "BCP-DOLORES-CHAPEL",
+     "text": "A woman shouts that the priest at Dolores Chapel takes in the glassed ones."
+    },
+    {
+     "to": "BCP-CITY-HALL-RUINS",
+     "text": "Someone in the crowd swears Flutter is cooked in the City Hall cellars."
+    },
+    {
+     "to": "BCP-KEZAR-HABS",
+     "text": "Moth's ID lists a home address in the Kezar Habs."
+    }
+   ],
+   "npc": "NPC-MOTH",
+   "ignored": "",
+   "check": "Medicine (Difficulty 2) confirms Moth is glassed, not dead. Read Person on the crowd spots the dealer.",
+   "name": "Licktown",
+   "district": "LICKTOWN · POTRERO",
+   "inbound": 0,
+   "kind": "street",
+   "street": "BCS-LICKTOWN"
+  },
+  {
+   "id": "BAY-MARKET",
+   "role": "Distribution",
+   "thread": "street",
+   "zone": "Stack Dealer's Den",
+   "scene": "Steam, noodles, chrome stalls and a den at the back where stacks and sleeves change hands. Flutter is sold here openly by the pinch, wrapped in rice paper with a blue butterfly stamp.",
+   "mission": "Catch the green-hood dealer and find out who supplies the stalls.",
+   "clues": [
+    {
+     "to": "BCP-CHOP-SHOPS",
+     "text": "The dealer's supply comes \"from Gearbox's people\" behind the Chop Shops."
+    },
+    {
+     "to": "BAY-PIT",
+     "text": "The stall takings go to Benny Strand at the Fight Pit every night at midnight."
+    },
+    {
+     "to": "BCP-CONTAINER-HABS",
+     "text": "Butterfly stamps are printed on a laundry press. Only one building in Licktown still has one: Container Habs."
+    },
+    {
+     "to": "BCP-STACK-DEALERS",
+     "text": "A stall-holder spits: \"The Sutters sell clean. Ambrose sells glass.\""
+    },
+    {
+     "to": "BCP-CANNERY-HABS",
+     "text": "The wholesale buyers include kids from the Cannery Habs."
+    },
+    {
+     "to": "BCP-DEAD-TOWERS",
+     "text": "Regular buyers \"flutter together\" in the Dead Towers squat."
+    }
+   ],
+   "npc": null,
+   "ignored": "After 23:00 the stalls are cleared; the dealers have moved to the Neon Strip.",
+   "check": "Athletics or Pilot to catch the dealer in the Drainage Tunnel; Intimidation to make him talk.",
+   "name": "Lower Bay Market",
+   "district": "UNDERWORLD",
+   "inbound": 6,
+   "kind": "building",
+   "street": "BCS-LICKTOWN"
+  },
+  {
+   "id": "BCP-CHOP-SHOPS",
+   "role": "Supply (fence)",
+   "thread": "cook",
+   "zone": "Office",
+   "scene": "Half-stripped aircars, a paint booth hissing, and Lula \"Gearbox\" Tran's office behind a wall of parts. She is packing a bag. She knows someone is coming for her and she does not know who.",
+   "mission": "Get Gearbox's ledger and keep her alive before Psychasec arrives at 22:00.",
+   "clues": [
+    {
+     "to": "BCP-CRANE-YARD",
+     "text": "Ledger: forty blue-cap vials bought from \"E.P., Crane Yard\"."
+    },
+    {
+     "to": "BCP-CONTAINER-HABS",
+     "text": "Ledger: sold whole to \"S.A.\". Gearbox knows S.A. is Saint Ambrose, who cooks at the Container Habs."
+    },
+    {
+     "to": "BCP-SCRAPYARD",
+     "text": "A crew van with Scrapyard plates collected the crate. The driver was Kesh."
+    },
+    {
+     "to": "BAY-PRECINCT",
+     "text": "If Slade raids first, Gearbox (taken) or her body ends up in the precinct morgue by 23:00."
+    },
+    {
+     "to": "BCP-BRIDGE-DEPOT",
+     "text": "The raiders' van had a Bridge Depot fuel tag."
+    },
+    {
+     "to": "BCP-PIER-MARKET",
+     "text": "Gearbox says the man asking about her was seen at the Pier Market first."
+    },
+    {
+     "to": "BCP-PRESIDIO-CHECKPOINT",
+     "text": "The Presidio Checkpoint cameras would have caught the raiders' van."
+    }
+   ],
+   "npc": "NPC-GEARBOX",
+   "ignored": "22:00: Corin Slade raids. Gearbox taken or killed; ledger burned (H05 only as a charred corner).",
+   "check": "Diplomacy (Difficulty 1 with Two-Coats present, 3 otherwise).",
+   "name": "Chop Shops",
+   "district": "LICKTOWN · POTRERO",
+   "inbound": 6,
+   "kind": "place",
+   "street": "BCS-LICKTOWN"
+  },
+  {
+   "id": "BCP-CONTAINER-HABS",
+   "role": "The lab",
+   "thread": "cook",
+   "zone": "Stairwell Units",
+   "scene": "A stack of shipping containers turned into flats. The laundry press in the court prints butterfly stamps. The top-floor stairwell units are sealed with a keypad and stink of solvent: Saint Ambrose's lab.",
+   "mission": "Raid or infiltrate the lab. Seize the remaining vials before the second batch leaves at 01:00.",
+   "clues": [
+    {
+     "to": "BCP-MAGLEV-DEPOT",
+     "text": "Cooling rack labels: \"gala cartridges, maglev 01:00\"."
+    },
+    {
+     "to": "BCP-OPERA-HOUSE",
+     "text": "A stolen Opera House caterer's uniform hangs on the door."
+    },
+    {
+     "to": "BCP-POTRERO-HILL",
+     "text": "Ambrose's bolt-hole is a tent on Potrero Hill, in case of raids."
+    },
+    {
+     "to": "BCP-SCRAPYARD",
+     "text": "The crew stores its guns in the Scrapyard Salvage Shed."
+    }
+   ],
+   "npc": "NPC-AMBROSE",
+   "ignored": "01:00: the second batch leaves by courier. The lab is torched behind it.",
+   "check": "The keypad code is 4471 (Moth knows it). Stealth past the Laundry Court lookout; the lab is rigged with a solvent fire (Survival, Difficulty 2 to spot).",
+   "name": "Container Habs",
+   "district": "LICKTOWN · POTRERO",
+   "inbound": 11,
+   "kind": "place",
+   "street": "BCS-LICKTOWN"
+  },
+  {
+   "id": "BCP-SCRAPYARD",
+   "role": "Flashpoint",
+   "thread": "cover",
+   "zone": "Salvage Shed",
+   "scene": "Mountains of scrap, a crusher that never stops, and dogs. Ambrose's crew stashes guns in the Salvage Shed. At 23:00 the Sutter crew will be waiting in the scrap.",
+   "mission": "Prevent (or survive) the 23:00 ambush, and keep Kesh's cover intact.",
+   "clues": [
+    {
+     "to": "BCP-STACK-DEALERS",
+     "text": "The ambushers wear Sutter crew colours."
+    },
+    {
+     "to": "BCP-CONTAINER-HABS",
+     "text": "Crew talk: \"Saint wants everyone at the Habs by one. Big night.\""
+    },
+    {
+     "to": "BCP-IMPOUND-LOT",
+     "text": "The crew van used to collect the vials was impounded last week, with Kesh's prints on it."
+    },
+    {
+     "to": "BCP-BAY-BRIDGE-RAMP",
+     "text": "A runner fled the crew before the ambush and is hiding under the Bay Bridge Ramp."
+    }
+   ],
+   "npc": null,
+   "ignored": "23:00: two runners dead. Ambrose decides there is a rat. Kesh's next scene with the crew starts with a gun on the table.",
+   "check": "Detection (Difficulty 2) to spot the ambush; Composure for Kesh to keep cover when questioned.",
+   "name": "Scrapyard",
+   "district": "LICKTOWN · POTRERO",
+   "inbound": 5,
+   "kind": "place",
+   "street": "BCS-LICKTOWN"
+  },
+  {
+   "id": "BCP-POTRERO-HILL",
+   "role": "Bolt-hole",
+   "thread": "cover",
+   "zone": "The Camp",
+   "scene": "A tent city on the hill overlooking Licktown, cook fires and drone-lights. Ambrose keeps a tent here with a go-bag, a backup stack and a burner.",
+   "mission": "Find Ambrose's escape route and cut it off.",
+   "clues": [
+    {
+     "to": "BAY-DOCKS",
+     "text": "The burner has one number: a boat at the Bay Docks, Warehouse 9."
+    },
+    {
+     "to": "BCP-CONTAINER-HABS",
+     "text": "The camp watched Ambrose's crew carry \"blue boxes\" into the Habs."
+    },
+    {
+     "to": "BCP-GROUNDER-CAMP",
+     "text": "Camp elders say glassed people are being taken; the snatchers came from Old Downtown."
+    }
+   ],
+   "npc": null,
+   "ignored": "If Ambrose escapes the lab, he is here by 02:00 and gone by boat at 04:00.",
+   "check": "",
+   "name": "Potrero Hill",
+   "district": "LICKTOWN · POTRERO",
+   "inbound": 2,
+   "kind": "place",
+   "street": "BCS-LICKTOWN"
+  },
+  {
+   "id": "BCP-STACK-DEALERS",
+   "role": "Rival crew",
+   "thread": "street",
+   "zone": "Back Room",
+   "scene": "A storefront selling \"certified\" stacks. The back room belongs to Jax Sutter, who sells clean Merge and has lost half his customers to Flutter.",
+   "mission": "Stop the turf war, or turn it against Ambrose.",
+   "clues": [
+    {
+     "to": "BCP-SCRAPYARD",
+     "text": "Sutter is planning a hit on Ambrose's runners at the Scrapyard at 23:00."
+    },
+    {
+     "to": "BCP-SUTRO-MAST",
+     "text": "Sutter's books: payments to \"S.A. Broadcast\" for \"safety ads\". That is Sunny."
+    },
+    {
+     "to": "BAY-PIT",
+     "text": "Sutter wants Benny Strand's book; whoever owns the book owns Licktown."
+    },
+    {
+     "to": "BCP-PANHANDLE-GREEN",
+     "text": "One of Ambrose's runners defected and is camped on the Panhandle Green."
+    }
+   ],
+   "npc": "NPC-SUTTER",
+   "ignored": "",
+   "check": "Diplomacy or Intimidation (Difficulty 2). Sutter respects anyone who can hurt Ambrose.",
+   "name": "Stack Dealers",
+   "district": "LICKTOWN · POTRERO",
+   "inbound": 3,
+   "kind": "place",
+   "street": "BCS-LICKTOWN"
+  },
+  {
+   "id": "BAY-PIT",
+   "role": "Money",
+   "thread": "street",
+   "zone": "Betting Booth",
+   "scene": "A ring of noise and blood. Benny Strand runs the book from a booth over the pit; Flutter money goes through fight bets.",
+   "mission": "Follow the money.",
+   "clues": [
+    {
+     "to": "BCP-OLD-BANKS",
+     "text": "Benny's account prefix is 7-HAL, at the Old Banks."
+    },
+    {
+     "to": "BAY-MARKET",
+     "text": "Market dealers pay in here at midnight."
+    },
+    {
+     "to": "BAY-STRIP",
+     "text": "Benny's second book is at the Neon Strip pachinko parlour."
+    },
+    {
+     "to": "BAY-CLUB",
+     "text": "Uptown buyers, including a Meth kid called Caspian, came through here asking for Flutter."
+    }
+   ],
+   "npc": "NPC-BENNY",
+   "ignored": "",
+   "check": "Read Person (Difficulty 2) when he lies; a bet in his favour buys a straight answer.",
+   "name": "The Fight Pit",
+   "district": "UNDERWORLD",
+   "inbound": 6,
+   "kind": "building",
+   "street": "BCS-LICKTOWN"
+  },
+  {
+   "id": "BCS-DOGPATCH",
+   "role": "Origin (street)",
+   "thread": "compound",
+   "zone": "Dock Road North",
+   "scene": "Wet docks, the Power Station's humming towers, the Crane Yard gantries. A burnt-out traffic light from the brownout still blinks amber.",
+   "mission": "Walk the first dominoes.",
+   "clues": [
+    {
+     "to": "BCP-CRANE-YARD",
+     "text": "Dock workers talk about the night a crane dropped a container."
+    },
+    {
+     "to": "BCP-POWER-STATION",
+     "text": "The brownout came from the Power Station; Dogpatch lost light for 41 minutes."
+    },
+    {
+     "to": "BCP-BAY-DAM-ACCESS",
+     "text": "Sluice warnings still flash at the Bay Dam Access."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Dogpatch Docks",
+   "district": "DOGPATCH",
+   "inbound": 0,
+   "kind": "street",
+   "street": "BCS-DOGPATCH"
+  },
+  {
+   "id": "BCP-CRANE-YARD",
+   "role": "Origin",
+   "thread": "paper",
+   "zone": "Gatehouse",
+   "scene": "Gantry G3 stands over a stained patch of quay. The night foreman, Eddo Paz, is nervous and wearing a shirt he could not afford last month.",
+   "mission": "Prove KX-4471 was dropped and skimmed.",
+   "clues": [
+    {
+     "to": "BCP-CHOP-SHOPS",
+     "text": "Eddo sold the vials to a Licktown fence. He will name Gearbox to save himself."
+    },
+    {
+     "to": "BCP-TOLL-AUTHORITY",
+     "text": "The re-sealed container went out over the Alcatraz Causeway; the Toll Authority weighs every crossing."
+    },
+    {
+     "to": "BCP-POWER-STATION",
+     "text": "The gantry log shows a power-fail routine bug. The brownout came from the Power Station."
+    },
+    {
+     "to": "BAY-DOCKS",
+     "text": "Psychasec has been asking dock crews about \"blue caps\" all week."
+    },
+    {
+     "to": "BCP-FERRY-BUILDING",
+     "text": "A ferry crew at the Ferry Building watched Psychasec searchers that week."
+    }
+   ],
+   "npc": "NPC-EDDO",
+   "ignored": "",
+   "check": "Data Analysis on the gantry logs (H02). Search: one vial taped under the Gatehouse desk.",
+   "name": "Crane Yard",
+   "district": "DOGPATCH",
+   "inbound": 6,
+   "kind": "place",
+   "street": "BCS-DOGPATCH"
+  },
+  {
+   "id": "BCP-POWER-STATION",
+   "role": "Witness",
+   "thread": "compound",
+   "zone": "Control Room",
+   "scene": "Turbines, heat and Maren Kosk, the engineer who threw the switch. She has not slept since.",
+   "mission": "Learn why Dogpatch went dark.",
+   "clues": [
+    {
+     "to": "BCP-BAY-DAM-ACCESS",
+     "text": "The order came from Bay Dam control."
+    },
+    {
+     "to": "BCP-POWERHOUSE",
+     "text": "The order carried a Psychasec priority code: the Alcatraz Powerhouse must keep power."
+    },
+    {
+     "to": "BCP-SEAWALL-PUMPS",
+     "text": "It all started when the Seawall Pumps failed."
+    }
+   ],
+   "npc": "NPC-KOSK",
+   "ignored": "",
+   "check": "Composure or Diplomacy (Difficulty 1). She wants to be a witness.",
+   "name": "Power Station",
+   "district": "DOGPATCH",
+   "inbound": 3,
+   "kind": "place",
+   "street": "BCS-DOGPATCH"
+  },
+  {
+   "id": "BCP-BAY-DAM-ACCESS",
+   "role": "Domino",
+   "thread": "compound",
+   "zone": "Control Room",
+   "scene": "Sluice gates and a control room still running on storm protocol. The duty log is honest: the dam took Dogpatch's power on Psychasec priority.",
+   "mission": "Get the priority order.",
+   "clues": [
+    {
+     "to": "BCP-POWERHOUSE",
+     "text": "Priority holder: Psychasec Alcatraz."
+    },
+    {
+     "to": "BCP-SEAWALL-PUMPS",
+     "text": "The surge only reached the dam because the Seawall Pumps failed."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "Bureaucracy (Difficulty 2) to read the right log.",
+   "name": "Bay Dam Access",
+   "district": "DOGPATCH",
+   "inbound": 3,
+   "kind": "place",
+   "street": "BCS-DOGPATCH"
+  },
+  {
+   "id": "BAY-DOCKS",
+   "role": "Escape route",
+   "thread": "cover",
+   "zone": "Warehouse 9",
+   "scene": "Container Yard, Crane Deck, and Warehouse 9, where a fast boat waits with its engine warm.",
+   "mission": "Cut off Ambrose's escape, or catch Psychasec's searchers.",
+   "clues": [
+    {
+     "to": "BCP-POTRERO-HILL",
+     "text": "The boat crew is waiting for \"the Saint from the hill\"."
+    },
+    {
+     "to": "BCP-CRANE-YARD",
+     "text": "Corin Slade's team questioned the dockers here first."
+    },
+    {
+     "to": "BCP-YACHT-STACKS",
+     "text": "The boat is registered at the Marina's Yacht Stacks."
+    },
+    {
+     "to": "BCP-OCEAN-WALL",
+     "text": "A smuggler on the Ocean Wall logs every boat that comes in at night."
+    }
+   ],
+   "npc": null,
+   "ignored": "04:00: if Ambrose escaped the lab, he leaves Bay City from here.",
+   "check": "",
+   "name": "Bay Docks",
+   "district": "WATERFRONT",
+   "inbound": 5,
+   "kind": "building",
+   "street": "BCS-WHARF"
+  },
+  {
+   "id": "BCS-MISSION",
+   "role": "Crossroads",
+   "thread": "badge",
+   "zone": "16th Centre",
+   "scene": "Neon, AI hotels, and the Resleeving Clinic's glowing sign. Rain Alley is taped off and nobody is guarding the tape.",
+   "mission": "Connect the alley, the club and the clinic.",
+   "clues": [
+    {
+     "to": "BAY-ALLEY",
+     "text": "Halloran was found in Rain Alley."
+    },
+    {
+     "to": "BAY-CLUB",
+     "text": "Caspian Vance was glassed in the Neon Nightclub."
+    },
+    {
+     "to": "BAY-CLINIC",
+     "text": "Both of them were taken to the Resleeving Clinic."
+    },
+    {
+     "to": "BCP-DOLORES-CHAPEL",
+     "text": "Dolores Chapel bells ring every time another glassed grounder is brought in."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Mission Street · AI Hotels",
+   "district": "MISSION",
+   "inbound": 0,
+   "kind": "street",
+   "street": "BCS-MISSION"
+  },
+  {
+   "id": "BAY-ALLEY",
+   "role": "Crime scene",
+   "thread": "badge",
+   "zone": "Loading Dock",
+   "scene": "A dead-end alley behind the clinic. Halloran's chalk silhouette is standing, not lying. A shop camera on the Fire Escape points at the Loading Dock.",
+   "mission": "Prove Halloran was dosed deliberately.",
+   "clues": [
+    {
+     "to": "BAY-PRECINCT",
+     "text": "The camera footage was seized by BCPD and logged into evidence, then \"lost\"."
+    },
+    {
+     "to": "BAY-CLINIC",
+     "text": "Footprints lead to the clinic's Service Door."
+    },
+    {
+     "to": "BCP-OLD-BANKS",
+     "text": "A dropped Old Banks visitor pass, made out to \"C. Slade\"."
+    },
+    {
+     "to": "BCP-ALAMO-TERRACES",
+     "text": "Halloran's widow lives in the Alamo Terraces; he took his notebook home."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "Search (Difficulty 2): an injector cap in the Dumpster Run. Investigation reconstructs the attack: someone held him and injected the neck.",
+   "name": "Rain Alley",
+   "district": "STREET",
+   "inbound": 3,
+   "kind": "building",
+   "street": "BCS-MISSION"
+  },
+  {
+   "id": "BAY-CLINIC",
+   "role": "Exploiters (climax option)",
+   "thread": "heir",
+   "zone": "Stack Vault",
+   "scene": "A beautiful, quiet clinic with soft music. Behind the Staff Corridor: twelve glassed stacks in the Stack Vault marked \"pending payment\", and empty sleeves in Sleeve Storage tagged for sale.",
+   "mission": "Free the stacks. Stop the sleeve sales. Get Halloran and Caspian out.",
+   "clues": [
+    {
+     "to": "BCP-STACK-BROKERS",
+     "text": "Sleeve transfers go to \"S.B.\": Vesna Rhee at Stack Brokers."
+    },
+    {
+     "to": "BAY-SPIRE",
+     "text": "Caspian's file has a Spire contact and a sealed bid."
+    },
+    {
+     "to": "BAY-PRECINCT",
+     "text": "Halloran was transferred here on the captain's signature."
+    },
+    {
+     "to": "BCP-DOLORES-CHAPEL",
+     "text": "The clinic has refused grounder cases; the chapel takes them."
+    }
+   ],
+   "npc": "NPC-OKONJO",
+   "ignored": "02:00: Caspian's sleeve is sold. Each hour after, another sleeve goes.",
+   "check": "Bureaucracy or Stealth to reach the vault; Medicine (Difficulty 3) to extract stacks safely; Digital Networking to talk to Halloran inside.",
+   "name": "Resleeving Clinic",
+   "district": "MEDICAL",
+   "inbound": 7,
+   "kind": "building",
+   "street": "BCS-MISSION"
+  },
+  {
+   "id": "BAY-CLUB",
+   "role": "Victims",
+   "thread": "heir",
+   "zone": "VIP Booths",
+   "scene": "Bass you feel in your teeth. Booth 4 in VIP is roped off, the cushions still dented where Caspian sat. The bartender saw who sold the pill.",
+   "mission": "Find out who sold Caspian the pill, and who else bought.",
+   "clues": [
+    {
+     "to": "BAY-PIT",
+     "text": "The club's Flutter came from a Fight Pit runner."
+    },
+    {
+     "to": "BAY-SPIRE",
+     "text": "Caspian's friends have gone home to the Spire and are not talking."
+    },
+    {
+     "to": "BAY-STRIP",
+     "text": "Dealers moved from the club to the Neon Strip after the incident."
+    },
+    {
+     "to": "BCP-OPERA-HOUSE",
+     "text": "The club's owner is catering at the Opera House gala tonight."
+    },
+    {
+     "to": "BCP-HILL-HABS",
+     "text": "Caspian's dealer friend went home to the Hill Habs and stopped answering."
+    },
+    {
+     "to": "BCP-PALACE-RUINS",
+     "text": "Caspian's friends started the night at a party in the Palace Ruins."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "Read Person on the bartender (Difficulty 2). Danger: the bartender describes a man in two coats.",
+   "name": "Neon Nightclub",
+   "district": "NIGHTLIFE",
+   "inbound": 4,
+   "kind": "building",
+   "street": "BCS-MISSION"
+  },
+  {
+   "id": "BCP-DOLORES-CHAPEL",
+   "role": "Shelter",
+   "thread": "signal",
+   "zone": "Crypt Stair",
+   "scene": "Candles and old wood. In the crypt, nine glassed grounders lie on pallets. Father Tomas Ileana sits with them. One stack monitor keeps blinking a pattern: someone is awake in there.",
+   "mission": "Protect the glassed from the snatchers. Get testimony.",
+   "clues": [
+    {
+     "to": "BCP-SLUMS",
+     "text": "The grounders came from the Civic Center Slums."
+    },
+    {
+     "to": "BCP-HAIGHT-SQUATS",
+     "text": "More were taken from the Haight Squats before he could reach them."
+    },
+    {
+     "to": "BCP-SUTRO-MAST",
+     "text": "The priest will testify, but only on Sunny's feed, live."
+    },
+    {
+     "to": "BAY-CLINIC",
+     "text": "The clinic turned the grounders away \"for lack of payment\"."
+    },
+    {
+     "to": "BCP-FORT-POINT",
+     "text": "Grounders at Fort Point have a stash and nobody to warn them."
+    },
+    {
+     "to": "BCP-UN-PLAZA",
+     "text": "Families hold a vigil at UN Plaza every night at midnight."
+    }
+   ],
+   "npc": "NPC-ILEANA",
+   "ignored": "02:00: snatchers come for the crypt.",
+   "check": "Digital Networking (Difficulty 2) reads the blinking monitor: \"SNATCHERS. STACK BROKERS.\"",
+   "name": "Dolores Chapel",
+   "district": "MISSION",
+   "inbound": 10,
+   "kind": "place",
+   "street": "BCS-MISSION"
+  },
+  {
+   "id": "BCS-FELL",
+   "role": "Home base",
+   "thread": "badge",
+   "zone": "Fell 2",
+   "scene": "Hayes Valley: the BCPD Precinct House, the Courthouse Annex, the Impound Lot. Patrol cars idle with their lights off.",
+   "mission": "Use the system, or fight it.",
+   "clues": [
+    {
+     "to": "BAY-PRECINCT",
+     "text": "The task force bullpen is on the second floor."
+    },
+    {
+     "to": "BCP-COURTHOUSE-ANNEX",
+     "text": "A judge at the Annex can still sign a warrant tonight."
+    },
+    {
+     "to": "BCP-IMPOUND-LOT",
+     "text": "The crew van is in the Impound Lot."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Fell Street · BCPD",
+   "district": "HAYES VALLEY",
+   "inbound": 0,
+   "kind": "street",
+   "street": "BCS-FELL"
+  },
+  {
+   "id": "BAY-PRECINCT",
+   "role": "Cover-up / home base",
+   "thread": "badge",
+   "zone": "Evidence Locker",
+   "scene": "Bullpen, coffee and a captain behind a closed door. Dr Fenn's lab is off the Bullpen. The Evidence Locker has a gap where Halloran's chip and the alley footage should be.",
+   "mission": "Find the missing evidence. Read the captain.",
+   "clues": [
+    {
+     "to": "BCP-COURTHOUSE-ANNEX",
+     "text": "Brandt's orders went through the Courthouse Annex as an amended filing."
+    },
+    {
+     "to": "BCP-PROTECTORATE-OFFICE",
+     "text": "The order to close the case came from the Protectorate Office."
+    },
+    {
+     "to": "BCP-CRANE-YARD",
+     "text": "Moth's tox (H01) matches a compound shipped through the Crane Yard."
+    },
+    {
+     "to": "BAY-CLINIC",
+     "text": "Halloran's transfer slip: Resleeving Clinic, signed Brandt."
+    },
+    {
+     "to": "BCP-ALAMO-TERRACES",
+     "text": "Halloran's locker is empty; his partner says \"Pilar has his notebook\"."
+    },
+    {
+     "to": "BCP-HAYES-MARKET",
+     "text": "Off-duty officers talk freely in the Hayes Market food hall."
+    },
+    {
+     "to": "BCP-SALLY-PORT",
+     "text": "Getting onto the Rock means the Sally Port."
+    }
+   ],
+   "npc": "NPC-BRANDT",
+   "ignored": "00:00: the case is closed and the task force stood down.",
+   "check": "Search the Evidence Locker log (Difficulty 2): the chip (H07) was signed out to the captain. Science: Dr Fenn runs H01.",
+   "name": "BCPD Precinct House",
+   "district": "LAW",
+   "inbound": 8,
+   "kind": "building",
+   "street": "BCS-FELL"
+  },
+  {
+   "id": "BCP-COURTHOUSE-ANNEX",
+   "role": "Legal lever",
+   "thread": "badge",
+   "zone": "Records Room",
+   "scene": "A night court, a tired judge and a records room. The closure filing is here, ready to be stamped at midnight.",
+   "mission": "Get a warrant, or stop the closure.",
+   "clues": [
+    {
+     "to": "BCP-PROTECTORATE-OFFICE",
+     "text": "The filing cites a Protectorate directive number."
+    },
+    {
+     "to": "BAY-CLINIC",
+     "text": "With a warrant, the clinic's Stack Vault can be opened legally."
+    },
+    {
+     "to": "BCP-CONTAINER-HABS",
+     "text": "With a warrant, the Habs raid is clean."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "Bureaucracy (Difficulty 2, or 1 with the manifest H04 or the chip H07).",
+   "name": "Courthouse Annex",
+   "district": "HAYES VALLEY",
+   "inbound": 2,
+   "kind": "place",
+   "street": "BCS-FELL"
+  },
+  {
+   "id": "BCP-IMPOUND-LOT",
+   "role": "Evidence",
+   "thread": "cover",
+   "zone": "Evidence Cage",
+   "scene": "Rows of seized cars. The crew van is in the Evidence Cage. Kesh's prints are on the crate straps.",
+   "mission": "Recover the van evidence before someone else does.",
+   "clues": [
+    {
+     "to": "BCP-CHOP-SHOPS",
+     "text": "Van GPS: Chop Shops, then Container Habs, seven nights ago."
+    },
+    {
+     "to": "BAY-PRECINCT",
+     "text": "The van was impounded on Brandt's order; no paperwork followed."
+    }
+   ],
+   "npc": null,
+   "ignored": "After 00:00 the van is sent to the Crusher.",
+   "check": "",
+   "name": "Impound Lot",
+   "district": "HAYES VALLEY",
+   "inbound": 2,
+   "kind": "place",
+   "street": "BCS-FELL"
+  },
+  {
+   "id": "BCP-ALAMO-TERRACES",
+   "role": "Side job",
+   "thread": "badge",
+   "zone": "Hab Units",
+   "scene": "Painted ladies turned into hab towers. Halloran's widow, Pilar, lives here with his old notebook.",
+   "mission": "Get Halloran's notebook.",
+   "clues": [
+    {
+     "to": "BCP-CRANE-YARD",
+     "text": "Halloran's notes: \"KX-4471, blue caps, Crane Yd foreman?\""
+    },
+    {
+     "to": "BCP-OLD-BANKS",
+     "text": "\"Follow 7-HAL.\""
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "Composure and kindness. She wants the truth more than revenge.",
+   "name": "Alamo Terraces",
+   "district": "HAYES VALLEY",
+   "inbound": 2,
+   "kind": "place",
+   "street": "BCS-FELL"
+  },
+  {
+   "id": "BCP-HAYES-MARKET",
+   "role": "Rumour mill",
+   "thread": "street",
+   "zone": "Food Court",
+   "scene": "An upmarket food hall where off-duty cops eat. Everyone is talking about the stand-down memo.",
+   "mission": "Hear what the precinct won't say.",
+   "clues": [
+    {
+     "to": "BAY-PRECINCT",
+     "text": "An officer whispers that the captain shredded something."
+    },
+    {
+     "to": "BCP-OPERA-HOUSE",
+     "text": "Half the precinct is moonlighting as security at the Opera House gala."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Hayes Market",
+   "district": "HAYES VALLEY",
+   "inbound": 1,
+   "kind": "place",
+   "street": "BCS-FELL"
+  },
+  {
+   "id": "BCS-CIVIC",
+   "role": "Power",
+   "thread": "paper",
+   "zone": "Van Ness Mid",
+   "scene": "Marble ruins, the Protectorate Office lit all night, the Opera House dressed for a gala, the Skyport's lights over everything.",
+   "mission": "Climb the ladder of who knew.",
+   "clues": [
+    {
+     "to": "BCP-PROTECTORATE-OFFICE",
+     "text": "The amended manifest lives here."
+    },
+    {
+     "to": "BCP-OPERA-HOUSE",
+     "text": "The gala starts at midnight; the Protectorate under-secretary is guest of honour."
+    },
+    {
+     "to": "BCP-SLUMS",
+     "text": "Snatchers have been working the Slums."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Civic Center",
+   "district": "CIVIC CENTER",
+   "inbound": 0,
+   "kind": "street",
+   "street": "BCS-CIVIC"
+  },
+  {
+   "id": "BCP-PROTECTORATE-OFFICE",
+   "role": "Cover-up",
+   "thread": "paper",
+   "zone": "Records Room",
+   "scene": "Glass and quiet. Gaspar Dunne, the clerk who amended the manifest, is still at his desk, wearing a new watch.",
+   "mission": "Get the original manifest and Dunne's confession.",
+   "clues": [
+    {
+     "to": "BCP-OLD-BANKS",
+     "text": "Dunne was paid through account 7-HAL at the Old Banks."
+    },
+    {
+     "to": "BCP-ARCHIVE-TOWER",
+     "text": "The original manifest is backed up in the Archive Tower."
+    },
+    {
+     "to": "BCP-OPERA-HOUSE",
+     "text": "Dunne's superior, the under-secretary, will be at the Opera House."
+    },
+    {
+     "to": "BAY-PRECINCT",
+     "text": "The directive to BCPD went out from the Meeting Room here."
+    }
+   ],
+   "npc": "NPC-DUNNE",
+   "ignored": "",
+   "check": "Bureaucracy, Stealth or Digital Networking (Difficulty 3). Dunne flips for immunity.",
+   "name": "Protectorate Office",
+   "district": "CIVIC CENTER",
+   "inbound": 9,
+   "kind": "place",
+   "street": "BCS-CIVIC"
+  },
+  {
+   "id": "BCP-ARCHIVE-TOWER",
+   "role": "Evidence",
+   "thread": "paper",
+   "zone": "Service Floor",
+   "scene": "A data tower with an analogue vault. Every manifest ever filed is backed up here before amendment.",
+   "mission": "Pull the original KX-4471 manifest (H04).",
+   "clues": [
+    {
+     "to": "BCP-PROTECTORATE-OFFICE",
+     "text": "Amendment trail: G. Dunne."
+    },
+    {
+     "to": "BCP-PSYCHASEC-CELLHOUSE",
+     "text": "Original consignee: Psychasec Cellhouse, Dr I. Varga."
+    },
+    {
+     "to": "BCP-OLD-BANKS",
+     "text": "The manifest's fee was paid from a 7-HAL account at the Old Banks."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "Digital Networking (Difficulty 2) or Stealth through the Service Floor.",
+   "name": "Archive Tower",
+   "district": "CIVIC CENTER",
+   "inbound": 1,
+   "kind": "place",
+   "street": "BCS-CIVIC"
+  },
+  {
+   "id": "BCP-OPERA-HOUSE",
+   "role": "Climax option",
+   "thread": "cook",
+   "zone": "Foyer Bar",
+   "scene": "Chandeliers, velvet, and the city's rich in borrowed sleeves. The Foyer Bar's scent-mist machines are being loaded with \"gala cartridges\" from the 01:00 maglev.",
+   "mission": "Stop the second batch before 03:00. Evacuate, swap, or seize the cartridges.",
+   "clues": [
+    {
+     "to": "BCP-MAGLEV-DEPOT",
+     "text": "The cartridges came from the Maglev Depot."
+    },
+    {
+     "to": "BAY-SPIRE",
+     "text": "Lady Oriel Vance is attending, and so is the under-secretary she wants leverage on."
+    },
+    {
+     "to": "BCP-PROTECTORATE-OFFICE",
+     "text": "The under-secretary is the one who ordered the case closed."
+    },
+    {
+     "to": "BCP-MARKET-ARCADE",
+     "text": "The caterers bought their scent cartridges at the Market Arcade."
+    }
+   ],
+   "npc": null,
+   "ignored": "03:00: twenty-three glassed. Civic Center locked down. The city panics.",
+   "check": "Search the Foyer Bar (Difficulty 2); Expression or a forged warrant to clear the room.",
+   "name": "Opera House",
+   "district": "CIVIC CENTER",
+   "inbound": 8,
+   "kind": "place",
+   "street": "BCS-CIVIC"
+  },
+  {
+   "id": "BCP-MAGLEV-DEPOT",
+   "role": "Interception",
+   "thread": "cook",
+   "zone": "Platform",
+   "scene": "The late maglev hums in. A courier with a refrigerated case waits on the Platform with an Opera House delivery order.",
+   "mission": "Intercept the second batch.",
+   "clues": [
+    {
+     "to": "BCP-OPERA-HOUSE",
+     "text": "Delivery order (H08): Opera House, Foyer Bar."
+    },
+    {
+     "to": "BCP-CONTAINER-HABS",
+     "text": "The courier picked up from the Container Habs."
+    },
+    {
+     "to": "BCP-MAGLEV-STATION",
+     "text": "If missed here, the courier changes at the Maglev Station in Old Downtown."
+    }
+   ],
+   "npc": null,
+   "ignored": "01:00: the batch reaches the Opera House.",
+   "check": "",
+   "name": "Maglev Depot",
+   "district": "CIVIC CENTER",
+   "inbound": 4,
+   "kind": "place",
+   "street": "BCS-CIVIC"
+  },
+  {
+   "id": "BCP-SLUMS",
+   "role": "Victims",
+   "thread": "signal",
+   "zone": "The Camp",
+   "scene": "Tarps and fires under the overpass. People have been disappearing: glassed users taken in the night by men with a medical van.",
+   "mission": "Stop the snatchers.",
+   "clues": [
+    {
+     "to": "BCP-STACK-BROKERS",
+     "text": "The van belongs to a Stack Brokers courier."
+    },
+    {
+     "to": "BCP-DOLORES-CHAPEL",
+     "text": "Those who escaped went to the chapel."
+    },
+    {
+     "to": "BCP-GROUNDER-CAMP",
+     "text": "The snatchers are working the Grounder Camp next."
+    },
+    {
+     "to": "BCP-WEST-STACKS",
+     "text": "Two glassed users on the West Stacks have no one to help them."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "Stealth or Detection to catch the van (Difficulty 2).",
+   "name": "Slums",
+   "district": "CIVIC CENTER",
+   "inbound": 3,
+   "kind": "place",
+   "street": "BCS-CIVIC"
+  },
+  {
+   "id": "BCP-UN-PLAZA",
+   "role": "Side job",
+   "thread": "signal",
+   "zone": "Memorial",
+   "scene": "A vigil. Candles for the glassed. Sunny's feed plays on a cracked screen.",
+   "mission": "Find witnesses; gauge the city's mood.",
+   "clues": [
+    {
+     "to": "BCP-DOLORES-CHAPEL",
+     "text": "Families are being sent to the chapel."
+    },
+    {
+     "to": "BCP-SUTRO-MAST",
+     "text": "The vigil wants the truth on the Mast at dawn."
+    },
+    {
+     "to": "BCP-RESERVOIR",
+     "text": "Vigil-goers are afraid the water is poisoned."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "UN Plaza",
+   "district": "CIVIC CENTER",
+   "inbound": 1,
+   "kind": "place",
+   "street": "BCS-CIVIC"
+  },
+  {
+   "id": "BCP-CITY-HALL-RUINS",
+   "role": "Red herring",
+   "thread": "street",
+   "zone": "Cellar Stair",
+   "scene": "A rumour says Flutter is cooked in the City Hall cellars. It isn't: a rival cook makes knock-off \"Flutter\" from plain Merge and food dye.",
+   "mission": "Clear the false lead; maybe gain an informant.",
+   "clues": [
+    {
+     "to": "BCP-CONTAINER-HABS",
+     "text": "The knock-off cook knows the real one: \"Saint, at the Habs\"."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "City Hall Ruins",
+   "district": "CIVIC CENTER",
+   "inbound": 1,
+   "kind": "place",
+   "street": "BCS-CIVIC"
+  },
+  {
+   "id": "BCP-MARKET-ARCADE",
+   "role": "Supply",
+   "thread": "cook",
+   "zone": "Back Stores",
+   "scene": "A covered market where the Opera House caterers buy their scent cartridges.",
+   "mission": "Find out how Ambrose got into the gala supply chain.",
+   "clues": [
+    {
+     "to": "BCP-OPERA-HOUSE",
+     "text": "Cartridge order for the gala, swapped two days ago."
+    },
+    {
+     "to": "BCP-MAGLEV-DEPOT",
+     "text": "Replacement cartridges arrive on the 01:00 maglev."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Market Arcade",
+   "district": "CIVIC CENTER",
+   "inbound": 1,
+   "kind": "place",
+   "street": "BCS-CIVIC"
+  },
+  {
+   "id": "BCP-MAGLEV-STATION",
+   "role": "Interception (backup)",
+   "thread": "cook",
+   "zone": "Concourse",
+   "scene": "Old Downtown's maglev hub. The courier changes trains here if he missed the Depot.",
+   "mission": "Last chance to intercept the second batch.",
+   "clues": [
+    {
+     "to": "BCP-MAGLEV-DEPOT",
+     "text": "The courier's route ends at the Civic Center Maglev Depot."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Maglev Station",
+   "district": "OLD DOWNTOWN",
+   "inbound": 2,
+   "kind": "place",
+   "street": "BCS-OLD-DT-S"
+  },
+  {
+   "id": "BAY-SKYPORT",
+   "role": "Escape route",
+   "thread": "heir",
+   "zone": "Pad B",
+   "scene": "Aircars lift into rain. A Psychasec aircar is booked on Pad B for 04:00; so is a Vance family aircar.",
+   "mission": "Stop Dr Varga leaving with the Halcyon-7, or Lady Vance leaving with her son's sleeve.",
+   "clues": [
+    {
+     "to": "BCP-CAUSEWAY-GATE",
+     "text": "The Psychasec cargo is coming over the Causeway."
+    },
+    {
+     "to": "BAY-SPIRE",
+     "text": "The Vance aircar is waiting for Lady Oriel."
+    }
+   ],
+   "npc": null,
+   "ignored": "04:00: Varga and the remaining Halcyon-7 leave Bay City.",
+   "check": "",
+   "name": "Skyport Landing Deck",
+   "district": "TRANSIT",
+   "inbound": 3,
+   "kind": "building",
+   "street": "BCS-CIVIC"
+  },
+  {
+   "id": "BCS-OLD-DT-N",
+   "role": "Money (street)",
+   "thread": "paper",
+   "zone": "Battery North",
+   "scene": "Banks that still remember being banks, a Meth Spire glittering above, grounders camped below.",
+   "mission": "Follow 7-HAL upwards.",
+   "clues": [
+    {
+     "to": "BCP-OLD-BANKS",
+     "text": "Account 7-HAL is held at the Old Banks."
+    },
+    {
+     "to": "BAY-SPIRE",
+     "text": "The Vance Spire is here."
+    },
+    {
+     "to": "BCP-GROUNDER-CAMP",
+     "text": "Snatchers seen at the Grounder Camp."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Old Downtown · North",
+   "district": "OLD DOWNTOWN",
+   "inbound": 0,
+   "kind": "street",
+   "street": "BCS-OLD-DT-N"
+  },
+  {
+   "id": "BCP-OLD-BANKS",
+   "role": "Money",
+   "thread": "paper",
+   "zone": "Manager's Office",
+   "scene": "A marble banking hall. The manager keeps a second set of books for Psychasec's discreet accounts.",
+   "mission": "Prove Psychasec paid for the cover-up (H06).",
+   "clues": [
+    {
+     "to": "BCP-PROTECTORATE-OFFICE",
+     "text": "7-HAL paid Gaspar Dunne."
+    },
+    {
+     "to": "BAY-PIT",
+     "text": "7-HAL also launders through Benny Strand's book."
+    },
+    {
+     "to": "BCP-PSYCHASEC-CELLHOUSE",
+     "text": "7-HAL's owner: Psychasec Alcatraz research budget."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "Bureaucracy or Digital Networking (Difficulty 3).",
+   "name": "Old Banks",
+   "district": "OLD DOWNTOWN",
+   "inbound": 6,
+   "kind": "place",
+   "street": "BCS-OLD-DT-N"
+  },
+  {
+   "id": "BAY-SPIRE",
+   "role": "Power (climax option)",
+   "thread": "heir",
+   "zone": "Private Study",
+   "scene": "A penthouse above the rain. Lady Oriel Vance receives visitors in her Salon and makes decisions in her Private Study.",
+   "mission": "Negotiate with the Vance matriarch: her son for her secrets.",
+   "clues": [
+    {
+     "to": "BCP-OPERA-HOUSE",
+     "text": "She will be at the gala, where the under-secretary will be."
+    },
+    {
+     "to": "BCP-STACK-BROKERS",
+     "text": "She is buying Caspian's sleeve through Vesna Rhee."
+    },
+    {
+     "to": "BAY-SKYPORT",
+     "text": "Her aircar is on standby at the Skyport."
+    },
+    {
+     "to": "BCP-PROTECTORATE-OFFICE",
+     "text": "She holds the under-secretary's secrets and will trade them for Caspian's stack."
+    }
+   ],
+   "npc": "NPC-ORIEL",
+   "ignored": "02:00: she hires a hitman for whoever sold the pill.",
+   "check": "Diplomacy (Difficulty 3); Juniper reduces it to 1.",
+   "name": "Meth Spire Penthouse",
+   "district": "AERIUM",
+   "inbound": 6,
+   "kind": "building",
+   "street": "BCS-OLD-DT-N"
+  },
+  {
+   "id": "BCP-GROUNDER-CAMP",
+   "role": "Victims",
+   "thread": "signal",
+   "zone": "The Camp",
+   "scene": "Tarps around a water point. The snatchers are coming here next.",
+   "mission": "Protect the camp.",
+   "clues": [
+    {
+     "to": "BCP-STACK-BROKERS",
+     "text": "Snatchers' van returns to Stack Brokers."
+    },
+    {
+     "to": "BCP-DOLORES-CHAPEL",
+     "text": "Survivors go to Dolores Chapel."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Grounder Camp",
+   "district": "OLD DOWNTOWN",
+   "inbound": 3,
+   "kind": "place",
+   "street": "BCS-OLD-DT-N"
+  },
+  {
+   "id": "BCP-DEAD-TOWERS",
+   "role": "Side job",
+   "thread": "street",
+   "zone": "Squat Floor",
+   "scene": "Gutted towers. A squat floor where Flutter users go to \"flutter together\".",
+   "mission": "Find a user who can describe the high, and save them before they go glassed.",
+   "clues": [
+    {
+     "to": "BAY-MARKET",
+     "text": "They buy at the Lower Bay Market."
+    },
+    {
+     "to": "BCP-DOLORES-CHAPEL",
+     "text": "One of their friends is in the chapel crypt."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "Medicine and Lethinol save one user (Difficulty 2).",
+   "name": "Dead Towers",
+   "district": "OLD DOWNTOWN",
+   "inbound": 1,
+   "kind": "place",
+   "street": "BCS-OLD-DT-N"
+  },
+  {
+   "id": "BCP-FERRY-BUILDING",
+   "role": "Witness",
+   "thread": "paper",
+   "zone": "Loading Bay",
+   "scene": "A market hall on the water. A ferry crew saw the Psychasec boat checking containers.",
+   "mission": "Gather witnesses to Psychasec's search.",
+   "clues": [
+    {
+     "to": "BAY-DOCKS",
+     "text": "The Psychasec boat came from the Bay Docks."
+    },
+    {
+     "to": "BCP-CAUSEWAY-GATE",
+     "text": "It went back via the Causeway."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Ferry Building",
+   "district": "OLD DOWNTOWN",
+   "inbound": 1,
+   "kind": "place",
+   "street": "BCS-OLD-DT-N"
+  },
+  {
+   "id": "BCS-OLD-DT-S",
+   "role": "Exploiters (street)",
+   "thread": "heir",
+   "zone": "Third Mid",
+   "scene": "Broker storefronts, a dead skyscraper, the Neon Strip's glow.",
+   "mission": "Find where the sleeves go.",
+   "clues": [
+    {
+     "to": "BCP-STACK-BROKERS",
+     "text": "Stack Brokers sells sleeves with no history."
+    },
+    {
+     "to": "BAY-STRIP",
+     "text": "Flutter dealers moved to the Neon Strip."
+    },
+    {
+     "to": "BCP-MAGLEV-STATION",
+     "text": "The maglev station connects to Civic Center."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Old Downtown · South",
+   "district": "OLD DOWNTOWN",
+   "inbound": 0,
+   "kind": "street",
+   "street": "BCS-OLD-DT-S"
+  },
+  {
+   "id": "BCP-STACK-BROKERS",
+   "role": "Exploiters",
+   "thread": "heir",
+   "zone": "Stack Vault",
+   "scene": "Velvet waiting room, steel vault. Vesna Rhee sells clean sleeves to anyone who can pay, and she has three that were people last week.",
+   "mission": "Stop the sales. Find out who is buying.",
+   "clues": [
+    {
+     "to": "BAY-CLINIC",
+     "text": "Her supplier is the Resleeving Clinic."
+    },
+    {
+     "to": "BAY-SPIRE",
+     "text": "Her best buyer is Lady Oriel Vance."
+    },
+    {
+     "to": "BCP-SLUMS",
+     "text": "Her couriers snatch glassed grounders from the Slums."
+    },
+    {
+     "to": "BCP-SALESFORCE-HULK",
+     "text": "She stores extra sleeves in cold rooms in the Salesforce Hulk."
+    },
+    {
+     "to": "BCP-RINCON-HABS",
+     "text": "A courier log shows a pick-up from the Rincon Habs: a glassed teenager."
+    }
+   ],
+   "npc": "NPC-RHEE",
+   "ignored": "02:00: Caspian's sleeve is sold.",
+   "check": "Read Person or Intimidation (Difficulty 2).",
+   "name": "Stack Brokers",
+   "district": "OLD DOWNTOWN",
+   "inbound": 8,
+   "kind": "place",
+   "street": "BCS-OLD-DT-S"
+  },
+  {
+   "id": "BAY-STRIP",
+   "role": "Distribution",
+   "thread": "street",
+   "zone": "Pachinko Parlour",
+   "scene": "Noodle bars, pachinko, rain. After the market was cleared, the Flutter dealers moved here.",
+   "mission": "Shut down the second distribution point.",
+   "clues": [
+    {
+     "to": "BAY-PIT",
+     "text": "Pachinko takings go to Benny Strand."
+    },
+    {
+     "to": "BCP-CONTAINER-HABS",
+     "text": "Restock runs come from Licktown, the Habs."
+    },
+    {
+     "to": "BCP-GOLDEN-GATE-PARK",
+     "text": "The Strip dealers supply a rave in Golden Gate Park tonight."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "Stealth to watch; Intimidation to turn a dealer.",
+   "name": "The Neon Strip",
+   "district": "STREET",
+   "inbound": 4,
+   "kind": "building",
+   "street": "BCS-OLD-DT-S"
+  },
+  {
+   "id": "BCP-RINCON-HABS",
+   "role": "Side job",
+   "thread": "signal",
+   "zone": "Hab Units",
+   "scene": "Mid-tier habs. A family whose daughter was glassed and then \"taken by an ambulance that wasn't\".",
+   "mission": "Help a family find their daughter.",
+   "clues": [
+    {
+     "to": "BCP-STACK-BROKERS",
+     "text": "The ambulance belonged to Stack Brokers."
+    },
+    {
+     "to": "BCP-SUTRO-MAST",
+     "text": "They want their story on the feed."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Rincon Habs",
+   "district": "OLD DOWNTOWN",
+   "inbound": 1,
+   "kind": "place",
+   "street": "BCS-OLD-DT-S"
+  },
+  {
+   "id": "BCP-SALESFORCE-HULK",
+   "role": "Exploiters (stash)",
+   "thread": "heir",
+   "zone": "Squat Floor",
+   "scene": "A dead skyscraper's cold rooms. Seven empty sleeves hang in coolant, tagged with prices.",
+   "mission": "Find the stolen sleeves.",
+   "clues": [
+    {
+     "to": "BCP-STACK-BROKERS",
+     "text": "Tags say \"S.B. inventory\"."
+    },
+    {
+     "to": "BAY-CLINIC",
+     "text": "Three tags carry clinic patient numbers."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "Athletics up the Dead Lift Core (Difficulty 2).",
+   "name": "Salesforce Hulk",
+   "district": "OLD DOWNTOWN",
+   "inbound": 1,
+   "kind": "place",
+   "street": "BCS-OLD-DT-S"
+  },
+  {
+   "id": "BCP-BAY-BRIDGE-RAMP",
+   "role": "Side job",
+   "thread": "street",
+   "zone": "Underpass Camp",
+   "scene": "An underpass camp. A Flutter runner hides here, terrified of both crews.",
+   "mission": "Turn the runner into a witness.",
+   "clues": [
+    {
+     "to": "BCP-CONTAINER-HABS",
+     "text": "The runner knows the lab and the door code."
+    },
+    {
+     "to": "BCP-SCRAPYARD",
+     "text": "The runner knows about the 23:00 ambush."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Bay Bridge Ramp",
+   "district": "OLD DOWNTOWN",
+   "inbound": 1,
+   "kind": "place",
+   "street": "BCS-OLD-DT-S"
+  },
+  {
+   "id": "BCS-ALCATRAZ",
+   "role": "Source (street)",
+   "thread": "compound",
+   "zone": "Alcatraz Causeway South",
+   "scene": "The Causeway to the Rock, searchlights, Psychasec banners. Getting on the island means papers, a warrant, or a lie.",
+   "mission": "Get onto the Rock.",
+   "clues": [
+    {
+     "to": "BCP-SALLY-PORT",
+     "text": "The Sally Port is the only way in."
+    },
+    {
+     "to": "BCP-POWERHOUSE",
+     "text": "The Powerhouse kept the lights on through the storm."
+    },
+    {
+     "to": "BCP-PSYCHASEC-CELLHOUSE",
+     "text": "Halcyon-7 is trialled in the Cellhouse."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Psychasec Alcatraz",
+   "district": "THE ROCK",
+   "inbound": 0,
+   "kind": "street",
+   "street": "BCS-ALCATRAZ"
+  },
+  {
+   "id": "BCP-SALLY-PORT",
+   "role": "Gate",
+   "thread": "compound",
+   "zone": "Inspection Lanes",
+   "scene": "Inspection lanes and a guard post. Psychasec security is jumpy tonight; a retrieval team is out in the city.",
+   "mission": "Get in: warrant, bluff, or Dr Fenn's old credentials.",
+   "clues": [
+    {
+     "to": "BCP-PSYCHASEC-CELLHOUSE",
+     "text": "Visitor log: Dr Varga has been in the Cellhouse all night."
+    },
+    {
+     "to": "BCP-POWERHOUSE",
+     "text": "The Powerhouse service tunnel bypasses the Sally Port."
+    },
+    {
+     "to": "BCP-PEAK-OVERLOOK",
+     "text": "An off-shift Psychasec guard smokes at the Peak Overlook every night."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "Bureaucracy (Difficulty 3; 1 with a warrant; Dr Fenn's old credentials still work once).",
+   "name": "Sally Port",
+   "district": "THE ROCK",
+   "inbound": 4,
+   "kind": "place",
+   "street": "BCS-ALCATRAZ"
+  },
+  {
+   "id": "BCP-POWERHOUSE",
+   "role": "Domino",
+   "thread": "compound",
+   "zone": "Switchgear",
+   "scene": "The Rock's own power plant. The storm priority order is pinned to the Switchgear board: Psychasec bought Dogpatch's light.",
+   "mission": "Prove Psychasec's priority caused the brownout. Use the service tunnel.",
+   "clues": [
+    {
+     "to": "BCP-PSYCHASEC-CELLHOUSE",
+     "text": "The service tunnel runs to Booking."
+    },
+    {
+     "to": "BCP-POWER-STATION",
+     "text": "The priority order matches the Dogpatch diversion."
+    },
+    {
+     "to": "BCP-SALLY-PORT",
+     "text": "The Sally Port gate log is wired through the Powerhouse."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Powerhouse",
+   "district": "THE ROCK",
+   "inbound": 5,
+   "kind": "place",
+   "street": "BCS-ALCATRAZ"
+  },
+  {
+   "id": "BCP-PSYCHASEC-CELLHOUSE",
+   "role": "Source (climax option)",
+   "thread": "compound",
+   "zone": "Booking",
+   "scene": "Cell Block A holds resleeved convicts sitting very still and agreeing with everything. Dr Varga works from Booking. The signed Halcyon-7 protocol is in her case.",
+   "mission": "Get the protocol (H10), the remaining vials, or Varga herself.",
+   "clues": [
+    {
+     "to": "BCP-CAUSEWAY-GATE",
+     "text": "The remaining Halcyon-7 leaves via the Causeway Gate at 04:00."
+    },
+    {
+     "to": "BAY-SKYPORT",
+     "text": "Varga has an aircar booked at the Skyport."
+    },
+    {
+     "to": "BCP-LIGHTHOUSE",
+     "text": "A guard says the trial records are backed up to the Lighthouse relay."
+    },
+    {
+     "to": "BCP-PEAK-OVERLOOK",
+     "text": "A guard here hates the trial; he goes up to the Peak Overlook after shift."
+    }
+   ],
+   "npc": "NPC-VARGA",
+   "ignored": "04:00: Varga leaves with the compound; the Cellhouse records are wiped.",
+   "check": "Stealth or Bureaucracy; Science (Difficulty 2) to understand the protocol and find the antidote note: Lethinol plus a stack re-handshake.",
+   "name": "Psychasec Cellhouse",
+   "district": "THE ROCK",
+   "inbound": 7,
+   "kind": "place",
+   "street": "BCS-ALCATRAZ"
+  },
+  {
+   "id": "BCP-LIGHTHOUSE",
+   "role": "Evidence (backup)",
+   "thread": "compound",
+   "zone": "Lamp Room",
+   "scene": "An old lighthouse with a data relay in the Lamp Room. Psychasec mirrors its trial records here.",
+   "mission": "Copy the trial records before they are wiped.",
+   "clues": [
+    {
+     "to": "BCP-SUTRO-MAST",
+     "text": "With the records, Sunny can prove everything."
+    },
+    {
+     "to": "BCP-PSYCHASEC-CELLHOUSE",
+     "text": "The relay mirrors the Cellhouse trial records."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "Digital Networking (Difficulty 2).",
+   "name": "Lighthouse",
+   "district": "THE ROCK",
+   "inbound": 1,
+   "kind": "place",
+   "street": "BCS-ALCATRAZ"
+  },
+  {
+   "id": "BCS-WHARF",
+   "role": "Transit",
+   "thread": "paper",
+   "zone": "Alcatraz Causeway",
+   "scene": "Fish markets and the Causeway approach. The Causeway Gate controls traffic to the Rock.",
+   "mission": "Watch the Causeway.",
+   "clues": [
+    {
+     "to": "BCP-CAUSEWAY-GATE",
+     "text": "Every Psychasec vehicle passes the Causeway Gate."
+    },
+    {
+     "to": "BCP-PIER-MARKET",
+     "text": "Pier Market vendors saw the Psychasec searchers."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Wharf & Causeway",
+   "district": "FISHERMAN'S WHARF",
+   "inbound": 0,
+   "kind": "street",
+   "street": "BCS-WHARF"
+  },
+  {
+   "id": "BCP-CAUSEWAY-GATE",
+   "role": "Climax option",
+   "thread": "compound",
+   "zone": "Search Bay",
+   "scene": "Barriers, scanners and a watchtower. At 04:00 a Psychasec truck will carry the remaining Halcyon-7 off the Rock.",
+   "mission": "Hold the gate. Seize the shipment.",
+   "clues": [
+    {
+     "to": "BAY-SKYPORT",
+     "text": "The truck's destination is Pad B at the Skyport."
+    },
+    {
+     "to": "BCP-TOLL-AUTHORITY",
+     "text": "The Toll Authority can lock the barriers."
+    },
+    {
+     "to": "BCP-CABLE-YARD",
+     "text": "A Cable Yard mechanic was paid to keep a truck \"available\" tonight."
+    }
+   ],
+   "npc": null,
+   "ignored": "04:00: the shipment passes.",
+   "check": "Bureaucracy to hold it legally; force works too.",
+   "name": "Causeway Gate",
+   "district": "FISHERMAN'S WHARF",
+   "inbound": 6,
+   "kind": "place",
+   "street": "BCS-WHARF"
+  },
+  {
+   "id": "BCP-CABLE-YARD",
+   "role": "Side job",
+   "thread": "street",
+   "zone": "Workshop",
+   "scene": "Cable cars being fixed. A mechanic was offered money to \"lose\" a truck for a few hours.",
+   "mission": "Find out who is buying silence.",
+   "clues": [
+    {
+     "to": "BCP-CAUSEWAY-GATE",
+     "text": "The truck is meant for the Causeway at 04:00."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Cable Yard",
+   "district": "FISHERMAN'S WHARF",
+   "inbound": 1,
+   "kind": "place",
+   "street": "BCS-WHARF"
+  },
+  {
+   "id": "BCP-PIER-MARKET",
+   "role": "Witness",
+   "thread": "paper",
+   "zone": "Back Stores",
+   "scene": "Fish and gossip. Vendors watched Psychasec searchers ask about blue caps.",
+   "mission": "Identify Corin Slade.",
+   "clues": [
+    {
+     "to": "BAY-ALLEY",
+     "text": "The man asking was seen near Rain Alley the night Halloran was attacked."
+    },
+    {
+     "to": "BCP-CHOP-SHOPS",
+     "text": "He asked where Licktown fences buy dock goods."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Pier Market",
+   "district": "FISHERMAN'S WHARF",
+   "inbound": 2,
+   "kind": "place",
+   "street": "BCS-WHARF"
+  },
+  {
+   "id": "BCP-CANNERY-HABS",
+   "role": "Side job",
+   "thread": "signal",
+   "zone": "Laundry Court",
+   "scene": "A cannery turned habs. Kids here sell Flutter to buy sleeves for their grandparents.",
+   "mission": "Find the youngest sellers before the crews do.",
+   "clues": [
+    {
+     "to": "BAY-MARKET",
+     "text": "They buy wholesale at the Lower Bay Market."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Cannery Habs",
+   "district": "FISHERMAN'S WHARF",
+   "inbound": 1,
+   "kind": "place",
+   "street": "BCS-WHARF"
+  },
+  {
+   "id": "BCS-GG-SOUTH",
+   "role": "Transit",
+   "thread": "paper",
+   "zone": "Presidio South",
+   "scene": "The Presidio approach to the bridge. Toll Authority towers watch every lane.",
+   "mission": "Get the scan data.",
+   "clues": [
+    {
+     "to": "BCP-TOLL-AUTHORITY",
+     "text": "The Toll Authority weighs every container."
+    },
+    {
+     "to": "BCP-PRESIDIO-CHECKPOINT",
+     "text": "The Presidio Checkpoint logs every Psychasec vehicle."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Golden Gate · South Span",
+   "district": "PRESIDIO",
+   "inbound": 0,
+   "kind": "street",
+   "street": "BCS-GG-SOUTH"
+  },
+  {
+   "id": "BCP-TOLL-AUTHORITY",
+   "role": "Evidence",
+   "thread": "paper",
+   "zone": "Records Room",
+   "scene": "Rows of monitors. Ruth Okoye flagged KX-4471 as 120 kg light, and someone at the Protectorate cleared her flag.",
+   "mission": "Get the scale record (H03).",
+   "clues": [
+    {
+     "to": "BCP-PROTECTORATE-OFFICE",
+     "text": "The flag was cleared by \"PROT-OFFICE/GD\": Gaspar Dunne."
+    },
+    {
+     "to": "BCP-CRANE-YARD",
+     "text": "Origin scan: Crane Yard, the night of the storm."
+    },
+    {
+     "to": "BCP-CAUSEWAY-GATE",
+     "text": "She can lock the Causeway barriers at 04:00."
+    }
+   ],
+   "npc": "NPC-OKOYE",
+   "ignored": "",
+   "check": "Diplomacy (Difficulty 1): she has been waiting for someone to ask.",
+   "name": "Toll Authority",
+   "district": "PRESIDIO",
+   "inbound": 3,
+   "kind": "place",
+   "street": "BCS-GG-SOUTH"
+  },
+  {
+   "id": "BCP-FORT-POINT",
+   "role": "Side job",
+   "thread": "signal",
+   "zone": "Casemates",
+   "scene": "An old fort under the bridge. Grounders shelter in the casemates; one has a Flutter stash.",
+   "mission": "Get the stash off the street.",
+   "clues": [
+    {
+     "to": "BAY-MARKET",
+     "text": "The stash came from the Lower Bay Market."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Fort Point",
+   "district": "PRESIDIO",
+   "inbound": 1,
+   "kind": "place",
+   "street": "BCS-GG-SOUTH"
+  },
+  {
+   "id": "BCP-BRIDGE-DEPOT",
+   "role": "Side job",
+   "thread": "paper",
+   "zone": "Yard",
+   "scene": "Maintenance trucks. A Psychasec van was refuelled here, with a receipt.",
+   "mission": "Track Psychasec's vehicles.",
+   "clues": [
+    {
+     "to": "BCP-CHOP-SHOPS",
+     "text": "Van route: Chop Shops at 22:00."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Bridge Depot",
+   "district": "PRESIDIO",
+   "inbound": 1,
+   "kind": "place",
+   "street": "BCS-GG-SOUTH"
+  },
+  {
+   "id": "BCP-PRESIDIO-CHECKPOINT",
+   "role": "Evidence",
+   "thread": "paper",
+   "zone": "Watchtower",
+   "scene": "A checkpoint with cameras on every lane. Corin Slade's team came through here.",
+   "mission": "Get footage of Slade's team.",
+   "clues": [
+    {
+     "to": "BAY-ALLEY",
+     "text": "Timestamps place Slade near Rain Alley."
+    },
+    {
+     "to": "BCP-CHOP-SHOPS",
+     "text": "The team's vehicle heads for Licktown."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Presidio Checkpoint",
+   "district": "PRESIDIO",
+   "inbound": 2,
+   "kind": "place",
+   "street": "BCS-GG-SOUTH"
+  },
+  {
+   "id": "BCS-GG-NORTH",
+   "role": "Side job",
+   "thread": "signal",
+   "zone": "Golden Gate Bridge Mid",
+   "scene": "The bridge stacks: hab containers stacked on the old deck. The wind carries Sunny's feed from a hundred speakers.",
+   "mission": "Find the bridge stack users.",
+   "clues": [
+    {
+     "to": "BCP-WEST-STACKS",
+     "text": "Flutter has reached the West Stacks."
+    },
+    {
+     "to": "BCP-EAST-STACKS",
+     "text": "The East Stacks run an illegal relay to the Mast."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Golden Gate · North Span",
+   "district": "BRIDGE STACKS",
+   "inbound": 0,
+   "kind": "street",
+   "street": "BCS-GG-NORTH"
+  },
+  {
+   "id": "BCP-WEST-STACKS",
+   "role": "Victims",
+   "thread": "signal",
+   "zone": "Cook Fires",
+   "scene": "Container homes on the bridge. Two glassed users lie by the cook fires; nobody knows what to do.",
+   "mission": "Save them and learn where they bought.",
+   "clues": [
+    {
+     "to": "BAY-MARKET",
+     "text": "Bought at the Lower Bay Market."
+    },
+    {
+     "to": "BCP-DOLORES-CHAPEL",
+     "text": "Their families want them taken to the chapel."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "West Stacks",
+   "district": "BRIDGE STACKS",
+   "inbound": 2,
+   "kind": "place",
+   "street": "BCS-GG-NORTH"
+  },
+  {
+   "id": "BCP-EAST-STACKS",
+   "role": "Signal backup",
+   "thread": "signal",
+   "zone": "Lookout",
+   "scene": "A pirate relay mast on the Lookout. If the Sutro Mast is lost, this can still reach half the city.",
+   "mission": "Secure a backup broadcast route.",
+   "clues": [
+    {
+     "to": "BCP-SUTRO-MAST",
+     "text": "The relay feeds the Sutro Mast."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "East Stacks",
+   "district": "BRIDGE STACKS",
+   "inbound": 2,
+   "kind": "place",
+   "street": "BCS-GG-NORTH"
+  },
+  {
+   "id": "BCS-MARINA",
+   "role": "Origin (street)",
+   "thread": "compound",
+   "zone": "Valencia North",
+   "scene": "Flood lines on every wall. The Seawall Pumps are still being repaired.",
+   "mission": "See where the first domino fell.",
+   "clues": [
+    {
+     "to": "BCP-SEAWALL-PUMPS",
+     "text": "The pumps failed first."
+    },
+    {
+     "to": "BCP-YACHT-STACKS",
+     "text": "Ambrose's escape boat is moored at the Yacht Stacks."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Marina Seawall",
+   "district": "MARINA",
+   "inbound": 0,
+   "kind": "street",
+   "street": "BCS-MARINA"
+  },
+  {
+   "id": "BCP-SEAWALL-PUMPS",
+   "role": "First domino",
+   "thread": "compound",
+   "zone": "Pump Hall",
+   "scene": "The pumps that failed in the storm. The maintenance log shows the repair budget was cut, and the money went to Alcatraz's grid priority.",
+   "mission": "Find the first domino.",
+   "clues": [
+    {
+     "to": "BCP-BAY-DAM-ACCESS",
+     "text": "The surge went to the Bay Dam next."
+    },
+    {
+     "to": "BCP-POWERHOUSE",
+     "text": "Repair funds were moved to the Alcatraz Powerhouse priority contract."
+    },
+    {
+     "to": "BCP-MARINA-HABS",
+     "text": "The pump engineer who filed the warning lives in the Marina Habs."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "Bureaucracy (Difficulty 2).",
+   "name": "Seawall Pumps",
+   "district": "MARINA",
+   "inbound": 4,
+   "kind": "place",
+   "street": "BCS-MARINA"
+  },
+  {
+   "id": "BCP-YACHT-STACKS",
+   "role": "Escape route",
+   "thread": "cover",
+   "zone": "Moorings",
+   "scene": "House-boats and yachts. Ambrose's getaway boat is registered here.",
+   "mission": "Disable the boat.",
+   "clues": [
+    {
+     "to": "BAY-DOCKS",
+     "text": "The boat will pick him up at Bay Docks Warehouse 9."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Yacht Stacks",
+   "district": "MARINA",
+   "inbound": 2,
+   "kind": "place",
+   "street": "BCS-MARINA"
+  },
+  {
+   "id": "BCP-PALACE-RUINS",
+   "role": "Side job",
+   "thread": "heir",
+   "zone": "Courtyard",
+   "scene": "A ruined palace where the rich throw secret parties. Caspian's friends partied here before the club.",
+   "mission": "Find Caspian's friends.",
+   "clues": [
+    {
+     "to": "BAY-CLUB",
+     "text": "They went on to the Neon Nightclub."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Palace Ruins",
+   "district": "MARINA",
+   "inbound": 1,
+   "kind": "place",
+   "street": "BCS-MARINA"
+  },
+  {
+   "id": "BCP-MARINA-HABS",
+   "role": "Side job",
+   "thread": "signal",
+   "zone": "Roof Garden",
+   "scene": "Flood-damaged habs. A pump engineer lives here and wants to talk.",
+   "mission": "Get a witness to the pump failure.",
+   "clues": [
+    {
+     "to": "BCP-SEAWALL-PUMPS",
+     "text": "The pumps were left unrepaired on purpose."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Marina Habs",
+   "district": "MARINA",
+   "inbound": 1,
+   "kind": "place",
+   "street": "BCS-MARINA"
+  },
+  {
+   "id": "BCS-PANHANDLE",
+   "role": "Victims (street)",
+   "thread": "signal",
+   "zone": "Oak Centre",
+   "scene": "Parks and squats. Flutter has spread here fast, and so have the snatchers.",
+   "mission": "Find the snatchers' route.",
+   "clues": [
+    {
+     "to": "BCP-HAIGHT-SQUATS",
+     "text": "The Haight Squats lost four people this week."
+    },
+    {
+     "to": "BCP-GOLDEN-GATE-PARK",
+     "text": "Flutter parties in Golden Gate Park."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Panhandle West",
+   "district": "HAIGHT",
+   "inbound": 0,
+   "kind": "street",
+   "street": "BCS-PANHANDLE"
+  },
+  {
+   "id": "BCP-HAIGHT-SQUATS",
+   "role": "Victims",
+   "thread": "signal",
+   "zone": "Stairwell Units",
+   "scene": "A squat building. Four glassed residents were taken by \"medics\". Their neighbours wrote down the van plate.",
+   "mission": "Track the van.",
+   "clues": [
+    {
+     "to": "BCP-STACK-BROKERS",
+     "text": "The plate is registered to Stack Brokers."
+    },
+    {
+     "to": "BCP-DOLORES-CHAPEL",
+     "text": "The priest took the rest to the chapel."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Haight Squats",
+   "district": "HAIGHT",
+   "inbound": 2,
+   "kind": "place",
+   "street": "BCS-PANHANDLE"
+  },
+  {
+   "id": "BCP-GOLDEN-GATE-PARK",
+   "role": "Side job",
+   "thread": "street",
+   "zone": "Pavilion",
+   "scene": "A rave at the Pavilion with Flutter in the air. Somebody is about to go glassed.",
+   "mission": "Save the ravers; find the dealer.",
+   "clues": [
+    {
+     "to": "BAY-STRIP",
+     "text": "The dealer restocks at the Neon Strip."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "Medicine and Lethinol (Difficulty 2).",
+   "name": "Golden Gate Park",
+   "district": "HAIGHT",
+   "inbound": 2,
+   "kind": "place",
+   "street": "BCS-PANHANDLE"
+  },
+  {
+   "id": "BCP-KEZAR-HABS",
+   "role": "Side job",
+   "thread": "signal",
+   "zone": "Hab Units",
+   "scene": "Moth's mother lives here. She has not heard from her kid in a day.",
+   "mission": "Tell her, or ask her about Moth's work.",
+   "clues": [
+    {
+     "to": "BCP-CONTAINER-HABS",
+     "text": "Moth did laundry at the Container Habs for \"the Saint\"."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Kezar Habs",
+   "district": "HAIGHT",
+   "inbound": 1,
+   "kind": "place",
+   "street": "BCS-PANHANDLE"
+  },
+  {
+   "id": "BCP-PANHANDLE-GREEN",
+   "role": "Side job",
+   "thread": "street",
+   "zone": "Camp",
+   "scene": "A camp under the trees. A runner who quit the crew hides here.",
+   "mission": "Turn the runner.",
+   "clues": [
+    {
+     "to": "BCP-SCRAPYARD",
+     "text": "The runner warns about the Scrapyard ambush."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Panhandle Green",
+   "district": "HAIGHT",
+   "inbound": 1,
+   "kind": "place",
+   "street": "BCS-PANHANDLE"
+  },
+  {
+   "id": "BCP-OCEAN-WALL",
+   "role": "Side job",
+   "thread": "paper",
+   "zone": "Gun Port",
+   "scene": "The old sea wall. A smuggler watched the Psychasec boat at night.",
+   "mission": "Get a witness.",
+   "clues": [
+    {
+     "to": "BAY-DOCKS",
+     "text": "The boat docked at the Bay Docks."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Ocean Wall",
+   "district": "HAIGHT",
+   "inbound": 1,
+   "kind": "place",
+   "street": "BCS-PANHANDLE"
+  },
+  {
+   "id": "BCS-TWIN-PEAKS",
+   "role": "Signal (street)",
+   "thread": "signal",
+   "zone": "Cesar Chavez St",
+   "scene": "The switchbacks to the top of the city. The Sutro Mast blinks red over everything.",
+   "mission": "Reach the Mast.",
+   "clues": [
+    {
+     "to": "BCP-SUTRO-MAST",
+     "text": "The Mast can reach every screen in Bay City."
+    },
+    {
+     "to": "BCP-RESERVOIR",
+     "text": "The Reservoir has the city water records."
+    },
+    {
+     "to": "BCP-RESERVOIR",
+     "text": "Rumour on the hill: Flutter is in the Reservoir."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Twin Peaks Switchbacks",
+   "district": "TWIN PEAKS",
+   "inbound": 0,
+   "kind": "street",
+   "street": "BCS-TWIN-PEAKS"
+  },
+  {
+   "id": "BCP-SUTRO-MAST",
+   "role": "Climax option",
+   "thread": "signal",
+   "zone": "Equipment Deck",
+   "scene": "The city's broadcast spine. Sunny has an illegal tap on the Equipment Deck. Whoever holds the Mast at dawn tells the story.",
+   "mission": "Broadcast the truth with proof at 05:00.",
+   "clues": [
+    {
+     "to": "BCP-DOLORES-CHAPEL",
+     "text": "The priest's testimony."
+    },
+    {
+     "to": "BCP-PSYCHASEC-CELLHOUSE",
+     "text": "The Halcyon-7 protocol."
+    },
+    {
+     "to": "BCP-PROTECTORATE-OFFICE",
+     "text": "The amended manifest."
+    },
+    {
+     "to": "BCP-STACK-DEALERS",
+     "text": "Sunny's own secret: Sutter's payments, which someone may use to discredit her."
+    },
+    {
+     "to": "BCP-EAST-STACKS",
+     "text": "The East Stacks relay can carry the broadcast if the Mast is lost."
+    }
+   ],
+   "npc": null,
+   "ignored": "05:00: the official story wins.",
+   "check": "Expression (Difficulty 2, minus 1 for each proof handout held).",
+   "name": "Sutro Mast",
+   "district": "TWIN PEAKS",
+   "inbound": 8,
+   "kind": "place",
+   "street": "BCS-TWIN-PEAKS"
+  },
+  {
+   "id": "BCP-RESERVOIR",
+   "role": "Red herring",
+   "thread": "compound",
+   "zone": "Pump House",
+   "scene": "A rumour that Flutter is in the water supply. It isn't. The pump house techs have tested it.",
+   "mission": "Rule out the water; calm the panic.",
+   "clues": [
+    {
+     "to": "BCP-SUTRO-MAST",
+     "text": "A broadcast could end the water panic."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Reservoir",
+   "district": "TWIN PEAKS",
+   "inbound": 3,
+   "kind": "place",
+   "street": "BCS-TWIN-PEAKS"
+  },
+  {
+   "id": "BCP-HILL-HABS",
+   "role": "Side job",
+   "thread": "heir",
+   "zone": "Roof Garden",
+   "scene": "Wealthy habs. Caspian's dealer friend lives here and is terrified.",
+   "mission": "Get the name of the club seller.",
+   "clues": [
+    {
+     "to": "BAY-CLUB",
+     "text": "The seller at the club was \"a man in two coats\"."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Hill Habs",
+   "district": "TWIN PEAKS",
+   "inbound": 1,
+   "kind": "place",
+   "street": "BCS-TWIN-PEAKS"
+  },
+  {
+   "id": "BCP-PEAK-OVERLOOK",
+   "role": "Side job",
+   "thread": "signal",
+   "zone": "Memorial",
+   "scene": "The overlook. A Psychasec security guard smokes here and hates his job.",
+   "mission": "Turn a Psychasec insider.",
+   "clues": [
+    {
+     "to": "BCP-SALLY-PORT",
+     "text": "He can get one person through the Sally Port."
+    }
+   ],
+   "npc": null,
+   "ignored": "",
+   "check": "",
+   "name": "Peak Overlook",
+   "district": "TWIN PEAKS",
+   "inbound": 2,
+   "kind": "place",
+   "street": "BCS-TWIN-PEAKS"
+  }
+ ]
+}

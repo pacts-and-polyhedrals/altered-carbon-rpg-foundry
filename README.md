@@ -22,6 +22,20 @@ Older installs that still use `.../main/system.json` keep working because the `s
 version, uninstall it and reinstall from the manifest URL above. Uninstalling a system does
 not delete your worlds.
 
+## v2.7.0 — One-shot: The Butterfly Cut
+
+A complete **sandbox one-shot** inside the system, 4–5 hours, for 4–6 players. It is set in Bay City in 2384, in the same weeks as *Cold Storage*, and starts in Licktown. Neither needs the other.
+
+**The story.** A storm knocks out the Seawall Pumps. The emergency power diversion browns out Dogpatch, and a crane at the Crane Yard drops a sealed Psychasec container bound for Alcatraz. Its forty skimmed vials of *Halcyon-7* are cut into Merge, and a new drug, **Flutter**, hits Licktown. Users go *glassed*: the sleeve lives on, empty, while the person is trapped awake in their stack. Clinics are selling the empty sleeves. Psychasec wants its compound back, and someone above BCPD wants the case closed. Each pregen is one of the dominoes without knowing it.
+
+- **A web of 81 places.** Every street map (14), building map (10) and place map (57) has a page: its role, the scene, the mission, Checks, who is there, clues leading to other places, which places point to it, handouts, and what happens if nobody comes. The test suite checks that every place is reachable from Licktown and that every building is pointed to by a clue (227 in all).
+- **Eight threads, one per pregen:** The Cook, The Glassed Officer, Halcyon-7, The Paper Trail, The Street Trade, Deep Cover, The Glassed Heir and The Signal. They cross at shared places on the case-web board.
+- **The night moves on its own.** A clock from 21:00 to 05:00 fires an event each hour unless the players have prevented it, from Psychasec raiding the fence to the second batch hitting the Opera House gala. At dawn, five pressure points decide the ending.
+- **Eight pregens, built with the Core rules:** age resources, archetype Skill tables, package traits and gear (with the package choices made), Baggage, sleeves and a few signature Skills. Each has a hook, a goal, starting leads and a secret *personal domino*. Eighteen NPCs, including three threats built on the official adversary baselines. Everyone has their own top-down token.
+- **GM book** compendium (20 journals, 134 pages): Start Here, How to Run, the opening scene, the clock, endings, the chain of dominoes, a case-web board, the threads, one journal per district, NPCs, pregen handouts, ten evidence handouts and Cold Storage crossover notes.
+- **Case pins.** In **Install / Update Content**, **Set up The Butterfly Cut** imports the book and the characters and places a GM-only pin on every Bay City map in the world: one per place, on its own block, opening that place's page. Maps imported later are pinned automatically. **Place case pins** and **Remove case pins** are there too, or use `game.alteredCarbon.OneShot.placePins()`.
+- The ordinary content install no longer imports the one-shot compendiums by default.
+
 ## v2.6.2 — Tokens drive forwards, scaled road grid, mounted weapons
 
 - **Tokens face the right way.** Foundry turns a moving token so its *bottom* edge leads. All top-down vehicle art (the 23 street vehicles, the police light variants, and new tokens for the core Airbike, Aircar and Ground Car) now faces down, so BCPD cars and bikes, and every other vehicle, drive forwards. Character tokens were turned the same way. Text on tokens (BCPD, TAXI, name plates) still reads upright. Seat positions inside vehicles were turned to match, so the driver sits at the front.

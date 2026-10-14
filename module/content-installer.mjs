@@ -98,13 +98,14 @@ async function removeDocuments(groups){
 
 export class ACContentInstaller extends HandlebarsApplicationMixin(ApplicationV2){
   static DEFAULT_OPTIONS={id:'ac-content-installer',classes:['altered-carbon','ac-content-installer'],window:{title:'Altered Carbon — Install / Update Content',icon:'fa-solid fa-download'},position:{width:720,height:'auto'},
-    actions:{checkUpdates:this._checkUpdates,install:this._install,returnToSetup:this._returnToSetup,copyManifest:this._copyManifest}};
+    actions:{setUpOneShot:this._setUpOneShot,placePins:this._placePins,removePins:this._removePins,checkUpdates:this._checkUpdates,install:this._install,returnToSetup:this._returnToSetup,copyManifest:this._copyManifest}};
   static PARTS={main:{template:`systems/${NS}/templates/content-installer.hbs`}};
   _latest=null;_moduleLatest={};_checked=false;
   async _prepareContext(options){
     if(!game.user.isGM)throw new Error('GM only.');
     const context=await super._prepareContext(options);
-    const packs=game.packs.filter(p=>p.metadata.packageName===NS).map(p=>({id:p.collection,label:p.metadata.label,type:p.documentName,count:p.index?.size??0}));
+    const packs=game.packs.filter(p=>p.metadata.packageName===NS).map(p=>({id:p.collection,label:p.metadata.label,type:p.documentName,count:p.index?.size??0,checked:!p.collection.includes('oneshot-')}));
+    let pinsOn=false;try{pinsOn=game.settings.get(NS,'oneshotPins');}catch(_e){}
     const prev=previousContent({library:true,adventure:true}),prevLib=previousContent({library:true});
     const modules=relatedModules().map(m=>({id:m.id,title:m.title,version:m.version,active:m.active,latest:this._moduleLatest[m.id]?.version||'',outdated:isNewer(this._moduleLatest[m.id]?.version,m.version)}));
     const latest=this._latest?.version||'';
@@ -112,7 +113,7 @@ export class ACContentInstaller extends HandlebarsApplicationMixin(ApplicationV2
       manifest:game.system.manifest||STABLE_MANIFEST,modules,packs,
       previousCount:Object.values(prevLib).reduce((n,a)=>n+a.length,0),
       adventureCount:prev.JournalEntry.length-prevLib.JournalEntry.length,
-      anyOutdated:isNewer(latest,game.system.version)||modules.some(m=>m.outdated),isForge:typeof ForgeVTT!=='undefined'&&ForgeVTT?.usingTheForge};
+      pinsOn,anyOutdated:isNewer(latest,game.system.version)||modules.some(m=>m.outdated),isForge:typeof ForgeVTT!=='undefined'&&ForgeVTT?.usingTheForge};
   }
   async _onFirstRender(context,options){await super._onFirstRender?.(context,options);if(!this._checked)ACContentInstaller._checkUpdates.call(this);}
   static async _checkUpdates(){
@@ -120,6 +121,9 @@ export class ACContentInstaller extends HandlebarsApplicationMixin(ApplicationV2
     for(const m of relatedModules())this._moduleLatest[m.id]=await fetchManifestVersion([m.manifest]);
     this._checked=true;this.render({force:true});
   }
+  static async _setUpOneShot(event,target){target.disabled=true;try{const {setUpOneShot}=await import('./oneshot.mjs');await setUpOneShot();}catch(error){ui.notifications.error(error.message);}finally{target.disabled=false;this.render({force:true});}}
+  static async _placePins(event,target){target.disabled=true;try{const {placePins}=await import('./oneshot.mjs');await placePins();}catch(error){ui.notifications.error(error.message);}finally{target.disabled=false;this.render({force:true});}}
+  static async _removePins(event,target){target.disabled=true;try{const {removePins}=await import('./oneshot.mjs');await removePins();}catch(error){ui.notifications.error(error.message);}finally{target.disabled=false;this.render({force:true});}}
   static async _copyManifest(){
     const url=game.system.manifest||STABLE_MANIFEST;
     try{await navigator.clipboard.writeText(url);ui.notifications.info('Manifest URL copied.');}catch(_e){ui.notifications.info(url,{permanent:true});}

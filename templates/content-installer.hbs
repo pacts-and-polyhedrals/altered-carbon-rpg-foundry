@@ -29,11 +29,22 @@
     <header><span class="ac-kicker">WORLD CONTENT</span><h2>Compendium content</h2></header>
     <label class="ac-installer-check"><input type="checkbox" name="installContent" checked> <span><b>Install / update content</b> — import every entry from the compendiums below into world folders. Entries already installed are kept.</span></label>
     <div class="ac-installer-packs">
-      {{#each packs}}<label><input type="checkbox" name="pack" value="{{id}}" checked> {{label}} <small>{{count}} · {{type}}</small></label>{{/each}}
+      {{#each packs}}<label><input type="checkbox" name="pack" value="{{id}}" {{#if checked}}checked{{/if}}> {{label}} <small>{{count}} · {{type}}</small></label>{{/each}}
     </div>
     <label class="ac-installer-check ac-installer-danger"><input type="checkbox" name="removePrevious"> <span><b>Remove previous versions first</b> — delete the {{previousCount}} world document(s) from earlier installs (Core Library, Networks, compendium imports, GM Guide) and install clean copies. You confirm the list before anything is deleted. Player characters are never removed.</span></label>
     <label class="ac-installer-check ac-installer-sub"><input type="checkbox" name="removeAdventure"> <span>Also remove Adventure Book journals ({{adventureCount}}) — only if you want a fresh import; your notes in them are lost.</span></label>
     <label class="ac-installer-check"><input type="checkbox" name="applyEmblems" checked> <span><b>Apply noir emblems</b> to world Actors and Items that still use Foundry's default icons.</span></label>
     <div class="ac-installer-row"><button type="button" class="ac-primary-action" data-action="install"><i class="fa-solid fa-download"></i> Install Content</button></div>
+  </section>
+
+  <section class="ac-panel ac-installer-oneshot">
+    <header><span class="ac-kicker">ONE-SHOTS</span><h2>The Butterfly Cut</h2></header>
+    <p>A 4–5 hour sandbox in Bay City, 2384, starting in Licktown. Eight BCPD-linked pregens chase a new street drug through every map in the city. <b>Set up</b> imports the GM book and the characters, and puts a case pin on every Bay City map in this world. Each pin opens that place's page. Maps imported later are pinned automatically.</p>
+    <div class="ac-installer-row">
+      <button type="button" class="ac-primary-action" data-action="setUpOneShot"><i class="fa-solid fa-magnifying-glass"></i> Set up The Butterfly Cut</button>
+      <button type="button" data-action="placePins"><i class="fa-solid fa-thumbtack"></i> Place case pins</button>
+      <button type="button" data-action="removePins"{{#unless pinsOn}} class="ac-quiet"{{/unless}}><i class="fa-solid fa-eraser"></i> Remove case pins</button>
+    </div>
+    <p class="hint">Case pins are only visible to the GM. Pregens are imported as player characters for you to assign.</p>
   </section>
 </section>

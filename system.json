@@ -2,7 +2,7 @@
   "id": "altered-carbon-rpg",
   "title": "Altered Carbon RPG — Unofficial",
   "description": "Unofficial Foundry VTT v14 implementation of the 2020 Altered Carbon RPG rules. Requires lawful access to the original tabletop rules. Not affiliated with or endorsed by the Altered Carbon rights holders or Foundry Gaming LLC.",
-  "version": "2.6.2",
+  "version": "2.7.0",
   "compatibility": {
     "minimum": "14"
   },
@@ -240,7 +240,7 @@
   "secondaryTokenAttribute": "resources.ego",
   "url": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry",
   "manifest": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/latest/download/system.json",
-  "download": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v2.6.2/altered-carbon-rpg-v2.6.2.zip",
+  "download": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v2.7.0/altered-carbon-rpg-v2.7.0.zip",
   "packs": [
     {
       "name": "core-skills",
@@ -351,6 +351,19 @@
       "type": "Scene",
       "path": "packs/bay-city-streets",
       "system": "altered-carbon-rpg"
+    },
+    {
+      "name": "oneshot-butterfly-actors",
+      "label": "One-Shot: The Butterfly Cut — Characters",
+      "type": "Actor",
+      "path": "packs/oneshot-butterfly-actors",
+      "system": "altered-carbon-rpg"
+    },
+    {
+      "name": "oneshot-butterfly-journal",
+      "label": "One-Shot: The Butterfly Cut — GM Book",
+      "type": "JournalEntry",
+      "path": "packs/oneshot-butterfly-journal"
     }
   ],
   "packFolders": [
@@ -382,6 +395,15 @@
         "bay-city-maps",
         "bay-city-places",
         "bay-city-streets"
+      ]
+    },
+    {
+      "name": "Altered Carbon — One-Shots",
+      "sorting": "a",
+      "color": "#ff7fb0",
+      "packs": [
+        "oneshot-butterfly-journal",
+        "oneshot-butterfly-actors"
       ]
     }
   ]
