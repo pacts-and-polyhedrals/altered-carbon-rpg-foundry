@@ -171,6 +171,40 @@
      "to": "BCS-GG-SOUTH",
      "toName": "Golden Gate \u00b7 South Span",
      "toEdge": "N"
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "West Stacks",
+     "rect": [
+      1800,
+      600.0,
+      200,
+      200
+     ],
+     "to": "BCP-WEST-STACKS",
+     "toName": "West Stacks",
+     "land": [
+      320.0,
+      650.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "East Stacks",
+     "rect": [
+      2200,
+      600.0,
+      200,
+      200
+     ],
+     "to": "BCP-EAST-STACKS",
+     "toName": "East Stacks",
+     "land": [
+      320.0,
+      650.0
+     ]
     }
    ]
   },
@@ -570,6 +604,91 @@
      "to": "BCS-PANHANDLE",
      "toName": "Panhandle West",
      "toEdge": "N"
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Fort Point",
+     "rect": [
+      1400.0,
+      800,
+      200,
+      200
+     ],
+     "to": "BCP-FORT-POINT",
+     "toName": "Fort Point",
+     "land": [
+      320.0,
+      500.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Fort Point",
+     "rect": [
+      1000,
+      1325.0,
+      200,
+      200
+     ],
+     "to": "BCP-FORT-POINT",
+     "toName": "Fort Point",
+     "land": [
+      2440.0,
+      1150.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Toll Authority",
+     "rect": [
+      2750.0,
+      800,
+      200,
+      200
+     ],
+     "to": "BCP-TOLL-AUTHORITY",
+     "toName": "Toll Authority",
+     "land": [
+      320.0,
+      500.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Bridge Depot",
+     "rect": [
+      3650.0,
+      800,
+      200,
+      200
+     ],
+     "to": "BCP-BRIDGE-DEPOT",
+     "toName": "Bridge Depot",
+     "land": [
+      320.0,
+      650.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Presidio Checkpoint",
+     "rect": [
+      1000,
+      2175.0,
+      200,
+      200
+     ],
+     "to": "BCP-PRESIDIO-CHECKPOINT",
+     "toName": "Presidio Checkpoint",
+     "land": [
+      320.0,
+      650.0
+     ]
     }
    ]
   },
@@ -1001,6 +1120,91 @@
      "to": "BCS-GG-SOUTH",
      "toName": "Golden Gate \u00b7 South Span",
      "toEdge": "E"
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Yacht Stacks",
+     "rect": [
+      262.5,
+      800,
+      200,
+      200
+     ],
+     "to": "BCP-YACHT-STACKS",
+     "toName": "Yacht Stacks",
+     "land": [
+      320.0,
+      650.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Palace Ruins",
+     "rect": [
+      987.5,
+      800,
+      200,
+      200
+     ],
+     "to": "BCP-PALACE-RUINS",
+     "toName": "Palace Ruins",
+     "land": [
+      320.0,
+      400.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Marina Habs",
+     "rect": [
+      3650.0,
+      800,
+      200,
+      200
+     ],
+     "to": "BCP-MARINA-HABS",
+     "toName": "Marina Habs",
+     "land": [
+      320.0,
+      500.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Marina Habs",
+     "rect": [
+      3100,
+      1325.0,
+      200,
+      200
+     ],
+     "to": "BCP-MARINA-HABS",
+     "toName": "Marina Habs",
+     "land": [
+      2440.0,
+      1150.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Seawall Pumps",
+     "rect": [
+      3100,
+      2175.0,
+      200,
+      200
+     ],
+     "to": "BCP-SEAWALL-PUMPS",
+     "toName": "Seawall Pumps",
+     "land": [
+      320.0,
+      400.0
+     ]
     }
    ]
   },
@@ -1386,6 +1590,108 @@
      "to": "BCS-WHARF",
      "toName": "Wharf & Causeway",
      "toEdge": "N"
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Sally Port",
+     "rect": [
+      1500.0,
+      700,
+      200,
+      200
+     ],
+     "to": "BCP-SALLY-PORT",
+     "toName": "Sally Port",
+     "land": [
+      320.0,
+      650.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Sally Port",
+     "rect": [
+      1500.0,
+      1400,
+      200,
+      200
+     ],
+     "to": "BCP-SALLY-PORT",
+     "toName": "Sally Port",
+     "land": [
+      2440.0,
+      1050.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Powerhouse",
+     "rect": [
+      2500.0,
+      700,
+      200,
+      200
+     ],
+     "to": "BCP-POWERHOUSE",
+     "toName": "Powerhouse",
+     "land": [
+      320.0,
+      400.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Powerhouse",
+     "rect": [
+      2500.0,
+      1400,
+      200,
+      200
+     ],
+     "to": "BCP-POWERHOUSE",
+     "toName": "Powerhouse",
+     "land": [
+      2440.0,
+      1050.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Psychasec Cellhouse",
+     "rect": [
+      1800,
+      1750.0,
+      200,
+      200
+     ],
+     "to": "BCP-PSYCHASEC-CELLHOUSE",
+     "toName": "Psychasec Cellhouse",
+     "land": [
+      320.0,
+      500.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Lighthouse",
+     "rect": [
+      2200,
+      1750.0,
+      200,
+      200
+     ],
+     "to": "BCP-LIGHTHOUSE",
+     "toName": "Lighthouse",
+     "land": [
+      320.0,
+      900.0
+     ]
     }
    ]
   },
@@ -1430,9 +1736,9 @@
      ],
      "adjacent": [
       "alcatraz-causeway",
+      "bay-docks-boat-slips",
       "embarcadero-2",
-      "embarcadero-3",
-      "ferry-terminal"
+      "embarcadero-3"
      ]
     },
     {
@@ -1479,9 +1785,9 @@
       400
      ],
      "adjacent": [
+      "bay-docks-boat-slips",
       "embarcadero-alcatraz-causeway",
       "embarcadero-van-ness",
-      "ferry-terminal",
       "north-west-block-2"
      ]
     },
@@ -1529,9 +1835,9 @@
       850.0
      ],
      "adjacent": [
+      "bay-docks-boat-slips",
       "cable-yard",
       "embarcadero-van-ness",
-      "ferry-terminal",
       "van-ness-south"
      ]
     },
@@ -1681,8 +1987,8 @@
      ]
     },
     {
-     "id": "ferry-terminal",
-     "name": "Ferry Terminal",
+     "id": "bay-docks-boat-slips",
+     "name": "Bay Docks \u00b7 Boat Slips",
      "kind": "land",
      "rect": [
       1200,
@@ -1709,8 +2015,8 @@
       850.0
      ],
      "adjacent": [
+      "bay-docks-boat-slips",
       "embarcadero-3",
-      "ferry-terminal",
       "powell-north",
       "south-block"
      ]
@@ -1757,7 +2063,7 @@
       850.0
      ],
      "adjacent": [
-      "ferry-terminal",
+      "bay-docks-boat-slips",
       "south-block",
       "van-ness-south"
      ]
@@ -1868,6 +2174,7 @@
     {
      "edge": null,
      "kind": "door",
+     "at": "Bay Docks \u00b7 Boat Slips",
      "rect": [
       1400.0,
       800,
@@ -1879,8 +2186,109 @@
      "land": [
       2440.0,
       270.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Cable Yard",
+     "rect": [
+      300.0,
+      800,
+      200,
+      200
      ],
-     "at": "Ferry Terminal"
+     "to": "BCP-CABLE-YARD",
+     "toName": "Cable Yard",
+     "land": [
+      320.0,
+      650.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Cable Yard",
+     "rect": [
+      800,
+      1325.0,
+      200,
+      200
+     ],
+     "to": "BCP-CABLE-YARD",
+     "toName": "Cable Yard",
+     "land": [
+      2440.0,
+      1050.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Causeway Gate",
+     "rect": [
+      3650.0,
+      800,
+      200,
+      200
+     ],
+     "to": "BCP-CAUSEWAY-GATE",
+     "toName": "Causeway Gate",
+     "land": [
+      320.0,
+      650.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Causeway Gate",
+     "rect": [
+      3100,
+      1325.0,
+      200,
+      200
+     ],
+     "to": "BCP-CAUSEWAY-GATE",
+     "toName": "Causeway Gate",
+     "land": [
+      2440.0,
+      1050.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Pier Market",
+     "rect": [
+      1000,
+      2175.0,
+      200,
+      200
+     ],
+     "to": "BCP-PIER-MARKET",
+     "toName": "Pier Market",
+     "land": [
+      320.0,
+      400.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Cannery Habs",
+     "rect": [
+      3100,
+      2175.0,
+      200,
+      200
+     ],
+     "to": "BCP-CANNERY-HABS",
+     "toName": "Cannery Habs",
+     "land": [
+      320.0,
+      500.0
+     ]
     }
    ]
   },
@@ -1959,8 +2367,8 @@
      "adjacent": [
       "embarcadero-east",
       "embarcadero-third",
-      "north-block-2",
-      "pyramid-tower"
+      "meth-spire-penthouse",
+      "north-block-2"
      ]
     },
     {
@@ -1993,7 +2401,7 @@
      "adjacent": [
       "embarcadero-third",
       "grounder-camp",
-      "pyramid-tower",
+      "meth-spire-penthouse",
       "third-south"
      ]
     },
@@ -2128,8 +2536,8 @@
      ]
     },
     {
-     "id": "pyramid-tower",
-     "name": "Pyramid Tower",
+     "id": "meth-spire-penthouse",
+     "name": "Meth Spire Penthouse",
      "kind": "land",
      "rect": [
       1200,
@@ -2158,7 +2566,7 @@
       "battery-north",
       "embarcadero-east",
       "ferry-building",
-      "pyramid-tower"
+      "meth-spire-penthouse"
      ]
     },
     {
@@ -2204,7 +2612,7 @@
      ],
      "adjacent": [
       "ferry-building",
-      "pyramid-tower",
+      "meth-spire-penthouse",
       "third-south"
      ]
     },
@@ -2286,6 +2694,7 @@
     {
      "edge": null,
      "kind": "door",
+     "at": "Meth Spire Penthouse",
      "rect": [
       1525.0,
       800,
@@ -2297,8 +2706,109 @@
      "land": [
       320.0,
       1340.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Grounder Camp",
+     "rect": [
+      300.0,
+      800,
+      200,
+      200
      ],
-     "at": "Pyramid Tower"
+     "to": "BCP-GROUNDER-CAMP",
+     "toName": "Grounder Camp",
+     "land": [
+      320.0,
+      900.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Grounder Camp",
+     "rect": [
+      800,
+      1325.0,
+      200,
+      200
+     ],
+     "to": "BCP-GROUNDER-CAMP",
+     "toName": "Grounder Camp",
+     "land": [
+      2440.0,
+      1100.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Old Banks",
+     "rect": [
+      2375.0,
+      800,
+      200,
+      200
+     ],
+     "to": "BCP-OLD-BANKS",
+     "toName": "Old Banks",
+     "land": [
+      320.0,
+      500.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Old Banks",
+     "rect": [
+      2900.0,
+      1325.0,
+      200,
+      200
+     ],
+     "to": "BCP-OLD-BANKS",
+     "toName": "Old Banks",
+     "land": [
+      2440.0,
+      1150.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Dead Towers",
+     "rect": [
+      1000,
+      2175.0,
+      200,
+      200
+     ],
+     "to": "BCP-DEAD-TOWERS",
+     "toName": "Dead Towers",
+     "land": [
+      320.0,
+      900.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Ferry Building",
+     "rect": [
+      2900.0,
+      2175.0,
+      200,
+      200
+     ],
+     "to": "BCP-FERRY-BUILDING",
+     "toName": "Ferry Building",
+     "land": [
+      320.0,
+      400.0
+     ]
     }
    ]
   },
@@ -2829,6 +3339,142 @@
      "to": "BCS-TWIN-PEAKS",
      "toName": "Twin Peaks Switchbacks",
      "toEdge": "N"
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Golden Gate Park",
+     "rect": [
+      2375.0,
+      600,
+      200,
+      200
+     ],
+     "to": "BCP-GOLDEN-GATE-PARK",
+     "toName": "Golden Gate Park",
+     "land": [
+      320.0,
+      900.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Kezar Habs",
+     "rect": [
+      3650.0,
+      600,
+      200,
+      200
+     ],
+     "to": "BCP-KEZAR-HABS",
+     "toName": "Kezar Habs",
+     "land": [
+      320.0,
+      500.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Panhandle Green",
+     "rect": [
+      1525.0,
+      800,
+      200,
+      200
+     ],
+     "to": "BCP-PANHANDLE-GREEN",
+     "toName": "Panhandle Green",
+     "land": [
+      320.0,
+      900.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Panhandle Green",
+     "rect": [
+      1525.0,
+      1700,
+      200,
+      200
+     ],
+     "to": "BCP-PANHANDLE-GREEN",
+     "toName": "Panhandle Green",
+     "land": [
+      2440.0,
+      1100.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Ocean Wall",
+     "rect": [
+      2375.0,
+      800,
+      200,
+      200
+     ],
+     "to": "BCP-OCEAN-WALL",
+     "toName": "Ocean Wall",
+     "land": [
+      320.0,
+      400.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Ocean Wall",
+     "rect": [
+      2375.0,
+      1700,
+      200,
+      200
+     ],
+     "to": "BCP-OCEAN-WALL",
+     "toName": "Ocean Wall",
+     "land": [
+      2440.0,
+      1050.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Haight Squats",
+     "rect": [
+      3650.0,
+      800,
+      200,
+      200
+     ],
+     "to": "BCP-HAIGHT-SQUATS",
+     "toName": "Haight Squats",
+     "land": [
+      320.0,
+      500.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Haight Squats",
+     "rect": [
+      3650.0,
+      1700,
+      200,
+      200
+     ],
+     "to": "BCP-HAIGHT-SQUATS",
+     "toName": "Haight Squats",
+     "land": [
+      2440.0,
+      1150.0
+     ]
     }
    ]
   },
@@ -2855,7 +3501,7 @@
       400
      ],
      "adjacent": [
-      "bcpd-fell-st-precinct",
+      "bcpd-precinct-house",
       "fell-1",
       "fell-2",
       "mission-north"
@@ -2923,9 +3569,9 @@
       400
      ],
      "adjacent": [
-      "bcpd-fell-st-precinct",
-      "fell-mission",
-      "patrol-garage"
+      "bcpd-precinct-house",
+      "bcpd-precinct-house-garage",
+      "fell-mission"
      ]
     },
     {
@@ -2989,8 +3635,8 @@
       400
      ],
      "adjacent": [
+      "bcpd-precinct-house-garage",
       "oak-mission",
-      "patrol-garage",
       "south-west-block"
      ]
     },
@@ -3055,10 +3701,10 @@
       700
      ],
      "adjacent": [
+      "bcpd-precinct-house-garage",
       "fell-mission",
       "impound-lot",
-      "oak-mission",
-      "patrol-garage"
+      "oak-mission"
      ]
     },
     {
@@ -3127,8 +3773,8 @@
      ]
     },
     {
-     "id": "bcpd-fell-st-precinct",
-     "name": "BCPD Fell St Precinct",
+     "id": "bcpd-precinct-house",
+     "name": "BCPD Precinct House",
      "kind": "land",
      "rect": [
       0,
@@ -3153,7 +3799,7 @@
       600
      ],
      "adjacent": [
-      "bcpd-fell-st-precinct",
+      "bcpd-precinct-house",
       "fell-2",
       "north-block-2"
      ]
@@ -3190,8 +3836,8 @@
      ]
     },
     {
-     "id": "patrol-garage",
-     "name": "Patrol Garage",
+     "id": "bcpd-precinct-house-garage",
+     "name": "BCPD Precinct House \u00b7 Garage",
      "kind": "land",
      "rect": [
       0,
@@ -3420,6 +4066,7 @@
     {
      "edge": null,
      "kind": "door",
+     "at": "BCPD Precinct House",
      "rect": [
       300.0,
       600,
@@ -3427,16 +4074,16 @@
       200
      ],
      "to": "BAY-PRECINCT",
-     "toName": "Bcpd Precinct House",
+     "toName": "BCPD Precinct House",
      "land": [
       320.0,
       450.0
-     ],
-     "at": "BCPD Fell St Precinct"
+     ]
     },
     {
      "edge": null,
      "kind": "door",
+     "at": "BCPD Precinct House \u00b7 Garage",
      "rect": [
       300.0,
       800,
@@ -3444,12 +4091,147 @@
       200
      ],
      "to": "BAY-PRECINCT",
-     "toName": "Bcpd Precinct House",
+     "toName": "BCPD Precinct House",
      "land": [
       1620.0,
       1240.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Courthouse Annex",
+     "rect": [
+      3650.0,
+      600,
+      200,
+      200
      ],
-     "at": "Patrol Garage"
+     "to": "BCP-COURTHOUSE-ANNEX",
+     "toName": "Courthouse Annex",
+     "land": [
+      320.0,
+      500.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Courthouse Annex",
+     "rect": [
+      3100,
+      200.0,
+      200,
+      200
+     ],
+     "to": "BCP-COURTHOUSE-ANNEX",
+     "toName": "Courthouse Annex",
+     "land": [
+      2440.0,
+      1150.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Impound Lot",
+     "rect": [
+      1525.0,
+      800,
+      200,
+      200
+     ],
+     "to": "BCP-IMPOUND-LOT",
+     "toName": "Impound Lot",
+     "land": [
+      320.0,
+      650.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Impound Lot",
+     "rect": [
+      1525.0,
+      1700,
+      200,
+      200
+     ],
+     "to": "BCP-IMPOUND-LOT",
+     "toName": "Impound Lot",
+     "land": [
+      2440.0,
+      1050.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Alamo Terraces",
+     "rect": [
+      2375.0,
+      800,
+      200,
+      200
+     ],
+     "to": "BCP-ALAMO-TERRACES",
+     "toName": "Alamo Terraces",
+     "land": [
+      320.0,
+      500.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Alamo Terraces",
+     "rect": [
+      2375.0,
+      1700,
+      200,
+      200
+     ],
+     "to": "BCP-ALAMO-TERRACES",
+     "toName": "Alamo Terraces",
+     "land": [
+      2440.0,
+      1150.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Hayes Market",
+     "rect": [
+      3650.0,
+      800,
+      200,
+      200
+     ],
+     "to": "BCP-HAYES-MARKET",
+     "toName": "Hayes Market",
+     "land": [
+      320.0,
+      400.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Hayes Market",
+     "rect": [
+      3650.0,
+      1700,
+      200,
+      200
+     ],
+     "to": "BCP-HAYES-MARKET",
+     "toName": "Hayes Market",
+     "land": [
+      2440.0,
+      1050.0
+     ]
     }
    ]
   },
@@ -3596,7 +4378,7 @@
      "adjacent": [
       "city-hall-ruins",
       "fell-powell",
-      "transit-hub"
+      "skyport-landing-deck"
      ]
     },
     {
@@ -3646,7 +4428,7 @@
       "oak-2",
       "oak-powell",
       "protectorate-office",
-      "south-block"
+      "the-spire"
      ]
     },
     {
@@ -3726,8 +4508,8 @@
      ],
      "adjacent": [
       "fell-powell",
-      "slums",
-      "transit-hub"
+      "skyport-landing-deck",
+      "slums"
      ]
     },
     {
@@ -3760,7 +4542,7 @@
      "adjacent": [
       "archive-tower",
       "oak-powell",
-      "south-block"
+      "the-spire"
      ]
     },
     {
@@ -3811,8 +4593,8 @@
      ]
     },
     {
-     "id": "transit-hub",
-     "name": "Transit Hub",
+     "id": "skyport-landing-deck",
+     "name": "Skyport Landing Deck",
      "kind": "land",
      "rect": [
       3300,
@@ -3918,13 +4700,13 @@
      ],
      "adjacent": [
       "oak-2",
-      "south-block",
+      "the-spire",
       "van-ness-south"
      ]
     },
     {
-     "id": "south-block",
-     "name": "South Block",
+     "id": "the-spire",
+     "name": "The Spire",
      "kind": "land",
      "rect": [
       2050.0,
@@ -4070,6 +4852,7 @@
     {
      "edge": null,
      "kind": "door",
+     "at": "Skyport Landing Deck",
      "rect": [
       3650.0,
       600,
@@ -4081,8 +4864,279 @@
      "land": [
       320.0,
       1330.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Maglev Depot",
+     "rect": [
+      1525.0,
+      600,
+      200,
+      200
      ],
-     "at": "Transit Hub"
+     "to": "BCP-MAGLEV-DEPOT",
+     "toName": "Maglev Depot",
+     "land": [
+      320.0,
+      400.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Maglev Depot",
+     "rect": [
+      1000,
+      200.0,
+      200,
+      200
+     ],
+     "to": "BCP-MAGLEV-DEPOT",
+     "toName": "Maglev Depot",
+     "land": [
+      2440.0,
+      1050.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Slums",
+     "rect": [
+      2375.0,
+      600,
+      200,
+      200
+     ],
+     "to": "BCP-SLUMS",
+     "toName": "Slums",
+     "land": [
+      320.0,
+      900.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Slums",
+     "rect": [
+      2900.0,
+      200.0,
+      200,
+      200
+     ],
+     "to": "BCP-SLUMS",
+     "toName": "Slums",
+     "land": [
+      2440.0,
+      1100.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Opera House",
+     "rect": [
+      300.0,
+      800,
+      200,
+      200
+     ],
+     "to": "BCP-OPERA-HOUSE",
+     "toName": "Opera House",
+     "land": [
+      320.0,
+      400.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Opera House",
+     "rect": [
+      300.0,
+      1700,
+      200,
+      200
+     ],
+     "to": "BCP-OPERA-HOUSE",
+     "toName": "Opera House",
+     "land": [
+      2440.0,
+      1050.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "UN Plaza",
+     "rect": [
+      1525.0,
+      800,
+      200,
+      200
+     ],
+     "to": "BCP-UN-PLAZA",
+     "toName": "UN Plaza",
+     "land": [
+      320.0,
+      900.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "UN Plaza",
+     "rect": [
+      1525.0,
+      1700,
+      200,
+      200
+     ],
+     "to": "BCP-UN-PLAZA",
+     "toName": "UN Plaza",
+     "land": [
+      2440.0,
+      1100.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Protectorate Office",
+     "rect": [
+      2375.0,
+      800,
+      200,
+      200
+     ],
+     "to": "BCP-PROTECTORATE-OFFICE",
+     "toName": "Protectorate Office",
+     "land": [
+      320.0,
+      500.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Protectorate Office",
+     "rect": [
+      2375.0,
+      1700,
+      200,
+      200
+     ],
+     "to": "BCP-PROTECTORATE-OFFICE",
+     "toName": "Protectorate Office",
+     "land": [
+      2440.0,
+      1150.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "City Hall Ruins",
+     "rect": [
+      3650.0,
+      800,
+      200,
+      200
+     ],
+     "to": "BCP-CITY-HALL-RUINS",
+     "toName": "City Hall Ruins",
+     "land": [
+      320.0,
+      400.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "City Hall Ruins",
+     "rect": [
+      3650.0,
+      1700,
+      200,
+      200
+     ],
+     "to": "BCP-CITY-HALL-RUINS",
+     "toName": "City Hall Ruins",
+     "land": [
+      2440.0,
+      1050.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Market Arcade",
+     "rect": [
+      1525.0,
+      1900,
+      200,
+      200
+     ],
+     "to": "BCP-MARKET-ARCADE",
+     "toName": "Market Arcade",
+     "land": [
+      320.0,
+      400.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Market Arcade",
+     "rect": [
+      1000,
+      2300.0,
+      200,
+      200
+     ],
+     "to": "BCP-MARKET-ARCADE",
+     "toName": "Market Arcade",
+     "land": [
+      2440.0,
+      1050.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Archive Tower",
+     "rect": [
+      3650.0,
+      1900,
+      200,
+      200
+     ],
+     "to": "BCP-ARCHIVE-TOWER",
+     "toName": "Archive Tower",
+     "land": [
+      320.0,
+      900.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Archive Tower",
+     "rect": [
+      3100,
+      2300.0,
+      200,
+      200
+     ],
+     "to": "BCP-ARCHIVE-TOWER",
+     "toName": "Archive Tower",
+     "land": [
+      2440.0,
+      1150.0
+     ]
     }
    ]
   },
@@ -4195,8 +5249,8 @@
      "adjacent": [
       "fell-east",
       "fell-third",
-      "old-downtown-arcade",
-      "rincon-habs"
+      "rincon-habs",
+      "the-neon-strip"
      ]
     },
     {
@@ -4245,8 +5299,8 @@
      "adjacent": [
       "oak-east",
       "oak-third",
-      "old-downtown-arcade",
-      "south-block"
+      "south-block",
+      "the-neon-strip"
      ]
     },
     {
@@ -4295,8 +5349,8 @@
      "adjacent": [
       "fell-third",
       "oak-third",
-      "old-downtown-arcade",
-      "salesforce-hulk"
+      "salesforce-hulk",
+      "the-neon-strip"
      ]
     },
     {
@@ -4443,8 +5497,8 @@
      ]
     },
     {
-     "id": "old-downtown-arcade",
-     "name": "Old Downtown Arcade",
+     "id": "the-neon-strip",
+     "name": "The Neon Strip",
      "kind": "land",
      "rect": [
       1200,
@@ -4473,7 +5527,7 @@
       "battery-south",
       "fell-east",
       "oak-east",
-      "old-downtown-arcade"
+      "the-neon-strip"
      ]
     },
     {
@@ -4646,6 +5700,7 @@
     {
      "edge": null,
      "kind": "door",
+     "at": "The Neon Strip",
      "rect": [
       1525.0,
       800,
@@ -4657,8 +5712,160 @@
      "land": [
       320.0,
       650.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Rincon Habs",
+     "rect": [
+      1525.0,
+      600,
+      200,
+      200
      ],
-     "at": "Old Downtown Arcade"
+     "to": "BCP-RINCON-HABS",
+     "toName": "Rincon Habs",
+     "land": [
+      320.0,
+      500.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Rincon Habs",
+     "rect": [
+      1000,
+      200.0,
+      200,
+      200
+     ],
+     "to": "BCP-RINCON-HABS",
+     "toName": "Rincon Habs",
+     "land": [
+      2440.0,
+      1150.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Stack Brokers",
+     "rect": [
+      2375.0,
+      600,
+      200,
+      200
+     ],
+     "to": "BCP-STACK-BROKERS",
+     "toName": "Stack Brokers",
+     "land": [
+      320.0,
+      500.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Stack Brokers",
+     "rect": [
+      2900.0,
+      200.0,
+      200,
+      200
+     ],
+     "to": "BCP-STACK-BROKERS",
+     "toName": "Stack Brokers",
+     "land": [
+      2440.0,
+      1150.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Salesforce Hulk",
+     "rect": [
+      300.0,
+      800,
+      200,
+      200
+     ],
+     "to": "BCP-SALESFORCE-HULK",
+     "toName": "Salesforce Hulk",
+     "land": [
+      320.0,
+      900.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Salesforce Hulk",
+     "rect": [
+      300.0,
+      1700,
+      200,
+      200
+     ],
+     "to": "BCP-SALESFORCE-HULK",
+     "toName": "Salesforce Hulk",
+     "land": [
+      2440.0,
+      1150.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Bay Bridge Ramp",
+     "rect": [
+      2375.0,
+      800,
+      200,
+      200
+     ],
+     "to": "BCP-BAY-BRIDGE-RAMP",
+     "toName": "Bay Bridge Ramp",
+     "land": [
+      320.0,
+      650.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Bay Bridge Ramp",
+     "rect": [
+      2375.0,
+      1700,
+      200,
+      200
+     ],
+     "to": "BCP-BAY-BRIDGE-RAMP",
+     "toName": "Bay Bridge Ramp",
+     "land": [
+      2440.0,
+      1050.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Maglev Station",
+     "rect": [
+      2375.0,
+      1900,
+      200,
+      200
+     ],
+     "to": "BCP-MAGLEV-STATION",
+     "toName": "Maglev Station",
+     "land": [
+      320.0,
+      400.0
+     ]
     }
    ]
   },
@@ -5025,6 +6232,91 @@
      "to": "BCS-MISSION",
      "toName": "Mission Street \u00b7 AI Hotels",
      "toEdge": "W"
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Reservoir",
+     "rect": [
+      2900.0,
+      325.0,
+      200,
+      200
+     ],
+     "to": "BCP-RESERVOIR",
+     "toName": "Reservoir",
+     "land": [
+      320.0,
+      900.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Sutro Mast",
+     "rect": [
+      3100,
+      325.0,
+      200,
+      200
+     ],
+     "to": "BCP-SUTRO-MAST",
+     "toName": "Sutro Mast",
+     "land": [
+      320.0,
+      900.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Hill Habs",
+     "rect": [
+      2900.0,
+      1175.0,
+      200,
+      200
+     ],
+     "to": "BCP-HILL-HABS",
+     "toName": "Hill Habs",
+     "land": [
+      320.0,
+      500.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Peak Overlook",
+     "rect": [
+      3650.0,
+      1700.0,
+      200,
+      200
+     ],
+     "to": "BCP-PEAK-OVERLOOK",
+     "toName": "Peak Overlook",
+     "land": [
+      320.0,
+      900.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Peak Overlook",
+     "rect": [
+      3100,
+      1175.0,
+      200,
+      200
+     ],
+     "to": "BCP-PEAK-OVERLOOK",
+     "toName": "Peak Overlook",
+     "land": [
+      2440.0,
+      1100.0
+     ]
     }
    ]
   },
@@ -5071,7 +6363,7 @@
       "cesar-chavez-1",
       "cesar-chavez-2",
       "mission-south",
-      "the-neon-strip"
+      "neon-nightclub-alley-door"
      ]
     },
     {
@@ -5102,9 +6394,9 @@
       400
      ],
      "adjacent": [
-      "ai-hotel-row",
       "cesar-chavez-3",
       "cesar-chavez-4",
+      "rain-alley-rooftops",
       "valencia-south"
      ]
     },
@@ -5138,8 +6430,8 @@
      "adjacent": [
       "16th-valencia",
       "16th-west",
-      "clinic-row",
-      "north-block-2"
+      "north-block-2",
+      "resleeving-clinic"
      ]
     },
     {
@@ -5154,8 +6446,8 @@
      ],
      "adjacent": [
       "16th-valencia",
-      "night-market",
-      "taqueria-block"
+      "neon-nightclub",
+      "resleeving-clinic-fire-stair"
      ]
     },
     {
@@ -5170,8 +6462,8 @@
      ],
      "adjacent": [
       "cesar-chavez-mission",
-      "mural-alley",
-      "the-neon-strip"
+      "neon-nightclub-alley-door",
+      "rain-alley"
      ]
     },
     {
@@ -5185,10 +6477,10 @@
       400
      ],
      "adjacent": [
+      "anansi-house",
       "cesar-chavez-3",
       "cesar-chavez-mission",
-      "dolores-chapel",
-      "south-block"
+      "dolores-chapel"
      ]
     },
     {
@@ -5202,10 +6494,10 @@
       400
      ],
      "adjacent": [
-      "ai-hotel-row",
       "cesar-chavez-2",
       "cesar-chavez-valencia",
-      "clinic-row"
+      "rain-alley-rooftops",
+      "resleeving-clinic"
      ]
     },
     {
@@ -5220,8 +6512,8 @@
      ],
      "adjacent": [
       "cesar-chavez-valencia",
-      "south-east-block",
-      "taqueria-block"
+      "resleeving-clinic-fire-stair",
+      "south-east-block"
      ]
     },
     {
@@ -5254,7 +6546,7 @@
       "16th-mission",
       "cesar-chavez-mission",
       "dolores-chapel",
-      "mural-alley"
+      "rain-alley"
      ]
     },
     {
@@ -5269,7 +6561,7 @@
      ],
      "adjacent": [
       "16th-valencia",
-      "night-market",
+      "neon-nightclub",
       "north-block-2"
      ]
     },
@@ -5286,8 +6578,8 @@
      "adjacent": [
       "16th-valencia",
       "cesar-chavez-valencia",
-      "clinic-row",
-      "taqueria-block"
+      "resleeving-clinic",
+      "resleeving-clinic-fire-stair"
      ]
     },
     {
@@ -5338,8 +6630,8 @@
      ]
     },
     {
-     "id": "night-market",
-     "name": "Night Market",
+     "id": "neon-nightclub",
+     "name": "Neon Nightclub",
      "kind": "land",
      "rect": [
       3300,
@@ -5364,13 +6656,13 @@
      ],
      "adjacent": [
       "16th-mission",
-      "mural-alley",
-      "north-west-block"
+      "north-west-block",
+      "rain-alley"
      ]
     },
     {
-     "id": "mural-alley",
-     "name": "Mural Alley",
+     "id": "rain-alley",
+     "name": "Rain Alley",
      "kind": "land",
      "rect": [
       0,
@@ -5397,13 +6689,13 @@
      "adjacent": [
       "16th-west",
       "cesar-chavez-2",
-      "clinic-row",
-      "mission-south"
+      "mission-south",
+      "resleeving-clinic"
      ]
     },
     {
-     "id": "clinic-row",
-     "name": "Clinic Row",
+     "id": "resleeving-clinic",
+     "name": "Resleeving Clinic",
      "kind": "land",
      "rect": [
       2050.0,
@@ -5419,8 +6711,8 @@
      ]
     },
     {
-     "id": "taqueria-block",
-     "name": "Taqueria Block",
+     "id": "resleeving-clinic-fire-stair",
+     "name": "Resleeving Clinic \u00b7 Fire Stair",
      "kind": "land",
      "rect": [
       3300,
@@ -5435,8 +6727,8 @@
      ]
     },
     {
-     "id": "the-neon-strip",
-     "name": "The Neon Strip",
+     "id": "neon-nightclub-alley-door",
+     "name": "Neon Nightclub \u00b7 Alley Door",
      "kind": "land",
      "rect": [
       0,
@@ -5445,14 +6737,14 @@
       600
      ],
      "adjacent": [
+      "anansi-house",
       "cesar-chavez-1",
-      "cesar-chavez-mission",
-      "south-block"
+      "cesar-chavez-mission"
      ]
     },
     {
-     "id": "south-block",
-     "name": "South Block",
+     "id": "anansi-house",
+     "name": "Anansi House",
      "kind": "land",
      "rect": [
       1200,
@@ -5461,14 +6753,14 @@
       600
      ],
      "adjacent": [
-      "ai-hotel-row",
       "cesar-chavez-2",
-      "the-neon-strip"
+      "neon-nightclub-alley-door",
+      "rain-alley-rooftops"
      ]
     },
     {
-     "id": "ai-hotel-row",
-     "name": "AI Hotel Row",
+     "id": "rain-alley-rooftops",
+     "name": "Rain Alley \u00b7 Rooftops",
      "kind": "land",
      "rect": [
       2050.0,
@@ -5477,9 +6769,9 @@
       600
      ],
      "adjacent": [
+      "anansi-house",
       "cesar-chavez-3",
       "cesar-chavez-valencia",
-      "south-block",
       "south-east-block"
      ]
     },
@@ -5494,8 +6786,8 @@
       600
      ],
      "adjacent": [
-      "ai-hotel-row",
-      "cesar-chavez-4"
+      "cesar-chavez-4",
+      "rain-alley-rooftops"
      ]
     }
    ],
@@ -5573,6 +6865,7 @@
     {
      "edge": null,
      "kind": "door",
+     "at": "Rain Alley",
      "rect": [
       300.0,
       1700,
@@ -5584,12 +6877,12 @@
      "land": [
       2440.0,
       900.0
-     ],
-     "at": "Mural Alley"
+     ]
     },
     {
      "edge": null,
      "kind": "door",
+     "at": "Rain Alley \u00b7 Rooftops",
      "rect": [
       2375.0,
       1900,
@@ -5601,12 +6894,12 @@
      "land": [
       1250.0,
       320.0
-     ],
-     "at": "AI Hotel Row"
+     ]
     },
     {
      "edge": null,
      "kind": "door",
+     "at": "Resleeving Clinic",
      "rect": [
       2375.0,
       800,
@@ -5618,12 +6911,12 @@
      "land": [
       320.0,
       450.0
-     ],
-     "at": "Clinic Row"
+     ]
     },
     {
      "edge": null,
      "kind": "door",
+     "at": "Resleeving Clinic \u00b7 Fire Stair",
      "rect": [
       3650.0,
       800,
@@ -5635,12 +6928,12 @@
      "land": [
       2440.0,
       930.0
-     ],
-     "at": "Taqueria Block"
+     ]
     },
     {
      "edge": null,
      "kind": "door",
+     "at": "Neon Nightclub",
      "rect": [
       3650.0,
       600,
@@ -5652,12 +6945,12 @@
      "land": [
       320.0,
       900.0
-     ],
-     "at": "Night Market"
+     ]
     },
     {
      "edge": null,
      "kind": "door",
+     "at": "Neon Nightclub \u00b7 Alley Door",
      "rect": [
       300.0,
       1900,
@@ -5669,8 +6962,41 @@
      "land": [
       2440.0,
       1280.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Dolores Chapel",
+     "rect": [
+      1525.0,
+      800,
+      200,
+      200
      ],
-     "at": "The Neon Strip"
+     "to": "BCP-DOLORES-CHAPEL",
+     "toName": "Dolores Chapel",
+     "land": [
+      320.0,
+      400.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Dolores Chapel",
+     "rect": [
+      1525.0,
+      1700,
+      200,
+      200
+     ],
+     "to": "BCP-DOLORES-CHAPEL",
+     "toName": "Dolores Chapel",
+     "land": [
+      2440.0,
+      1050.0
+     ]
     }
    ]
   },
@@ -5749,7 +7075,7 @@
      ],
      "adjacent": [
       "cesar-chavez-east",
-      "licktown-market",
+      "lower-bay-market",
       "powell-south",
       "south-east-block-2"
      ]
@@ -5766,7 +7092,7 @@
      ],
      "adjacent": [
       "16th-van-ness",
-      "north-west-block",
+      "blue-lotus-black-water",
       "potrero-hill"
      ]
     },
@@ -5784,7 +7110,7 @@
       "16th-3",
       "16th-van-ness",
       "chop-shops",
-      "north-block"
+      "the-quiet-archive"
      ]
     },
     {
@@ -5800,8 +7126,8 @@
      "adjacent": [
       "16th-2",
       "16th-powell",
-      "north-block-2",
-      "stack-dealers"
+      "stack-dealers",
+      "the-rainline"
      ]
     },
     {
@@ -5816,8 +7142,8 @@
      ],
      "adjacent": [
       "16th-powell",
-      "fightdrome",
-      "scrapyard"
+      "scrapyard",
+      "the-fight-pit"
      ]
     },
     {
@@ -5850,7 +7176,7 @@
       "cesar-chavez-east",
       "cesar-chavez-van-ness",
       "chop-shops",
-      "south-block"
+      "relay-seventeen"
      ]
     },
     {
@@ -5866,7 +7192,7 @@
      "adjacent": [
       "cesar-chavez-centre",
       "cesar-chavez-powell",
-      "licktown-market",
+      "lower-bay-market",
       "stack-dealers"
      ]
     },
@@ -5882,8 +7208,8 @@
      ],
      "adjacent": [
       "16th-van-ness",
-      "north-block",
-      "north-west-block"
+      "blue-lotus-black-water",
+      "the-quiet-archive"
      ]
     },
     {
@@ -5915,8 +7241,8 @@
      ],
      "adjacent": [
       "16th-powell",
-      "north-block-2",
-      "scrapyard"
+      "scrapyard",
+      "the-rainline"
      ]
     },
     {
@@ -5932,13 +7258,13 @@
      "adjacent": [
       "16th-powell",
       "cesar-chavez-powell",
-      "fightdrome",
-      "stack-dealers"
+      "stack-dealers",
+      "the-fight-pit"
      ]
     },
     {
-     "id": "north-west-block",
-     "name": "North-West Block",
+     "id": "blue-lotus-black-water",
+     "name": "Blue Lotus, Black Water",
      "kind": "land",
      "rect": [
       0,
@@ -5952,8 +7278,8 @@
      ]
     },
     {
-     "id": "north-block",
-     "name": "North Block",
+     "id": "the-quiet-archive",
+     "name": "The Quiet Archive",
      "kind": "land",
      "rect": [
       1200,
@@ -5963,13 +7289,13 @@
      ],
      "adjacent": [
       "16th-2",
-      "north-block-2",
+      "the-rainline",
       "van-ness-north"
      ]
     },
     {
-     "id": "north-block-2",
-     "name": "North Block 2",
+     "id": "the-rainline",
+     "name": "The Rainline",
      "kind": "land",
      "rect": [
       2050.0,
@@ -5979,8 +7305,8 @@
      ],
      "adjacent": [
       "16th-3",
-      "north-block",
-      "powell-north"
+      "powell-north",
+      "the-quiet-archive"
      ]
     },
     {
@@ -6049,8 +7375,8 @@
      ]
     },
     {
-     "id": "fightdrome",
-     "name": "Fightdrome",
+     "id": "the-fight-pit",
+     "name": "The Fight Pit",
      "kind": "land",
      "rect": [
       3300,
@@ -6076,8 +7402,8 @@
      ],
      "adjacent": [
       "cesar-chavez-powell",
-      "fightdrome",
-      "south-east-block"
+      "south-east-block",
+      "the-fight-pit"
      ]
     },
     {
@@ -6093,12 +7419,12 @@
      "adjacent": [
       "cesar-chavez-van-ness",
       "cesar-chavez-west",
-      "south-block"
+      "relay-seventeen"
      ]
     },
     {
-     "id": "south-block",
-     "name": "South Block",
+     "id": "relay-seventeen",
+     "name": "Relay Seventeen",
      "kind": "land",
      "rect": [
       1200,
@@ -6109,12 +7435,12 @@
      "adjacent": [
       "cesar-chavez-centre",
       "container-habs",
-      "licktown-market"
+      "lower-bay-market"
      ]
     },
     {
-     "id": "licktown-market",
-     "name": "Licktown Market",
+     "id": "lower-bay-market",
+     "name": "Lower Bay Market",
      "kind": "land",
      "rect": [
       2050.0,
@@ -6125,7 +7451,7 @@
      "adjacent": [
       "cesar-chavez-east",
       "cesar-chavez-powell",
-      "south-block",
+      "relay-seventeen",
       "south-east-block"
      ]
     },
@@ -6140,7 +7466,7 @@
       600
      ],
      "adjacent": [
-      "licktown-market",
+      "lower-bay-market",
       "south-east-block-2"
      ]
     }
@@ -6219,6 +7545,7 @@
     {
      "edge": null,
      "kind": "door",
+     "at": "The Fight Pit",
      "rect": [
       3650.0,
       800,
@@ -6230,12 +7557,12 @@
      "land": [
       320.0,
       650.0
-     ],
-     "at": "Fightdrome"
+     ]
     },
     {
      "edge": null,
      "kind": "door",
+     "at": "Lower Bay Market",
      "rect": [
       2375.0,
       1900,
@@ -6247,8 +7574,160 @@
      "land": [
       320.0,
       1430.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Scrapyard",
+     "rect": [
+      3650.0,
+      600,
+      200,
+      200
      ],
-     "at": "Licktown Market"
+     "to": "BCP-SCRAPYARD",
+     "toName": "Scrapyard",
+     "land": [
+      320.0,
+      650.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Scrapyard",
+     "rect": [
+      3100,
+      200.0,
+      200,
+      200
+     ],
+     "to": "BCP-SCRAPYARD",
+     "toName": "Scrapyard",
+     "land": [
+      2440.0,
+      1050.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Potrero Hill",
+     "rect": [
+      300.0,
+      800,
+      200,
+      200
+     ],
+     "to": "BCP-POTRERO-HILL",
+     "toName": "Potrero Hill",
+     "land": [
+      320.0,
+      900.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Potrero Hill",
+     "rect": [
+      300.0,
+      1700,
+      200,
+      200
+     ],
+     "to": "BCP-POTRERO-HILL",
+     "toName": "Potrero Hill",
+     "land": [
+      2440.0,
+      1100.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Chop Shops",
+     "rect": [
+      1525.0,
+      800,
+      200,
+      200
+     ],
+     "to": "BCP-CHOP-SHOPS",
+     "toName": "Chop Shops",
+     "land": [
+      320.0,
+      650.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Chop Shops",
+     "rect": [
+      1525.0,
+      1700,
+      200,
+      200
+     ],
+     "to": "BCP-CHOP-SHOPS",
+     "toName": "Chop Shops",
+     "land": [
+      2440.0,
+      1050.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Stack Dealers",
+     "rect": [
+      2375.0,
+      800,
+      200,
+      200
+     ],
+     "to": "BCP-STACK-DEALERS",
+     "toName": "Stack Dealers",
+     "land": [
+      320.0,
+      500.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Stack Dealers",
+     "rect": [
+      2375.0,
+      1700,
+      200,
+      200
+     ],
+     "to": "BCP-STACK-DEALERS",
+     "toName": "Stack Dealers",
+     "land": [
+      2440.0,
+      1150.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Container Habs",
+     "rect": [
+      300.0,
+      1900,
+      200,
+      200
+     ],
+     "to": "BCP-CONTAINER-HABS",
+     "toName": "Container Habs",
+     "land": [
+      320.0,
+      500.0
+     ]
     }
    ]
   },
@@ -6294,8 +7773,8 @@
      "adjacent": [
       "16th-east",
       "dock-road-north",
-      "dry-dock",
-      "north-east-block-2"
+      "north-east-block-2",
+      "the-neon-strip-waterfront"
      ]
     },
     {
@@ -6327,8 +7806,8 @@
      "adjacent": [
       "16th-east",
       "16th-third",
-      "container-piers",
-      "north-block"
+      "bay-docks",
+      "the-resurrection-ward"
      ]
     },
     {
@@ -6344,8 +7823,8 @@
      "adjacent": [
       "16th-centre",
       "16th-dock-road",
-      "dry-dock",
-      "power-station"
+      "power-station",
+      "the-neon-strip-waterfront"
      ]
     },
     {
@@ -6360,8 +7839,8 @@
      ],
      "adjacent": [
       "16th-third",
-      "north-block",
-      "north-west-block"
+      "north-west-block",
+      "the-resurrection-ward"
      ]
     },
     {
@@ -6414,8 +7893,8 @@
      ]
     },
     {
-     "id": "north-block",
-     "name": "North Block",
+     "id": "the-resurrection-ward",
+     "name": "The Resurrection Ward",
      "kind": "land",
      "rect": [
       1200,
@@ -6425,13 +7904,13 @@
      ],
      "adjacent": [
       "16th-centre",
-      "dry-dock",
+      "the-neon-strip-waterfront",
       "third-st"
      ]
     },
     {
-     "id": "dry-dock",
-     "name": "Dry Dock",
+     "id": "the-neon-strip-waterfront",
+     "name": "The Neon Strip \u00b7 Waterfront",
      "kind": "land",
      "rect": [
       2050.0,
@@ -6442,8 +7921,8 @@
      "adjacent": [
       "16th-dock-road",
       "16th-east",
-      "north-block",
-      "north-east-block"
+      "north-east-block",
+      "the-resurrection-ward"
      ]
     },
     {
@@ -6457,8 +7936,8 @@
       600
      ],
      "adjacent": [
-      "dry-dock",
-      "north-east-block-2"
+      "north-east-block-2",
+      "the-neon-strip-waterfront"
      ]
     },
     {
@@ -6491,12 +7970,12 @@
       "16th-third",
       "16th-west",
       "bay-dam-access",
-      "container-piers"
+      "bay-docks"
      ]
     },
     {
-     "id": "container-piers",
-     "name": "Container Piers",
+     "id": "bay-docks",
+     "name": "Bay Docks",
      "kind": "land",
      "rect": [
       1200,
@@ -6523,7 +8002,7 @@
      ],
      "adjacent": [
       "16th-east",
-      "container-piers",
+      "bay-docks",
       "dock-road-north",
       "south-block-2"
      ]
@@ -6572,7 +8051,7 @@
      ],
      "adjacent": [
       "bay-dam-access",
-      "container-piers",
+      "bay-docks",
       "south-block-2",
       "south-block-4"
      ]
@@ -6706,6 +8185,7 @@
     {
      "edge": null,
      "kind": "door",
+     "at": "The Neon Strip \u00b7 Waterfront",
      "rect": [
       2375.0,
       600,
@@ -6717,12 +8197,12 @@
      "land": [
       2440.0,
       650.0
-     ],
-     "at": "Dry Dock"
+     ]
     },
     {
      "edge": null,
      "kind": "door",
+     "at": "Bay Docks",
      "rect": [
       1525.0,
       800,
@@ -6734,8 +8214,75 @@
      "land": [
       1620.0,
       1450.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Crane Yard",
+     "rect": [
+      300.0,
+      800,
+      200,
+      200
      ],
-     "at": "Container Piers"
+     "to": "BCP-CRANE-YARD",
+     "toName": "Crane Yard",
+     "land": [
+      320.0,
+      650.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Power Station",
+     "rect": [
+      2375.0,
+      800,
+      200,
+      200
+     ],
+     "to": "BCP-POWER-STATION",
+     "toName": "Power Station",
+     "land": [
+      320.0,
+      400.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Power Station",
+     "rect": [
+      2900.0,
+      1250.0,
+      200,
+      200
+     ],
+     "to": "BCP-POWER-STATION",
+     "toName": "Power Station",
+     "land": [
+      2440.0,
+      1050.0
+     ]
+    },
+    {
+     "edge": null,
+     "kind": "door",
+     "at": "Bay Dam Access",
+     "rect": [
+      800,
+      800,
+      200,
+      200
+     ],
+     "to": "BCP-BAY-DAM-ACCESS",
+     "toName": "Bay Dam Access",
+     "land": [
+      320.0,
+      400.0
+     ]
     }
    ]
   }

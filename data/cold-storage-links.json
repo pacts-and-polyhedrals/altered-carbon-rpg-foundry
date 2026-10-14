@@ -1,0 +1,782 @@
+{
+ "module": "cold-storage",
+ "builtFor": "1.9.0",
+ "streetDoors": {
+  "BCS-DOGPATCH": [
+   {
+    "kind": "door",
+    "at": "The Resurrection Ward",
+    "key": "cs:SCENE-WARD",
+    "rect": [
+     1525,
+     600,
+     200,
+     200
+    ],
+    "to": "SCENE-WARD",
+    "toName": "The Resurrection Ward",
+    "land": [
+     770,
+     1600
+    ],
+    "block": [
+     1200,
+     0,
+     850,
+     600
+    ],
+    "label": "ENTER \u00b7 THE RESURRECTION WARD"
+   },
+   {
+    "kind": "door",
+    "at": "The Resurrection Ward",
+    "key": "cs:SCENE-BREACH",
+    "rect": [
+     1000,
+     200,
+     200,
+     200
+    ],
+    "to": "SCENE-BREACH",
+    "toName": "Breach of Cold Storage",
+    "land": [
+     2430,
+     400
+    ],
+    "block": [
+     1200,
+     0,
+     850,
+     600
+    ],
+    "label": "ENTER \u00b7 BREACH OF COLD STORAGE"
+   }
+  ],
+  "BCS-LICKTOWN": [
+   {
+    "kind": "door",
+    "at": "The Rainline",
+    "key": "cs:SCENE-RAINLINE",
+    "rect": [
+     2375,
+     600,
+     200,
+     200
+    ],
+    "to": "SCENE-RAINLINE",
+    "toName": "The Rainline",
+    "land": [
+     450,
+     240
+    ],
+    "block": [
+     2050,
+     0,
+     850,
+     600
+    ],
+    "label": "ENTER \u00b7 THE RAINLINE"
+   },
+   {
+    "kind": "door",
+    "at": "The Quiet Archive",
+    "key": "cs:SCENE-ARCHIVE",
+    "rect": [
+     1525,
+     600,
+     200,
+     200
+    ],
+    "to": "SCENE-ARCHIVE",
+    "toName": "The Quiet Archive",
+    "land": [
+     330,
+     900
+    ],
+    "block": [
+     1200,
+     0,
+     850,
+     600
+    ],
+    "label": "ENTER \u00b7 THE QUIET ARCHIVE"
+   },
+   {
+    "kind": "door",
+    "at": "Blue Lotus, Black Water",
+    "key": "cs:SCENE-LOTUS",
+    "rect": [
+     300,
+     600,
+     200,
+     200
+    ],
+    "to": "SCENE-LOTUS",
+    "toName": "Blue Lotus, Black Water",
+    "land": [
+     330,
+     360
+    ],
+    "block": [
+     0,
+     0,
+     800,
+     600
+    ],
+    "label": "ENTER \u00b7 BLUE LOTUS, BLACK WATER"
+   },
+   {
+    "kind": "door",
+    "at": "Relay Seventeen",
+    "key": "cs:SCENE-RELAY",
+    "rect": [
+     1525,
+     1900,
+     200,
+     200
+    ],
+    "to": "SCENE-RELAY",
+    "toName": "Relay Seventeen",
+    "land": [
+     2430,
+     800
+    ],
+    "block": [
+     1200,
+     2100,
+     850,
+     600
+    ],
+    "label": "ENTER \u00b7 RELAY SEVENTEEN"
+   }
+  ],
+  "BCS-MISSION": [
+   {
+    "kind": "door",
+    "at": "Anansi House",
+    "key": "cs:SCENE-SAFEHOUSE",
+    "rect": [
+     1525,
+     1900,
+     200,
+     200
+    ],
+    "to": "SCENE-SAFEHOUSE",
+    "toName": "Anansi House",
+    "land": [
+     330,
+     560
+    ],
+    "block": [
+     1200,
+     2100,
+     850,
+     600
+    ],
+    "label": "ENTER \u00b7 ANANSI HOUSE"
+   }
+  ],
+  "BCS-CIVIC": [
+   {
+    "kind": "door",
+    "at": "The Spire",
+    "key": "cs:SCENE-SPIRE",
+    "rect": [
+     2375,
+     1900,
+     200,
+     200
+    ],
+    "to": "SCENE-SPIRE",
+    "toName": "Entering the Spire",
+    "land": [
+     330,
+     1300
+    ],
+    "block": [
+     2050,
+     2100,
+     850,
+     600
+    ],
+    "label": "ENTER \u00b7 ENTERING THE SPIRE"
+   }
+  ]
+ },
+ "scenes": {
+  "SCENE-WARD": {
+   "name": "The Resurrection Ward",
+   "links": [
+    {
+     "kind": "exit",
+     "key": "FRONT DESK",
+     "rect": [
+      890,
+      1500,
+      200,
+      200
+     ],
+     "to": "BCS-DOGPATCH",
+     "toName": "Dogpatch Docks",
+     "land": [
+      1625,
+      700
+     ]
+    },
+    {
+     "kind": "exit",
+     "key": "CORRIDOR",
+     "rect": [
+      2550,
+      980,
+      200,
+      200
+     ],
+     "to": "SCENE-BREACH",
+     "toName": "Breach of Cold Storage",
+     "land": [
+      1500,
+      450
+     ]
+    }
+   ],
+   "labels": []
+  },
+  "SCENE-BREACH": {
+   "name": "Breach of Cold Storage",
+   "links": [
+    {
+     "kind": "exit",
+     "key": "RECOVERY VAN",
+     "rect": [
+      2550,
+      300,
+      200,
+      200
+     ],
+     "to": "BCS-DOGPATCH",
+     "toName": "Dogpatch Docks",
+     "land": [
+      1100,
+      300
+     ]
+    },
+    {
+     "kind": "exit",
+     "key": "THE RAINLINE",
+     "rect": [
+      1690,
+      1280,
+      200,
+      200
+     ],
+     "to": "SCENE-RAINLINE",
+     "toName": "The Rainline",
+     "land": [
+      1400,
+      780
+     ]
+    }
+   ],
+   "labels": []
+  },
+  "SCENE-RAINLINE": {
+   "name": "The Rainline",
+   "links": [
+    {
+     "kind": "exit",
+     "key": "STREETS",
+     "rect": [
+      100,
+      120,
+      200,
+      200
+     ],
+     "to": "BCS-LICKTOWN",
+     "toName": "Licktown",
+     "land": [
+      2475,
+      700
+     ]
+    },
+    {
+     "kind": "exit",
+     "key": "QUIET ARCHIVE",
+     "rect": [
+      10,
+      1460,
+      200,
+      200
+     ],
+     "to": "SCENE-ARCHIVE",
+     "toName": "The Quiet Archive",
+     "land": [
+      2420,
+      1300
+     ]
+    },
+    {
+     "kind": "exit",
+     "key": "BLUE LOTUS",
+     "rect": [
+      1280,
+      1490,
+      200,
+      200
+     ],
+     "to": "SCENE-LOTUS",
+     "toName": "Blue Lotus, Black Water",
+     "land": [
+      330,
+      360
+     ]
+    },
+    {
+     "kind": "exit",
+     "key": "RELAY SEVENTEEN",
+     "rect": [
+      2540,
+      210,
+      200,
+      200
+     ],
+     "to": "SCENE-RELAY",
+     "toName": "Relay Seventeen",
+     "land": [
+      330,
+      900
+     ]
+    }
+   ],
+   "labels": [
+    {
+     "key": "STREETS",
+     "rect": [
+      100,
+      120,
+      200,
+      200
+     ],
+     "label": "EXIT \u00b7 LICKTOWN STREETS"
+    }
+   ]
+  },
+  "SCENE-ARCHIVE": {
+   "name": "The Quiet Archive",
+   "links": [
+    {
+     "kind": "exit",
+     "key": "STREET",
+     "rect": [
+      10,
+      800,
+      200,
+      200
+     ],
+     "to": "BCS-LICKTOWN",
+     "toName": "Licktown",
+     "land": [
+      1625,
+      700
+     ]
+    },
+    {
+     "kind": "exit",
+     "key": "BACK DOOR",
+     "rect": [
+      2540,
+      1200,
+      200,
+      200
+     ],
+     "to": "SCENE-RAINLINE",
+     "toName": "The Rainline",
+     "land": [
+      330,
+      1560
+     ]
+    }
+   ],
+   "labels": []
+  },
+  "SCENE-LOTUS": {
+   "name": "Blue Lotus, Black Water",
+   "links": [
+    {
+     "kind": "exit",
+     "key": "STREET",
+     "rect": [
+      10,
+      260,
+      200,
+      200
+     ],
+     "to": "BCS-LICKTOWN",
+     "toName": "Licktown",
+     "land": [
+      400,
+      700
+     ]
+    },
+    {
+     "kind": "exit",
+     "key": "CANAL / ANANSI",
+     "rect": [
+      10,
+      1440,
+      200,
+      200
+     ],
+     "to": "SCENE-SAFEHOUSE",
+     "toName": "Anansi House",
+     "land": [
+      330,
+      560
+     ]
+    }
+   ],
+   "labels": []
+  },
+  "SCENE-RELAY": {
+   "name": "Relay Seventeen",
+   "links": [
+    {
+     "kind": "exit",
+     "key": "SERVICE LADDER",
+     "rect": [
+      2550,
+      700,
+      200,
+      200
+     ],
+     "to": "BCS-LICKTOWN",
+     "toName": "Licktown",
+     "land": [
+      1625,
+      2000
+     ]
+    },
+    {
+     "kind": "exit",
+     "key": "CANAL",
+     "rect": [
+      10,
+      800,
+      200,
+      200
+     ],
+     "to": "SCENE-RAINLINE",
+     "toName": "The Rainline",
+     "land": [
+      2420,
+      310
+     ]
+    }
+   ],
+   "labels": []
+  },
+  "SCENE-SAFEHOUSE": {
+   "name": "Anansi House",
+   "links": [
+    {
+     "kind": "exit",
+     "key": "STREET",
+     "rect": [
+      10,
+      460,
+      200,
+      200
+     ],
+     "to": "BCS-MISSION",
+     "toName": "Mission Street \u00b7 AI Hotels",
+     "land": [
+      1625,
+      2000
+     ]
+    }
+   ],
+   "labels": []
+  },
+  "SCENE-VIRTUAL": {
+   "name": "Palimpsest Virtuality",
+   "links": [
+    {
+     "kind": "exit",
+     "key": "COURT GATE",
+     "rect": [
+      2400,
+      200,
+      240,
+      240
+     ],
+     "to": "SCENE-COURT",
+     "toName": "The Court of Unreliable Witnesses",
+     "land": [
+      330,
+      360
+     ]
+    },
+    {
+     "kind": "exit",
+     "key": "THEATRE GATE",
+     "rect": [
+      2400,
+      690,
+      240,
+      240
+     ],
+     "to": "SCENE-THEATRE",
+     "toName": "The Operating Theatre",
+     "land": [
+      1300,
+      850
+     ]
+    },
+    {
+     "kind": "exit",
+     "key": "BROADCAST GATE",
+     "rect": [
+      2400,
+      1180,
+      240,
+      240
+     ],
+     "to": "SCENE-BROADCAST",
+     "toName": "The Last Broadcast",
+     "land": [
+      2430,
+      1100
+     ]
+    },
+    {
+     "kind": "exit",
+     "key": "EXIT ANCHOR",
+     "rect": [
+      140,
+      700,
+      240,
+      240
+     ],
+     "to": "SCENE-SAFEHOUSE",
+     "toName": "Anansi House",
+     "land": [
+      700,
+      1350
+     ]
+    }
+   ],
+   "labels": [
+    {
+     "key": "COURT GATE",
+     "rect": [
+      2400,
+      200,
+      240,
+      240
+     ],
+     "label": "GATE \u00b7 THE COURT OF UNRELIABLE WITNESSES"
+    },
+    {
+     "key": "THEATRE GATE",
+     "rect": [
+      2400,
+      690,
+      240,
+      240
+     ],
+     "label": "GATE \u00b7 THE OPERATING THEATRE"
+    },
+    {
+     "key": "BROADCAST GATE",
+     "rect": [
+      2400,
+      1180,
+      240,
+      240
+     ],
+     "label": "GATE \u00b7 THE LAST BROADCAST"
+    },
+    {
+     "key": "EXIT ANCHOR",
+     "rect": [
+      140,
+      700,
+      240,
+      240
+     ],
+     "label": "EXIT ANCHOR \u00b7 ANANSI HOUSE"
+    }
+   ]
+  },
+  "SCENE-COURT": {
+   "name": "The Court of Unreliable Witnesses",
+   "links": [
+    {
+     "kind": "exit",
+     "key": "DIRTY MIRRORS",
+     "rect": [
+      10,
+      260,
+      200,
+      200
+     ],
+     "to": "SCENE-VIRTUAL",
+     "toName": "Palimpsest Virtuality",
+     "land": [
+      2330,
+      310
+     ]
+    }
+   ],
+   "labels": []
+  },
+  "SCENE-THEATRE": {
+   "name": "The Operating Theatre",
+   "links": [
+    {
+     "kind": "exit",
+     "key": "WAKE",
+     "rect": [
+      140,
+      1420,
+      240,
+      240
+     ],
+     "to": "SCENE-VIRTUAL",
+     "toName": "Palimpsest Virtuality",
+     "land": [
+      2330,
+      800
+     ]
+    }
+   ],
+   "labels": [
+    {
+     "key": "WAKE",
+     "rect": [
+      140,
+      1420,
+      240,
+      240
+     ],
+     "label": "WAKE \u00b7 PALIMPSEST VIRTUALITY"
+    }
+   ]
+  },
+  "SCENE-BROADCAST": {
+   "name": "The Last Broadcast",
+   "links": [
+    {
+     "kind": "exit",
+     "key": "CANAL ACCESS",
+     "rect": [
+      2550,
+      1000,
+      200,
+      200
+     ],
+     "to": "SCENE-VIRTUAL",
+     "toName": "Palimpsest Virtuality",
+     "land": [
+      2330,
+      1290
+     ]
+    }
+   ],
+   "labels": []
+  },
+  "SCENE-SPIRE": {
+   "name": "Entering the Spire",
+   "links": [
+    {
+     "kind": "exit",
+     "key": "CANAL",
+     "rect": [
+      10,
+      1200,
+      200,
+      200
+     ],
+     "to": "BCS-CIVIC",
+     "toName": "Civic Center",
+     "land": [
+      2475,
+      2000
+     ]
+    },
+    {
+     "kind": "exit",
+     "key": "LIFT",
+     "rect": [
+      1470,
+      700,
+      240,
+      240
+     ],
+     "to": "SCENE-COUNCIL",
+     "toName": "The Council Beneath the Skin",
+     "land": [
+      1350,
+      1430
+     ]
+    }
+   ],
+   "labels": [
+    {
+     "key": "LIFT",
+     "rect": [
+      1470,
+      700,
+      240,
+      240
+     ],
+     "label": "LIFT \u00b7 THE COUNCIL"
+    }
+   ]
+  },
+  "SCENE-COUNCIL": {
+   "name": "The Council Beneath the Skin",
+   "links": [
+    {
+     "kind": "exit",
+     "key": "THE WAY IN",
+     "rect": [
+      1250,
+      1440,
+      200,
+      200
+     ],
+     "to": "SCENE-SPIRE",
+     "toName": "Entering the Spire",
+     "land": [
+      1600,
+      850
+     ]
+    }
+   ],
+   "labels": []
+  },
+  "SCENE-CORE": {
+   "name": "The Final Operation",
+   "links": [
+    {
+     "kind": "exit",
+     "key": "OUTSIDE",
+     "rect": [
+      1690,
+      1500,
+      200,
+      200
+     ],
+     "to": "SCENE-SPIRE",
+     "toName": "Entering the Spire",
+     "land": [
+      1600,
+      850
+     ]
+    }
+   ],
+   "labels": []
+  }
+ }
+}

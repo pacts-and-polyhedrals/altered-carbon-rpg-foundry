@@ -448,4 +448,6 @@ export async function openVehicleControl(vt){
   for(const s of seats)if(form[`eject-${s.id}`]&&occ[s.id]){const t=vt.parent.tokens.get(occ[s.id].tokenId);if(t)await exitVehicle(t);}
   if(form.control!==v.control||String(form.aiPilot||'')!==String(v.aiPilot||''))await setVehicleControl(vt,{control:form.control,aiPilot:String(form.aiPilot||'')});
 }
+/** Everyone has left this vehicle by other means (e.g. walked into a building): clear seats, crew and driver ownership. */
+export async function clearOccupants(vt){const occ={};await saveOccupants(vt,occ);await syncCrew(vt,occ);await applyDriverControl(vt,occ);}
 export const _handlers=HANDLERS; // for tests

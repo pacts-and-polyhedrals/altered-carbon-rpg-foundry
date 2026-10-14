@@ -89,6 +89,24 @@ TILES = [
    landmarks=['CRANE YARD', 'BAY DAM ACCESS', 'DRY DOCK', 'CONTAINER PIERS', 'POWER STATION']),
 ]
 BY_POS = {(t['col'], t['row']): t for t in TILES}
+# One name everywhere: a block with an entrance carries exactly the name of the map it opens into.
+# A map with two entrances names its second block "<map> · <entrance>". Cold Storage locations
+# (only reachable while that module is active) get blocks of their own, flagged cs.
+RENAMES = {
+ 'BCS-WHARF': {'Ferry Terminal': 'Bay Docks · Boat Slips'},
+ 'BCS-OLD-DT-N': {'Pyramid Tower': 'Meth Spire Penthouse'},
+ 'BCS-FELL': {'BCPD Fell St Precinct': 'BCPD Precinct House', 'Patrol Garage': 'BCPD Precinct House · Garage'},
+ 'BCS-CIVIC': {'Transit Hub': 'Skyport Landing Deck', 'South Block': 'The Spire'},
+ 'BCS-OLD-DT-S': {'Old Downtown Arcade': 'The Neon Strip'},
+ 'BCS-MISSION': {'Mural Alley': 'Rain Alley', 'AI Hotel Row': 'Rain Alley · Rooftops', 'Clinic Row': 'Resleeving Clinic',
+                 'Taqueria Block': 'Resleeving Clinic · Fire Stair', 'Night Market': 'Neon Nightclub',
+                 'The Neon Strip': 'Neon Nightclub · Alley Door', 'South Block': 'Anansi House'},
+ 'BCS-LICKTOWN': {'Fightdrome': 'The Fight Pit', 'Licktown Market': 'Lower Bay Market', 'North Block 2': 'The Rainline',
+                  'North Block': 'The Quiet Archive', 'North-West Block': 'Blue Lotus, Black Water', 'South Block': 'Relay Seventeen'},
+ 'BCS-DOGPATCH': {'Dry Dock': 'The Neon Strip · Waterfront', 'Container Piers': 'Bay Docks', 'North Block': 'The Resurrection Ward'},
+}
+CS_BLOCKS = {'The Spire', 'Anansi House', 'The Rainline', 'The Quiet Archive', 'Blue Lotus, Black Water', 'Relay Seventeen', 'The Resurrection Ward'}
+
 
 # --------------------------------------------------------------------------- road network
 def roads_for(t):
@@ -218,6 +236,11 @@ def name_zones(t, zones):
             base = compass(z['rect'][0] + z['rect'][2] / 2, z['rect'][1] + z['rect'][3] / 2) + ' Block'
             seen[base] = seen.get(base, 0) + 1
             z['name'] = base if seen[base] == 1 else f'{base} {seen[base]}'
+    ren = RENAMES.get(t['id'], {})
+    for z in zones:
+        if z['kind'] == 'land' and z['name'] in ren:
+            z['name'] = ren[z['name']]; z['landmark'] = True
+            if z['name'] in CS_BLOCKS: z['cs'] = True
     # unique ids
     ids = {}
     for z in zones:

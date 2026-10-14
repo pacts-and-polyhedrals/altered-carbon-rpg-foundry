@@ -22,6 +22,55 @@ Older installs that still use `.../main/system.json` keep working because the `s
 version, uninstall it and reinstall from the manifest URL above. Uninstalling a system does
 not delete your worlds.
 
+## v2.6.0 — Open-world Bay City: a map for every place, every exit linked
+
+**One name everywhere.** Every street block with an entrance now carries exactly the name of the map it opens into, for example *The Fight Pit*, *Lower Bay Market*, *Skyport Landing Deck* and *Resleeving Clinic*. A second entrance to the same map is named *Map · entrance*, for example *Resleeving Clinic · Fire Stair* or *BCPD Precinct House · Garage*. Exit tags inside a building name the exact street section you come out on (*FELL 1 · GARAGE*, *16TH EAST*). Exits into another building name that building.
+
+**A map for every place.** 57 new zoned maps in the new **Bay City Places (Sandbox)** compendium cover every named place that had none, from the Golden Gate stacks, Fort Point and the Psychasec Cellhouse to the Opera House, the Maglev Station, Sutro Mast, Dolores Chapel, the Chop Shops and the Scrapyard. They are drawn in the same noir style and laid out by kind (habs, markets, offices, vaults, ruins, parks, plazas, yards, stations, checkpoints, forts, industrial, docks, towers, lighthouse, chapel, theatre, cells, garages, black clinics, camps, reservoir, sea wall). Each has a front exit, and a back exit where its block faces two streets. Both lead to entrances drawn on the street map.
+
+**Every exit linked.** 95 maps and 308 links are checked by the test suite: 14 street maps, the overview, 10 original buildings, 57 places, and the Cold Storage maps when that module is active. Every link lands inside a zone, and every entrance has a way back to the same spot. The memory maps now connect through Palimpsest Virtuality.
+
+**Bay City Travel Directory.** A new JournalEntry compendium lists, for every map, each exit tag, the zone it is in, the map it leads to and the zone you arrive in. There is one journal per district (street map plus every building on it), an index with the rules, and a Cold Storage journal.
+
+**Party at an exit.** When every player character on a map is gathered at an exit, the GM gets a dialog with one button per destination (*map — arrive: zone*). Choosing one moves the whole party together and changes the scene for everyone. Characters seated in a vehicle go with it. Going into a building, they get out and walk in, and the vehicle is parked at that building's street entrance. *Walk into buildings automatically* is now off by default; turn it on to send characters through one at a time.
+
+**Top-down character tokens.** Characters, NPCs, threats and AIs get directly top-down tokens in the vehicle style. The official adversaries (Hitman, Thug, BCPD Officer, CTAC Praetorian, Meth, Dipper, Freak, Corporate Stooge) have their own. AIs are holograms, and everyone else gets one of 36 looks chosen by name. New Actors get theirs automatically. **Apply Emblems** updates existing Actors and tokens already on scenes, wherever the token is still stock art or a system badge.
+
+**Cold Storage** buildings now have their own named blocks: the Rainline, the Quiet Archive, Blue Lotus, Relay Seventeen, the Resurrection Ward, Anansi House and the Spire. The master overview and street maps have been redrawn to match.
+
+## v2.5.8 — Cold Storage on the master overview map
+
+With the Cold Storage module active, the **Bay City Overview · All Districts** scene also shows every Cold Storage building: a glowing pin at its exact spot on the scaled-down district, with its name beside it. Labels are placed so they stay inside their district and never overlap each other. Put a token on a pin and the travel list opens with *Outside <building>* already selected. Elsewhere in a district, it still opens on that district's main junction. Without the module, the overview is unchanged.
+
+## v2.5.7 — Cold Storage on the Bay City streets; walk into buildings
+
+When the **Cold Storage** module (1.9) is active, its buildings stand on the Street Atlas. Each one has an entrance on a street map, labelled *ENTER · name* (the labels are scene Drawings, so the street art is unchanged without the module):
+
+| Cold Storage map | Street map | Block |
+|---|---|---|
+| The Resurrection Ward | Dogpatch Docks | Crane Yard |
+| Breach of Cold Storage | Dogpatch Docks | Crane Yard |
+| The Rainline | Licktown | Chop Shops |
+| The Quiet Archive | Licktown | North Block |
+| Blue Lotus, Black Water | Licktown | Potrero Hill |
+| Relay Seventeen | Licktown | South Block |
+| Anansi House | Mission Street · AI Hotels | AI Hotel Row |
+| Entering the Spire | Civic Center | Protectorate Office |
+
+- **Self-driving cars:** the destination list gains a **Cold Storage** group, *Outside <building>*. The car and everyone in it park on that building's entrance on the right street map.
+- **Walking in:** a character who walks into a building entrance (or an exit inside a building) is moved to the next map automatically. Vehicles never drive inside, and arriving in a doorway does not bounce you back. You can turn this off with the world setting *Walk into buildings automatically*. This applies to the original Bay City maps too.
+- **Ways out:** each Cold Storage map's street exit (FRONT DESK, RECOVERY VAN, STREET, SERVICE LADDER, CANAL) leads back out to its own entrance. Its other exit tags follow the adventure's routes:
+  - Ward corridor → the Breach;
+  - Breach → the Rainline;
+  - Rainline ↔ Quiet Archive back door and ↔ Relay Seventeen canal;
+  - Rainline → Blue Lotus;
+  - Blue Lotus canal → Anansi House;
+  - Council and Final Operation → the Spire lift lobby.
+  
+  The Rainline gets a labelled street exit on the canal walk, and the Spire gets a labelled lift up to the Council.
+- If a Cold Storage scene is missing from the world, it is installed through the module the first time someone travels to it.
+- The memory and virtual maps (Palimpsest Virtuality, the three memory nodes) have no street location, by design.
+
 ## v2.5.6 — Vehicle abilities with real mechanics
 
 Each vehicle's unique abilities are listed on its sheet under **Unique abilities**, and each seat shows whether it is *cage*, *load bay* or *exposed*. The abilities work in play:

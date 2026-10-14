@@ -4,7 +4,7 @@
 // every Bay City scene (interior maps and the Street Atlas) and puts its image where the running
 // Foundry version expects it. Scenes with an image already set are never touched.
 const NS='altered-carbon-rpg';
-const DATA_FILES=['bay-city-maps.json','bay-city-street-atlas.json','bay-city-street-overview.json'];
+const DATA_FILES=['bay-city-maps.json','bay-city-street-atlas.json','bay-city-street-overview.json','bay-city-places.json'];
 let index=null;
 
 async function mapIndex(){

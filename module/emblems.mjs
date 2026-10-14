@@ -151,6 +151,18 @@ export const EMBLEM_INDEX=Object.freeze({
 "equipment|Stock, Folding": "systems/altered-carbon-rpg/assets/emblems/upgrades/stock-folding.svg"
 });
 import {contactPortrait,namedPortrait} from './contact-portraits.mjs';
+// Top-down character tokens (v2.6.0), drawn like the vehicle tokens: seen from above, facing the top edge.
+export const PEOPLE_TOKENS=Object.freeze({named:{"Corporate Stooge": "systems/altered-carbon-rpg/assets/tokens/people/npc-corporate-stooge.webp", "Thug": "systems/altered-carbon-rpg/assets/tokens/people/npc-thug.webp", "Hitman": "systems/altered-carbon-rpg/assets/tokens/people/npc-hitman.webp", "CTAC Special Forces Praetorian": "systems/altered-carbon-rpg/assets/tokens/people/npc-ctac-special-forces-praetorian.webp", "Generational Meth": "systems/altered-carbon-rpg/assets/tokens/people/npc-generational-meth.webp", "Dipper": "systems/altered-carbon-rpg/assets/tokens/people/npc-dipper.webp", "Bay City Police Officer": "systems/altered-carbon-rpg/assets/tokens/people/npc-bay-city-police-officer.webp", "Freak": "systems/altered-carbon-rpg/assets/tokens/people/npc-freak.webp"},generic:["systems/altered-carbon-rpg/assets/tokens/people/look-01.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-02.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-03.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-04.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-05.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-06.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-07.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-08.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-09.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-10.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-11.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-12.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-13.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-14.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-15.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-16.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-17.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-18.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-19.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-20.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-21.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-22.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-23.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-24.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-25.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-26.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-27.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-28.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-29.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-30.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-31.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-32.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-33.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-34.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-35.webp", "systems/altered-carbon-rpg/assets/tokens/people/look-36.webp"],ai:"systems/altered-carbon-rpg/assets/tokens/people/ai-hologram.webp"});
+const PERSON_TYPES=['character','npc','threat','ai'];
+function fnv(s){let h=2166136261;for(const c of String(s))h=Math.imul(h^c.charCodeAt(0),16777619);return h>>>0;}
+/** The top-down token for a person-type Actor: named adversaries have their own, AIs are holograms, everyone else gets a look by name. */
+export function personToken(type,name){
+  const n=String(name||'').trim();if(PEOPLE_TOKENS.named[n])return PEOPLE_TOKENS.named[n];
+  if(type==='ai')return PEOPLE_TOKENS.ai;
+  return PEOPLE_TOKENS.generic[fnv(n.toLowerCase())%PEOPLE_TOKENS.generic.length];
+}
+/** Token art the system may replace: empty/stock, or one of its own badges or portraits. */
+const ownBadge=src=>String(src||'').startsWith(`systems/${'altered-carbon-rpg'}/assets/emblems/`);
 // Top-down token art for the Bay City Street Vehicles (front of the vehicle = top edge).
 export const VEHICLE_TOKEN_ART=Object.freeze({
 "Sprocket BMX": "systems/altered-carbon-rpg/assets/tokens/vehicles/sprocket-bmx.webp",
@@ -188,10 +200,14 @@ function emblemUpdate(doc,data={}){
   // Contacts get a dossier portrait; NPC actors named after a Cold Storage contact get theirs.
   if(!src&&type==='contact')src=contactPortrait(name,foundry.utils.getProperty(data,'system.categories')??doc.system?.categories);
   if(!src&&doc.documentName==='Actor'&&['npc','character','ai','threat'].includes(type))src=namedPortrait(name);
-  if(!src)return null;
   const update={};
+  if(doc.documentName==='Actor'&&PERSON_TYPES.includes(type)){
+    const tok=foundry.utils.getProperty(data,'prototypeToken.texture.src')??doc.prototypeToken?.texture?.src;
+    if(isStockImage(tok)||ownBadge(tok))update['prototypeToken.texture.src']=personToken(type,name);
+  }
+  if(!src)return Object.keys(update).length?update:null;
   if(isStockImage(data.img??doc.img))update.img=src;
-  if(doc.documentName==='Actor'){const tok=foundry.utils.getProperty(data,'prototypeToken.texture.src')??doc.prototypeToken?.texture?.src;if(isStockImage(tok))update['prototypeToken.texture.src']=(type==='vehicle'&&VEHICLE_TOKEN_ART[String(name||'').trim()])||src;}
+  if(doc.documentName==='Actor'&&!PERSON_TYPES.includes(type)){const tok=foundry.utils.getProperty(data,'prototypeToken.texture.src')??doc.prototypeToken?.texture?.src;if(isStockImage(tok))update['prototypeToken.texture.src']=(type==='vehicle'&&VEHICLE_TOKEN_ART[String(name||'').trim()])||src;}
   return Object.keys(update).length?update:null;
 }
 export function installEmblemHooks(){
@@ -207,6 +223,11 @@ export async function applyEmblems({dryRun=false}={}){
   const actors=game.actors.contents.map(a=>({_id:a.id,...emblemUpdate(a)})).filter(u=>Object.keys(u).length>1);
   count+=actors.length;if(!dryRun&&actors.length)await Actor.updateDocuments(actors);
   for(const actor of game.actors){const emb=actor.items.contents.map(i=>({_id:i.id,...emblemUpdate(i)})).filter(u=>Object.keys(u).length>1);count+=emb.length;if(!dryRun&&emb.length)await actor.updateEmbeddedDocuments('Item',emb);}
+  // Tokens already on scenes: person tokens still showing stock art or a badge get their top-down token.
+  for(const scene of game.scenes){
+    const ups=scene.tokens.contents.filter(t=>PERSON_TYPES.includes(t.actor?.type)&&(isStockImage(t.texture?.src)||ownBadge(t.texture?.src))).map(t=>({_id:t.id,'texture.src':personToken(t.actor.type,t.actor.name)}));
+    count+=ups.length;if(!dryRun&&ups.length)await scene.updateEmbeddedDocuments('Token',ups);
+  }
   ui.notifications.info(dryRun?('Altered Carbon: '+count+' documents would receive emblems.'):('Altered Carbon: applied emblems to '+count+' documents.'));
   return count;
 }

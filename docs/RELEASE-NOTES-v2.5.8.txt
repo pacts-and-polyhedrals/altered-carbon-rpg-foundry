@@ -1,0 +1,4 @@
+Altered Carbon RPG v2.5.8
+
+With the Cold Storage module active, the **Bay City Overview · All Districts** scene also shows every Cold Storage building: a glowing pin at its exact spot on the scaled-down district, with its name beside it. Labels are placed so they stay inside their district and never overlap each other. Put a token on a pin and the travel list opens with *Outside <building>* already selected. Elsewhere in a district, it still opens on that district's main junction. Without the module, the overview is unchanged.
+

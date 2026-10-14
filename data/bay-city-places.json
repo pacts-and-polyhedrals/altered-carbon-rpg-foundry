@@ -1,0 +1,6587 @@
+{
+ "maps": [
+  {
+   "id": "BCP-WEST-STACKS",
+   "name": "West Stacks",
+   "code": "BP01",
+   "district": "BRIDGE STACKS",
+   "kind": "stacks",
+   "street": "BCS-GG-NORTH",
+   "block": "West Stacks",
+   "file": "places/bp01-west-stacks.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "container-stacks",
+     "name": "Container Stacks",
+     "rect": [
+      100,
+      100,
+      1800,
+      1100
+     ],
+     "adjacent": [
+      "bridge-deck",
+      "cook-fires",
+      "ladder-shaft",
+      "lookout"
+     ]
+    },
+    {
+     "id": "ladder-shaft",
+     "name": "Ladder Shaft",
+     "rect": [
+      1900,
+      100,
+      800,
+      600
+     ],
+     "adjacent": [
+      "bridge-deck",
+      "container-stacks"
+     ]
+    },
+    {
+     "id": "bridge-deck",
+     "name": "Bridge Deck",
+     "rect": [
+      1900,
+      700,
+      800,
+      700
+     ],
+     "adjacent": [
+      "container-stacks",
+      "ladder-shaft",
+      "lookout"
+     ]
+    },
+    {
+     "id": "cook-fires",
+     "name": "Cook Fires",
+     "rect": [
+      100,
+      1200,
+      1000,
+      500
+     ],
+     "adjacent": [
+      "container-stacks",
+      "lookout"
+     ]
+    },
+    {
+     "id": "lookout",
+     "name": "Lookout",
+     "rect": [
+      1100,
+      1200,
+      800,
+      500
+     ],
+     "adjacent": [
+      "bridge-deck",
+      "container-stacks",
+      "cook-fires"
+     ]
+    }
+   ],
+   "exits": [
+    "GOLDEN GATE BRIDGE NORTH"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "GOLDEN GATE BRIDGE NORTH",
+     "rect": [
+      0,
+      550.0,
+      200,
+      200
+     ],
+     "to": "BCS-GG-NORTH",
+     "toName": "Golden Gate \u00b7 North Span",
+     "land": [
+      1900.0,
+      700.0
+     ],
+     "zone": "container-stacks",
+     "arriveRoad": "Golden Gate Bridge North"
+    }
+   ]
+  },
+  {
+   "id": "BCP-EAST-STACKS",
+   "name": "East Stacks",
+   "code": "BP02",
+   "district": "BRIDGE STACKS",
+   "kind": "stacks",
+   "street": "BCS-GG-NORTH",
+   "block": "East Stacks",
+   "file": "places/bp02-east-stacks.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "container-stacks",
+     "name": "Container Stacks",
+     "rect": [
+      100,
+      100,
+      1800,
+      1100
+     ],
+     "adjacent": [
+      "bridge-deck",
+      "cook-fires",
+      "ladder-shaft",
+      "lookout"
+     ]
+    },
+    {
+     "id": "ladder-shaft",
+     "name": "Ladder Shaft",
+     "rect": [
+      1900,
+      100,
+      800,
+      600
+     ],
+     "adjacent": [
+      "bridge-deck",
+      "container-stacks"
+     ]
+    },
+    {
+     "id": "bridge-deck",
+     "name": "Bridge Deck",
+     "rect": [
+      1900,
+      700,
+      800,
+      700
+     ],
+     "adjacent": [
+      "container-stacks",
+      "ladder-shaft",
+      "lookout"
+     ]
+    },
+    {
+     "id": "cook-fires",
+     "name": "Cook Fires",
+     "rect": [
+      100,
+      1200,
+      1000,
+      500
+     ],
+     "adjacent": [
+      "container-stacks",
+      "lookout"
+     ]
+    },
+    {
+     "id": "lookout",
+     "name": "Lookout",
+     "rect": [
+      1100,
+      1200,
+      800,
+      500
+     ],
+     "adjacent": [
+      "bridge-deck",
+      "container-stacks",
+      "cook-fires"
+     ]
+    }
+   ],
+   "exits": [
+    "GOLDEN GATE BRIDGE NORTH"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "GOLDEN GATE BRIDGE NORTH",
+     "rect": [
+      0,
+      550.0,
+      200,
+      200
+     ],
+     "to": "BCS-GG-NORTH",
+     "toName": "Golden Gate \u00b7 North Span",
+     "land": [
+      2300.0,
+      700.0
+     ],
+     "zone": "container-stacks",
+     "arriveRoad": "Golden Gate Bridge North"
+    }
+   ]
+  },
+  {
+   "id": "BCP-FORT-POINT",
+   "name": "Fort Point",
+   "code": "BP03",
+   "district": "PRESIDIO",
+   "kind": "fort",
+   "street": "BCS-GG-SOUTH",
+   "block": "Fort Point",
+   "file": "places/bp03-fort-point.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "casemates",
+     "name": "Casemates",
+     "rect": [
+      100,
+      100,
+      900,
+      800
+     ],
+     "adjacent": [
+      "barracks",
+      "gun-gallery"
+     ]
+    },
+    {
+     "id": "gun-gallery",
+     "name": "Gun Gallery",
+     "rect": [
+      1000,
+      100,
+      1700,
+      800
+     ],
+     "adjacent": [
+      "casemates",
+      "magazine",
+      "ramparts"
+     ]
+    },
+    {
+     "id": "barracks",
+     "name": "Barracks",
+     "rect": [
+      100,
+      900,
+      900,
+      800
+     ],
+     "adjacent": [
+      "casemates",
+      "magazine"
+     ]
+    },
+    {
+     "id": "magazine",
+     "name": "Magazine",
+     "rect": [
+      1000,
+      900,
+      900,
+      800
+     ],
+     "adjacent": [
+      "barracks",
+      "gun-gallery",
+      "ramparts"
+     ]
+    },
+    {
+     "id": "ramparts",
+     "name": "Ramparts",
+     "rect": [
+      1900,
+      900,
+      800,
+      500
+     ],
+     "adjacent": [
+      "gun-gallery",
+      "magazine"
+     ]
+    }
+   ],
+   "exits": [
+    "EMBARCADERO WEST",
+    "PRESIDIO NORTH"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "EMBARCADERO WEST",
+     "rect": [
+      0,
+      400.0,
+      200,
+      200
+     ],
+     "to": "BCS-GG-SOUTH",
+     "toName": "Golden Gate \u00b7 South Span",
+     "land": [
+      1500.0,
+      900.0
+     ],
+     "zone": "casemates",
+     "arriveRoad": "Embarcadero West"
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "PRESIDIO NORTH",
+     "rect": [
+      2560.0,
+      1050.0,
+      200,
+      200
+     ],
+     "to": "BCS-GG-SOUTH",
+     "toName": "Golden Gate \u00b7 South Span",
+     "land": [
+      1100.0,
+      1425.0
+     ],
+     "zone": "ramparts",
+     "arriveRoad": "Presidio North"
+    }
+   ]
+  },
+  {
+   "id": "BCP-TOLL-AUTHORITY",
+   "name": "Toll Authority",
+   "code": "BP04",
+   "district": "PRESIDIO",
+   "kind": "office",
+   "street": "BCS-GG-SOUTH",
+   "block": "Toll Authority",
+   "file": "places/bp04-toll-authority.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "lobby",
+     "name": "Lobby",
+     "rect": [
+      100,
+      100,
+      900,
+      800
+     ],
+     "adjacent": [
+      "open-office",
+      "records-room"
+     ]
+    },
+    {
+     "id": "open-office",
+     "name": "Open Office",
+     "rect": [
+      1000,
+      100,
+      1700,
+      800
+     ],
+     "adjacent": [
+      "executive-suite",
+      "lobby",
+      "meeting-room"
+     ]
+    },
+    {
+     "id": "records-room",
+     "name": "Records Room",
+     "rect": [
+      100,
+      900,
+      900,
+      800
+     ],
+     "adjacent": [
+      "lobby",
+      "meeting-room"
+     ]
+    },
+    {
+     "id": "meeting-room",
+     "name": "Meeting Room",
+     "rect": [
+      1000,
+      900,
+      900,
+      800
+     ],
+     "adjacent": [
+      "executive-suite",
+      "open-office",
+      "records-room"
+     ]
+    },
+    {
+     "id": "executive-suite",
+     "name": "Executive Suite",
+     "rect": [
+      1900,
+      900,
+      800,
+      500
+     ],
+     "adjacent": [
+      "meeting-room",
+      "open-office"
+     ]
+    }
+   ],
+   "exits": [
+    "EMBARCADERO CENTRE"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "EMBARCADERO CENTRE",
+     "rect": [
+      0,
+      400.0,
+      200,
+      200
+     ],
+     "to": "BCS-GG-SOUTH",
+     "toName": "Golden Gate \u00b7 South Span",
+     "land": [
+      2850.0,
+      900.0
+     ],
+     "zone": "lobby",
+     "arriveRoad": "Embarcadero Centre"
+    }
+   ]
+  },
+  {
+   "id": "BCP-BRIDGE-DEPOT",
+   "name": "Bridge Depot",
+   "code": "BP05",
+   "district": "PRESIDIO",
+   "kind": "yard",
+   "street": "BCS-GG-SOUTH",
+   "block": "Bridge Depot",
+   "file": "places/bp05-bridge-depot.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "yard",
+     "name": "Yard",
+     "rect": [
+      100,
+      100,
+      1800,
+      1100
+     ],
+     "adjacent": [
+      "fuel-bay",
+      "gatehouse",
+      "parts-store",
+      "workshop"
+     ]
+    },
+    {
+     "id": "gatehouse",
+     "name": "Gatehouse",
+     "rect": [
+      1900,
+      100,
+      800,
+      600
+     ],
+     "adjacent": [
+      "workshop",
+      "yard"
+     ]
+    },
+    {
+     "id": "workshop",
+     "name": "Workshop",
+     "rect": [
+      1900,
+      700,
+      800,
+      700
+     ],
+     "adjacent": [
+      "gatehouse",
+      "parts-store",
+      "yard"
+     ]
+    },
+    {
+     "id": "fuel-bay",
+     "name": "Fuel Bay",
+     "rect": [
+      100,
+      1200,
+      1000,
+      500
+     ],
+     "adjacent": [
+      "parts-store",
+      "yard"
+     ]
+    },
+    {
+     "id": "parts-store",
+     "name": "Parts Store",
+     "rect": [
+      1100,
+      1200,
+      800,
+      500
+     ],
+     "adjacent": [
+      "fuel-bay",
+      "workshop",
+      "yard"
+     ]
+    }
+   ],
+   "exits": [
+    "EMBARCADERO EAST"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "EMBARCADERO EAST",
+     "rect": [
+      0,
+      550.0,
+      200,
+      200
+     ],
+     "to": "BCS-GG-SOUTH",
+     "toName": "Golden Gate \u00b7 South Span",
+     "land": [
+      3750.0,
+      900.0
+     ],
+     "zone": "yard",
+     "arriveRoad": "Embarcadero East"
+    }
+   ]
+  },
+  {
+   "id": "BCP-PRESIDIO-CHECKPOINT",
+   "name": "Presidio Checkpoint",
+   "code": "BP06",
+   "district": "PRESIDIO",
+   "kind": "checkpoint",
+   "street": "BCS-GG-SOUTH",
+   "block": "Presidio Checkpoint",
+   "file": "places/bp06-presidio-checkpoint.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "inspection-lanes",
+     "name": "Inspection Lanes",
+     "rect": [
+      100,
+      100,
+      1800,
+      1100
+     ],
+     "adjacent": [
+      "guard-post",
+      "holding-pens",
+      "search-bay",
+      "watchtower"
+     ]
+    },
+    {
+     "id": "guard-post",
+     "name": "Guard Post",
+     "rect": [
+      1900,
+      100,
+      800,
+      600
+     ],
+     "adjacent": [
+      "holding-pens",
+      "inspection-lanes"
+     ]
+    },
+    {
+     "id": "holding-pens",
+     "name": "Holding Pens",
+     "rect": [
+      1900,
+      700,
+      800,
+      700
+     ],
+     "adjacent": [
+      "guard-post",
+      "inspection-lanes",
+      "watchtower"
+     ]
+    },
+    {
+     "id": "search-bay",
+     "name": "Search Bay",
+     "rect": [
+      100,
+      1200,
+      1000,
+      500
+     ],
+     "adjacent": [
+      "inspection-lanes",
+      "watchtower"
+     ]
+    },
+    {
+     "id": "watchtower",
+     "name": "Watchtower",
+     "rect": [
+      1100,
+      1200,
+      800,
+      500
+     ],
+     "adjacent": [
+      "holding-pens",
+      "inspection-lanes",
+      "search-bay"
+     ]
+    }
+   ],
+   "exits": [
+    "PRESIDIO SOUTH"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "PRESIDIO SOUTH",
+     "rect": [
+      0,
+      550.0,
+      200,
+      200
+     ],
+     "to": "BCS-GG-SOUTH",
+     "toName": "Golden Gate \u00b7 South Span",
+     "land": [
+      1100.0,
+      2275.0
+     ],
+     "zone": "inspection-lanes",
+     "arriveRoad": "Presidio South"
+    }
+   ]
+  },
+  {
+   "id": "BCP-YACHT-STACKS",
+   "name": "Yacht Stacks",
+   "code": "BP07",
+   "district": "MARINA",
+   "kind": "dock",
+   "street": "BCS-MARINA",
+   "block": "Yacht Stacks",
+   "file": "places/bp07-yacht-stacks.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "moorings",
+     "name": "Moorings",
+     "rect": [
+      100,
+      100,
+      1800,
+      1100
+     ],
+     "adjacent": [
+      "boat-shed",
+      "chandlery",
+      "fuel-jetty",
+      "harbourmaster"
+     ]
+    },
+    {
+     "id": "harbourmaster",
+     "name": "Harbourmaster",
+     "rect": [
+      1900,
+      100,
+      800,
+      600
+     ],
+     "adjacent": [
+      "boat-shed",
+      "moorings"
+     ]
+    },
+    {
+     "id": "boat-shed",
+     "name": "Boat Shed",
+     "rect": [
+      1900,
+      700,
+      800,
+      700
+     ],
+     "adjacent": [
+      "chandlery",
+      "harbourmaster",
+      "moorings"
+     ]
+    },
+    {
+     "id": "fuel-jetty",
+     "name": "Fuel Jetty",
+     "rect": [
+      100,
+      1200,
+      1000,
+      500
+     ],
+     "adjacent": [
+      "chandlery",
+      "moorings"
+     ]
+    },
+    {
+     "id": "chandlery",
+     "name": "Chandlery",
+     "rect": [
+      1100,
+      1200,
+      800,
+      500
+     ],
+     "adjacent": [
+      "boat-shed",
+      "fuel-jetty",
+      "moorings"
+     ]
+    }
+   ],
+   "exits": [
+    "EMBARCADERO 1"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "EMBARCADERO 1",
+     "rect": [
+      0,
+      550.0,
+      200,
+      200
+     ],
+     "to": "BCS-MARINA",
+     "toName": "Marina Seawall",
+     "land": [
+      362.5,
+      900.0
+     ],
+     "zone": "moorings",
+     "arriveRoad": "Embarcadero 1"
+    }
+   ]
+  },
+  {
+   "id": "BCP-PALACE-RUINS",
+   "name": "Palace Ruins",
+   "code": "BP08",
+   "district": "MARINA",
+   "kind": "ruins",
+   "street": "BCS-MARINA",
+   "block": "Palace Ruins",
+   "file": "places/bp08-palace-ruins.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "collapsed-hall",
+     "name": "Collapsed Hall",
+     "rect": [
+      100,
+      100,
+      2600,
+      600
+     ],
+     "adjacent": [
+      "broken-wing",
+      "cellar-stair",
+      "courtyard"
+     ]
+    },
+    {
+     "id": "broken-wing",
+     "name": "Broken Wing",
+     "rect": [
+      100,
+      700,
+      800,
+      1000
+     ],
+     "adjacent": [
+      "collapsed-hall",
+      "courtyard"
+     ]
+    },
+    {
+     "id": "courtyard",
+     "name": "Courtyard",
+     "rect": [
+      900,
+      700,
+      1000,
+      1000
+     ],
+     "adjacent": [
+      "broken-wing",
+      "cellar-stair",
+      "collapsed-hall"
+     ]
+    },
+    {
+     "id": "cellar-stair",
+     "name": "Cellar Stair",
+     "rect": [
+      1900,
+      700,
+      800,
+      700
+     ],
+     "adjacent": [
+      "collapsed-hall",
+      "courtyard"
+     ]
+    }
+   ],
+   "exits": [
+    "EMBARCADERO 2"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "EMBARCADERO 2",
+     "rect": [
+      0,
+      300.0,
+      200,
+      200
+     ],
+     "to": "BCS-MARINA",
+     "toName": "Marina Seawall",
+     "land": [
+      1087.5,
+      900.0
+     ],
+     "zone": "collapsed-hall",
+     "arriveRoad": "Embarcadero 2"
+    }
+   ]
+  },
+  {
+   "id": "BCP-MARINA-HABS",
+   "name": "Marina Habs",
+   "code": "BP09",
+   "district": "MARINA",
+   "kind": "habs",
+   "street": "BCS-MARINA",
+   "block": "Marina Habs",
+   "file": "places/bp09-marina-habs.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "lobby",
+     "name": "Lobby",
+     "rect": [
+      100,
+      100,
+      900,
+      800
+     ],
+     "adjacent": [
+      "hab-units",
+      "laundry-court"
+     ]
+    },
+    {
+     "id": "hab-units",
+     "name": "Hab Units",
+     "rect": [
+      1000,
+      100,
+      1700,
+      800
+     ],
+     "adjacent": [
+      "lobby",
+      "roof-garden",
+      "stairwell-units"
+     ]
+    },
+    {
+     "id": "laundry-court",
+     "name": "Laundry Court",
+     "rect": [
+      100,
+      900,
+      900,
+      800
+     ],
+     "adjacent": [
+      "lobby",
+      "stairwell-units"
+     ]
+    },
+    {
+     "id": "stairwell-units",
+     "name": "Stairwell Units",
+     "rect": [
+      1000,
+      900,
+      900,
+      800
+     ],
+     "adjacent": [
+      "hab-units",
+      "laundry-court",
+      "roof-garden"
+     ]
+    },
+    {
+     "id": "roof-garden",
+     "name": "Roof Garden",
+     "rect": [
+      1900,
+      900,
+      800,
+      500
+     ],
+     "adjacent": [
+      "hab-units",
+      "stairwell-units"
+     ]
+    }
+   ],
+   "exits": [
+    "EMBARCADERO 5",
+    "VALENCIA NORTH"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "EMBARCADERO 5",
+     "rect": [
+      0,
+      400.0,
+      200,
+      200
+     ],
+     "to": "BCS-MARINA",
+     "toName": "Marina Seawall",
+     "land": [
+      3750.0,
+      900.0
+     ],
+     "zone": "lobby",
+     "arriveRoad": "Embarcadero 5"
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "VALENCIA NORTH",
+     "rect": [
+      2560.0,
+      1050.0,
+      200,
+      200
+     ],
+     "to": "BCS-MARINA",
+     "toName": "Marina Seawall",
+     "land": [
+      3200.0,
+      1425.0
+     ],
+     "zone": "roof-garden",
+     "arriveRoad": "Valencia North"
+    }
+   ]
+  },
+  {
+   "id": "BCP-SEAWALL-PUMPS",
+   "name": "Seawall Pumps",
+   "code": "BP10",
+   "district": "MARINA",
+   "kind": "pumps",
+   "street": "BCS-MARINA",
+   "block": "Seawall Pumps",
+   "file": "places/bp10-seawall-pumps.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "pump-hall",
+     "name": "Pump Hall",
+     "rect": [
+      100,
+      100,
+      2600,
+      600
+     ],
+     "adjacent": [
+      "control-room",
+      "sluice-gallery",
+      "valve-room"
+     ]
+    },
+    {
+     "id": "control-room",
+     "name": "Control Room",
+     "rect": [
+      100,
+      700,
+      800,
+      1000
+     ],
+     "adjacent": [
+      "pump-hall",
+      "sluice-gallery"
+     ]
+    },
+    {
+     "id": "sluice-gallery",
+     "name": "Sluice Gallery",
+     "rect": [
+      900,
+      700,
+      1000,
+      1000
+     ],
+     "adjacent": [
+      "control-room",
+      "pump-hall",
+      "valve-room"
+     ]
+    },
+    {
+     "id": "valve-room",
+     "name": "Valve Room",
+     "rect": [
+      1900,
+      700,
+      800,
+      700
+     ],
+     "adjacent": [
+      "pump-hall",
+      "sluice-gallery"
+     ]
+    }
+   ],
+   "exits": [
+    "VALENCIA SOUTH"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "VALENCIA SOUTH",
+     "rect": [
+      0,
+      300.0,
+      200,
+      200
+     ],
+     "to": "BCS-MARINA",
+     "toName": "Marina Seawall",
+     "land": [
+      3200.0,
+      2275.0
+     ],
+     "zone": "pump-hall",
+     "arriveRoad": "Valencia South"
+    }
+   ]
+  },
+  {
+   "id": "BCP-SALLY-PORT",
+   "name": "Sally Port",
+   "code": "BP11",
+   "district": "THE ROCK",
+   "kind": "checkpoint",
+   "street": "BCS-ALCATRAZ",
+   "block": "Sally Port",
+   "file": "places/bp11-sally-port.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "inspection-lanes",
+     "name": "Inspection Lanes",
+     "rect": [
+      100,
+      100,
+      1800,
+      1100
+     ],
+     "adjacent": [
+      "guard-post",
+      "holding-pens",
+      "search-bay",
+      "watchtower"
+     ]
+    },
+    {
+     "id": "guard-post",
+     "name": "Guard Post",
+     "rect": [
+      1900,
+      100,
+      800,
+      600
+     ],
+     "adjacent": [
+      "holding-pens",
+      "inspection-lanes"
+     ]
+    },
+    {
+     "id": "holding-pens",
+     "name": "Holding Pens",
+     "rect": [
+      1900,
+      700,
+      800,
+      700
+     ],
+     "adjacent": [
+      "guard-post",
+      "inspection-lanes",
+      "watchtower"
+     ]
+    },
+    {
+     "id": "search-bay",
+     "name": "Search Bay",
+     "rect": [
+      100,
+      1200,
+      1000,
+      500
+     ],
+     "adjacent": [
+      "inspection-lanes",
+      "watchtower"
+     ]
+    },
+    {
+     "id": "watchtower",
+     "name": "Watchtower",
+     "rect": [
+      1100,
+      1200,
+      800,
+      500
+     ],
+     "adjacent": [
+      "holding-pens",
+      "inspection-lanes",
+      "search-bay"
+     ]
+    }
+   ],
+   "exits": [
+    "CELLHOUSE LOOP N WEST",
+    "CELLHOUSE LOOP S WEST"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "CELLHOUSE LOOP N WEST",
+     "rect": [
+      0,
+      550.0,
+      200,
+      200
+     ],
+     "to": "BCS-ALCATRAZ",
+     "toName": "Psychasec Alcatraz",
+     "land": [
+      1600.0,
+      800.0
+     ],
+     "zone": "inspection-lanes",
+     "arriveRoad": "Cellhouse Loop N West"
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "CELLHOUSE LOOP S WEST",
+     "rect": [
+      2560.0,
+      950.0,
+      200,
+      200
+     ],
+     "to": "BCS-ALCATRAZ",
+     "toName": "Psychasec Alcatraz",
+     "land": [
+      1600.0,
+      1500.0
+     ],
+     "zone": "holding-pens",
+     "arriveRoad": "Cellhouse Loop S West"
+    }
+   ]
+  },
+  {
+   "id": "BCP-POWERHOUSE",
+   "name": "Powerhouse",
+   "code": "BP12",
+   "district": "THE ROCK",
+   "kind": "industrial",
+   "street": "BCS-ALCATRAZ",
+   "block": "Powerhouse",
+   "file": "places/bp12-powerhouse.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "machine-hall",
+     "name": "Machine Hall",
+     "rect": [
+      100,
+      100,
+      2600,
+      600
+     ],
+     "adjacent": [
+      "control-room",
+      "stores",
+      "switchgear"
+     ]
+    },
+    {
+     "id": "control-room",
+     "name": "Control Room",
+     "rect": [
+      100,
+      700,
+      800,
+      1000
+     ],
+     "adjacent": [
+      "machine-hall",
+      "switchgear"
+     ]
+    },
+    {
+     "id": "switchgear",
+     "name": "Switchgear",
+     "rect": [
+      900,
+      700,
+      1000,
+      1000
+     ],
+     "adjacent": [
+      "control-room",
+      "machine-hall",
+      "stores"
+     ]
+    },
+    {
+     "id": "stores",
+     "name": "Stores",
+     "rect": [
+      1900,
+      700,
+      800,
+      700
+     ],
+     "adjacent": [
+      "machine-hall",
+      "switchgear"
+     ]
+    }
+   ],
+   "exits": [
+    "CELLHOUSE LOOP N EAST",
+    "CELLHOUSE LOOP S EAST"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "CELLHOUSE LOOP N EAST",
+     "rect": [
+      0,
+      300.0,
+      200,
+      200
+     ],
+     "to": "BCS-ALCATRAZ",
+     "toName": "Psychasec Alcatraz",
+     "land": [
+      2600.0,
+      800.0
+     ],
+     "zone": "machine-hall",
+     "arriveRoad": "Cellhouse Loop N East"
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "CELLHOUSE LOOP S EAST",
+     "rect": [
+      2560.0,
+      950.0,
+      200,
+      200
+     ],
+     "to": "BCS-ALCATRAZ",
+     "toName": "Psychasec Alcatraz",
+     "land": [
+      2600.0,
+      1500.0
+     ],
+     "zone": "stores",
+     "arriveRoad": "Cellhouse Loop S East"
+    }
+   ]
+  },
+  {
+   "id": "BCP-PSYCHASEC-CELLHOUSE",
+   "name": "Psychasec Cellhouse",
+   "code": "BP13",
+   "district": "THE ROCK",
+   "kind": "cells",
+   "street": "BCS-ALCATRAZ",
+   "block": "Psychasec Cellhouse",
+   "file": "places/bp13-psychasec-cellhouse.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "booking",
+     "name": "Booking",
+     "rect": [
+      100,
+      100,
+      900,
+      800
+     ],
+     "adjacent": [
+      "cell-block-a",
+      "guard-station"
+     ]
+    },
+    {
+     "id": "cell-block-a",
+     "name": "Cell Block A",
+     "rect": [
+      1000,
+      100,
+      1700,
+      800
+     ],
+     "adjacent": [
+      "booking",
+      "cell-block-b",
+      "exercise-yard"
+     ]
+    },
+    {
+     "id": "guard-station",
+     "name": "Guard Station",
+     "rect": [
+      100,
+      900,
+      900,
+      800
+     ],
+     "adjacent": [
+      "booking",
+      "cell-block-b"
+     ]
+    },
+    {
+     "id": "cell-block-b",
+     "name": "Cell Block B",
+     "rect": [
+      1000,
+      900,
+      900,
+      800
+     ],
+     "adjacent": [
+      "cell-block-a",
+      "exercise-yard",
+      "guard-station"
+     ]
+    },
+    {
+     "id": "exercise-yard",
+     "name": "Exercise Yard",
+     "rect": [
+      1900,
+      900,
+      800,
+      500
+     ],
+     "adjacent": [
+      "cell-block-a",
+      "cell-block-b"
+     ]
+    }
+   ],
+   "exits": [
+    "ALCATRAZ CAUSEWAY SOUTH"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "ALCATRAZ CAUSEWAY SOUTH",
+     "rect": [
+      0,
+      400.0,
+      200,
+      200
+     ],
+     "to": "BCS-ALCATRAZ",
+     "toName": "Psychasec Alcatraz",
+     "land": [
+      1900.0,
+      1850.0
+     ],
+     "zone": "booking",
+     "arriveRoad": "Alcatraz Causeway South"
+    }
+   ]
+  },
+  {
+   "id": "BCP-LIGHTHOUSE",
+   "name": "Lighthouse",
+   "code": "BP14",
+   "district": "THE ROCK",
+   "kind": "lighthouse",
+   "street": "BCS-ALCATRAZ",
+   "block": "Lighthouse",
+   "file": "places/bp14-lighthouse.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "keeper-s-cottage",
+     "name": "Keeper's Cottage",
+     "rect": [
+      100,
+      100,
+      800,
+      1600
+     ],
+     "adjacent": [
+      "fog-signal",
+      "spiral-stair"
+     ]
+    },
+    {
+     "id": "spiral-stair",
+     "name": "Spiral Stair",
+     "rect": [
+      900,
+      100,
+      1000,
+      800
+     ],
+     "adjacent": [
+      "fog-signal",
+      "keeper-s-cottage",
+      "lamp-room"
+     ]
+    },
+    {
+     "id": "lamp-room",
+     "name": "Lamp Room",
+     "rect": [
+      1900,
+      100,
+      800,
+      800
+     ],
+     "adjacent": [
+      "gallery",
+      "spiral-stair"
+     ]
+    },
+    {
+     "id": "fog-signal",
+     "name": "Fog Signal",
+     "rect": [
+      900,
+      900,
+      1000,
+      800
+     ],
+     "adjacent": [
+      "gallery",
+      "keeper-s-cottage",
+      "spiral-stair"
+     ]
+    },
+    {
+     "id": "gallery",
+     "name": "Gallery",
+     "rect": [
+      1900,
+      900,
+      800,
+      500
+     ],
+     "adjacent": [
+      "fog-signal",
+      "lamp-room"
+     ]
+    }
+   ],
+   "exits": [
+    "ALCATRAZ CAUSEWAY SOUTH"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "ALCATRAZ CAUSEWAY SOUTH",
+     "rect": [
+      0,
+      800.0,
+      200,
+      200
+     ],
+     "to": "BCS-ALCATRAZ",
+     "toName": "Psychasec Alcatraz",
+     "land": [
+      2300.0,
+      1850.0
+     ],
+     "zone": "keeper-s-cottage",
+     "arriveRoad": "Alcatraz Causeway South"
+    }
+   ]
+  },
+  {
+   "id": "BCP-CABLE-YARD",
+   "name": "Cable Yard",
+   "code": "BP15",
+   "district": "FISHERMAN'S WHARF",
+   "kind": "yard",
+   "street": "BCS-WHARF",
+   "block": "Cable Yard",
+   "file": "places/bp15-cable-yard.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "yard",
+     "name": "Yard",
+     "rect": [
+      100,
+      100,
+      1800,
+      1100
+     ],
+     "adjacent": [
+      "fuel-bay",
+      "gatehouse",
+      "parts-store",
+      "workshop"
+     ]
+    },
+    {
+     "id": "gatehouse",
+     "name": "Gatehouse",
+     "rect": [
+      1900,
+      100,
+      800,
+      600
+     ],
+     "adjacent": [
+      "workshop",
+      "yard"
+     ]
+    },
+    {
+     "id": "workshop",
+     "name": "Workshop",
+     "rect": [
+      1900,
+      700,
+      800,
+      700
+     ],
+     "adjacent": [
+      "gatehouse",
+      "parts-store",
+      "yard"
+     ]
+    },
+    {
+     "id": "fuel-bay",
+     "name": "Fuel Bay",
+     "rect": [
+      100,
+      1200,
+      1000,
+      500
+     ],
+     "adjacent": [
+      "parts-store",
+      "yard"
+     ]
+    },
+    {
+     "id": "parts-store",
+     "name": "Parts Store",
+     "rect": [
+      1100,
+      1200,
+      800,
+      500
+     ],
+     "adjacent": [
+      "fuel-bay",
+      "workshop",
+      "yard"
+     ]
+    }
+   ],
+   "exits": [
+    "EMBARCADERO 1",
+    "VAN NESS NORTH"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "EMBARCADERO 1",
+     "rect": [
+      0,
+      550.0,
+      200,
+      200
+     ],
+     "to": "BCS-WHARF",
+     "toName": "Wharf & Causeway",
+     "land": [
+      400.0,
+      900.0
+     ],
+     "zone": "yard",
+     "arriveRoad": "Embarcadero 1"
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "VAN NESS NORTH",
+     "rect": [
+      2560.0,
+      950.0,
+      200,
+      200
+     ],
+     "to": "BCS-WHARF",
+     "toName": "Wharf & Causeway",
+     "land": [
+      900.0,
+      1425.0
+     ],
+     "zone": "workshop",
+     "arriveRoad": "Van Ness North"
+    }
+   ]
+  },
+  {
+   "id": "BCP-CAUSEWAY-GATE",
+   "name": "Causeway Gate",
+   "code": "BP16",
+   "district": "FISHERMAN'S WHARF",
+   "kind": "checkpoint",
+   "street": "BCS-WHARF",
+   "block": "Causeway Gate",
+   "file": "places/bp16-causeway-gate.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "inspection-lanes",
+     "name": "Inspection Lanes",
+     "rect": [
+      100,
+      100,
+      1800,
+      1100
+     ],
+     "adjacent": [
+      "guard-post",
+      "holding-pens",
+      "search-bay",
+      "watchtower"
+     ]
+    },
+    {
+     "id": "guard-post",
+     "name": "Guard Post",
+     "rect": [
+      1900,
+      100,
+      800,
+      600
+     ],
+     "adjacent": [
+      "holding-pens",
+      "inspection-lanes"
+     ]
+    },
+    {
+     "id": "holding-pens",
+     "name": "Holding Pens",
+     "rect": [
+      1900,
+      700,
+      800,
+      700
+     ],
+     "adjacent": [
+      "guard-post",
+      "inspection-lanes",
+      "watchtower"
+     ]
+    },
+    {
+     "id": "search-bay",
+     "name": "Search Bay",
+     "rect": [
+      100,
+      1200,
+      1000,
+      500
+     ],
+     "adjacent": [
+      "inspection-lanes",
+      "watchtower"
+     ]
+    },
+    {
+     "id": "watchtower",
+     "name": "Watchtower",
+     "rect": [
+      1100,
+      1200,
+      800,
+      500
+     ],
+     "adjacent": [
+      "holding-pens",
+      "inspection-lanes",
+      "search-bay"
+     ]
+    }
+   ],
+   "exits": [
+    "EMBARCADERO 4",
+    "POWELL NORTH"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "EMBARCADERO 4",
+     "rect": [
+      0,
+      550.0,
+      200,
+      200
+     ],
+     "to": "BCS-WHARF",
+     "toName": "Wharf & Causeway",
+     "land": [
+      3750.0,
+      900.0
+     ],
+     "zone": "inspection-lanes",
+     "arriveRoad": "Embarcadero 4"
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "POWELL NORTH",
+     "rect": [
+      2560.0,
+      950.0,
+      200,
+      200
+     ],
+     "to": "BCS-WHARF",
+     "toName": "Wharf & Causeway",
+     "land": [
+      3200.0,
+      1425.0
+     ],
+     "zone": "holding-pens",
+     "arriveRoad": "Powell North"
+    }
+   ]
+  },
+  {
+   "id": "BCP-PIER-MARKET",
+   "name": "Pier Market",
+   "code": "BP17",
+   "district": "FISHERMAN'S WHARF",
+   "kind": "market",
+   "street": "BCS-WHARF",
+   "block": "Pier Market",
+   "file": "places/bp17-pier-market.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "stall-hall",
+     "name": "Stall Hall",
+     "rect": [
+      100,
+      100,
+      2600,
+      600
+     ],
+     "adjacent": [
+      "back-stores",
+      "food-court",
+      "loading-bay"
+     ]
+    },
+    {
+     "id": "food-court",
+     "name": "Food Court",
+     "rect": [
+      100,
+      700,
+      800,
+      1000
+     ],
+     "adjacent": [
+      "back-stores",
+      "stall-hall"
+     ]
+    },
+    {
+     "id": "back-stores",
+     "name": "Back Stores",
+     "rect": [
+      900,
+      700,
+      1000,
+      1000
+     ],
+     "adjacent": [
+      "food-court",
+      "loading-bay",
+      "stall-hall"
+     ]
+    },
+    {
+     "id": "loading-bay",
+     "name": "Loading Bay",
+     "rect": [
+      1900,
+      700,
+      800,
+      700
+     ],
+     "adjacent": [
+      "back-stores",
+      "stall-hall"
+     ]
+    }
+   ],
+   "exits": [
+    "VAN NESS SOUTH"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "VAN NESS SOUTH",
+     "rect": [
+      0,
+      300.0,
+      200,
+      200
+     ],
+     "to": "BCS-WHARF",
+     "toName": "Wharf & Causeway",
+     "land": [
+      1100.0,
+      2275.0
+     ],
+     "zone": "stall-hall",
+     "arriveRoad": "Van Ness South"
+    }
+   ]
+  },
+  {
+   "id": "BCP-CANNERY-HABS",
+   "name": "Cannery Habs",
+   "code": "BP18",
+   "district": "FISHERMAN'S WHARF",
+   "kind": "habs",
+   "street": "BCS-WHARF",
+   "block": "Cannery Habs",
+   "file": "places/bp18-cannery-habs.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "lobby",
+     "name": "Lobby",
+     "rect": [
+      100,
+      100,
+      900,
+      800
+     ],
+     "adjacent": [
+      "hab-units",
+      "laundry-court"
+     ]
+    },
+    {
+     "id": "hab-units",
+     "name": "Hab Units",
+     "rect": [
+      1000,
+      100,
+      1700,
+      800
+     ],
+     "adjacent": [
+      "lobby",
+      "roof-garden",
+      "stairwell-units"
+     ]
+    },
+    {
+     "id": "laundry-court",
+     "name": "Laundry Court",
+     "rect": [
+      100,
+      900,
+      900,
+      800
+     ],
+     "adjacent": [
+      "lobby",
+      "stairwell-units"
+     ]
+    },
+    {
+     "id": "stairwell-units",
+     "name": "Stairwell Units",
+     "rect": [
+      1000,
+      900,
+      900,
+      800
+     ],
+     "adjacent": [
+      "hab-units",
+      "laundry-court",
+      "roof-garden"
+     ]
+    },
+    {
+     "id": "roof-garden",
+     "name": "Roof Garden",
+     "rect": [
+      1900,
+      900,
+      800,
+      500
+     ],
+     "adjacent": [
+      "hab-units",
+      "stairwell-units"
+     ]
+    }
+   ],
+   "exits": [
+    "POWELL SOUTH"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "POWELL SOUTH",
+     "rect": [
+      0,
+      400.0,
+      200,
+      200
+     ],
+     "to": "BCS-WHARF",
+     "toName": "Wharf & Causeway",
+     "land": [
+      3200.0,
+      2275.0
+     ],
+     "zone": "lobby",
+     "arriveRoad": "Powell South"
+    }
+   ]
+  },
+  {
+   "id": "BCP-GROUNDER-CAMP",
+   "name": "Grounder Camp",
+   "code": "BP19",
+   "district": "OLD DOWNTOWN",
+   "kind": "camp",
+   "street": "BCS-OLD-DT-N",
+   "block": "Grounder Camp",
+   "file": "places/bp19-grounder-camp.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "the-camp",
+     "name": "The Camp",
+     "rect": [
+      100,
+      100,
+      1400,
+      1600
+     ],
+     "adjacent": [
+      "lookout",
+      "water-point"
+     ]
+    },
+    {
+     "id": "water-point",
+     "name": "Water Point",
+     "rect": [
+      1500,
+      100,
+      1200,
+      700
+     ],
+     "adjacent": [
+      "lookout",
+      "the-camp"
+     ]
+    },
+    {
+     "id": "lookout",
+     "name": "Lookout",
+     "rect": [
+      1500,
+      800,
+      1200,
+      600
+     ],
+     "adjacent": [
+      "the-camp",
+      "water-point"
+     ]
+    }
+   ],
+   "exits": [
+    "EMBARCADERO WEST",
+    "THIRD NORTH"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "EMBARCADERO WEST",
+     "rect": [
+      0,
+      800.0,
+      200,
+      200
+     ],
+     "to": "BCS-OLD-DT-N",
+     "toName": "Old Downtown \u00b7 North",
+     "land": [
+      400.0,
+      900.0
+     ],
+     "zone": "the-camp",
+     "arriveRoad": "Embarcadero West"
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "THIRD NORTH",
+     "rect": [
+      2560.0,
+      1000.0,
+      200,
+      200
+     ],
+     "to": "BCS-OLD-DT-N",
+     "toName": "Old Downtown \u00b7 North",
+     "land": [
+      900.0,
+      1425.0
+     ],
+     "zone": "lookout",
+     "arriveRoad": "Third North"
+    }
+   ]
+  },
+  {
+   "id": "BCP-OLD-BANKS",
+   "name": "Old Banks",
+   "code": "BP20",
+   "district": "OLD DOWNTOWN",
+   "kind": "vault",
+   "street": "BCS-OLD-DT-N",
+   "block": "Old Banks",
+   "file": "places/bp20-old-banks.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "banking-hall",
+     "name": "Banking Hall",
+     "rect": [
+      100,
+      100,
+      900,
+      800
+     ],
+     "adjacent": [
+      "teller-line",
+      "vault-antechamber"
+     ]
+    },
+    {
+     "id": "teller-line",
+     "name": "Teller Line",
+     "rect": [
+      1000,
+      100,
+      1700,
+      800
+     ],
+     "adjacent": [
+      "banking-hall",
+      "manager-s-office",
+      "strongroom"
+     ]
+    },
+    {
+     "id": "vault-antechamber",
+     "name": "Vault Antechamber",
+     "rect": [
+      100,
+      900,
+      900,
+      800
+     ],
+     "adjacent": [
+      "banking-hall",
+      "strongroom"
+     ]
+    },
+    {
+     "id": "strongroom",
+     "name": "Strongroom",
+     "rect": [
+      1000,
+      900,
+      900,
+      800
+     ],
+     "adjacent": [
+      "manager-s-office",
+      "teller-line",
+      "vault-antechamber"
+     ]
+    },
+    {
+     "id": "manager-s-office",
+     "name": "Manager's Office",
+     "rect": [
+      1900,
+      900,
+      800,
+      500
+     ],
+     "adjacent": [
+      "strongroom",
+      "teller-line"
+     ]
+    }
+   ],
+   "exits": [
+    "EMBARCADERO EAST",
+    "BATTERY NORTH"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "EMBARCADERO EAST",
+     "rect": [
+      0,
+      400.0,
+      200,
+      200
+     ],
+     "to": "BCS-OLD-DT-N",
+     "toName": "Old Downtown \u00b7 North",
+     "land": [
+      2475.0,
+      900.0
+     ],
+     "zone": "banking-hall",
+     "arriveRoad": "Embarcadero East"
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "BATTERY NORTH",
+     "rect": [
+      2560.0,
+      1050.0,
+      200,
+      200
+     ],
+     "to": "BCS-OLD-DT-N",
+     "toName": "Old Downtown \u00b7 North",
+     "land": [
+      3000.0,
+      1425.0
+     ],
+     "zone": "manager-s-office",
+     "arriveRoad": "Battery North"
+    }
+   ]
+  },
+  {
+   "id": "BCP-DEAD-TOWERS",
+   "name": "Dead Towers",
+   "code": "BP21",
+   "district": "OLD DOWNTOWN",
+   "kind": "deadtower",
+   "street": "BCS-OLD-DT-N",
+   "block": "Dead Towers",
+   "file": "places/bp21-dead-towers.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "gutted-lobby",
+     "name": "Gutted Lobby",
+     "rect": [
+      100,
+      100,
+      800,
+      1600
+     ],
+     "adjacent": [
+      "collapse-zone",
+      "dead-lift-core"
+     ]
+    },
+    {
+     "id": "dead-lift-core",
+     "name": "Dead Lift Core",
+     "rect": [
+      900,
+      100,
+      1000,
+      800
+     ],
+     "adjacent": [
+      "collapse-zone",
+      "gutted-lobby",
+      "squat-floor"
+     ]
+    },
+    {
+     "id": "squat-floor",
+     "name": "Squat Floor",
+     "rect": [
+      1900,
+      100,
+      800,
+      800
+     ],
+     "adjacent": [
+      "dead-lift-core",
+      "open-roof"
+     ]
+    },
+    {
+     "id": "collapse-zone",
+     "name": "Collapse Zone",
+     "rect": [
+      900,
+      900,
+      1000,
+      800
+     ],
+     "adjacent": [
+      "dead-lift-core",
+      "gutted-lobby",
+      "open-roof"
+     ]
+    },
+    {
+     "id": "open-roof",
+     "name": "Open Roof",
+     "rect": [
+      1900,
+      900,
+      800,
+      500
+     ],
+     "adjacent": [
+      "collapse-zone",
+      "squat-floor"
+     ]
+    }
+   ],
+   "exits": [
+    "THIRD SOUTH"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "THIRD SOUTH",
+     "rect": [
+      0,
+      800.0,
+      200,
+      200
+     ],
+     "to": "BCS-OLD-DT-N",
+     "toName": "Old Downtown \u00b7 North",
+     "land": [
+      1100.0,
+      2275.0
+     ],
+     "zone": "gutted-lobby",
+     "arriveRoad": "Third South"
+    }
+   ]
+  },
+  {
+   "id": "BCP-FERRY-BUILDING",
+   "name": "Ferry Building",
+   "code": "BP22",
+   "district": "OLD DOWNTOWN",
+   "kind": "market",
+   "street": "BCS-OLD-DT-N",
+   "block": "Ferry Building",
+   "file": "places/bp22-ferry-building.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "stall-hall",
+     "name": "Stall Hall",
+     "rect": [
+      100,
+      100,
+      2600,
+      600
+     ],
+     "adjacent": [
+      "back-stores",
+      "food-court",
+      "loading-bay"
+     ]
+    },
+    {
+     "id": "food-court",
+     "name": "Food Court",
+     "rect": [
+      100,
+      700,
+      800,
+      1000
+     ],
+     "adjacent": [
+      "back-stores",
+      "stall-hall"
+     ]
+    },
+    {
+     "id": "back-stores",
+     "name": "Back Stores",
+     "rect": [
+      900,
+      700,
+      1000,
+      1000
+     ],
+     "adjacent": [
+      "food-court",
+      "loading-bay",
+      "stall-hall"
+     ]
+    },
+    {
+     "id": "loading-bay",
+     "name": "Loading Bay",
+     "rect": [
+      1900,
+      700,
+      800,
+      700
+     ],
+     "adjacent": [
+      "back-stores",
+      "stall-hall"
+     ]
+    }
+   ],
+   "exits": [
+    "BATTERY SOUTH"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "BATTERY SOUTH",
+     "rect": [
+      0,
+      300.0,
+      200,
+      200
+     ],
+     "to": "BCS-OLD-DT-N",
+     "toName": "Old Downtown \u00b7 North",
+     "land": [
+      3000.0,
+      2275.0
+     ],
+     "zone": "stall-hall",
+     "arriveRoad": "Battery South"
+    }
+   ]
+  },
+  {
+   "id": "BCP-GOLDEN-GATE-PARK",
+   "name": "Golden Gate Park",
+   "code": "BP23",
+   "district": "HAIGHT",
+   "kind": "park",
+   "street": "BCS-PANHANDLE",
+   "block": "Golden Gate Park",
+   "file": "places/bp23-golden-gate-park.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "lawns-paths",
+     "name": "Lawns & Paths",
+     "rect": [
+      100,
+      100,
+      1400,
+      1600
+     ],
+     "adjacent": [
+      "camp",
+      "pavilion"
+     ]
+    },
+    {
+     "id": "pavilion",
+     "name": "Pavilion",
+     "rect": [
+      1500,
+      100,
+      1200,
+      700
+     ],
+     "adjacent": [
+      "camp",
+      "lawns-paths"
+     ]
+    },
+    {
+     "id": "camp",
+     "name": "Camp",
+     "rect": [
+      1500,
+      800,
+      1200,
+      600
+     ],
+     "adjacent": [
+      "lawns-paths",
+      "pavilion"
+     ]
+    }
+   ],
+   "exits": [
+    "FELL CENTRE"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "FELL CENTRE",
+     "rect": [
+      0,
+      800.0,
+      200,
+      200
+     ],
+     "to": "BCS-PANHANDLE",
+     "toName": "Panhandle West",
+     "land": [
+      2475.0,
+      700.0
+     ],
+     "zone": "lawns-paths",
+     "arriveRoad": "Fell Centre"
+    }
+   ]
+  },
+  {
+   "id": "BCP-KEZAR-HABS",
+   "name": "Kezar Habs",
+   "code": "BP24",
+   "district": "HAIGHT",
+   "kind": "habs",
+   "street": "BCS-PANHANDLE",
+   "block": "Kezar Habs",
+   "file": "places/bp24-kezar-habs.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "lobby",
+     "name": "Lobby",
+     "rect": [
+      100,
+      100,
+      900,
+      800
+     ],
+     "adjacent": [
+      "hab-units",
+      "laundry-court"
+     ]
+    },
+    {
+     "id": "hab-units",
+     "name": "Hab Units",
+     "rect": [
+      1000,
+      100,
+      1700,
+      800
+     ],
+     "adjacent": [
+      "lobby",
+      "roof-garden",
+      "stairwell-units"
+     ]
+    },
+    {
+     "id": "laundry-court",
+     "name": "Laundry Court",
+     "rect": [
+      100,
+      900,
+      900,
+      800
+     ],
+     "adjacent": [
+      "lobby",
+      "stairwell-units"
+     ]
+    },
+    {
+     "id": "stairwell-units",
+     "name": "Stairwell Units",
+     "rect": [
+      1000,
+      900,
+      900,
+      800
+     ],
+     "adjacent": [
+      "hab-units",
+      "laundry-court",
+      "roof-garden"
+     ]
+    },
+    {
+     "id": "roof-garden",
+     "name": "Roof Garden",
+     "rect": [
+      1900,
+      900,
+      800,
+      500
+     ],
+     "adjacent": [
+      "hab-units",
+      "stairwell-units"
+     ]
+    }
+   ],
+   "exits": [
+    "FELL EAST"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "FELL EAST",
+     "rect": [
+      0,
+      400.0,
+      200,
+      200
+     ],
+     "to": "BCS-PANHANDLE",
+     "toName": "Panhandle West",
+     "land": [
+      3750.0,
+      700.0
+     ],
+     "zone": "lobby",
+     "arriveRoad": "Fell East"
+    }
+   ]
+  },
+  {
+   "id": "BCP-PANHANDLE-GREEN",
+   "name": "Panhandle Green",
+   "code": "BP25",
+   "district": "HAIGHT",
+   "kind": "park",
+   "street": "BCS-PANHANDLE",
+   "block": "Panhandle Green",
+   "file": "places/bp25-panhandle-green.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "lawns-paths",
+     "name": "Lawns & Paths",
+     "rect": [
+      100,
+      100,
+      1400,
+      1600
+     ],
+     "adjacent": [
+      "camp",
+      "pavilion"
+     ]
+    },
+    {
+     "id": "pavilion",
+     "name": "Pavilion",
+     "rect": [
+      1500,
+      100,
+      1200,
+      700
+     ],
+     "adjacent": [
+      "camp",
+      "lawns-paths"
+     ]
+    },
+    {
+     "id": "camp",
+     "name": "Camp",
+     "rect": [
+      1500,
+      800,
+      1200,
+      600
+     ],
+     "adjacent": [
+      "lawns-paths",
+      "pavilion"
+     ]
+    }
+   ],
+   "exits": [
+    "FELL WEST",
+    "OAK WEST"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "FELL WEST",
+     "rect": [
+      0,
+      800.0,
+      200,
+      200
+     ],
+     "to": "BCS-PANHANDLE",
+     "toName": "Panhandle West",
+     "land": [
+      1625.0,
+      900.0
+     ],
+     "zone": "lawns-paths",
+     "arriveRoad": "Fell West"
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "OAK WEST",
+     "rect": [
+      2560.0,
+      1000.0,
+      200,
+      200
+     ],
+     "to": "BCS-PANHANDLE",
+     "toName": "Panhandle West",
+     "land": [
+      1625.0,
+      1800.0
+     ],
+     "zone": "camp",
+     "arriveRoad": "Oak West"
+    }
+   ]
+  },
+  {
+   "id": "BCP-OCEAN-WALL",
+   "name": "Ocean Wall",
+   "code": "BP26",
+   "district": "HAIGHT",
+   "kind": "wall",
+   "street": "BCS-PANHANDLE",
+   "block": "Ocean Wall",
+   "file": "places/bp26-ocean-wall.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "wall-walk",
+     "name": "Wall Walk",
+     "rect": [
+      100,
+      100,
+      2600,
+      600
+     ],
+     "adjacent": [
+      "gun-port",
+      "stair-tower",
+      "stores"
+     ]
+    },
+    {
+     "id": "gun-port",
+     "name": "Gun Port",
+     "rect": [
+      100,
+      700,
+      800,
+      1000
+     ],
+     "adjacent": [
+      "stores",
+      "wall-walk"
+     ]
+    },
+    {
+     "id": "stores",
+     "name": "Stores",
+     "rect": [
+      900,
+      700,
+      1000,
+      1000
+     ],
+     "adjacent": [
+      "gun-port",
+      "stair-tower",
+      "wall-walk"
+     ]
+    },
+    {
+     "id": "stair-tower",
+     "name": "Stair Tower",
+     "rect": [
+      1900,
+      700,
+      800,
+      700
+     ],
+     "adjacent": [
+      "stores",
+      "wall-walk"
+     ]
+    }
+   ],
+   "exits": [
+    "FELL CENTRE",
+    "OAK CENTRE"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "FELL CENTRE",
+     "rect": [
+      0,
+      300.0,
+      200,
+      200
+     ],
+     "to": "BCS-PANHANDLE",
+     "toName": "Panhandle West",
+     "land": [
+      2475.0,
+      900.0
+     ],
+     "zone": "wall-walk",
+     "arriveRoad": "Fell Centre"
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "OAK CENTRE",
+     "rect": [
+      2560.0,
+      950.0,
+      200,
+      200
+     ],
+     "to": "BCS-PANHANDLE",
+     "toName": "Panhandle West",
+     "land": [
+      2475.0,
+      1800.0
+     ],
+     "zone": "stair-tower",
+     "arriveRoad": "Oak Centre"
+    }
+   ]
+  },
+  {
+   "id": "BCP-HAIGHT-SQUATS",
+   "name": "Haight Squats",
+   "code": "BP27",
+   "district": "HAIGHT",
+   "kind": "habs",
+   "street": "BCS-PANHANDLE",
+   "block": "Haight Squats",
+   "file": "places/bp27-haight-squats.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "lobby",
+     "name": "Lobby",
+     "rect": [
+      100,
+      100,
+      900,
+      800
+     ],
+     "adjacent": [
+      "hab-units",
+      "laundry-court"
+     ]
+    },
+    {
+     "id": "hab-units",
+     "name": "Hab Units",
+     "rect": [
+      1000,
+      100,
+      1700,
+      800
+     ],
+     "adjacent": [
+      "lobby",
+      "roof-garden",
+      "stairwell-units"
+     ]
+    },
+    {
+     "id": "laundry-court",
+     "name": "Laundry Court",
+     "rect": [
+      100,
+      900,
+      900,
+      800
+     ],
+     "adjacent": [
+      "lobby",
+      "stairwell-units"
+     ]
+    },
+    {
+     "id": "stairwell-units",
+     "name": "Stairwell Units",
+     "rect": [
+      1000,
+      900,
+      900,
+      800
+     ],
+     "adjacent": [
+      "hab-units",
+      "laundry-court",
+      "roof-garden"
+     ]
+    },
+    {
+     "id": "roof-garden",
+     "name": "Roof Garden",
+     "rect": [
+      1900,
+      900,
+      800,
+      500
+     ],
+     "adjacent": [
+      "hab-units",
+      "stairwell-units"
+     ]
+    }
+   ],
+   "exits": [
+    "FELL EAST",
+    "OAK EAST"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "FELL EAST",
+     "rect": [
+      0,
+      400.0,
+      200,
+      200
+     ],
+     "to": "BCS-PANHANDLE",
+     "toName": "Panhandle West",
+     "land": [
+      3750.0,
+      900.0
+     ],
+     "zone": "lobby",
+     "arriveRoad": "Fell East"
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "OAK EAST",
+     "rect": [
+      2560.0,
+      1050.0,
+      200,
+      200
+     ],
+     "to": "BCS-PANHANDLE",
+     "toName": "Panhandle West",
+     "land": [
+      3750.0,
+      1800.0
+     ],
+     "zone": "roof-garden",
+     "arriveRoad": "Oak East"
+    }
+   ]
+  },
+  {
+   "id": "BCP-COURTHOUSE-ANNEX",
+   "name": "Courthouse Annex",
+   "code": "BP28",
+   "district": "HAYES VALLEY",
+   "kind": "office",
+   "street": "BCS-FELL",
+   "block": "Courthouse Annex",
+   "file": "places/bp28-courthouse-annex.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "lobby",
+     "name": "Lobby",
+     "rect": [
+      100,
+      100,
+      900,
+      800
+     ],
+     "adjacent": [
+      "open-office",
+      "records-room"
+     ]
+    },
+    {
+     "id": "open-office",
+     "name": "Open Office",
+     "rect": [
+      1000,
+      100,
+      1700,
+      800
+     ],
+     "adjacent": [
+      "executive-suite",
+      "lobby",
+      "meeting-room"
+     ]
+    },
+    {
+     "id": "records-room",
+     "name": "Records Room",
+     "rect": [
+      100,
+      900,
+      900,
+      800
+     ],
+     "adjacent": [
+      "lobby",
+      "meeting-room"
+     ]
+    },
+    {
+     "id": "meeting-room",
+     "name": "Meeting Room",
+     "rect": [
+      1000,
+      900,
+      900,
+      800
+     ],
+     "adjacent": [
+      "executive-suite",
+      "open-office",
+      "records-room"
+     ]
+    },
+    {
+     "id": "executive-suite",
+     "name": "Executive Suite",
+     "rect": [
+      1900,
+      900,
+      800,
+      500
+     ],
+     "adjacent": [
+      "meeting-room",
+      "open-office"
+     ]
+    }
+   ],
+   "exits": [
+    "FELL 4",
+    "VALENCIA NORTH"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "FELL 4",
+     "rect": [
+      0,
+      400.0,
+      200,
+      200
+     ],
+     "to": "BCS-FELL",
+     "toName": "Fell Street \u00b7 BCPD",
+     "land": [
+      3750.0,
+      700.0
+     ],
+     "zone": "lobby",
+     "arriveRoad": "Fell 4"
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "VALENCIA NORTH",
+     "rect": [
+      2560.0,
+      1050.0,
+      200,
+      200
+     ],
+     "to": "BCS-FELL",
+     "toName": "Fell Street \u00b7 BCPD",
+     "land": [
+      3200.0,
+      300.0
+     ],
+     "zone": "executive-suite",
+     "arriveRoad": "Valencia North"
+    }
+   ]
+  },
+  {
+   "id": "BCP-IMPOUND-LOT",
+   "name": "Impound Lot",
+   "code": "BP29",
+   "district": "HAYES VALLEY",
+   "kind": "impound",
+   "street": "BCS-FELL",
+   "block": "Impound Lot",
+   "file": "places/bp29-impound-lot.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "impound-rows",
+     "name": "Impound Rows",
+     "rect": [
+      100,
+      100,
+      1800,
+      1100
+     ],
+     "adjacent": [
+      "crusher",
+      "evidence-cage",
+      "release-office",
+      "tow-bay"
+     ]
+    },
+    {
+     "id": "release-office",
+     "name": "Release Office",
+     "rect": [
+      1900,
+      100,
+      800,
+      600
+     ],
+     "adjacent": [
+      "crusher",
+      "impound-rows"
+     ]
+    },
+    {
+     "id": "crusher",
+     "name": "Crusher",
+     "rect": [
+      1900,
+      700,
+      800,
+      700
+     ],
+     "adjacent": [
+      "impound-rows",
+      "release-office",
+      "tow-bay"
+     ]
+    },
+    {
+     "id": "evidence-cage",
+     "name": "Evidence Cage",
+     "rect": [
+      100,
+      1200,
+      1000,
+      500
+     ],
+     "adjacent": [
+      "impound-rows",
+      "tow-bay"
+     ]
+    },
+    {
+     "id": "tow-bay",
+     "name": "Tow Bay",
+     "rect": [
+      1100,
+      1200,
+      800,
+      500
+     ],
+     "adjacent": [
+      "crusher",
+      "evidence-cage",
+      "impound-rows"
+     ]
+    }
+   ],
+   "exits": [
+    "FELL 2",
+    "OAK 2"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "FELL 2",
+     "rect": [
+      0,
+      550.0,
+      200,
+      200
+     ],
+     "to": "BCS-FELL",
+     "toName": "Fell Street \u00b7 BCPD",
+     "land": [
+      1625.0,
+      900.0
+     ],
+     "zone": "impound-rows",
+     "arriveRoad": "Fell 2"
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "OAK 2",
+     "rect": [
+      2560.0,
+      950.0,
+      200,
+      200
+     ],
+     "to": "BCS-FELL",
+     "toName": "Fell Street \u00b7 BCPD",
+     "land": [
+      1625.0,
+      1800.0
+     ],
+     "zone": "crusher",
+     "arriveRoad": "Oak 2"
+    }
+   ]
+  },
+  {
+   "id": "BCP-ALAMO-TERRACES",
+   "name": "Alamo Terraces",
+   "code": "BP30",
+   "district": "HAYES VALLEY",
+   "kind": "habs",
+   "street": "BCS-FELL",
+   "block": "Alamo Terraces",
+   "file": "places/bp30-alamo-terraces.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "lobby",
+     "name": "Lobby",
+     "rect": [
+      100,
+      100,
+      900,
+      800
+     ],
+     "adjacent": [
+      "hab-units",
+      "laundry-court"
+     ]
+    },
+    {
+     "id": "hab-units",
+     "name": "Hab Units",
+     "rect": [
+      1000,
+      100,
+      1700,
+      800
+     ],
+     "adjacent": [
+      "lobby",
+      "roof-garden",
+      "stairwell-units"
+     ]
+    },
+    {
+     "id": "laundry-court",
+     "name": "Laundry Court",
+     "rect": [
+      100,
+      900,
+      900,
+      800
+     ],
+     "adjacent": [
+      "lobby",
+      "stairwell-units"
+     ]
+    },
+    {
+     "id": "stairwell-units",
+     "name": "Stairwell Units",
+     "rect": [
+      1000,
+      900,
+      900,
+      800
+     ],
+     "adjacent": [
+      "hab-units",
+      "laundry-court",
+      "roof-garden"
+     ]
+    },
+    {
+     "id": "roof-garden",
+     "name": "Roof Garden",
+     "rect": [
+      1900,
+      900,
+      800,
+      500
+     ],
+     "adjacent": [
+      "hab-units",
+      "stairwell-units"
+     ]
+    }
+   ],
+   "exits": [
+    "FELL 3",
+    "OAK 3"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "FELL 3",
+     "rect": [
+      0,
+      400.0,
+      200,
+      200
+     ],
+     "to": "BCS-FELL",
+     "toName": "Fell Street \u00b7 BCPD",
+     "land": [
+      2475.0,
+      900.0
+     ],
+     "zone": "lobby",
+     "arriveRoad": "Fell 3"
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "OAK 3",
+     "rect": [
+      2560.0,
+      1050.0,
+      200,
+      200
+     ],
+     "to": "BCS-FELL",
+     "toName": "Fell Street \u00b7 BCPD",
+     "land": [
+      2475.0,
+      1800.0
+     ],
+     "zone": "roof-garden",
+     "arriveRoad": "Oak 3"
+    }
+   ]
+  },
+  {
+   "id": "BCP-HAYES-MARKET",
+   "name": "Hayes Market",
+   "code": "BP31",
+   "district": "HAYES VALLEY",
+   "kind": "market",
+   "street": "BCS-FELL",
+   "block": "Hayes Market",
+   "file": "places/bp31-hayes-market.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "stall-hall",
+     "name": "Stall Hall",
+     "rect": [
+      100,
+      100,
+      2600,
+      600
+     ],
+     "adjacent": [
+      "back-stores",
+      "food-court",
+      "loading-bay"
+     ]
+    },
+    {
+     "id": "food-court",
+     "name": "Food Court",
+     "rect": [
+      100,
+      700,
+      800,
+      1000
+     ],
+     "adjacent": [
+      "back-stores",
+      "stall-hall"
+     ]
+    },
+    {
+     "id": "back-stores",
+     "name": "Back Stores",
+     "rect": [
+      900,
+      700,
+      1000,
+      1000
+     ],
+     "adjacent": [
+      "food-court",
+      "loading-bay",
+      "stall-hall"
+     ]
+    },
+    {
+     "id": "loading-bay",
+     "name": "Loading Bay",
+     "rect": [
+      1900,
+      700,
+      800,
+      700
+     ],
+     "adjacent": [
+      "back-stores",
+      "stall-hall"
+     ]
+    }
+   ],
+   "exits": [
+    "FELL 4",
+    "OAK 4"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "FELL 4",
+     "rect": [
+      0,
+      300.0,
+      200,
+      200
+     ],
+     "to": "BCS-FELL",
+     "toName": "Fell Street \u00b7 BCPD",
+     "land": [
+      3750.0,
+      900.0
+     ],
+     "zone": "stall-hall",
+     "arriveRoad": "Fell 4"
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "OAK 4",
+     "rect": [
+      2560.0,
+      950.0,
+      200,
+      200
+     ],
+     "to": "BCS-FELL",
+     "toName": "Fell Street \u00b7 BCPD",
+     "land": [
+      3750.0,
+      1800.0
+     ],
+     "zone": "loading-bay",
+     "arriveRoad": "Oak 4"
+    }
+   ]
+  },
+  {
+   "id": "BCP-MAGLEV-DEPOT",
+   "name": "Maglev Depot",
+   "code": "BP32",
+   "district": "CIVIC CENTER",
+   "kind": "station",
+   "street": "BCS-CIVIC",
+   "block": "Maglev Depot",
+   "file": "places/bp32-maglev-depot.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "concourse",
+     "name": "Concourse",
+     "rect": [
+      100,
+      100,
+      2600,
+      600
+     ],
+     "adjacent": [
+      "maintenance",
+      "platform",
+      "ticket-hall"
+     ]
+    },
+    {
+     "id": "ticket-hall",
+     "name": "Ticket Hall",
+     "rect": [
+      100,
+      700,
+      800,
+      1000
+     ],
+     "adjacent": [
+      "concourse",
+      "platform"
+     ]
+    },
+    {
+     "id": "platform",
+     "name": "Platform",
+     "rect": [
+      900,
+      700,
+      1000,
+      1000
+     ],
+     "adjacent": [
+      "concourse",
+      "maintenance",
+      "ticket-hall"
+     ]
+    },
+    {
+     "id": "maintenance",
+     "name": "Maintenance",
+     "rect": [
+      1900,
+      700,
+      800,
+      700
+     ],
+     "adjacent": [
+      "concourse",
+      "platform"
+     ]
+    }
+   ],
+   "exits": [
+    "FELL 2",
+    "VAN NESS NORTH"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "FELL 2",
+     "rect": [
+      0,
+      300.0,
+      200,
+      200
+     ],
+     "to": "BCS-CIVIC",
+     "toName": "Civic Center",
+     "land": [
+      1625.0,
+      700.0
+     ],
+     "zone": "concourse",
+     "arriveRoad": "Fell 2"
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "VAN NESS NORTH",
+     "rect": [
+      2560.0,
+      950.0,
+      200,
+      200
+     ],
+     "to": "BCS-CIVIC",
+     "toName": "Civic Center",
+     "land": [
+      1100.0,
+      300.0
+     ],
+     "zone": "maintenance",
+     "arriveRoad": "Van Ness North"
+    }
+   ]
+  },
+  {
+   "id": "BCP-SLUMS",
+   "name": "Slums",
+   "code": "BP33",
+   "district": "CIVIC CENTER",
+   "kind": "camp",
+   "street": "BCS-CIVIC",
+   "block": "Slums",
+   "file": "places/bp33-slums.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "the-camp",
+     "name": "The Camp",
+     "rect": [
+      100,
+      100,
+      1400,
+      1600
+     ],
+     "adjacent": [
+      "lookout",
+      "water-point"
+     ]
+    },
+    {
+     "id": "water-point",
+     "name": "Water Point",
+     "rect": [
+      1500,
+      100,
+      1200,
+      700
+     ],
+     "adjacent": [
+      "lookout",
+      "the-camp"
+     ]
+    },
+    {
+     "id": "lookout",
+     "name": "Lookout",
+     "rect": [
+      1500,
+      800,
+      1200,
+      600
+     ],
+     "adjacent": [
+      "the-camp",
+      "water-point"
+     ]
+    }
+   ],
+   "exits": [
+    "FELL 3",
+    "POWELL NORTH"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "FELL 3",
+     "rect": [
+      0,
+      800.0,
+      200,
+      200
+     ],
+     "to": "BCS-CIVIC",
+     "toName": "Civic Center",
+     "land": [
+      2475.0,
+      700.0
+     ],
+     "zone": "the-camp",
+     "arriveRoad": "Fell 3"
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "POWELL NORTH",
+     "rect": [
+      2560.0,
+      1000.0,
+      200,
+      200
+     ],
+     "to": "BCS-CIVIC",
+     "toName": "Civic Center",
+     "land": [
+      3000.0,
+      300.0
+     ],
+     "zone": "lookout",
+     "arriveRoad": "Powell North"
+    }
+   ]
+  },
+  {
+   "id": "BCP-OPERA-HOUSE",
+   "name": "Opera House",
+   "code": "BP34",
+   "district": "CIVIC CENTER",
+   "kind": "theatre",
+   "street": "BCS-CIVIC",
+   "block": "Opera House",
+   "file": "places/bp34-opera-house.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "auditorium",
+     "name": "Auditorium",
+     "rect": [
+      100,
+      100,
+      2600,
+      600
+     ],
+     "adjacent": [
+      "backstage",
+      "foyer-bar",
+      "the-stage"
+     ]
+    },
+    {
+     "id": "foyer-bar",
+     "name": "Foyer Bar",
+     "rect": [
+      100,
+      700,
+      800,
+      1000
+     ],
+     "adjacent": [
+      "auditorium",
+      "the-stage"
+     ]
+    },
+    {
+     "id": "the-stage",
+     "name": "The Stage",
+     "rect": [
+      900,
+      700,
+      1000,
+      1000
+     ],
+     "adjacent": [
+      "auditorium",
+      "backstage",
+      "foyer-bar"
+     ]
+    },
+    {
+     "id": "backstage",
+     "name": "Backstage",
+     "rect": [
+      1900,
+      700,
+      800,
+      700
+     ],
+     "adjacent": [
+      "auditorium",
+      "the-stage"
+     ]
+    }
+   ],
+   "exits": [
+    "FELL 1",
+    "OAK 1"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "FELL 1",
+     "rect": [
+      0,
+      300.0,
+      200,
+      200
+     ],
+     "to": "BCS-CIVIC",
+     "toName": "Civic Center",
+     "land": [
+      400.0,
+      900.0
+     ],
+     "zone": "auditorium",
+     "arriveRoad": "Fell 1"
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "OAK 1",
+     "rect": [
+      2560.0,
+      950.0,
+      200,
+      200
+     ],
+     "to": "BCS-CIVIC",
+     "toName": "Civic Center",
+     "land": [
+      400.0,
+      1800.0
+     ],
+     "zone": "backstage",
+     "arriveRoad": "Oak 1"
+    }
+   ]
+  },
+  {
+   "id": "BCP-UN-PLAZA",
+   "name": "UN Plaza",
+   "code": "BP35",
+   "district": "CIVIC CENTER",
+   "kind": "plaza",
+   "street": "BCS-CIVIC",
+   "block": "UN Plaza",
+   "file": "places/bp35-un-plaza.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "the-plaza",
+     "name": "The Plaza",
+     "rect": [
+      100,
+      100,
+      1400,
+      1600
+     ],
+     "adjacent": [
+      "colonnade",
+      "memorial"
+     ]
+    },
+    {
+     "id": "colonnade",
+     "name": "Colonnade",
+     "rect": [
+      1500,
+      100,
+      1200,
+      700
+     ],
+     "adjacent": [
+      "memorial",
+      "the-plaza"
+     ]
+    },
+    {
+     "id": "memorial",
+     "name": "Memorial",
+     "rect": [
+      1500,
+      800,
+      1200,
+      600
+     ],
+     "adjacent": [
+      "colonnade",
+      "the-plaza"
+     ]
+    }
+   ],
+   "exits": [
+    "FELL 2",
+    "OAK 2"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "FELL 2",
+     "rect": [
+      0,
+      800.0,
+      200,
+      200
+     ],
+     "to": "BCS-CIVIC",
+     "toName": "Civic Center",
+     "land": [
+      1625.0,
+      900.0
+     ],
+     "zone": "the-plaza",
+     "arriveRoad": "Fell 2"
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "OAK 2",
+     "rect": [
+      2560.0,
+      1000.0,
+      200,
+      200
+     ],
+     "to": "BCS-CIVIC",
+     "toName": "Civic Center",
+     "land": [
+      1625.0,
+      1800.0
+     ],
+     "zone": "memorial",
+     "arriveRoad": "Oak 2"
+    }
+   ]
+  },
+  {
+   "id": "BCP-PROTECTORATE-OFFICE",
+   "name": "Protectorate Office",
+   "code": "BP36",
+   "district": "CIVIC CENTER",
+   "kind": "office",
+   "street": "BCS-CIVIC",
+   "block": "Protectorate Office",
+   "file": "places/bp36-protectorate-office.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "lobby",
+     "name": "Lobby",
+     "rect": [
+      100,
+      100,
+      900,
+      800
+     ],
+     "adjacent": [
+      "open-office",
+      "records-room"
+     ]
+    },
+    {
+     "id": "open-office",
+     "name": "Open Office",
+     "rect": [
+      1000,
+      100,
+      1700,
+      800
+     ],
+     "adjacent": [
+      "executive-suite",
+      "lobby",
+      "meeting-room"
+     ]
+    },
+    {
+     "id": "records-room",
+     "name": "Records Room",
+     "rect": [
+      100,
+      900,
+      900,
+      800
+     ],
+     "adjacent": [
+      "lobby",
+      "meeting-room"
+     ]
+    },
+    {
+     "id": "meeting-room",
+     "name": "Meeting Room",
+     "rect": [
+      1000,
+      900,
+      900,
+      800
+     ],
+     "adjacent": [
+      "executive-suite",
+      "open-office",
+      "records-room"
+     ]
+    },
+    {
+     "id": "executive-suite",
+     "name": "Executive Suite",
+     "rect": [
+      1900,
+      900,
+      800,
+      500
+     ],
+     "adjacent": [
+      "meeting-room",
+      "open-office"
+     ]
+    }
+   ],
+   "exits": [
+    "FELL 3",
+    "OAK 3"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "FELL 3",
+     "rect": [
+      0,
+      400.0,
+      200,
+      200
+     ],
+     "to": "BCS-CIVIC",
+     "toName": "Civic Center",
+     "land": [
+      2475.0,
+      900.0
+     ],
+     "zone": "lobby",
+     "arriveRoad": "Fell 3"
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "OAK 3",
+     "rect": [
+      2560.0,
+      1050.0,
+      200,
+      200
+     ],
+     "to": "BCS-CIVIC",
+     "toName": "Civic Center",
+     "land": [
+      2475.0,
+      1800.0
+     ],
+     "zone": "executive-suite",
+     "arriveRoad": "Oak 3"
+    }
+   ]
+  },
+  {
+   "id": "BCP-CITY-HALL-RUINS",
+   "name": "City Hall Ruins",
+   "code": "BP37",
+   "district": "CIVIC CENTER",
+   "kind": "ruins",
+   "street": "BCS-CIVIC",
+   "block": "City Hall Ruins",
+   "file": "places/bp37-city-hall-ruins.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "collapsed-hall",
+     "name": "Collapsed Hall",
+     "rect": [
+      100,
+      100,
+      2600,
+      600
+     ],
+     "adjacent": [
+      "broken-wing",
+      "cellar-stair",
+      "courtyard"
+     ]
+    },
+    {
+     "id": "broken-wing",
+     "name": "Broken Wing",
+     "rect": [
+      100,
+      700,
+      800,
+      1000
+     ],
+     "adjacent": [
+      "collapsed-hall",
+      "courtyard"
+     ]
+    },
+    {
+     "id": "courtyard",
+     "name": "Courtyard",
+     "rect": [
+      900,
+      700,
+      1000,
+      1000
+     ],
+     "adjacent": [
+      "broken-wing",
+      "cellar-stair",
+      "collapsed-hall"
+     ]
+    },
+    {
+     "id": "cellar-stair",
+     "name": "Cellar Stair",
+     "rect": [
+      1900,
+      700,
+      800,
+      700
+     ],
+     "adjacent": [
+      "collapsed-hall",
+      "courtyard"
+     ]
+    }
+   ],
+   "exits": [
+    "FELL 4",
+    "OAK 4"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "FELL 4",
+     "rect": [
+      0,
+      300.0,
+      200,
+      200
+     ],
+     "to": "BCS-CIVIC",
+     "toName": "Civic Center",
+     "land": [
+      3750.0,
+      900.0
+     ],
+     "zone": "collapsed-hall",
+     "arriveRoad": "Fell 4"
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "OAK 4",
+     "rect": [
+      2560.0,
+      950.0,
+      200,
+      200
+     ],
+     "to": "BCS-CIVIC",
+     "toName": "Civic Center",
+     "land": [
+      3750.0,
+      1800.0
+     ],
+     "zone": "cellar-stair",
+     "arriveRoad": "Oak 4"
+    }
+   ]
+  },
+  {
+   "id": "BCP-MARKET-ARCADE",
+   "name": "Market Arcade",
+   "code": "BP38",
+   "district": "CIVIC CENTER",
+   "kind": "market",
+   "street": "BCS-CIVIC",
+   "block": "Market Arcade",
+   "file": "places/bp38-market-arcade.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "stall-hall",
+     "name": "Stall Hall",
+     "rect": [
+      100,
+      100,
+      2600,
+      600
+     ],
+     "adjacent": [
+      "back-stores",
+      "food-court",
+      "loading-bay"
+     ]
+    },
+    {
+     "id": "food-court",
+     "name": "Food Court",
+     "rect": [
+      100,
+      700,
+      800,
+      1000
+     ],
+     "adjacent": [
+      "back-stores",
+      "stall-hall"
+     ]
+    },
+    {
+     "id": "back-stores",
+     "name": "Back Stores",
+     "rect": [
+      900,
+      700,
+      1000,
+      1000
+     ],
+     "adjacent": [
+      "food-court",
+      "loading-bay",
+      "stall-hall"
+     ]
+    },
+    {
+     "id": "loading-bay",
+     "name": "Loading Bay",
+     "rect": [
+      1900,
+      700,
+      800,
+      700
+     ],
+     "adjacent": [
+      "back-stores",
+      "stall-hall"
+     ]
+    }
+   ],
+   "exits": [
+    "OAK 2",
+    "VAN NESS SOUTH"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "OAK 2",
+     "rect": [
+      0,
+      300.0,
+      200,
+      200
+     ],
+     "to": "BCS-CIVIC",
+     "toName": "Civic Center",
+     "land": [
+      1625.0,
+      2000.0
+     ],
+     "zone": "stall-hall",
+     "arriveRoad": "Oak 2"
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "VAN NESS SOUTH",
+     "rect": [
+      2560.0,
+      950.0,
+      200,
+      200
+     ],
+     "to": "BCS-CIVIC",
+     "toName": "Civic Center",
+     "land": [
+      1100.0,
+      2400.0
+     ],
+     "zone": "loading-bay",
+     "arriveRoad": "Van Ness South"
+    }
+   ]
+  },
+  {
+   "id": "BCP-ARCHIVE-TOWER",
+   "name": "Archive Tower",
+   "code": "BP39",
+   "district": "CIVIC CENTER",
+   "kind": "tower",
+   "street": "BCS-CIVIC",
+   "block": "Archive Tower",
+   "file": "places/bp39-archive-tower.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "base-lobby",
+     "name": "Base Lobby",
+     "rect": [
+      100,
+      100,
+      800,
+      1600
+     ],
+     "adjacent": [
+      "lift-core",
+      "service-floor"
+     ]
+    },
+    {
+     "id": "lift-core",
+     "name": "Lift Core",
+     "rect": [
+      900,
+      100,
+      1000,
+      800
+     ],
+     "adjacent": [
+      "base-lobby",
+      "equipment-deck",
+      "service-floor"
+     ]
+    },
+    {
+     "id": "equipment-deck",
+     "name": "Equipment Deck",
+     "rect": [
+      1900,
+      100,
+      800,
+      800
+     ],
+     "adjacent": [
+      "lift-core",
+      "roof-access"
+     ]
+    },
+    {
+     "id": "service-floor",
+     "name": "Service Floor",
+     "rect": [
+      900,
+      900,
+      1000,
+      800
+     ],
+     "adjacent": [
+      "base-lobby",
+      "lift-core",
+      "roof-access"
+     ]
+    },
+    {
+     "id": "roof-access",
+     "name": "Roof Access",
+     "rect": [
+      1900,
+      900,
+      800,
+      500
+     ],
+     "adjacent": [
+      "equipment-deck",
+      "service-floor"
+     ]
+    }
+   ],
+   "exits": [
+    "OAK 4",
+    "POWELL SOUTH"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "OAK 4",
+     "rect": [
+      0,
+      800.0,
+      200,
+      200
+     ],
+     "to": "BCS-CIVIC",
+     "toName": "Civic Center",
+     "land": [
+      3750.0,
+      2000.0
+     ],
+     "zone": "base-lobby",
+     "arriveRoad": "Oak 4"
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "POWELL SOUTH",
+     "rect": [
+      2560.0,
+      1050.0,
+      200,
+      200
+     ],
+     "to": "BCS-CIVIC",
+     "toName": "Civic Center",
+     "land": [
+      3200.0,
+      2400.0
+     ],
+     "zone": "roof-access",
+     "arriveRoad": "Powell South"
+    }
+   ]
+  },
+  {
+   "id": "BCP-RINCON-HABS",
+   "name": "Rincon Habs",
+   "code": "BP40",
+   "district": "OLD DOWNTOWN",
+   "kind": "habs",
+   "street": "BCS-OLD-DT-S",
+   "block": "Rincon Habs",
+   "file": "places/bp40-rincon-habs.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "lobby",
+     "name": "Lobby",
+     "rect": [
+      100,
+      100,
+      900,
+      800
+     ],
+     "adjacent": [
+      "hab-units",
+      "laundry-court"
+     ]
+    },
+    {
+     "id": "hab-units",
+     "name": "Hab Units",
+     "rect": [
+      1000,
+      100,
+      1700,
+      800
+     ],
+     "adjacent": [
+      "lobby",
+      "roof-garden",
+      "stairwell-units"
+     ]
+    },
+    {
+     "id": "laundry-court",
+     "name": "Laundry Court",
+     "rect": [
+      100,
+      900,
+      900,
+      800
+     ],
+     "adjacent": [
+      "lobby",
+      "stairwell-units"
+     ]
+    },
+    {
+     "id": "stairwell-units",
+     "name": "Stairwell Units",
+     "rect": [
+      1000,
+      900,
+      900,
+      800
+     ],
+     "adjacent": [
+      "hab-units",
+      "laundry-court",
+      "roof-garden"
+     ]
+    },
+    {
+     "id": "roof-garden",
+     "name": "Roof Garden",
+     "rect": [
+      1900,
+      900,
+      800,
+      500
+     ],
+     "adjacent": [
+      "hab-units",
+      "stairwell-units"
+     ]
+    }
+   ],
+   "exits": [
+    "FELL CENTRE",
+    "THIRD NORTH"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "FELL CENTRE",
+     "rect": [
+      0,
+      400.0,
+      200,
+      200
+     ],
+     "to": "BCS-OLD-DT-S",
+     "toName": "Old Downtown \u00b7 South",
+     "land": [
+      1625.0,
+      700.0
+     ],
+     "zone": "lobby",
+     "arriveRoad": "Fell Centre"
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "THIRD NORTH",
+     "rect": [
+      2560.0,
+      1050.0,
+      200,
+      200
+     ],
+     "to": "BCS-OLD-DT-S",
+     "toName": "Old Downtown \u00b7 South",
+     "land": [
+      1100.0,
+      300.0
+     ],
+     "zone": "roof-garden",
+     "arriveRoad": "Third North"
+    }
+   ]
+  },
+  {
+   "id": "BCP-STACK-BROKERS",
+   "name": "Stack Brokers",
+   "code": "BP41",
+   "district": "OLD DOWNTOWN",
+   "kind": "blackclinic",
+   "street": "BCS-OLD-DT-S",
+   "block": "Stack Brokers",
+   "file": "places/bp41-stack-brokers.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "front-counter",
+     "name": "Front Counter",
+     "rect": [
+      100,
+      100,
+      900,
+      800
+     ],
+     "adjacent": [
+      "stack-vault",
+      "waiting-room"
+     ]
+    },
+    {
+     "id": "stack-vault",
+     "name": "Stack Vault",
+     "rect": [
+      1000,
+      100,
+      1700,
+      800
+     ],
+     "adjacent": [
+      "back-room",
+      "exit-alley",
+      "front-counter"
+     ]
+    },
+    {
+     "id": "waiting-room",
+     "name": "Waiting Room",
+     "rect": [
+      100,
+      900,
+      900,
+      800
+     ],
+     "adjacent": [
+      "back-room",
+      "front-counter"
+     ]
+    },
+    {
+     "id": "back-room",
+     "name": "Back Room",
+     "rect": [
+      1000,
+      900,
+      900,
+      800
+     ],
+     "adjacent": [
+      "exit-alley",
+      "stack-vault",
+      "waiting-room"
+     ]
+    },
+    {
+     "id": "exit-alley",
+     "name": "Exit Alley",
+     "rect": [
+      1900,
+      900,
+      800,
+      500
+     ],
+     "adjacent": [
+      "back-room",
+      "stack-vault"
+     ]
+    }
+   ],
+   "exits": [
+    "FELL EAST",
+    "BATTERY NORTH"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "FELL EAST",
+     "rect": [
+      0,
+      400.0,
+      200,
+      200
+     ],
+     "to": "BCS-OLD-DT-S",
+     "toName": "Old Downtown \u00b7 South",
+     "land": [
+      2475.0,
+      700.0
+     ],
+     "zone": "front-counter",
+     "arriveRoad": "Fell East"
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "BATTERY NORTH",
+     "rect": [
+      2560.0,
+      1050.0,
+      200,
+      200
+     ],
+     "to": "BCS-OLD-DT-S",
+     "toName": "Old Downtown \u00b7 South",
+     "land": [
+      3000.0,
+      300.0
+     ],
+     "zone": "exit-alley",
+     "arriveRoad": "Battery North"
+    }
+   ]
+  },
+  {
+   "id": "BCP-SALESFORCE-HULK",
+   "name": "Salesforce Hulk",
+   "code": "BP42",
+   "district": "OLD DOWNTOWN",
+   "kind": "deadtower",
+   "street": "BCS-OLD-DT-S",
+   "block": "Salesforce Hulk",
+   "file": "places/bp42-salesforce-hulk.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "gutted-lobby",
+     "name": "Gutted Lobby",
+     "rect": [
+      100,
+      100,
+      800,
+      1600
+     ],
+     "adjacent": [
+      "collapse-zone",
+      "dead-lift-core"
+     ]
+    },
+    {
+     "id": "dead-lift-core",
+     "name": "Dead Lift Core",
+     "rect": [
+      900,
+      100,
+      1000,
+      800
+     ],
+     "adjacent": [
+      "collapse-zone",
+      "gutted-lobby",
+      "squat-floor"
+     ]
+    },
+    {
+     "id": "squat-floor",
+     "name": "Squat Floor",
+     "rect": [
+      1900,
+      100,
+      800,
+      800
+     ],
+     "adjacent": [
+      "dead-lift-core",
+      "open-roof"
+     ]
+    },
+    {
+     "id": "collapse-zone",
+     "name": "Collapse Zone",
+     "rect": [
+      900,
+      900,
+      1000,
+      800
+     ],
+     "adjacent": [
+      "dead-lift-core",
+      "gutted-lobby",
+      "open-roof"
+     ]
+    },
+    {
+     "id": "open-roof",
+     "name": "Open Roof",
+     "rect": [
+      1900,
+      900,
+      800,
+      500
+     ],
+     "adjacent": [
+      "collapse-zone",
+      "squat-floor"
+     ]
+    }
+   ],
+   "exits": [
+    "FELL WEST",
+    "OAK WEST"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "FELL WEST",
+     "rect": [
+      0,
+      800.0,
+      200,
+      200
+     ],
+     "to": "BCS-OLD-DT-S",
+     "toName": "Old Downtown \u00b7 South",
+     "land": [
+      400.0,
+      900.0
+     ],
+     "zone": "gutted-lobby",
+     "arriveRoad": "Fell West"
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "OAK WEST",
+     "rect": [
+      2560.0,
+      1050.0,
+      200,
+      200
+     ],
+     "to": "BCS-OLD-DT-S",
+     "toName": "Old Downtown \u00b7 South",
+     "land": [
+      400.0,
+      1800.0
+     ],
+     "zone": "open-roof",
+     "arriveRoad": "Oak West"
+    }
+   ]
+  },
+  {
+   "id": "BCP-BAY-BRIDGE-RAMP",
+   "name": "Bay Bridge Ramp",
+   "code": "BP43",
+   "district": "OLD DOWNTOWN",
+   "kind": "ramp",
+   "street": "BCS-OLD-DT-S",
+   "block": "Bay Bridge Ramp",
+   "file": "places/bp43-bay-bridge-ramp.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "on-ramp",
+     "name": "On-Ramp",
+     "rect": [
+      100,
+      100,
+      1800,
+      1100
+     ],
+     "adjacent": [
+      "maintenance-bay",
+      "signal-box",
+      "toll-booths",
+      "underpass-camp"
+     ]
+    },
+    {
+     "id": "toll-booths",
+     "name": "Toll Booths",
+     "rect": [
+      1900,
+      100,
+      800,
+      600
+     ],
+     "adjacent": [
+      "maintenance-bay",
+      "on-ramp"
+     ]
+    },
+    {
+     "id": "maintenance-bay",
+     "name": "Maintenance Bay",
+     "rect": [
+      1900,
+      700,
+      800,
+      700
+     ],
+     "adjacent": [
+      "on-ramp",
+      "signal-box",
+      "toll-booths"
+     ]
+    },
+    {
+     "id": "underpass-camp",
+     "name": "Underpass Camp",
+     "rect": [
+      100,
+      1200,
+      1000,
+      500
+     ],
+     "adjacent": [
+      "on-ramp",
+      "signal-box"
+     ]
+    },
+    {
+     "id": "signal-box",
+     "name": "Signal Box",
+     "rect": [
+      1100,
+      1200,
+      800,
+      500
+     ],
+     "adjacent": [
+      "maintenance-bay",
+      "on-ramp",
+      "underpass-camp"
+     ]
+    }
+   ],
+   "exits": [
+    "FELL EAST",
+    "OAK EAST"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "FELL EAST",
+     "rect": [
+      0,
+      550.0,
+      200,
+      200
+     ],
+     "to": "BCS-OLD-DT-S",
+     "toName": "Old Downtown \u00b7 South",
+     "land": [
+      2475.0,
+      900.0
+     ],
+     "zone": "on-ramp",
+     "arriveRoad": "Fell East"
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "OAK EAST",
+     "rect": [
+      2560.0,
+      950.0,
+      200,
+      200
+     ],
+     "to": "BCS-OLD-DT-S",
+     "toName": "Old Downtown \u00b7 South",
+     "land": [
+      2475.0,
+      1800.0
+     ],
+     "zone": "maintenance-bay",
+     "arriveRoad": "Oak East"
+    }
+   ]
+  },
+  {
+   "id": "BCP-MAGLEV-STATION",
+   "name": "Maglev Station",
+   "code": "BP44",
+   "district": "OLD DOWNTOWN",
+   "kind": "station",
+   "street": "BCS-OLD-DT-S",
+   "block": "Maglev Station",
+   "file": "places/bp44-maglev-station.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "concourse",
+     "name": "Concourse",
+     "rect": [
+      100,
+      100,
+      2600,
+      600
+     ],
+     "adjacent": [
+      "maintenance",
+      "platform",
+      "ticket-hall"
+     ]
+    },
+    {
+     "id": "ticket-hall",
+     "name": "Ticket Hall",
+     "rect": [
+      100,
+      700,
+      800,
+      1000
+     ],
+     "adjacent": [
+      "concourse",
+      "platform"
+     ]
+    },
+    {
+     "id": "platform",
+     "name": "Platform",
+     "rect": [
+      900,
+      700,
+      1000,
+      1000
+     ],
+     "adjacent": [
+      "concourse",
+      "maintenance",
+      "ticket-hall"
+     ]
+    },
+    {
+     "id": "maintenance",
+     "name": "Maintenance",
+     "rect": [
+      1900,
+      700,
+      800,
+      700
+     ],
+     "adjacent": [
+      "concourse",
+      "platform"
+     ]
+    }
+   ],
+   "exits": [
+    "OAK EAST"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "OAK EAST",
+     "rect": [
+      0,
+      300.0,
+      200,
+      200
+     ],
+     "to": "BCS-OLD-DT-S",
+     "toName": "Old Downtown \u00b7 South",
+     "land": [
+      2475.0,
+      2000.0
+     ],
+     "zone": "concourse",
+     "arriveRoad": "Oak East"
+    }
+   ]
+  },
+  {
+   "id": "BCP-RESERVOIR",
+   "name": "Reservoir",
+   "code": "BP45",
+   "district": "TWIN PEAKS",
+   "kind": "reservoir",
+   "street": "BCS-TWIN-PEAKS",
+   "block": "Reservoir",
+   "file": "places/bp45-reservoir.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "the-reservoir",
+     "name": "The Reservoir",
+     "rect": [
+      100,
+      100,
+      1400,
+      1600
+     ],
+     "adjacent": [
+      "dam-walk",
+      "pump-house"
+     ]
+    },
+    {
+     "id": "pump-house",
+     "name": "Pump House",
+     "rect": [
+      1500,
+      100,
+      1200,
+      700
+     ],
+     "adjacent": [
+      "dam-walk",
+      "the-reservoir"
+     ]
+    },
+    {
+     "id": "dam-walk",
+     "name": "Dam Walk",
+     "rect": [
+      1500,
+      800,
+      1200,
+      600
+     ],
+     "adjacent": [
+      "pump-house",
+      "the-reservoir"
+     ]
+    }
+   ],
+   "exits": [
+    "STANYAN NORTH"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "STANYAN NORTH",
+     "rect": [
+      0,
+      800.0,
+      200,
+      200
+     ],
+     "to": "BCS-TWIN-PEAKS",
+     "toName": "Twin Peaks Switchbacks",
+     "land": [
+      3000.0,
+      425.0
+     ],
+     "zone": "the-reservoir",
+     "arriveRoad": "Stanyan North"
+    }
+   ]
+  },
+  {
+   "id": "BCP-SUTRO-MAST",
+   "name": "Sutro Mast",
+   "code": "BP46",
+   "district": "TWIN PEAKS",
+   "kind": "tower",
+   "street": "BCS-TWIN-PEAKS",
+   "block": "Sutro Mast",
+   "file": "places/bp46-sutro-mast.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "base-lobby",
+     "name": "Base Lobby",
+     "rect": [
+      100,
+      100,
+      800,
+      1600
+     ],
+     "adjacent": [
+      "lift-core",
+      "service-floor"
+     ]
+    },
+    {
+     "id": "lift-core",
+     "name": "Lift Core",
+     "rect": [
+      900,
+      100,
+      1000,
+      800
+     ],
+     "adjacent": [
+      "base-lobby",
+      "equipment-deck",
+      "service-floor"
+     ]
+    },
+    {
+     "id": "equipment-deck",
+     "name": "Equipment Deck",
+     "rect": [
+      1900,
+      100,
+      800,
+      800
+     ],
+     "adjacent": [
+      "lift-core",
+      "roof-access"
+     ]
+    },
+    {
+     "id": "service-floor",
+     "name": "Service Floor",
+     "rect": [
+      900,
+      900,
+      1000,
+      800
+     ],
+     "adjacent": [
+      "base-lobby",
+      "lift-core",
+      "roof-access"
+     ]
+    },
+    {
+     "id": "roof-access",
+     "name": "Roof Access",
+     "rect": [
+      1900,
+      900,
+      800,
+      500
+     ],
+     "adjacent": [
+      "equipment-deck",
+      "service-floor"
+     ]
+    }
+   ],
+   "exits": [
+    "STANYAN NORTH"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "STANYAN NORTH",
+     "rect": [
+      0,
+      800.0,
+      200,
+      200
+     ],
+     "to": "BCS-TWIN-PEAKS",
+     "toName": "Twin Peaks Switchbacks",
+     "land": [
+      3200.0,
+      425.0
+     ],
+     "zone": "base-lobby",
+     "arriveRoad": "Stanyan North"
+    }
+   ]
+  },
+  {
+   "id": "BCP-HILL-HABS",
+   "name": "Hill Habs",
+   "code": "BP47",
+   "district": "TWIN PEAKS",
+   "kind": "habs",
+   "street": "BCS-TWIN-PEAKS",
+   "block": "Hill Habs",
+   "file": "places/bp47-hill-habs.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "lobby",
+     "name": "Lobby",
+     "rect": [
+      100,
+      100,
+      900,
+      800
+     ],
+     "adjacent": [
+      "hab-units",
+      "laundry-court"
+     ]
+    },
+    {
+     "id": "hab-units",
+     "name": "Hab Units",
+     "rect": [
+      1000,
+      100,
+      1700,
+      800
+     ],
+     "adjacent": [
+      "lobby",
+      "roof-garden",
+      "stairwell-units"
+     ]
+    },
+    {
+     "id": "laundry-court",
+     "name": "Laundry Court",
+     "rect": [
+      100,
+      900,
+      900,
+      800
+     ],
+     "adjacent": [
+      "lobby",
+      "stairwell-units"
+     ]
+    },
+    {
+     "id": "stairwell-units",
+     "name": "Stairwell Units",
+     "rect": [
+      1000,
+      900,
+      900,
+      800
+     ],
+     "adjacent": [
+      "hab-units",
+      "laundry-court",
+      "roof-garden"
+     ]
+    },
+    {
+     "id": "roof-garden",
+     "name": "Roof Garden",
+     "rect": [
+      1900,
+      900,
+      800,
+      500
+     ],
+     "adjacent": [
+      "hab-units",
+      "stairwell-units"
+     ]
+    }
+   ],
+   "exits": [
+    "STANYAN SOUTH"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "STANYAN SOUTH",
+     "rect": [
+      0,
+      400.0,
+      200,
+      200
+     ],
+     "to": "BCS-TWIN-PEAKS",
+     "toName": "Twin Peaks Switchbacks",
+     "land": [
+      3000.0,
+      1275.0
+     ],
+     "zone": "lobby",
+     "arriveRoad": "Stanyan South"
+    }
+   ]
+  },
+  {
+   "id": "BCP-PEAK-OVERLOOK",
+   "name": "Peak Overlook",
+   "code": "BP48",
+   "district": "TWIN PEAKS",
+   "kind": "plaza",
+   "street": "BCS-TWIN-PEAKS",
+   "block": "Peak Overlook",
+   "file": "places/bp48-peak-overlook.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "the-plaza",
+     "name": "The Plaza",
+     "rect": [
+      100,
+      100,
+      1400,
+      1600
+     ],
+     "adjacent": [
+      "colonnade",
+      "memorial"
+     ]
+    },
+    {
+     "id": "colonnade",
+     "name": "Colonnade",
+     "rect": [
+      1500,
+      100,
+      1200,
+      700
+     ],
+     "adjacent": [
+      "memorial",
+      "the-plaza"
+     ]
+    },
+    {
+     "id": "memorial",
+     "name": "Memorial",
+     "rect": [
+      1500,
+      800,
+      1200,
+      600
+     ],
+     "adjacent": [
+      "colonnade",
+      "the-plaza"
+     ]
+    }
+   ],
+   "exits": [
+    "CESAR CHAVEZ ST",
+    "STANYAN SOUTH"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "CESAR CHAVEZ ST",
+     "rect": [
+      0,
+      800.0,
+      200,
+      200
+     ],
+     "to": "BCS-TWIN-PEAKS",
+     "toName": "Twin Peaks Switchbacks",
+     "land": [
+      3750.0,
+      1800.0
+     ],
+     "zone": "the-plaza",
+     "arriveRoad": "Cesar Chavez St"
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "STANYAN SOUTH",
+     "rect": [
+      2560.0,
+      1000.0,
+      200,
+      200
+     ],
+     "to": "BCS-TWIN-PEAKS",
+     "toName": "Twin Peaks Switchbacks",
+     "land": [
+      3200.0,
+      1275.0
+     ],
+     "zone": "memorial",
+     "arriveRoad": "Stanyan South"
+    }
+   ]
+  },
+  {
+   "id": "BCP-DOLORES-CHAPEL",
+   "name": "Dolores Chapel",
+   "code": "BP49",
+   "district": "MISSION",
+   "kind": "chapel",
+   "street": "BCS-MISSION",
+   "block": "Dolores Chapel",
+   "file": "places/bp49-dolores-chapel.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "the-nave",
+     "name": "The Nave",
+     "rect": [
+      100,
+      100,
+      2600,
+      600
+     ],
+     "adjacent": [
+      "altar",
+      "crypt-stair",
+      "vestry"
+     ]
+    },
+    {
+     "id": "vestry",
+     "name": "Vestry",
+     "rect": [
+      100,
+      700,
+      800,
+      1000
+     ],
+     "adjacent": [
+      "altar",
+      "the-nave"
+     ]
+    },
+    {
+     "id": "altar",
+     "name": "Altar",
+     "rect": [
+      900,
+      700,
+      1000,
+      1000
+     ],
+     "adjacent": [
+      "crypt-stair",
+      "the-nave",
+      "vestry"
+     ]
+    },
+    {
+     "id": "crypt-stair",
+     "name": "Crypt Stair",
+     "rect": [
+      1900,
+      700,
+      800,
+      700
+     ],
+     "adjacent": [
+      "altar",
+      "the-nave"
+     ]
+    }
+   ],
+   "exits": [
+    "16TH WEST",
+    "CESAR CHAVEZ 2"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "16TH WEST",
+     "rect": [
+      0,
+      300.0,
+      200,
+      200
+     ],
+     "to": "BCS-MISSION",
+     "toName": "Mission Street \u00b7 AI Hotels",
+     "land": [
+      1625.0,
+      900.0
+     ],
+     "zone": "the-nave",
+     "arriveRoad": "16th West"
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "CESAR CHAVEZ 2",
+     "rect": [
+      2560.0,
+      950.0,
+      200,
+      200
+     ],
+     "to": "BCS-MISSION",
+     "toName": "Mission Street \u00b7 AI Hotels",
+     "land": [
+      1625.0,
+      1800.0
+     ],
+     "zone": "crypt-stair",
+     "arriveRoad": "Cesar Chavez 2"
+    }
+   ]
+  },
+  {
+   "id": "BCP-SCRAPYARD",
+   "name": "Scrapyard",
+   "code": "BP50",
+   "district": "LICKTOWN \u00b7 POTRERO",
+   "kind": "scrap",
+   "street": "BCS-LICKTOWN",
+   "block": "Scrapyard",
+   "file": "places/bp50-scrapyard.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "scrap-mountains",
+     "name": "Scrap Mountains",
+     "rect": [
+      100,
+      100,
+      1800,
+      1100
+     ],
+     "adjacent": [
+      "crusher",
+      "dogs-run",
+      "salvage-shed",
+      "weigh-office"
+     ]
+    },
+    {
+     "id": "weigh-office",
+     "name": "Weigh Office",
+     "rect": [
+      1900,
+      100,
+      800,
+      600
+     ],
+     "adjacent": [
+      "crusher",
+      "scrap-mountains"
+     ]
+    },
+    {
+     "id": "crusher",
+     "name": "Crusher",
+     "rect": [
+      1900,
+      700,
+      800,
+      700
+     ],
+     "adjacent": [
+      "dogs-run",
+      "scrap-mountains",
+      "weigh-office"
+     ]
+    },
+    {
+     "id": "salvage-shed",
+     "name": "Salvage Shed",
+     "rect": [
+      100,
+      1200,
+      1000,
+      500
+     ],
+     "adjacent": [
+      "dogs-run",
+      "scrap-mountains"
+     ]
+    },
+    {
+     "id": "dogs-run",
+     "name": "Dogs' Run",
+     "rect": [
+      1100,
+      1200,
+      800,
+      500
+     ],
+     "adjacent": [
+      "crusher",
+      "salvage-shed",
+      "scrap-mountains"
+     ]
+    }
+   ],
+   "exits": [
+    "16TH 4",
+    "POWELL NORTH"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "16TH 4",
+     "rect": [
+      0,
+      550.0,
+      200,
+      200
+     ],
+     "to": "BCS-LICKTOWN",
+     "toName": "Licktown",
+     "land": [
+      3750.0,
+      700.0
+     ],
+     "zone": "scrap-mountains",
+     "arriveRoad": "16th 4"
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "POWELL NORTH",
+     "rect": [
+      2560.0,
+      950.0,
+      200,
+      200
+     ],
+     "to": "BCS-LICKTOWN",
+     "toName": "Licktown",
+     "land": [
+      3200.0,
+      300.0
+     ],
+     "zone": "crusher",
+     "arriveRoad": "Powell North"
+    }
+   ]
+  },
+  {
+   "id": "BCP-POTRERO-HILL",
+   "name": "Potrero Hill",
+   "code": "BP51",
+   "district": "LICKTOWN \u00b7 POTRERO",
+   "kind": "camp",
+   "street": "BCS-LICKTOWN",
+   "block": "Potrero Hill",
+   "file": "places/bp51-potrero-hill.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "the-camp",
+     "name": "The Camp",
+     "rect": [
+      100,
+      100,
+      1400,
+      1600
+     ],
+     "adjacent": [
+      "lookout",
+      "water-point"
+     ]
+    },
+    {
+     "id": "water-point",
+     "name": "Water Point",
+     "rect": [
+      1500,
+      100,
+      1200,
+      700
+     ],
+     "adjacent": [
+      "lookout",
+      "the-camp"
+     ]
+    },
+    {
+     "id": "lookout",
+     "name": "Lookout",
+     "rect": [
+      1500,
+      800,
+      1200,
+      600
+     ],
+     "adjacent": [
+      "the-camp",
+      "water-point"
+     ]
+    }
+   ],
+   "exits": [
+    "16TH 1",
+    "CESAR CHAVEZ WEST"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "16TH 1",
+     "rect": [
+      0,
+      800.0,
+      200,
+      200
+     ],
+     "to": "BCS-LICKTOWN",
+     "toName": "Licktown",
+     "land": [
+      400.0,
+      900.0
+     ],
+     "zone": "the-camp",
+     "arriveRoad": "16th 1"
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "CESAR CHAVEZ WEST",
+     "rect": [
+      2560.0,
+      1000.0,
+      200,
+      200
+     ],
+     "to": "BCS-LICKTOWN",
+     "toName": "Licktown",
+     "land": [
+      400.0,
+      1800.0
+     ],
+     "zone": "lookout",
+     "arriveRoad": "Cesar Chavez West"
+    }
+   ]
+  },
+  {
+   "id": "BCP-CHOP-SHOPS",
+   "name": "Chop Shops",
+   "code": "BP52",
+   "district": "LICKTOWN \u00b7 POTRERO",
+   "kind": "garage",
+   "street": "BCS-LICKTOWN",
+   "block": "Chop Shops",
+   "file": "places/bp52-chop-shops.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "workshop-floor",
+     "name": "Workshop Floor",
+     "rect": [
+      100,
+      100,
+      1800,
+      1100
+     ],
+     "adjacent": [
+      "back-lot",
+      "office",
+      "paint-booth",
+      "parts-racks"
+     ]
+    },
+    {
+     "id": "office",
+     "name": "Office",
+     "rect": [
+      1900,
+      100,
+      800,
+      600
+     ],
+     "adjacent": [
+      "paint-booth",
+      "workshop-floor"
+     ]
+    },
+    {
+     "id": "paint-booth",
+     "name": "Paint Booth",
+     "rect": [
+      1900,
+      700,
+      800,
+      700
+     ],
+     "adjacent": [
+      "back-lot",
+      "office",
+      "workshop-floor"
+     ]
+    },
+    {
+     "id": "parts-racks",
+     "name": "Parts Racks",
+     "rect": [
+      100,
+      1200,
+      1000,
+      500
+     ],
+     "adjacent": [
+      "back-lot",
+      "workshop-floor"
+     ]
+    },
+    {
+     "id": "back-lot",
+     "name": "Back Lot",
+     "rect": [
+      1100,
+      1200,
+      800,
+      500
+     ],
+     "adjacent": [
+      "paint-booth",
+      "parts-racks",
+      "workshop-floor"
+     ]
+    }
+   ],
+   "exits": [
+    "16TH 2",
+    "CESAR CHAVEZ CENTRE"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "16TH 2",
+     "rect": [
+      0,
+      550.0,
+      200,
+      200
+     ],
+     "to": "BCS-LICKTOWN",
+     "toName": "Licktown",
+     "land": [
+      1625.0,
+      900.0
+     ],
+     "zone": "workshop-floor",
+     "arriveRoad": "16th 2"
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "CESAR CHAVEZ CENTRE",
+     "rect": [
+      2560.0,
+      950.0,
+      200,
+      200
+     ],
+     "to": "BCS-LICKTOWN",
+     "toName": "Licktown",
+     "land": [
+      1625.0,
+      1800.0
+     ],
+     "zone": "paint-booth",
+     "arriveRoad": "Cesar Chavez Centre"
+    }
+   ]
+  },
+  {
+   "id": "BCP-STACK-DEALERS",
+   "name": "Stack Dealers",
+   "code": "BP53",
+   "district": "LICKTOWN \u00b7 POTRERO",
+   "kind": "blackclinic",
+   "street": "BCS-LICKTOWN",
+   "block": "Stack Dealers",
+   "file": "places/bp53-stack-dealers.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "front-counter",
+     "name": "Front Counter",
+     "rect": [
+      100,
+      100,
+      900,
+      800
+     ],
+     "adjacent": [
+      "stack-vault",
+      "waiting-room"
+     ]
+    },
+    {
+     "id": "stack-vault",
+     "name": "Stack Vault",
+     "rect": [
+      1000,
+      100,
+      1700,
+      800
+     ],
+     "adjacent": [
+      "back-room",
+      "exit-alley",
+      "front-counter"
+     ]
+    },
+    {
+     "id": "waiting-room",
+     "name": "Waiting Room",
+     "rect": [
+      100,
+      900,
+      900,
+      800
+     ],
+     "adjacent": [
+      "back-room",
+      "front-counter"
+     ]
+    },
+    {
+     "id": "back-room",
+     "name": "Back Room",
+     "rect": [
+      1000,
+      900,
+      900,
+      800
+     ],
+     "adjacent": [
+      "exit-alley",
+      "stack-vault",
+      "waiting-room"
+     ]
+    },
+    {
+     "id": "exit-alley",
+     "name": "Exit Alley",
+     "rect": [
+      1900,
+      900,
+      800,
+      500
+     ],
+     "adjacent": [
+      "back-room",
+      "stack-vault"
+     ]
+    }
+   ],
+   "exits": [
+    "16TH 3",
+    "CESAR CHAVEZ EAST"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "16TH 3",
+     "rect": [
+      0,
+      400.0,
+      200,
+      200
+     ],
+     "to": "BCS-LICKTOWN",
+     "toName": "Licktown",
+     "land": [
+      2475.0,
+      900.0
+     ],
+     "zone": "front-counter",
+     "arriveRoad": "16th 3"
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "CESAR CHAVEZ EAST",
+     "rect": [
+      2560.0,
+      1050.0,
+      200,
+      200
+     ],
+     "to": "BCS-LICKTOWN",
+     "toName": "Licktown",
+     "land": [
+      2475.0,
+      1800.0
+     ],
+     "zone": "exit-alley",
+     "arriveRoad": "Cesar Chavez East"
+    }
+   ]
+  },
+  {
+   "id": "BCP-CONTAINER-HABS",
+   "name": "Container Habs",
+   "code": "BP54",
+   "district": "LICKTOWN \u00b7 POTRERO",
+   "kind": "habs",
+   "street": "BCS-LICKTOWN",
+   "block": "Container Habs",
+   "file": "places/bp54-container-habs.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "lobby",
+     "name": "Lobby",
+     "rect": [
+      100,
+      100,
+      900,
+      800
+     ],
+     "adjacent": [
+      "hab-units",
+      "laundry-court"
+     ]
+    },
+    {
+     "id": "hab-units",
+     "name": "Hab Units",
+     "rect": [
+      1000,
+      100,
+      1700,
+      800
+     ],
+     "adjacent": [
+      "lobby",
+      "roof-garden",
+      "stairwell-units"
+     ]
+    },
+    {
+     "id": "laundry-court",
+     "name": "Laundry Court",
+     "rect": [
+      100,
+      900,
+      900,
+      800
+     ],
+     "adjacent": [
+      "lobby",
+      "stairwell-units"
+     ]
+    },
+    {
+     "id": "stairwell-units",
+     "name": "Stairwell Units",
+     "rect": [
+      1000,
+      900,
+      900,
+      800
+     ],
+     "adjacent": [
+      "hab-units",
+      "laundry-court",
+      "roof-garden"
+     ]
+    },
+    {
+     "id": "roof-garden",
+     "name": "Roof Garden",
+     "rect": [
+      1900,
+      900,
+      800,
+      500
+     ],
+     "adjacent": [
+      "hab-units",
+      "stairwell-units"
+     ]
+    }
+   ],
+   "exits": [
+    "CESAR CHAVEZ WEST"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "CESAR CHAVEZ WEST",
+     "rect": [
+      0,
+      400.0,
+      200,
+      200
+     ],
+     "to": "BCS-LICKTOWN",
+     "toName": "Licktown",
+     "land": [
+      400.0,
+      2000.0
+     ],
+     "zone": "lobby",
+     "arriveRoad": "Cesar Chavez West"
+    }
+   ]
+  },
+  {
+   "id": "BCP-CRANE-YARD",
+   "name": "Crane Yard",
+   "code": "BP55",
+   "district": "DOGPATCH",
+   "kind": "yard",
+   "street": "BCS-DOGPATCH",
+   "block": "Crane Yard",
+   "file": "places/bp55-crane-yard.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "yard",
+     "name": "Yard",
+     "rect": [
+      100,
+      100,
+      1800,
+      1100
+     ],
+     "adjacent": [
+      "fuel-bay",
+      "gatehouse",
+      "parts-store",
+      "workshop"
+     ]
+    },
+    {
+     "id": "gatehouse",
+     "name": "Gatehouse",
+     "rect": [
+      1900,
+      100,
+      800,
+      600
+     ],
+     "adjacent": [
+      "workshop",
+      "yard"
+     ]
+    },
+    {
+     "id": "workshop",
+     "name": "Workshop",
+     "rect": [
+      1900,
+      700,
+      800,
+      700
+     ],
+     "adjacent": [
+      "gatehouse",
+      "parts-store",
+      "yard"
+     ]
+    },
+    {
+     "id": "fuel-bay",
+     "name": "Fuel Bay",
+     "rect": [
+      100,
+      1200,
+      1000,
+      500
+     ],
+     "adjacent": [
+      "parts-store",
+      "yard"
+     ]
+    },
+    {
+     "id": "parts-store",
+     "name": "Parts Store",
+     "rect": [
+      1100,
+      1200,
+      800,
+      500
+     ],
+     "adjacent": [
+      "fuel-bay",
+      "workshop",
+      "yard"
+     ]
+    }
+   ],
+   "exits": [
+    "16TH WEST"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "16TH WEST",
+     "rect": [
+      0,
+      550.0,
+      200,
+      200
+     ],
+     "to": "BCS-DOGPATCH",
+     "toName": "Dogpatch Docks",
+     "land": [
+      400.0,
+      900.0
+     ],
+     "zone": "yard",
+     "arriveRoad": "16th West"
+    }
+   ]
+  },
+  {
+   "id": "BCP-POWER-STATION",
+   "name": "Power Station",
+   "code": "BP56",
+   "district": "DOGPATCH",
+   "kind": "industrial",
+   "street": "BCS-DOGPATCH",
+   "block": "Power Station",
+   "file": "places/bp56-power-station.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "machine-hall",
+     "name": "Machine Hall",
+     "rect": [
+      100,
+      100,
+      2600,
+      600
+     ],
+     "adjacent": [
+      "control-room",
+      "stores",
+      "switchgear"
+     ]
+    },
+    {
+     "id": "control-room",
+     "name": "Control Room",
+     "rect": [
+      100,
+      700,
+      800,
+      1000
+     ],
+     "adjacent": [
+      "machine-hall",
+      "switchgear"
+     ]
+    },
+    {
+     "id": "switchgear",
+     "name": "Switchgear",
+     "rect": [
+      900,
+      700,
+      1000,
+      1000
+     ],
+     "adjacent": [
+      "control-room",
+      "machine-hall",
+      "stores"
+     ]
+    },
+    {
+     "id": "stores",
+     "name": "Stores",
+     "rect": [
+      1900,
+      700,
+      800,
+      700
+     ],
+     "adjacent": [
+      "machine-hall",
+      "switchgear"
+     ]
+    }
+   ],
+   "exits": [
+    "16TH EAST",
+    "DOCK ROAD NORTH"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "16TH EAST",
+     "rect": [
+      0,
+      300.0,
+      200,
+      200
+     ],
+     "to": "BCS-DOGPATCH",
+     "toName": "Dogpatch Docks",
+     "land": [
+      2475.0,
+      900.0
+     ],
+     "zone": "machine-hall",
+     "arriveRoad": "16th East"
+    },
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "DOCK ROAD NORTH",
+     "rect": [
+      2560.0,
+      950.0,
+      200,
+      200
+     ],
+     "to": "BCS-DOGPATCH",
+     "toName": "Dogpatch Docks",
+     "land": [
+      3000.0,
+      1350.0
+     ],
+     "zone": "stores",
+     "arriveRoad": "Dock Road North"
+    }
+   ]
+  },
+  {
+   "id": "BCP-BAY-DAM-ACCESS",
+   "name": "Bay Dam Access",
+   "code": "BP57",
+   "district": "DOGPATCH",
+   "kind": "pumps",
+   "street": "BCS-DOGPATCH",
+   "block": "Bay Dam Access",
+   "file": "places/bp57-bay-dam-access.webp",
+   "width": 2800,
+   "height": 1800,
+   "gridSize": 100,
+   "zones": [
+    {
+     "id": "pump-hall",
+     "name": "Pump Hall",
+     "rect": [
+      100,
+      100,
+      2600,
+      600
+     ],
+     "adjacent": [
+      "control-room",
+      "sluice-gallery",
+      "valve-room"
+     ]
+    },
+    {
+     "id": "control-room",
+     "name": "Control Room",
+     "rect": [
+      100,
+      700,
+      800,
+      1000
+     ],
+     "adjacent": [
+      "pump-hall",
+      "sluice-gallery"
+     ]
+    },
+    {
+     "id": "sluice-gallery",
+     "name": "Sluice Gallery",
+     "rect": [
+      900,
+      700,
+      1000,
+      1000
+     ],
+     "adjacent": [
+      "control-room",
+      "pump-hall",
+      "valve-room"
+     ]
+    },
+    {
+     "id": "valve-room",
+     "name": "Valve Room",
+     "rect": [
+      1900,
+      700,
+      800,
+      700
+     ],
+     "adjacent": [
+      "pump-hall",
+      "sluice-gallery"
+     ]
+    }
+   ],
+   "exits": [
+    "16TH & THIRD"
+   ],
+   "links": [
+    {
+     "edge": null,
+     "kind": "exit",
+     "key": "16TH & THIRD",
+     "rect": [
+      0,
+      300.0,
+      200,
+      200
+     ],
+     "to": "BCS-DOGPATCH",
+     "toName": "Dogpatch Docks",
+     "land": [
+      900,
+      900
+     ],
+     "zone": "pump-hall",
+     "arriveRoad": "16th & Third"
+    }
+   ]
+  }
+ ]
+}

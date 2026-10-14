@@ -112,14 +112,15 @@
     }
    ],
    "exits": [
-    "OLD DOWNTOWN \u00b7 SOUTH",
-    "DOGPATCH DOCKS",
+    "FELL CENTRE",
+    "16TH EAST",
     "RAIN ALLEY"
    ],
    "links": [
     {
      "edge": null,
      "kind": "exit",
+     "key": "FELL CENTRE",
      "rect": [
       0,
       550.0,
@@ -136,6 +137,7 @@
     {
      "edge": null,
      "kind": "exit",
+     "key": "16TH EAST",
      "rect": [
       2560.0,
       550.0,
@@ -152,6 +154,7 @@
     {
      "edge": null,
      "kind": "exit",
+     "key": "RAIN ALLEY",
      "rect": [
       1050.0,
       1500.0,
@@ -264,13 +267,14 @@
    ],
    "exits": [
     "THE NEON STRIP",
-    "MISSION STREET \u00b7 AI HOTELS",
-    "MISSION STREET \u00b7 AI HOTELS"
+    "CESAR CHAVEZ 1",
+    "CESAR CHAVEZ 3"
    ],
    "links": [
     {
      "edge": null,
      "kind": "exit",
+     "key": "THE NEON STRIP",
      "rect": [
       0,
       800.0,
@@ -287,6 +291,7 @@
     {
      "edge": null,
      "kind": "exit",
+     "key": "CESAR CHAVEZ 1",
      "rect": [
       2560.0,
       800.0,
@@ -294,7 +299,7 @@
       200
      ],
      "to": "BCS-MISSION",
-     "toName": "Mission Street \u00b7 Ai Hotels",
+     "toName": "Mission Street \u00b7 AI Hotels",
      "land": [
       400.0,
       1800.0
@@ -303,6 +308,7 @@
     {
      "edge": null,
      "kind": "exit",
+     "key": "CESAR CHAVEZ 3",
      "rect": [
       1150.0,
       0,
@@ -310,7 +316,7 @@
       200
      ],
      "to": "BCS-MISSION",
-     "toName": "Mission Street \u00b7 Ai Hotels",
+     "toName": "Mission Street \u00b7 AI Hotels",
      "land": [
       2475.0,
       2000.0
@@ -428,13 +434,14 @@
     }
    ],
    "exits": [
-    "FELL STREET \u00b7 BCPD",
-    "FELL STREET \u00b7 BCPD"
+    "FELL 1 \u00b7 FRONT",
+    "FELL 1 \u00b7 GARAGE"
    ],
    "links": [
     {
      "edge": null,
      "kind": "exit",
+     "key": "FELL 1 \u00b7 FRONT",
      "rect": [
       0,
       350.0,
@@ -442,7 +449,7 @@
       200
      ],
      "to": "BCS-FELL",
-     "toName": "Fell Street \u00b7 Bcpd",
+     "toName": "Fell Street \u00b7 BCPD",
      "land": [
       400.0,
       700.0
@@ -451,6 +458,7 @@
     {
      "edge": null,
      "kind": "exit",
+     "key": "FELL 1 \u00b7 GARAGE",
      "rect": [
       1740.0,
       1140.0,
@@ -458,7 +466,7 @@
       200
      ],
      "to": "BCS-FELL",
-     "toName": "Fell Street \u00b7 Bcpd",
+     "toName": "Fell Street \u00b7 BCPD",
      "land": [
       400.0,
       900.0
@@ -578,13 +586,14 @@
     }
    ],
    "exits": [
-    "MISSION STREET \u00b7 AI HOTELS",
-    "MISSION STREET \u00b7 AI HOTELS"
+    "16TH CENTRE",
+    "16TH EAST"
    ],
    "links": [
     {
      "edge": null,
      "kind": "exit",
+     "key": "16TH CENTRE",
      "rect": [
       0,
       350.0,
@@ -592,7 +601,7 @@
       200
      ],
      "to": "BCS-MISSION",
-     "toName": "Mission Street \u00b7 Ai Hotels",
+     "toName": "Mission Street \u00b7 AI Hotels",
      "land": [
       2475.0,
       900.0
@@ -601,6 +610,7 @@
     {
      "edge": null,
      "kind": "exit",
+     "key": "16TH EAST",
      "rect": [
       2560.0,
       830.0,
@@ -608,7 +618,7 @@
       200
      ],
      "to": "BCS-MISSION",
-     "toName": "Mission Street \u00b7 Ai Hotels",
+     "toName": "Mission Street \u00b7 AI Hotels",
      "land": [
       3750.0,
       900.0
@@ -714,13 +724,14 @@
     }
    ],
    "exits": [
-    "OLD DOWNTOWN \u00b7 NORTH",
+    "EMBARCADERO CENTRE",
     "SKYPORT LANDING DECK"
    ],
    "links": [
     {
      "edge": null,
      "kind": "exit",
+     "key": "EMBARCADERO CENTRE",
      "rect": [
       0,
       1240.0,
@@ -737,6 +748,7 @@
     {
      "edge": null,
      "kind": "exit",
+     "key": "SKYPORT LANDING DECK",
      "rect": [
       2560.0,
       450.0,
@@ -868,13 +880,14 @@
     }
    ],
    "exits": [
-    "LICKTOWN",
+    "16TH 4",
     "LOWER BAY MARKET"
    ],
    "links": [
     {
      "edge": null,
      "kind": "exit",
+     "key": "16TH 4",
      "rect": [
       0,
       550.0,
@@ -891,6 +904,7 @@
     {
      "edge": null,
      "kind": "exit",
+     "key": "LOWER BAY MARKET",
      "rect": [
       2560.0,
       1230.0,
@@ -1008,13 +1022,14 @@
     }
    ],
    "exits": [
-    "DOGPATCH DOCKS",
-    "WHARF & CAUSEWAY"
+    "16TH CENTRE",
+    "EMBARCADERO 2"
    ],
    "links": [
     {
      "edge": null,
      "kind": "exit",
+     "key": "16TH CENTRE",
      "rect": [
       1740.0,
       1350.0,
@@ -1031,6 +1046,7 @@
     {
      "edge": null,
      "kind": "exit",
+     "key": "EMBARCADERO 2",
      "rect": [
       2560.0,
       170.0,
@@ -1147,12 +1163,13 @@
    ],
    "exits": [
     "METH SPIRE PENTHOUSE",
-    "CIVIC CENTER"
+    "FELL 4"
    ],
    "links": [
     {
      "edge": null,
      "kind": "exit",
+     "key": "METH SPIRE PENTHOUSE",
      "rect": [
       2560.0,
       250.0,
@@ -1169,6 +1186,7 @@
     {
      "edge": null,
      "kind": "exit",
+     "key": "FELL 4",
      "rect": [
       0,
       1230.0,
@@ -1296,13 +1314,14 @@
     }
    ],
    "exits": [
-    "LICKTOWN",
+    "CESAR CHAVEZ EAST",
     "THE FIGHT PIT"
    ],
    "links": [
     {
      "edge": null,
      "kind": "exit",
+     "key": "THE FIGHT PIT",
      "rect": [
       2560.0,
       1020.0,
@@ -1319,6 +1338,7 @@
     {
      "edge": null,
      "kind": "exit",
+     "key": "CESAR CHAVEZ EAST",
      "rect": [
       0,
       1330.0,
@@ -1448,13 +1468,14 @@
     }
    ],
    "exits": [
-    "MISSION STREET \u00b7 AI HOTELS",
-    "MISSION STREET \u00b7 AI HOTELS"
+    "16TH EAST",
+    "CESAR CHAVEZ 1"
    ],
    "links": [
     {
      "edge": null,
      "kind": "exit",
+     "key": "16TH EAST",
      "rect": [
       0,
       800.0,
@@ -1462,7 +1483,7 @@
       200
      ],
      "to": "BCS-MISSION",
-     "toName": "Mission Street \u00b7 Ai Hotels",
+     "toName": "Mission Street \u00b7 AI Hotels",
      "land": [
       3750.0,
       700.0
@@ -1471,6 +1492,7 @@
     {
      "edge": null,
      "kind": "exit",
+     "key": "CESAR CHAVEZ 1",
      "rect": [
       2560.0,
       1180.0,
@@ -1478,7 +1500,7 @@
       200
      ],
      "to": "BCS-MISSION",
-     "toName": "Mission Street \u00b7 Ai Hotels",
+     "toName": "Mission Street \u00b7 AI Hotels",
      "land": [
       400.0,
       2000.0

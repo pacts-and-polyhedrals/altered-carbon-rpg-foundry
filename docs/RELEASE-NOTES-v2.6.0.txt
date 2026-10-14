@@ -1,0 +1,16 @@
+Altered Carbon RPG v2.6.0
+
+**One name everywhere.** Every street block with an entrance now carries exactly the name of the map it opens into, for example *The Fight Pit*, *Lower Bay Market*, *Skyport Landing Deck* and *Resleeving Clinic*. A second entrance to the same map is named *Map · entrance*, for example *Resleeving Clinic · Fire Stair* or *BCPD Precinct House · Garage*. Exit tags inside a building name the exact street section you come out on (*FELL 1 · GARAGE*, *16TH EAST*). Exits into another building name that building.
+
+**A map for every place.** 57 new zoned maps in the new **Bay City Places (Sandbox)** compendium cover every named place that had none, from the Golden Gate stacks, Fort Point and the Psychasec Cellhouse to the Opera House, the Maglev Station, Sutro Mast, Dolores Chapel, the Chop Shops and the Scrapyard. They are drawn in the same noir style and laid out by kind (habs, markets, offices, vaults, ruins, parks, plazas, yards, stations, checkpoints, forts, industrial, docks, towers, lighthouse, chapel, theatre, cells, garages, black clinics, camps, reservoir, sea wall). Each has a front exit, and a back exit where its block faces two streets. Both lead to entrances drawn on the street map.
+
+**Every exit linked.** 95 maps and 308 links are checked by the test suite: 14 street maps, the overview, 10 original buildings, 57 places, and the Cold Storage maps when that module is active. Every link lands inside a zone, and every entrance has a way back to the same spot. The memory maps now connect through Palimpsest Virtuality.
+
+**Bay City Travel Directory.** A new JournalEntry compendium lists, for every map, each exit tag, the zone it is in, the map it leads to and the zone you arrive in. There is one journal per district (street map plus every building on it), an index with the rules, and a Cold Storage journal.
+
+**Party at an exit.** When every player character on a map is gathered at an exit, the GM gets a dialog with one button per destination (*map — arrive: zone*). Choosing one moves the whole party together and changes the scene for everyone. Characters seated in a vehicle go with it. Going into a building, they get out and walk in, and the vehicle is parked at that building's street entrance. *Walk into buildings automatically* is now off by default; turn it on to send characters through one at a time.
+
+**Top-down character tokens.** Characters, NPCs, threats and AIs get directly top-down tokens in the vehicle style. The official adversaries (Hitman, Thug, BCPD Officer, CTAC Praetorian, Meth, Dipper, Freak, Corporate Stooge) have their own. AIs are holograms, and everyone else gets one of 36 looks chosen by name. New Actors get theirs automatically. **Apply Emblems** updates existing Actors and tokens already on scenes, wherever the token is still stock art or a system badge.
+
+**Cold Storage** buildings now have their own named blocks: the Rainline, the Quiet Archive, Blue Lotus, Relay Seventeen, the Resurrection Ward, Anansi House and the Spire. The master overview and street maps have been redrawn to match.
+

@@ -8,6 +8,7 @@ import {fileURLToPath} from 'node:url';
 const root=join(dirname(fileURLToPath(import.meta.url)),'..');
 const atlas=JSON.parse(readFileSync(join(root,'data/bay-city-street-atlas.json'),'utf8'));
 const interiors=JSON.parse(readFileSync(join(root,'data/bay-city-maps.json'),'utf8'));
+const places=JSON.parse(readFileSync(join(root,'data/bay-city-places.json'),'utf8'));
 const byId=Object.fromEntries(atlas.maps.map(m=>[m.id,m]));
 const NS='altered-carbon-rpg';
 
@@ -130,14 +131,19 @@ test('v14 scenes with an empty level image are repaired; v13 scenes use backgrou
   assert.equal(await repairSceneBackground({flags:{},background:{src:''}}),false,'non-Bay City scenes ignored');
 });
 
-test('every exit tag on the original maps leads to a real map and back again', ()=>{
-  const all=Object.fromEntries([...atlas.maps,...interiors.maps].map(m=>[m.id,m]));
+test('every exit tag on the original and place maps leads to a real map and back again', ()=>{
+  const all=Object.fromEntries([...atlas.maps,...interiors.maps,...places.maps].map(m=>[m.id,m]));
   for(const m of interiors.maps){
     assert.equal(m.links.length,m.exits.length,`${m.code}: every exit tag is linked`);
-    for(const l of m.links)assert.ok(m.exits.includes(l.toName.toUpperCase()),`${m.code}: exit is labelled with its destination (${l.toName})`);
+    for(const l of m.links){
+      assert.ok(m.exits.includes(l.key),`${m.code}: link carries its exit tag (${l.key})`);
+      // onto a street: the tag names the street section you arrive in; into a building: that building
+      if(l.to.startsWith('BCS-'))assert.ok(l.key.startsWith(String(all[l.to].zones.find(z=>z.id===zoneAt(all[l.to].zones,...l.land))?.name).toUpperCase()),`${m.code}: ${l.key} names the arrival section`);
+      else assert.equal(l.key,l.toName.toUpperCase());
+    }
   }
   let pairs=0;
-  for(const m of [...atlas.maps,...interiors.maps])for(const l of m.links.filter(l=>Array.isArray(l.land))){
+  for(const m of [...atlas.maps,...interiors.maps,...places.maps])for(const l of m.links.filter(l=>Array.isArray(l.land))){
     const dest=all[l.to];assert.ok(dest,`${m.id} → ${l.to} exists`);
     const back=dest.links.find(b=>Array.isArray(b.land)&&b.to===m.id&&Math.abs(b.land[0]-(l.rect[0]+l.rect[2]/2))<=300&&Math.abs(b.land[1]-(l.rect[1]+l.rect[3]/2))<=300);
     assert.ok(back,`${dest.id} leads back to the same spot on ${m.id}`);
@@ -145,7 +151,9 @@ test('every exit tag on the original maps leads to a real map and back again', (
     assert.ok(zoneAt(dest.zones,x,y),`${m.id}→${dest.id} lands inside a zone`);
     pairs++;
   }
-  assert.equal(pairs,38,'19 two-way links');
+  const placeLinks=places.maps.reduce((n,m)=>n+m.links.length,0);
+  assert.equal(pairs,38+2*placeLinks,'19 original two-way links plus every place entrance both ways');
+  for(const m of places.maps)assert.equal(m.links.length,m.exits.length,`${m.name}: every exit tag is linked`);
 });
 
 test('contacts get portraits: named Cold Storage faces, category looks for everyone else', async ()=>{
@@ -201,7 +209,7 @@ test('v14: transit puts the vehicle and riders on the new map\'s Level; taxi pas
   assert.equal(new Set(list.map(d=>d.key)).size,list.length,'unique keys');
   assert.ok(T.canChooseDestination(kov,player),'a passenger in an AI taxi chooses where it goes');
   cabActor.system.vehicle.control='driver';assert.equal(T.canChooseDestination(kov,player),false,'not in an ordinary car');cabActor.system.vehicle.control='ai';
-  const dest=list.find(d=>d.mapId==='BCS-LICKTOWN'&&d.label.includes('Fightdrome'));assert.ok(dest);
+  const dest=list.find(d=>d.mapId==='BCS-LICKTOWN'&&d.label.includes('The Fight Pit'));assert.ok(dest);
   // the player's request is handled by the GM client
   game.user=gm;
   const handler=T;await handler.crossToNextMap(kov,{destination:dest.key}).catch(e=>{throw e;});
@@ -214,4 +222,110 @@ test('v14: transit puts the vehicle and riders on the new map\'s Level; taxi pas
   assert.equal(nKov.flags[NS].vehicleSeat.vehicleTokenId,nCab.id);
   assert.equal(src.tokens.length,0);
   await assert.rejects(T.crossToNextMap(nKov,{destination:'BCS-NOWHERE:centre'}),/Unknown destination/);
+});
+
+test('Cold Storage: every building stands on the Street Atlas, every exit tag leads somewhere, and the taxi list knows them', async ()=>{
+  const cs=JSON.parse(readFileSync(join(root,'data/cold-storage-links.json'),'utf8'));
+  const placed=Object.values(cs.streetDoors).flat();
+  assert.equal(placed.length,8,'eight buildings on the streets');
+  for(const id of ['SCENE-WARD','SCENE-BREACH','SCENE-RAINLINE','SCENE-ARCHIVE','SCENE-LOTUS','SCENE-RELAY','SCENE-SAFEHOUSE','SCENE-SPIRE'])assert.ok(placed.some(d=>d.to===id),id);
+  for(const [mid,doors] of Object.entries(cs.streetDoors)){
+    const m=byId[mid];assert.ok(m,mid);
+    for(const d of doors){const [x,y]=[d.rect[0]+d.rect[2]/2,d.rect[1]+d.rect[3]/2];
+      assert.ok(m.zones.some(z=>['road','junction'].includes(z.kind)&&x>=z.rect[0]&&x<=z.rect[0]+z.rect[2]&&y>=z.rect[1]&&y<=z.rect[1]+z.rect[3]),`${d.toName} entrance is on a road of ${m.name}`);
+      assert.ok(!m.links.some(l=>l.rect[0]<d.rect[0]+d.rect[2]&&d.rect[0]<l.rect[0]+l.rect[2]&&l.rect[1]<d.rect[1]+d.rect[3]&&d.rect[1]<l.rect[1]+l.rect[3]),`${d.toName} entrance does not overlap another link`);}
+  }
+  for(const [sid,rec] of Object.entries(cs.scenes))for(const l of rec.links){
+    if(byId[l.to])assert.ok(cs.streetDoors[l.to].some(d=>d.to===sid),`${sid} → ${l.to} comes back out at its own entrance`);
+    else assert.ok(cs.scenes[l.to]||['SCENE-COUNCIL','SCENE-SPIRE','SCENE-SAFEHOUSE','SCENE-BREACH','SCENE-RAINLINE','SCENE-LOTUS','SCENE-ARCHIVE','SCENE-RELAY'].includes(l.to),l.to);
+  }
+  const T=await import('../module/map-transit.mjs?cs='+Date.now());
+  // inactive module: nothing added
+  globalThis.game={modules:{get:()=>({active:false})}};T.setColdStorageLinks(cs);
+  const street={getFlag:(ns,k)=>ns===NS&&k==='streetAtlas'?{id:'BCS-LICKTOWN',links:byId['BCS-LICKTOWN'].links}:null};
+  assert.equal(T.mapLinks(street).length,byId['BCS-LICKTOWN'].links.length,'module absent: street maps unchanged');
+  game.modules.get=()=>({active:true});
+  assert.equal(T.mapLinks(street).length,byId['BCS-LICKTOWN'].links.length+cs.streetDoors['BCS-LICKTOWN'].length,'module present: entrances added');
+  const csScene={getFlag:(ns,k)=>ns==='cold-storage'&&k==='sourceId'?'SCENE-RAINLINE':null};
+  assert.equal(T.mapOf(csScene)?.id,'SCENE-RAINLINE');assert.equal(T.mapLinks(csScene).length,cs.scenes['SCENE-RAINLINE'].links.length);
+  const list=T.buildDestinations(atlas,interiors,cs);
+  assert.equal(list.filter(d=>d.group==='Cold Storage').length,8,'taxi list: outside every Cold Storage building');
+  assert.ok(list.find(d=>d.group==='Cold Storage'&&/Rainline/.test(d.short)).mapId==='BCS-LICKTOWN');
+  assert.equal(T.buildDestinations(atlas,interiors,null).filter(d=>d.group==='Cold Storage').length,0);
+  // walking in
+  const door=cs.streetDoors['BCS-LICKTOWN'].find(d=>d.to==='SCENE-RAINLINE');
+  const pc={actor:{type:'character'},getFlag:()=>null},cab={actor:{type:'vehicle'},getFlag:()=>null};
+  assert.equal(T.shouldAutoEnter(pc,door,null,true),true,'a character walking in goes inside');
+  assert.equal(T.shouldAutoEnter(pc,door,T.linkId(door),true),false,'not when already standing in the doorway');
+  assert.equal(T.shouldAutoEnter(cab,door,null,true),false,'vehicles park; they do not drive inside');
+  assert.equal(T.shouldAutoEnter(pc,{kind:'edge',to:'X',rect:[0,0,1,1]},null,true),false,'map edges still use the button');
+  assert.equal(T.shouldAutoEnter(pc,door,null,false),false,'setting off');
+});
+
+test('Cold Storage end to end: the taxi parks outside the Rainline, a passenger walks in and lands inside', async ()=>{
+  const cs=JSON.parse(readFileSync(join(root,'data/cold-storage-links.json'),'utf8'));
+  let seq=0;
+  const mkDoc=(d,parent)=>{const t={...structuredClone(Object.fromEntries(Object.entries(d).filter(([k])=>k!=='actor'))),actor:d.actor,id:d._id||('e'+(++seq)),parent};t.getFlag=(ns,k)=>t.flags?.[ns]?.[k];
+    t.toObject=()=>{const o={};for(const [k,v] of Object.entries(t))if(typeof v!=='function'&&!['parent','actor'].includes(k))o[k]=structuredClone(v);o._id=t.id;delete o.id;return o;};
+    t.update=async u=>{for(const [k,v] of Object.entries(u))foundry.utils.setProperty(t,k,v);return t;};return t;};
+  const cabActor={name:'Bay City Autocab',type:'vehicle',system:{vehicle:{control:'ai'}},testUserPermission:u=>u.isGM};
+  const pcActor={type:'character',testUserPermission:u=>u.isGM||u.id==='pl'};
+  const mkScene=(id,name,w,h,flags)=>{const s={id,name,width:w,height:h,grid:{size:100},flags,tokens:[],levels:{contents:[{id:'L'+id}]},initialLevel:{id:'L'+id}};
+    s.getFlag=(ns,k)=>s.flags[ns]?.[k];s.tokens.get=i=>s.tokens.find(t=>t.id===i);
+    s.createEmbeddedDocuments=async(type,list)=>list.map(d=>{const t=mkDoc({...d,actor:d.name==='Bay City Autocab'?cabActor:pcActor},s);s.tokens.push(t);return t;});
+    s.deleteEmbeddedDocuments=async(type,ids)=>{for(const i of ids)s.tokens.splice(s.tokens.findIndex(t=>t.id===i),1);};s.view=async()=>{};return s;};
+  const fell=byId['BCS-FELL'],lick=byId['BCS-LICKTOWN'],rain=JSON.parse(readFileSync(join(root,'data/cold-storage-links.json'),'utf8')).scenes['SCENE-RAINLINE'];
+  const src=mkScene('f','Fell',fell.width,fell.height,{[NS]:{streetAtlas:{id:fell.id,links:fell.links}}});
+  const lt=mkScene('l','Licktown',lick.width,lick.height,{[NS]:{streetAtlas:{id:lick.id,links:lick.links}}});
+  const rl=mkScene('r','The Rainline',2800,1800,{'cold-storage':{sourceId:'SCENE-RAINLINE'}});
+  const cab=mkDoc({_id:'cab',name:'Bay City Autocab',actor:cabActor,x:1500,y:1200,width:2,height:3,flags:{[NS]:{vehicleOccupants:[{seatId:'passenger-1',tokenId:'nia',name:'Nia'}]}}},src);
+  const nia=mkDoc({_id:'nia',name:'Nia',actor:pcActor,x:1525,y:1325,width:.5,height:.5,flags:{[NS]:{vehicleSeat:{vehicleTokenId:'cab',seatId:'passenger-1'}}}},src);
+  src.tokens.push(cab,nia);
+  const gm={id:'gm',isGM:true,active:true},pl={id:'pl',isGM:false,active:true};
+  globalThis.fetch=async url=>({ok:true,json:async()=>JSON.parse(readFileSync(join(root,'data',url.split('/').pop()),'utf8'))});
+  globalThis.game={user:gm,users:Object.assign([gm,pl],{activeGM:gm,get:i=>[gm,pl].find(u=>u.id===i)}),scenes:Object.assign([src,lt,rl],{get:i=>[src,lt,rl].find(s=>s.id===i)}),combats:[],
+    modules:{get:id=>id==='cold-storage'?{active:true}:null},socket:{emit(){},on(){}},packs:{get:()=>null}};
+  globalThis.ChatMessage={implementation:{create:async()=>null}};globalThis.ui={notifications:{info(){},warn(){}}};
+  const T=await import('../module/map-transit.mjs?e2e='+Date.now());T.setColdStorageLinks(cs);
+  const dest=(await T.transitDestinations()).find(d=>d.group==='Cold Storage'&&/Rainline/.test(d.short));
+  await T.crossToNextMap(nia,{destination:dest.key});
+  const parked=lt.tokens.find(t=>t.name==='Bay City Autocab');assert.ok(parked,'the taxi is on the Licktown map');
+  const door=cs.streetDoors['BCS-LICKTOWN'].find(d=>d.to==='SCENE-RAINLINE');
+  assert.equal(parked.x+100,door.rect[0]+100);assert.equal(parked.y+150,door.rect[1]+100,'parked on the Rainline entrance');
+  // Nia gets out and walks into the entrance
+  const walker=lt.tokens.find(t=>t.name==='Nia');walker.flags[NS].vehicleSeat=null;walker.width=1;walker.height=1;walker.x=door.rect[0]+50;walker.y=door.rect[1]+50;
+  assert.equal(T.linkAt(lt,walker)?.to,'SCENE-RAINLINE');
+  assert.equal(T.shouldAutoEnter(walker,T.linkAt(lt,walker),null,true),true);
+  await T.crossToNextMap(walker);
+  const inside=rl.tokens.find(t=>t.name==='Nia');assert.ok(inside,'Nia is on the Rainline map');
+  assert.equal(inside.level,'Lr','on the Rainline Level');
+  assert.equal(inside.x+50,door.land[0]);assert.equal(inside.y+50,door.land[1]);
+  // and back out the way she came
+  inside.x=rain.links.find(l=>l.to==='BCS-LICKTOWN').rect[0]+50;inside.y=rain.links.find(l=>l.to==='BCS-LICKTOWN').rect[1]+50;
+  assert.equal(T.linkAt(rl,inside)?.to,'BCS-LICKTOWN');
+});
+
+test('master overview: each Cold Storage building is pinned at its true spot and opens the travel list on it', async ()=>{
+  const cs=JSON.parse(readFileSync(join(root,'data/cold-storage-links.json'),'utf8'));
+  const ov=JSON.parse(readFileSync(join(root,'data/bay-city-street-overview.json'),'utf8')).maps[0];
+  const T=await import('../module/map-transit.mjs?ov='+Date.now());
+  globalThis.game={modules:{get:()=>({active:false})}};T.setColdStorageLinks(cs);
+  assert.equal(T.overviewColdStorage(ov).length,0,'module absent: overview unchanged');
+  game.modules.get=()=>({active:true});
+  const spots=T.overviewColdStorage(ov);assert.equal(spots.length,8);
+  for(const s of spots){
+    const district=ov.links.find(l=>l.to===s.link.to);const [x,y,w,h]=district.rect;
+    assert.ok(s.rect[0]>=x&&s.rect[0]+s.rect[2]<=x+w&&s.rect[1]>=y&&s.rect[1]+s.rect[3]<=y+h,`${s.label} inside ${district.toName}`);
+  }
+  const hit=(a,b)=>a.x<b.x+b.w&&b.x<a.x+a.w&&a.y<b.y+b.h&&b.y<a.y+a.h;
+  spots.forEach((s,i)=>{const [x,y,w,h]=s.district;assert.ok(s.labelBox.x>=x&&s.labelBox.x+s.labelBox.w<=x+w&&s.labelBox.y>=y&&s.labelBox.y+s.labelBox.h<=y+h,`${s.label} label inside its district`);
+    spots.slice(i+1).forEach(t=>assert.ok(!hit(s.labelBox,t.labelBox),`${s.label} / ${t.label} labels do not overlap`));});
+  const scene={grid:{size:100},getFlag:(ns,k)=>ns===NS&&k==='streetAtlas'?ov:null};
+  const rain=spots.find(s=>/RAINLINE/.test(s.label));
+  const tok={x:rain.rect[0]+10,y:rain.rect[1]+10,width:1,height:1};
+  const link=T.linkAt(scene,tok);assert.equal(link.to,'BCS-LICKTOWN');assert.match(link.toName,/Rainline/);
+  const dest=T.buildDestinations(atlas,interiors,cs).find(d=>d.group==='Cold Storage'&&/Rainline/.test(d.short));
+  assert.deepEqual(link.land,dest.land,'the travel list opens on "Outside The Rainline"');
+  const elsewhere={x:ov.links[0].rect[0]+5,y:ov.links[0].rect[1]+5,width:1,height:1};
+  assert.equal(T.linkAt(scene,elsewhere).kind,'district','the rest of a district still opens on its junction');
 });

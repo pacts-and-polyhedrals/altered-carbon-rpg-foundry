@@ -994,3 +994,9 @@
 .ac-vehicle-abilities .ac-ability-list i{color:var(--ac-cyan,#32c7d6);font-size:1.1rem;margin-top:.15rem}
 .ac-vehicle-abilities .ac-ability-list p{margin:.1rem 0 0;font-size:.86em;opacity:.85}
 .ac-seat-tag{color:var(--ac-amber,#ffb020);font-style:normal}
+
+/* v2.6.0 travel directory */
+.ac-directory-page table.ac-directory{width:100%;border-collapse:collapse;margin:.4rem 0 1rem;font-size:.92em}
+.ac-directory-page table.ac-directory th{text-align:left;border-bottom:2px solid var(--ac-cyan,#32c7d6);padding:.25rem .4rem}
+.ac-directory-page table.ac-directory td{border-bottom:1px solid rgba(127,127,127,.25);padding:.25rem .4rem;vertical-align:top}
+.ac-directory-page .ac-muted{opacity:.7}

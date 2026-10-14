@@ -2,7 +2,7 @@
   "id": "altered-carbon-rpg",
   "title": "Altered Carbon RPG — Unofficial",
   "description": "Unofficial Foundry VTT v14 implementation of the 2020 Altered Carbon RPG rules. Requires lawful access to the original tabletop rules. Not affiliated with or endorsed by the Altered Carbon rights holders or Foundry Gaming LLC.",
-  "version": "2.5.6",
+  "version": "2.6.0",
   "compatibility": {
     "minimum": "14"
   },
@@ -240,7 +240,7 @@
   "secondaryTokenAttribute": "resources.ego",
   "url": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry",
   "manifest": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/latest/download/system.json",
-  "download": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v2.5.6/altered-carbon-rpg-v2.5.6.zip",
+  "download": "https://github.com/pacts-and-polyhedrals/altered-carbon-rpg-foundry/releases/download/v2.6.0/altered-carbon-rpg-v2.6.0.zip",
   "packs": [
     {
       "name": "core-skills",
@@ -326,10 +326,23 @@
       "path": "packs/system-guides"
     },
     {
+      "name": "bay-city-directory",
+      "label": "Bay City Travel Directory",
+      "type": "JournalEntry",
+      "path": "packs/bay-city-directory"
+    },
+    {
       "name": "bay-city-maps",
       "label": "Bay City Maps (Zoned)",
       "type": "Scene",
       "path": "packs/bay-city-maps",
+      "system": "altered-carbon-rpg"
+    },
+    {
+      "name": "bay-city-places",
+      "label": "Bay City Places (Sandbox)",
+      "type": "Scene",
+      "path": "packs/bay-city-places",
       "system": "altered-carbon-rpg"
     },
     {
@@ -365,7 +378,9 @@
         "street-vehicles",
         "official-adversaries",
         "system-guides",
+        "bay-city-directory",
         "bay-city-maps",
+        "bay-city-places",
         "bay-city-streets"
       ]
     }
