@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
 import {Hooks,game,reset,Collection,dialogs} from './runtime-fixture.mjs';
 import {seatLayout,seatPositions} from '../module/vehicle-seat-math.mjs';
 import {pickVehicleTransform,planVehicleMove} from '../module/vehicle-movement.mjs';
@@ -150,7 +151,7 @@ test('Vehicle-HUD Boarding button appears without any controlled character',()=>
   const root={querySelector:selector=>selector==='.col.right'?col:selector==='.ac-vehicle-hud'?appended[0]:null};
   const oldDoc=globalThis.document;
   globalThis.document={createElement:()=>({dataset:{},setAttribute(){},addEventListener(){}})};
-  try{handler({document:vehicle},root);assert.equal(appended.length,2);assert.equal(appended[0].title,'Board vehicle / choose seat');handler({document:vehicle},root);assert.equal(appended.length,2,'second V2 render must not double-install buttons');}
+  try{handler({document:vehicle},root);const n=appended.length;assert.ok(n>=2);assert.equal(appended[0].title,'Board vehicle / choose seat');handler({document:vehicle},root);assert.equal(appended.length,n,'second V2 render must not double-install buttons');}
   finally{globalThis.document=oldDoc;}
 });
 
@@ -251,4 +252,30 @@ test('AI-controlled occupied car rejects a player movement packet',async()=>{
   await socketHandler(emitted);
   assert.equal(calls.length,0);
   assert.equal(vehicle.x,100);
+});
+
+test('seat list and rider flags are reconciled: a dropped rider is put back, a stale entry removed', async ()=>{
+  const {reconcileOccupants}=await import('../module/vehicle-boarding.mjs');
+  const NS='altered-carbon-rpg';const saved=[];
+  const tok=(id,seat)=>({id,name:id,actor:{id:'a-'+id},flags:{[NS]:{vehicleSeat:seat}},getFlag(ns,k){return this.flags[ns]?.[k];}});
+  const a=tok('a',{vehicleTokenId:'v',seatId:'pilot'}),b=tok('b',{vehicleTokenId:'v',seatId:'passenger-1'}),c=tok('c',null);
+  const tokens=[a,b,c];tokens.get=i=>tokens.find(t=>t.id===i);
+  const vt={id:'v',actor:{type:'vehicle',system:{vehicle:{crewFull:1,passengers:3}}},parent:{tokens,grid:{size:100}},
+    flags:{[NS]:{vehicleOccupants:[{seatId:'pilot',tokenId:'a'},{seatId:'passenger-2',tokenId:'gone'},{seatId:'passenger-3',tokenId:'c'}]}},
+    getFlag(ns,k){return this.flags[ns]?.[k];},async update(u){saved.push(u);this.flags[NS].vehicleOccupants=Object.values(u)[0];}};
+  const occ=await reconcileOccupants(vt);
+  assert.deepEqual(Object.keys(occ).sort(),['passenger-1','pilot'],'b put back in passenger-1; missing and un-flagged entries dropped');
+  assert.equal(occ['passenger-1'].tokenId,'b');
+  assert.equal(saved.length,1);
+});
+
+test('all vehicle requests queue per scene, and transit uses the same queue', ()=>{
+  const src=readFileSync(new URL('../module/vehicle-boarding.mjs',import.meta.url),'utf8');
+  assert.match(src,/function runQueued\(type,data\)\{return serialScene\(data\.sceneId/);
+  assert.match(src,/if\(isLeader\(\)\)return runQueued\(type/);
+  assert.match(src,/await runQueued\(type,payload\.data/);
+  assert.match(src,/async exitAll\(/);
+  const mt=readFileSync(new URL('../module/map-transit.mjs',import.meta.url),'utf8');
+  assert.match(mt,/serial\(source\.id,\(\)=>transferNow/);
+  assert.match(mt,/seatPositions\(newToken/);
 });

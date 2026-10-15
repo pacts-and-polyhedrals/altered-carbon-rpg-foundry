@@ -224,26 +224,37 @@ async function walkIn(source,target,people,land,{vehicle=null}={}){
   await source.deleteEmbeddedDocuments('Token',people.map(t=>t.id),{acTransit:true});
   return created;
 }
-/** Move a vehicle and whoever is seated in it, keeping their seats. */
+/** Move a vehicle and whoever is seated in it, keeping their seats. Riders are placed in their seats on
+ *  the new map from the seat layout (never copied from where they last were), so nobody lags behind. */
 async function driveTo(source,target,vehicle,land){
-  const riders=occupantList(vehicle).map(o=>({o,t:source.tokens.get(o.tokenId)})).filter(r=>r.t);
+  try{const {reconcileOccupants}=await import('./vehicle-boarding.mjs');await reconcileOccupants(vehicle);}catch(_e){}
+  const list=occupantList(vehicle).filter(o=>source.tokens.get(o.tokenId));
+  const riders=list.map(o=>({o,t:source.tokens.get(o.tokenId)}));
   const vData=retarget(vehicle.toObject(),target);vData.x=Math.round(land.x);vData.y=Math.round(land.y);
   const [newToken]=await target.createEmbeddedDocuments('Token',[vData],{acVehicleCarry:true,acTransit:true});
   const idMap={[vehicle.id]:newToken.id};
   if(riders.length){
-    const rData=riders.map(({t})=>{const d=retarget(t.toObject(),target);d.x=Math.round(newToken.x+(t.x-vehicle.x));d.y=Math.round(newToken.y+(t.y-vehicle.y));
-      foundry.utils.setProperty(d,`flags.${NS}.vehicleSeat.vehicleTokenId`,newToken.id);return d;});
+    const {seatLayout,seatPositions}=await import('./vehicle-seat-math.mjs');
+    const g=target.grid?.size||100,pos=seatPositions(newToken,seatLayout(newToken.actor||vehicle.actor),g),half=g*0.5;
+    const rData=riders.map(({o,t})=>{const d=retarget(t.toObject(),target);const p=pos[o.seatId]||{x:newToken.x+newToken.width*g/2-half/2,y:newToken.y+newToken.height*g/2-half/2};
+      d.x=Math.round(p.x);d.y=Math.round(p.y);d.width=0.5;d.height=0.5;d.rotation=newToken.rotation||0;d.elevation=newToken.elevation||0;d.sort=(newToken.sort||0)+1;
+      foundry.utils.setProperty(d,`flags.${NS}.vehicleSeat`,{vehicleTokenId:newToken.id,seatId:o.seatId});return d;});
     const created=await target.createEmbeddedDocuments('Token',rData,{acVehicleCarry:true,acTransit:true});
     riders.forEach(({t},i)=>{idMap[t.id]=created[i].id;});
-    await newToken.update({[`flags.${NS}.vehicleOccupants`]:occupantList(vehicle).map(o=>({...o,tokenId:idMap[o.tokenId]||o.tokenId}))},{acVehicleCarry:true});
-  }
+    await newToken.update({[`flags.${NS}.vehicleOccupants`]:list.map(o=>({...o,tokenId:idMap[o.tokenId]}))},{acVehicleCarry:true});
+  }else if(occupantList(vehicle).length)await newToken.update({[`flags.${NS}.vehicleOccupants`]:[]},{acVehicleCarry:true});
   await remapCombat(source,target,idMap);
   await source.deleteEmbeddedDocuments('Token',[...riders.map(r=>r.t.id),vehicle.id],{acTransit:true});
   return {token:newToken,riders:riders.map(r=>target.tokens.get(idMap[r.t.id])).filter(Boolean),riderNames:riders.map(r=>r.t.name)};
 }
 /** One transfer through a link: a lone character (plus optional companions), or a vehicle with riders.
  *  Into a building, the riders walk in and the vehicle is parked at that building's street entrance. */
-export async function transfer(source,token,link,{user=game.user,companions=[],destination=null}={}){
+export async function transfer(source,token,link,opts={}){
+  // Same queue as boarding, getting out and driving, so a crossing never starts halfway through a move.
+  let serial=null;try{({serialScene:serial}=await import('./vehicle-boarding.mjs'));}catch(_e){}
+  return serial?serial(source.id,()=>transferNow(source,token,link,opts)):transferNow(source,token,link,opts);
+}
+async function transferNow(source,token,link,{user=game.user,companions=[],destination=null}={}){
   const target=await findOrImportScene(link.to);
   const dims={width:target.width,height:target.height,gridSize:target.grid?.size||100};
   const vehicle=token.actor?.type==='vehicle'||occupantList(token).length?token:null;

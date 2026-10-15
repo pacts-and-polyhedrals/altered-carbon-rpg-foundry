@@ -22,6 +22,16 @@ Older installs that still use `.../main/system.json` keep working because the `s
 version, uninstall it and reinstall from the manifest URL above. Uninstalling a system does
 not delete your worlds.
 
+## v2.7.5 — Full vehicles stay together
+
+Fixes riders being left behind or lagging when a full vehicle (the Meth Stretch Limousine, a van, the Rhino) drives from map to map, and riders getting out in odd places.
+
+- **One change at a time.** Every vehicle change on a scene now goes through one queue on the GM: boarding, getting out, driving and crossing to another map. Two riders getting out together, or a drag landing while someone boards, used to overwrite each other's seat list. A rider could then drop off the list and be left behind on the old map when the vehicle crossed.
+- **Re-seated on every map.** When a vehicle crosses to another map, its riders are placed in their seats from the seat layout on the new map, at its grid size. They are no longer copied from wherever they last were on the old map, which is what made some lag behind or spread out.
+- **Seat list repair.** Before a vehicle moves, crosses or empties, the seat list is checked against the riders. Anyone whose token says they're in this vehicle but who fell off the list is put back in their seat, or let out beside the vehicle if someone else has taken it. Entries for tokens that are gone are dropped.
+- **Everyone out.** Right-click a vehicle and choose **Everyone out (the driver stays)**. This is for the GM, the vehicle's owner or its driver. Riders get out one by one, each into the next free square, in a column beside the vehicle. Caged seats stay locked unless the GM does it.
+- **Where they get out.** The exit column goes beside the vehicle as it is drawn, so a car turned sideways no longer drops people inside its own image. Exit spots snap to the grid.
+
 ## v2.7.4 — Bay City Commoners
 
 A new core compendium, **Bay City Commoners**, sits in the GM Library next to the official adversaries. It holds 21 ordinary people for the streets of Bay City:

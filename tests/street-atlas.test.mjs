@@ -107,7 +107,10 @@ test('transit moves a vehicle with its riders, remaps seats and combat, and dele
   assert.ok(nCar&&nKov&&nOrt);
   assert.equal(nCar.x,100,'enters one square in from the west edge');
   assert.equal(nCar.y,vy,'same position along the edge');
-  assert.equal(nKov.x-nCar.x,25);assert.equal(nOrt.x-nCar.x,125,'riders keep their seats');
+  // Riders are seated from the seat layout on the new map (not copied from where they lagged on the old one).
+  const inside=t=>t.x>=nCar.x&&t.x+50<=nCar.x+nCar.width*100&&t.y>=nCar.y&&t.y+50<=nCar.y+nCar.height*100;
+  assert.ok(inside(nKov)&&inside(nOrt),'riders sit inside the vehicle footprint');
+  assert.equal(nKov.width,0.5);assert.equal(nKov.flags[NS].vehicleSeat.seatId,'pilot');assert.equal(nOrt.flags[NS].vehicleSeat.seatId,'passenger-1','riders keep their seats');
   assert.equal(nKov.flags[NS].vehicleSeat.vehicleTokenId,nCar.id);
   assert.deepEqual(nCar.flags[NS].vehicleOccupants.map(o=>o.tokenId).sort(),[nKov.id,nOrt.id].sort());
   assert.deepEqual([combatant.sceneId,combatant.tokenId],['s2',nKov.id],'combatant follows');

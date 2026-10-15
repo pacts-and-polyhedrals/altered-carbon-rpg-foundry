@@ -42,8 +42,13 @@ export function seatPositions(vt,seats,gridSize){
   return out;
 }
 
-/** Where someone stands after getting out: beside the vehicle's right side, then below it. */
+/** Where someone stands after getting out: in a column beside the vehicle's right-hand side as it is
+ *  drawn (a vehicle turned 90° is wide, not tall), then further columns out. Snapped to the grid. */
 export function exitPositions(vt,index,gridSize){
-  const row=index%Math.max(1,vt.height),col=Math.floor(index/Math.max(1,vt.height));
-  return {x:vt.x+(vt.width+col)*gridSize,y:vt.y+row*gridSize};
+  const g=gridSize,rot=((Number(vt.rotation||0)%360)+360)%360,side=(rot>45&&rot<135)||(rot>225&&rot<315);
+  const W=(side?vt.height:vt.width)*g,H=(side?vt.width:vt.height)*g;
+  const cx=vt.x+vt.width*g/2,cy=vt.y+vt.height*g/2,left=cx-W/2,top=cy-H/2;
+  const rows=Math.max(1,Math.round(H/g)),row=index%rows,col=Math.floor(index/rows);
+  const snap=v=>Math.round(v/g)*g;
+  return {x:snap(left+W)+col*g,y:snap(top)+row*g};
 }

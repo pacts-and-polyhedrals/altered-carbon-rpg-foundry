@@ -89,3 +89,12 @@ test('every vehicle has top-down token art (core vehicles included) and police c
   for(const n of ['Airbike','Aircar','Ground Car',...data.vehicles.map(v=>v.name)])assert.match(src,new RegExp(`"${n.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}": "systems/altered-carbon-rpg/assets/tokens/vehicles/`),n);
   for(const f of ['airbike','aircar','ground-car','bcpd-interceptor-lights','bcpd-pursuit-bike-lights'])assert.ok(existsSync(join(root,`assets/tokens/vehicles/${f}.webp`)),f);
 });
+
+test('getting out lands beside the vehicle as drawn, also when it is turned sideways', async ()=>{
+  const {exitPositions}=await import('../module/vehicle-seat-math.mjs');
+  const up={x:0,y:0,width:2,height:4,rotation:0};
+  assert.deepEqual(exitPositions(up,0,100),{x:200,y:0});assert.deepEqual(exitPositions(up,3,100),{x:200,y:300});assert.deepEqual(exitPositions(up,4,100),{x:300,y:0});
+  const side={x:0,y:0,width:2,height:4,rotation:90};   // drawn 4 wide x 2 tall around the same centre (100,200)
+  const p=exitPositions(side,0,100);assert.equal(p.x,300,'right of the drawn car, not inside it');assert.equal(p.y,100);
+  assert.deepEqual(exitPositions(side,2,100),{x:400,y:100},'two rows, then the next column');
+});

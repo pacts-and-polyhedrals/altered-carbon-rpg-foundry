@@ -26,18 +26,23 @@ export {seatLayout,vehicleFootprint};
 
 /* ------------------------------------------------------------------ requests */
 async function request(type,data){
-  if(isLeader())return HANDLERS[type]({...data,userId:game.user.id});
+  if(isLeader())return runQueued(type,{...data,userId:game.user.id});
   if(!leaderGM())throw new Error('A GM must be connected to board or leave vehicles.');
   game.socket.emit(SOCKET,{type:`acVehicle.${type}`,data:{...data,userId:game.user.id}});
   return null;
 }
 export function boardVehicle(vehicleToken,occupantToken,seatId){return request('board',{sceneId:vehicleToken.parent.id,vehicleTokenId:vehicleToken.id,tokenId:occupantToken.id,seatId});}
 export function exitVehicle(occupantToken){return request('exit',{sceneId:occupantToken.parent.id,tokenId:occupantToken.id});}
+export function exitAllFromVehicle(vehicleToken,{keepDriver=true}={}){return request('exitAll',{sceneId:vehicleToken.parent.id,vehicleTokenId:vehicleToken.id,keepDriver});}
 export function releaseFromCage(vehicleToken,prisonerToken){return request('release',{sceneId:vehicleToken.parent.id,vehicleTokenId:vehicleToken.id,tokenId:prisonerToken.id});}
 export function setVehicleControl(vehicleToken,{control,aiPilot}={}){return request('control',{sceneId:vehicleToken.parent.id,vehicleTokenId:vehicleToken.id,control,aiPilot});}
 
-// Queue moves per vehicle: two rapid drags cannot place a later batch behind an earlier one.
+// One queue per scene for every vehicle change (board, get out, move, map-to-map transit). Two players
+// getting out at once, or a drag landing while someone boards, used to overwrite each other's seat list,
+// so a rider could be dropped from the list and then left behind when the vehicle moved on.
 const movementQueue=new Map();
+export function serialScene(sceneId,job){return serialVehicleMove(`scene:${sceneId}`,job);}
+function runQueued(type,data){return serialScene(data.sceneId,()=>HANDLERS[type](data));}
 function serialVehicleMove(key,job){
   const pending=(movementQueue.get(key)||Promise.resolve()).catch(()=>{}).then(job);
   movementQueue.set(key,pending);
@@ -101,8 +106,32 @@ async function placeOccupants(vt,occupants,{animate=true}={}){
     const p=pos[seat.id];updates.push({_id:t.id,x:Math.round(p.x),y:Math.round(p.y),width:0.5,height:0.5,rotation:vt.rotation||0,elevation:vt.elevation||0,sort:(vt.sort||0)+1});}
   if(updates.length)await scene.updateEmbeddedDocuments('Token',updates,{acVehicleCarry:true,animate});
 }
+/**
+ * Make the vehicle's seat list and its riders' seat flags agree. A rider whose flag names this vehicle but
+ * who is missing from the list is put back in their seat (or, if someone else has it, let out beside the
+ * vehicle); list entries whose token is gone or sits elsewhere are dropped. Returns the corrected list.
+ */
+export async function reconcileOccupants(vt){
+  const scene=vt?.parent;if(!scene)return {};
+  const occ=occupantsOf(vt),before=JSON.stringify(occ),loose=[];
+  for(const [seatId,o] of Object.entries(occ)){const t=scene.tokens.get(o.tokenId);const s=seatOf(t);if(!t||!s||s.vehicleTokenId!==vt.id||s.seatId!==seatId)delete occ[seatId];}
+  for(const t of scene.tokens){const s=seatOf(t);if(!s||s.vehicleTokenId!==vt.id)continue;
+    if(occ[s.seatId]?.tokenId===t.id)continue;
+    if(!occ[s.seatId])occ[s.seatId]={tokenId:t.id,actorId:t.actor?.id||t.actorId,name:t.name,original:{width:1,height:1}};
+    else loose.push(t);}
+  if(JSON.stringify(occ)!==before)await saveOccupants(vt,occ);
+  if(loose.length){const g=scene.grid.size;const ups=loose.map((t,i)=>{const p=exitPositions(vt,i,g);return {_id:t.id,x:Math.round(p.x),y:Math.round(p.y),width:1,height:1,rotation:0,[`flags.${NS}.${SEAT}`]:null};});
+    await scene.updateEmbeddedDocuments('Token',ups,{acVehicleCarry:true});}
+  return occ;
+}
+/** The vehicle a seated token belongs to: its flag, or any vehicle on the scene that lists it. */
+function vehicleOf(scene,ot){
+  const seat=seatOf(ot);const direct=seat&&scene.tokens.get(seat.vehicleTokenId);if(direct)return direct;
+  return scene.tokens.find(v=>isVehicleToken(v)&&Object.values(occupantsOf(v)).some(o=>o.tokenId===ot.id))||null;
+}
 async function performExit(scene,ot,{quiet=false}={}){
-    const seat=seatOf(ot);if(!seat)throw new Error(`${ot.name} is not in a vehicle.`);    const vt=scene.tokens.get(seat.vehicleTokenId),occupants=occupantsOf(vt);
+    const seat=seatOf(ot);if(!seat)throw new Error(`${ot.name} is not in a vehicle.`);    const vt=vehicleOf(scene,ot),occupants=vt?occupantsOf(vt):{};
+    for(const [k,o] of Object.entries(occupants))if(o.tokenId===ot.id&&k!==seat.seatId)delete occupants[k];
     const record=occupants[seat.seatId]||{},original=record.original||{width:1,height:1};
     delete occupants[seat.seatId];
     const g=scene.grid.size;let spot={x:ot.x,y:ot.y};
@@ -144,6 +173,21 @@ const HANDLERS={
     await announce(vt,`<strong>${esc(ot.name)}</strong> ${current?.vehicleTokenId===vt.id?'moves to':'gets in and takes'} the <strong>${esc(seat.label)}</strong> seat.${seat.role==='pilot'?(controlMode(vt)==='ai'?' The vehicle AI keeps control.':' They now drive the vehicle.'):''}`);
     return true;
   },
+  /** Everyone out except (optionally) the driver, one at a time so nobody lands on the same square. */
+  async exitAll({sceneId,vehicleTokenId,userId,keepDriver=true}){
+    const scene=game.scenes.get(sceneId),vt=scene?.tokens.get(vehicleTokenId),user=game.users.get(userId);
+    if(!vt)throw new Error('Vehicle not found.');
+    if(!user?.isGM&&!vt.actor?.testUserPermission?.(user,'OWNER')){const p=occupantsOf(vt).pilot;const d=p&&scene.tokens.get(p.tokenId);if(!d?.actor?.testUserPermission?.(user,'OWNER'))throw new Error('Only the GM, the vehicle\'s owner or its driver can empty it.');}
+    const occ=await reconcileOccupants(vt);const out=[];
+    for(const [seatId,o] of Object.entries(occ)){
+      if(keepDriver&&seatId==='pilot')continue;
+      if(!user?.isGM&&isCagedSeat(vt.actor,seatId))continue;
+      const t=scene.tokens.get(o.tokenId);if(!t)continue;
+      await performExit(scene,t,{quiet:true});out.push(t.name);
+    }
+    if(out.length)await announce(vt,`Everyone out: <strong>${out.map(esc).join(', ')}</strong>.${keepDriver&&occ.pilot?' The driver stays at the wheel.':''}`);
+    return out.length;
+  },
   async exit({sceneId,tokenId,userId,quiet=false}){
     const scene=game.scenes.get(sceneId),ot=scene?.tokens.get(tokenId),user=game.users.get(userId);
     if(!ot)throw new Error('Token not found.');requireUserCanMove(user,ot);
@@ -176,10 +220,10 @@ const HANDLERS={
     if(!user)throw new Error('Unknown user requested vehicle movement.');
     // The socket sender is not trusted to update arbitrary token properties.
     const validated=pickVehicleTransform(transform);
-    return serialVehicleMove(`${sceneId}:${vehicleTokenId}`,async()=>{
+    return (async()=>{
       const scene=game.scenes.get(sceneId),vt=scene?.tokens.get(vehicleTokenId);
       if(!vt||!isVehicleToken(vt))throw new Error('Vehicle token not found on this scene.');
-      const passengers=occupantsOf(vt);
+      const passengers=await reconcileOccupants(vt);
       if(!user.isGM){
         requireUserCanMove(user,vt);
         if(!['driver','both'].includes(controlMode(vt)))throw new Error('This vehicle is currently controlled by its AI.');
@@ -189,7 +233,7 @@ const HANDLERS={
       const changes=planVehicleMove(vt,validated,passengers,scene.grid.size);
       await scene.updateEmbeddedDocuments('Token',changes,{acVehicleCarry:true,animate:animate!==false});
       return true;
-    });
+    })();
   },
   async control({sceneId,vehicleTokenId,control,aiPilot,userId}){
     const scene=game.scenes.get(sceneId),vt=scene?.tokens.get(vehicleTokenId),user=game.users.get(userId);
@@ -277,8 +321,8 @@ function hudButton(icon,title,onClick){
 export function installVehicleBoarding(){
   game.socket.on(SOCKET,async payload=>{
     if(!payload?.type?.startsWith?.('acVehicle.')||!isLeader())return;
-    const handler=HANDLERS[payload.type.slice(10)];if(!handler)return;
-    try{await handler(payload.data||{});}catch(error){console.warn('Altered Carbon | vehicle request refused',error);
+    const type=payload.type.slice(10);if(!HANDLERS[type])return;
+    try{await runQueued(type,payload.data||{});}catch(error){console.warn('Altered Carbon | vehicle request refused',error);
       const user=game.users.get(payload.data?.userId);
       try{await ChatMessage.implementation.create({speaker:{alias:'Vehicle'},whisper:user?[user.id]:[],content:`<p>${esc(error.message)}</p>`});}catch(_e){}
     }
@@ -423,6 +467,8 @@ function renderVehicleHUD(hud,html){
       // selection when they right-clicked the vehicle.
       col.append(hudButton('fa-solid fa-car-side','Board vehicle / choose seat',()=>openVehicleBoardDialog(doc)));
       if(game.user.isGM)col.append(hudButton('fa-solid fa-users','Who is inside / control',()=>openVehicleControl(doc)));
+      const occNow=occupantsOf(doc),riders=Object.keys(occNow).filter(k=>k!=='pilot').length;
+      if(riders&&(game.user.isGM||doc.actor?.isOwner||doc.parent.tokens.get(occNow.pilot?.tokenId)?.actor?.isOwner))col.append(hudButton('fa-solid fa-people-arrows','Everyone out (the driver stays)',()=>exitAllFromVehicle(doc)));
       // Prisoner cage: anyone in the front, anyone standing beside it, or the GM can let a caged rider out.
       const caged=Object.values(occupantsOf(doc)).filter(o=>isCagedSeat(doc.actor,o.seatId)&&doc.parent.tokens.get(o.tokenId));
       if(caged.length)col.append(hudButton('fa-solid fa-unlock','Let someone out of the cage',()=>openReleaseDialog(doc,caged)));
